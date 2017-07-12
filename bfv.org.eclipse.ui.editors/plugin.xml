@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension
+         point="org.eclipse.ui.workbench.texteditor.rulerColumns">
+      <column
+            class="bfv.org.eclipse.ui.internal.texteditor.AnnotationColumn"
+            enabled="true"
+            global="true"
+            id="bfv.org.eclipse.ui.editors.columns.annotations"
+            includeInMenu="false"
+            name="%AnnotationRuler.name">
+         <placement
+               gravity="0.5">
+			   <before id="org.eclipse.ui.editors.columns.linenumbers"/>
+         </placement>
+         <targetClass
+               class="bfv.org.eclipse.ui.texteditor.AbstractDecoratedTextEditor">
+         </targetClass>
+      </column>
+      <column
+            class="bfv.org.eclipse.ui.internal.texteditor.LineNumberColumn"
+            enabled="false"
+            global="true"
+            id="bfv.org.eclipse.ui.editors.columns.linenumbers"
+            includeInMenu="false"
+            name="%LineNumberRuler.name">
+         <placement
+               gravity="0.9">
+         </placement>
+         <targetClass
+               class="bfv.org.eclipse.ui.texteditor.AbstractDecoratedTextEditor">
+         </targetClass>
+      </column>
+   </extension>
+<extension
+      point="org.eclipse.core.runtime.preferences">
+   <initializer
+         class="bfv.org.eclipse.ui.internal.editors.text.EditorsPluginPreferenceInitializer">
+   </initializer>
+</extension>
+
+</plugin>

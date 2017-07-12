@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="TheChiselGroup Big File Viewing Environment" uid="ca.uvic.chisel.bfv.product" id="ca.uvic.chisel.bfv.product" application="ca.uvic.chisel.bfv.application" version="0.1.7" useFeatures="false" includeLaunchers="true">
+
+   <aboutInfo>
+      <image path="/BFV/icons/alt_about.gif"/>
+      <text>
+         TheChiselGroup Big File Viewer
+
+Version: 0.1.7
+
+Please see ChangeLog.txt, README.md, and Release-Notes.md for details.
+      </text>
+   </aboutInfo>
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <programArgs>-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consoleLog -enableassertions
+      </programArgs>
+      <vmArgs>-Xms4g -Xmx5g -server -XX:+UseParallelGC -XX:+UseParallelOldGC -XX:+ScavengeBeforeFullGC -XX:MinHeapFreeRatio=60 -XX:+AggressiveOpts -XX:+UseFastAccessorMethods -XX:-UseGCOverheadLimit -XX:NewRatio=25 -XX:GCTimeRatio=9
+      </vmArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
+      </vmArgsMac>
+   </launcherArgs>
+
+   <windowImages i16="/BFV/icons/alt_window_16.gif" i32="/BFV/icons/alt_window_32.gif"/>
+
+   <launcher name="BFV">
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+      <plugin id="bfv.org.eclipse.ui.editors"/>
+      <plugin id="ca.uvic.chisel.bfv"/>
+      <plugin id="com.ibm.icu"/>
+      <plugin id="javax.annotation"/>
+      <plugin id="javax.inject"/>
+      <plugin id="javax.servlet"/>
+      <plugin id="javax.xml"/>
+      <plugin id="org.apache.batik.css"/>
+      <plugin id="org.apache.batik.util"/>
+      <plugin id="org.apache.batik.util.gui"/>
+      <plugin id="org.apache.commons.io"/>
+      <plugin id="org.apache.commons.jxpath"/>
+      <plugin id="org.apache.commons.lang3"/>
+      <plugin id="org.eclipse.ant.core"/>
+      <plugin id="org.eclipse.compare"/>
+      <plugin id="org.eclipse.compare.core"/>
+      <plugin id="org.eclipse.core.commands"/>
+      <plugin id="org.eclipse.core.contenttype"/>
+      <plugin id="org.eclipse.core.databinding"/>
+      <plugin id="org.eclipse.core.databinding.observable"/>
+      <plugin id="org.eclipse.core.databinding.property"/>
+      <plugin id="org.eclipse.core.expressions"/>
+      <plugin id="org.eclipse.core.filebuffers"/>
+      <plugin id="org.eclipse.core.filesystem"/>
+      <plugin id="org.eclipse.core.filesystem.java7" fragment="true"/>
+      <plugin id="org.eclipse.core.filesystem.win32.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.resources"/>
+      <plugin id="org.eclipse.core.resources.win32.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
+      <plugin id="org.eclipse.core.variables"/>
+      <plugin id="org.eclipse.e4.core.commands"/>
+      <plugin id="org.eclipse.e4.core.contexts"/>
+      <plugin id="org.eclipse.e4.core.di"/>
+      <plugin id="org.eclipse.e4.core.di.annotations"/>
+      <plugin id="org.eclipse.e4.core.di.extensions"/>
+      <plugin id="org.eclipse.e4.core.services"/>
+      <plugin id="org.eclipse.e4.emf.xpath"/>
+      <plugin id="org.eclipse.e4.ui.bindings"/>
+      <plugin id="org.eclipse.e4.ui.css.core"/>
+      <plugin id="org.eclipse.e4.ui.css.swt"/>
+      <plugin id="org.eclipse.e4.ui.css.swt.theme"/>
+      <plugin id="org.eclipse.e4.ui.di"/>
+      <plugin id="org.eclipse.e4.ui.model.workbench"/>
+      <plugin id="org.eclipse.e4.ui.services"/>
+      <plugin id="org.eclipse.e4.ui.widgets"/>
+      <plugin id="org.eclipse.e4.ui.workbench"/>
+      <plugin id="org.eclipse.e4.ui.workbench.addons.swt"/>
+      <plugin id="org.eclipse.e4.ui.workbench.renderers.swt"/>
+      <plugin id="org.eclipse.e4.ui.workbench.swt"/>
+      <plugin id="org.eclipse.e4.ui.workbench3"/>
+      <plugin id="org.eclipse.emf.common"/>
+      <plugin id="org.eclipse.emf.ecore"/>
+      <plugin id="org.eclipse.emf.ecore.change"/>
+      <plugin id="org.eclipse.emf.ecore.xmi"/>
+      <plugin id="org.eclipse.equinox.app"/>
+      <plugin id="org.eclipse.equinox.bidi"/>
+      <plugin id="org.eclipse.equinox.common"/>
+      <plugin id="org.eclipse.equinox.ds"/>
+      <plugin id="org.eclipse.equinox.event"/>
+      <plugin id="org.eclipse.equinox.p2.core"/>
+      <plugin id="org.eclipse.equinox.p2.engine"/>
+      <plugin id="org.eclipse.equinox.p2.metadata"/>
+      <plugin id="org.eclipse.equinox.p2.metadata.repository"/>
+      <plugin id="org.eclipse.equinox.p2.repository"/>
+      <plugin id="org.eclipse.equinox.preferences"/>
+      <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.equinox.security"/>
+      <plugin id="org.eclipse.equinox.security.win32.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.equinox.util"/>
+      <plugin id="org.eclipse.help"/>
+      <plugin id="org.eclipse.jface"/>
+      <plugin id="org.eclipse.jface.databinding"/>
+      <plugin id="org.eclipse.jface.text"/>
+      <plugin id="org.eclipse.ltk.core.refactoring"/>
+      <plugin id="org.eclipse.ltk.ui.refactoring"/>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.osgi.compatibility.state" fragment="true"/>
+      <plugin id="org.eclipse.osgi.services"/>
+      <plugin id="org.eclipse.search"/>
+      <plugin id="org.eclipse.swt"/>
+      <plugin id="org.eclipse.swt.win32.win32.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.team.core"/>
+      <plugin id="org.eclipse.team.ui"/>
+      <plugin id="org.eclipse.text"/>
+      <plugin id="org.eclipse.ui"/>
+      <plugin id="org.eclipse.ui.console"/>
+      <plugin id="org.eclipse.ui.editors"/>
+      <plugin id="org.eclipse.ui.forms"/>
+      <plugin id="org.eclipse.ui.ide"/>
+      <plugin id="org.eclipse.ui.navigator"/>
+      <plugin id="org.eclipse.ui.navigator.resources"/>
+      <plugin id="org.eclipse.ui.views"/>
+      <plugin id="org.eclipse.ui.views.log"/>
+      <plugin id="org.eclipse.ui.views.properties.tabbed"/>
+      <plugin id="org.eclipse.ui.win32" fragment="true"/>
+      <plugin id="org.eclipse.ui.workbench"/>
+      <plugin id="org.eclipse.ui.workbench.texteditor"/>
+      <plugin id="org.hamcrest.core"/>
+      <plugin id="org.junit"/>
+      <plugin id="org.tukaani.xz"/>
+      <plugin id="org.w3c.css.sac"/>
+      <plugin id="org.w3c.dom.events"/>
+      <plugin id="org.w3c.dom.smil"/>
+      <plugin id="org.w3c.dom.svg"/>
+   </plugins>
+
+
+   <preferencesInfo>
+      <targetfile overwrite="false"/>
+   </preferencesInfo>
+
+   <cssInfo>
+   </cssInfo>
+
+</product>
