@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/BenchmarkRevisedSampling/src/main/BenchMarkRunner.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="main.BenchMarkRunner"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="50M.trace 100M.trace 500M.trace 1G.trace 5G.trace 10"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="BenchmarkRevisedSampling"/>
+</launchConfiguration>

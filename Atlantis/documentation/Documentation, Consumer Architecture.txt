@@ -1,0 +1,135 @@
+Consumer Architecture Documentation
+March, 2017
+
+_Introduction_
+Atlantis evolved to use a collection of independent consumers to process traces.
+Each consumer has responsibilities that it fulfills given a single line from the
+trace file that is being processed. A consumer therefore converts single trace lines
+into the requisite database entries, using any intermediate algorithms or data 
+storage. There are no expectations about consumer behavior. They may make use of
+arbitrary amounts of memory or CPU time to get their work done. Right now, the
+consumers are relatively efficient, using below 4GB of RAM together over the course
+of large and small traces. Previously, they have used increasing amounts of memory.
+Some of the consumers need to perform post-processing as well, and so they are provided
+with methods to do so. Consumers also (currently, generally) do not make any database
+lookups during processing, only database writes. this is important to avoid, but if
+it is ever needed for some analysis, it might be achieved by sharing and storing data
+across consumers instead.
+
+_Textual vs Binary trace Support_
+Consumers are currently fed rehydrated trace lines. That is, the binary format is used
+to reconstruct the legacy textual trace format, line by line, and those strings are fed
+into the consumers. It is an outstanding concern that this is somewhat inefficient, and
+more importantly, results in awkward ways of doing things, bypassing more elegant and
+direct ways of processing the binary formats. We have not removed this rehydration step
+because we currently have the ability to make very small test traces. Murray Dunne had
+set up a tracing tool using PINTool, the same Intel library used by the DRDC tracer program.
+Being able to create his own trace enabled Murray to do some work that would have otherwise
+been very difficult or impossible. Thus, we have a concern that removing the support for
+textual traces might hamstring us in the future. Furthermore, separating textual trace support
+from a more direct processing stream would inevitably produce inconsistencies and bugs between
+the two processing streams. It is inadvisable to separate them, and it is unclear whether we
+will need our own tracer again in the future. If it is every decided that we do not need a
+tracer, it would be a worthwhile but effortful task to remove textual trace support.
+
+Consumers are the core of Gibraltar. There are five, which have the following classes and
+responsibilities:
+
+_TraceFileLineDbConsumer_
+
+This consumer is responsible only for creating the 'trace_file_text_lines' table. It is a holdout
+from the textual trace format, and from the now deprecated textual diffing module (it was deprecated
+because it was slow to begin with, with small trace files, and textual diffing not scalable). Currently,
+the useful part of this table is the association of the trace line numbers with the instruction id.
+It also has some debugging use, in that it allows developers to check and verify things about tables
+and queries by offering a human readable version of the trace line. But, Atlantis functions by retrieving
+line text data from the binary format directly, and does not rely on the textual entries in this table.
+It might be desirable to search this table when trying to search the trace, or there might be other
+uses for this table. Unless this table size becomes too large, or if it is determined to contribute
+too much to processing time, we should probably keep it with text columns intact. As said before, the
+association between the trace line number and the instruction id is critical, though. 
+
+_MemoryDeltaTree_
+
+The memory delta tree table is important and requires memory resources to build. Its structure is
+discussed elsewhere. In order to create leaf nodes, we merely need the memory values set for the
+line in question, which is extracted from the binary format. That is a rather involved set of
+extraction steps, and the result is registers and memory addresses and their new values. The leaf
+nodes are merely entries corresponding to these for a single instruction. The interior nodes of
+the structure are snapshots of changes. Each is a delta or diff from the previous. This only
+requires that we collect each "youngest node", one memory change at a time, from their birth
+to their end. A 1000 leaf-parent consists of 1000 instructions worth of memory changes. We need
+to overwrite entries for any memory overwritten, until we reach the end of the 1000 lines. This
+requires a data structure in Gibraltar, in this consumer, to efficiently update the snapshot diff.
+This occurs at multiple levels at the same time, with larger files, when we get multiple internal
+layers. This is somewhat involved, but the results can be fairly easily compared if it is ever
+re-implemented in C++ in the DRDC tracer program.
+
+_InstructionFileLineConsumer_
+This consumer depends on a single set of information from a concurrently running MemoryDeltaTree
+consumer, and thus requires synchronous running, currently, of that consumer.
+It is responsible for computing the 'instructions' table, the core of the tables. It also computes
+the 'functions', 'function_basic_blocks', 'function_jumps', 'function_calls', and
+'thread_function_blocks' tables.
+
+To compute the instructions table, it breaks down trace lines with regex. This is a critical part
+that would be changed if we stopped supporting textual traces (as discussed in a previous section).
+The work done in producing the intermediate string from a binary trace would still be performed
+if we used the binary trace data directly; it would be easier to trace the connection between the
+binary format and the parser though. The instruction table is therefore just a matter of data
+extraction, and currently string creation then regex to re-extract the data, and does not have
+much in term of complicated computations.
+
+The function table requires little processing; it basically identifies function starting points
+on the basis of a preceding 'call' instruction. I looked into elaborating this, but the state of
+the art in function reconstruction is unsolved, given the ways that compilers can and do produce
+executables. Information that would indicate a function start can be obliterated if code is compiled
+using jumps, the equivalent of a goto. Indeed, in this scenario, goto is considered harmful, but
+compiler creators are concerned with correctness and efficiency of the binary, not with ease of
+reverse engineering later. The issue is clearest when one sees an example of multiple jumps that
+are clearly functions (go across module boundaries), but are followed by a return instruction that
+returns far up what we would consider the call stack. If jumps are used to make function calls,
+return instructions cannot and will not be used to return from those functions. Instead, they must
+simply call some other function (possibly a callback) at the end of their run. Being unable to
+deal with this complication, our function detection is therefore rather primitive. 
+
+The basic blocks are more involved. A basic block is a series of instructions that always run from
+beginning to end, and are bookended by jumps or calls. In diagramming a program, a basic block
+is any section that is between any conditionals or relocations in the code (e.g. goto with anything
+other than a literal address location, which is degenerate case anyway). The processing of this
+basically bookkeeping across threads.
+
+The jumps table is simple, and merely associates each jump instruction with its target instruction,
+and records whether the branch was taken or not. It contains each instance of each jump instruction,
+and so does not require inserting only unique instances of each jump. That is, a jump within a loop
+will have many more entries by virtue of being in the loop, even though there might be only two
+paths taken by the jump (fall through or execute target address).
+
+Creating the call table is simple, associating each call instruction with the subsequent instruction
+in the same thread.
+
+The 'thread_function_blocks' table is used directly in a visualization. It is a bit more finicky, but
+not so complicated. The visualization requires data on all possible things that may be rendered in it,
+and we need to pre-compute bounding boxes for the entries. 
+
+_AssemblyEventFileConsumer_
+
+This consumers only populates the 'assembly_events' table. This table, and its primary user, the Assembly
+Trace Visualization, are not quite deprecated, but they are not core. The information available in the view
+is unique, in that you cannot see the same patterns in the Thread Functions View clearly. But, it does not
+appear to be a core, interesting aspect of the traces. I could be wrong.
+
+Processing is simply bookkeeping, checking to see if the current line is in the same module as the previous,
+and if so, doing nothing. When it differs, we store the number of lines we've been in the (now previous)
+assembly module, compute the pixels for the view (we must pre-compute these, similar to the Thread Functions
+View), then put it in the database. Quite simple.
+
+
+_ThreadEventFileConsumer_
+
+This consumer is probably deprecated, and not useful. It carries out the same sort of computations as the
+AssemblyEventFileConsumer, but for threads rather than assemblies. The thread data is better used in the
+Thread Functions View, where per thread we see call graphs. In the Thread Trace Visualization, the sole
+user of this consumer's output, we see a switch graph showing how long we are in each thread. This is not
+immediately obvious as a thing an analyst would care about. But I could be wrong. It populates
+the 'thread_change_events' table.

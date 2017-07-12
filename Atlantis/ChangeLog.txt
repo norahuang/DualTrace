@@ -1,0 +1,261 @@
+24/07/2014
+Read Windows symbol files to associate names with functions.
+Make assembly trace shown by thread.
+Add flags register.
+Bug - Registers and Memory views refer to 0 indexed line numbers
+Bug - RSI and ESI differ even though both changed?
+Change/add a hex view (like visual studio) for memory. Have highlighting and copying.
+Currently the BigFileViewer calls update text widget whenever a region is marked as expanded.  this should probably be changed to modifyannotation is called instead.
+When I collapse a region that includes the last line of the file, it occasionally doesn't update the view and so all empty lines are shown.  Upon scrolling this is fixed, and there is no difference between our tracker and theirs.
+Bug - Visualization - view sync between visualizations and editors, not obvious what line is selected in the editor
+Bug - Visualization - sync from editor to viz does not work
+Bug - Comments - Can't have a return line in the comment body?
+Bug - Memory View - Search does not see 00010000 and 10000 as equilivant
+Bug - Memory usage increases as the user navigates through file
+Bug - Line numbers not showing when turned on
+Bug - Memory View - Error when you click on the aggregate button
+Bug - Regions - New regions not displayed if closing and re-opening a trace file
+Bug - Memory View - "Jump To" is off by a few lines
+Bug - Regions - Big regions work, but scrolling is initally slow and then gets faster
+
+
+26/9/2013
+Upgrade Atlantis to use new data format
+1) Allow non *.trace to *show* visualizations (already parses!) [new issue]
+2) Ensure memory results are still good overall [was ok, now bugged]
+3) Parse new thread format [adapt to new id format, lack of explicit Switch statements]
+4) Highlighting for new thread format [new issue]
+5) See if syscalls involved [syntax highlighting only, no vis connections, so it's fine]
+
+30/07/2013
+Bug - Entering just the database name does not change DB settings
+Creating and collapsing a region at the end of the file breaks.
+I occasionally experience the situation where I add a region to a file that is contained in another region, however, it does not get added as a child.  This causes breaking region collapses.
+Syntax highlighting is throwing exceptions when it is looking at offsets when the document text is changed.
+There may be a way to re-do the memory indexing stuff.  By simply assigning ids to the nodes in the tree such that they correspond to indices in an array (which is designed to store a tree, which I need to look up how to do), it is likely feasible that we could simply use math to determine the necessary indices, and thus ids, that we would need to query for a given line.
+Projection Document has a DefaultLineTracker, which is eating up a ton of memory.  We should rewrite the tracker to fix this.
+Enable 'Cancel' button when indexing trace files
+Feature - Have navigator show which files have been indexed already
+Bug - Identical file names across diff directories should work
+Bug - Highlighting lines leads to an sql exception
+Add line number to memory and register tables
+Bug - Spaces in trace file names appear to not work
+Bug - Memory Visualization View is automatically populating memory space when automatic update is off.
+Bug - Un-watched memory locations return to watched view on memory view update
+Bug - Tag navigation buttons don't navigate between tag instances
+Bug - Memory view search for address does not work
+Bug - Memory View search not working
+Bug - Tag name edits affect same-named tag grouping title, but not actual other tags until the trace is re-opened
+Tag/comment editing doesn't apply until restart. Need to update all tag/comment instances.
+Cannot edit regions
+Can't make parent regions around existing regions
+Jump-to-line fails to take us into collapsed regions (inc memory jump to)
+Comment and tag overlay checkboxes lead to exceptions near top of file when comments are tags are also nearby (line 8)
+Bug - Jump To feature not working in Watched Memory View
+Index and tmp not getting created properly
+The 5G file is having issues loading later in the file, it is throwing a Negative seek offset IOException
+The DB schema is only supporting numbers up to MAXINT size, need to convert them all to BigInt, which supports big enough values.
+Syntax highlighting is a little slow in Atlantis since the tracker change.  Find out why and fix it, it may require caching results.
+Sometimes queries to the memory delta table take ~3s, as we found while benchmarking.  After some investigation we discovered that the querying engine was deciding not to use the index.  We need to change queries from the memory delta index to force use the index.
+The Document class that we use to hold the text uses a DefaultLineTracker (which contains a TreeLineTracker), and this thing uses a TON of RAM. Considering we build this index anyways, we might as well just re-write the Document
+URGENT: I believe that we can make queries go order of magnitudes faster if we combine multiple inserts into one actual query.
+The Database config stuff is getting overwritten even if the database info in the preferences is empty
+We should see if we can implement syntax highlighting using the standard eclipse extension points, as this would clean up our code a lot.
+The line number column does not show itself when you click the show line numbers menu option until you reopen a trace file.
+Task - Split Big File Viewer and Atlantis Projects
+Syntax Highligting of annotations adds a syntax highlighting all the way to the end of the annotations last line, instead of stopping at the correct offset.
+the line numbers are displaying a little bit weird since we re-implemented the projection and editor stuff.  Figure out why and fix.
+Opening an empty file throws an Exception.
+Search not returning any results in Atlantis but is returning results in BFV.  Figure out why and fix.
+Tag Annotation squiggly underlines look like they are not getting drawn properly
+It doesn't look like Tag annotations are being drawn in the incorrect location.  A modelLine2WidgetLine conversion may be needed.
+syntax highlighting manager is duplicated across the traceViewer and the TraceDisplayer
+Currently the BFV cannot handle anything but trace files, and it will break if you try to open any file that doesn't end in .trace.
+I created a region that spanned the entire document, and got an InvalidLocationException.  This is probably related to regions that include the last line of the file.
+If you create a tag annotation that starts or ends in a collapsed region it will break when trying to draw the style if the region is collapsed.
+The BFV is breaking when attempting to open java files, because despite the fact that it is opening them using the java editor, it is still looking in .tmp for the empty file.
+It looks like the BFV breaks really badly when we switch to the Java perspective and try to do content assist.
+Bug - Memory view is incorrect
+Bug - Re-opening trace works to produce second editor window
+Bug - Memory view should say which line is loaded
+For file backend, move ._index files into a ".index" dirs parallel to .trace location.
+Bug - Search is not working. With DB, maybe with file backend.
+Bug - LinePreservingBufferedReader appears to miss certain line endings
+Bug - Memory Visualization View stops working after a certain point in the file.
+Feature - Remove .original file usage
+Can't expand regions that start on line 1.
+Feature - Adapt and re-use Old SearchView with revised File Backend
+regions don't appear when they are created until after a page in event.
+Bug - Update memory view gives different results with collapsed regions
+Improvement - Add a meta-data table for each trace file.
+Empty memory search throws exception
+Bug - Syntax Highlighting doesn't update on cursor or mouse scroll, only on large jumps
+Bug - Tag creation should put focus on tag name field
+Bug - Region edit does not work for the line range covered, only for region name
+Feature - Give error *dialog* when BD connection isn't working...but not on *every* error instance (max once per minute?)
+Bug - Comment and Tag markers in event panels not visible if scrolled downward
+Bug - If Tag renamed to existing tag, does not become another instance (keeps existing different tag, but allows the duplicate text)
+Bug - Overlays for Comments do not scroll off screen
+Bug - Don't allow comments without text.
+Bug - Sticky Tooltips for tags are disappearing randomly.
+Bug - Collapsing a region hides Comments overlay
+Bug - Syntax highlighting clobbers Comment squiggle lines...again
+Bug - Region going to EOF (line 532759 - 532793) throws error box once collapsed
+Bug - Comodification error when scrolling to end of file with collapsed region
+Bug - Will try to index small trace files every time?
+Bug - Trying to open an empty trace file causes issues.
+Bug? Region tool tips contain region text. If this is big...do we have a problem?
+Bug - Overlap region warning prevents creation of outer regions after making the inner region.
+Bug - Region Context Menu: Edit window does not commit changes
+Bug - Sticky tooltip comment bubble is not removed when comments are unselected/removed. Sticky tooltips for other things probably have the same problem
+Bug - Two copies of Atlantis cannot run simultaneously with different DB settings
+Performance - Found Line 61899137 and neighbours have persistent long queries (12s+?)
+Bug - Mem view flickers when scrolling Event Visualizations
+Bug - Trace Visualization y-scroll flickers.
+Bug: Trace visualization isn't drawn when an execution trace loads
+Bug - Selecting text across block boundaries
+If you switch from A000000 to test.trace, the assembly view's scrolling is really slow for a bit.
+Bug - Editor fails to load if Hex highlight preference turned off
+Bug - Hex value highlighting feature not working
+Bug - Switching between traces a whole bunch uses up too many DB connections.
+Bug - Syntax highlighting constantly throws Concurrant Modification Exceptions.  it should be changed to run in the UI thread.
+Bug - Memory Visualization View not centering correctly.
+People installing our plugin will likely get out of memory errors, unless they manually change the max memory size in their eclispe.ini.  Is there anyway that we can do this manually?
+
+6/5/2012
+Feature - Big Regions
+Bug - Watching all possible memory locations causes Atlantis to stop responding
+Feature - Support File Backend
+Task - Start using Trello Card id in as prefix for branch name
+Feature - Ctrl-L to go to line number should work
+Task - Architecture/Project Planning
+Bug - Memory queries not always completing, not finishing jobs
+Bug - Comodification error when paging data out
+Bug - Progress meter and cancellation for DB search
+Feature - Implement Trace search using DB backend
+Bug - Using the arrows to move between tags can cause an illegal argument exception
+Bug - Trace not displayed when scrolling to the end of a large trace file
+Bug - Floating annotations broken in develop at the moment
+4/4/2013
+Bug - Exception when scrolling from end of file
+Bug - TreeLineTracker bad location
+Bug - Packet too big error MySql
+Bug - Clicking on regions in Region View can
+Bug - Regions not staying collapsed
+Bug - Region opening has empty contents
+22/3/2013
+Bug - Memory View is not reset when opening a new trace file, not updated on active trace change
+Bug - Memory view fails to update intermittently due to queued queries not completing
+Task - Merge compare branch into develop
+Bug - Weird Memory View behaviour
+Bug - Assembly and thread visualizations are
+breaking when we switch to the big file.
+20/2/2013
+Bug - Memory View Un-Watch not working
+Bug - Memory view displaying address in value column instead of value
+Feature - Create a test plan for Atlantis
+Bug - Error launching Atlantis in develop branch
+Bug - Memory usage to load the 1GB trace file >6GB
+Bug - NPE when loading any trace file
+Task - Share eclipse run config
+Bug: Memory view is slow to load for latest lines in file
+Task - Docu for MySQL install, config file to pull credentials out of code.
+Task - clean up trello
+Feature - Improve Execution Sequence View (is this still valid?)
+Bug: Assembly vis doesn't move properly with click in trace lines anymore.
+Bug: Marker rendering overlaps with labels in Thread and assembly vis.
+Bug: Need 13Million lines, not 1569999 lines, in big file.
+Store DB credentials in config rather than hard coded.
+Bug: Delay loading trace when DB already created.
+Bug: Off by 1 error in trace line loading. Compare hex to Eclipse line numbers in later blocks.
+Bug: mysterious NPE when moving a comment
+Feature: Offline 'Building Index...' and DB Storage
+Task - Malware RE training for newbies
+Bug - Reduce dependency on high memory data structures
+Bug: OutOfMemoryError when opening 1GB trace file
+Install & write report on LTTng
+Feature - Persist Memory View delta tree
+Task - Move to git for version control
+Bug: Running a search with an empty string causes a null pointer exception
+Create memory vis index data structure
+Task - Create change log file
+Bug - Text styling in Trace Displayer can overwrite itself
+Bug: Intermittent exception when expanding all regions
+Feature - Add search context menu item for selected text
+Bug- Meaning of numbers in the regions view with childless region
+Bug - Apply text highlighting after expanding a region
+Feature - Link Trace Visualization and Trace Displayer views
+Bug - Collapsed region being expanded incorrectly
+Feature - Testing of new features
+Bug - File contents not being displayed after search
+Bug - Clicking on a search result updates the Trace View to the wrong location
+Bug - Reloading a region does not save the state
+Bug - Trace parser missing last assembly switch
+Bug - Syntax highlighting breaks when a region is collapsed and expanded
+Bug - Region boxes do not disappear when expanding
+Bug - If you jump to a region it does not display until you update
+Bug - Scrolling to edge of block can fail to load entire block
+Feature - Display popup when user attempts to use illegal region values
+Bug - User can create a region with illegal start and end values.
+Feature - Disable ctrl-h search to improve performance
+Feature - Disable Execution Sequence View
+Bug - Adding a tag by selected text on multiple lines uses the whole line
+Bug - Add annotations to words fails
+Bug - Clicking on tag annotations causes gutter marks to vanish
+Bug - Changing the color of a sticky tool-tip does not update it properly
+Bug - Clicking on markers in the trace views does not move the caret
+Bug - Resizing Trace View causes display errors
+Feature - Hide edit on occurrences
+Bug - Search (top right) crashes if user clicks stop
+Feature - Load 1GB trace files
+Bug - Attempting to open a .original file will cause an error
+Feature - Improve performance of first time block load
+Feature - Reuse existing index when opening trace file
+Feature - Improve syntax highlighting performance
+Feature - Improve scroll performance for large trace files
+Bug - Moving a comment does not delete tooltip
+Bug - Selecting trace across block boundaries does not load new block
+Task - Clean up documentation
+Task - Write short review of http://code.google.com/p/malwasm/.
+2/1/2013
+Feature: DB Storage and Paging for Data from 'Building Index' Processing
+21/1/2013
+Bug: OutOfMemoryError when opening 1GB trace file (in DB, less memory overhead)
+Feature - Persist Memory View delta tree (in DB, for swift access)
+11/1/2013
+Bug - Text styling in Trace Displayer can overwrite itself
+Bug: Intermittent exception when expanding all regions
+Feature - Add search context menu item for selected text
+Bug- Meaning of numbers in the regions view with childless region
+Bug - Apply text highlighting after expanding a region
+Feature - Link Trace Visualization and Trace Displayer views
+Bug - Collapsed region being expanded incorrectly
+Feature - Testing of new features
+Bug - File contents not being displayed after search
+Bug - Clicking on a search result updates the Trace View to the wrong location
+Bug - Reloading a region does not save the state
+Bug - Trace parser missing last assembly switch
+Bug - Syntax highlighting breaks when a region is collapsed and expanded
+Bug - Region boxes do not disappear when expanding
+Bug - If you jump to a region it does not display until you update
+Bug - Scrolling to edge of block can fail to load entire block
+Feature - Display popup when user attempts to use illegal region values
+Bug - User can create a region with illegal start and end values.
+Feature - Disable ctrl-h search to improve performance
+Feature - Disable Execution Sequence View
+Bug - Adding a tag by selected text on multiple lines uses the whole line
+Bug - Add annotations to words fails
+Bug - Clicking on tag annotations causes gutter marks to vanish
+Bug - Changing the color of a sticky tool-tip does not update it properly
+Bug - Clicking on markers in the trace views does not move the caret
+Bug - Resizing Trace View causes display errors
+Feature - Hide edit on occurrences
+Bug - Search (top right) crashes if user clicks stop
+Feature - Load 1GB trace files
+Bug - Attempting to open a .original file will cause an error
+Feature - Improve performance of first time block load
+Feature - Reuse existing index when opening trace file
+Feature - Improve syntax highlighting performance
+Feature - Improve scroll performance for large trace files
+Bug - Moving a comment does not delete tooltip
+Bug - Selecting trace across block boundaries does not load new block

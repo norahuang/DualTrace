@@ -1,0 +1,56 @@
+Atlantis Basic Usage: A Quick and Dirty Guide
+
+0. A 1-minute demo of Atlantis is viewable on Youtube: https://www.youtube.com/watch?v=CQJB_62cEWU
+
+1. Run Gibraltar (from the command line, or using the batch file). Provide it with a path to a compatible trace file's directory.
+This folder must be writable, though the trace files themselves should not be written or changed by Gibraltar or Atlantis.
+
+2. When Gibraltar is done processing the trace, there will be an sqlite.db file in the trace directory.
+Both the original trace files and the database file are used by Atlantis.
+If you have problems and suspect Gibraltar did not complete processing, try deleting the sqlite.db and re-trying.
+You may have trace formats that differ from the one currently supported by Atlantis (in Sept 2016, that is 2015.07 v4.0).
+
+3. Open Atlantis.exe. In the Big File Project Navigator (top left panel), right click and select:
+"New -> Project -> Trace Analysis".
+The project name can be anything. The directory selected will need to contain folders that each contain a trace file.
+I recommend copying trace directories into a project directory, but other ways work too. Multiple projects can be used.
+
+4. Once you have a project, and a trace folder in it, navigate into the folder, and double click any of the original trace files.
+After a few moments, the views should be populated.
+
+5. Navigate the trace in the textual view.
+The context menu provides Comments, Regions, and Tags, which can be used to build a picture of the trace.
+Move the cursor in the trace view, and observe the Registers and Trace Memory views changing their contents.
+When the current line wrote to memory, the button in the top right corner brings you to the written memory address.
+The Thread Functions view is also changed as you navigate in the text view.
+
+6. Regions, Tags, Comments, Layers views
+These views are used to manage navigation aides created with the context menu in the text view.
+The Layers view allows you to show and hide Tags and Comments, which hover in the text view.
+The other three allow you to navigate to, edit, or remove any regions, tags or comments created.
+
+7. Registers view
+The registers view has some smaller buttons. The arrow to the left of each register will treat the contents as
+a memory address, and show that address in the Memory view.
+The line below each register entry is the ascii parsing of the value.
+The number to the right of each register entry is the integer parsing of each value.
+Pressing the button next to the integer value toggles among signed/unsigned/32-bit/64-bit integers.
+Clicking the hyperlink Line number in the register view brings you to that line in the text view.
+The button at the top of the Register view, with three horizontal lines, toggles additional registers.
+
+8. Memory and Watched views
+The button in the top right of the Memory view jumps to the written address in memory, if a write occurred for the current trace line.
+Right clicking an entry in the Memory view allows you to add the address to the Watched view, similar to a debugger.
+
+9. Functions and Function Recomposition views
+The Functions view shows assembly modules, and beneath those, assembly function calls found.
+The yellow cylinder button in the top right of that view allows you to provide a dll for symbols to name functions with.
+Right clicking a function offers context menu options.
+'Find Start Instructions' searches the trace for the function occurrences.
+NB This search is not currently optimized in any way.
+'Perform Static Code Recomposition' renders a graph of basic blocks in the Function Recomposition view
+NB The Recomposition view is currently broken (v0.3.0).
+
+10. Error Log
+If you experience bugs, please check the error log for entries. Entries in close proximity to the bug will help in resolving them.
+

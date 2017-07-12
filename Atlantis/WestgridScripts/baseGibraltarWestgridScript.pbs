@@ -1,0 +1,72 @@
+#!/bin/bash
+#PBS -l naccesspolicy=singlejob,nodes=1:ppn=4,walltime=0:2:00,pmem=20gb -S /bin/bash -e pwd/error.txt -o pwd/output.txt
+
+#  tr -d '\15\32' < baseGibraltarWestgridScript.pbs > unixBase.pbs
+
+# For now, using Jasper, see https://www.westgrid.ca//support/quickstart/Jasper
+# In June 2017, this goes offline, and Cedar comes online, which is the best replacement, and may have different commands
+
+# Script for running Gibraltar on the specified trace folder.
+# To submit the script, use: qsub -l walltime=72:00:00,mem=1500mb,nodes=4 script.pbs
+# To check up on jobs: showq -u username
+# To cancel a job: qdel jobid
+
+# Set MAXMEM relative to what the Westgrid system node limit will be. For Nestor/Hermes, it's just above 20GB.
+# for Java, max is probably 32G (for 32bit references)
+# See http://stackoverflow.com/questions/7663174/what-is-the-largest-possible-heap-size-with-a-64-bit-jvm
+MAXMEM=20G
+
+TRACE_DIR_NAME="T64_7ze"
+
+# $PBS_O_WORKDIR is /home/username
+ORIGINAL_TRACE_DIR=$PBS_O_WORKDIR"/"$TRACE_DIR_NAME
+# on other machines than Jasper, will be prefixed into some other space
+TRACE_DIR="$TRACE_DIR_NAME 
+
+java -version
+
+echo "Current working directory is `pwd`"
+
+
+
+echo "Moving necessary files to scratch"
+
+echo "$TRACE_DIR contents before cp of trace"
+# echo | ls $TRACE_DIR
+# echo "$ORIGINAL_TRACE_DIR contents before cp of trace"
+# echo | ls $ORIGINAL_TRACE_DIR
+#echo "$TMPDIR contents before cp of trace"
+#echo | ls $TMPDIR
+
+# cp -R $ORIGINAL_TRACE_DIR $TMPDIR
+
+# echo "$ORIGINAL_TRACE_DIR contents after cp of trace"
+# echo | ls $ORIGINAL_TRACE_DIR
+# echo "$TMPDIR contents after cp of trace"
+# echo | ls $TMPDIR
+
+
+
+# Set up some environment stuff for java
+# to prevent core dump, do:
+ulimit -c -H 0
+
+echo "Starting run at: `date`"
+# The pipe to stdout.log will not work when I am running multiple processes. Adjust later.
+java -Xmx$MAXMEM -jar ./traces/Gibraltar_executable.jar $TRACE_DIR
+
+
+
+echo "Gibraltar job exit code $? at: `date`"
+
+
+
+#echo "Moving generated SQLite DB to permanent space"
+#echo "$TRACE_DIR contents before mv of DB"
+#echo | ls $TRACE_DIR
+#mv $TRACE_DIR/atlantis_trace.sqlite.db $ORIGINAL_TRACE_DIR
+#echo "$TRACE_DIR contents after mv of DB"
+echo | ls $TRACE_DIR
+
+
+echo "Job finished with exit code $? at: `date`"

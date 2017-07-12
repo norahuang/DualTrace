@@ -1,0 +1,86 @@
+//------------------------------------------------
+//--- 010 Editor v7.0 Binary Template
+//
+//      File: ins.itable
+//   Authors: Eric Verbeek
+//   Version: 2015
+//   Purpose: Manual Verification of Binary Format
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: Derived from older module.itable. Can refactor types together if desired. Not high priority.
+//------------------------------------------------
+
+// NB POSSIBLY TESTED.
+// Was started as part of debugging, but was not necessary. May be just right, may have flaws. Double check the next time it is needed.
+
+struct UStr{
+    uint16 lng;
+    wstring str;
+};
+
+struct CStr{
+    uint16 lng;
+    string str;
+};
+
+uint headerVer;
+uint recordVer;
+uint64 rowCount;
+uint64 rowSize;
+uint64 tableFp;
+
+uint64 extraFp;
+uint64 extraSize;
+
+
+// Not in order, just for verification of chunk position
+/*
+local uint64 pos;
+pos = FTell(); // save read position
+FSeek( extraFP );
+UStr buffer; // wstring is unicode null terminated, non-unicode is just string
+FSeek( pos );  // restore read position
+*/
+
+
+
+typedef struct {
+    uint64 id;
+    ubyte type;
+    ubyte csIs64Bits;
+    ubyte codeSize;
+    ubyte pad1;
+    uint32 moduleId;
+    uint64 address;
+    ubyte codeBytes[15];
+    ubyte pad2;
+    uint64 disasmFp;
+    uint64 decodedFp;
+    uint64 pad3;
+    
+    local uint64 pos;
+    pos = FTell(); // save read position
+
+    FSeek( disasmFp + extraFp);
+    CStr disassembly; // wstring is unicode null terminated, non-unicode is just ascii string
+    FSeek( pos );  // restore read position
+
+/*
+    Could parse and include decdedIns here, as pointed to by decodedFp.
+*/
+
+
+} InsRec <size=64>;
+
+string ReadInstructionRec( InsRec &d )
+{
+    string str;
+    SPrintf( str, "%s", d.disassembly.str );
+    return str;
+}
+
+
+FSeek(tableFp);
+
+InsRec recs[rowCount] <optimize=false, read=ReadInstructionRec>;

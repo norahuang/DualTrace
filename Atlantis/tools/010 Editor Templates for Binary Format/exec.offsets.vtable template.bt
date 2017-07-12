@@ -1,0 +1,246 @@
+//------------------------------------------------
+//--- 010 Editor v7.0 Binary Template
+//
+//      File: exec.vtable
+//   Authors: Eric Verbeek
+//   Version: 2015
+//   Purpose: Manual Verification of Binary Format
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: Needed to investigate oddly gigantic insRec id into ins.itable.
+//------------------------------------------------
+
+LittleEndian();
+
+// NB This is designed for use on files that are the concatenation of exec.offsets+exec.vtable.
+// The offsets are required to actually define the end of all execRecs, as far as I could see.
+// NB See near the end of the file, for where parsing is restricted to line numbers as desired.
+// Without this, parsing may take too long, due ot difficulties in determining element sizes
+// for use in 010 Editor's On-Demand parsing.
+
+// Do the offsets first, use those to FSeek() to where we want to be
+// This is necessary because a) the sizes of execrecs are dependent on LcSlot size, which
+// is derived from another file and b) we cannot access two files from one script. Therefore,
+// I concatenated the offsets and the vtable, in order to pin down the end offset of each
+// exec record.
+// Also, instead of having to futz around when concatenating the files,
+// it will be necessary to hard code the record count per use of this template.
+// Get the record count from exec.vtable, a uint64 value after a uint32 and a pad[4].
+
+local uint64 recordCount = 82778317; // recordCount for 02B-AdobeReaderWithFiles
+local uint64 vtablePosition = (recordCount+1) * 8;
+
+
+struct UStr{
+    uint16 lng;
+    wstring str;
+};
+
+struct CStr{
+    uint16 lng;
+    string str;
+};
+
+local uint64 preHeaderPos = FTell();
+FSeek(vtablePosition);
+uint ver;
+ubyte padH[4];
+uint64 recordCount;
+//FSeek(preHeaderPos);
+
+// Not in order, just for verification of chunk position
+/*
+local uint64 pos;
+pos = FTell(); // save read position
+FSeek( extraFP );
+UStr buffer; // wstring is unicode null terminated, non-unicode is just string
+FSeek( pos );  // restore read position
+*/
+
+typedef struct 
+// (uint64 parentPos) 
+{
+    local uint64 structPos = FTell();
+    int64 address;
+    int64 size;
+    int64 dataFp;
+    //FSeek(parentPos+dataFp);
+    //ubyte registerValuesBuff[size];
+} MemRef <size=24>;
+
+typedef struct{
+    local uint64 structPos = FTell();
+
+    int memCount;
+    ubyte padH[4];
+    uint64 regsFp;
+/*
+I don't know if I can pass an arg to an array of structs like this. If not, and maybe anyway, I can try to 
+use the monolithic nature of the rmContext, as descrobed before 6.5 on page 20, to gloss over
+all of this.
+Discover from printlns on RmContext RegsBuff and MemRef DataFpbuffer to verify the monolith extent
+Have an end offset for the thread_begin of 44h + 4096 + 864 for buffers, equals 13C8h. The next execrec starts
+at 13A4h, which is perfect. So. The entire RmContext and MemRef buffers precede the next ExecRec.
+I can seek here, rather than trying to parse said buffers in MemRef struct.
+*/
+    if(0 < memCount){
+        MemRef contextMem[memCount];
+    }
+    local uint contextMemBuffersAggregatedSize = 0;
+    local uint i = 0;
+    local uint64 biggestEndOfData = 0;
+    for(i = 0; i < memCount; i++){
+        contextMemBuffersAggregatedSize += contextMem[i].size;
+        biggestEndOfData = Max(biggestEndOfData, structPos + contextMem[i].dataFp + contextMem[i].size);
+    }
+    
+    biggestEndOfData = Max(biggestEndOfData, structPos + regsFp + 864);    
+
+    // RegFps are 864, according to the single value found in the contextMap for the 02B-AdobeReaderWithFiles
+    // Now, put the file at the end of the struct. We don't parse buffers, we skip.
+    // FSeek(structPos + regsFp + 864 + contextMemBuffersAggregatedSize);
+    FSeek(biggestEndOfData);
+
+    // ubyte registerValuesBuff[864]; // this is hard coded because I have not yet looked into finding values from other files;
+    // Do not FSeek back, the registers should be after the contextMem array, and will be the end of the RmContext struct.
+    // I think that will be the end of the RmContext struct, anyway...
+} RmContext
+//<size=rmContextSize>
+;
+
+
+typedef struct (uint64 startOffset, uint64 endOffset){
+    int32 threadId_InThreadITable;
+    byte typeRawNumber;
+    byte flags;
+    
+    // dataFpByteAddress is for LCSlot stuff
+    // local uint64 dataFpByteAddress;
+    // dataFpByteAddress = FTell();
+
+    // Type dependent data
+    if(typeRawNumber==0){
+        int64 insId; // If("execLineType==0")
+        // InsRec insRec; If("execLineType==0") // Not inline, right?
+    } else if(typeRawNumber==1){
+        RmContext threadBeginContext; // If("execLineType==1")
+    } else if(typeRawNumber==2){
+        int threadExitCode; // If("execLineType==2")
+    } else if(typeRawNumber==3){
+        int appExitCode; // If("execLineType==3")
+    } else if(typeRawNumber==4){
+        int64 syscallEnterId; // If("execLineType==4")
+        RmContext syscallEntryContext; // If("execLineType==4")
+    } else if(typeRawNumber==5){
+        int64 syscallExitId; // If("execLineType==5")
+        RmContext sysCallExitContext; // If("execLineType==5")
+    } else if(typeRawNumber==6){
+        int64 syscallSkippedId; // If("execLineType==6")
+    } else if(typeRawNumber>7 && typeRawNumber<=11){
+        RmContext rmChange; // If("execLineType>7 && execLineType<=11")
+    }
+    
+    // local uint64 pos = FTell(); // save read position
+
+    // Could parse and include decdedIns here, as pointed to by decodedFp,
+    // if the appropriate files were concatenated. Too annoying.
+
+    // Try to get displayed size correct, skip to end of data that would be LcSlot if parsed:
+    // FSeek(vtablePosition + endOffset);
+    local uint64 pos = FTell();
+    if(0 < (vtablePosition + endOffset) - pos){
+        ubyte pad[(vtablePosition + endOffset) - pos]; // Skip the rest of the bytes, but count into a pad.
+    }
+
+} ExecRec
+// <size=offsetPlusExecRecSize>
+//<size=execRecSize>
+;
+
+typedef struct {
+    uint64 startOffset;
+
+    local uint64 pos = FTell();
+    uint64 endOffset;
+
+    FSeek(vtablePosition + startOffset);
+
+    ExecRec execRec(startOffset, endOffset)<optimize=false, read=ReadExecutionRec>;
+
+    FSeek(pos);
+
+} OffsetPlusExecRec <size=8>;
+
+// Not useful for execrec offsets, we know their size.
+// Logicall applies to ExecRec size, but maybe not semantically in the template language...
+uint64 offsetPlusExecRecSize(ExecRec &d){
+    //local uint64 startOffset = ReadUByte(startof(d)); // skip threadId
+    //local uint64 endOffset = ReadUByte(startof(d)+8); // get next offset, serves as end fencepost
+    return d.endOffset - d.startOffset;
+}
+
+/*
+int execRecSize(ExecRec &d){
+    local uint size = 6;     // fixed rec head size
+    local ubyte typeRawNumber = ReadUByte(startof(d)+4); // skip threadId
+    if(typeRawNumber==0){
+        size += 8;
+    } else if(typeRawNumber==1){
+        size += rmContextSize2(startof(d)+size);
+    } else if(typeRawNumber==2){
+        size += 4;
+    } else if(typeRawNumber==3){
+        size += 4;
+    } else if(typeRawNumber==4){
+        size += 8;
+    } else if(typeRawNumber==5){
+        size += (8 + rmContextSize2(startof(d)+size+8)); // syscallId precedes the rmCOntext
+    } else if(typeRawNumber==6){
+        size += 8;
+    } else if(typeRawNumber>7 && typeRawNumber<=11){
+        size += rmContextSize2(startof(d)+size); // rmContext follows the 6 fixed bytes immediately
+    }
+
+    return size;
+}
+
+int rmContextSize(RmContext &d){
+    return rmContextSize2(startof(d));
+}
+int rmContextSize2(uint position){
+    local uint memCount = ReadUInt(position+0); // memCount is first sub-element
+    // rmContext varies in size, but only by the number of fixed size contextMem elements in it.
+    // both it and the contextMem contains pointers to elsewhere in the file though.
+    // If wanted, we can flesh both out to complete the ExecRec template.
+    return 4 + 4 + 8 + (memCount * (8 + 8 + 8));
+}
+*/
+
+string ReadExecutionRec( ExecRec &d )
+{
+    string str;
+    if(d.typeRawNumber==0){
+        SPrintf( str, "InsId: %d", d.insId );
+    } else {
+        SPrintf( str, "Type: %d", d.typeRawNumber );
+    }
+    return str;
+}
+
+string ReadOffsetPlusExecRec( OffsetPlusExecRec &d )
+{
+    string str;
+    if(d.execRec.typeRawNumber==0){
+        SPrintf( str, "%LXh to %LXh: InsId: %d", d.startOffset, d.endOffset, d.execRec.insId );
+    } else {
+        SPrintf( str, "%LXh to %LXh: Type: %d", d.startOffset, d.endOffset, d.execRec.typeRawNumber );
+    }
+    return str;
+}
+
+// Can seek to a particular line number's (actually, exec rec's) offsets, if desired
+local uint64 lineNumber = 55793318; // 55793320;
+local uint64 numLines = 6; // recordCount
+FSeek(lineNumber * 8);
+OffsetPlusExecRec recs[numLines] <optimize=false, read=ReadOffsetPlusExecRec>;

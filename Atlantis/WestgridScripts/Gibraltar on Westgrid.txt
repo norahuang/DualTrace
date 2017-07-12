@@ -1,0 +1,33 @@
+Running Gibraltar on Westgrid
+
+Large traces (bigger than, say, 40GB) are slow to run on normal computers (in 2017), and very large traces (634GB, for example)
+have heap memory demands that lead to out of heap errors when run on a multi-purpose development system. Gibraltar needs
+more RAM.
+
+Westgrid has two systems, Cedar and Graham, that are suitable for our purposes.
+
+https://docs.computecanada.ca/wiki/Cedar
+https://docs.computecanada.ca/wiki/Graham
+
+
+Temporarily using Nestor/Hermes systems. These are limited to /home/username at 300GB, /global/scratch/username at 1TB,
+and /scratch at 225GB for the node's specific scratch space. When possible, I guess we use /scratch with priority
+over /global/scratch? Also note that /scratch can be accessed via $TMPDIR. On Hermes, maybe only the output
+of Gibraltar will go in /scratch, while the trace may be read from /global/scratch.
+
+
+
+Get a Compute Canada account (and a Westgrid account?). You'll need to go through Peggy or your PI to do so.
+
+
+https://docs.computecanada.ca/wiki/Getting_Started
+Connect to Cedar (or Graham) through ssh/putty.
+Use Globus to move files where you need them.
+Or...well, the ports are all closed here, so let's use SFTP unless there's a good reason not to.
+https://docs.globus.org/how-to/configure-firewall-gcp/
+WinSCP sends 40GB in about 3 hours.
+
+
+Use scripts to run Gibraltar, and to move the Sqlite DB file out of temporary disk space.
+https://www.westgrid.ca/support/quickstart/new_users#running
+TORQUE, with .pbs files, for moving stuff around and running Gibraltar.

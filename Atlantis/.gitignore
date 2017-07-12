@@ -1,0 +1,9 @@
+*.class
+
+# Package Files #
+*.war
+*.ear
+/dev_workspace
+dev_workspace/.metadata/
+dev_workspace
+/bin

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="libs/xerial-sqlite-jdbc-3.8.11.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry exported="true" kind="lib" path="libs/simple-xml-2.7.1.jar"/>
+	<classpathentry kind="lib" path="libs/preon-uber-jar-0.0.1-SNAPSHOT.jar" sourcepath="/preon"/>
+	<classpathentry kind="lib" path="libs/jdbc-named-parameters_06f83ed_2014-09-29.jar"/>
+	<classpathentry kind="lib" path="libs/commons-io-2.4-bin.zip"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="libs/com.mysql.jdbc_5.1.22.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/BFV"/>
+	<classpathentry kind="lib" path="libs/durian-3.4.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/guava-19.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

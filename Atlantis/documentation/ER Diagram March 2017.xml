@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: http://ondras.zarovi.cz/sql/demo/ -->
+<sql>
+<datatypes db="mysql">
+	<group label="Numeric" color="rgb(238,238,170)">
+		<type label="Integer" length="0" sql="INTEGER" quote=""/>
+	 	<type label="TINYINT" length="0" sql="TINYINT" quote=""/>
+	 	<type label="SMALLINT" length="0" sql="SMALLINT" quote=""/>
+	 	<type label="MEDIUMINT" length="0" sql="MEDIUMINT" quote=""/>
+	 	<type label="INT" length="0" sql="INT" quote=""/>
+		<type label="BIGINT" length="0" sql="BIGINT" quote=""/>
+		<type label="Decimal" length="1" sql="DECIMAL" re="DEC" quote=""/>
+		<type label="Single precision" length="0" sql="FLOAT" quote=""/>
+		<type label="Double precision" length="0" sql="DOUBLE" re="DOUBLE" quote=""/>
+	</group>
+
+	<group label="Character" color="rgb(255,200,200)">
+		<type label="Char" length="1" sql="CHAR" quote="'"/>
+		<type label="Varchar" length="1" sql="VARCHAR" quote="'"/>
+		<type label="Text" length="0" sql="MEDIUMTEXT" re="TEXT" quote="'"/>
+		<type label="Binary" length="1" sql="BINARY" quote="'"/>
+		<type label="Varbinary" length="1" sql="VARBINARY" quote="'"/>
+		<type label="BLOB" length="0" sql="BLOB" re="BLOB" quote="'"/>
+	</group>
+
+	<group label="Date &amp; Time" color="rgb(200,255,200)">
+		<type label="Date" length="0" sql="DATE" quote="'"/>
+		<type label="Time" length="0" sql="TIME" quote="'"/>
+		<type label="Datetime" length="0" sql="DATETIME" quote="'"/>
+		<type label="Year" length="0" sql="YEAR" quote=""/>
+		<type label="Timestamp" length="0" sql="TIMESTAMP" quote="'"/>
+	</group>
+	
+	<group label="Miscellaneous" color="rgb(200,200,255)">
+		<type label="ENUM" length="1" sql="ENUM" quote=""/>
+		<type label="SET" length="1" sql="SET" quote=""/>
+		<type label="Bit" length="0" sql="bit" quote=""/>
+	</group>
+</datatypes><table x="960" y="557" name="assembly_events">
+<row name="startLineNum" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="numLines" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="id" null="0" autoincrement="0">
+<datatype>VARCHAR(255)</datatype>
+</row>
+<row name="assemblyTypeId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="viewStartXPixel" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="viewEndXPixel" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>startLineNum</part>
+</key>
+<comment>/**
+ * The 'assembly_events' table, {@link AssemblyEventDbConnection#ASSEMBLY_EVENT_TABLE_NAME},
+ * is a linear record of sections of the trace line's originating assembly or module, that is,
+ * for example, which dll a section of the trace originates from. When a system call is made,
+ * the lines may originate in ntdll.dll, for example. This table contains the start of each
+ * section, and its length. The pixel fields are used in the Assembly View, a deprecated
+ * view that shows the sections as non-overlapping horizontal colored blocks, with vertical
+ * arcs between them at transition points. The Function Module view is a dominant view, with
+ * higher quality and more useful information.
+ * 
+ * If the Assembly View is removed, this table might be kept, but should at least have the pixel
+ * fields removed from it. We probably still want to have available the thread line coverages,
+ * and also the list of assembly names (thought that might be collected elsewhere).
+ * 
+ * startLineNum:
+ *  - is can be joined into many other tables.
+ * id:
+ *  - does not intentionally join with other tables, and identifies the assembly module uniquely.
+ * assemblyTypeId:
+ *  - appears to be a deprecated field of unknown origin. See {@link AssemblyEventType}.
+ *
+ */</comment>
+</table>
+<table x="9" y="368" name="function_basic_blocks">
+<row name="startInstruction" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="instructions" row="instructionId" />
+<relation table="functions" row="firstInstruction" />
+</row>
+<row name="endInstruction" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="instructions" row="instructionId" />
+</row>
+<row name="length" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>startInstruction</part>
+</key>
+<comment>/**
+ * The 'function_basic_blocks' table {@link BasicBlockDbConnection#BASICBLOCK_TABLE_NAME}
+ * contains information about what repeating sections of code in the trace comprise functions.
+ * Wikipedia can put it better than I, but a basic block is a piece of code that cannot be jumped
+ * into or out of, and will always be executed in order whenever the program is run, if the basic
+ * block's first instruction is run at all. A basic block may be either run or not run, because
+ * they are often delimited by a conditional jump instruction preceding them. In terms of source
+ * code, it would be a chunk of code with no return value, and ending whenever a conditional was
+ * encountered.
+ * 
+ * This table is used by at least two views currently, the Function Decomposition view (graph of
+ * basic blocks of a selected function), and the Function Module View (shows a function sequence
+ * chart color coded and labeled by the assembly module the function belongs to).
+ * 
+ * Detection of functions is not a solved problem. Some functions cannot be detected and reconstructed
+ * from source code, but their code will nonetheless be present in the analysis. They will simply not be
+ * accessible as a function per se.
+ * 
+ * startInstruction:
+ *  - can be joined against any instruction id in any other table. It represents the first
+ *    instruction that is executed for this block, that is, not a call, but the instruction
+ *    following a call, or following a jump.
+ *    endInstruction:
+ *  - can be joined against any instruction id in any other table. it represents the final
+ *    instruction that is executed for this block, likely a ret, call, or jump.
+ *    length
+ *  - the number of lines in the basic block
+ */</comment>
+</table>
+<table x="691" y="52" name="function_calls">
+<row name="callingFunctionStart" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="functions" row="firstInstruction" />
+</row>
+<row name="calledFunctionStart" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="functions" row="firstInstruction" />
+</row>
+<row name="callInstruction" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="instructions" row="instructionId" />
+</row>
+<key type="PRIMARY" name="">
+<part>callInstruction</part>
+</key>
+</table>
+<table x="322" y="37" name="functions">
+<row name="firstInstruction" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="instructions" row="instructionId" />
+</row>
+<row name="name" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="startsThread" null="0" autoincrement="0">
+<datatype>bit</datatype>
+</row>
+<row name="unknownStart" null="0" autoincrement="0">
+<datatype>bit</datatype>
+</row>
+<row name="oddReturn" null="0" autoincrement="0">
+<datatype>bit</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>firstInstruction</part>
+</key>
+</table>
+<table x="388" y="376" name="instructions">
+<row name="parentFunctionId" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="functions" row="firstInstruction" />
+</row>
+<row name="instructionId" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="firstLineNumber" null="0" autoincrement="0">
+<datatype>BIGINT</datatype>
+<relation table="trace_file_text_lines" row="traceLineNumber" />
+</row>
+<row name="moduleOffset" null="0" autoincrement="0">
+<datatype>BIGINT</datatype>
+</row>
+<row name="module" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="moduleId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="instructionName" null="0" autoincrement="0">
+<datatype>VARCHAR(20)</datatype>
+</row>
+<row name="instructionText" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>instructionId</part>
+</key>
+</table>
+<table x="700" y="182" name="function_jumps">
+<row name="jumpId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="jumpInstruction" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="instructions" row="instructionId" />
+</row>
+<row name="targetInstruction" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="instructions" row="instructionId" />
+</row>
+<row name="branchTaken" null="0" autoincrement="0">
+<datatype>bit</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>jumpInstruction</part>
+<part>targetInstruction</part>
+<part>branchTaken</part>
+</key>
+</table>
+<table x="360" y="629" name="memory_snapshot_delta_tree">
+<row name="id" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="parentId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="memory_snapshot_delta_tree" row="id" />
+</row>
+<row name="startLine" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="trace_file_text_lines" row="traceLineNumber" />
+</row>
+<row name="endLine" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="trace_file_text_lines" row="traceLineNumber" />
+</row>
+<row name="deltaData" null="0" autoincrement="0">
+<datatype>BLOB(LONGBLOB)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="955" y="267" name="thread_function_blocks">
+<row name="threadId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="thread_lengths" row="threadId" />
+</row>
+<row name="startInstruction" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="instructions" row="instructionId" />
+</row>
+<row name="endInstruction" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="instructions" row="instructionId" />
+</row>
+<row name="functionStartInstruction" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="startLineNumber" null="0" autoincrement="0">
+<datatype>BIGINT</datatype>
+<relation table="trace_file_text_lines" row="traceLineNumber" />
+</row>
+<row name="xOffset" null="0" autoincrement="0">
+<datatype>BIGINT</datatype>
+</row>
+<row name="width" null="0" autoincrement="0">
+<datatype>BIGINT</datatype>
+</row>
+<row name="xEndOffset" null="0" autoincrement="0">
+<datatype>BIGINT</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>threadId</part>
+<part>xOffset</part>
+<part>xEndOffset</part>
+</key>
+</table>
+<table x="1183" y="549" name="thread_lengths">
+<row name="threadId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="length" null="0" autoincrement="0">
+<datatype>BIGINT</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>threadId</part>
+</key>
+</table>
+<table x="676" y="468" name="trace_file_text_lines">
+<row name="instructionId" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+<relation table="instructions" row="instructionId" />
+</row>
+<row name="traceLineNumber" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+<relation table="assembly_events" row="startLineNum" />
+</row>
+<row name="blockOffset" null="0" autoincrement="0">
+<datatype>BIGINT</datatype>
+</row>
+<row name="lineContents" null="0" autoincrement="0">
+<datatype>VARCHAR(2000)</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>traceLineNumber</part>
+</key>
+</table>
+<table x="6" y="480" name="filemetadata">
+<row name="fileId" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="fileWordSize" null="0" autoincrement="0">
+<datatype>INTEGER</datatype>
+</row>
+<row name="traceState" null="0" autoincrement="0">
+<datatype>VARCHAR(16)</datatype>
+<default>'processing'</default></row>
+<key type="PRIMARY" name="">
+<part>fileId</part>
+</key>
+</table>
+<table x="972" y="134" name="filedatatablestatus_deprecated">
+<row name="tableName" null="0" autoincrement="0">
+<datatype>VARCHAR(100)</datatype>
+</row>
+<row name="fileName" null="0" autoincrement="0">
+<datatype>MEDIUMTEXT(512)</datatype>
+</row>
+<row name="status" null="0" autoincrement="0">
+<datatype>VARCHAR(16)</datatype>
+</row>
+<row name="entryDate" null="0" autoincrement="0">
+<datatype>DATETIME</datatype>
+</row>
+<key type="PRIMARY" name="">
+<part>tableName</part>
+</key>
+</table>
+<table x="1023" y="72" name="diff_results_deprecated">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="940" y="11" name="thread_change_events_deprecated">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+</sql>

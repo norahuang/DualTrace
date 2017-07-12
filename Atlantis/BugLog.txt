@@ -1,0 +1,244 @@
+v0.3.0 Known Bugs (context for release)
+
+Trace Search Should Be Structured enhancement
+#664 opened a day ago
+
+Comment Edit Not Reflected in Editor bug
+#663 opened a day ago
+
+Fix Refresh of Thread Functions View Red Line Cursor bug
+#662 opened a day ago
+
+Recomposition View Exception bug
+#661 opened a day ago
+
+Functions View "Start Instruction" Slow Performance
+#660 opened a day ago
+
+Exported Atlantis Exceptions, For Release 0.3.0 bug
+#658 opened a day ago
+
+Watchlist, Memory Location Width, Assembly Memory Write Locations Atlantis Ideas bug
+#657 opened 8 days ago
+
+Memory View Needs Paging Performance
+#656 opened 14 days ago
+
+Clean Up Classes Between Memory Query and UI question
+#655 opened 14 days ago
+
+Memory Search Broken bug
+#654 opened 14 days ago
+
+Function Oriented View Atlantis Ideas
+#653 opened on Aug 29
+
+Back-Forward Buttons for Navigating Atlantis Ideas
+#652 opened on Aug 29
+
+Heap Stack Delimiter, Bookmark List Atlantis Ideas
+#651 opened on Aug 29
+
+
+Add Watch List 'Jump to In Memory' enhancement
+#650 opened on Aug 29
+
+Exception in Memory View Update bug
+#649 opened on Aug 29
+
+Sparse vs Packed Memory View Atlantis Ideas
+#648 opened on Aug 29
+
+Idea: Memory Overview Atlantis Ideas
+#647 opened on Aug 29
+
+Atlantis Memory Query Performance and GUI Problem Past 82 Million Lines bug Performance
+#646 opened on Aug 29
+
+Closing Trace Does Not Clear All Views bug
+#644 opened on Aug 25
+
+Thread Functions View Mis-Rendering bug
+#643 opened on Aug 17
+
+Benchmark Samsung SSD 750 EVO Performance
+#637 opened on Aug 10
+
+Faster Memory Processing Possible? Performance
+#633 opened on Jul 21
+
+Register Change Indicator for Registers Not Changed? bug
+#632 opened on Jul 21
+
+Consider Java Linter
+#631 opened on Jul 20
+
+Previous Value Representation in Registers View enhancement
+#630 opened on Jul 15
+
+Scroll in Editor Moves Current Line to End of Page bug
+#626 opened on Jul 8
+
+Improve De-Index Menu Item bug
+#625 opened on Jul 8
+
+Add 'Previous Line' Indicator to Registers and Trace Memory Views enhancement
+#623 opened on Jul 7
+
+Memory and Register Follow and Time-Search Functionality Atlantis Ideas enhancement
+#622 opened on Jul 7
+
+Partially Complete DBs not Continued or Deleted enhancement
+#619 opened on Jun 23
+
+Parent Node Update on Commit Only? enhancement
+#617 opened on Jun 22
+
+Remove All Memory and Register String Extensions in Trace Line DB Table? enhancement
+#616 opened on Jun 22
+
+Memory Watch View Needs Changes bug
+#615 opened on Jun 16
+
+Memory Reference Merging, Over Extension? bug
+#614 opened on Jun 15
+
+Re-Compose, Dll Import, Thread Function Bugs bug
+#611 opened on Jun 8
+
+String vs Byte for Memory Value Processing Performance Performance
+#609 opened on Jun 3
+
+Gibraltar Hangs When DB Not Accessible bug
+#607 opened on Jun 2
+
+Trace Re-Execution Utility, for Memory Testing and Validation enhancement
+#605 opened on Jun 1
+
+Memory Validation Datasets from DRDC enhancement
+#604 opened on Jun 1
+
+Memory Inconsistency, Phantom Write Reported bug
+#603 opened on Jun 1 For Release 0.3.0
+
+Traces in Dedicated "Trace Project" Fail to Launch Atlantis bug
+#602 opened on Jun 1
+
+Parsing of Older XML Fails bug
+#595 opened on Apr 15 For Release 0.3.0
+
+Redundant Register Processing? bug
+#591 opened on Apr 6
+
+Double Check Atlantis Use of Flags, Eflags, Rflags possible fault (investigate)
+#590 opened on Apr 6
+
+Add X87STATUS Register View bug
+#589 opened on Apr 6
+
+Combined vs Separated Memory Entries possible fault (investigate)
+#587 opened on Apr 6
+
+Binary Diffs, Assembly Diffs
+#582 opened on Mar 18
+
+Verify Use of Before and After Slots in Atlantis possible fault (investigate)
+#575 opened on Mar 11
+
+Enclosing Registers Are Inferior possible fault (investigate)
+#574 opened on Mar 11
+
+Before Slot Values, Set Outside Trace bug
+#573 opened on Mar 10
+
+ Which Memory Processor? possible fault (investigate)
+#572 opened on Mar 4
+
+firstLineNumber incorrect for instruction table for T32_Notepad bug
+#564 opened on Feb 2 For Release 0.3.0
+
+Error in T32_notepad after 51 million Lines bug shelved
+#563 opened on Feb 2
+
+Nine (or Ten) Unused 'call' Instructions bug
+#561 opened on Jan 22 For Release 0.3.0
+
+Custom Tag Colors Does Not Work bug
+#560 opened on Dec 17, 2015 by Lmasniuk
+
+Run Dec 2015 Traces Through Gibraltar
+#558 opened on Dec 16, 2015 For Release 0.3.0
+
+Histogram of Traced Memory to Java Memory
+#555 opened on Dec 10, 2015
+
+Discoverability of Features Atlantis Ideas enhancement
+#548 opened on Dec 4, 2015
+
+Function Start Line Should Not Use Search Performance
+#547 opened on Dec 4, 2015
+
+Memory Updates Can Be Improved Performance
+#546 opened on Dec 4, 2015
+
+SQLite Benchmarking
+#545 opened on Dec 3, 2015
+
+Make Release 0.3.0
+#542 opened on Dec 2, 2015 For Release 0.3.0
+
+Document Atlantis Structure, Capabilities, Limitations
+#541 opened on Nov 30, 2015
+
+SQLite DB File Not Released When Trace Closed bug
+#540 opened on Nov 26, 2015
+
+Function Threads Toggle Reduce to Call Sequence Diagram Atlantis Ideas
+#538 opened on Nov 26, 2015
+
+Collapsed Region, End of Trace Null Exception bug
+#537 opened on Nov 24, 2015
+
+Delay On First Search
+#536 opened on Nov 18, 2015
+
+Function Enhancements Atlantis Ideas
+#534 opened on Nov 13, 2015
+
+Diff Should Use Call Graph Not Textual Diffing enhancement
+#533 opened on Nov 5, 2015
+
+Improve Preon Usage Performance
+#532 opened on Oct 23, 2015
+
+Why Use Editor? Atlantis Ideas
+#530 opened on Oct 22, 2015
+
+Diffing by Instruction Number and Structure
+#529 opened on Oct 22, 2015
+
+String Visualization Atlantis Ideas
+#528 opened on Oct 22, 2015
+
+Revise HugeBitBuffer to Page Less Performance
+#527 opened on Oct 19, 2015
+
+Pre-Allocate Atlantis Binary Files Performance
+#526 opened on Oct 19, 2015
+
+ Cancelling Large File Open Doesn't Swiftly Release Memory Performance
+#524 opened on Oct 14, 2015
+
+To Binary or Not To Binary Performance
+#522 opened on Oct 14, 2015
+
+Compile Licenses in Atlantis
+#521 opened on Oct 13, 2015
+
+Set up Maven for Forked Preon, Re-export Jar
+#519 opened on Oct 13, 2015
+
+Ideas from Radia? Atlantis Ideas
+#517 opened on Oct 8, 2015
+
+NB There are more issues than noted here, but ones older than Oct 8, 2015 were all from Trello, many of which are non-reproducable at this point.

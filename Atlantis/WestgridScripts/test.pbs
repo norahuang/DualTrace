@@ -1,0 +1,11 @@
+#!/bin/bash
+#PBS -S /bin/bash
+
+# Script for running serial program, diffuse.
+
+cd $PBS_O_WORKDIR
+echo "Current working directory is `pwd`"
+
+echo "Starting run at: `date`"
+ls
+echo "Job finished with exit code $? at: `date`"

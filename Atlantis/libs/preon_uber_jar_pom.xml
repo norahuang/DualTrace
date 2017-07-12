@@ -1,0 +1,83 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>preon-lib</groupId>
+  <artifactId>preon-uber-jar</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>preon-uber-jar-atlantis</name>
+  <dependencies>
+	<dependency>
+	  <groupId>org.codehaus.preon.archetypes</groupId>
+	  <artifactId>preon-simple-archetype</artifactId>
+	  <version>1.1-SNAPSHOT</version>
+	</dependency>
+	
+	<dependency>
+	  <groupId>org.codehaus.preon</groupId>
+	  <artifactId>preon-binding</artifactId>
+	  <version>1.1-SNAPSHOT</version>
+	</dependency>
+	
+	<dependency>
+	  <groupId>org.codehaus.preon</groupId>
+	  <artifactId>preon-el</artifactId>
+	  <version>1.1-SNAPSHOT</version>
+	</dependency>
+	
+	<dependency>
+	  <groupId>org.codehaus.preon</groupId>
+	  <artifactId>preon-emitter</artifactId>
+	  <version>1.1-SNAPSHOT</version>
+	</dependency>
+	
+	<dependency>
+	  <groupId>org.codehaus.preon</groupId>
+	  <artifactId>preon-io</artifactId>
+	  <version>1.1-SNAPSHOT</version>
+	</dependency>
+  </dependencies>
+  <build>
+	  <plugins>
+	  <plugin>
+		  <!-- 
+		  http://steveperkins.net/batteries-included-distribution-using-maven-shaded-jars/
+		  http://stackoverflow.com/questions/1895537/how-to-merge-module-jars-to-a-single-jar-in-maven2
+		   -->
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-shade-plugin</artifactId>
+			<version>1.7</version>
+			<executions>
+				<execution>
+					<phase>package</phase>
+					<goals>
+					<goal>shade</goal>
+					</goals>
+					<configuration>
+					<createSourceJar>true</createSourceJar>
+					<!-- 
+						<transformers>
+							<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+							<mainClass>com.mypackage.MyApp</mainClass>
+							</transformer>
+						</transformers>
+						-->
+						<artifactSet>
+							<excludes>
+							<!-- 
+							  <exclude>classworlds:classworlds</exclude>
+							  <exclude>junit:junit</exclude>
+							  <exclude>jmock:jmock</exclude>
+							  <exclude>xml-apis:xml-apis</exclude>
+							  -->
+							</excludes>
+						</artifactSet>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
+	  </plugins>
+  </build>
+  <description>Create a maven project (with no parent), and add this. It allows the maven install command via m2e in Eclipse
+to take the (checked out github maven) preon projects and create a library usable jar inclduign *all* dependencies
+of each preon module.</description>
+</project>

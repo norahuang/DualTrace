@@ -1,0 +1,79 @@
+//------------------------------------------------
+//--- 010 Editor v7.0 Binary Template
+//
+//      File: module.itable
+//   Authors: Eric Verbeek
+//   Version: 2015
+//   Purpose: Manual Verification of Binary Format
+//  Category: 
+// File Mask: 
+//  ID Bytes: 
+//   History: First template for Atlantis. Will cover files only as necessary. Verified unexplained pad in each moduleRec.
+//------------------------------------------------
+
+struct UStr{
+    uint16 lng;
+    wstring str;
+};
+
+uint headerVer;
+uint recordVer;
+uint64 rowCount;
+uint64 rowSize;
+uint64 tableFp;
+
+uint64 extraFp;
+uint64 extraSize;
+
+// Not in order, just for verification of chunk position
+/*
+local uint64 pos;
+pos = FTell(); // save read position
+FSeek( extraFp );
+UStr buffer; // wstring is unicode null terminated, non-unicode is just string
+FSeek( pos );  // restore read position
+*/
+
+union VerionInfo {
+    uint16[4] wxyz;
+    uint64 packedVersion;
+}
+
+struct ModuleRec {
+    uint64 loadEid;
+    uint64 unloadEid;
+    uint64 startAddr;
+    uint64 endAddr;
+    uint64 winNameFp;
+    uint64 deviceNameFp;
+    
+    local uint64 pos;
+    pos = FTell(); // save read position
+
+    FSeek( winNameFp);
+    UStr winNameValue; // wstring is unicode null terminated, non-unicode is just string
+    FSeek( pos );  // restore read position
+
+    FSeek( deviceNameFp );
+    UStr deviceNameValue; // wstring is unicode null terminated, non-unicode is just string
+    FSeek( pos );  // restore read position
+
+    // I do not know why this pad is necessary. It doesn't have a related entry in the spec.
+    // uint64 pad[2];
+    // Late comers to documentation, told via email by David Ouellet
+    uint64 lastFileWriteTimestamp;
+    uint64 versionInfoUnion;
+    
+};
+
+string ReadModuleRec( ModuleRec &d )
+{
+    string str;
+    SPrintf( str, "%s", d.winNameValue.str );
+    return str;
+}
+
+
+FSeek(tableFp);
+
+ModuleRec recs[rowCount] <optimize=false, read=ReadModuleRec>;
