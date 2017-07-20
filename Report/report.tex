@@ -1,0 +1,180 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dual Trace Communication Event Analysis
+% 
+% Author: Nora Huang
+% Date: July 2017
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[paper=a4, fontsize=11pt]{scrartcl}
+\usepackage[T1]{fontenc}
+\usepackage{fourier}
+\usepackage{tabu}
+\usepackage{float}
+\usepackage{afterpage}
+\usepackage{booktabs}
+
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{multirow}
+
+\usepackage[english]{babel}															% English language/hyphenation
+\usepackage[protrusion=true,expansion=true]{microtype}	
+\usepackage{amsmath,amsfonts,amsthm} % Math packages
+\usepackage[pdftex]{graphicx}	
+\usepackage{url}
+\usepackage{listings}
+\lstset{
+    frame=single,
+    breaklines=true
+}
+
+
+%%% Custom sectioning
+\usepackage{sectsty}
+\allsectionsfont{\centering \normalfont\scshape}
+
+
+%%% Custom headers/footers (fancyhdr package)
+\usepackage{fancyhdr}
+\pagestyle{fancyplain}
+\fancyhead{}											% No page header
+\fancyfoot[L]{}											% Empty 
+\fancyfoot[C]{}											% Empty
+\fancyfoot[R]{\thepage}									% Pagenumbering
+\renewcommand{\headrulewidth}{0pt}			% Remove header underlines
+\renewcommand{\footrulewidth}{0pt}				% Remove footer underlines
+\setlength{\headheight}{13.6pt}
+
+
+%%% Equation and float numbering
+\numberwithin{equation}{section}		% Equationnumbering: section.eq#
+\numberwithin{figure}{section}			% Figurenumbering: section.fig#
+\numberwithin{table}{section}				% Tablenumbering: section.tab#
+
+
+%%% Maketitle metadata
+\newcommand{\horrule}[1]{\rule{\linewidth}{#1}} 	% Horizontal rule
+
+\title{
+		%\vspace{-1in} 	
+		\usefont{OT1}{bch}{b}{n}
+		\normalfont \normalsize \textsc{Department of Computer Science,  University of Victoria} \\ [25pt]
+		\horrule{0.5pt} \\[0.4cm]
+		\huge Dual Trace Communication Event Analysis  \\
+		\horrule{2pt} \\[0.5cm]
+}
+\author{
+		\normalfont 								\normalsize
+        Nora Huang\\[-3pt]		\normalsize
+        \today
+}
+\date{}
+
+
+%%% Begin document
+\begin{document}
+\maketitle
+
+\section{Introduction}
+Many network application vulnerabilities occur not just in one application, but in how they interact with other systems. These kinds of vulnerabilities can be difficult to analyze. Dual-trace analysis is one approach that helps the security engineers to detect the vulnerabilities in the interactive software. A dual-trace consist of two execution traces that are generated from two interacting applications. Each of these traces contains information including CPU instructions, register and memory changes of the running application. Communication information of the interacting applications is captured as the register or memory changes on their respective sides. Our research focuses on building a model to visualize and analyze dual-trace which would be available for various kinds of communication methods such as UDP, TCP and named pipe. 
+
+\subsection{Problem}
+The major problem in dual-trace analysis is synchronization of the traces from both sides. We narrow down the problem into finding the sending points and receiving points of the communication messages and pair them. 
+
+\subsection{solution}
+
+\section{Prototype Building}
+\subsection{User Defined Communication Type}
+\subsubsection{Assembly Calling Convention}
+Calling Convention is different for operating system and the programming language. In this report we consider Microsoft 64 calling convention used for C. It seems too specific, however, the prototype can be adapted easily to other conventions. Only the related convention are listed here.\par
+For the Microsoft* x64 calling convention, the additional register space let fastcall be the only calling convention (under x86 there were many: stdcall, thiscall, fastcall, cdecl, etc.). The rules for interfacing with C/C++ style functions:\par
+\begin{enumerate}  
+\item RCX, RDX, R8, R9 are used for integer and pointer arguments in that order left to right.
+\item XMM0, 1, 2, and 3 are used for floating point arguments.
+\item Additional arguments are pushed on the stack left to right. \ldots 
+\item Parameters less than 64 bits long are not zero extended; the high bits contain garbage.
+\item It is the caller's responsibility to allocate 32 bytes of "shadow \item space" (for storing RCX, RDX, R8, and R9 if needed) before calling the function.
+\item It is the caller's responsibility to clean the stack after the call.
+\item Integer return values (similar to x86) are returned in RAX if 64 bits or less.
+\item Floating point return values are returned in XMM0.
+\item Larger return values (structs) have space allocated on the stack by the caller, and RCX then contains a pointer to the return space when the callee is called. Register usage for integer parameters is then pushed one to the right. RAX returns this address to the caller.
+\item The stack is 16-byte aligned. The "call" instruction pushes an 8-byte return value, so the all non-leaf functions must adjust the stack by a value of the form 16n+8 when allocating stack space.
+\item Registers RAX, RCX, RDX, R8, R9, R10, and R11 are considered volatile and must be considered destroyed on function calls.
+\item RBX, RBP, RDI, RSI, R12, R14, R14, and R15 must be saved in any function using them.
+\end{enumerate}
+
+\subsubsection{Basic Communication Methods}
+We investigate two basic communication methods in the windows platform. The result are list in table \ref{communicatemethod}
+\begin{table}
+        \centering
+        \caption{Information of communication methods in Windows}
+        \label{communicatemethod}
+        \begin{tabular}{|l|l|l|l|l|l|l|}
+            \hline
+             \multirow{2}{*}{Method} &
+               \multicolumn{3}{c|}{Sender} &
+               \multicolumn{3}{c|}{Receiver} \\
+             \cline{2-7}
+             &  DLL & Function& Parameters & DLL  & Function & Parameters\\
+             \hline
+             Namedpipe& Kernel32.dll& Writefile&  RCX: File handler & Kernel32.dll & ReadFile &  RCX: File handler\\
+             \cline{4-4} \cline{7-7}
+             &&&RDX: Buffer Address&&&RDX: Buffer Address\\
+              \cline{4-4} \cline{7-7}
+               &&&R8:message length&&&R8:message length\\
+               \hline
+             Winsock & Ws2$\_$32.dll & send & RCX: socket & Ws2$\_$32.dll & recv & RCX: socke \\
+              \cline{4-4} \cline{7-7}
+             &&&RDX: Buffer Address&&&RDX:Buffer Address\\
+              \cline{4-4} \cline{7-7}
+               &&&R8: message length&&&R8: message length\\
+            \hline
+        \end{tabular}
+    \end{table}
+
+\subsubsection{system call in the traces}
+\subsubsection{Communication Type View}
+A new view named MessageType view is added for the user defined communication types. Each communication type consist of 4 system function calls. They are sender and receiver channel create/open, sender's send message function and receiver's receive message function.  User can import the dll file to the functions view in order to get the function names of the system calls. In the functions view, user can click on the function, in the prompt menu, there is a new action call "Add to message Type". By selecting this action, the user will get  a dialogue which ask for further information, such as Message type name, function type, related register information. Fig\ref{algorithm} should the function view actions and the prompt dialogue. For each message type, users have to add all 4 system function calls to make a full message type. Otherwise further search on this type will not match any message.
+The added message types as well as they consisted functions are shown in the message type view. Searching of the match message occurrences is conducted by right click on the selected message type and choose "" in the menu. The matched messages are listed in the sub window of the view. By clicking the entry of the search  result, user can navigate to it's sender or receiver's corresponding instruction line. Message content in the memory view will be shown as well.
+\subsubsection{Communication Type Data Structure}
+
+\subsection{Communication Event Matching}
+\subsubsection{Matching Channel}
+\subsubsection{Matching Message}
+\subsubsection{Event Status: Success or Fail}
+\subsubsection{Match Events Ordering}
+\subsubsection{Matching Event Data Structure}
+\begin{table}[h]
+ \begin{center}
+  \caption{Matched message pair data structure}
+\label{table2}
+\begin{tabular}{|c|c|c|c|c|}
+      \hline
+         Message& sender function name & sender line number  & receiver function name & receiver line number \\
+       \hline
+\end{tabular}
+\end{center}
+\end{table}
+\subsection{Matching Event Visualization and Navigation}
+\subsubsection{Navigating to The Sender/Receiver}
+\subsubsection{Message Shown in memory view}
+
+
+
+\section{Case Analysis}
+\subsection{Blocking I/O Namedpipe}
+\subsubsection{Experiment Design}
+\subsubsection{Result}
+\subsubsection{Time Analysis}
+\subsubsection{Limitation}
+
+\section{Future Work}
+
+
+\bibliographystyle{abbrv}
+\bibliography{referencelist} 
+
+
+%%% End document
+\end{document}
