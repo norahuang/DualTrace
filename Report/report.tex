@@ -85,9 +85,12 @@ The major problem in dual-trace analysis is synchronization of the traces from b
 \subsection{solution}
 
 \section{Prototype Building}
+In this section we discuss the design of the prototype on how we match the send and receive events in the sender side trace and the receiver side trace. This prototype consist of three main components: defining the communication type, locating the communication events by matching the send and receive events on sender and receiver sides, navigating the located events in the sender and receiver traces. We provide the background information of the design of each component as well as its detail design in each corresponding subsection.
 \subsection{User Defined Communication Type}
+In our design, we don't specify any predefined communication type but give the user capacity to do that. By the user interface implemented in our tool, the user can defined their own communication type. This give the flexibility to the user to define what they are looking for. Each communication type consist of 4 system function calls. They are sender and receiver channel create/open, sender's send message function and receiver's receive message function. By indicating these the channel create/open function in both sender and receiver sides, the tool can acquire the channel's identifiers when they are created or opened. Later on the tool can match the send and received messages within a specific channel. The send and receive are used to located the event happened in the traces. The messages send and received are reconstructed from the memory state when the send and receive functions are called and returned. This detail of the match algorithm will be discuss later.
 \subsubsection{Assembly Calling Convention}
-Calling Convention is different for operating system and the programming language. In this report we consider Microsoft 64 calling convention used for C. It seems too specific, however, the prototype can be adapted easily to other conventions. Only the related convention are listed here.\par
+To defined the communication type, users have to know the basic calling convention of the system call. 
+Calling Convention is different for operating system and the programming language. Our prototype only be tested on traces of Microsoft 64 with C/C++ program. It seems too specific, however, the prototype can be adapted easily to other conventions. As long as users know the calling convention of their operating system, they can define their communication type with our tool. We list the related Microsoft 64 with C/C++ program convention here for reference and example. For more detail about the calling convention, user should refer to the operating system specification.\par
 For the Microsoft* x64 calling convention, the additional register space let fastcall be the only calling convention (under x86 there were many: stdcall, thiscall, fastcall, cdecl, etc.). The rules for interfacing with C/C++ style functions:\par
 \begin{enumerate}  
 \item RCX, RDX, R8, R9 are used for integer and pointer arguments in that order left to right.
@@ -133,11 +136,99 @@ We investigate two basic communication methods in the windows platform. The resu
         \end{tabular}
     \end{table}
 
-\subsubsection{system call in the traces}
+\subsubsection{System Call in the Traces}
+In the trace, we can get the called functions' name by importing the executable files in the functions view in Atlantis. All function calls in the trace will be listed in the functions views. User can add a specify function call in to a communication type view.
 \subsubsection{Communication Type View}
-A new view named MessageType view is added for the user defined communication types. Each communication type consist of 4 system function calls. They are sender and receiver channel create/open, sender's send message function and receiver's receive message function.  User can import the dll file to the functions view in order to get the function names of the system calls. In the functions view, user can click on the function, in the prompt menu, there is a new action call "Add to message Type". By selecting this action, the user will get  a dialogue which ask for further information, such as Message type name, function type, related register information. Fig\ref{algorithm} should the function view actions and the prompt dialogue. For each message type, users have to add all 4 system function calls to make a full message type. Otherwise further search on this type will not match any message.
+A new view named MessageType view is added for the user defined communication types. User can import the dll file to the functions view in order to get the function names of the system calls. In the functions view, user can click on the function, in the prompt menu, there is a new action call "Add to message Type". By selecting this action, the user will get  a dialogue which ask for further information, such as Message type name, function type, related register information. Fig\ref{algorithm} should the function view actions and the prompt dialogue. For each message type, users have to add all 4 system function calls to make a full message type. Otherwise further search on this type will not match any message.
 The added message types as well as they consisted functions are shown in the message type view. Searching of the match message occurrences is conducted by right click on the selected message type and choose "" in the menu. The matched messages are listed in the sub window of the view. By clicking the entry of the search  result, user can navigate to it's sender or receiver's corresponding instruction line. Message content in the memory view will be shown as well.
 \subsubsection{Communication Type Data Structure}
+\begin{lstlisting}
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<messageTypesData>
+    <parentFolder>.tmp</parentFolder>
+    <messageTypes>
+        <messageType>
+            <name>clientsend</name>
+            <send>
+                <functionType>Send</functionType>
+                <associatedFileName>Client</associatedFileName>
+                <name>WriteFile</name>
+                <messageAddress>RDX</messageAddress>
+                <messageLengthAddress>R8</messageLengthAddress>
+                <channelIdReg>RCX</channelIdReg>
+                <first>
+                    <instructionNameIndex>4</instructionNameIndex>
+                    <moduleName>kernel32.dll</moduleName>
+                    <moduleId>1998979072</moduleId>
+                    <fullText></fullText>
+                    <moduleOffset>139056</moduleOffset>
+                    <firstLine>0</firstLine>
+                    <uniqueIdentifier>1998979072:1999118128</uniqueIdentifier>
+                    <parentFunction>1998979072:1999116080</parentFunction>
+                </first>
+            </send>
+            <receive>
+                <functionType>Receive</functionType>
+                <associatedFileName>Server</associatedFileName>
+                <name>ReadFile</name>
+                <messageAddress>RDX</messageAddress>
+                <messageLengthAddress>R8</messageLengthAddress>
+                <channelIdReg>RCX</channelIdReg>
+                <first>
+                    <instructionNameIndex>1</instructionNameIndex>
+                    <moduleName>kernel32.dll</moduleName>
+                    <moduleId>1998979072</moduleId>
+                    <fullText></fullText>
+                    <moduleOffset>68000</moduleOffset>
+                    <firstLine>0</firstLine>
+                    <uniqueIdentifier>1998979072:1999047072</uniqueIdentifier>
+                    <parentFunction>-124387328:8791673856012</parentFunction>
+                </first>
+            </receive>
+            <sendChannelCreate>
+                <functionType>SendChannelCreate</functionType>
+                <associatedFileName>Client</associatedFileName>
+                <name>CreateFileA</name>
+                <messageAddress>-</messageAddress>
+                <messageLengthAddress>-</messageLengthAddress>
+                <channelIdReg>RAX</channelIdReg>
+                <channelNameAddress>RCX</channelNameAddress>
+                <first>
+                    <instructionNameIndex>1</instructionNameIndex>
+                    <moduleName>kernel32.dll</moduleName>
+                    <moduleId>1998979072</moduleId>
+                    <fullText></fullText>
+                    <moduleOffset>138112</moduleOffset>
+                    <firstLine>0</firstLine>
+                    <uniqueIdentifier>1998979072:1999117184</uniqueIdentifier>
+                    <parentFunction>1062535168:5357506560</parentFunction>
+                </first>
+            </sendChannelCreate>
+            <receiveChannelCreate>
+                <functionType>ReceiveChannelCreate</functionType>
+                <associatedFileName>Server</associatedFileName>
+                <name>CreateNamedPipeA</name>
+                <messageAddress>-</messageAddress>
+                <messageLengthAddress>-</messageLengthAddress>
+                <channelIdReg>RAX</channelIdReg>
+                <channelNameAddress>RCX</channelNameAddress>
+                <first>
+                    <instructionNameIndex>2</instructionNameIndex>
+                    <moduleName>kernel32.dll</moduleName>
+                    <moduleId>1998979072</moduleId>
+                    <fullText></fullText>
+                    <moduleOffset>404960</moduleOffset>
+                    <firstLine>0</firstLine>
+                    <uniqueIdentifier>1998979072:1999384032</uniqueIdentifier>
+                    <parentFunction>-124387328:8791673856012</parentFunction>
+                </first>
+            </receiveChannelCreate>
+        </messageType>
+    </messageTypes>
+</messageTypesData>
+\end{lstlisting}
+
+
 
 \subsection{Communication Event Matching}
 \subsubsection{Matching Channel}
