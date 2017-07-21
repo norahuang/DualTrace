@@ -90,58 +90,24 @@ In this section we discuss the design of the prototype on how we match the send 
 In our design, we don't specify any predefined communication type but give the user capacity to do that. By the user interface implemented in our tool, the user can defined their own communication type. This give the flexibility to the user to define what they are looking for. Each communication type consist of 4 system function calls. They are sender and receiver channel create/open, sender's send message function and receiver's receive message function. By indicating these the channel create/open function in both sender and receiver sides, the tool can acquire the channel's identifiers when they are created or opened. Later on the tool can match the send and received messages within a specific channel. The send and receive are used to located the event happened in the traces. The messages send and received are reconstructed from the memory state when the send and receive functions are called and returned. This detail of the match algorithm will be discuss later.
 \subsubsection{Assembly Calling Convention}
 To defined the communication type, users have to know the basic calling convention of the system call. 
-Calling Convention is different for operating system and the programming language. Our prototype only be tested on traces of Microsoft 64 with C/C++ program. It seems too specific, however, the prototype can be adapted easily to other conventions. As long as users know the calling convention of their operating system, they can define their communication type with our tool. We list the related Microsoft 64 with C/C++ program convention here for reference and example. For more detail about the calling convention, user should refer to the operating system specification.\par
+Calling Convention is different for operating system and the programming language. Our prototype only be tested on traces of Microsoft 64 with C/C++ program. It seems too specific, however, the prototype can be adapted easily to other conventions. As long as users know the calling convention of their operating system, they can define their communication type with our tool. We list the related Microsoft 64 with C/C++ program convention here for reference and example. For more detail about the calling convention, users should refer to the operating system specification.\par
 For the Microsoft* x64 calling convention, the additional register space let fastcall be the only calling convention (under x86 there were many: stdcall, thiscall, fastcall, cdecl, etc.). The rules for interfacing with C/C++ style functions:\par
 \begin{enumerate}  
 \item RCX, RDX, R8, R9 are used for integer and pointer arguments in that order left to right.
 \item XMM0, 1, 2, and 3 are used for floating point arguments.
 \item Additional arguments are pushed on the stack left to right. \ldots 
 \item Parameters less than 64 bits long are not zero extended; the high bits contain garbage.
-\item It is the caller's responsibility to allocate 32 bytes of "shadow \item space" (for storing RCX, RDX, R8, and R9 if needed) before calling the function.
-\item It is the caller's responsibility to clean the stack after the call.
 \item Integer return values (similar to x86) are returned in RAX if 64 bits or less.
 \item Floating point return values are returned in XMM0.
 \item Larger return values (structs) have space allocated on the stack by the caller, and RCX then contains a pointer to the return space when the callee is called. Register usage for integer parameters is then pushed one to the right. RAX returns this address to the caller.
-\item The stack is 16-byte aligned. The "call" instruction pushes an 8-byte return value, so the all non-leaf functions must adjust the stack by a value of the form 16n+8 when allocating stack space.
-\item Registers RAX, RCX, RDX, R8, R9, R10, and R11 are considered volatile and must be considered destroyed on function calls.
-\item RBX, RBP, RDI, RSI, R12, R14, R14, and R15 must be saved in any function using them.
 \end{enumerate}
 
-\subsubsection{Basic Communication Methods}
-We investigate two basic communication methods in the windows platform. The result are list in table \ref{communicatemethod}
-\begin{table}
-        \centering
-        \caption{Information of communication methods in Windows}
-        \label{communicatemethod}
-        \begin{tabular}{|l|l|l|l|l|l|l|}
-            \hline
-             \multirow{2}{*}{Method} &
-               \multicolumn{3}{c|}{Sender} &
-               \multicolumn{3}{c|}{Receiver} \\
-             \cline{2-7}
-             &  DLL & Function& Parameters & DLL  & Function & Parameters\\
-             \hline
-             Namedpipe& Kernel32.dll& Writefile&  RCX: File handler & Kernel32.dll & ReadFile &  RCX: File handler\\
-             \cline{4-4} \cline{7-7}
-             &&&RDX: Buffer Address&&&RDX: Buffer Address\\
-              \cline{4-4} \cline{7-7}
-               &&&R8:message length&&&R8:message length\\
-               \hline
-             Winsock & Ws2$\_$32.dll & send & RCX: socket & Ws2$\_$32.dll & recv & RCX: socke \\
-              \cline{4-4} \cline{7-7}
-             &&&RDX: Buffer Address&&&RDX:Buffer Address\\
-              \cline{4-4} \cline{7-7}
-               &&&R8: message length&&&R8: message length\\
-            \hline
-        \end{tabular}
-    \end{table}
 
-\subsubsection{System Call in the Traces}
-In the trace, we can get the called functions' name by importing the executable files in the functions view in Atlantis. All function calls in the trace will be listed in the functions views. User can add a specify function call in to a communication type view.
-\subsubsection{Communication Type View}
-A new view named MessageType view is added for the user defined communication types. User can import the dll file to the functions view in order to get the function names of the system calls. In the functions view, user can click on the function, in the prompt menu, there is a new action call "Add to message Type". By selecting this action, the user will get  a dialogue which ask for further information, such as Message type name, function type, related register information. Fig\ref{algorithm} should the function view actions and the prompt dialogue. For each message type, users have to add all 4 system function calls to make a full message type. Otherwise further search on this type will not match any message.
-The added message types as well as they consisted functions are shown in the message type view. Searching of the match message occurrences is conducted by right click on the selected message type and choose "" in the menu. The matched messages are listed in the sub window of the view. By clicking the entry of the search  result, user can navigate to it's sender or receiver's corresponding instruction line. Message content in the memory view will be shown as well.
+\subsubsection{Function Calls in the Traces}
+The called functions' name can be inspected  by  search of the symbolic name in the executable binary or any DLLs which used by the program at the time when it is traced. This functionality exists in the current Atlantis. By importing the Dlls and execution  executable binary, Atlantis can list all called functions for the users in the Functions view. From this list, users can chose the interested functions and generate their interested communication type. In Figure 1 there is  an action item call "Add to Communication type" in the right click menu of the function entry. Figure 2 shows the dialogue for entering the information for the added function. The needed information is the communication type's name. User can get the existing communication type list in the drop down menu. They can choose to add the current function to an exist communication type or they can add it to a new communication type by entering a new name. For the channel create/open function, the register holding the address of channel's name as input and the register holding the handle identification of the channel as output are required. For the send/receive function, the register holding the address of the send/receiver buffer, the register holding the length of the sending/receiving message and the register holding the channel's identification are required. As there are 4 functions for each communication type the user has to repeat this add function to communication type action for 4 time to generate one communication type.
+
 \subsubsection{Communication Type Data Structure}
+The defined communication type will be stored in a xml file. The list below shows the data structure of one communication type. 
 \begin{lstlisting}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <messageTypesData>
@@ -229,8 +195,11 @@ The added message types as well as they consisted functions are shown in the mes
 \end{lstlisting}
 
 
+\subsubsection{Communication Type View}
+A new view named MessageType view is added for the user defined communication types. All user defined communication type are listed in this view. User can change the name of a communication type, remove an existing communication type or searching of the match message occurrences of selected communication type by selecting the selected action item in the right click menu of an communication type entry. The matched messages are listed in the sub window of the view. By clicking the entry of the search  result, user can navigate to it's sender or receiver's corresponding instruction line. Message content in the memory view will be shown as well.
 
 \subsection{Communication Event Matching}
+The communication Event is 
 \subsubsection{Matching Channel}
 \subsubsection{Matching Message}
 \subsubsection{Event Status: Success or Fail}
@@ -255,6 +224,33 @@ The added message types as well as they consisted functions are shown in the mes
 
 \section{Case Analysis}
 \subsection{Blocking I/O Namedpipe}
+\subsubsection{communication type definition}
+\begin{table}
+        \centering
+        \caption{Information of communication methods in Windows}
+        \label{communicatemethod}
+        \begin{tabular}{|l|l|l|l|l|l|l|}
+            \hline
+             \multirow{2}{*}{Method} &
+               \multicolumn{3}{c|}{Sender} &
+               \multicolumn{3}{c|}{Receiver} \\
+             \cline{2-7}
+             &  DLL & Function& Parameters & DLL  & Function & Parameters\\
+             \hline
+             Namedpipe& Kernel32.dll& Writefile&  RCX: File handler & Kernel32.dll & ReadFile &  RCX: File handler\\
+             \cline{4-4} \cline{7-7}
+             &&&RDX: Buffer Address&&&RDX: Buffer Address\\
+              \cline{4-4} \cline{7-7}
+               &&&R8:message length&&&R8:message length\\
+               \hline
+             Winsock & Ws2$\_$32.dll & send & RCX: socket & Ws2$\_$32.dll & recv & RCX: socke \\
+              \cline{4-4} \cline{7-7}
+             &&&RDX: Buffer Address&&&RDX:Buffer Address\\
+              \cline{4-4} \cline{7-7}
+               &&&R8: message length&&&R8: message length\\
+            \hline
+        \end{tabular}
+    \end{table}
 \subsubsection{Experiment Design}
 \subsubsection{Result}
 \subsubsection{Time Analysis}
