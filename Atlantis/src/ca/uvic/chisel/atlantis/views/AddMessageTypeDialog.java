@@ -39,13 +39,15 @@ public class AddMessageTypeDialog extends TitleAreaDialog {
 	private ComboViewer comboViewerSide;
 	private Text MessageAddressTextField;
 	private Text MessageLengthAddressTextField;
-	private Text MessageIDAddressTextField;
+	private Text ChannelIDAddressTextField;
+	private Text ChannelNameAddressTexField;
 	
 	private String messageTypeName;
 	private String messageAddress;
 	private String messageLengthAddress;
-	private String messageIDAddress;
-	private String sendOrReceive;
+	private String channelIDReg;
+	private String channelNameAddress;
+	private String functionType;
 	private String functionName;
 	private Instruction firstIns;
 
@@ -65,7 +67,7 @@ public class AddMessageTypeDialog extends TitleAreaDialog {
 	@Override
 	public void create() {
 		super.create();
-        setTitle("Add this function to a message type");
+        setTitle("Add this function to a Communication type");
 	}
 
 	/**
@@ -76,7 +78,7 @@ public class AddMessageTypeDialog extends TitleAreaDialog {
 		parent.setLayout(new GridLayout(1, true));
 		
 		Label comboLabel1 = new Label(parent, SWT.NONE);
-		comboLabel1.setText("Enter or select a Message Type:");
+		comboLabel1.setText("Enter or select a Communication Type:");
 		
 		GridData comboGridData1 = new GridData();
 		comboGridData1.horizontalAlignment = SWT.FILL;
@@ -87,10 +89,10 @@ public class AddMessageTypeDialog extends TitleAreaDialog {
 		comboViewerMessageType.getCombo().setLayoutData(comboGridData1);
 		
 		BigFileEditor fileEditor = (BigFileEditor) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		comboViewerMessageType.setInput(fileEditor.getProjectionViewer().getFileModel().getMessageTypes());
+		comboViewerMessageType.setInput(fileEditor.getProjectionViewer().getFileModel().getMessageTypes(true));
 		
 		Label comboLabel2 = new Label(parent, SWT.NONE);
-		comboLabel2.setText("Is this Function a sender or receiver:");
+		comboLabel2.setText("Function Type:");
 		GridData comboGridData2 = new GridData();
 		comboGridData2.horizontalAlignment = SWT.FILL;
 		comboGridData2.grabExcessHorizontalSpace = true;
@@ -100,21 +102,30 @@ public class AddMessageTypeDialog extends TitleAreaDialog {
 		comboViewerSide.getCombo().setLayoutData(comboGridData2);	
 		comboViewerSide.insert("Send", 0);
 		comboViewerSide.insert("Receive",1);
+		comboViewerSide.insert("SendChannelCreate", 2);
+		comboViewerSide.insert("ReceiveChannelCreate",3);
 		
 		
 		
 		Label textLabel1 = new Label(parent, SWT.NONE);
-		textLabel1.setText("Enter Register Name for the Message Address:");
+		textLabel1.setText("Enter Register Name for the Message Address:(For Send or Receive function only)");
 		MessageAddressTextField = new Text(parent, SWT.BORDER);
 		MessageAddressTextField.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+		
 		Label textLabel2 = new Label(parent, SWT.NONE);
-		textLabel2.setText("Enter Register Name Or Address for the Message Lenght:");
+		textLabel2.setText("Enter Register Name Or Address for the Message Lenght:(For Send or Receive function only)");
 		MessageLengthAddressTextField = new Text(parent, SWT.BORDER);
 		MessageLengthAddressTextField.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+		
 		Label textLabel3 = new Label(parent, SWT.NONE);
-		textLabel3.setText("Enter Register Name Or Address for the Message Handler ID:");
-		MessageIDAddressTextField = new Text(parent,SWT.BORDER);
-		MessageIDAddressTextField.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));		
+		textLabel3.setText("Enter Register Name Or Address for the Channel Handler ID:");
+		ChannelIDAddressTextField = new Text(parent,SWT.BORDER);
+		ChannelIDAddressTextField.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));	
+		
+		Label textLabel4 = new Label(parent, SWT.NONE);
+		textLabel4.setText("Enter Register Name Or Address for the Channel Name(For Channel create function only)");
+		ChannelNameAddressTexField = new Text(parent,SWT.BORDER);
+		ChannelNameAddressTexField.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		
 		return parent;
 	}
@@ -149,8 +160,10 @@ public class AddMessageTypeDialog extends TitleAreaDialog {
 				messageTypeName = comboViewerMessageType.getCombo().getText();
 				messageAddress = MessageAddressTextField.getText();
 				messageLengthAddress = MessageLengthAddressTextField.getText();
-				messageIDAddress = MessageIDAddressTextField.getText();
-				sendOrReceive = comboViewerSide.getCombo().getText();				
+				channelIDReg = ChannelIDAddressTextField.getText();
+				channelNameAddress = ChannelNameAddressTexField.getText();
+				functionType = comboViewerSide.getCombo().getText();	
+				
 				okPressed();
 			}
 		});
@@ -190,27 +203,33 @@ public class AddMessageTypeDialog extends TitleAreaDialog {
 		func.setName(functionName);
 		func.setMessageAddress(messageAddress);
 		func.setMessageLengthAddress(messageLengthAddress);
-		func.setMessageID(messageIDAddress);
+		func.setChannelIdReg(channelIDReg);
+		func.setChannelNameAddress(channelNameAddress);
 		func.setAssociatedFileName(associatedFileName);
 
 		func.setFirst(firstIns.getIdStringGlobalUnique(), firstIns.getFirstLine(), firstIns.getInstructionNameIndex(), firstIns.getFullText(), firstIns.getModule(), firstIns.getModuleId(), firstIns.getModuleOffset(), firstIns.getParentFunction().toString());
 		
-		if (sendOrReceive.equals("Send"))
+		if (messagetype == null){
+			messagetype = new MessageType(messageTypeName);
+		}
+		
+		if (functionType.equals("Send"))
 		{
-			
-			func.setSendOrRecv("Send");
-			if (messagetype == null){
-				messagetype = new MessageType(messageTypeName);
-			}
+			func.setFunctionType("Send");
 			messagetype.setSend(func);
 			
-		}else
+		}else if(functionType.equals("Receive"))
 		{
-			func.setSendOrRecv("Receive");
-			if (messagetype == null){
-				messagetype = new MessageType(messageTypeName);
-			}
+			func.setFunctionType("Receive");
 			messagetype.setReceive(func);
+		}else if(functionType.equals("SendChannelCreate"))
+		{
+			func.setFunctionType("SendChannelCreate");
+			messagetype.setSendChannelCreate(func);
+		}else if(functionType.equals("ReceiveChannelCreate"))
+		{
+			func.setFunctionType("ReceiveChannelCreate");
+			messagetype.setReceiveChannelCreate(func);
 		}
 		
 		fileEditor.getProjectionViewer().getFileModel().addMessageType(messagetype);
@@ -240,11 +259,11 @@ public class AddMessageTypeDialog extends TitleAreaDialog {
 	}
 
 	public String getMessageIDAddress() {
-		return messageIDAddress;
+		return channelIDReg;
 	}
 
 	public void setMessageIDAddress(String messageIDAddress) {
-		this.messageIDAddress = messageIDAddress;
+		this.channelIDReg = messageIDAddress;
 	}
 
 	public ComboViewer getComboViewerSide() {
@@ -256,11 +275,11 @@ public class AddMessageTypeDialog extends TitleAreaDialog {
 	}
 	
 	public String getSendOrReceive() {
-		return sendOrReceive;
+		return functionType;
 	}
 
 	public void setSendOrReceive(String sendOrReceive) {
-		this.sendOrReceive = sendOrReceive;
+		this.functionType = sendOrReceive;
 	}
 
 	public String getFunctionName() {

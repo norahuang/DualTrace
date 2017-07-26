@@ -1536,10 +1536,5 @@ public class BigFileViewer extends ProjectionViewer implements RegionChangeListe
 		
 	}
 
-	public void deleteMessageOccurrence(MessageOccurrence occurrence) throws JAXBException, CoreException {
-		// TODO Auto-generated method stub
-		fileModel.deleteMessageOccurrence(occurrence);
-	}
-
 
 }

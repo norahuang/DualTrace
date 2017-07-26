@@ -104,91 +104,54 @@ For the Microsoft* x64 calling convention, the additional register space let fas
 
 
 \subsubsection{Function Calls in the Traces}
-The called functions' name can be inspected  by  search of the symbolic name in the executable binary or any DLLs which used by the program at the time when it is traced. This functionality exists in the current Atlantis. By importing the Dlls and execution  executable binary, Atlantis can list all called functions for the users in the Functions view. From this list, users can chose the interested functions and generate their interested communication type. In Figure 1 there is  an action item call "Add to Communication type" in the right click menu of the function entry. Figure 2 shows the dialogue for entering the information for the added function. The needed information is the communication type's name. User can get the existing communication type list in the drop down menu. They can choose to add the current function to an exist communication type or they can add it to a new communication type by entering a new name. For the channel create/open function, the register holding the address of channel's name as input and the register holding the handle identification of the channel as output are required. For the send/receive function, the register holding the address of the send/receiver buffer, the register holding the length of the sending/receiving message and the register holding the channel's identification are required. As there are 4 functions for each communication type the user has to repeat this add function to communication type action for 4 time to generate one communication type.
+The called functions' name can be inspected  by  search of the symbolic name in the executable binary or any DLLs which used by the program at the time when it is traced. This functionality exists in the current Atlantis. By importing the Dlls and execution  executable binary, Atlantis can list all called functions for the users in the Functions view. From this list, users can chose the interested functions and generate their interested communication type. In Figure\ref{functionsview} there is  an action item call "Add to Communication type" in the right click menu of the function entry. Figure \ref{dialog} shows the dialogue for entering the information for the added function. The needed information is the communication type's name. User can get the existing communication type list in the drop down menu. They can choose to add the current function to an exist communication type or they can add it to a new communication type by entering a new name. For the channel create/open function, the register holding the address of channel's name as input and the register holding the handle identification of the channel as output are required. For the send/receive function, the register holding the address of the send/receiver buffer, the register holding the length of the sending/receiving message and the register holding the channel's identification are required. As there are 4 functions for each communication type the user has to repeat this add function to communication type action for 4 time to generate one communication type.
+
+\begin{figure}[h]
+\includegraphics{functionsview}
+ \caption{Add function to a Communication type from Functions View}
+\label{functionsview}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics{dialog}
+ \caption{Dialog to input information for a function adding to a communication type}
+\label{dialog}
+\end{figure}
 
 \subsubsection{Communication Type Data Structure}
 The defined communication type will be stored in a xml file. The list below shows the data structure of one communication type. 
 \begin{lstlisting}
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <messageTypesData>
     <parentFolder>.tmp</parentFolder>
     <messageTypes>
         <messageType>
-            <name>clientsend</name>
-            <send>
-                <functionType>Send</functionType>
+            <name>namedPipe_clientsend</name>
+            <sendFunction>
                 <associatedFileName>Client</associatedFileName>
                 <name>WriteFile</name>
                 <messageAddress>RDX</messageAddress>
                 <messageLengthAddress>R8</messageLengthAddress>
                 <channelIdReg>RCX</channelIdReg>
-                <first>
-                    <instructionNameIndex>4</instructionNameIndex>
-                    <moduleName>kernel32.dll</moduleName>
-                    <moduleId>1998979072</moduleId>
-                    <fullText></fullText>
-                    <moduleOffset>139056</moduleOffset>
-                    <firstLine>0</firstLine>
-                    <uniqueIdentifier>1998979072:1999118128</uniqueIdentifier>
-                    <parentFunction>1998979072:1999116080</parentFunction>
-                </first>
-            </send>
-            <receive>
-                <functionType>Receive</functionType>
+            </sendFunction>
+            <receiveFunction>
                 <associatedFileName>Server</associatedFileName>
                 <name>ReadFile</name>
                 <messageAddress>RDX</messageAddress>
                 <messageLengthAddress>R8</messageLengthAddress>
                 <channelIdReg>RCX</channelIdReg>
-                <first>
-                    <instructionNameIndex>1</instructionNameIndex>
-                    <moduleName>kernel32.dll</moduleName>
-                    <moduleId>1998979072</moduleId>
-                    <fullText></fullText>
-                    <moduleOffset>68000</moduleOffset>
-                    <firstLine>0</firstLine>
-                    <uniqueIdentifier>1998979072:1999047072</uniqueIdentifier>
-                    <parentFunction>-124387328:8791673856012</parentFunction>
-                </first>
-            </receive>
-            <sendChannelCreate>
-                <functionType>SendChannelCreate</functionType>
+            </receiveFunction>
+            <sendChannelCreateFunction>
                 <associatedFileName>Client</associatedFileName>
                 <name>CreateFileA</name>
-                <messageAddress>-</messageAddress>
-                <messageLengthAddress>-</messageLengthAddress>
                 <channelIdReg>RAX</channelIdReg>
                 <channelNameAddress>RCX</channelNameAddress>
-                <first>
-                    <instructionNameIndex>1</instructionNameIndex>
-                    <moduleName>kernel32.dll</moduleName>
-                    <moduleId>1998979072</moduleId>
-                    <fullText></fullText>
-                    <moduleOffset>138112</moduleOffset>
-                    <firstLine>0</firstLine>
-                    <uniqueIdentifier>1998979072:1999117184</uniqueIdentifier>
-                    <parentFunction>1062535168:5357506560</parentFunction>
-                </first>
-            </sendChannelCreate>
-            <receiveChannelCreate>
-                <functionType>ReceiveChannelCreate</functionType>
+            </sendChannelCreateFunction>
+            <receiveChannelCreateFunction>
                 <associatedFileName>Server</associatedFileName>
                 <name>CreateNamedPipeA</name>
-                <messageAddress>-</messageAddress>
-                <messageLengthAddress>-</messageLengthAddress>
                 <channelIdReg>RAX</channelIdReg>
                 <channelNameAddress>RCX</channelNameAddress>
-                <first>
-                    <instructionNameIndex>2</instructionNameIndex>
-                    <moduleName>kernel32.dll</moduleName>
-                    <moduleId>1998979072</moduleId>
-                    <fullText></fullText>
-                    <moduleOffset>404960</moduleOffset>
-                    <firstLine>0</firstLine>
-                    <uniqueIdentifier>1998979072:1999384032</uniqueIdentifier>
-                    <parentFunction>-124387328:8791673856012</parentFunction>
-                </first>
-            </receiveChannelCreate>
+            </receiveChannelCreateFunction>
         </messageType>
     </messageTypes>
 </messageTypesData>
@@ -196,12 +159,26 @@ The defined communication type will be stored in a xml file. The list below show
 
 
 \subsubsection{Communication Type View}
-A new view named MessageType view is added for the user defined communication types. All user defined communication type are listed in this view. User can change the name of a communication type, remove an existing communication type or searching of the match message occurrences of selected communication type by selecting the selected action item in the right click menu of an communication type entry. The matched messages are listed in the sub window of the view. By clicking the entry of the search  result, user can navigate to it's sender or receiver's corresponding instruction line. Message content in the memory view will be shown as well.
+A new view named Communication Types view is for the user defined communication types. All user defined communication type are listed in this view  as shown in Figure \ref{CommunicationTypeview}. User can change the name of a communication type, remove an existing communication type or searching of the match message occurrences of selected communication type by selecting the selected action item in the right click menu of an communication type entry. The matched messages are listed in the sub window of the view. By clicking the entry of the search  result, user can navigate to it's sender or receiver's corresponding instruction line as shown in Figure\ref{searchresult}. Message content in the memory view will be shown as well.
 
-\subsection{Communication Event Matching}
-The communication Event is 
-\subsubsection{Matching Channel}
-\subsubsection{Matching Message}
+
+\begin{figure}[h]
+\includegraphics{CommunicationTypeview}
+ \caption{New View: Communication Type View}
+\label{CommunicationTypeview}
+\end{figure}
+
+\begin{figure}[h]
+\includegraphics{searchresult}
+ \caption{Right Click menu to navigate to send and receive event in the traces}
+\label{searchresult}
+\end{figure}
+
+\subsection{Communication Event Searching}
+The communication Event consists of the send message event in the sender side and receive message event in the receiver side. The communication event searching algorithm can be divided into three main steps: 1. search all channel create/open event in the sender and receiver side, save the handle id and corresponding channel name. 2. Search all message send and receive event in sender and receiver sides. 3. Matching the send/receive messages pair.
+\subsubsection{Record opened Channel}
+\subsubsection{Search send and receive Message}
+\subsubsection{Matching the send/receive messages pair}
 \subsubsection{Event Status: Success or Fail}
 \subsubsection{Match Events Ordering}
 \subsubsection{Matching Event Data Structure}

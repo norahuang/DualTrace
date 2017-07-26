@@ -158,7 +158,7 @@
             class="ca.uvic.chisel.atlantis.views.MessageTypesView"
             icon="icons/message.png"
             id="ca.uvic.chisel.atlantis.views.MessageTypesView"
-            name="Message Types"
+            name="Communication Types"
             restorable="true">
       </view>
    </extension>

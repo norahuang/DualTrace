@@ -8,7 +8,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.SortedMap;
 
 import javax.xml.bind.JAXBException;
@@ -71,7 +73,6 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IPartListener2;
 import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.IWorkbenchPartReference;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
@@ -91,11 +92,11 @@ import ca.uvic.chisel.bfv.BigFileApplication;
 import ca.uvic.chisel.bfv.annotations.Tag;
 import ca.uvic.chisel.bfv.annotations.TagOccurrence;
 import ca.uvic.chisel.bfv.datacache.IFileModelDataLayer;
+import ca.uvic.chisel.bfv.dualtrace.BfvFileChannelCreateMatch;
 import ca.uvic.chisel.bfv.dualtrace.BfvFileMessageMatch;
 import ca.uvic.chisel.bfv.dualtrace.DualBfvFileMessageMatch;
 import ca.uvic.chisel.bfv.dualtrace.DuplicateMessageOccurrenceException;
 import ca.uvic.chisel.bfv.dualtrace.MessageFunction;
-import ca.uvic.chisel.bfv.dualtrace.MessageOccurrence;
 import ca.uvic.chisel.bfv.dualtrace.MessageOccurrenceSR;
 import ca.uvic.chisel.bfv.dualtrace.MessageType;
 import ca.uvic.chisel.bfv.editor.BigFileEditor;
@@ -124,7 +125,11 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 	private TableViewer resultTableViewer;
 	private Action gotoSender;
 	private Action gotoReceiver;
-	private BfvFileMessageMatch newMatchObj = null;
+	// private BfvFileMessageMatch newMatchObj = null;
+	private Map<String, String> sendChannelMap = new HashMap<String, String>();
+	private Map<String, String> recvChannelMap = new HashMap<String, String>();
+	private BfvFileChannelCreateMatch newChannelMatchObj = null;
+	private BfvFileMessageMatch newMessageMatchObj = null;
 
 	public MessageTypesView() {
 		this.searchResults = new FileSearchResult((FileSearchQuery) null);
@@ -160,6 +165,12 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 				if (type.getSend() != null) {
 					functions.add(type.getSend());
 				}
+				if (type.getSendChannelCreate() != null) {
+					functions.add(type.getSendChannelCreate());
+				}
+				if (type.getReceiveChannelCreate() != null) {
+					functions.add(type.getReceiveChannelCreate());
+				}
 				return functions.toArray();
 
 			} else {
@@ -176,7 +187,8 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 		public boolean hasChildren(Object element) {
 			if (element instanceof MessageType) {
 				MessageType type = (MessageType) element;
-				return type.getReceive() != null || type.getSend() != null;
+				return type.getReceive() != null || type.getSend() != null || type.getSendChannelCreate() != null
+						|| type.getReceiveChannelCreate() != null;
 			} else {
 				return false;
 			}
@@ -204,33 +216,37 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 			return;
 		}
 
-		Collection<MessageType> types = activeEditor.getProjectionViewer().getFileModel().getMessageTypes();
+		Collection<MessageType> types = activeEditor.getProjectionViewer().getFileModel().getMessageTypes(true);
 		treeViewer.setInput(types);
 	}
 
 	@Override
 	public void partBroughtToTop(IWorkbenchPartReference arg0) {
 		// TODO Auto-generated method stub
+		System.out.println("partBroughtToTop:");
 
 	}
 
 	@Override
 	public void partClosed(IWorkbenchPartReference arg0) {
-		IEditorReference[] opendeditors = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getEditorReferences();
-        if (opendeditors.length == 0){
-        	treeViewer.setInput(null);
-        	resultTableViewer.setInput(new ArrayList<MemoryReference>());
+		IEditorReference[] opendeditors = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+				.getEditorReferences();
+		if (opendeditors.length == 0) {
+			treeViewer.setInput(null);
+			resultTableViewer.setInput(new ArrayList<MemoryReference>());
 			refresh();
 			return;
-        }
+		}
 	}
 
 	@Override
 	public void partDeactivated(IWorkbenchPartReference arg0) {
+		System.out.println("deativate:");
 	}
 
 	@Override
 	public void partHidden(IWorkbenchPartReference arg0) {
+		System.out.println("hide:");
 		// TODO Auto-generated method stub
 
 	}
@@ -274,7 +290,7 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 			}
 
 			activeEditor = newEditor;
-			treeViewer.setInput(activeEditor.getProjectionViewer().getFileModel().getMessageTypes());
+			treeViewer.setInput(activeEditor.getProjectionViewer().getFileModel().getMessageTypes(true));
 			refresh();
 
 		}
@@ -384,7 +400,7 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 		menu.addMenuListener(this);
 
 		editItem = new MenuItem(menu, SWT.CASCADE);
-		editItem.setText("Rename This Message Type");
+		editItem.setText("Rename This Communication Type");
 		editItem.addListener(SWT.Selection, new Listener() {
 			@Override
 			public void handleEvent(Event event) {
@@ -410,7 +426,7 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 
 		// Menu item for deleting tags or tag occurrences
 		deleteItem = new MenuItem(menu, SWT.CASCADE);
-		deleteItem.setText("Remove This Message Type");
+		deleteItem.setText("Remove This Communication Type");
 		deleteItem.addListener(SWT.Selection, new Listener() {
 			@Override
 			public void handleEvent(Event event) {
@@ -420,35 +436,17 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 				if (selected instanceof MessageType) {
 					MessageType type = (MessageType) selected;
 					boolean delete = MessageDialog.openQuestion(shell, "Delete message type",
-							"This will delete all occurrences of message type '" + type.getName()
+							"This will delete all occurrences of Communication type '" + type.getName()
 									+ "'. Are you sure you want to do this?");
 					if (delete) {
 						try {
 							activeEditor.getProjectionViewer().deleteMessageType(type);
 						} catch (JAXBException e) {
 							BigFileApplication.showErrorDialog("Error deleting message type",
-									"Could not update file's message types file", e);
+									"Could not update file's Communication types file", e);
 						} catch (CoreException e) {
 							BigFileApplication.showErrorDialog("Error deleting message type",
-									"Problem refreshing file's message types file", e);
-						}
-						updateView();
-						selectedType = null;
-						currentSelectedTypeOccurrence = -1;
-					}
-				} else if (selected instanceof MessageOccurrence) {
-					MessageOccurrence occurrence = (MessageOccurrence) selected;
-					boolean delete = MessageDialog.openQuestion(shell, "Delete Tag Occurrence",
-							"Are you sure you want to delete " + occurrence.toString() + "?");
-					if (delete) {
-						try {
-							activeEditor.getProjectionViewer().deleteMessageOccurrence(occurrence);
-						} catch (JAXBException e) {
-							BigFileApplication.showErrorDialog("Error deleting tag occurrence",
-									"Could not update file's tags file", e);
-						} catch (CoreException e) {
-							BigFileApplication.showErrorDialog("Error deleting tag occurrence",
-									"Problem refreshing file's tags file", e);
+									"Problem refreshing file's Communication types file", e);
 						}
 						updateView();
 						selectedType = null;
@@ -459,7 +457,7 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 		});
 
 		searchOccurrenceItem = new MenuItem(menu, SWT.CASCADE);
-		searchOccurrenceItem.setText("Search Occurrences of This Message Type");
+		searchOccurrenceItem.setText("Search Communication Occurrences of This Communication Type");
 		searchOccurrenceItem.addListener(SWT.Selection, new Listener() {
 			@Override
 			public void handleEvent(Event event) {
@@ -590,83 +588,96 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 
 		}
 
-
-		if (sendEditor == null){
-		    IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-			String fullpathsend = f.getParent() + "\\" + type.getSend().getAssociatedFileName() + "\\" + "address_space.itable";
+		if (sendEditor == null) {
+			IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+			String fullpathsend = f.getParent() + "\\" + type.getSend().getAssociatedFileName() + "\\"
+					+ "address_space.itable";
 			File fSend = new File(fullpathsend);
-		    
-		    fSend = fileUtil.convertFileToBlankFile(fSend);
+
+			fSend = fileUtil.convertFileToBlankFile(fSend);
 			IFile convertedSendFile = BfvFileUtils.convertFileIFile(fSend);
 			if (!convertedSendFile.exists()) {
 				fileUtil.createEmptyFile(convertedSendFile);
 			}
-			
+
 			// NB file is converted above
-			IEditorDescriptor desc = PlatformUI.getWorkbench().getEditorRegistry().getDefaultEditor(convertedSendFile.getName());
+			IEditorDescriptor desc = PlatformUI.getWorkbench().getEditorRegistry()
+					.getDefaultEditor(convertedSendFile.getName());
 			try {
 				sendEditor = (BigFileEditor) page.openEditor(new FileEditorInput(convertedSendFile), desc.getId());
 			} catch (PartInitException e1) {
 				System.out.println("Can not open receiver file");
 			}
 		}
-		
-		
-		if (recvEditor == null){
-		    IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-			String fullpathRecv = f.getParent() + "\\" + type.getReceive().getAssociatedFileName()+ "\\" + "address_space.itable";
+
+		if (recvEditor == null) {
+			IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
+			String fullpathRecv = f.getParent() + "\\" + type.getReceive().getAssociatedFileName() + "\\"
+					+ "address_space.itable";
 			File fRecv = new File(fullpathRecv);
-		    
+
 			fRecv = fileUtil.convertFileToBlankFile(fRecv);
 			IFile convertedRecvFile = BfvFileUtils.convertFileIFile(fRecv);
 
 			if (!convertedRecvFile.exists()) {
 				fileUtil.createEmptyFile(convertedRecvFile);
 			}
-			
+
 			// NB file is converted above
-			IEditorDescriptor desc = PlatformUI.getWorkbench().getEditorRegistry().getDefaultEditor(convertedRecvFile.getName());
+			IEditorDescriptor desc = PlatformUI.getWorkbench().getEditorRegistry()
+					.getDefaultEditor(convertedRecvFile.getName());
 			try {
 				recvEditor = (BigFileEditor) page.openEditor(new FileEditorInput(convertedRecvFile), desc.getId());
 			} catch (PartInitException e1) {
 				System.out.println("Can not open receiver file");
 			}
 		}
-		
+
 		String fullpathRecv = f.getParent() + "\\" + type.getReceive().getAssociatedFileName();
 		File fSend = new File(fullpathRecv);
 		String fullpathsend = f.getParent() + "\\" + type.getSend().getAssociatedFileName();
 		File fRecv = new File(fullpathsend);
-		
-		IFile currentFileSend = BfvFileUtils.convertFileIFile(fSend);
-		List<BfvFileMessageMatch> sendList = searchSendFunctions(new Instruction(type.getSend().getFirst()).getIdGlobalUnique(),
-		currentFileSend,
-		type.getSend().getMessageLengthAddress(),type.getSend().getMessageAddress());
 
+		IFile currentFileSend = BfvFileUtils.convertFileIFile(fSend);
+		List<BfvFileChannelCreateMatch> sendChannelList = searchChannels(
+				new Instruction(type.getSendChannelCreate().getFirst()).getIdGlobalUnique(), currentFileSend,
+				type.getSendChannelCreate().getChannelNameAddress(), type.getSendChannelCreate().getChannelIdReg(),
+				type.getSendChannelCreate(), sendEditor);
+
+		List<BfvFileMessageMatch> sendList = searchSendFunctions(
+				new Instruction(type.getSend().getFirst()).getIdGlobalUnique(), currentFileSend,
+				type.getSend().getMessageLengthAddress(), type.getSend().getMessageAddress(),
+				type.getSend().getChannelIdReg(), sendChannelList);
+
+		List<BfvFileChannelCreateMatch> recvChannelList = searchChannels(
+				new Instruction(type.getReceiveChannelCreate().getFirst()).getIdGlobalUnique(), currentFileSend,
+				type.getReceiveChannelCreate().getChannelNameAddress(),
+				type.getReceiveChannelCreate().getChannelIdReg(), type.getReceiveChannelCreate(), recvEditor);
 
 		IFile currentFileRecv = BfvFileUtils.convertFileIFile(fRecv);
 		List<BfvFileMessageMatch> recvList = searchRecvFunctions(
 				new Instruction(type.getReceive().getFirst()).getIdGlobalUnique(), currentFileRecv,
-				type.getReceive().getMessageLengthAddress(), type.getReceive().getMessageAddress(), type.getReceive());
+				type.getReceive().getMessageLengthAddress(), type.getReceive().getMessageAddress(),
+				type.getReceive().getChannelIdReg(), type.getReceive(), recvChannelList);
 
 		List<Match> matches = new ArrayList<Match>();
-		for (BfvFileMessageMatch send : sendList){
-			for (BfvFileMessageMatch recv : recvList)
-			{
-				if(recv.getMessage().startsWith(send.getMessage())){
+		for (BfvFileMessageMatch send : sendList) {
+			for (BfvFileMessageMatch recv : recvList) {
+				if (recv.getMessage().startsWith(send.getMessage())
+						&& recv.getChannelName().equals(send.getChannelName())) {
 					DualBfvFileMessageMatch newMatch = new DualBfvFileMessageMatch(send, recv);
 					matches.add(newMatch);
 				}
 			}
 		}
-		
+
 		resultTableViewer.setInput(matches);
 
 	}
 
-
 	private List<BfvFileMessageMatch> searchSendFunctions(final InstructionId targetInstructionId, IFile currentFile,
-			String messageLenghtReg, String messageAddReg) {
+			String messageLenghtReg, String messageAddReg, String channelIdReg,
+			List<BfvFileChannelCreateMatch> sendChannelList) {
 		List<MessageOccurrenceSR> result = new ArrayList<MessageOccurrenceSR>();
 		System.out.println("Searching database function table backend");
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -699,7 +710,6 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 			LineElement lineElement = match.getLineElement();
 
 			int intraLineOffset = match.getOffset() - lineElement.getOffset();
-			newMatchObj = null;
 
 			Job memoryUpdateJob = new Job("Memory Update Job") {
 				@Override
@@ -722,28 +732,38 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 					Long add = Long.parseLong(map.get(messageAddReg.toUpperCase()).getMemoryContent().getMemoryValue(),
 							16);
 					BigInteger messageAddress = BigInteger.valueOf(add);
-/*					String message = "";
-					for (MemoryReference memRef : newMemoryReferencesResult.getMemoryList().values()) {
-						if (add <= memRef.getAddress() && add + messagelenght > memRef.getAddress()) {
-							message += (char) Integer.parseInt(memRef.getMemoryContent().getMemoryValue(), 16);
+
+					String channelId = String.valueOf((short) Long
+							.parseLong(map.get(channelIdReg.toUpperCase()).getMemoryContent().getMemoryValue(), 16));
+					String channelName = "";
+					int channelCreateLine = 0;
+					for (BfvFileChannelCreateMatch channel : sendChannelList) {
+						if (channelId.equals(channel.getId())
+								&& channel.getLineElement().getLine() < lineElement.getLine()
+								&& channelCreateLine < channel.getLineElement().getLine()) {
+							channelCreateLine = channel.getLineElement().getLine();
+							channelName = channel.getChannelName();
 						}
-					}*/
-					
+					}
+
 					String message = "";
+					newMessageMatchObj = null;
 					for (MemoryReference memRef : newMemoryReferencesResult.getMemoryList().values()) {
 						if (add <= memRef.getAddress() && add + messagelenght > memRef.getEndAddress()) {
 							String hex = memRef.getMemoryContent().getMemoryValue();
-						    for (int i = 0; i < hex.length(); i+=2) {
-						        String str = hex.substring(i, i+2);
-						        message += (char)Integer.parseInt(str, 16);
-						    }
+							for (int i = 0; i < hex.length(); i += 2) {
+								String str = hex.substring(i, i + 2);
+								message += (char) Integer.parseInt(str, 16);
+							}
 						}
 					}
-				   newMatchObj = new BfvFileMessageMatch(sendEmpty, match.getOriginalOffset(),
-								match.getLength(), new LineElement(currentFile, lineElement.getLine(),
-										lineElement.getOffset(), lineElement.getContents()),
-								intraLineOffset, messageAddress, message);
-				   
+					if (!message.equals("") && !channelName.equals("")) {
+						newMessageMatchObj = new BfvFileMessageMatch(sendEmpty, match.getOriginalOffset(),
+								match.getLength(),
+								new LineElement(currentFile, lineElement.getLine(), lineElement.getOffset(),
+										lineElement.getContents()),
+								intraLineOffset, messageAddress, message, channelName);
+					}
 
 					System.out.println("messageeeeee:" + message);
 					System.out.println(messagelenght);
@@ -760,7 +780,9 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			matches.add(newMatchObj);
+			if (newMessageMatchObj != null) {
+				matches.add(newMessageMatchObj);
+			}
 			// Get old FileMatch object out, put new BfvFileMatch in its place.
 
 		}
@@ -768,7 +790,8 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 	}
 
 	private List<BfvFileMessageMatch> searchRecvFunctions(final InstructionId targetInstructionId, IFile currentFile,
-			String messageLenghtReg, String messageAddReg, MessageFunction function) {
+			String messageLenghtReg, String messageAddReg, String channelIdReg, MessageFunction function,
+			List<BfvFileChannelCreateMatch> recvChannelList) {
 		List<MessageOccurrenceSR> result = new ArrayList<MessageOccurrenceSR>();
 		System.out.println("Searching database function table backend");
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -802,8 +825,6 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 			FileMatch match = (FileMatch) originalMatches[i];
 			LineElement lineElement = match.getLineElement();
 
-			newMatchObj = null;
-
 			Job memoryUpdateJob = new Job("Memory Update Job") {
 				@Override
 				protected IStatus run(IProgressMonitor monitor) {
@@ -814,16 +835,30 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 						return Status.CANCEL_STATUS;
 					}
 					MemoryQueryResults functionStartMemoryReferencesResult = funcStartMemoryEventsAsync.getResult();
-					ModelProvider.INSTANCE.setMemoryQueryResults(functionStartMemoryReferencesResult, lineElement.getLine());
+					ModelProvider.INSTANCE.setMemoryQueryResults(functionStartMemoryReferencesResult,
+							lineElement.getLine());
 					functionStartMemoryReferencesResult.collateMemoryAndRegisterResults(lineElement.getLine());
 					SortedMap<String, MemoryReference> map = functionStartMemoryReferencesResult.getRegisterList();
 					short messagelenght = (short) Long.parseLong(
 							(map.get(messageLenghtReg.toUpperCase()).getMemoryContent().getMemoryValue()), 16);
+					String channelId = String.valueOf((short) Long
+							.parseLong(map.get(channelIdReg.toUpperCase()).getMemoryContent().getMemoryValue(), 16));
 					Long add = Long.parseLong(map.get(messageAddReg.toUpperCase()).getMemoryContent().getMemoryValue(),
 							16);
 					BigInteger messageAddress = BigInteger.valueOf(add);
 
-					int retLineNumber = (int) fileModel.getFunctionRetLine(moduleId, lineElement.getLine());
+					String channelName = "";
+					int channelCreateLine = 0;
+					for (BfvFileChannelCreateMatch channel : recvChannelList) {
+						if (channelId.equals(channel.getId())
+								&& channel.getLineElement().getLine() < lineElement.getLine()
+								&& channelCreateLine < channel.getLineElement().getLine()) {
+							channelCreateLine = channel.getLineElement().getLine();
+							channelName = channel.getChannelName();
+						}
+					}
+
+					int retLineNumber = (int) fileModel.getFunctionRetLine(moduleId, lineElement.getLine() - 1);
 					System.out.println("ret line:" + retLineNumber);
 
 					FileMatch retMatch = (FileMatch) ((BinaryFormatFileModelDataLayer) fileModel)
@@ -842,22 +877,25 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 					MemoryQueryResults functionEndMemoryReferencesResult = functionEndMemoryEventsAsync.getResult();
 					ModelProvider.INSTANCE.setMemoryQueryResults(functionEndMemoryReferencesResult, retLineNumber);
 					functionEndMemoryReferencesResult.collateMemoryAndRegisterResults(retLineNumber);
-					
+
+					newMessageMatchObj = null;
 					String message = "";
 					for (MemoryReference memRef : functionEndMemoryReferencesResult.getMemoryList().values()) {
 						if (add <= memRef.getAddress() && add + messagelenght > memRef.getEndAddress()) {
 							String hex = memRef.getMemoryContent().getMemoryValue();
-						    for (int i = 0; i < hex.length(); i+=2) {
-						        String str = hex.substring(i, i+2);
-						        message += (char)Integer.parseInt(str, 16);
-						    }
+							for (int i = 0; i < hex.length(); i += 2) {
+								String str = hex.substring(i, i + 2);
+								message += (char) Integer.parseInt(str, 16);
+							}
 						}
 					}
-					newMatchObj = new BfvFileMessageMatch(recvEmpty, retMatch.getOriginalOffset(),
-							retMatch.getLength(), new LineElement(currentFile, retLineNumber,
-									retLineElement.getOffset(), retLineElement.getContents()),
-							intraLineOffset, messageAddress, message);
-
+					if (!message.equals("")) {
+						newMessageMatchObj = new BfvFileMessageMatch(recvEmpty, retMatch.getOriginalOffset(),
+								retMatch.getLength(),
+								new LineElement(currentFile, retLineNumber, retLineElement.getOffset(),
+										retLineElement.getContents()),
+								intraLineOffset, messageAddress, message, channelName);
+					}
 					return Status.OK_STATUS;
 				}
 			};
@@ -869,14 +907,142 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			matches.add(newMatchObj);
+			if (newMessageMatchObj != null) {
+				matches.add(newMessageMatchObj);
+			}
 			// Get old FileMatch object out, put new BfvFileMatch in its place.
 
 		}
 
-		//if (matches != null && matches.size() > 0) {
-		//	resultTableViewer.setInput(matches);
-		//}
+		// if (matches != null && matches.size() > 0) {
+		// resultTableViewer.setInput(matches);
+		// }
+		return matches;
+	}
+
+	private List<BfvFileChannelCreateMatch> searchChannels(final InstructionId targetInstructionId, IFile currentFile,
+			String channelNameAddReg, String channelIdReg, MessageFunction function, BigFileEditor editor) {
+		List<MessageOccurrenceSR> result = new ArrayList<MessageOccurrenceSR>();
+		System.out.println("Searching database function table backend");
+		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+		Date date = new Date();
+		System.out.println("Starting database function table search at time " + dateFormat.format(date));
+		ISearchQuery dummyQuery;
+		RegexSearchInput dummyInput = new RegexSearchInput(targetInstructionId.toString(), false, false, false,
+				currentFile);
+		AtlantisFileModelDataLayer fileModel = (AtlantisFileModelDataLayer) RegistryUtils
+				.getFileModelDataLayerFromRegistry(editor.getCurrentBlankFile());
+		if (dummyInput.getScope() != null) {
+			try {
+				dummyQuery = TextSearchQueryProvider.getPreferred().createQuery(dummyInput);
+				dummyQuery.run(null);
+				this.searchResults.removeAll();
+			} catch (CoreException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+
+		int moduleId = function.getFirst().getModuleId();
+
+		((BinaryFormatFileModelDataLayer) fileModel).performFunctionSearch(this.searchResults, targetInstructionId,
+				currentFile, (AtlantisTraceEditor) editor);
+		IFile empty = BfvFileUtils.convertFileIFile(editor.getEmptyFile());
+		Match[] originalMatches = this.searchResults.getMatches(empty);
+		List<BfvFileChannelCreateMatch> matches = new ArrayList<BfvFileChannelCreateMatch>();
+		for (int i = 0; i < originalMatches.length; i++) {
+			FileMatch match = (FileMatch) originalMatches[i];
+			LineElement lineElement = match.getLineElement();
+
+			Job memoryUpdateJob = new Job("Memory Update Job") {
+				@Override
+				protected IStatus run(IProgressMonitor monitor) {
+					final AsyncResult<MemoryQueryResults> funcStartMemoryEventsAsync = fileModel
+							.getMemoryEventsAsync(lineElement.getLine() + 1, monitor);
+
+					if (funcStartMemoryEventsAsync.isCancelled()) {
+						return Status.CANCEL_STATUS;
+					}
+					MemoryQueryResults functionStartMemoryReferencesResult = funcStartMemoryEventsAsync.getResult();
+					ModelProvider.INSTANCE.setMemoryQueryResults(functionStartMemoryReferencesResult,
+							lineElement.getLine());
+					functionStartMemoryReferencesResult.collateMemoryAndRegisterResults(lineElement.getLine());
+					SortedMap<String, MemoryReference> map = functionStartMemoryReferencesResult.getRegisterList();
+
+					Long add = Long.parseLong(
+							map.get(channelNameAddReg.toUpperCase()).getMemoryContent().getMemoryValue(), 16);
+					BigInteger channelNameAddress = BigInteger.valueOf(add);
+
+					int retLineNumber = (int) fileModel.getFunctionRetLine(moduleId, lineElement.getLine() - 1);
+					System.out.println("ret line:" + retLineNumber);
+
+					FileMatch retMatch = (FileMatch) ((BinaryFormatFileModelDataLayer) fileModel)
+							.getTraceLine(retLineNumber, currentFile, (AtlantisTraceEditor) editor);
+					LineElement retLineElement = retMatch.getLineElement();
+					int intraLineOffset = retMatch.getOffset() - retLineElement.getOffset();
+
+					// These will cancel themselves and return null if cancelled
+					final AsyncResult<MemoryQueryResults> functionEndMemoryEventsAsync = fileModel
+							.getMemoryEventsAsync(retLineElement.getLine() + 1, monitor);
+
+					if (functionEndMemoryEventsAsync.isCancelled()) {
+						return Status.CANCEL_STATUS;
+					}
+
+					MemoryQueryResults functionEndMemoryReferencesResult = functionEndMemoryEventsAsync.getResult();
+					ModelProvider.INSTANCE.setMemoryQueryResults(functionEndMemoryReferencesResult, retLineNumber);
+					functionEndMemoryReferencesResult.collateMemoryAndRegisterResults(retLineNumber);
+
+					String channelName = "";
+					String channelId = "";
+					newChannelMatchObj = null;
+					for (MemoryReference memRef : functionEndMemoryReferencesResult.getMemoryList().values()) {
+						if (add <= memRef.getAddress() && add + 256 > memRef.getEndAddress()) {
+							String hex = memRef.getMemoryContent().getMemoryValue();
+							for (int i = 0; i < hex.length(); i += 2) {
+								String str = hex.substring(i, i + 2);
+								channelName += (char) Integer.parseInt(str, 16);
+							}
+						}
+					}
+
+					SortedMap<String, MemoryReference> endmap = functionEndMemoryReferencesResult.getRegisterList();
+
+					channelId = String.valueOf((short) Long
+							.parseLong(endmap.get(channelIdReg.toUpperCase()).getMemoryContent().getMemoryValue(), 16));
+
+					channelName = channelName.split("\n")[0];
+					channelName = channelName.trim();
+					if (!channelId.equals("")) {
+						newChannelMatchObj = new BfvFileChannelCreateMatch(empty, retMatch.getOriginalOffset(),
+								retMatch.getLength(),
+								new LineElement(currentFile, retLineNumber, retLineElement.getOffset(),
+										retLineElement.getContents()),
+								intraLineOffset, channelNameAddress, channelId, channelName);
+					}
+					return Status.OK_STATUS;
+				}
+			};
+
+			memoryUpdateJob.schedule();
+			try {
+				memoryUpdateJob.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			if (newChannelMatchObj != null) {
+				matches.add(newChannelMatchObj);
+			}
+			// Get old FileMatch object out, put new BfvFileMatch in its place.
+
+		}
+
+		// if (matches != null && matches.size() > 0) {
+		// resultTableViewer.setInput(matches);
+		// }
 		return matches;
 	}
 
@@ -940,11 +1106,13 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 				try {
 					AtlantisTraceEditor activeTraceDisplayer = (AtlantisTraceEditor) sendEditor;
 					if (activeTraceDisplayer != null) {
-						List<DualBfvFileMessageMatch> refs = (List<DualBfvFileMessageMatch>) resultTableViewer.getInput();
+						List<DualBfvFileMessageMatch> refs = (List<DualBfvFileMessageMatch>) resultTableViewer
+								.getInput();
 						BfvFileMessageMatch match = refs.get(resultTable.getSelectionIndex()).getSendMatch();
 						gotoAddressOfMessage(match.getTargetMemoryAddress());
-						activeTraceDisplayer.getProjectionViewer().gotoLineAtOffset(match.getLineElement().getLine(), 0);
-						sendEditor.triggerCursorPositionChanged();
+						activeTraceDisplayer.getProjectionViewer().gotoLineAtOffset(match.getLineElement().getLine(),
+								0);
+						activeTraceDisplayer.triggerCursorPositionChanged();
 					}
 
 				} catch (Exception ex) {
@@ -965,11 +1133,14 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 					AtlantisTraceEditor activeTraceDisplayer = (AtlantisTraceEditor) recvEditor;
 					if (activeTraceDisplayer != null) {
 
-						List<DualBfvFileMessageMatch> refs = (List<DualBfvFileMessageMatch>) resultTableViewer.getInput();
+						List<DualBfvFileMessageMatch> refs = (List<DualBfvFileMessageMatch>) resultTableViewer
+								.getInput();
 						BfvFileMessageMatch match = refs.get(resultTable.getSelectionIndex()).getRecvMatch();
 						gotoAddressOfMessage(match.getTargetMemoryAddress());
-						activeTraceDisplayer.getProjectionViewer().gotoLineAtOffset(match.getLineElement().getLine(), 0);
-						recvEditor.triggerCursorPositionChanged();
+						activeTraceDisplayer.getProjectionViewer().gotoLineAtOffset(match.getLineElement().getLine(),
+								0);
+						activeTraceDisplayer.triggerCursorPositionChanged();
+
 					}
 				} catch (Exception ex) {
 					System.err.println("Error jumping to line");

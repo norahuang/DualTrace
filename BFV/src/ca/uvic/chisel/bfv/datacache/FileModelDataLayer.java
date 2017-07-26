@@ -555,8 +555,8 @@ public class FileModelDataLayer implements IFileModelDataLayer, FileModelProvide
 	}
 
 	@Override
-	public Collection<MessageType> getMessageTypes() {
-		return fileAnnotationModel.getMessageTypes();
+	public Collection<MessageType> getMessageTypes(boolean forRead) {
+		return fileAnnotationModel.getMessageTypes(forRead);
 	}
 
 	@Override
@@ -592,12 +592,6 @@ public class FileModelDataLayer implements IFileModelDataLayer, FileModelProvide
 	    fireMessageTypesChangedEvent();
 	}
 
-	@Override
-	public void deleteMessageOccurrence(MessageOccurrence occurrence) throws JAXBException, CoreException {
-		fileAnnotationModel.deleteMessageOccurrence(occurrence);
-		fireMessageTypesChangedEvent();
-		
-	}
 
 	@Override
 	public void setMessageTypes(SortedMap<String, MessageType> messageTypes) {

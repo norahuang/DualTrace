@@ -197,7 +197,7 @@ public class FunctionsView extends ViewPart implements IPartListener2 {
 			}
 		};
 
-		addMessageTypeAction = new Action("Add To MessageType") {
+		addMessageTypeAction = new Action("Add To a Communication Type") {
 			@Override
 			public void run() {
 				IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();

@@ -221,8 +221,6 @@ int endLine, int endChar) throws DuplicateTagOccurrenceException,
 
 	void updateDecorator();
 
-	public abstract void deleteMessageOccurrence(MessageOccurrence occurrence) throws JAXBException, CoreException;
-
 	public void setMessageTypes(SortedMap<String, MessageType> messageTypes);
 	
 }

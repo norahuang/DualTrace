@@ -250,6 +250,7 @@ public class InstructionDbConnection extends DbConnectionManager {
 		try {
 			q.setParam(q.funStartLineNumber, startLineNumber);
 			q.setParam(q.moduleIdParam, moduleId);
+			q.setParam(q.funCallLineNumber, startLineNumber -1 );
 			TypedResultSet rs = q.executeQuery();
 			if(rs.next()){
 			retLineNumber = rs.get(q.firstLineNumber);

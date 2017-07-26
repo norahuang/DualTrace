@@ -239,7 +239,7 @@ public class XMLUtil {
 		
 		MessageTypesData messageTypesData = new MessageTypesData();
 		messageTypesData.setParentFolder(storage.getParentFolderName());
-		messageTypesData.setMessageTypes(storage.getMessageTypes());
+		messageTypesData.setMessageTypes(storage.getMessageTypes(false));
 		
 		JAXBContext context = JAXBContext.newInstance(MessageTypesData.class);
 		Marshaller marshaller = context.createMarshaller();

@@ -8,12 +8,10 @@ import org.eclipse.search.internal.ui.text.LineElement;
 import ca.uvic.chisel.bfv.views.BfvFileMatch;
 
 @SuppressWarnings("restriction")
-public class BfvFileMessageMatch extends BfvFileMatch {
+public class BfvFileChannelCreateMatch extends BfvFileMatch {
 
-	private final BigInteger targetMemoryAddress;
-	private String message;
+	private String id;
 	private String channelName;
-
 	public String getChannelName() {
 		return channelName;
 	}
@@ -22,19 +20,20 @@ public class BfvFileMessageMatch extends BfvFileMatch {
 		this.channelName = channelName;
 	}
 
-	public String getMessage() {
-		return message;
+	private BigInteger targetMemoryAddress;
+
+	public String getId() {
+		return id;
 	}
 
-	public void setMessage(String message) {
-		this.message = message;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public BfvFileMessageMatch(IFile element, int offsetIntoLine, int length, LineElement lineEntry, int intraLineOffset,BigInteger targetMemoryAddress, String message, String channelName) {
+	public BfvFileChannelCreateMatch(IFile element, int offsetIntoLine, int length, LineElement lineEntry, int intraLineOffset,BigInteger targetMemoryAddress, String id, String channelName) {
 		super(element, offsetIntoLine, length, lineEntry,intraLineOffset);
 		
-		this.targetMemoryAddress = targetMemoryAddress;
-		this.message = message;
+		this.id = id;
 		this.channelName = channelName;
 	}
 	
@@ -43,7 +42,7 @@ public class BfvFileMessageMatch extends BfvFileMatch {
 	}
 	
 	public String toString(){
-		return channelName + ":"+message;
+		return channelName;
 		
 	}
 }

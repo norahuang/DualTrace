@@ -290,7 +290,7 @@ public interface IFileAnnotationStorage {
 	public abstract Collection<RegionModel> getRegions();
 
 
-	public abstract Collection<MessageType> getMessageTypes();	
+	public abstract Collection<MessageType> getMessageTypes(boolean forRead);	
 	
 	public abstract void deleteMessageType(MessageType type) throws JAXBException, CoreException;
 
@@ -301,8 +301,6 @@ public interface IFileAnnotationStorage {
 	public boolean isUniqueMessageTypeName(String trim);
 
 	public void renameMessageType(MessageType type, String newName) throws JAXBException, CoreException, DuplicateMessageOccurrenceException;
-
-	public void deleteMessageOccurrence(MessageOccurrence occurrence) throws JAXBException, CoreException;
 
 	public void setMessageTypes(SortedMap<String, MessageType> messageTypes);
 	

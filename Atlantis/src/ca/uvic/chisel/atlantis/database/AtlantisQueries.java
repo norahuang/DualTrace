@@ -852,11 +852,26 @@ class SelectInstructionsInRange extends CommonInstructionResults {
 class GetFunctionRetLineNumber extends CommonInstructionResults {
 	IntegerParameter moduleIdParam = new IntegerParameter("moduleId");
 	IntegerParameter funStartLineNumber = new IntegerParameter("funStartLineNumber");
+	IntegerParameter funCallLineNumber = new IntegerParameter("funCallLineNumber");
 	
 	{
+		
+/*		"SELECT  MIN(firstLineNumber) as firstLineNumber FROM " + InstructionDbConnection.INSTRUCTION_TABLE_NAME + 
+		" WHERE moduleId = :"+moduleIdParam+" AND firstLineNumber > :"+funStartLineNumber+" AND instructionName == 'ret'";*/
 		this.q =
-		"SELECT  MIN(firstLineNumber) as firstLineNumber FROM " + InstructionDbConnection.INSTRUCTION_TABLE_NAME + 
-		" WHERE moduleId = :"+moduleIdParam+" AND firstLineNumber > :"+funStartLineNumber+" AND instructionName == 'ret'";
+		"WITH" +
+		   " CET AS (SELECT  * FROM " + InstructionDbConnection.INSTRUCTION_TABLE_NAME + " WHERE moduleId = :" + moduleIdParam + " AND firstLineNumber > :" + funStartLineNumber + " AND instructionName == 'ret')," +
+		   " CALLMODULEID AS (SELECT moduleId FROM " + InstructionDbConnection.INSTRUCTION_TABLE_NAME + " WHERE firstLineNumber = :" + funCallLineNumber + ")" +
+		" SELECT" +
+		   " MIN(t1.firstLineNumber) AS firstLineNumber" + 
+		" FROM" +
+		   " CET AS t1," +
+		   InstructionDbConnection.INSTRUCTION_TABLE_NAME+ " As t3,"+
+		   " CALLMODULEID As t2"+
+		" WHERE" +
+		   " (t3.firstLineNumber - 1) = t1.firstLineNumber AND" + 
+		   " t3.moduleId = t2.moduleId";
+
 	}
 }
 
