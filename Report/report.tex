@@ -85,9 +85,9 @@ The major problem we are considering in dual-trace analysis is locating the sync
 \section{Communication Types}
 In order to synchronize the messaging of both side of the traces, we need to investigate the communication methods to figure out how they looks like in the assembly level traces.
 There are so many communication methods exists in the real world. We are not covering all of them at a time, but start from narrowing down our study into some sort of communication methods. We start from investigating the messaging methods in Windows Communication Framework. There are two kinds of messaging channels in this framework, transport channels and protocol channel. We are current focus on transport channels. Transport channels read and write messages from the network (or some other communication point with the outside world). Example of transport channels are named pipes, MSMQ, HTTP and TCP channels. If our research turns out to be work in that particular communication methods, it is possible to extend it for more general use cases.
-\subsubsection{Assembly Calling Convention}
-Before we jump into each communication method, it is important to know some basic assembly calling convention.
-Calling Convention is different for operating system and the programming language. Since we are looking into the messaging methods being used in windows communication framework, and since our case study in running on a Microsoft* x64 system, we only list Windows calling convention for the Microsoft* x64 calling convention, the additional register space let fastcall be the only calling convention (under x86 there were many: stdcall, thiscall, fastcall, cdecl, etc.). The rules for interfacing with C/C++ style functions:\par
+\subsection{Assembly Calling Convention}
+Before we jumping into each communication method, it is important to know some basic assembly calling convention.
+Calling Convention is different for operating system and the programming language. Since we are looking into the messaging methods being used in windows communication framework, and since our case study in running on a Microsoft* x64 system, we only list the Microsoft* x64 calling convention for interfacing with C/C++ style functions:\par
 \begin{enumerate}  
 \item RCX, RDX, R8, R9 are used for integer and pointer arguments in that order left to right.
 \item XMM0, 1, 2, and 3 are used for floating point arguments.
@@ -99,41 +99,66 @@ Calling Convention is different for operating system and the programming languag
 \end{enumerate}
 
 \subsection{Named pipes Channel}
-A named pipe is a named, one-way or duplex pipe for communication between the pipe server and one or more pipe clients. All instances of the named pipe share the same pipe name, but each instance has it own buffers and handles. In here we only consider one to one server/client pairs. One server to multiple client scenario can always be divided into multiple server/client pairs cases.
-\subsection{Related functions}
-There are several system functions related to this communication type. However, only some of them are interested in our message matching mechanism since. They are list in Table\ref{namedpipefunctions}
-\begin{table}
+A named pipe is a named, one-way or duplex pipe for communication between the pipe server and one or more pipe clients. All instances of the named pipe share the same pipe name, but each instance has it own buffers and handlers. In here we only consider one to one server/client pairs. One server to multiple client scenario can always be divided into multiple server/client pairs cases. To define a Named Pipes message event, we need to know how the channels are created as well as how the messages are send and received in the traces. The creation of a channel will return the handler of that channel. This handler will be used later on when the message is send or receive. So we need to know the function calls for channel creation and message send/receive to located them in the traces. In the follow subsections, we will describe the related function for the named pipe channel for both synchronous mode and asynchronous mode. The create channel functions for both mode are the same but with different input parameters. The functions for send and receive message are also the same for both case. However, the operation of the send and receive functions are different for different mode. In addition, extra functions are being called to fully send or received the messages in asynchronous mode.
+\subsubsection{Synchronous}
+We list all the functions that needed to locate an messaging event in a dual-trace in Table\ref{synfunctions}. The Channel Create Functions indicate how the channel being created in sender and receiver sides, and the mattered parameters. For named pipes the channel create functions are different between the sender and receiver side. The parameter in RDX can indicate if the channel is opened as synchronous mode. The send or receive message functions are the same in both side. When the channel is being created, the input file name for a channel between sender and the receiver is the same, but the returned File Handler IDs are different. The send and receive function only use the handler to send and receive message to a specific channel. 
+\begin{table}[h]
         \centering
         \caption{Named pipes system functions}
-        \label{namedpipefunctions}
+        \label{synfunctions}
         \begin{tabular}{|l|l|l|l|l|l|l|}
             \hline
              \multirow{2}{*}{} &
-               \multicolumn{2}{c|}{Channel Create functions} &
-               \multicolumn{2}{c|}{message send functions} &
-               \multicolumn{2}{c|}{message receive functions} \\
+               \multicolumn{2}{c|}{Channel Create Functions} &
+               \multicolumn{2}{c|}{Message Send Functions} &
+               \multicolumn{2}{c|}{Message Receive Functions} \\
              \cline{2-7}
               & Function& Parameters & Function & Parameters  & Function & Parameters\\
              \hline
-             Sever& CreateNamedPipe&  RCX: File handler & ReadFile &  RCX: File handler &WriteFile&\\
+             Sever& Create-&  RAX: File Handler &  &  RCX: File Handler &&RCX: File Handler\\
              \cline{3-3} \cline{5-5} \cline{7-7}
-             &&RDX: Buffer Address&& RDX: Buffer Address &&\\
-              \cline{3-3} \cline{5-5} \cline{7-7}
-               &&R8:message length&&R8:message length &&\\
+             &NamedPipe&RCX: File Name && RDX:  &&RDX: \\
+              \cline{3-3} 
+             &&RDX: Asyn/Syn&ReadFile& Buffer Address &WriteFile&Buffer Address\\
                 \cline{1-3} \cline{5-5} \cline{7-7}
-             Client & CreateFile & RCX: socket & & RCX: socke  &&\\
+             Client & CreateFile & RAX: File Handler & &  R8: Buffer Length &&R8: Buffer Length\\
               \cline{3-3} \cline{5-5} \cline{7-7}
-             &&RDX: Buffer Address&&RDX:Buffer Address&&\\
-              \cline{3-3} \cline{5-5} \cline{7-7}
-               &&R8: message length&&R8: message length&&\\
+             &&RCX: File Name &&Stack:&&Stack:\\
+             \cline{3-3} 
+             &&RDX: Asyn/Syn&& Overlap Pointer&&Overlap Pointer\\
             \hline
         \end{tabular}
     \end{table}
-\subsubsection{Blocking I/O}
-\subsubsection{Non-Blocking I/O}
+\subsubsection{Asynchronous}
+The functions used in Asynchronous mode for create channel, send and receive message are the same. However, for the the ReadFile and WriteFile functions run asynchronously when the channel is asynchronous. This means the function will return immediately, even if the operation has not been completed. If the operation is complete when the function returns, the return value indicates the success or failure of the operation. Otherwise the functions return zero and GetLastError returns ERROR_IO_PENDING. In this case, the calling thread must wait until the operation has finished. The calling thread must then call the GetOverlappedResult function to determine the results. This means besides looking for ReadFile and WriteFile function calls in the traces, the GetOverlappedResult function should be checked in the traces to get the full result of the ReadFile or WriteFile operations. Table\ref{asynfunctions} list the interested parameters of the GetOverlappedResult funciton.
+\begin{table}[h]
+        \centering
+        \caption{Named pipes system functions}
+        \label{asynfunctions}
+        \begin{tabular}{|l|l|l|l|l|l|l|}
+            \hline
+             \multirow{2}{*}{} &
+               \multicolumn{2}{c|}{Channel Create Functions} &
+               \multicolumn{2}{c|}{Message Send Functions} &
+               \multicolumn{2}{c|}{Message Receive Functions} \\
+             \cline{2-7}
+              & Function& Parameters & Function & Parameters  & Function & Parameters\\
+             \hline
+             Sever& Create-&  RAX: File Handler &  &  RCX: File Handler &&RCX: File Handler\\
+             \cline{3-3} \cline{5-5} \cline{7-7}
+             &NamedPipe&RCX: File Name && RDX:  &&RDX: \\
+              \cline{3-3} 
+             &&RDX: Asyn/Syn&ReadFile& Buffer Address &WriteFile&Buffer Address\\
+                \cline{1-3} \cline{5-5} \cline{7-7}
+             Client & CreateFile & RAX: File Handler & &  R8: Buffer Length &&R8: Buffer Length\\
+              \cline{3-3} \cline{5-5} \cline{7-7}
+             &&RCX: File Name &&Stack:&&Stack:\\
+             \cline{3-3} 
+             &&RDX: Asyn/Syn&& Overlap Pointer&&Overlap Pointer\\
+            \hline
+        \end{tabular}
+    \end{table}
 \subsection{MSMQ Channel}
-\subsubsection{Blocking I/O}
-\subsubsection{Non-Blocking I/O}
 \subsection{HTTP Channel}
 \subsection{TCP Channel}
 
@@ -215,13 +240,11 @@ A new view named Communication Types view is for the user defined communication 
 \end{figure}
 
 \subsection{Communication Event Searching}
-The communication Event consists of the send message event in the sender side and receive message event in the receiver side. The communication event searching algorithm can be divided into three main steps: 1. search all channel create/open event in the sender and receiver side, save the handle id and corresponding channel name. 2. Search all message send and receive event in sender and receiver sides. 3. Matching the send/receive messages pair.
+The communication Event consists of the send message event in the sender side and receive message event in the receiver side. The communication event searching algorithm can be divided into three main steps: 1. search all channel create/open event in the sender and receiver side, save the handle id and corresponding channel name. 2. Search all message send and receive event in sender and receiver sides. 3. Matching the send/receive messages pair based on the channel names and message contents.
 \subsubsection{Record opened Channel}
 
 \subsubsection{Search send and receive Message}
 \subsubsection{Matching the send/receive messages pair}
-\subsubsection{Event Status: Success or Fail}
-\subsubsection{Match Events Ordering}
 \subsubsection{Matching Event Data Structure}
 \begin{table}[h]
  \begin{center}
@@ -246,9 +269,16 @@ Our prototype only be tested on traces of Microsoft 64 with C/C++ program. It se
 \subsection{Experiment Design}
 \subsection{Result}
 \subsection{Time Analysis}
-\section{Limitation}
+\section{Limitations}
+In this section, we specify the limitations of the current prototype and the reasons for them. 
+\subsection{Named pipes Channel}
+\subsubsection{Event Status: Success or Fail}
+In current prototype, we only consider the success cases. For the Fail case, since the message was not successfully sent or received, there are high chance that they are not existed in the memory of the trace. From the assembly level trace, if the message was not traced in the memory, there is no way to match the sent/received message pair in the trace analysis.   
+\subsubsection{Match Events Distinguishing}
+Distinguishing is considered when multiple clients connecting to the same server. Each connection is considered as an instance. In the server side all this instances have the same pipe name but different handler ID. However in the assembly trace level there is no way to match a client with it instance handler ID. In consequence, if the same content messages are being sent/received by different clients, when the user want to match the message pair between a client and the server, there is no way to distinguish the correct one from the assembly trace level. As a result, our tool will list all the matched content message event, regardless if it's from the interested client. The user can distinguish the correct ones for this client, if they have extra information.
 
-
+\subsubsection{Match Events Ordering}
+Ordering is considered when multiple messages with exactly the same content being send/receive between the client and server. If the channel is synchronous, the order of the event is always consist with the order they happen in both the sender and receive sides. However for the asynchronous channel, there are chance that the sent messages in the sender side's trace are out of order with the received messages in the received side's trace. Unfortunately, There is no way in the assembly level trace to match the exactly ones. As a result, our tool can only order the event based on the order they happen in the traces.
 \section{Future Work}
 
 
