@@ -1,0 +1,17 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Break one send/multiple receive into multiple send/receive events}}{2}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Add function to a Communication type from Functions View}}{12}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Dialog to input information for a function adding to a communication type}}{13}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces New View: Communication Type View}}{14}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Right Click menu to navigate to send and receive event in the traces}}{14}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Defined clientsend and serversend communication types in Communication View}}{27}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces the search result of clientsend communication type}}{27}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces the search result of the serversend communication type}}{27}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces instruction view and memory view updated correctly}}{28}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
