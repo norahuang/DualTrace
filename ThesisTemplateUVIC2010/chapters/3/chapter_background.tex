@@ -1,7 +1,24 @@
-\startchapter{Channel Modeling}
+\startchapter{Background}
 \label{chapter:Bac}
+In this section, we introduce several background knowledge or information that related to this work. First we describe what is software security and how important it is as well as our previous approach to assist detection of software vulnerabilities by assembly level trace analysis. Second, we introduce the general assembly level trace format as well as some tracer to generate it. Third, we discuss how software interaction affect the behavior of the software and how they related to the software vulnerabilities. Then we talk about Windows Communication Foundation in which the communication channel type used are targeted by this work. Finally, we mention some important Windows function calling conventions without which you can not picture what the function calls look like in the assembly level.
+\section{Software security}
+The internet grow incredibly fast in the past few year. More and more computers are connected to it in order to get service or provide service. The internet as a powerful platform for people to share resource, meanwhile, introduce the risk to computers in the way that it enable the exploit of the vulnerability of the software running on it. Accordingly, the emphasize place on computer security particularly in the field of software vulnerabilities increase dramatically. It's important for software developers to build secure applications. Unfortunetely, this is usually very expensive and time consuming and somehow impossible in some cases. On the other hand, how to find issues in the built applications is more important and practical. Howerver this is a complex process and require deep technical understanding in the perspetive of reverse engineering\cite{dowd_art_2006}.
 
-In this section we model four different communication channels based on the windows APIS. The modeling is simplified as much as possible to only get the enough information for the communication event locating. Necessary Assembly calling conventions will be introduced in the section for the purpose of understanding the modeling.
+
+\section{Software Vulnerability Detection}
+A common approach to detect existing vulnerabilities is fuzzing testing, which record the execution trace while supplying the program with input data up to the crash and perform the analysis of the trace to find the root cause of the crash and decide if that is a vulnerability\cite{cleary_reconstructing_2013}. Execution trace can be capture in different level, for example object level and function level. But my research only focus on those that captured in instruction and memory reference level. There are two main reasons for analysis system-level traces. The first one is for analysis of the software provided by vendor whose source code are not available. The second one is that low level trace are more accurately reflect the instructions that are executed by multicore hardware\cite{wang_predicting_2011}.
+
+Nonetheless, analysis and visualization of the enormous amount of execution information of a isolated software is complicated let alone the additional interactive information between applications. My first research goal is to develop a comprehensive method to analyse and visualize of massive execution traces of multiple interacting applications in order to  assist vulnerabilities detection. 
+
+Moreover, in order to eliminate the laborious work for reverse engineer in the procedure of discovering vulnerability, I also aimed at develop a method or algorithm to auto detect suspicious vulnerabilities before the reverse engineer can take a more careful look on them.
+
+\section{Assembly Level Trace}
+There are many tools that can trace a running program in assembly instruction level.  IDA pro \cite{eagle_ida_2008} is a widely used tool in reverse engineering which can capture and analysis system level execution trace. Providing open plugin APIs, IDA pro allows plugin such as Codemap \cite{_c0demap/codemap:_????} to provide more sufficient features for "run-trace" visualization. However this trace events from IDA pro are stored in buffer. Depends on the size of your computer memory, it may not able to trace and analysis a big program for a long time. PIN\cite{_pin_????} as a tool for instrumentation of programs, provides a rich API which allows you to implement your own tool for instruction trace and memory reference trace. 
+\section{Software Interaction}
+Applications nowaday do not alway work isolately,  many software  appear as  reticula collaborating systems connecting different modules in the network\cite{PhysRevE.68.046116} which make the discovery of vulnerabilities even harder. The communication and interaction between modules affect the behaviour of the software. Without regarding to the synergy information , analysis of the isolated execution trace on a single computer is usually futile. 
+
+\section{Windows Communication Foundation}
+We limited our research only on the communication types used in Windows Communication Foundation(WCF) for now. Windows Communication Foundation (WCF) is a framework for building service-oriented applications. Using WCF, developers can send data as asynchronous or asynchronous messages from one service endpoint to another. We are not going deep into the details of this framework but only mention the most common communication methods it supports in its messaging layer. The messaging layer in WCF is composed of channels. A channel is a component that processes a message in some protocol. There are two types of channels in WCF: transport channels and protocol channels. In this work we only care about transport channels. Transport channels read and write messages from the network. Examples of transports are named pipes, MSMQ, TCP/UDP or HTTP, all of which are involved in the scope of this work.
 
 \section{Assembly Calling Convention}
 Before we jumping into a specific communication channel, it is important to know some basic assembly calling convention.
@@ -15,77 +32,5 @@ Calling Convention is different for operating system and the programming languag
 \item Floating point return values are returned in XMM0.
 \item Larger return values (structs) have space allocated on the stack by the caller, and RCX then contains a pointer to the return space when the callee is called. Register usage for integer parameters is then pushed one to the right. RAX returns this address to the caller.
 \end{enumerate}
-
-\section{Modeling}
-We model four base communication channels used in Windows operating system in this section. They are Named pipe, MQMS, TCP/UDP socket and HTTP channels
-\subsection{Named pipes Channel}
-A named pipe is a named, one-way or duplex pipe for communication between the pipe server and one or more pipe clients. All instances of the named pipe share the same pipe name, but each instance has its own buffers and handlers. In here we only consider one to one server/client pairs. One server to multiple clients scenario can always be broken into multiple server/client pairs. To locate a named pipe message event in dual-trace, we need to know how the channels are created as well as how the messages are send and received in the assembly traces. The creation of a named pipe will return the handler of that pipe. This handler will be used later on when messages are being sent or received. So we need to know the function calls for named pipe creation and message send/receive to locate the event in the traces. In the follow subsections, we will list the related functions for the named pipe channel for both synchronous mode and asynchronous mode. The create channel functions for both modes are the same but with different input parameters. The functions for send and receive message are also the same for both case. However, the operation of the send and receive functions are different for different mode. In addition, extra function are being called to check the status of message sending or receiving in asynchronous mode as well as the message content.
-\subsubsection{Synchronous}
-We list all the functions that needed to locate an messaging event in a dual-trace in Table\ref{synfunctions} for synchronous named pipe. The Channel Create Functions indicate how the channel being created in server and client sides, and the mattered parameters. For named pipes the channel create functions are different between in server and client. The parameter in RDX can indicate if the channel is opened as synchronous mode. The send or receive message functions are the same in server and client. When the channel is being created, the input file names for a channel at server and the client are the same, but the returned File Handler IDs are different. The send and receive function only use the handler to send and receive message to a specific channel. 
-\begin{table}[h]
-        \centering
-        \caption{Functions for communication type definition of synchronous named pipe}
-        \label{synfunctions}
-        \begin{tabular}{|l|l|l|l|l|l|l|}
-            \hline
-             \multirow{2}{*}{} &
-               \multicolumn{2}{c|}{Channel Create Functions} &
-               \multicolumn{2}{c|}{Message Send Functions} &
-               \multicolumn{2}{c|}{Message Receive Functions} \\
-             \cline{2-7}
-              & Function& Parameters & Function & Parameters  & Function & Parameters\\
-             \hline
-             Sever& Create-&  RAX: File Handler &  &  RCX: File Handler &&RCX: File Handler\\
-             \cline{3-3} \cline{5-5} \cline{7-7}
-             &NamedPipe&RCX: File Name && RDX:  &&RDX: \\
-              \cline{3-3} 
-             &&RDX: Asyn/Syn&WriteFile & Buffer Address &ReadFile&Buffer Address\\
-                \cline{1-3} \cline{5-5} \cline{7-7}
-             Client & CreateFile & RAX: File Handler & &  R8: Buffer Length &&R8: Buffer Length\\
-              \cline{3-3} \cline{5-5} \cline{7-7}
-             &&RCX: File Name &&Stack:&&Stack:\\
-             \cline{3-3} 
-             &&RDX: Asyn/Syn&& Overlap Pointer&&Overlap Pointer\\
-            \hline
-        \end{tabular}
-    \end{table}
-\subsubsection{Asynchronous}
-The functions used in Asynchronous mode for create channel, send and receive message are the same as those used in synchronous mode. However,  the ReadFile and WriteFile functions run asynchronously when the channel is asynchronous. This means the function will return immediately, even if the operation has not been completed. If the operation is complete when the function returns, the return value indicates the success or failure of the operation. Otherwise the functions return zero and GetLastError returns ERROR\_IO\_PENDING. In this case, the calling thread must wait until the operation has finished. The calling thread must then call the GetOverlappedResult function to determine the results. This means besides looking for ReadFile and WriteFile function calls in the traces, the GetOverlappedResult function should be checked in the traces to get the full result of the ReadFile or WriteFile operations. Table\ref{asynfunctions} list the interested parameters of the GetOverlappedResult funciton. However, it's complicated to define the communication types with so many functions for only an event. In order to make the user interface clear and simple. We ask the user to make separate definition for the follow function with the send function as a new communication type. Table \ref{Additionalfunction} shows the addition communication type for asynchronous mode.
-
-\begin{table}[h]
-        \centering
-        \caption{Functions for addition communication type definition of asynchronous named pipe}
-        \label{synfunctions}
-        \begin{tabular}{|l|l|l|l|l|l|l|}
-            \hline
-             \multirow{2}{*}{} &
-               \multicolumn{2}{c|}{Channel Create Functions} &
-               \multicolumn{2}{c|}{Message Send Functions} &
-               \multicolumn{2}{c|}{Message Receive Functions} \\
-             \cline{2-7}
-              & Function& Parameters & Function & Parameters  & Function & Parameters\\
-             \hline
-             Sever& Create-&  RAX: File Handler &  &  RCX: File Handler &&RCX: \\
-             \cline{3-3} \cline{5-5} 
-             &NamedPipe&RCX: File Name && RDX:  && File Handler\\
-              \cline{3-3} 
-             &&RDX: Asyn/Syn&WriteFile& Buffer Address &GetOverlapped-&\\
-                \cline{1-3} \cline{5-5} \cline{7-7}
-             Client & CreateFile & RAX: File Handler & &  R8: Buffer Length &Result&RDX:\\
-              \cline{3-3} \cline{5-5} 
-             &&RCX: File Name &&Stack:&&Overlap\\
-             \cline{3-3} 
-             &&RDX: Asyn/Syn&& Overlap Pointer&&structure\\
-            \hline
-        \end{tabular}
-    \end{table}
-    
-
-\subsection{MQMS Channel}
-\subsubsection{Synchronous}
-\subsubsection{Asynchronous}
-
-\subsection{TCP/UDP Socket Channel}
-\subsection{HTTP Channel}
 
 

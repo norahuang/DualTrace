@@ -1,4 +1,4 @@
-\startchapter{Event Analysis Prototype}
+\startchapter{Prototype}
 \label{chapter:newsol}
 
 In this section we discuss the design of the prototype of dual-trace analysis. This prototype consist of three main components: user interface for defining the communication type, algorithm of locating the communication events in the dual-trace, user interface and strategy to navigate the located events to the sender and receiver traces. We provide the background information of the design of each component as well as their detail design in each corresponding subsection.
@@ -90,4 +90,3 @@ The matching event is stored in cache when the tool is running. Only the most re
 \subsection{Matching Event Visualization and Navigation}
 The right click menu of an entry in the search result list has two action items: Go To Line of Message Sender and Go To Line of Message Receiver. Both of the action items allow users to navigate to the trace Instruction view. When the user click on these items, it will navigate to the corresponding trace sender or receiver trace instruction view.  Meanwhile the memory view jumps to the target address of the message buffer, and the memory state is reconstructed so that the message content in that buffer will be shown in the memory view.
 
-\input chapters/4/sec_latexhelp

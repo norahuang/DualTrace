@@ -10,59 +10,50 @@
 \contentsline {section}{\numberline {2.1}Define the Problem}{2}
 \contentsline {section}{\numberline {2.2}Define the Scope}{3}
 \contentsline {section}{\numberline {2.3}Obtain Background Knowledge}{3}
-\contentsline {section}{\numberline {2.4}Model the Channels}{4}
-\contentsline {section}{\numberline {2.5}Build the Prototype}{4}
+\contentsline {section}{\numberline {2.4}Model the Channels}{3}
+\contentsline {section}{\numberline {2.5}Build the Prototype}{3}
 \contentsline {section}{\numberline {2.6}Verify the Model and the Prototype Tool}{4}
-\contentsline {section}{\numberline {2.7}Limitations}{4}
-\contentsline {subsection}{\numberline {2.7.1}Event Status: Success or Fail}{4}
-\contentsline {subsection}{\numberline {2.7.2}Match Events Distinguishing}{4}
-\contentsline {subsection}{\numberline {2.7.3}Match Events Ordering}{4}
-\contentsline {subsection}{\numberline {2.7.4}Buffer Sizes Of Sender and Receiver Mismatch}{5}
-\contentsline {chapter}{\numberline {3}Channel Modeling}{6}
-\contentsline {section}{\numberline {3.1}Assembly Calling Convention}{6}
-\contentsline {section}{\numberline {3.2}Modeling}{7}
-\contentsline {subsection}{\numberline {3.2.1}Named pipes Channel}{7}
-\contentsline {subsubsection}{Synchronous}{7}
-\contentsline {subsubsection}{Asynchronous}{8}
-\contentsline {subsection}{\numberline {3.2.2}MQMS Channel}{9}
-\contentsline {subsubsection}{Synchronous}{9}
-\contentsline {subsubsection}{Asynchronous}{9}
-\contentsline {subsection}{\numberline {3.2.3}TCP/UDP Socket Channel}{9}
-\contentsline {subsection}{\numberline {3.2.4}HTTP Channel}{9}
-\contentsline {chapter}{\numberline {4}Event Analysis Prototype}{10}
-\contentsline {subsection}{\numberline {4.0.1}User Defined Communication Type}{10}
-\contentsline {subsubsection}{Function Calls in the Traces}{11}
-\contentsline {subsubsection}{Communication Type Data Structure}{11}
-\contentsline {subsubsection}{Communication Type View}{13}
-\contentsline {subsection}{\numberline {4.0.2}Communication Event Searching}{15}
-\contentsline {subsubsection}{Record opened Channel}{15}
-\contentsline {subsubsection}{Search send and receive Message}{15}
-\contentsline {subsubsection}{Matching the send/receive messages pair}{15}
-\contentsline {subsubsection}{Matching Event Data Structure}{15}
-\contentsline {subsection}{\numberline {4.0.3}Matching Event Visualization and Navigation}{16}
-\contentsline {section}{\numberline {4.1}Some \LaTeX Examples}{16}
-\contentsline {subsection}{\numberline {4.1.1}Preamble}{16}
-\contentsline {subsection}{\numberline {4.1.2}Document Body}{17}
-\contentsline {section}{\numberline {4.2}How to Number Pages}{17}
-\contentsline {section}{\numberline {4.3}How to Create a Title Page}{17}
-\contentsline {section}{\numberline {4.4}How to Create an Abstract}{18}
-\contentsline {section}{\numberline {4.5}How to Create a Table of Contents}{18}
-\contentsline {section}{\numberline {4.6}How to Create Sections}{18}
-\contentsline {section}{\numberline {4.7}How to Create a List}{19}
-\contentsline {section}{\numberline {4.8}How to Insert Tables, Figures, Captions, and Footnotes}{19}
-\contentsline {subsection}{\numberline {4.8.1}Tables}{19}
-\contentsline {subsection}{\numberline {4.8.2}Figures}{21}
-\contentsline {subsection}{\numberline {4.8.3}Captions}{23}
-\contentsline {subsection}{\numberline {4.8.4}Footnotes}{23}
-\contentsline {section}{\numberline {4.9}How to Alter Font}{23}
-\contentsline {subsection}{\numberline {4.9.1}Type Style}{23}
-\contentsline {subsection}{\numberline {4.9.2}Type Size}{23}
-\contentsline {section}{\numberline {4.10}Math Mode}{24}
-\contentsline {section}{\numberline {4.11}Formatting Extras}{24}
-\contentsline {chapter}{\numberline {5}Experiments}{26}
-\contentsline {subsection}{\numberline {5.0.1}Test and Verification Design}{26}
-\contentsline {subsection}{\numberline {5.0.2}Result}{26}
-\contentsline {chapter}{\numberline {6}Evaluation, Analysis and Comparisons}{29}
-\contentsline {chapter}{\numberline {7}Conclusions}{31}
-\contentsline {chapter}{\numberline {A}Additional Information}{32}
-\contentsline {chapter}{Bibliography}{33}
+\contentsline {chapter}{\numberline {3}Background}{5}
+\contentsline {section}{\numberline {3.1}Software security}{5}
+\contentsline {section}{\numberline {3.2}Software Vulnerability Detection}{6}
+\contentsline {section}{\numberline {3.3}Assembly Level Trace}{6}
+\contentsline {section}{\numberline {3.4}Software Interaction}{7}
+\contentsline {section}{\numberline {3.5}Windows Communication Foundation}{7}
+\contentsline {section}{\numberline {3.6}Assembly Calling Convention}{7}
+\contentsline {chapter}{\numberline {4}Channel Modeling}{9}
+\contentsline {section}{\numberline {4.1}Named Pipes Channel}{9}
+\contentsline {subsection}{\numberline {4.1.1}Important Channel Parameters}{10}
+\contentsline {subsubsection}{Buffer Size}{10}
+\contentsline {subsubsection}{Blocking/Non-Blocking}{10}
+\contentsline {subsubsection}{Synchronous/Asynchronous}{11}
+\contentsline {subsection}{\numberline {4.1.2}Function Calls That Consist A Communication Event In The Dual-Trace}{11}
+\contentsline {subsubsection}{Synchronous}{12}
+\contentsline {subsubsection}{Asynchronous}{13}
+\contentsline {section}{\numberline {4.2}MQMS Channel}{14}
+\contentsline {subsection}{\numberline {4.2.1}Synchronous}{14}
+\contentsline {subsection}{\numberline {4.2.2}Asynchronous}{14}
+\contentsline {section}{\numberline {4.3}TCP/UDP Socket Channel}{14}
+\contentsline {section}{\numberline {4.4}HTTP Channel}{14}
+\contentsline {chapter}{\numberline {5}Prototype}{15}
+\contentsline {subsection}{\numberline {5.0.1}User Defined Communication Type}{15}
+\contentsline {subsubsection}{Function Calls in the Traces}{16}
+\contentsline {subsubsection}{Communication Type Data Structure}{16}
+\contentsline {subsubsection}{Communication Type View}{18}
+\contentsline {subsection}{\numberline {5.0.2}Communication Event Searching}{20}
+\contentsline {subsubsection}{Record opened Channel}{20}
+\contentsline {subsubsection}{Search send and receive Message}{20}
+\contentsline {subsubsection}{Matching the send/receive messages pair}{20}
+\contentsline {subsubsection}{Matching Event Data Structure}{20}
+\contentsline {subsection}{\numberline {5.0.3}Matching Event Visualization and Navigation}{21}
+\contentsline {chapter}{\numberline {6}Experiments}{22}
+\contentsline {subsection}{\numberline {6.0.1}Test and Verification Design}{22}
+\contentsline {subsection}{\numberline {6.0.2}Result}{22}
+\contentsline {chapter}{\numberline {7}Evaluation, Analysis and Comparisons}{25}
+\contentsline {chapter}{\numberline {8}Conclusions}{26}
+\contentsline {section}{\numberline {8.1}Limitations}{26}
+\contentsline {subsection}{\numberline {8.1.1}Event Status: Success or Fail}{26}
+\contentsline {subsection}{\numberline {8.1.2}Match Events Distinguishing}{26}
+\contentsline {subsection}{\numberline {8.1.3}Match Events Ordering}{27}
+\contentsline {subsection}{\numberline {8.1.4}Buffer Sizes Of Sender and Receiver Mismatch}{27}
+\contentsline {chapter}{\numberline {A}Additional Information}{28}
+\contentsline {chapter}{Bibliography}{29}

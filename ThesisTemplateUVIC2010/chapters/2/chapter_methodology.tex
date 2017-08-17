@@ -1,0 +1,26 @@
+\startchapter{Methodology}
+The Methodology used for this work composed of 6 major steps. To make this work executable, 1)I defined the problem by understanding the requirement from our research partner DRDC.  2)I define the scope of this work to the common channels used in Windows Communication Foundation. After that, 3) I obtained the related background knowledge by literature and online documentation review. Then 4) I model the channels that in the scope of this work. Based on these channel models, 5) I built a tool prototype which can locate and present the communication events to the user. Finally, 6) I evaluate this prototype by running some example dual-traces on it.
+
+\label{chapter:problem}
+
+\newlength{\savedunitlength}
+\setlength{\unitlength}{2em}
+\section{Define the Problem}
+A dual-trace consists of two execution traces that are generated from two interacting applications. The main difference between single trace analysis and Dual-trace analysis is the later one has to analysis the communication events of the applications in the traces. A communication event in the dual-trace is defined as a successfully send and received message in this work. There are four essential elements in an event: send function call, receive function call, the sent message in the sender's memory and the received message in the receiver's memory. It takes experience engineers minutes or even hours to locate one event. It become an extremely huge task for them to find out all the events in the dual-trace of highly interacting applications. To assist them , the major goal of this work is building a tool to help reverse engineers to locate and present the communication events in the assembly traces from both sides of the dual-trace. 
+
+
+\section{Define the Scope}
+There are many types of communication between applications. Only Named pipe, MQMS, HTTP, TCP/UDP socket are targeted in this work since they are the most widely used ones in windows server/client service and are the ones used in the popular Window Communication Foundation. The tool prototype of this work is extendable to other communication types.
+
+\section{Obtain Background Knowledge}
+To locate the communication event of both side of the traces, we need to investigate the communication methods to figure out how they looks like in the assembly level traces. We need to know how the functions for channel setup work as well as the functions for messages sending/receiving. The system functions we are looking for is in C++ level. We have to know the C++ function names, related parameters, return value and so on.  In addition, to understanding what they looks like in the assembly level trace, we have to know the calling conventions in assembly, such registers/memory for parameters or return value.
+
+\section{Model the Channels}
+By understanding all the related function APIs, we modeled the communication channels. The model of each type of communication channel covers all the successful communication scenarios.
+\section{Build the Prototype}
+We build our prototype tool based on the developed models. The user should refer to the channel models to define the concerned communication type through the user interface we provide in the prototype tool. Defined communication type is later on used for locating the communication events in the dual-trace. However, not all scenarios of all models can be covered by our tools. For some scenarios, it is impossible to exactly locate all the communication event by program. The user has to have extra information to assist their analysis.
+
+\section{Verify the Model and the Prototype Tool}
+
+
+\setlength{\unitlength}{\savedunitlength}
