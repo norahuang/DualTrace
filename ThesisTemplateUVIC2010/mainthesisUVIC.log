@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  17 AUG 2017 16:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  18 AUG 2017 11:01
 entering extended mode
 **./mainthesisUVIC.tex
 (mainthesisUVIC.tex
@@ -545,7 +545,7 @@ Chapter 2.
 
 
 
-]) [3] [4]
+] [3]) [4]
 \openout2 = `chapters/3/chapter_background.aux'.
 
  (chapters/3/chapter_background.tex
@@ -557,7 +557,7 @@ Chapter 3.
 ]
 
 LaTeX Warning: Citation `PhysRevE.68.046116' on page 6 undefined on input line 
-18.
+15.
 
 [6] [7]) [8]
 \openout2 = `chapters/4/chapter_modeling.aux'.
@@ -834,7 +834,7 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on mainthesisUVIC.pdf (38 pages, 259989 bytes).
+Output written on mainthesisUVIC.pdf (38 pages, 260008 bytes).
 PDF statistics:
  157 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

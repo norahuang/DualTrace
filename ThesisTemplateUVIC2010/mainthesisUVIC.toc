@@ -12,12 +12,12 @@
 \contentsline {section}{\numberline {2.3}Obtain Background Knowledge}{3}
 \contentsline {section}{\numberline {2.4}Model the Channels}{3}
 \contentsline {section}{\numberline {2.5}Build the Prototype}{3}
-\contentsline {section}{\numberline {2.6}Verify the Model and the Prototype Tool}{4}
+\contentsline {section}{\numberline {2.6}Verify the Model and The Tool Prototype}{4}
 \contentsline {chapter}{\numberline {3}Background}{5}
-\contentsline {section}{\numberline {3.1}Software security}{5}
+\contentsline {section}{\numberline {3.1}Software Security}{5}
 \contentsline {section}{\numberline {3.2}Software Vulnerability Detection}{6}
 \contentsline {section}{\numberline {3.3}Assembly Level Trace}{6}
-\contentsline {section}{\numberline {3.4}Software Interaction}{7}
+\contentsline {section}{\numberline {3.4}Software Interaction}{6}
 \contentsline {section}{\numberline {3.5}Windows Communication Foundation}{7}
 \contentsline {section}{\numberline {3.6}Assembly Calling Convention}{7}
 \contentsline {chapter}{\numberline {4}Channel Modeling}{9}
