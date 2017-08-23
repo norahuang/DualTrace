@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  18 AUG 2017 11:01
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  23 AUG 2017 15:24
 entering extended mode
 **./mainthesisUVIC.tex
 (mainthesisUVIC.tex
@@ -556,6 +556,9 @@ Chapter 3.
 
 ]
 
+LaTeX Warning: Reference `brueningqz' on page 6 undefined on input line 13.
+
+
 LaTeX Warning: Citation `PhysRevE.68.046116' on page 6 undefined on input line 
 15.
 
@@ -568,88 +571,84 @@ Chapter 4.
 
 
 
-] <Figures/event.png, id=62, 895.345pt x 362.35374pt>
+] [10] <Figures/event.png, id=66, 895.345pt x 362.35374pt>
 File: Figures/event.png Graphic file (type png)
 
 <use Figures/event.png>
-Package pdftex.def Info: Figures/event.png used on input line 17.
+Package pdftex.def Info: Figures/event.png used on input line 27.
 (pdftex.def)             Requested size: 429.76073pt x 173.92781pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (2.08383pt too wide) in paragraph at lines 26--27
+Overfull \hbox (2.08383pt too wide) in paragraph at lines 36--37
 \OT1/cmr/m/n/12 Syn-chronous mode, the Read-File, Write-File Trac-n-s-act-Named
 -Pipe and con-nect-Named-
  []
 
-[10] [11 <./Figures/event.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 48--48
+[11 <./Figures/event.png>] [12]
+Underfull \hbox (badness 10000) in paragraph at lines 58--58
 []\OT1/cmr/bx/n/12 Channel
  []
 
 
-Overfull \hbox (2.95346pt too wide) in paragraph at lines 49--49
+Overfull \hbox (2.95346pt too wide) in paragraph at lines 59--59
 []\OT1/cmr/m/n/12 CreateNamed-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 53--53
+Underfull \hbox (badness 10000) in paragraph at lines 63--63
 []\OT1/cmr/bx/n/12 Message
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 60--60
+Underfull \hbox (badness 10000) in paragraph at lines 70--70
 []\OT1/cmr/bx/n/12 Message
  []
 
 
-Overfull \hbox (37.33553pt too wide) in paragraph at lines 40--68
+Overfull \hbox (37.33553pt too wide) in paragraph at lines 50--78
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--83
+Underfull \hbox (badness 10000) in paragraph at lines 93--93
 []\OT1/cmr/bx/n/12 Channel
  []
 
 
-Overfull \hbox (2.95346pt too wide) in paragraph at lines 84--84
+Overfull \hbox (2.95346pt too wide) in paragraph at lines 94--94
 []\OT1/cmr/m/n/12 CreateNamed-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 88--88
+Underfull \hbox (badness 10000) in paragraph at lines 98--98
 []\OT1/cmr/bx/n/12 Message
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--96
+Underfull \hbox (badness 10000) in paragraph at lines 106--106
 []\OT1/cmr/bx/n/12 Message
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 103--103
+Underfull \hbox (badness 10000) in paragraph at lines 113--113
 []\OT1/cmr/bx/n/12 Status
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--104
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
 []\OT1/cmr/m/n/12 GetOver-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--104
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
 []\OT1/cmr/m/n/12 GetOver-
  []
 
 
-Overfull \hbox (55.10545pt too wide) in paragraph at lines 75--109
+Overfull \hbox (55.10545pt too wide) in paragraph at lines 85--119
  [][] 
  []
 
-[12]) [13] [14]
+[13]) [14]
 \openout2 = `chapters/5/chapter_new.aux'.
 
  (chapters/5/chapter_new.tex
@@ -662,7 +661,7 @@ Chapter 5.
 File: Figures/functionsview.png Graphic file (type png)
 
 <use Figures/functionsview.png>
-Package pdftex.def Info: Figures/functionsview.png used on input line 12.
+Package pdftex.def Info: Figures/functionsview.png used on input line 13.
 (pdftex.def)             Requested size: 377.91095pt x 299.61864pt.
 
 
@@ -672,45 +671,45 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: Figures/dialog.png Graphic file (type png)
 
 <use Figures/dialog.png>
-Package pdftex.def Info: Figures/dialog.png used on input line 18.
+Package pdftex.def Info: Figures/dialog.png used on input line 19.
 (pdftex.def)             Requested size: 404.25932pt x 326.71982pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 26.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 27.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\omlcmr.fd"
 File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 26.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 27.
 
-Overfull \hbox (10.52922pt too wide) in paragraph at lines 32--33
+Overfull \hbox (10.52922pt too wide) in paragraph at lines 33--34
 [][][][][][][][][][] 
  []
 
 
-Overfull \hbox (10.52922pt too wide) in paragraph at lines 35--36
+Overfull \hbox (10.52922pt too wide) in paragraph at lines 36--37
 [][][][][][][][][][] 
  []
 
 [16]
-Overfull \hbox (10.52922pt too wide) in paragraph at lines 39--40
+Overfull \hbox (10.52922pt too wide) in paragraph at lines 40--41
 [][][][][][][][][][] 
  []
 
 
-Overfull \hbox (10.52922pt too wide) in paragraph at lines 42--43
+Overfull \hbox (10.52922pt too wide) in paragraph at lines 43--44
 [][][][][][][][][][] 
  []
 
 
-Overfull \hbox (10.52922pt too wide) in paragraph at lines 46--47
+Overfull \hbox (10.52922pt too wide) in paragraph at lines 47--48
 [][][][][][][][][][] 
  []
 
 
-Overfull \hbox (10.52922pt too wide) in paragraph at lines 52--53
+Overfull \hbox (10.52922pt too wide) in paragraph at lines 53--54
 [][][][][][][][][][] 
  []
 
@@ -720,10 +719,10 @@ File: Figures/CommunicationTypeview.png Graphic file (type png)
 
 <use Figures/CommunicationTypeview.png>
 Package pdftex.def Info: Figures/CommunicationTypeview.png used on input line 6
-8.
+9.
 (pdftex.def)             Requested size: 434.97104pt x 193.0946pt.
 
-Overfull \hbox (1.35103pt too wide) in paragraph at lines 68--69
+Overfull \hbox (1.35103pt too wide) in paragraph at lines 69--70
 [][] 
  []
 
@@ -731,10 +730,10 @@ Overfull \hbox (1.35103pt too wide) in paragraph at lines 68--69
 File: Figures/searchresult.png Graphic file (type png)
 
 <use Figures/searchresult.png>
-Package pdftex.def Info: Figures/searchresult.png used on input line 74.
+Package pdftex.def Info: Figures/searchresult.png used on input line 75.
 (pdftex.def)             Requested size: 437.68114pt x 151.76558pt.
 
-Overfull \hbox (4.06113pt too wide) in paragraph at lines 74--75
+Overfull \hbox (4.06113pt too wide) in paragraph at lines 75--76
 [][] 
  []
 
@@ -822,10 +821,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5342 strings out of 493335
- 74753 string characters out of 3139261
- 161805 words of memory out of 3000000
- 8644 multiletter control sequences out of 15000+200000
+ 5343 strings out of 493335
+ 74765 string characters out of 3139261
+ 159805 words of memory out of 3000000
+ 8645 multiletter control sequences out of 15000+200000
  11749 words of font info for 44 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,12n,45p,1580b,1394s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -834,7 +833,7 @@ ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on mainthesisUVIC.pdf (38 pages, 260008 bytes).
+Output written on mainthesisUVIC.pdf (38 pages, 260610 bytes).
 PDF statistics:
  157 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

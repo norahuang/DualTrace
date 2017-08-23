@@ -1,7 +1,17 @@
 \startchapter{Channel Modeling}
 \label{chapter:Mod}
-As defined before, a communication event in the dual-trace is defined as a successfully send and received message. In the assembly trace level, we have to be able to locate the send or receive function call/return in both side of the traces and then retrieve the message from the memory change recorded in the trace. To achieve this, we need to model the channels in order to picture all send/receive scenarios. We model four types of channel. They are Named pipes, MQMS, TCP/UDP socket and HTTP channels, all of which are the most fundamental ones in Windows communication framework. The modeling is simplified as much as possible to only get the enough information for the communication event locating.
+In this section, I modeled communication in the traces. Then I investigated 4 different channel types: Named pipes, MQMS, TCP/UDP socket and HTTP channels, all of which are the most fundamental ones in Windows communication framework. By matching these channels to the communication model I verified generality of the modeling. 
 
+\section{Communication Modeling}
+As defined before, a communication event in the dual-trace is defined as message send and received in a specific channel. In the assembly trace level, we have to be able to locate the send or receive function calls of a specific channel in both side of the traces and then retrieve the message from the memory change recorded in the trace. 
+\subsection{How Communications Happen}
+\subsection{Properties of Communications}
+\subsection{Scenarios}
+\begin{enumerate} 
+\item There are four operations being concerned in this model: channel open, message send, message receive, and channel close. \item The number of send and receive function calls for one message do not necessary to be the same. It can be one to one, one to multiple, multiple to one, or multiple to multiple.
+\item Both sides of the channel shared the same channel name but different channel handle for its own operations.
+\item The message send sequence does not necessary the same as the message receive sequence on different sides of the channel.
+\end{enumerate} 
 \section{Named Pipes Channel}
 A named pipe is a named, one-way or duplex pipe for communication between the pipe server and one or more pipe clients. In here we only consider one server V.S one client dual-trace. One server to multiple clients scenario can always be divided into multiple server/client dual-traces. We call the end of the named pipe instance. An instance can be a server instance or a client instance. All instances of a named pipe share the same pipe name, but each instance has its own buffers and handles, and provides a separate conduit for client/server communication. 
 
