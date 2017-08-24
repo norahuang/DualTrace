@@ -4,9 +4,16 @@ In this section, I modeled communication in the traces. Then I investigated 4 di
 
 \section{Communication Modeling}
 As defined before, a communication event in the dual-trace is defined as message send and received in a specific channel. In the assembly trace level, we have to be able to locate the send or receive function calls of a specific channel in both side of the traces and then retrieve the message from the memory change recorded in the trace. 
-\subsection{How Communications Happen}
-\subsection{Properties of Communications}
+\subsection{How Communications Happen}   
+A communication in this work is happen in a channel. There are 3 main stages of a communication in this model: 1. create/open the channel, 2. message send/receive, 3. delete/close the channel. Some channel may have several step in each stage. Figure \ref{communicationhappen}. In the create/open channel stage, each end may need to call its own channel create or open functions. For some channel type multiple open/create/connect functions might be called to finish the task. In the message send/receive stage, messages are being sent into the channel in one side and received in the other side. In the final channel delete/close stage, the channel delete or close functions will be called to finish the task. The closed channel can be reopen again to continue the communication.
+\begin{figure}[h]
+\centerline{\includegraphics[scale=0.5]{Figures/communicationhappen}}
+ \caption{Three main stage of the communication between two ends of a channel}
+\label{event}
+\end{figure}
+
 \subsection{Scenarios}
+There are many scenarios of the communication. It can be success or fail. The message can be lost. The sent message can be broken into several sub-messages and the receiver may receive several sub-messages instead of a whole one. Or several sent message will be receive once in the receiver side. Or even more complicated, the messages are reconstruction in the channel and reach the receiver. 
 \begin{enumerate} 
 \item There are four operations being concerned in this model: channel open, message send, message receive, and channel close. \item The number of send and receive function calls for one message do not necessary to be the same. It can be one to one, one to multiple, multiple to one, or multiple to multiple.
 \item Both sides of the channel shared the same channel name but different channel handle for its own operations.
