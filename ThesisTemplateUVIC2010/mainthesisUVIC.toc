@@ -1,8 +1,8 @@
 \contentsline {chapter}{Supervisory Committee}{ii}
 \contentsline {chapter}{Abstract}{iii}
 \contentsline {chapter}{Table of Contents}{iv}
-\contentsline {chapter}{List of Tables}{vii}
-\contentsline {chapter}{List of Figures}{viii}
+\contentsline {chapter}{List of Tables}{vi}
+\contentsline {chapter}{List of Figures}{vii}
 \contentsline {chapter}{Acknowledgements}{ix}
 \contentsline {chapter}{Dedication}{x}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
@@ -23,41 +23,40 @@
 \contentsline {chapter}{\numberline {4}Channel Modeling}{9}
 \contentsline {section}{\numberline {4.1}Communication Modeling}{9}
 \contentsline {subsection}{\numberline {4.1.1}How Communications Happen}{9}
-\contentsline {subsection}{\numberline {4.1.2}Properties of Communications}{10}
-\contentsline {subsection}{\numberline {4.1.3}Scenarios}{10}
-\contentsline {section}{\numberline {4.2}Named Pipes Channel}{11}
-\contentsline {subsection}{\numberline {4.2.1}Important Channel Parameters}{11}
-\contentsline {subsubsection}{Buffer Size}{11}
-\contentsline {subsubsection}{Blocking/Non-Blocking}{12}
-\contentsline {subsubsection}{Synchronous/Asynchronous}{12}
-\contentsline {subsection}{\numberline {4.2.2}Function Calls That Consist A Communication Event In The Dual-Trace}{13}
-\contentsline {subsubsection}{Synchronous}{13}
-\contentsline {subsubsection}{Asynchronous}{14}
-\contentsline {section}{\numberline {4.3}MQMS Channel}{15}
-\contentsline {subsection}{\numberline {4.3.1}Synchronous}{15}
-\contentsline {subsection}{\numberline {4.3.2}Asynchronous}{15}
-\contentsline {section}{\numberline {4.4}TCP/UDP Socket Channel}{15}
-\contentsline {section}{\numberline {4.5}HTTP Channel}{15}
-\contentsline {chapter}{\numberline {5}Prototype}{16}
-\contentsline {subsection}{\numberline {5.0.1}User Defined Communication Type}{16}
-\contentsline {subsubsection}{Function Calls in the Traces}{17}
-\contentsline {subsubsection}{Communication Type Data Structure}{17}
-\contentsline {subsubsection}{Communication Type View}{19}
-\contentsline {subsection}{\numberline {5.0.2}Communication Event Searching}{21}
-\contentsline {subsubsection}{Record opened Channel}{21}
-\contentsline {subsubsection}{Search send and receive Message}{21}
-\contentsline {subsubsection}{Matching the send/receive messages pair}{21}
-\contentsline {subsubsection}{Matching Event Data Structure}{21}
-\contentsline {subsection}{\numberline {5.0.3}Matching Event Visualization and Navigation}{22}
-\contentsline {chapter}{\numberline {6}Experiments}{23}
-\contentsline {subsection}{\numberline {6.0.1}Test and Verification Design}{23}
-\contentsline {subsection}{\numberline {6.0.2}Result}{23}
-\contentsline {chapter}{\numberline {7}Evaluation, Analysis and Comparisons}{26}
-\contentsline {chapter}{\numberline {8}Conclusions}{27}
-\contentsline {section}{\numberline {8.1}Limitations}{27}
-\contentsline {subsection}{\numberline {8.1.1}Event Status: Success or Fail}{27}
-\contentsline {subsection}{\numberline {8.1.2}Match Events Distinguishing}{27}
-\contentsline {subsection}{\numberline {8.1.3}Match Events Ordering}{28}
-\contentsline {subsection}{\numberline {8.1.4}Buffer Sizes Of Sender and Receiver Mismatch}{28}
-\contentsline {chapter}{\numberline {A}Additional Information}{29}
-\contentsline {chapter}{Bibliography}{30}
+\contentsline {subsection}{\numberline {4.1.2}Communication Scenarios}{11}
+\contentsline {section}{\numberline {4.2}Named Pipes Channel}{16}
+\contentsline {subsection}{\numberline {4.2.1}Important Channel Parameters}{17}
+\contentsline {subsubsection}{Blocking/Non-Blocking}{17}
+\contentsline {subsubsection}{Synchronous/Asynchronous}{17}
+\contentsline {subsection}{\numberline {4.2.2}Send/Receive Scenarios}{17}
+\contentsline {subsection}{\numberline {4.2.3}Function Calls In Each Communication Stage}{18}
+\contentsline {subsubsection}{Synchronous}{18}
+\contentsline {subsubsection}{Asynchronous}{20}
+\contentsline {section}{\numberline {4.3}MQMS Channel}{21}
+\contentsline {subsection}{\numberline {4.3.1}Synchronous}{21}
+\contentsline {subsection}{\numberline {4.3.2}Asynchronous}{21}
+\contentsline {section}{\numberline {4.4}TCP/UDP Socket Channel}{21}
+\contentsline {section}{\numberline {4.5}HTTP Channel}{21}
+\contentsline {chapter}{\numberline {5}Prototype}{22}
+\contentsline {subsection}{\numberline {5.0.1}User Defined Communication Type}{22}
+\contentsline {subsubsection}{Function Calls in the Traces}{23}
+\contentsline {subsubsection}{Communication Type Data Structure}{23}
+\contentsline {subsubsection}{Communication Type View}{25}
+\contentsline {subsection}{\numberline {5.0.2}Communication Event Searching}{27}
+\contentsline {subsubsection}{Record opened Channel}{27}
+\contentsline {subsubsection}{Search send and receive Message}{27}
+\contentsline {subsubsection}{Matching the send/receive messages pair}{27}
+\contentsline {subsubsection}{Matching Event Data Structure}{27}
+\contentsline {subsection}{\numberline {5.0.3}Matching Event Visualization and Navigation}{28}
+\contentsline {chapter}{\numberline {6}Experiments}{29}
+\contentsline {subsection}{\numberline {6.0.1}Test and Verification Design}{29}
+\contentsline {subsection}{\numberline {6.0.2}Result}{29}
+\contentsline {chapter}{\numberline {7}Evaluation, Analysis and Comparisons}{32}
+\contentsline {chapter}{\numberline {8}Conclusions}{33}
+\contentsline {section}{\numberline {8.1}Limitations}{33}
+\contentsline {subsection}{\numberline {8.1.1}Event Status: Success or Fail}{33}
+\contentsline {subsection}{\numberline {8.1.2}Match Events Distinguishing}{33}
+\contentsline {subsection}{\numberline {8.1.3}Match Events Ordering}{34}
+\contentsline {subsection}{\numberline {8.1.4}Buffer Sizes Of Sender and Receiver Mismatch}{34}
+\contentsline {chapter}{\numberline {A}Additional Information}{35}
+\contentsline {chapter}{Bibliography}{36}

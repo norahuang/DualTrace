@@ -2,8 +2,9 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Functions for communication type definition of synchronous named pipe}}{14}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Functions for additional communication type definition of asynchronous named pipe}}{15}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Send/Receive Scenarios of Named Pipe}}{18}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Functions for communication stages definition of synchronous named pipe}}{19}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Functions for additional communication type definition of asynchronous named pipe}}{20}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

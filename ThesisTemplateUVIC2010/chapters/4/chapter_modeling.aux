@@ -4,34 +4,62 @@
 \@writefile{lot}{\addvspace {10\p@ }}
 \newlabel{chapter:Mod}{{4}{9}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}Communication Modeling}{9}}
+\newlabel{commod}{{4.1}{9}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}How Communications Happen}{9}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Three main stage of the communication between two ends of a channel}}{10}}
-\newlabel{event}{{4.1}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Properties of Communications}{10}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.3}Scenarios}{10}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.2}Named Pipes Channel}{11}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Important Channel Parameters}{11}}
-\@writefile{toc}{\contentsline {subsubsection}{Buffer Size}{11}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces write/read operation scenarios: Scenario 1. The written message can fit in the Reader's buffer. The order of the message going into the pipe is the same as the order going out of the pipe; Scenario 2. The written message size is larger than the Reader's buffer, so the read use multiple read operation to receive one message.}}{12}}
-\newlabel{event}{{4.2}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{Blocking/Non-Blocking}{12}}
-\@writefile{toc}{\contentsline {subsubsection}{Synchronous/Asynchronous}{12}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Function Calls That Consist A Communication Event In The Dual-Trace}{13}}
-\@writefile{toc}{\contentsline {subsubsection}{Synchronous}{13}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Functions for communication type definition of synchronous named pipe}}{14}}
-\newlabel{synfunctions}{{4.1}{14}}
-\@writefile{toc}{\contentsline {subsubsection}{Asynchronous}{14}}
-\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Functions for additional communication type definition of asynchronous named pipe}}{15}}
-\newlabel{asynfunctions}{{4.2}{15}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}MQMS Channel}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Synchronous}{15}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Asynchronous}{15}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}TCP/UDP Socket Channel}{15}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.5}HTTP Channel}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Communication Model}}{10}}
+\newlabel{communicationhappen}{{4.1}{10}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.2}Communication Scenarios}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Scenario 1: Message send/receive successfully in order}}{11}}
+\newlabel{scenario1}{{4.2}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Scenario 2: Message send/receive successfully but out of order}}{11}}
+\newlabel{scenario2}{{4.3}{11}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Scenario 3: Message send/receive fail}}{12}}
+\newlabel{scenario3}{{4.4}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Scenario 4: One sent message received segmented}}{12}}
+\newlabel{scenario4}{{4.5}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Scenario 5: One sent message received segmented and out of order}}{12}}
+\newlabel{scenario5}{{4.6}{12}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Scenario 6: One sent message received segmented in order, but partially lost}}{13}}
+\newlabel{scenario6}{{4.7}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Scenario 7: One sent message received segmented out of order and partially lost}}{13}}
+\newlabel{scenario7}{{4.8}{13}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Scenario 8: Multiple messages received at a time}}{14}}
+\newlabel{scenario8}{{4.9}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Scenario 9: Multiple messages received at a time, but partially lost}}{14}}
+\newlabel{scenario9}{{4.10}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Scenario 10: Messages segmented and reconstructed in order}}{14}}
+\newlabel{scenario10}{{4.11}{14}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Scenario 11: Messages segmented and reconstructed out of order}}{15}}
+\newlabel{scenario11}{{4.12}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Scenario 12: Messages segmented and reconstructed partially lost}}{15}}
+\newlabel{scenario12}{{4.13}{15}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Scenario 13: Messages segmented and reconstructed out of order and partially lost}}{16}}
+\newlabel{scenario13}{{4.14}{16}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Named Pipes Channel}{16}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Important Channel Parameters}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{Blocking/Non-Blocking}{17}}
+\@writefile{toc}{\contentsline {subsubsection}{Synchronous/Asynchronous}{17}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Send/Receive Scenarios}{17}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.1}{\ignorespaces Send/Receive Scenarios of Named Pipe}}{18}}
+\newlabel{modmatchresult}{{4.1}{18}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Function Calls In Each Communication Stage}{18}}
+\@writefile{toc}{\contentsline {subsubsection}{Synchronous}{18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Two successful write/read operation scenarios. Each blue block indicate a single read or write operation.}}{19}}
+\newlabel{event}{{4.15}{19}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.2}{\ignorespaces Functions for communication stages definition of synchronous named pipe}}{19}}
+\newlabel{synfunctions}{{4.2}{19}}
+\@writefile{toc}{\contentsline {subsubsection}{Asynchronous}{20}}
+\@writefile{lot}{\contentsline {table}{\numberline {4.3}{\ignorespaces Functions for additional communication type definition of asynchronous named pipe}}{20}}
+\newlabel{asynfunctions}{{4.3}{20}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}MQMS Channel}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Synchronous}{21}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Asynchronous}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}TCP/UDP Socket Channel}{21}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}HTTP Channel}{21}}
 \@setckpt{chapters/4/chapter_modeling}{
-\setcounter{page}{16}
+\setcounter{page}{22}
 \setcounter{equation}{0}
-\setcounter{enumi}{4}
+\setcounter{enumi}{7}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
 \setcounter{enumiv}{0}
@@ -44,8 +72,8 @@
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{2}
-\setcounter{table}{2}
+\setcounter{figure}{15}
+\setcounter{table}{3}
 \setcounter{lofdepth}{2}
 \setcounter{lotdepth}{1}
 \setcounter{LT@tables}{0}
