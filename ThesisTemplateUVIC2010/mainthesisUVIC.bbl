@@ -29,6 +29,11 @@ School of Computing) Advisor (Prof. B.~Kang) KAIST CysecLab (Graduate School~of
   Information~Security.
 \newblock c0demap/codemap: {Codemap}.
 
+\bibitem{redkar2004pro}
+Arohi Redkar, Ken Rabold, Richard Costall, Scot Boyd, and Carlos Walzer.
+\newblock {\em Pro MSMQ: Microsoft Message Queue Programming}.
+\newblock Apress, 2004.
+
 \bibitem{wang_predicting_2011}
 Chao Wang and Malay Ganai.
 \newblock Predicting {Concurrency} {Failures} in the {Generalized} {Execution}

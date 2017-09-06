@@ -15,86 +15,31 @@ The operations being concerned in this model are: channel open in sender side, c
 \label{communicationhappen}
 \end{figure}
 
+
 \subsection{Communication Scenarios}
-This model contains several send/receive scenarios. Figure \ref{scenario1} to Figure \ref{scenario13} shows all of these scenarios.
+This model contains several send/receive scenarios. Table \ref{scenarios} shows all of these scenarios.
 
-\begin{figure}[ht!]
-\centerline{\includegraphics[scale=0.6]{Figures/scenario1}}
- \caption{Scenario 1: Message send/receive successfully in order}
-\label{scenario1}
-\end{figure}
 
-\begin{figure}[ht!]
-\centerline{\includegraphics[scale=0.6]{Figures/scenario2}}
- \caption{Scenario 2: Message send/receive successfully but out of order}
-\label{scenario2}
-\end{figure}
+\begin{longtable}{|c|c|p{6.5cm}|}
+\caption{Send/Receive Scenarios of Named Pipe}\label{scenarios}\\
+\hline
+\textbf{Scenario} & \textbf{Diagram} & \textbf{Comment}\\ \hline
+ 1 &\raisebox{-\totalheight}{ \includegraphics[scale=0.3]{Figures/scenario1}} & Message send/receive successfully in order                       \\ \hline
+ 2 & \raisebox{-\totalheight}{ \includegraphics[scale=0.3]{Figures/scenario2}}  & Message send/receive successfully but out of order \\ \hline
+ 3 &\raisebox{-\totalheight}{  \includegraphics[scale=0.3]{Figures/scenario3}} &  Message send/receive fail \\ \hline
+ 4 & \raisebox{-\totalheight}{ \includegraphics[scale=0.3]{Figures/scenario4}} & One sent message received segmented \\ \hline
+ 5 & \raisebox{-\totalheight}{ \includegraphics[scale=0.3]{Figures/scenario5}}  & One sent message received segmented and out of order \\ \hline
+ 6 & \raisebox{-\totalheight}{ \includegraphics[scale=0.3]{Figures/scenario6}}  &  One sent message received segmented in order, but partially lost \\ \hline
+ 7 & \raisebox{-\totalheight}{ \includegraphics[scale=0.3]{Figures/scenario7}}  & One sent message received segmented out of order and partially lost \\ \hline
+ 8 & \raisebox{-\totalheight}{ \includegraphics[scale=0.3]{Figures/scenario8}}  & Multiple messages received at a time \\ \hline
+ 9 & \raisebox{-\totalheight}{ \includegraphics[scale=0.3]{Figures/scenario9}}  & Multiple messages received at a time, but partially lost \\\hline
+ 10 & \raisebox{-\totalheight}{ \includegraphics[scale=0.3]{Figures/scenario10}} &  Messages segmented and reconstructed in order \\ \hline
+ 11 & \raisebox{-\totalheight}{ \includegraphics[scale=0.3]{Figures/scenario11}} &  Messages segmented and reconstructed out of order \\ \hline
+ 12 & \raisebox{-\totalheight}{ \includegraphics[scale=0.3]{Figures/scenario12}} & Messages segmented and reconstructed partially lost \\ \hline
+ 13 & \raisebox{-\totalheight}{ \includegraphics[scale=0.3]{Figures/scenario13}} & Messages segmented and reconstructed out of order and partially lost \\ \hline
+\end{longtable}
 
-\begin{figure}[ht!]
-\centerline{\includegraphics[scale=0.6]{Figures/scenario3}}
- \caption{Scenario 3: Message send/receive fail}
-\label{scenario3}
-\end{figure}
 
-\begin{figure}[ht!]
-\centerline{\includegraphics[scale=0.6]{Figures/scenario4}}
- \caption{Scenario 4: One sent message received segmented}
-\label{scenario4}
-\end{figure}
-
-\begin{figure}[ht!]
-\centerline{\includegraphics[scale=0.6]{Figures/scenario5}}
- \caption{Scenario 5: One sent message received segmented and out of order}
-\label{scenario5}
-\end{figure}
-
-\begin{figure}[ht!]
-\centerline{\includegraphics[scale=0.6]{Figures/scenario6}}
- \caption{Scenario 6: One sent message received segmented in order, but partially lost}
-\label{scenario6}
-\end{figure}
-
-\begin{figure}[ht!]
-\centerline{\includegraphics[scale=0.6]{Figures/scenario7}}
- \caption{Scenario 7: One sent message received segmented out of order and partially lost}
-\label{scenario7}
-\end{figure}
-
-\begin{figure}[ht!]
-\centerline{\includegraphics[scale=0.6]{Figures/scenario8}}
- \caption{Scenario 8: Multiple messages received at a time}
-\label{scenario8}
-\end{figure}
-
-\begin{figure}[ht!]
-\centerline{\includegraphics[scale=0.6]{Figures/scenario9}}
- \caption{Scenario 9: Multiple messages received at a time, but partially lost}
-\label{scenario9}
-\end{figure}
-
-\begin{figure}[ht!]
-\centerline{\includegraphics[scale=0.6]{Figures/scenario10}}
- \caption{Scenario 10: Messages segmented and reconstructed in order}
-\label{scenario10}
-\end{figure}
-
-\begin{figure}[ht!]
-\centerline{\includegraphics[scale=0.6]{Figures/scenario11}}
- \caption{Scenario 11: Messages segmented and reconstructed out of order}
-\label{scenario11}
-\end{figure}
-
-\begin{figure}[ht!]
-\centerline{\includegraphics[scale=0.6]{Figures/scenario12}}
- \caption{Scenario 12: Messages segmented and reconstructed partially lost}
-\label{scenario12}
-\end{figure}
-\clearpage
-\begin{figure}[ht!]
-\centerline{\includegraphics[scale=0.6]{Figures/scenario13}}
- \caption{Scenario 13: Messages segmented and reconstructed out of order and partially lost}
-\label{scenario13}
-\end{figure}
 
 \section{Named Pipes Channel}
 A named pipe is a named, one-way or duplex pipe for communication between the pipe server and one or more pipe clients. Both the server and client can read or write into the pipe. The pipe server and client can be on the same or different computers.  In here we only consider one server V.S one client dual-trace. One server to multiple clients scenario can always be divided into multiple server/client dual-traces. We call the end of the named pipe instance. An instance can be a server instance or a client instance. All instances of a named pipe share the same pipe name, but each instance has its own buffers and handles, and provides a separate conduit for client/server communication. 
@@ -111,28 +56,42 @@ The named pipe channel can be opened in blocking mode or non-blocking mode. In b
 Another critical option for named pipe channel is Synchronous/Asynchronous. In Synchronous mode, the ReadFile, WriteFile TracnsactNamedPipe and connectNamedPipe functions does not return until the operation it is performing is completed. That means we can retrieve the sent/receive message in the trace when the function return. When the channel is enable overlapped mode, the ReadFile, WriteFile TracnsactNamedPipe and connectNamedPipe functions perform asynchronously. In the asynchronous mode, ReadFile, WriteFile, TransactNamedPipe, and ConnectNamedPipe operations return immediately regardless if the operations are completed. And if the function call return ERROR\_IO\_PENDING, the calling thread then call the GetOverlappedResult function to determine the results. For the read operation, the message will be stored in the buffer indicated in the ReadFile function call when the read operation complete successfully.
 
 \subsection{Send/Receive Scenarios}
-In this section, I matched the possible send/receive scenarios of named pipe channel with those defined in the \ref{commod} section. The matching result is list in Table \ref{modmatchresult} with comments.
+In section \ref{modmatchresult}, I defined 13 scenarios of the general communication channel. In this section, I check their existence for named pipe channel. Some important properties of named pipe channel, which affecting the happening of the scenarios are listed in Table \ref{namedpipeproperties}. The result of the existence of the scenarios is list in Table\ref{pipematchresult} with the explanation by the affecting properties. 
+
+\begin{table}[h]
+\centering
+\caption{Named Pipe Channel properties}
+\label{namedpipeproperties}
+\begin{tabular}{|l|p{12cm}|}
+\hline
+\begin{tabular}[c]{@{}l@{}}\textbf{Property} \end{tabular} & \begin{tabular}[c]{@{}l@{}}\textbf{Description}\end{tabular}\\ \hline
+1 & All message going into the pipe will go out in order      \\ \hline
+2 & The receiver can read multiple times to get the whole message, when he send message size is larger than the receiver's buffer  \\ \hline
+3 & The receiver can only read contents from one write operation on the other end of the pipe in its one read operation                                            \\ \hline
+4 & Read/Write operation return immediately when error occurs\\\hline
+\end{tabular}
+\end{table}
 
 \begin{table}[h]
 \centering
 \caption{Send/Receive Scenarios of Named Pipe}
-\label{modmatchresult}
+\label{pipematchresult}
 \begin{tabular}{|l|l|l|}
 \hline
 \begin{tabular}[c]{@{}l@{}}\textbf{Scenario} \end{tabular} & \begin{tabular}[c]{@{}l@{}}\textbf{Existence}\end{tabular} & \begin{tabular}[c]{@{}l@{}}\textbf{Comment}\end{tabular}\\ \hline
-Scenario 1 & YES & The most basic scenario                       \\ \hline
-Scenario 2 & NO  & All message going into the pipe will go out in order                                         \\ \hline
-Scenario 3 & YES & Message write or read fail                                                 \\ \hline
-Scenario 4 & YES & The sent message size larger than the reader's read buffer                                           \\ \hline
-Scenario 5 & NO  & All message going into the pipe will go out in order                                         \\ \hline
-Scenario 6 & NO  & Same as Scenario 5 \\ \hline
-Scenario 7 & NO  & Same as Scenario 5 \\ \hline
-Scenario 8 & NO  & The reader can only read content from a write on the other side of the pipe.                                                 \\ \hline
-Scenario 9 & NO  & Same as Scenario 8                                                 \\\hline
-Scenario 10 & NO &   Same as Scenario 8                                               \\ \hline
-Scenario 11 & NO &  Same as Scenario 8                                                 \\ \hline
-Scenario 12 & NO &  Same as Scenario 8                                                 \\ \hline
-Scenario 13 & NO & Same as Scenario 8                                                  \\ \hline
+Scenario 1 & YES & Property 1                       \\ \hline
+Scenario 2 & NO  & Property 1 \\ \hline
+Scenario 3 & YES & Property 4             \\ \hline
+Scenario 4 & YES & Property 2 \\ \hline
+Scenario 5 & NO  & Property 1                                         \\ \hline
+Scenario 6 & NO  & Property 1 \\ \hline
+Scenario 7 & NO  & Property 1 \\ \hline
+Scenario 8 & NO  & Property 3         \\ \hline
+Scenario 9 & NO  & Property 3                                                \\\hline
+Scenario 10 & NO & Property 3                                               \\ \hline
+Scenario 11 & NO & Property 3                                                 \\ \hline
+Scenario 12 & NO & Property 3                                                 \\ \hline
+Scenario 13 & NO & Property 3                                                 \\ \hline
 \end{tabular}
 \end{table}
 
@@ -147,13 +106,13 @@ Scenario 13 & NO & Same as Scenario 8                                           
 \subsection{Function Calls In Each Communication Stage}
 As we talk in the parameters section, Synchrounous and Asychronous mode affect the functions used to complete the send and receive operation as well as the operation of the functions. In the follow subsections, we will list the related functions for the named pipe channel for both synchronous mode and asynchronous mode. The create channel functions for both modes are the same but with different input parameters. The functions for send and receive message are also the same for both case. However, the operation of the send and receive functions are different for different mode. In addition, extra functions are being called to check the status of message sending or receiving in asynchronous mode.
 \subsubsection{Synchronous}
-We list all the functions that needed to locate an messaging event in a dual-trace in Table\ref{synfunctions} for synchronous named pipe. The Channel Create Functions indicate how the channel being created in server and client sides, and they are different. The file name is an input parameter for CreateNamedPipe and CreateFile function. The client and server of the same pipe use the same file name. This is an important parameter to identify the pipe between the server and client in the traces. The File name is stored in the RCX register when the function is being called. The file handle is a integer return value from the CreateNamedPipe and CreateFile functions call. It will be stored in RAX register when the function return. This handle will be used as the identifier of a pipe in the client or server later on. The handle is different for server and each client even they connected to the same pipe. The send or receive message functions are the same in server and client. the file handle generated when the channel created are stored in register RCX when the WriteFile and ReadFile functions are being called. RDX holds the address of the buffer for message send or receive. The actual size of the message being sent or received are store in R9 when the function return.
+We list all the functions that needed to locate an messaging event in a dual-trace in Table\ref{synfunctions} for synchronous named pipe. The Channel Open Functions indicate how the channel being opened/created in server and client sides, and they are different. The file name is an input parameter for CreateNamedPipe and CreateFile function. The client and server of the same pipe use the same file name. This is an important parameter to identify the pipe between the server and client in the traces. The File name is stored in the RCX register when the function is being called. The file handle is a integer return value from the CreateNamedPipe and CreateFile functions call. It will be stored in RAX register when the function return. This handle will be used as the identifier of a pipe in the client or server later on. The handle is different for server and each client even they connected to the same pipe. The send or receive message functions are the same in server and client. the file handle generated when the channel created are stored in register RCX when the WriteFile and ReadFile functions are being called. RDX holds the address of the buffer for message send or receive. The actual size of the message being sent or received are store in R9 when the function return.
   
     \begin{table}[h]
         \centering
         \caption{Functions for communication stages definition of synchronous named pipe}
         \label{synfunctions}
-        \begin{tabular}{|l|l|l|l|l|}
+        \begin{tabular}{|p{1.8cm}|l|l|l|l|}
             \hline
              \multirow{2}{*}{\textbf{Stage}} &
                \multicolumn{2}{c|}{\textbf{Server}} &
@@ -173,13 +132,15 @@ We list all the functions that needed to locate an messaging event in a dual-tra
                            \cline{3-3} \cline{5-5}
              & &  R9: Message Length &  &  R9: Message Length\\
             \cline{2-5}
-             & \multirow{3}{*}{ReadFile}&  RAX: File Handle & \multirow{3}{*}{ReadFile} &  RCX: File Handle\\
+             & \multirow{3}{*}{ReadFile}&  RCX: File Handle & \multirow{3}{*}{ReadFile} &  RCX: File Handle\\
               \cline{3-3} \cline{5-5}
               &&  RDX: Buffer Address &  &  RDX: Buffer Address\\
                            \cline{3-3} \cline{5-5}
              & &  R9: Message Length &  &  R9: Message Length\\
             \hline
-            \textbf{Channel Close} & CloseHandle &  RCX: File Handler & CloseHandle &  RCX: File Handler\\
+           \multirow{2}{*}{\parbox{1.8cm}{\textbf{Channel Close}}}
+             &\multirow{2}{*}{CloseHandle} & \multirow{2}{*}{RCX: File Handler} & \multirow{2}{*}{CloseHandle} &  \multirow{2}{*}{RCX: File Handler}\\
+             &&   &  & \\
             \hline
         \end{tabular}
     \end{table}
@@ -189,9 +150,9 @@ The functions used in Asynchronous mode for create channel, send and receive mes
         \centering
         \caption{Functions for additional communication type definition of asynchronous named pipe}
         \label{asynfunctions}
-        \begin{tabular}{|l|l|l|l|l|}
+        \begin{tabular}{|p{1.8cm}|l|l|l|l|}
             \hline
-             \multirow{2}{*}{\textbf{Operations}} &
+             \multirow{2}{*}{\textbf{Stage}} &
                \multicolumn{2}{c|}{\textbf{Server}} &
                \multicolumn{2}{c|}{\textbf{Client}} \\
              \cline{2-5}
@@ -218,20 +179,181 @@ The functions used in Asynchronous mode for create channel, send and receive mes
               \cline{2-5} 
              & \multirow{2}{*}{\parbox{2.5cm}{GetOver- lappedResult}}&  RCX: File Handler & \multirow{2}{*}{\parbox{2.5cm}{GetOver- lappedResult}} &  RCX: File Handler\\
               \cline{3-3} \cline{5-5}
-             & &  R8: Message Length &  &  R8: Message Length\\
+             & &  RDX:  OVERLAPPED structure &  &  RDX:  OVERLAPPED structure\\
                          \hline
-            \textbf{Channel Close} & CloseHandle &  RCX: File Handler & CloseHandle &  RCX: File Handler\\
+                         
+                          \multirow{2}{*}{\parbox{1.8cm}{\textbf{Channel Close}}}
+             &\multirow{2}{*}{CloseHandle} & \multirow{2}{*}{RCX: File Handler} & \multirow{2}{*}{CloseHandle} &  \multirow{2}{*}{RCX: File Handler}\\
+             &&   &  & \\
             \hline
         \end{tabular}
     \end{table}
     
-    
+
 
 \section{MQMS Channel}
-\subsection{Synchronous}
-\subsection{Asynchronous}
+Message Queuing (MSMQ) is designed for communication between applications which is running at different times across heterogeneous networks and systems that may be temporarily offline. Messages are sent to and read from queues by applications. Multiple sending applications can send messages to and multiple receiving applications can read messages from one queue. \cite{redkar2004pro}
 
+However, in this work only one sending application versus one receiving application case is considered. Multiple sender to multiple receiver scenario can always be divided into multiple sender/receiver dual-traces. 
+
+The sending or receiving application can create the queue or use the existing one. However, both of them have to open the queue before they access it. The handle ID returned by the open queue function will be used later on when messages are being sent or received
+
+\subsection{Important Channel Parameters}    
+Same as Named pipe channels, MSMQ channel have many options or settings affecting the operations happen in the channels. In this section I listed those ones affecting the dual trace analysis. 
+
+\subsubsection{Synchronous/Asynchronous Receiving}
+In Message Queuing channels, only receiving can operate in asynchronous mode. When synchronously reading messages, the input parameters fnReceiveCallback and lpOverlapped are set to NULL. The calling thread is blocked until a suitable message is available or a time-out occurs for the receiving function. When asynchronously reading messages, MQReceiveMessage returns MQ\_OK if a suitable message is found. Otherwise, MQReceiveMessage returns immediately with the return value MQ\_INFORMATION\_OPERATION\_PENDING. This return value indicates that the operation is pending and will be completed as soon as a suitable message can be found. Further operations needed to get the message later on. More details about the further operations will be described in Section \ref{callback}
+\subsubsection{Asynchronous Receiving With Call Back Functio or Completion port}\label{callback}
+When the receiving operates in asynchronous mode, completion ports or call back function can be used for the asynchronously reading. 
+
+In the completion port using situation, MQGetOverlappedResult is called to retrieve the success or error code from the OVERLAPPED structure. If no message is received before the time-out period elapses, an error is returned, and the start routine returns, terminating the thread in an implicit call to ExitThread.
+
+In the call back function using situation, a call back function's pointer is given when the receiving function is being called. The call back function will perform its task as long a message was received or the time-out interval supplied by the caller elapsed.
+\subsubsection{Message Properties Description Structure}
+
+\subsection{Send/Receive Scenarios}
+In this section, I check the scenarios existence for message queuing. Some important properties of MSMQ channel, which affecting the happening of the scenarios are listed in Table \ref{msmqproperties}. The result of the existence of the scenarios is list in Table\ref{msmqmatchresult} with the explanation by the affecting properties. 
+
+\begin{table}[h]
+\centering
+\caption{Named Pipe Channel properties}
+\label{msmqproperties}
+\begin{tabular}{|l|p{12cm}|}
+\hline
+\begin{tabular}[c]{@{}l@{}}\textbf{Property} \end{tabular} & \begin{tabular}[c]{@{}l@{}}\textbf{Description}\end{tabular}\\ \hline
+1 & All message going into the pipe will go out in order      \\ \hline
+2 & The receiver can read multiple times to get the whole message, when he send message size is larger than the receiver's buffer  \\ \hline
+3 & The receiver can only read contents from one write operation on the other end of the pipe in its one read operation                                            \\ \hline
+4 & Read/Write operation return immediately when error occurs\\\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Send/Receive Scenarios of Named Pipe}
+\label{msmqmatchresult}
+\begin{tabular}{|l|l|l|}
+\hline
+\begin{tabular}[c]{@{}l@{}}\textbf{Scenario} \end{tabular} & \begin{tabular}[c]{@{}l@{}}\textbf{Existence}\end{tabular} & \begin{tabular}[c]{@{}l@{}}\textbf{Comment}\end{tabular}\\ \hline
+Scenario 1 & YES & Property 1                       \\ \hline
+Scenario 2 & NO  & Property 1 \\ \hline
+Scenario 3 & YES & Property 4             \\ \hline
+Scenario 4 & YES & Property 2 \\ \hline
+Scenario 5 & NO  & Property 1                                         \\ \hline
+Scenario 6 & NO  & Property 1 \\ \hline
+Scenario 7 & NO  & Property 1 \\ \hline
+Scenario 8 & NO  & Property 3         \\ \hline
+Scenario 9 & NO  & Property 3                                                \\\hline
+Scenario 10 & NO & Property 3                                               \\ \hline
+Scenario 11 & NO & Property 3                                                 \\ \hline
+Scenario 12 & NO & Property 3                                                 \\ \hline
+Scenario 13 & NO & Property 3                                                 \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Function Calls In Each Communication Stage}
+We list all the functions that needed to locate an messaging event in a dual-trace in Table\ref{synfunctions} for MSMQ. The Channel Open Functions indicate how the channel being opened in sending and receiving sides. The Queue Format Name is an input parameter for MQOpenQueue function. This is an important parameter to identify the queue. The File name is stored in the RCX register when the function is being called. The queue handle is a integer return value from the MQOpenQueue functions call. It will be stored in RAX register when the function return. The handle is different for each application using the same queue. The queue handle generated when the queue is opened by an application are stored in register RCX when the MQSendMessage or MQReceiveMessage functions are being called for message sending and receiving. RDX holds the address of the sending message structure for message sending while R9 holds the address of the receiving message structure for message receiving. For message receiving, the operation can be synchronous or asynchronous. For the asynchronous receiving, an callback function's pointer is indicated in the parameter fnReceiveCallback which is pushed on the stack if the callback function is employed. If the call back function is not employed, MQGetOverlappedResult should be called to get the received message.
+
+\subsubsection{Synchronous Receiving}
+The functions used for defining a communication channel and events are listed in Table\ref{msmqsynfunctions}.
+    \begin{table}[h]
+        \centering
+        \caption{Functions for communication stages of MSMQ for synchronous receiving}
+        \label{msmqsynfunctions}
+        \begin{tabular}{|l|l|l|}
+            \hline
+             \textbf{Stage} & \textbf{Function}& \textbf{Parameters}  \\
+             \hline
+             \multirow{2}{*}{{\textbf{Channel Open}}}
+             &\multirow{2}{*}{{MQOpenQueue}} &  RAX: Queue Handler\\
+              \cline{3-3} 
+             & &  RCX: Queue Format Name\\
+            \hline
+             \multirow{4}{*}{{\textbf{Message Send/Receive}}}
+             &\multirow{2}{*}{MQSendMessage} &  RCX: Queue Handle \\
+              \cline{3-3} 
+             &&  RDX: Message description structure Address \\
+            \cline{2-3}
+             & \multirow{2}{*}{MQReceiveMessage}&  RCX: Queue Handle \\
+              \cline{3-3} 
+              &&  R9: Message description structure Address \\
+            \hline
+            \textbf{Channel Close} &MQCloseQueue & RCX: Queue Handler \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+\subsubsection{Asynchronous Receiving with Call Back Functions}
+The functions used for defining a communication channel and events are listed in Table\ref{msmqasynfunctionscallback}.
+    \begin{table}[h]
+        \centering
+        \caption{Functions for communication stages of MSMQ for asynchronous receiving with call back function}
+        \label{msmqasynfunctionscallback}
+        \begin{tabular}{|l|l|l|}
+            \hline
+             \textbf{Stage} & \textbf{Function}& \textbf{Parameters}  \\
+             \hline
+             \multirow{2}{*}{{\textbf{Channel Open}}}
+             &\multirow{2}{*}{{MQOpenQueue}} &  RAX: Queue Handler\\
+              \cline{3-3} 
+             & &  RCX: Queue Format Name\\
+            \hline
+             \multirow{5}{*}{\parbox{2.5cm}{\textbf{Message Send/Receive}}}
+             &\multirow{2}{*}{MQSendMessage} &  RCX: Queue Handle \\
+              \cline{3-3} 
+             &&  RDX: Message description structure Address \\
+            \cline{2-3}
+             & \multirow{3}{*}{\parbox{2.5cm}{MQReceive-Message}}&  RCX: Queue Handle \\
+              \cline{3-3} 
+              &&  R9: Message description structure Address \\
+                            \cline{3-3} 
+              &&  Stack(The Third One): Pointer of the call back function \\
+            \hline
+            \textbf{Channel Close} &MQCloseQueue & RCX: Queue Handler \\
+            \hline
+        \end{tabular}
+    \end{table}
+
+
+\subsubsection{Asynchronous Receiving without Call Back Functions}
+The functions used for defining a communication channel and events are listed in Table\ref{msmqasynfunctions}.
+    \begin{table}[h]
+        \centering
+        \caption{Functions for communication stages of MSMQ for asynchronous receiving without call back function}
+        \label{msmqasynfunctions}
+        \begin{tabular}{|l|l|l|}
+            \hline
+             \textbf{Stage} & \textbf{Function}& \textbf{Parameters}  \\
+             \hline
+             \multirow{2}{*}{{\textbf{Channel Open}}}
+             &\multirow{2}{*}{{MQOpenQueue}} &  RAX: Queue Handler\\
+              \cline{3-3} 
+             & &  RCX: Queue Format Name\\
+            \hline
+             \multirow{5}{*}{\parbox{2.5cm}{\textbf{Message Send/Receive}}}
+             &\multirow{2}{*}{MQSendMessage} &  RCX: Queue Handle \\
+              \cline{3-3} 
+             &&  RDX: Message description structure Address \\
+            \cline{2-3}
+             & \multirow{3}{*}{\parbox{2.5cm}{MQReceive-Message}}&  RCX: Queue Handle \\
+              \cline{3-3} 
+              &&  R9: Message description structure Address \\
+                            \cline{3-3} 
+              &&  Stack(The Fourth One): Overlap Structure address\\
+                          \cline{2-3}
+                          
+              & \multirow{2}{*}{\parbox{2.5cm}{MQGetOver-lappedResult}} &  RCX: Overlap Structure address  \\
+              &&\\
+            \hline
+            \textbf{Channel Close} &MQCloseQueue & RCX: Queue Handler \\
+            \hline
+        \end{tabular}
+    \end{table}
 \section{TCP/UDP Socket Channel}
+
+
 \section{HTTP Channel}
 
 

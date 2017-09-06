@@ -2,9 +2,16 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Send/Receive Scenarios of Named Pipe}}{18}
-\contentsline {table}{\numberline {4.2}{\ignorespaces Functions for communication stages definition of synchronous named pipe}}{19}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Functions for additional communication type definition of asynchronous named pipe}}{20}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Send/Receive Scenarios of Named Pipe\relax }}{11}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Named Pipe Channel properties\relax }}{15}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Send/Receive Scenarios of Named Pipe\relax }}{15}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Functions for communication stages definition of synchronous named pipe\relax }}{17}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Functions for additional communication type definition of asynchronous named pipe\relax }}{18}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Named Pipe Channel properties\relax }}{20}
+\contentsline {table}{\numberline {4.7}{\ignorespaces Send/Receive Scenarios of Named Pipe\relax }}{20}
+\contentsline {table}{\numberline {4.8}{\ignorespaces Functions for communication stages of MSMQ for synchronous receiving\relax }}{21}
+\contentsline {table}{\numberline {4.9}{\ignorespaces Functions for communication stages of MSMQ for asynchronous receiving with call back function\relax }}{21}
+\contentsline {table}{\numberline {4.10}{\ignorespaces Functions for communication stages of MSMQ for asynchronous receiving without call back function\relax }}{22}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -2,31 +2,18 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Communication Model}}{10}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Scenario 1: Message send/receive successfully in order}}{11}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Scenario 2: Message send/receive successfully but out of order}}{11}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Scenario 3: Message send/receive fail}}{12}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Scenario 4: One sent message received segmented}}{12}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Scenario 5: One sent message received segmented and out of order}}{12}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Scenario 6: One sent message received segmented in order, but partially lost}}{13}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Scenario 7: One sent message received segmented out of order and partially lost}}{13}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Scenario 8: Multiple messages received at a time}}{14}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Scenario 9: Multiple messages received at a time, but partially lost}}{14}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Scenario 10: Messages segmented and reconstructed in order}}{14}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Scenario 11: Messages segmented and reconstructed out of order}}{15}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Scenario 12: Messages segmented and reconstructed partially lost}}{15}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Scenario 13: Messages segmented and reconstructed out of order and partially lost}}{16}
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Two successful write/read operation scenarios. Each blue block indicate a single read or write operation.}}{19}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Communication Model\relax }}{10}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Two successful write/read operation scenarios. Each blue block indicate a single read or write operation.\relax }}{16}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Add function to a Communication type from Functions View}}{24}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Dialog to input information for a function adding to a communication type}}{25}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces New View: Communication Type View}}{26}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Right Click menu to navigate to send and receive event in the traces}}{26}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Add function to a Communication type from Functions View\relax }}{25}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Dialog to input information for a function adding to a communication type\relax }}{26}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces New View: Communication Type View\relax }}{27}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Right Click menu to navigate to send and receive event in the traces\relax }}{27}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Defined clientsend and serversend communication types in Communication View}}{30}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces the search result of clientsend communication type}}{30}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces the search result of the serversend communication type}}{30}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces instruction view and memory view updated correctly}}{31}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Defined clientsend and serversend communication types in Communication View\relax }}{31}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces the search result of clientsend communication type\relax }}{31}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces the search result of the serversend communication type\relax }}{31}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces instruction view and memory view updated correctly\relax }}{32}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
