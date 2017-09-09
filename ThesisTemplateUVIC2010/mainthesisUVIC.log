@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  5 SEP 2017 17:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  8 SEP 2017 14:14
 entering extended mode
 **./mainthesisUVIC.tex
 (mainthesisUVIC.tex
@@ -372,15 +372,7 @@ Package caption Info: longtable package is loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\ltcaption.sty"
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 ))
-(mainthesisUVIC.aux (chapters/1/chapter_intro.aux)
-(chapters/2/chapter_methodology.aux) (chapters/3/chapter_background.aux)
-(chapters/4/chapter_modeling.aux) (chapters/5/chapter_new.aux)
-(chapters/6/chapter_experiments.aux
-
-LaTeX Warning: Label `occclientresult' multiply defined.
-
-) (chapters/7/chapter_evaluation.aux) (chapters/8/chapter_conclusion.aux)
-(chapters/appendix/chapter_app.aux))
+(mainthesisUVIC.aux)
 \openout1 = `mainthesisUVIC.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
@@ -536,12 +528,18 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4])
+[4] [5])
 \tf@toc=\write3
 \openout3 = `mainthesisUVIC.toc'.
 
- [5] [6] (mainthesisUVIC.lot
-Overfull \hbox (13.6465pt too wide) in paragraph at lines 8--8
+ [6] (mainthesisUVIC.lot
+Overfull \hbox (1.71191pt too wide) in paragraph at lines 5--5
+ [][] []\OT1/cmr/m/n/12 Send/Receive Sce-nar-ios of Or-der Guar-an-teed Com-mu-
+ni-ca-tion Model []  
+ []
+
+
+Overfull \hbox (13.6465pt too wide) in paragraph at lines 11--11
  [][] []\OT1/cmr/m/n/12 Functions for com-mu-ni-ca-tion stages def-i-ni-tion of
  syn-chronous named 
  []
@@ -578,11 +576,32 @@ Chapter 2.
 
  (chapters/3/chapter_background.tex
 Chapter 3.
+
+LaTeX Warning: Citation `dowd_art_2006' on page 5 undefined on input line 5.
+
 [5
 
 
 
 ]
+
+LaTeX Warning: Citation `cleary_reconstructing_2013' on page 6 undefined on inp
+ut line 9.
+
+
+LaTeX Warning: Citation `wang_predicting_2011' on page 6 undefined on input lin
+e 9.
+
+
+LaTeX Warning: Citation `eagle_ida_2008' on page 6 undefined on input line 13.
+
+
+LaTeX Warning: Citation `_c0demap/codemap:_????' on page 6 undefined on input l
+ine 13.
+
+
+LaTeX Warning: Citation `_pin_????' on page 6 undefined on input line 13.
+
 
 LaTeX Warning: Reference `brueningqz' on page 6 undefined on input line 13.
 
@@ -595,180 +614,314 @@ LaTeX Warning: Citation `PhysRevE.68.046116' on page 6 undefined on input line
 
  (chapters/4/chapter_modeling.tex
 Chapter 4.
-[9
 
+LaTeX Warning: Reference `communicationhappen' on page 9 undefined on input lin
+e 6.
 
-
-] <Figures/communicationhappen.png, id=66, 342.27875pt x 662.475pt>
+<Figures/communicationhappen.png, id=62, 342.27875pt x 662.475pt>
 File: Figures/communicationhappen.png Graphic file (type png)
 
 <use Figures/communicationhappen.png>
-Package pdftex.def Info: Figures/communicationhappen.png used on input line 13.
+Package pdftex.def Info: Figures/communicationhappen.png used on input line 11.
 
 (pdftex.def)             Requested size: 205.36882pt x 397.48807pt.
+ [9
+
+
+
+]
+
+LaTeX Warning: Reference `scenarios_g' on page 10 undefined on input line 18.
+
+
+LaTeX Warning: Reference `scenarios_ig' on page 10 undefined on input line 18.
 
 <Figures/scenario1.png, id=68, 362.35374pt x 338.26375pt>
 File: Figures/scenario1.png Graphic file (type png)
 
 <use Figures/scenario1.png>
-Package pdftex.def Info: Figures/scenario1.png used on input line 27.
+Package pdftex.def Info: Figures/scenario1.png used on input line 25.
 (pdftex.def)             Requested size: 108.70695pt x 101.4799pt.
 
-<Figures/scenario2.png, id=69, 362.35374pt x 318.18875pt>
-File: Figures/scenario2.png Graphic file (type png)
-
-<use Figures/scenario2.png>
-Package pdftex.def Info: Figures/scenario2.png used on input line 28.
-(pdftex.def)             Requested size: 108.70695pt x 95.45735pt.
-
-Underfull \hbox (badness 3281) in paragraph at lines 28--28
-[]|\OT1/cmr/m/n/12 Message send/re-ceive suc-cess-fully
- []
-
-<Figures/scenario3.png, id=70, 304.13625pt x 157.58875pt>
+<Figures/scenario3.png, id=69, 304.13625pt x 157.58875pt>
 File: Figures/scenario3.png Graphic file (type png)
 
 <use Figures/scenario3.png>
-Package pdftex.def Info: Figures/scenario3.png used on input line 29.
+Package pdftex.def Info: Figures/scenario3.png used on input line 26.
 (pdftex.def)             Requested size: 91.24158pt x 47.27698pt.
 
-<Figures/scenario4.png, id=71, 563.10374pt x 284.06125pt>
+<Figures/scenario4.png, id=70, 563.10374pt x 284.06125pt>
 File: Figures/scenario4.png Graphic file (type png)
 
 <use Figures/scenario4.png>
-Package pdftex.def Info: Figures/scenario4.png used on input line 30.
+Package pdftex.def Info: Figures/scenario4.png used on input line 27.
 (pdftex.def)             Requested size: 168.93242pt x 85.21902pt.
 
-Underfull \hbox (badness 3536) in paragraph at lines 30--30
+Underfull \hbox (badness 3536) in paragraph at lines 27--27
 []|\OT1/cmr/m/n/12 One sent mes-sage re-ceived seg-
  []
 
-<Figures/scenario5.png, id=72, 556.0775pt x 294.09875pt>
-File: Figures/scenario5.png Graphic file (type png)
-
-<use Figures/scenario5.png>
-Package pdftex.def Info: Figures/scenario5.png used on input line 31.
-(pdftex.def)             Requested size: 166.82454pt x 88.2303pt.
-
-Underfull \hbox (badness 3536) in paragraph at lines 31--31
-[]|\OT1/cmr/m/n/12 One sent mes-sage re-ceived seg-
- []
-
-<Figures/scenario6.png, id=73, 556.0775pt x 284.06125pt>
+<Figures/scenario6.png, id=71, 556.0775pt x 284.06125pt>
 File: Figures/scenario6.png Graphic file (type png)
 
 <use Figures/scenario6.png>
-Package pdftex.def Info: Figures/scenario6.png used on input line 32.
+Package pdftex.def Info: Figures/scenario6.png used on input line 28.
 (pdftex.def)             Requested size: 166.82454pt x 85.21902pt.
 
-Underfull \hbox (badness 3536) in paragraph at lines 32--32
+Underfull \hbox (badness 3536) in paragraph at lines 28--28
 []|\OT1/cmr/m/n/12 One sent mes-sage re-ceived seg-
  []
 
-<Figures/scenario7.png, id=74, 556.0775pt x 294.09875pt>
-File: Figures/scenario7.png Graphic file (type png)
-
-<use Figures/scenario7.png>
-Package pdftex.def Info: Figures/scenario7.png used on input line 33.
-(pdftex.def)             Requested size: 166.82454pt x 88.2303pt.
-
-Underfull \hbox (badness 3536) in paragraph at lines 33--33
-[]|\OT1/cmr/m/n/12 One sent mes-sage re-ceived seg-
- []
-
-<Figures/scenario8.png, id=75, 553.06625pt x 268.00125pt>
+<Figures/scenario8.png, id=72, 553.06625pt x 268.00125pt>
 File: Figures/scenario8.png Graphic file (type png)
 
 <use Figures/scenario8.png>
-Package pdftex.def Info: Figures/scenario8.png used on input line 34.
+Package pdftex.def Info: Figures/scenario8.png used on input line 29.
 (pdftex.def)             Requested size: 165.92114pt x 80.40099pt.
 
-<Figures/scenario9.png, id=76, 452.69125pt x 268.00125pt>
+<Figures/scenario9.png, id=73, 452.69125pt x 268.00125pt>
 File: Figures/scenario9.png Graphic file (type png)
 
 <use Figures/scenario9.png>
-Package pdftex.def Info: Figures/scenario9.png used on input line 35.
+Package pdftex.def Info: Figures/scenario9.png used on input line 30.
 (pdftex.def)             Requested size: 135.80841pt x 80.40099pt.
 
-Underfull \hbox (badness 2376) in paragraph at lines 35--35
+Underfull \hbox (badness 2376) in paragraph at lines 30--30
 []|\OT1/cmr/m/n/12 Multiple mes-sages re-ceived at a
  []
 
-<Figures/scenario10.png, id=77, 653.44125pt x 298.11375pt>
+<Figures/scenario10.png, id=74, 653.44125pt x 298.11375pt>
 File: Figures/scenario10.png Graphic file (type png)
 
 <use Figures/scenario10.png>
-Package pdftex.def Info: Figures/scenario10.png used on input line 36.
+Package pdftex.def Info: Figures/scenario10.png used on input line 31.
 (pdftex.def)             Requested size: 196.03387pt x 89.43481pt.
 
-Underfull \hbox (badness 5832) in paragraph at lines 36--36
+Underfull \hbox (badness 5832) in paragraph at lines 31--31
 []|\OT1/cmr/m/n/12 Messages seg-mented and re-con-
  []
 
-<Figures/scenario11.png, id=78, 656.4525pt x 338.26375pt>
-File: Figures/scenario11.png Graphic file (type png)
-
-<use Figures/scenario11.png>
-Package pdftex.def Info: Figures/scenario11.png used on input line 37.
-(pdftex.def)             Requested size: 196.93727pt x 101.4799pt.
-
-Underfull \hbox (badness 5832) in paragraph at lines 37--37
-[]|\OT1/cmr/m/n/12 Messages seg-mented and re-con-
- []
-
-<Figures/scenario12.png, id=79, 653.44125pt x 388.45125pt>
+<Figures/scenario12.png, id=75, 653.44125pt x 388.45125pt>
 File: Figures/scenario12.png Graphic file (type png)
 
 <use Figures/scenario12.png>
-Package pdftex.def Info: Figures/scenario12.png used on input line 38.
+Package pdftex.def Info: Figures/scenario12.png used on input line 32.
 (pdftex.def)             Requested size: 196.03387pt x 116.53627pt.
 
-Underfull \hbox (badness 5832) in paragraph at lines 38--38
-[]|\OT1/cmr/m/n/12 Messages seg-mented and re-con-
- []
-
-<Figures/scenario13.png, id=80, 653.44125pt x 388.45125pt>
-File: Figures/scenario13.png Graphic file (type png)
-
-<use Figures/scenario13.png>
-Package pdftex.def Info: Figures/scenario13.png used on input line 39.
-(pdftex.def)             Requested size: 196.03387pt x 116.53627pt.
-
-Underfull \hbox (badness 5832) in paragraph at lines 39--39
+Underfull \hbox (badness 5832) in paragraph at lines 32--32
 []|\OT1/cmr/m/n/12 Messages seg-mented and re-con-
  []
 
 
-Overfull \hbox (39.51288pt too wide) in alignment at lines 23--40
+Overfull \hbox (38.60948pt too wide) in alignment at lines 21--33
  [] [] [] 
  []
 
 [10 <./Figures/communicationhappen.png>] [11 <./Figures/scenario1.png> <./Figur
-es/scenario2.png> <./Figures/scenario3.png> <./Figures/scenario4.png> <./Figure
-s/scenario5.png>] [12 <./Figures/scenario6.png> <./Figures/scenario7.png> <./Fi
-gures/scenario8.png> <./Figures/scenario9.png> <./Figures/scenario10.png> <./Fi
-gures/scenario11.png>] [13 <./Figures/scenario12.png> <./Figures/scenario13.png
->]
-Overfull \hbox (2.08383pt too wide) in paragraph at lines 56--57
+es/scenario3.png> <./Figures/scenario4.png> <./Figures/scenario6.png> <./Figure
+s/scenario8.png> <./Figures/scenario9.png>]
+File: Figures/scenario1.png Graphic file (type png)
+ <use Figures/scenario1.png>
+Package pdftex.def Info: Figures/scenario1.png used on input line 39.
+(pdftex.def)             Requested size: 108.70695pt x 101.4799pt.
+
+<Figures/scenario2.png, id=89, 362.35374pt x 318.18875pt>
+File: Figures/scenario2.png Graphic file (type png)
+
+<use Figures/scenario2.png>
+Package pdftex.def Info: Figures/scenario2.png used on input line 40.
+(pdftex.def)             Requested size: 108.70695pt x 95.45735pt.
+
+Underfull \hbox (badness 3281) in paragraph at lines 40--40
+[]|\OT1/cmr/m/n/12 Message send/re-ceive suc-cess-fully
+ []
+
+File: Figures/scenario3.png Graphic file (type png)
+<use Figures/scenario3.png>
+Package pdftex.def Info: Figures/scenario3.png used on input line 41.
+(pdftex.def)             Requested size: 91.24158pt x 47.27698pt.
+File: Figures/scenario4.png Graphic file (type png)
+ <use Figures/scenario4.png>
+Package pdftex.def Info: Figures/scenario4.png used on input line 42.
+(pdftex.def)             Requested size: 168.93242pt x 85.21902pt.
+
+Underfull \hbox (badness 3536) in paragraph at lines 42--42
+[]|\OT1/cmr/m/n/12 One sent mes-sage re-ceived seg-
+ []
+
+<Figures/scenario5.png, id=90, 556.0775pt x 294.09875pt>
+File: Figures/scenario5.png Graphic file (type png)
+
+<use Figures/scenario5.png>
+Package pdftex.def Info: Figures/scenario5.png used on input line 43.
+(pdftex.def)             Requested size: 166.82454pt x 88.2303pt.
+
+Underfull \hbox (badness 3536) in paragraph at lines 43--43
+[]|\OT1/cmr/m/n/12 One sent mes-sage re-ceived seg-
+ []
+
+File: Figures/scenario6.png Graphic file (type png)
+<use Figures/scenario6.png>
+Package pdftex.def Info: Figures/scenario6.png used on input line 44.
+(pdftex.def)             Requested size: 166.82454pt x 85.21902pt.
+
+Underfull \hbox (badness 3536) in paragraph at lines 44--44
+[]|\OT1/cmr/m/n/12 One sent mes-sage re-ceived seg-
+ []
+
+<Figures/scenario7.png, id=91, 556.0775pt x 294.09875pt>
+File: Figures/scenario7.png Graphic file (type png)
+
+<use Figures/scenario7.png>
+Package pdftex.def Info: Figures/scenario7.png used on input line 45.
+(pdftex.def)             Requested size: 166.82454pt x 88.2303pt.
+
+Underfull \hbox (badness 3536) in paragraph at lines 45--45
+[]|\OT1/cmr/m/n/12 One sent mes-sage re-ceived seg-
+ []
+
+File: Figures/scenario8.png Graphic file (type png)
+<use Figures/scenario8.png>
+Package pdftex.def Info: Figures/scenario8.png used on input line 46.
+(pdftex.def)             Requested size: 165.92114pt x 80.40099pt.
+File: Figures/scenario9.png Graphic file (type png)
+ <use Figures/scenario9.png>
+Package pdftex.def Info: Figures/scenario9.png used on input line 47.
+(pdftex.def)             Requested size: 135.80841pt x 80.40099pt.
+
+Underfull \hbox (badness 2376) in paragraph at lines 47--47
+[]|\OT1/cmr/m/n/12 Multiple mes-sages re-ceived at a
+ []
+
+File: Figures/scenario10.png Graphic file (type png)
+<use Figures/scenario10.png>
+Package pdftex.def Info: Figures/scenario10.png used on input line 48.
+(pdftex.def)             Requested size: 196.03387pt x 89.43481pt.
+
+Underfull \hbox (badness 5832) in paragraph at lines 48--48
+[]|\OT1/cmr/m/n/12 Messages seg-mented and re-con-
+ []
+
+<Figures/scenario11.png, id=92, 656.4525pt x 338.26375pt>
+File: Figures/scenario11.png Graphic file (type png)
+
+<use Figures/scenario11.png>
+Package pdftex.def Info: Figures/scenario11.png used on input line 49.
+(pdftex.def)             Requested size: 196.93727pt x 101.4799pt.
+
+Underfull \hbox (badness 5832) in paragraph at lines 49--49
+[]|\OT1/cmr/m/n/12 Messages seg-mented and re-con-
+ []
+
+File: Figures/scenario12.png Graphic file (type png)
+<use Figures/scenario12.png>
+Package pdftex.def Info: Figures/scenario12.png used on input line 50.
+(pdftex.def)             Requested size: 196.03387pt x 116.53627pt.
+
+Underfull \hbox (badness 5832) in paragraph at lines 50--50
+[]|\OT1/cmr/m/n/12 Messages seg-mented and re-con-
+ []
+
+<Figures/scenario13.png, id=93, 653.44125pt x 388.45125pt>
+File: Figures/scenario13.png Graphic file (type png)
+
+<use Figures/scenario13.png>
+Package pdftex.def Info: Figures/scenario13.png used on input line 51.
+(pdftex.def)             Requested size: 196.03387pt x 116.53627pt.
+
+Underfull \hbox (badness 5832) in paragraph at lines 51--51
+[]|\OT1/cmr/m/n/12 Messages seg-mented and re-con-
+ []
+
+
+Overfull \hbox (39.51288pt too wide) in alignment at lines 35--52
+ [] [] [] 
+ []
+
+[12 <./Figures/scenario10.png> <./Figures/scenario12.png> <./Figures/scenario2.
+png>] [13 <./Figures/scenario5.png> <./Figures/scenario7.png>]) [14 <./Figures/
+scenario11.png> <./Figures/scenario13.png>]
+\openout2 = `chapters/5/chapter_matching.aux'.
+
+ (chapters/5/chapter_matching.tex
+Chapter 5.
+
+Overfull \hbox (14.5074pt too wide) in paragraph at lines 3--4
+\OT1/cmr/m/n/12 In this sec-tion, I in-ves-ti-gated 4 dif-fer-ent chan-nel type
+s: Named pipes, MQMS, TCP/UDP
+ []
+
+[15
+
+
+
+]
+Overfull \hbox (2.08383pt too wide) in paragraph at lines 18--19
 \OT1/cmr/m/n/12 Syn-chronous mode, the Read-File, Write-File Trac-n-s-act-Named
 -Pipe and con-nect-Named-
  []
 
 
-LaTeX Warning: Reference `modmatchresult' on page 14 undefined on input line 59
+LaTeX Warning: Reference `modmatchresult' on page 16 undefined on input line 21
 .
 
-[14] <Figures/event.png, id=110, 895.345pt x 362.35374pt>
+
+LaTeX Warning: Reference `namedpipeproperties' on page 16 undefined on input li
+ne 21.
+
+
+LaTeX Warning: Reference `pipematchresult' on page 16 undefined on input line 2
+1.
+
+[16] <Figures/event.png, id=117, 895.345pt x 362.35374pt>
 File: Figures/event.png Graphic file (type png)
 
 <use Figures/event.png>
-Package pdftex.def Info: Figures/event.png used on input line 100.
+Package pdftex.def Info: Figures/event.png used on input line 62.
 (pdftex.def)             Requested size: 429.76073pt x 173.92781pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15]
+[17]
+
+LaTeX Warning: Reference `synfunctions' on page 18 undefined on input line 71.
+
+[18 <./Figures/event.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
+[]\OT1/cmr/bx/n/12 Channel
+ []
+
+
+Overfull \hbox (2.95346pt too wide) in paragraph at lines 86--86
+[]\OT1/cmr/m/n/12 CreateNamed-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--90
+[]\OT1/cmr/bx/n/12 Message
+ []
+
+
+Overfull \hbox (4.92384pt too wide) in paragraph at lines 90--90
+\OT1/cmr/bx/n/12 Send/Re-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 103--103
+[]\OT1/cmr/bx/n/12 Channel
+ []
+
+
+Overfull \hbox (34.06989pt too wide) in paragraph at lines 77--108
+ [][] 
+ []
+
+
+LaTeX Warning: Reference `asynfunctions' on page 19 undefined on input line 110
+.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 123--123
 []\OT1/cmr/bx/n/12 Channel
  []
@@ -789,12 +942,22 @@ Overfull \hbox (4.92384pt too wide) in paragraph at lines 128--128
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 141--141
+Underfull \hbox (badness 10000) in paragraph at lines 142--142
+[]\OT1/cmr/m/n/12 GetOver-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 142--142
+[]\OT1/cmr/m/n/12 GetOver-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 147--147
 []\OT1/cmr/bx/n/12 Channel
  []
 
 
-Overfull \hbox (34.06989pt too wide) in paragraph at lines 115--146
+Overfull \hbox (156.21939pt too wide) in paragraph at lines 115--152
  [][] 
  []
 
@@ -802,126 +965,127 @@ Overfull \hbox (34.06989pt too wide) in paragraph at lines 115--146
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 161--161
-[]\OT1/cmr/bx/n/12 Channel
- []
+LaTeX Warning: Citation `redkar2004pro' on page 19 undefined on input line 157.
 
 
-Overfull \hbox (2.95346pt too wide) in paragraph at lines 162--162
-[]\OT1/cmr/m/n/12 CreateNamed-
- []
+[19]
+
+LaTeX Warning: Reference `callback' on page 20 undefined on input line 167.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--166
-[]\OT1/cmr/bx/n/12 Message
- []
-
-
-Overfull \hbox (4.92384pt too wide) in paragraph at lines 166--166
-\OT1/cmr/bx/n/12 Send/Re-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
-[]\OT1/cmr/m/n/12 GetOver-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 180--180
-[]\OT1/cmr/m/n/12 GetOver-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 185--185
-[]\OT1/cmr/bx/n/12 Channel
- []
-
-
-Overfull \hbox (156.21939pt too wide) in paragraph at lines 153--190
- [][] 
- []
-
-[16 <./Figures/event.png>]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[17]
-
-LaTeX Warning: Reference `callback' on page 18 undefined on input line 205.
-
-
-Overfull \hbox (192.05385pt too wide) in paragraph at lines 205--206
+Overfull \hbox (192.05385pt too wide) in paragraph at lines 167--168
 \OT1/cmr/m/n/12 Oth-er-wise, MQRe-ceiveMes-sage re-turns im-me-di-ately with th
 e re-turn value MQ[]INFORMATION[]OPERATION[]PENDING.
  []
 
-[18]
+[20]
+
+LaTeX Warning: Reference `msmqproperties' on page 21 undefined on input line 17
+7.
+
+
+LaTeX Warning: Reference `msmqmatchresult' on page 21 undefined on input line 1
+77.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[19] [20]
-Overfull \hbox (69.6391pt too wide) in paragraph at lines 265--286
+
+LaTeX Warning: Reference `synfunctions' on page 21 undefined on input line 219.
+
+
+[21] [22]
+
+LaTeX Warning: Reference `msmqsynfunctions' on page 23 undefined on input line 
+222.
+
+
+Overfull \hbox (69.6391pt too wide) in paragraph at lines 227--248
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 303--303
+LaTeX Warning: Reference `msmqasynfunctionscallback' on page 23 undefined on in
+put line 251.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 []\OT1/cmr/bx/n/12 Message
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 303--303
+Underfull \hbox (badness 10000) in paragraph at lines 265--265
 \OT1/cmr/bx/n/12 Send/Re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--308
+Underfull \hbox (badness 10000) in paragraph at lines 270--270
 []\OT1/cmr/m/n/12 MQReceive-
  []
 
 
-Overfull \hbox (65.86916pt too wide) in paragraph at lines 294--317
+Overfull \hbox (65.86916pt too wide) in paragraph at lines 256--279
  [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--335
+LaTeX Warning: Reference `msmqasynfunctions' on page 23 undefined on input line
+ 283.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--297
 []\OT1/cmr/bx/n/12 Message
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 335--335
+Underfull \hbox (badness 10000) in paragraph at lines 297--297
 \OT1/cmr/bx/n/12 Send/Re-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 340--340
+Underfull \hbox (badness 10000) in paragraph at lines 302--302
 []\OT1/cmr/m/n/12 MQReceive-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--347
+Underfull \hbox (badness 10000) in paragraph at lines 309--309
 []\OT1/cmr/m/n/12 MQGetOver-
  []
 
 
-Overfull \hbox (39.88887pt too wide) in paragraph at lines 326--353
+Overfull \hbox (39.88887pt too wide) in paragraph at lines 288--315
  [][] 
  []
 
-[21]) [22]
-\openout2 = `chapters/5/chapter_new.aux'.
+[23]) [24]
+\openout2 = `chapters/6/chapter_algorithm.aux'.
 
- (chapters/5/chapter_new.tex
-Chapter 5.
-[23
+ (chapters/6/chapter_algorithm.tex
+Chapter 6.
+) [25
 
 
 
-] <Figures/functionsview.png, id=141, 377.91188pt x 299.61937pt>
+]
+\openout2 = `chapters/7/chapter_implementation.aux'.
+
+ (chapters/7/chapter_implementation.tex
+Chapter 7.
+
+LaTeX Warning: Reference `functionsview' on page 26 undefined on input line 10.
+
+
+
+LaTeX Warning: Reference `dialog' on page 26 undefined on input line 10.
+
+[26
+
+
+
+] <Figures/functionsview.png, id=150, 377.91188pt x 299.61937pt>
 File: Figures/functionsview.png Graphic file (type png)
 
 <use Figures/functionsview.png>
@@ -931,7 +1095,7 @@ Package pdftex.def Info: Figures/functionsview.png used on input line 13.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figures/dialog.png, id=142, 404.26031pt x 326.72063pt>
+<Figures/dialog.png, id=151, 404.26031pt x 326.72063pt>
 File: Figures/dialog.png Graphic file (type png)
 
 <use Figures/dialog.png>
@@ -957,7 +1121,7 @@ Overfull \hbox (10.52922pt too wide) in paragraph at lines 36--37
 [][][][][][][][][][] 
  []
 
-[24]
+[27]
 Overfull \hbox (10.52922pt too wide) in paragraph at lines 40--41
 [][][][][][][][][][] 
  []
@@ -977,8 +1141,16 @@ Overfull \hbox (10.52922pt too wide) in paragraph at lines 53--54
 [][][][][][][][][][] 
  []
 
-[25 <./Figures/functionsview.png>] [26 <./Figures/dialog.png>]
-<Figures/CommunicationTypeview.png, id=154, 483.30562pt x 214.55156pt>
+[28 <./Figures/functionsview.png>]
+
+LaTeX Warning: Reference `CommunicationTypeview' on page 29 undefined on input 
+line 65.
+
+
+LaTeX Warning: Reference `searchresult' on page 29 undefined on input line 65.
+
+[29 <./Figures/dialog.png>]
+<Figures/CommunicationTypeview.png, id=164, 483.30562pt x 214.55156pt>
 File: Figures/CommunicationTypeview.png Graphic file (type png)
 
 <use Figures/CommunicationTypeview.png>
@@ -990,7 +1162,7 @@ Overfull \hbox (1.35103pt too wide) in paragraph at lines 69--70
 [][] 
  []
 
-<Figures/searchresult.png, id=155, 486.31688pt x 168.63pt>
+<Figures/searchresult.png, id=165, 486.31688pt x 168.63pt>
 File: Figures/searchresult.png Graphic file (type png)
 
 <use Figures/searchresult.png>
@@ -1001,24 +1173,39 @@ Overfull \hbox (4.06113pt too wide) in paragraph at lines 75--76
 [][] 
  []
 
-[27 <./Figures/CommunicationTypeview.png> <./Figures/searchresult.png>]
-[28]) [29]
-\openout2 = `chapters/6/chapter_experiments.aux'.
+[30 <./Figures/CommunicationTypeview.png> <./Figures/searchresult.png>]
+[31]) [32]
+\openout2 = `chapters/8/chapter_verification.aux'.
 
- (chapters/6/chapter_experiments.tex
-Chapter 6.
-[30
+ (chapters/8/chapter_verification.tex
+Chapter 8.
+
+LaTeX Warning: Reference `addcomtyperesult' on page 33 undefined on input line 
+12.
+
+
+LaTeX Warning: Reference `occclientresult' on page 33 undefined on input line 1
+2.
+
+
+LaTeX Warning: Reference `occclientresult' on page 33 undefined on input line 1
+2.
+
+
+LaTeX Warning: Reference `send' on page 33 undefined on input line 12.
+
+[33
 
 
 
-] <Figures/addcomtyperesult.png, id=169, 580.41844pt x 193.47281pt>
+] <Figures/addcomtyperesult.png, id=179, 580.41844pt x 193.47281pt>
 File: Figures/addcomtyperesult.png Graphic file (type png)
 
 <use Figures/addcomtyperesult.png>
 Package pdftex.def Info: Figures/addcomtyperesult.png used on input line 16.
 (pdftex.def)             Requested size: 417.90096pt x 139.30031pt.
 
-<Figures/occclientresult.png, id=170, 189.70876pt x 40.65187pt>
+<Figures/occclientresult.png, id=180, 189.70876pt x 40.65187pt>
 File: Figures/occclientresult.png Graphic file (type png)
 
 <use Figures/occclientresult.png>
@@ -1029,37 +1216,28 @@ File: Figures/occclientresult.png Graphic file (type png)
 Package pdftex.def Info: Figures/occclientresult.png used on input line 29.
 (pdftex.def)             Requested size: 189.70828pt x 40.65176pt.
 
-<Figures/send.png, id=171, 641.39626pt x 458.46281pt>
+<Figures/send.png, id=181, 641.39626pt x 458.46281pt>
 File: Figures/send.png Graphic file (type png)
  <use Figures/send.png>
 Package pdftex.def Info: Figures/send.png used on input line 35.
 (pdftex.def)             Requested size: 423.32283pt x 302.58638pt.
 )
-[31 <./Figures/addcomtyperesult.png> <./Figures/occclientresult.png>] [32 <./Fi
+[34 <./Figures/addcomtyperesult.png> <./Figures/occclientresult.png>] [35 <./Fi
 gures/send.png>]
-\openout2 = `chapters/7/chapter_evaluation.aux'.
+\openout2 = `chapters/9/chapter_conclusion.aux'.
 
- (chapters/7/chapter_evaluation.tex
-Chapter 7.
-) [33
-
-
-
-]
-\openout2 = `chapters/8/chapter_conclusion.aux'.
-
- (chapters/8/chapter_conclusion.tex
-Chapter 8.
-[34
+ (chapters/9/chapter_conclusion.tex
+Chapter 9.
+[36
 
 
 
-]) [35]
+]) [37]
 \openout2 = `chapters/appendix/chapter_app.aux'.
 
  (chapters/appendix/chapter_app.tex
 Appendix A.
-) [36
+) [38
 
 
 
@@ -1068,38 +1246,38 @@ Missing character: There is no Ã in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Â in font cmr12!
 Missing character: There is no ® in font cmr12!
-) [37
+) [39
 
 
 ] (mainthesisUVIC.aux
 (chapters/1/chapter_intro.aux) (chapters/2/chapter_methodology.aux)
 (chapters/3/chapter_background.aux) (chapters/4/chapter_modeling.aux)
-(chapters/5/chapter_new.aux) (chapters/6/chapter_experiments.aux)
-(chapters/7/chapter_evaluation.aux) (chapters/8/chapter_conclusion.aux)
-(chapters/appendix/chapter_app.aux))
+(chapters/5/chapter_matching.aux) (chapters/6/chapter_algorithm.aux)
+(chapters/7/chapter_implementation.aux) (chapters/8/chapter_verification.aux)
+(chapters/9/chapter_conclusion.aux) (chapters/appendix/chapter_app.aux))
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 6520 strings out of 493335
- 96698 string characters out of 3139261
- 185303 words of memory out of 3000000
- 9795 multiletter control sequences out of 15000+200000
+ 6500 strings out of 493335
+ 96070 string characters out of 3139261
+ 180257 words of memory out of 3000000
+ 9787 multiletter control sequences out of 15000+200000
  11749 words of font info for 44 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,15n,48p,1580b,1394s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,15n,48p,1591b,1394s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Pr
 ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Fi
 les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fo
 nts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on mainthesisUVIC.pdf (47 pages, 636356 bytes).
+Output written on mainthesisUVIC.pdf (49 pages, 649912 bytes).
 PDF statistics:
- 213 PDF objects out of 1000 (max. 8388607)
+ 220 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  111 words of extra memory for PDF output out of 10000 (max. 10000000)
 

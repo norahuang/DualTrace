@@ -1,27 +1,32 @@
 \startchapter{Methodology}
-The Methodology used for this work composed of 6 major steps. To make this work executable, 1)I defined the problem by understanding the requirement from our research partner DRDC.  2)I define the scope of this work to the common channels used in Windows Communication Foundation. After that, 3) I obtained the related background knowledge by literature and online documentation review. Then 4) I model the channels that in the scope of this work. Based on these channel models, 5) I built a tool prototype which can locate and present the communication events to the user. Finally, 6) I evaluate this prototype by running some example dual-traces on it.
+The Methodology used for this work composed of 7 major steps. To make this work executable, 1)I defined the problem by understanding the requirement from our research partner DRDC. 2) I obtained the related background knowledge by literature review. Then 3) I model the abstract communication channels. Based on these channel models,4) I develop algorithms to synchronize the communication events happen in the channel. After that, 5) I match the real channels used in Windows Communication Foundation to my channel models, verify their consistency with my models. Finally 6)I implement the synchronization algorithms for the dual-trace analysis and verify them by the dual-traces from DRDC.
+
 
 \label{chapter:problem}
 
 \newlength{\savedunitlength}
 \setlength{\unitlength}{2em}
 \section{Define the Problem}
-A dual-trace consists of two execution traces that are generated from two interacting applications. Beside all the factors in single trace analysis, dual-trace analysis has to analyze the communication events of the applications in the traces. A communication event in the dual-trace is defined as a successfully message send and received in this work. There are four essential elements in an event: send function call, receive function call, the sent message in the sender's memory and the received message in the receiver's memory. It takes experience engineers minutes or even hours to locate one event. It becomes an extremely huge task for them to find out all the events in the dual-trace of two highly interacting applications. To assist them, the major goal of this work is building a tool to help reverse engineers to locate and present the communication events in the assembly traces from both sides of the dual-trace. 
+A dual-trace consists of two execution traces that are generated from two interacting applications. The trace analysis is based only on the assembly level execution trace which contain the instructions and memory change of a running application. Beside all the factors in single trace analysis, dual-trace analysis has to analyze the communications of the applications in the traces. A communication between two applications including the communication channel open, all data exchanging events, the communication channel close.  Correspondingly, a full communication definition in the dual-trace should consist of the channel opening events in both sides, data sending and receiving events, and the the channel closing events in both sides. Each of these events consist of function call and related data from the memory record. In some cases there might be some events lacking from the trace, such as no data exchange after a channel is open, or the traces end before the channel was closed. However, the channel open is critical, without that there is no way to locate all other events in the traces. The goal communication analysis of dual-trace is to rebuild all the user concerned communication channels from the dual-trace.
 
-
-\section{Define the Scope}
-There are many types of communication between applications. It's impractical aiming to cover all of them at a time especially the technology changing everyday in networking field. Only Named pipe, MQMS, HTTP, and TCP/UDP socket are targeted in this work since they are the most widely used ones in windows server/client service and are the ones used in the popular Window Communication Foundation. The tool prototype of this work is extendable to other communication types.
 
 \section{Obtain Background Knowledge}
 I did a some background reading in the reverse engineering filed, focusing more on the vulnerabilities detection domain to better understand the current state and needs. In addition, to locate the communication event of the dual-trace, I need to investigate the communication methods' APIs to understand their structure in the assembly level traces. I need to know how the functions for channel setup and the functions for messages sending/receiving work. The system functions I was looking for is in C++ level. I have to know the C++ function names, related parameters, return value and so on. Furthermore, to understand their structure in the assembly level trace, I have to know the calling conventions in assembly, such registers/memory for parameters or return value.
 
-\section{Model the Channels}
-By understanding all the related function APIs and how they work, I modeled the communication channels. The model of each type of communication channel is for the successful communication scenarios.
+\section{Model the Communication Channels}
+There are two abstract models for communication based on the communication behavior. One is the order guaranteed communication model and the other is order in-guaranteed communication model. I define  how the communication happens as well as all the data send/receive scenario in each model. Later on the real communication channels will be categorized into these two models. 
 
-\section{Build the Prototype}
-I built the tool prototype based on the developed models. The user should refer to the channel models to define the concerned communication type through the user interface I provide in the tool prototype. Defined communication type is later on used for locating the communication events in the dual-trace. However, not all cases  can be covered by this tool. For some cases, it is impossible to exactly locate all the communication event by program. The user has to have extra information to assist their analysis. The limitation of it will be discussed in the conclusion section.
 
-\section{Verify the Model and The Tool Prototype}
+\section{Develop the Dual Trace Synchronization Algorithms}
+
+
+\section{Match the Channels in WCF to the Model}
+I investigate 4 types of communication channels in Windows Communication Foundation and match each of them to the developed channel model. These 4 types are Only Named pipe, MQMS, HTTP, and TCP/UDP socket. The matching includes two steps: 1. Put each type of communication channel in the modeling categories by verify the existence of the message send/receive scenario. 2. Define the function callings for each event types in the channel, such as channel opening and closing, data sending and receiving. 
+
+\section{Implement the Trace Synchronization Algorithms}
+
+\section{Verify the Algorithm by Traces from DRDC}
+
 
 
 \setlength{\unitlength}{\savedunitlength}

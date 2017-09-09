@@ -1,0 +1,5 @@
+﻿  server.cpp
+c:\users\norah\worknstudy\git\dualtrace\test\namedpipe\server\server\server.cpp(157): warning C4474: 'wprintf' : too many arguments passed for format string
+  c:\users\norah\worknstudy\git\dualtrace\test\namedpipe\server\server\server.cpp(157): note: placeholders and their parameters expect 0 variadic arguments, but 1 were provided
+  server.vcxproj -> C:\Users\norah\WorkNStudy\git\DualTrace\test\namedpipe\server\Debug\server.exe
+  server.vcxproj -> C:\Users\norah\WorkNStudy\git\DualTrace\test\namedpipe\server\Debug\server.pdb (Partial PDB)
