@@ -1,3 +1,62 @@
-\startchapter{Synchronization Algorithms}
+\startchapter{Channel Rebuild Algorithms}
 \label{chapter:alo}
 
+\section{Channel Rebuild Algorithm for TCP}
+
+\begin{algorithm}[h]
+\KwIn{Trace1 and Trace2 from both sides of dual-trace}
+\KwOut{All rebuilt TCP channels}
+\MyStruct{RebuiltChannel}{
+  Function trace1SocketCreate\;
+  Function trace1SocketBind\;
+  Function trace1SocketConnect\;
+  Function trace1SocketClose\;
+  List$\langle$ Function$\rangle$ trace1Sends\;
+  List$\langle$ Function$\rangle$ trace1Receives\;
+  Char* rebuiltTrace1SendBytes\;
+  Char* rebuiltTrace1RecvBytes\;
+  Function trace2SocketCreate\;
+  Function trace2SocketBind\;
+  Function trace2SocketConnect\;
+  Function trace2SocketClose\;
+  List$\langle$ Function$\rangle$ trace2Sends\;
+  List$\langle$ Function$\rangle$ trace2Receives\;
+  Char* rebuiltTrace2SendBytes\;
+  Char* rebuiltTrace2RecvBytes\;    
+}
+
+\MyStruct{Socket}{
+  Function SocketCreate\;
+  Function SocketBind\;
+  Function SocketConnect\;  
+  Int SocketHandle\;
+  String SocketLocal\;
+  String SocketRemote\;  
+}
+
+ $channels \leftarrow List\langle RebuiltChannel\rangle $\;
+ $trace1sockets \leftarrow List\langle Socket\rangle $\;
+ $trace2sockets \leftarrow List\langle Socket\rangle $\;
+\While{Not end of Trace1}{
+   $socket \leftarrow SearchSocketOpen\left( \right)  $\;
+   $trace1sockets.add\left( socket \right)$\;
+} 
+
+\While{Not end of Trace2}{
+   $socket \leftarrow SearchSocketOpen\left( \right)  $\;
+   $trace1sockets.add\left( socket \right)$\;
+}
+
+\For{$s1 \in trace1sockets$}{
+\For{$s2 \in trace2sockets$}{
+\If{\Up compatible with \This}{
+  $\Union{\Up,\This}$\;
+}
+   
+   
+}
+}
+
+
+\caption{{\bf Channel Rebuild Algorithm for TCP} \label{Algorithm}}
+\end{algorithm}

@@ -2,13 +2,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Communication Model\relax }}{10}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Communication Model\relax }}{9}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Two successful write/read operation scenarios. Each blue block indicate a single read or write operation.\relax }}{18}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Two successful write/read operation scenarios. Each blue block indicate a single read or write operation.\relax }}{17}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Add function to a Communication type from Functions View\relax }}{28}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Dialog to input information for a function adding to a communication type\relax }}{29}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Add function to a Communication type from Functions View\relax }}{27}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Dialog to input information for a function adding to a communication type\relax }}{28}
 \contentsline {figure}{\numberline {7.3}{\ignorespaces New View: Communication Type View\relax }}{30}
 \contentsline {figure}{\numberline {7.4}{\ignorespaces Right Click menu to navigate to send and receive event in the traces\relax }}{30}
 \addvspace {10\p@ }
