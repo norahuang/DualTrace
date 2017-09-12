@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  11 SEP 2017 17:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  11 SEP 2017 17:32
 entering extended mode
 **./mainthesisUVIC.tex
 (mainthesisUVIC.tex
@@ -998,63 +998,8 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
  (chapters/6/chapter_algorithm.tex
 Chapter 6.
-! Undefined control sequence.
-<recently read> \Up 
-                    
-l.59 
-     
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
 
-! Undefined control sequence.
-<argument> \Up compatible with \This 
-                                     
-l.59 
-     
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<recently read> \Union 
-                       
-l.59 
-     
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument>  $\Union {\Up 
-                         ,\This }$\; 
-l.59 
-     
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-<argument>  $\Union {\Up ,\This 
-                                }$\; 
-l.59 
-     
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-
-LaTeX Warning: Float too large for page by 1.94695pt on input line 62.
+LaTeX Warning: Float too large for page by 53.59698pt on input line 64.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1194,20 +1139,20 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7571 strings out of 493335
- 113616 string characters out of 3139261
+ 7568 strings out of 493335
+ 113605 string characters out of 3139261
  212396 words of memory out of 3000000
- 10809 multiletter control sequences out of 15000+200000
+ 10806 multiletter control sequences out of 15000+200000
  20749 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,16n,48p,1591b,1396s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,15n,48p,1591b,1396s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (49 pages, 664188 bytes).
+Output written on mainthesisUVIC.pdf (49 pages, 665073 bytes).
 PDF statistics:
  225 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

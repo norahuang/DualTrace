@@ -49,14 +49,20 @@
 
 \For{$s1 \in trace1sockets$}{
 \For{$s2 \in trace2sockets$}{
-\If{\Up compatible with \This}{
-  $\Union{\Up,\This}$\;
-}
-   
-   
+\lIf{$s1.SocketLocal = s2.SocketRemote$ AND $s1.SocketLocal = s2.SocketRemote$}{
+  $channel.trace1SocketCreate \leftarrow s1.SocketCreate$\;
+  $channel.trace1SocketBind \leftarrow s1.SocketBind$\;
+  $channel.trace1SocketConnect\leftarrow s1.SocketConnect$\;
+  $channel.trace2SocketCreate \leftarrow s2.SocketCreate$\;
+  $channel.trace2SocketBind \leftarrow s2.SocketBind$\;
+  $channel.trace2SocketConnect\leftarrow s2.SocketConnect$\;
+  $channels.add\left( channel \right)$\;
+}   
 }
 }
 
+\For{$c \in channel$}{
+}
 
 \caption{{\bf Channel Rebuild Algorithm for TCP} \label{Algorithm}}
 \end{algorithm}
