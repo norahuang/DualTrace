@@ -47,25 +47,26 @@
 \contentsline {section}{\numberline {5.4}HTTP Channel}{22}
 \contentsline {chapter}{\numberline {6}Channel Rebuild Algorithms}{24}
 \contentsline {section}{\numberline {6.1}Channel Rebuild Algorithm for TCP}{24}
-\contentsline {chapter}{\numberline {7}Prototype}{27}
-\contentsline {subsection}{\numberline {7.0.1}User Defined Communication Type}{27}
-\contentsline {subsubsection}{Function Calls in the Traces}{27}
-\contentsline {subsubsection}{Communication Type Data Structure}{29}
-\contentsline {subsubsection}{Communication Type View}{30}
-\contentsline {subsection}{\numberline {7.0.2}Communication Event Searching}{31}
-\contentsline {subsubsection}{Record opened Channel}{32}
-\contentsline {subsubsection}{Search send and receive Message}{32}
-\contentsline {subsubsection}{Matching the send/receive messages pair}{32}
-\contentsline {subsubsection}{Matching Event Data Structure}{32}
-\contentsline {subsection}{\numberline {7.0.3}Matching Event Visualization and Navigation}{32}
-\contentsline {chapter}{\numberline {8}verification}{34}
-\contentsline {subsection}{\numberline {8.0.1}Test and Verification Design}{34}
-\contentsline {subsection}{\numberline {8.0.2}Result}{34}
-\contentsline {chapter}{\numberline {9}Conclusions}{37}
-\contentsline {section}{\numberline {9.1}Limitations}{37}
-\contentsline {subsection}{\numberline {9.1.1}Event Status: Success or Fail}{37}
-\contentsline {subsection}{\numberline {9.1.2}Match Events Distinguishing}{37}
-\contentsline {subsection}{\numberline {9.1.3}Match Events Ordering}{38}
-\contentsline {subsection}{\numberline {9.1.4}Buffer Sizes Of Sender and Receiver Mismatch}{38}
-\contentsline {chapter}{\numberline {A}Additional Information}{39}
-\contentsline {chapter}{Bibliography}{40}
+\contentsline {section}{\numberline {6.2}Channel Rebuild Algorithm for UDP}{24}
+\contentsline {chapter}{\numberline {7}Prototype}{30}
+\contentsline {subsection}{\numberline {7.0.1}User Defined Communication Type}{30}
+\contentsline {subsubsection}{Function Calls in the Traces}{30}
+\contentsline {subsubsection}{Communication Type Data Structure}{32}
+\contentsline {subsubsection}{Communication Type View}{33}
+\contentsline {subsection}{\numberline {7.0.2}Communication Event Searching}{34}
+\contentsline {subsubsection}{Record opened Channel}{35}
+\contentsline {subsubsection}{Search send and receive Message}{35}
+\contentsline {subsubsection}{Matching the send/receive messages pair}{35}
+\contentsline {subsubsection}{Matching Event Data Structure}{35}
+\contentsline {subsection}{\numberline {7.0.3}Matching Event Visualization and Navigation}{35}
+\contentsline {chapter}{\numberline {8}verification}{37}
+\contentsline {subsection}{\numberline {8.0.1}Test and Verification Design}{37}
+\contentsline {subsection}{\numberline {8.0.2}Result}{37}
+\contentsline {chapter}{\numberline {9}Conclusions}{40}
+\contentsline {section}{\numberline {9.1}Limitations}{40}
+\contentsline {subsection}{\numberline {9.1.1}Event Status: Success or Fail}{40}
+\contentsline {subsection}{\numberline {9.1.2}Match Events Distinguishing}{40}
+\contentsline {subsection}{\numberline {9.1.3}Match Events Ordering}{41}
+\contentsline {subsection}{\numberline {9.1.4}Buffer Sizes Of Sender and Receiver Mismatch}{41}
+\contentsline {chapter}{\numberline {A}Additional Information}{42}
+\contentsline {chapter}{Bibliography}{43}
