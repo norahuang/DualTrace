@@ -4,6 +4,11 @@
 \section{Channel Rebuild Algorithm for TCP}
 
 \begin{algorithm}[h]
+\LinesNumbered
+\SetKwBlock{Begin}{Begin}{}
+\SetAlgoLined
+ \Begin{
+\caption{{\bf Channel Rebuild Algorithm for TCP} \label{Algorithm}}
 \KwIn{Trace1 and Trace2 from both sides of dual-trace}
 \KwOut{All rebuilt TCP channels}
 \MyStruct{RebuiltChannel}{
@@ -11,6 +16,7 @@
   Function trace1SocketBind\;
   Function trace1SocketConnect\;
   Function trace1SocketClose\;
+  Int  trace1SocketHandle\;
   List$\langle$ Function$\rangle$ trace1Sends\;
   List$\langle$ Function$\rangle$ trace1Receives\;
   Char* rebuiltTrace1SendBytes\;
@@ -19,6 +25,7 @@
   Function trace2SocketBind\;
   Function trace2SocketConnect\;
   Function trace2SocketClose\;
+  Int  trace2SocketHandle\;
   List$\langle$ Function$\rangle$ trace2Sends\;
   List$\langle$ Function$\rangle$ trace2Receives\;
   Char* rebuiltTrace2SendBytes\;
@@ -47,22 +54,44 @@
    $trace1sockets.add\left( socket \right)$\;
 }
 
+  }
+ \end{algorithm} 
+  
+  
+  \SetNlSty{texttt}{(}{)}
+\begin{algorithm}
+  \LinesNumbered
+\setcounter{AlgoLine}{12}
+% This is to restore vline mode if you did not take the package as \usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+  \SetAlgoVlined
+%This is to hide Begin keyword
+\SetKwBlock{Begin}{}{end}
+\Begin{
 \For{$s1 \in trace1sockets$}{
 \For{$s2 \in trace2sockets$}{
-\lIf{$s1.SocketLocal = s2.SocketRemote$ AND $s1.SocketLocal = s2.SocketRemote$}{
+\lIf{$s1.SocketLocal = s2.SocketRemote$ AND $s2.SocketLocal = s1.SocketRemote$}{
   $channel.trace1SocketCreate \leftarrow s1.SocketCreate$\;
   $channel.trace1SocketBind \leftarrow s1.SocketBind$\;
   $channel.trace1SocketConnect\leftarrow s1.SocketConnect$\;
+  $channel.trace1SocketHandle\leftarrow s1.SocketHandle$\;
   $channel.trace2SocketCreate \leftarrow s2.SocketCreate$\;
   $channel.trace2SocketBind \leftarrow s2.SocketBind$\;
   $channel.trace2SocketConnect\leftarrow s2.SocketConnect$\;
+  $channel.trace2SocketHandle\leftarrow s2.SocketHandle$\;
   $channels.add\left( channel \right)$\;
 }   
 }
 }
 
-\For{$c \in channel$}{
+\For{$c \in channels$}{
+     $\left(c.trace1Sends,c.rebuiltTrace1SendBytes \right)  \leftarrow rebuildSend \left( trace1,c.trace1SocketHandle \right) $\;
+     $\left(c.trace2Sends,c.rebuiltTrace2SendBytes \right)  \leftarrow rebuildSend \left( trace2,c.trace2SocketHandle \right) $\;
+     $\left(c.trace1Receives,c.rebuiltTrace1RecvBytes\right)  \leftarrow rebuildSend \left( trace1,c.trace1SocketHandle \right) $\;
+     $\left(c.trace2Receives,c.rebuiltTrace2RecvBytes\right)  \leftarrow rebuildSend \left( trace2,c.trace2SocketHandle \right) $\;
+     $c.trace1SocketClose  \leftarrow SearchSocketClose \left( trace1,c.trace1SocketHandle \right) $\;
+     $c.trace2SocketClose  \leftarrow SearchSocketClose \left( trace2,c.trace2SocketHandle \right) $\;
 }
 
-\caption{{\bf Channel Rebuild Algorithm for TCP} \label{Algorithm}}
+  }
+
 \end{algorithm}
