@@ -230,8 +230,9 @@
         }
      $channels$
   }
-  }
-  
+  }  
+  }  
+ 
   \SetKwFunction{FaddToList}{addToList}
   \SetKwProg{Pn}{Function}{:}{\KwRet}
   \Pn{\FaddToList{$List, isTrance1$}}{
@@ -244,8 +245,140 @@
                      $list.add(func)$
                  }
   }
-  
-  }  
 \end{algorithm}
 
-\section{Channel Rebuild Algorithm for Named pipes}
+\section{Channel Rebuild Algorithm for Named Pipes}
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf Data struct for Named Pipe Channel Rebuild Algorithm} \label{TCPAlogrithm}}
+\Struct{RebuiltChannel}{
+  pipeSR trace1\;
+  pipeSR trace2\;
+}
+
+\Struct{pipeSR}{
+  pipeEnd \quad \quad \quad \quad \ \   end\; 
+  String \quad \quad \quad \quad \ \ \  sendBytes\;
+  String \quad \quad \quad \quad \ \ \  recvBytes\;  
+  List$\langle$ Function$\rangle$ \quad sends\;
+  List$\langle$ Function$\rangle$ \quad receives\; 
+}
+
+\Struct{pipeEnd}{
+  Int \quad \quad \quad \ handle\;
+  String \quad \quad pipeName\;  
+  Function\quad create\;
+  Function\quad close\;   
+}
+
+\Struct{Function}{
+   Int \quad \quad \quad \ lineNum\;
+}
+
+\end{algorithm} 
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf Named Pipe Channel Rebuild Algorithm} \label{TCPAlogrithm}}
+\KwIn{Trace1 and Trace2 from both sides of dual-trace}
+\KwOut{All rebuilt Named Pipe channels}
+ $channels \leftarrow List\langle RebuiltChannel\rangle $\; 
+ $trace1sockets \leftarrow searchSockets\left( trace1 \right)  $\;
+ $trace2sockets \leftarrow searchSockets\left( trace2 \right)  $\;
+
+
+\For{$s1 \in trace1sockets$}{
+\For{$s2 \in trace2sockets$}{
+\If{$s1.local = s2.remote$ AND $s2.local = s1.remote$}{
+  $channel.trace1Socket\enspace \leftarrow s1$\;
+  $channel.trace2Socket \enspace \leftarrow s2$\;
+  $channels.add\left( channel \right)$\;
+}   
+}
+}
+
+ $rebuildSendAndRecv \left( trace1,channels,True \right) $\;
+ $rebuildSendAndRecv \left( trace2,channels,Flase \right) $\;
+\end{algorithm} 
+  
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf searchSockets() Function for Named Pipe Channel Rebuild Algorithm} \label{Data}}
+\SetKwFunction{FsearchSockets}{searchSockets}
+\SetKwProg{Pn}{Function}{:}{\KwRet}
+  \Pn{\FsearchSockets{$trace$}}{
+       $sockets \leftarrow Map\langle Int,Socket \rangle $\; 
+        \While{not at end of trace}{
+            \If{socket create function call}{
+                 $socket.handle \leftarrow$ return value of the function call\;
+                 $socket.create.lineNum \leftarrow currentline$\;                 
+                 $sockets.add\left( handle, socket \right)$\;
+            } 
+            \ElseIf{socket bind function call}{
+                 $handle \leftarrow$ handle parameter of the function call\;
+                 $sockets[handle].local \leftarrow$ address and port parameter of the function call\;
+                 $sockets[handle].bind \leftarrow$ currentline\;
+            }
+            \ElseIf{socket connect function call}{
+                 $handle \leftarrow$ handle parameter of the function call\;
+                 $sockets[handle].remote \leftarrow$ address and port parameter of the function call\;
+                 $sockets[handle].connect \leftarrow$ currentline\;
+            } 
+            \ElseIf{socket close function call}{
+                 $handle \leftarrow$ handle parameter of the function call\;
+                 $sockets[handle].close \leftarrow$ currentline\;
+            }   
+        }
+        \For{$s \in sockets$}{
+            \If{$s.local = null$ OR $s.remote = null$}{
+               $sockets.delete\left( s \right)$\;
+            }
+        }
+        \KwRet $sockets.tolist()$\;
+  }
+\end{algorithm}  
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf rebuildSendAndRecv() Function for Named Pipe Channel Rebuild Algorithm}\label{Data}}
+\SetKwFunction{FrebuildSendAndRecv}{rebuildSendAndRecv}
+\SetKwProg{Pn}{Function}{:}{\KwRet}
+  \Pn{\FrebuildSendAndRecv{$trace,channels,isTrace1$}}{
+        \While{not at end of trace}{
+            \If{socket send function call}{
+                 $handle \leftarrow$ handle parameter of the function call\;
+                 $sr \leftarrow getSocketSR\left(handle,channels,isTrace1\right)$\;                                                   
+                 \If{$sr != null$ AND $sr.socket.create.lineNum < currentline$ AND $sr.socket.bind.lineNum < currentline$ AND $sr.socket.connect.lineNum < currentline$ AND $sr.socket.close.lineNum > currentline$}{
+                     $send.lineNum \leftarrow currentline$\;
+                     $sr.sends.add(send)$\; 
+                     $bytes \leftarrow$ data that sent by the function call\;             
+                     $sr.sendBytes.append(bytes)$\;  
+                 }
+            } 
+            \If{socket receive function call}{
+                 $handle \leftarrow$ handle parameter of the function call\;
+                 $sr \leftarrow getSocketSR\left(handle,isTrace1\right)$\;                                                   
+                 \If{$sr != null$ AND $sr.socket.create.lineNum < currentline$ AND $sr.socket.bind.lineNum < currentline$ AND $sr.socket.connect.lineNum < currentline$ AND $sr.socket.close.lineNum > currentline$}{
+                     $receive.lineNum \leftarrow currentline$\;
+                     $sr.receives.add(send)$\; 
+                     $bytes \leftarrow$ data that received when the function return\;             
+                     $sr.recvBytes.append(bytes)$\;  
+                 }
+            }
+  }
+  }  
+\SetKwFunction{FgetSocketSR}{getSocketSR}
+\SetKwProg{Pn}{Function}{:}{\KwRet}
+  \Pn{\FgetSocketSR{$handle,channels,isTrace1$}}{
+        \For{$c \in channels$}{
+            \If{$isTrace1$}{
+               $sr \leftarrow channels.trace1$\;
+            }
+            \Else{
+               $sr \leftarrow channels.trace2$\;
+            }
+            \If{$sr.socket.handle = handle$}{
+               \KwRet $sr$\;
+            }
+        }
+  }
+\end{algorithm}
