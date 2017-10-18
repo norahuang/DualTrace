@@ -7,14 +7,14 @@
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Two successful write/read operation scenarios. Each blue block indicate a single read or write operation.\relax }}{17}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {7.1}{\ignorespaces Add function to a Communication type from Functions View\relax }}{31}
-\contentsline {figure}{\numberline {7.2}{\ignorespaces Dialog to input information for a function adding to a communication type\relax }}{32}
-\contentsline {figure}{\numberline {7.3}{\ignorespaces New View: Communication Type View\relax }}{34}
-\contentsline {figure}{\numberline {7.4}{\ignorespaces Right Click menu to navigate to send and receive event in the traces\relax }}{34}
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Add function to a Communication type from Functions View\relax }}{33}
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Dialog to input information for a function adding to a communication type\relax }}{34}
+\contentsline {figure}{\numberline {7.3}{\ignorespaces New View: Communication Type View\relax }}{36}
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Right Click menu to navigate to send and receive event in the traces\relax }}{36}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {8.1}{\ignorespaces Defined clientsend and serversend communication types in Communication View\relax }}{38}
-\contentsline {figure}{\numberline {8.2}{\ignorespaces the search result of clientsend communication type\relax }}{38}
-\contentsline {figure}{\numberline {8.3}{\ignorespaces the search result of the serversend communication type\relax }}{38}
-\contentsline {figure}{\numberline {8.4}{\ignorespaces instruction view and memory view updated correctly\relax }}{39}
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Defined clientsend and serversend communication types in Communication View\relax }}{40}
+\contentsline {figure}{\numberline {8.2}{\ignorespaces the search result of clientsend communication type\relax }}{40}
+\contentsline {figure}{\numberline {8.3}{\ignorespaces the search result of the serversend communication type\relax }}{40}
+\contentsline {figure}{\numberline {8.4}{\ignorespaces instruction view and memory view updated correctly\relax }}{41}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -3,11 +3,9 @@
 
 \section{Channel Rebuild Algorithm for TCP}
 
-\begin{algorithm}[h]
+\begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Data struct for TCP Channel Rebuild Algorithm} \label{TCPAlogrithm}}
-\KwIn{Trace1 and Trace2 from both sides of dual-trace}
-\KwOut{All rebuilt TCP channels}
 \Struct{RebuiltChannel}{
   SocketSR trace1\;
   SocketSR trace2\;
@@ -34,6 +32,14 @@
 \Struct{Function}{
    Int \quad \quad \quad \ lineNum\;
 }
+
+\end{algorithm} 
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf TCP Channel Rebuild Algorithm} \label{TCPAlogrithm}}
+\KwIn{Trace1 and Trace2 from both sides of dual-trace}
+\KwOut{All rebuilt TCP channels}
  $channels \leftarrow List\langle RebuiltChannel\rangle $\; 
  $trace1sockets \leftarrow searchSockets\left( trace1 \right)  $\;
  $trace2sockets \leftarrow searchSockets\left( trace2 \right)  $\;
@@ -53,7 +59,7 @@
  $rebuildSendAndRecv \left( trace2,channels,Flase \right) $\;
 \end{algorithm} 
   
-\begin{algorithm}[h]
+\begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf searchSockets() Function for TCP Channel Rebuild Algorithm} \label{Data}}
 \SetKwFunction{FsearchSockets}{searchSockets}
@@ -89,9 +95,9 @@
         \KwRet $sockets.tolist()$\;
   }
 \end{algorithm}  
-\begin{algorithm}[h]
+\begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf rebuildSendAndRecv() Function for TCP Channel Rebuild Algorithm} \label{Data}}
+\caption{{\bf rebuildSendAndRecv() Function for TCP Channel Rebuild Algorithm}\label{Data}}
 \SetKwFunction{FrebuildSendAndRecv}{rebuildSendAndRecv}
 \SetKwProg{Pn}{Function}{:}{\KwRet}
   \Pn{\FrebuildSendAndRecv{$trace,channels,isTrace1$}}{
@@ -137,7 +143,7 @@
 
 \section{Channel Rebuild Algorithm for UDP}
 
-\begin{algorithm}[h]
+\begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Data struct for UDP Channel Rebuild Algorithm} \label{TCPAlogrithm}}
 \KwIn{Trace1 and Trace2 from both sides of dual-trace}
@@ -168,6 +174,13 @@
    Int \quad \quad \quad \ lineNum\;
    String bytes;
 }
+\end{algorithm} 
+  
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf UDP Channel Rebuild Algorithm} \label{TCPAlogrithm}}
+\KwIn{Trace1 and Trace2 from both sides of dual-trace}
+\KwOut{All rebuilt UDP channels}
  $channels \leftarrow List\langle RebuiltChannel\rangle $\; 
  $trace1sockets \leftarrow searchSockets\left( trace1 \right)  $\;
  $trace2sockets \leftarrow searchSockets\left( trace2 \right)  $\;
@@ -184,60 +197,29 @@
 }
 
  $rebuildSendAndRecv \left( trace1,trace2,channels\right) $\;
-\end{algorithm} 
+\end{algorithm}   
   
-\begin{algorithm}[h]
+\begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf rebuildSendAndRecv() Function for UDP Channel Rebuild Algorithm} \label{Data}}
+\caption{{\bf rebuildSendAndRecv() Function for UDP Channel Rebuild Algorithm}\label{Data}}
 \SetKwFunction{FrebuildSendAndRecv}{rebuildSendAndRecv}
 \SetKwProg{Pn}{Function}{:}{\KwRet}
   \Pn{\FrebuildSendAndRecv{$trace1,trace2,channels$}}{    
-    $trace1Sends \leftarrow List\langle Function\rangle $\; 
-    $trace2Sends \leftarrow List\langle Function\rangle $\; 
-    $trace1Receives \leftarrow List\langle Function\rangle $\; 
-    $trace2Receives \leftarrow List\langle Function\rangle $\;   
+    $trace1Sends , trace2Sends, trace1Receives, trace2Receives \leftarrow List\langle Function\rangle $\;  
         \While{not at end of trace1}{
             \If{socket send function call}{
-                 $handle \leftarrow$ handle parameter of the function call\;
-                 $sr \leftarrow getSocketSR\left(handle,channels,True\right)$\;                                                   
-                 \If{$sr != null$ AND $sr.socket.create.lineNum < currentline$ AND $sr.socket.bind.lineNum < currentline$ AND $sr.socket.connect.lineNum < currentline$ AND $sr.socket.close.lineNum > currentline$}{
-                     $send.lineNum \leftarrow currentline$\;
-                     $send.bytes \leftarrow$ data that sent by the function call\;   
-                     $send.hanle \leftarrow handle$          
-                     $trace1Sends.add(send)$
-                 }
+                $addToList\left(trace2Sends,False\right)$\; 
             } 
             \If{socket receive function call}{
-                 $handle \leftarrow$ handle parameter of the function call\;
-                 $sr \leftarrow getSocketSR\left(handle,isTrace1\right)$\;                                                   
-                 \If{$sr != null$ AND $sr.socket.create.lineNum < currentline$ AND $sr.socket.bind.lineNum < currentline$ AND $sr.socket.connect.lineNum < currentline$ AND $sr.socket.close.lineNum > currentline$}{
-                     $receive.lineNum \leftarrow currentline$\;
-                     $receive.bytes \leftarrow$ data that received when the function return\;              
-                     $receive.hanle \leftarrow handle$ 
-                     $trace1Receives.add(receive)$
-                 }
+                 $addToList\left(trace2Receives,False\right)$\; 
             }
   }
           \While{not at end of trace2}{
             \If{socket send function call}{
-                 $handle \leftarrow$ handle parameter of the function call\;
-                 $sr \leftarrow getSocketSR\left(handle,channels,True\right)$\;                                                   
-                 \If{$sr != null$ AND $sr.socket.create.lineNum < currentline$ AND $sr.socket.bind.lineNum < currentline$ AND $sr.socket.connect.lineNum < currentline$ AND $sr.socket.close.lineNum > currentline$}{
-                     $send.lineNum \leftarrow currentline$\;
-                     $send.bytes \leftarrow$ data that sent by the function call\; 
-                     $send.hanle \leftarrow handle$             
-                     $trace2Sends.add(send)$
-                 }
+                 $addToList\left(trace2Sends,False\right)$\; 
             } 
             \If{socket receive function call}{
-                 $handle \leftarrow$ handle parameter of the function call\;
-                 $sr \leftarrow getSocketSR\left(handle,isTrace1\right)$\;                                                   
-                 \If{$sr != null$ AND $sr.socket.create.lineNum < currentline$ AND $sr.socket.bind.lineNum < currentline$ AND $sr.socket.connect.lineNum < currentline$ AND $sr.socket.close.lineNum > currentline$}{
-                     $receive.lineNum \leftarrow currentline$\;
-                     $receive.bytes \leftarrow$ data that received when the function return\;              
-                     $receive.hanle \leftarrow handle$ 
-                     $trace2Receives.add(receive)$
-                 }
+                 $addToList\left(trace2Receives,False\right)$\; 
             }
   }
   \For{$s \in trace1Sends$}{
@@ -250,5 +232,20 @@
   }
   }
   
+  \SetKwFunction{FaddToList}{addToList}
+  \SetKwProg{Pn}{Function}{:}{\KwRet}
+  \Pn{\FaddToList{$List, isTrance1$}}{
+   $handle \leftarrow$ handle parameter of the function call\;
+                 $sr \leftarrow getSocketSR\left(handle,isTrace1\right)$\;                                                   
+                 \If{$sr != null$ AND $sr.socket.create.lineNum < currentline$ AND $sr.socket.bind.lineNum < currentline$ AND $sr.socket.connect.lineNum < currentline$ AND $sr.socket.close.lineNum > currentline$}{
+                     $func.lineNum \leftarrow currentline$\;
+                     $func.bytes \leftarrow$ data that received when the function return\;              
+                     $func.hanle \leftarrow handle$ 
+                     $list.add(func)$
+                 }
+  }
+  
   }  
 \end{algorithm}
+
+\section{Channel Rebuild Algorithm for Named pipes}

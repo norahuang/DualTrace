@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  12 SEP 2017 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  18 OCT 2017 11:38
 entering extended mode
 **./mainthesisUVIC.tex
 (mainthesisUVIC.tex
@@ -430,47 +430,23 @@ Package caption Info: longtable package is loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\ltcaption.sty"
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 ))
-(mainthesisUVIC.aux (chapters/1/chapter_intro.aux)
-(chapters/2/chapter_methodology.aux) (chapters/3/chapter_background.aux)
-(chapters/4/chapter_modeling.aux) (chapters/5/chapter_matching.aux
-
-LaTeX Warning: Label `chapter:Mod' multiply defined.
-
-) (chapters/6/chapter_algorithm.aux
-
-LaTeX Warning: Label `Data' multiply defined.
-
-
-LaTeX Warning: Label `TCPAlogrithm' multiply defined.
-
-
-LaTeX Warning: Label `Data' multiply defined.
-
-
-LaTeX Warning: Label `Data' multiply defined.
-
-) (chapters/7/chapter_implementation.aux) (chapters/8/chapter_verification.aux
-
-LaTeX Warning: Label `occclientresult' multiply defined.
-
-) (chapters/9/chapter_conclusion.aux) (chapters/appendix/chapter_app.aux))
+(mainthesisUVIC.aux)
 \openout1 = `mainthesisUVIC.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 13.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 14.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 *geometry* driver: auto-detecting
@@ -670,11 +646,32 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
 
  (chapters/3/chapter_background.tex
 Chapter 3.
+
+LaTeX Warning: Citation `dowd_art_2006' on page 5 undefined on input line 5.
+
+
+LaTeX Warning: Citation `cleary_reconstructing_2013' on page 5 undefined on inp
+ut line 9.
+
+
+LaTeX Warning: Citation `wang_predicting_2011' on page 5 undefined on input lin
+e 9.
+
 [5
 
 
 
 ]
+
+LaTeX Warning: Citation `eagle_ida_2008' on page 6 undefined on input line 13.
+
+
+LaTeX Warning: Citation `_c0demap/codemap:_????' on page 6 undefined on input l
+ine 13.
+
+
+LaTeX Warning: Citation `_pin_????' on page 6 undefined on input line 13.
+
 
 LaTeX Warning: Reference `brueningqz' on page 6 undefined on input line 13.
 
@@ -687,6 +684,10 @@ LaTeX Warning: Citation `PhysRevE.68.046116' on page 6 undefined on input line
 
  (chapters/4/chapter_modeling.tex
 Chapter 4.
+
+LaTeX Warning: Reference `communicationhappen' on page 8 undefined on input lin
+e 6.
+
 <Figures/communicationhappen.png, id=59, 342.27875pt x 662.475pt>
 File: Figures/communicationhappen.png Graphic file (type png)
 
@@ -697,6 +698,18 @@ Package pdftex.def Info: Figures/communicationhappen.png used on input line 11.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `scenarios_g' on page 8 undefined on input line 18.
+
+
+LaTeX Warning: Reference `scenarios_ig' on page 8 undefined on input line 18.
+
+
+Overfull \hbox (15.74846pt too wide) in paragraph at lines 18--19
+\OT1/ptm/m/n/12 guar-an-teed com-mu-ni-ca-tion model while Ta-ble [] shows all 
+of send/re-ceive sce-nar-ios for in-guaranteed
+ []
 
 [8
 
@@ -880,6 +893,14 @@ LaTeX Warning: Reference `modmatchresult' on page 15 undefined on input line 21
 .
 
 
+LaTeX Warning: Reference `namedpipeproperties' on page 15 undefined on input li
+ne 21.
+
+
+LaTeX Warning: Reference `pipematchresult' on page 15 undefined on input line 2
+1.
+
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
@@ -894,7 +915,11 @@ Package pdftex.def Info: Figures/event.png used on input line 62.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15] [16]
+[15]
+
+LaTeX Warning: Reference `synfunctions' on page 16 undefined on input line 71.
+
+[16]
 Underfull \hbox (badness 10000) in paragraph at lines 85--85
 []\OT1/ptm/b/n/12 Channel
  []
@@ -921,6 +946,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--103
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `asynfunctions' on page 17 undefined on input line 110
+.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 123--123
@@ -966,13 +995,41 @@ Overfull \hbox (4.25824pt too wide) in paragraph at lines 115--152
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[18] [19]
+
+LaTeX Warning: Citation `redkar2004pro' on page 18 undefined on input line 157.
+
+
+[18]
+
+LaTeX Warning: Reference `callback' on page 19 undefined on input line 167.
+
+[19]
+
+LaTeX Warning: Reference `msmqproperties' on page 20 undefined on input line 17
+7.
+
+
+LaTeX Warning: Reference `msmqmatchresult' on page 20 undefined on input line 1
+77.
+
 
 LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `synfunctions' on page 20 undefined on input line 219.
+
 
 [20]
 
+LaTeX Warning: Reference `msmqsynfunctions' on page 21 undefined on input line 
+222.
+
+
 LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `msmqasynfunctionscallback' on page 21 undefined on in
+put line 251.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 265--265
@@ -986,6 +1043,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 270--270
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: Reference `msmqasynfunctions' on page 21 undefined on input line
+ 283.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 297--297
@@ -1013,50 +1074,50 @@ Chapter 6.
 
 LaTeX Font Warning: Font shape `OMS/ptm/bx/n' undefined
 (Font)              using `OMS/ptm/m/n' instead
-(Font)              for symbol `textbraceright' on input line 14.
+(Font)              for symbol `textbraceright' on input line 12.
 
 LaTeX Font Info:    Font shape `OMS/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 14.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 12.
+[24
 
-LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 91.
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+
+]
+Overfull \vbox (58.25043pt too high) has occurred while \output is active []
+
+
+[25]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 97.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-)
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
+) [26] [27]
+Overfull \vbox (26.3691pt too high) has occurred while \output is active []
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) [24
-
-
-
-] [25] [26] [27] [28] [29]
+[28] [29] [30]) [31]
 \openout2 = `chapters/7/chapter_implementation.aux'.
 
  (chapters/7/chapter_implementation.tex
 Chapter 7.
-[30
+
+LaTeX Warning: Reference `functionsview' on page 32 undefined on input line 10.
 
 
 
-] <Figures/functionsview.png, id=166, 377.91188pt x 299.61937pt>
+LaTeX Warning: Reference `dialog' on page 32 undefined on input line 10.
+
+[32
+
+
+
+] <Figures/functionsview.png, id=172, 377.91188pt x 299.61937pt>
 File: Figures/functionsview.png Graphic file (type png)
 
 <use Figures/functionsview.png>
 Package pdftex.def Info: Figures/functionsview.png used on input line 13.
 (pdftex.def)             Requested size: 377.91095pt x 299.61864pt.
 
-<Figures/dialog.png, id=167, 404.26031pt x 326.72063pt>
+<Figures/dialog.png, id=173, 404.26031pt x 326.72063pt>
 File: Figures/dialog.png Graphic file (type png)
 
 <use Figures/dialog.png>
@@ -1066,7 +1127,7 @@ Package pdftex.def Info: Figures/dialog.png used on input line 19.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[31 <./Figures/functionsview.png>]
+[33 <./Figures/functionsview.png>]
 LaTeX Font Info:    Try loading font information for OML+ptm on input line 27.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlptm.fd"
@@ -1074,8 +1135,15 @@ File: omlptm.fd
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 27.
- [32 <./Figures/dialog.png>] <Figures/CommunicationTypeview.png, id=175, 483.30
-562pt x 214.55156pt>
+ [34 <./Figures/dialog.png>]
+
+LaTeX Warning: Reference `CommunicationTypeview' on page 35 undefined on input 
+line 65.
+
+
+LaTeX Warning: Reference `searchresult' on page 35 undefined on input line 65.
+
+<Figures/CommunicationTypeview.png, id=182, 483.30562pt x 214.55156pt>
 File: Figures/CommunicationTypeview.png Graphic file (type png)
 
 <use Figures/CommunicationTypeview.png>
@@ -1086,7 +1154,7 @@ Package pdftex.def Info: Figures/CommunicationTypeview.png used on input line 6
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figures/searchresult.png, id=176, 486.31688pt x 168.63pt>
+<Figures/searchresult.png, id=183, 486.31688pt x 168.63pt>
 File: Figures/searchresult.png Graphic file (type png)
 
 <use Figures/searchresult.png>
@@ -1096,24 +1164,39 @@ Package pdftex.def Info: Figures/searchresult.png used on input line 75.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[33] [34 <./Figures/CommunicationTypeview.png> <./Figures/searchresult.png>]
-[35]) [36]
+[35] [36 <./Figures/CommunicationTypeview.png> <./Figures/searchresult.png>]
+[37]) [38]
 \openout2 = `chapters/8/chapter_verification.aux'.
 
  (chapters/8/chapter_verification.tex
 Chapter 8.
-[37
+
+LaTeX Warning: Reference `addcomtyperesult' on page 39 undefined on input line 
+12.
+
+
+LaTeX Warning: Reference `occclientresult' on page 39 undefined on input line 1
+2.
+
+
+LaTeX Warning: Reference `occclientresult' on page 39 undefined on input line 1
+2.
+
+
+LaTeX Warning: Reference `send' on page 39 undefined on input line 12.
+
+[39
 
 
 
-] <Figures/addcomtyperesult.png, id=193, 580.41844pt x 193.47281pt>
+] <Figures/addcomtyperesult.png, id=200, 580.41844pt x 193.47281pt>
 File: Figures/addcomtyperesult.png Graphic file (type png)
 
 <use Figures/addcomtyperesult.png>
 Package pdftex.def Info: Figures/addcomtyperesult.png used on input line 16.
 (pdftex.def)             Requested size: 417.90096pt x 139.30031pt.
 
-<Figures/occclientresult.png, id=194, 189.70876pt x 40.65187pt>
+<Figures/occclientresult.png, id=201, 189.70876pt x 40.65187pt>
 File: Figures/occclientresult.png Graphic file (type png)
 
 <use Figures/occclientresult.png>
@@ -1124,28 +1207,28 @@ File: Figures/occclientresult.png Graphic file (type png)
 Package pdftex.def Info: Figures/occclientresult.png used on input line 29.
 (pdftex.def)             Requested size: 189.70828pt x 40.65176pt.
 
-<Figures/send.png, id=195, 641.39626pt x 458.46281pt>
+<Figures/send.png, id=202, 641.39626pt x 458.46281pt>
 File: Figures/send.png Graphic file (type png)
  <use Figures/send.png>
 Package pdftex.def Info: Figures/send.png used on input line 35.
 (pdftex.def)             Requested size: 423.32283pt x 302.58638pt.
 )
-[38 <./Figures/addcomtyperesult.png> <./Figures/occclientresult.png>] [39 <./Fi
+[40 <./Figures/addcomtyperesult.png> <./Figures/occclientresult.png>] [41 <./Fi
 gures/send.png>]
 \openout2 = `chapters/9/chapter_conclusion.aux'.
 
  (chapters/9/chapter_conclusion.tex
 Chapter 9.
-[40
+[42
 
 
 
-]) [41]
+]) [43]
 \openout2 = `chapters/appendix/chapter_app.aux'.
 
  (chapters/appendix/chapter_app.tex
 Appendix A.
-) [42
+) [44
 
 
 
@@ -1154,7 +1237,7 @@ Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Â in font ptmr7t!
 Missing character: There is no ® in font ptmr7t!
-) [43
+) [45
 
 
 ] (mainthesisUVIC.aux
@@ -1170,17 +1253,17 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 7625 strings out of 493335
- 114392 string characters out of 3139261
- 213230 words of memory out of 3000000
- 10858 multiletter control sequences out of 15000+200000
+ 7596 strings out of 493335
+ 113424 string characters out of 3139261
+ 207080 words of memory out of 3000000
+ 10849 multiletter control sequences out of 15000+200000
  21264 words of font info for 53 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,18n,48p,1591b,1396s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,19n,48p,1591b,1396s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/font
@@ -1188,9 +1271,9 @@ s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8
 a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (53 pages, 686324 bytes).
+Output written on mainthesisUVIC.pdf (55 pages, 689018 bytes).
 PDF statistics:
- 241 PDF objects out of 1000 (max. 8388607)
+ 248 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  111 words of extra memory for PDF output out of 10000 (max. 10000000)
 
