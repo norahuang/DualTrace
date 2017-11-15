@@ -608,66 +608,9 @@
      </propertyTester>
      </extension>
 	
-	<extension point="org.eclipse.ui.menus"> 
-		<menuContribution
-	         locationURI="popup:org.eclipse.ui.popup.any?after=additions">
-		   	<command
-	               commandId="ca.uvic.chisel.atlantis.handlers.OpenDualTrace"
-	               serialization="ca.uvic.chisel.atlantis.handlers.OpenDualTraceHandler(ca.uvic.chisel.atlantis.handlers.OpenDualTraceFile)"
-	               label="Open as Dual Trace"
-	               tooltip="Open selected trace as dual trace, alongside active trace"
-	               style="push">
-	               <commandParameter
-	               		id="atlantis.folderPathParameter"
-	               		name="folderPathParameter">
-               		</commandParameter>
-		               <visibleWhen>
-				           <with variable="selection">
-	        			   <iterate operator="or" ifEmpty="false">
-					           <or>
-				                   <test forcePluginActivation="true"
-			            					property="atlantis.propertyTester.checkFolder"
-			             					value="true">
-				                   </test>
-			                   </or>
-			               </iterate>
-				           </with>
-	            	   </visibleWhen>
-	         </command>
-      </menuContribution>
-	</extension>
 	
 	<!-- Tried this combined with the other nearly identical one, but could not get the <or> clause working properly.
 	It would always select the first test and skip the second. -->
-	<extension point="org.eclipse.ui.menus"> 
-		<menuContribution
-	         locationURI="popup:org.eclipse.ui.popup.any?after=additions">
-		   	<command
-	               commandId="ca.uvic.chisel.atlantis.handlers.OpenDualTrace"
-	               serialization="ca.uvic.chisel.atlantis.handlers.OpenDualTraceHandler(ca.uvic.chisel.atlantis.handlers.OpenDualTraceFile)"
-	               label="Open as Dual Trace"
-	               tooltip="Open selected trace as dual trace, alongside active trace"
-	               style="push">
-	               <commandParameter
-	               		id="atlantis.filePathParameter"
-	               		name="filePathParameter">
-               		</commandParameter>
-		               <visibleWhen>
-				           <with variable="selection">
-	        			   <iterate operator="or" ifEmpty="false">
-					           <or>
-				                   
-						           <test forcePluginActivation="true"
-			            					property="atlantis.propertyTester.checkFile"
-			             					value="true">
-				                   </test>
-			                   </or>
-			               </iterate>
-				           </with>
-	            	   </visibleWhen>
-	         </command>
-      </menuContribution>
-	</extension>
 	
    
    <!-- used to be viewerId="org.eclipse.ui.navigator.ProjectExplorer"> -->
@@ -1142,6 +1085,36 @@
                icon="icons/load_library_exports.gif"
                style="push"
                tooltip="Load Library Exports">
+         </command>
+      </menuContribution>
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <command
+               commandId="ca.uvic.chisel.atlantis.handlers.OpenDualTrace"
+               label="Open as Dual Trace"
+               serialization="ca.uvic.chisel.atlantis.handlers.OpenDualTraceHandler(ca.uvic.chisel.atlantis.handlers.OpenDualTraceFile)"
+               style="push"
+               tooltip="Open selected trace as dual trace, alongside active trace">
+            <commandParameter
+                  id="atlantis.filePathParameter"
+                  name="filePathParameter">
+            </commandParameter>
+            <visibleWhen>
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false"
+                        operator="or">
+                     <or>
+                        <test
+                              forcePluginActivation="true"
+                              property="atlantis.propertyTester.checkFile"
+                              value="true">
+                        </test>
+                     </or>
+                  </iterate>
+               </with>
+            </visibleWhen>
          </command>
       </menuContribution>
    </extension>

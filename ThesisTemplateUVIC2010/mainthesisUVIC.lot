@@ -2,8 +2,6 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces Send/Receive Scenarios of Order Guaranteed Communication Model\relax }}{9}
-\contentsline {table}{\numberline {4.2}{\ignorespaces SSend/Receive Scenarios of Order In-Guaranteed Communication Model\relax }}{11}
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {5.1}{\ignorespaces Named Pipe Channel properties\relax }}{16}
 \contentsline {table}{\numberline {5.2}{\ignorespaces Send/Receive Scenarios of Named Pipe\relax }}{16}

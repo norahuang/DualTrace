@@ -19,12 +19,16 @@
 \contentsline {section}{\numberline {3.2}Software Vulnerability Detection}{6}
 \contentsline {section}{\numberline {3.3}Assembly Level Trace}{6}
 \contentsline {section}{\numberline {3.4}Software Interaction}{6}
-\contentsline {section}{\numberline {3.5}Windows Communication Foundation}{6}
-\contentsline {section}{\numberline {3.6}Assembly Calling Convention}{7}
-\contentsline {chapter}{\numberline {4}Channel Modeling}{8}
-\contentsline {section}{\numberline {4.1}Communications Stages}{8}
-\contentsline {section}{\numberline {4.2}Communication Scenarios}{9}
-\contentsline {chapter}{\numberline {5}Channel Categorization and Matching}{14}
+\contentsline {section}{\numberline {3.5}Atlantis}{6}
+\contentsline {section}{\numberline {3.6}Windows Communication Foundation}{7}
+\contentsline {section}{\numberline {3.7}Assembly Calling Convention}{7}
+\contentsline {chapter}{\numberline {4}Channel Modeling}{9}
+\contentsline {section}{\numberline {4.1}General Communication Model}{9}
+\contentsline {section}{\numberline {4.2}Data Transfer Model in Different Communication Methods}{10}
+\contentsline {subsection}{\numberline {4.2.1}Data Transfer Model For TCP}{10}
+\contentsline {subsection}{\numberline {4.2.2}Data Transfer Model For UDP}{11}
+\contentsline {subsection}{\numberline {4.2.3}Data Transfer Model For Named Pipe}{12}
+\contentsline {chapter}{\numberline {5}Apply the Model on Windows C++ API}{14}
 \contentsline {section}{\numberline {5.1}Named Pipes Channel}{14}
 \contentsline {subsection}{\numberline {5.1.1}Important Channel Parameters}{15}
 \contentsline {subsubsection}{Blocking/Non-Blocking}{15}
@@ -45,11 +49,11 @@
 \contentsline {subsubsection}{Asynchronous Receiving without Call Back Functions}{21}
 \contentsline {section}{\numberline {5.3}TCP/UDP Socket Channel}{22}
 \contentsline {section}{\numberline {5.4}HTTP Channel}{22}
-\contentsline {chapter}{\numberline {6}Channel Rebuild Algorithms}{24}
-\contentsline {section}{\numberline {6.1}Channel Rebuild Algorithm for TCP}{25}
-\contentsline {section}{\numberline {6.2}Channel Rebuild Algorithm for UDP}{29}
-\contentsline {section}{\numberline {6.3}Channel Rebuild Algorithm for Named Pipes}{32}
-\contentsline {chapter}{\numberline {7}Prototype}{36}
+\contentsline {chapter}{\numberline {6}Channel Information Retrieval Algorithms}{24}
+\contentsline {section}{\numberline {6.1}Channel Information Retrieval Algorithm for TCP}{24}
+\contentsline {section}{\numberline {6.2}Channel Information Retrieval Algorithm for UDP}{29}
+\contentsline {section}{\numberline {6.3}Channel Information Retrieval Algorithm for Named pipe}{32}
+\contentsline {chapter}{\numberline {7}Feature Prototype On Atlantis}{36}
 \contentsline {subsection}{\numberline {7.0.1}User Defined Communication Type}{36}
 \contentsline {subsubsection}{Function Calls in the Traces}{36}
 \contentsline {subsubsection}{Communication Type Data Structure}{38}
@@ -60,7 +64,7 @@
 \contentsline {subsubsection}{Matching the send/receive messages pair}{41}
 \contentsline {subsubsection}{Matching Event Data Structure}{41}
 \contentsline {subsection}{\numberline {7.0.3}Matching Event Visualization and Navigation}{41}
-\contentsline {chapter}{\numberline {8}verification}{43}
+\contentsline {chapter}{\numberline {8}Evaluation}{43}
 \contentsline {subsection}{\numberline {8.0.1}Test and Verification Design}{43}
 \contentsline {subsection}{\numberline {8.0.2}Result}{43}
 \contentsline {chapter}{\numberline {9}Conclusions}{46}

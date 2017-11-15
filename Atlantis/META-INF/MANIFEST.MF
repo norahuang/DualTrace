@@ -26,7 +26,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.draw2d;bundle-version="3.9.0",
  org.eclipse.gef;bundle-version="3.9.0",
  org.eclipse.zest.core;bundle-version="1.5.0",
- org.eclipse.zest.layouts;bundle-version="1.1.0"
+ org.eclipse.zest.layouts;bundle-version="1.1.0",
+ org.eclipse.ui.workbench,
+ org.eclipse.e4.ui.model.workbench
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ClassPath: .,
@@ -38,6 +40,12 @@ Bundle-ClassPath: .,
  libs/preon-uber-jar-0.0.1-SNAPSHOT.jar
 Import-Package: ca.uvic.chisel.bfv.datacache,
  org.apache.commons.io,
+ org.eclipse.e4.ui.model.application.ui,
+ org.eclipse.e4.ui.model.application.ui.advanced,
+ org.eclipse.e4.ui.model.application.ui.basic,
+ org.eclipse.e4.ui.model.application.ui.basic.impl,
+ org.eclipse.e4.ui.workbench.modeling,
  org.eclipse.equinox.security.storage;version="1.0.0",
  org.eclipse.jface.text.projection,
- org.eclipse.ui.console
+ org.eclipse.ui.console,
+ org.eclipse.ui.internal.browser
