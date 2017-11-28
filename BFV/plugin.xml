@@ -140,7 +140,7 @@
                minimized="false"
                relationship="bottom"
                relative="ca.uvic.chisel.bfv.views.RegionsView">
-         </view>   
+         </view>
          <view
                id="ca.uvic.chisel.bfv.views.TagsView"
                minimized="false"
@@ -361,27 +361,8 @@
             id="ca.uvic.chisel.bfv.commands.FindOccurrences"
             name="Search for...">
       </command>
-      <command
-            defaultHandler="ca.uvic.chisel.bfv.handlers.FindAllChannel"
-            id="ca.uvic.chisel.bfv.dualtrace.FindAllChannel"
-            name="Find All Channels">
-      </command>
-      <command
-            defaultHandler="ca.uvic.chisel.bfv.handlers.FindTCPChannel"
-            id="ca.uvic.chisel.bfv.dualtrace.FindTCPChannel"
-            name="Find TCP Channels">
-      </command>
-      <command
-            defaultHandler="ca.uvic.chisel.bfv.handlers.FindUDPChannel"
-            id="ca.uvic.chisel.bfv.dualtrace.FindUDPChannel"
-            name="Find UDP Channels">
-      </command>
-      <command
-            defaultHandler="ca.uvic.chisel.bfv.handlers.FindNamedPipeChannel"
-            id="ca.uvic.chisel.bfv.dualtrace.FindNamedPipeChannel"
-            name="Find Named Pipe Channels">
-      </command>
    </extension>
+   
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
@@ -464,34 +445,6 @@
                label="Create Region"
                style="push">
          </command>
-         <separator
-               name="Annotation Tools"
-               visible="true">
-         </separator>
-         <menu
-               id="ca.uvic.chisel.bfv.commands.FindCommunicationChannel"
-               label="Find Communication Channels">  
-            <command
-               commandId="ca.uvic.chisel.bfv.dualtrace.FindAllChannel"
-               label="All"
-               style="push">
-            </command>
-            <command
-               commandId="ca.uvic.chisel.bfv.dualtrace.FindTCPChannel"
-               label="TCP Channels"
-               style="push">
-            </command>
-            <command
-               commandId="ca.uvic.chisel.bfv.dualtrace.FindUDPChannel"
-               label="UDP Channels"
-               style="push">
-            </command>
-            <command
-               commandId="ca.uvic.chisel.bfv.dualtrace.FindNamedPipeChannel"
-               label="Named Pipe Channels"
-               style="push">
-            </command>
-         </menu>
       </menuContribution>
       <menuContribution
             allPopups="false"

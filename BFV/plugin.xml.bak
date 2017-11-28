@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="ca.uvic.chisel.bfv.SyntaxHighlightingManagerFactory" name="syntax highlighting factory" schema="schema/ca.uvic.chisel.bfv.SyntaxHighlightingManagerFactory.exsd"/>
+   <extension-point id="ca.uvic.chisel.bfv.IFileModelDataLayerFactory" name="file model data layer" schema="schema/ca.uvic.chisel.bfv.IFileModelDataLayerFactory.exsd"/>
+   <extension-point id="ca.uvic.chisel.bfv.utils.IFileUtils" name="file utilities" schema="schema/ca.uvic.chisel.bfv.utils.IFileUtils.exsd"/>
+
+   <extension
+         id="application"
+         name="TheChiselGroup Big File Viewer"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="ca.uvic.chisel.bfv.BigFileApplication">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="Big File Viewer"
+            class="ca.uvic.chisel.bfv.Perspective"
+            id="ca.uvic.chisel.bfv.perspective">
+      </perspective>
+   </extension>
+   <extension
+         id="product"
+         name="TheChiselGroup Big File Viewer"
+         point="org.eclipse.core.runtime.products">
+      <product
+            name="TheChiselGroup Big File Viewing Environment"
+            application="ca.uvic.chisel.bfv.application">
+         <property
+               name="appName"
+               value="TheChiselGroup Big File Viewing Environment">
+         </property>
+         <property
+               name="aboutImage"
+               value="icons/alt_about.gif">
+         </property>
+         <property
+               name="aboutText"
+               value="TheChiselGroup Big File Viewer&#x0A;&#x0A;Version: 0.1.7&#x0A;&#x0A;Please see ChangeLog.txt, README.md, and Release-Notes.md for details.">
+         </property>
+         <property
+               name="windowImages"
+               value="icons/alt_window_16.gif,icons/alt_window_32.gif">
+         </property>
+      </product>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="ca.uvic.chisel.bfv.BigFileViews"
+            name="Big File Analysis">
+      </category>
+      <view
+            category="ca.uvic.chisel.bfv.BigFileViews"
+            class="ca.uvic.chisel.bfv.views.CombinedFileSearchView"
+            icon="icons/search.gif"
+            id="ca.uvic.chisel.bfv.views.CombinedFileSearchView"
+            name="Search Big File"
+            restorable="true">
+      </view>
+      <view
+            category="ca.uvic.chisel.bfv.BigFileViews"
+            class="ca.uvic.chisel.bfv.views.LayersView"
+            id="ca.uvic.chisel.bfv.views.LayersView"
+            name="Layers"
+            restorable="true">
+      </view>
+      <view
+            category="ca.uvic.chisel.bfv.BigFileViews"
+            class="ca.uvic.chisel.bfv.views.RegionsView"
+            icon="icons/collapsed.gif"
+            id="ca.uvic.chisel.bfv.views.RegionsView"
+            name="Regions"
+            restorable="true">
+      </view>
+      <view
+            category="ca.uvic.chisel.bfv.BigFileViews"
+            class="ca.uvic.chisel.bfv.views.TagsView"
+            icon="icons/taggroup.gif"
+            id="ca.uvic.chisel.bfv.views.TagsView"
+            name="Tags"
+            restorable="true">
+      </view>
+      <view
+            category="ca.uvic.chisel.bfv.BigFileViews"
+            class="org.eclipse.ui.navigator.CommonNavigator"
+            id="ca.uvic.chisel.bfv.views.BigFileProjectNavigator"
+            closeable="false"
+            name="Big File Project Navigator">
+      </view>
+      <view
+            category="ca.uvic.chisel.bfv.BigFileViews"
+            class="ca.uvic.chisel.bfv.views.CommentsView"
+            icon="icons/comments.gif"
+            id="ca.uvic.chisel.bfv.views.CommentsView"
+            name="Comments"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="ca.uvic.chisel.bfv.perspective">
+         <view
+               id="ca.uvic.chisel.bfv.views.BigFileProjectNavigator"
+               minimized="false"
+               ratio=".21f"
+               relationship="left"
+               relative="org.eclipse.ui.editorss">
+         </view>
+         <view
+               id="ca.uvic.chisel.bfv.views.CombinedFileSearchView"
+               minimized="false"
+               ratio=".35f"
+               relationship="bottom"
+               relative="ca.uvic.chisel.bfv.views.BigFileProjectNavigator">
+         </view>
+         <view
+               id="org.eclipse.ui.console.ConsoleView"
+               moveable="true"
+               minimized="false"
+               ratio=".35f"
+               relationship="stack"
+               relative="ca.uvic.chisel.bfv.views.CombinedFileSearchView"
+               visible="false">
+         </view>
+         <view
+               id="ca.uvic.chisel.bfv.views.RegionsView"
+               minimized="false"
+               ratio="0.73f"
+               relationship="right"
+               relative="org.eclipse.ui.editorss">
+         </view>
+         <view
+               id="ca.uvic.chisel.bfv.views.LayersView"
+               minimized="false"
+               relationship="bottom"
+               relative="ca.uvic.chisel.bfv.views.RegionsView">
+         </view>   
+         <view
+               id="ca.uvic.chisel.bfv.views.TagsView"
+               minimized="false"
+               relationship="stack"
+               relative="ca.uvic.chisel.bfv.views.RegionsView">
+         </view>
+         <view
+               id="ca.uvic.chisel.bfv.views.CommentsView"
+               minimized="false"
+               relationship="stack"
+               relative="ca.uvic.chisel.bfv.views.RegionsView">
+         </view>
+         <view
+               id="org.eclipse.pde.runtime.LogView"
+               minimized="false"
+               ratio="0.8"
+               relationship="bottom"
+               relative="org.eclipse.ui.editorss"
+               visible="true">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="ca.uvic.chisel.bfv.editor.BigFileEditor"
+            extensions="index, class, htm, html, jardesc, java, jfd, jpage, original, shtml, xml, .properties"
+            id="ca.uvic.chisel.bfv.editor.Editor"
+            name="Big File Editor">
+         <contentTypeBinding
+               contentTypeId="org.eclipse.core.runtime.text">
+         </contentTypeBinding>
+      </editor>
+   </extension>
+   
+   <!-- overwrite OpenActions -->
+   <extension
+         point="org.eclipse.ui.navigator.navigatorContent">
+      <actionProvider
+            class="ca.uvic.chisel.bfv.editor.BigFileOpenActionProvider"
+            id="org.eclipse.ui.navigator.resources.OpenActions"
+            overrides="org.eclipse.ui.navigator.resources.OpenActions"
+            priority="highest">
+            
+         <enablement>
+            <!--<and>-->
+               <instanceof
+                     value="org.eclipse.core.resources.IFile">
+               </instanceof>
+				
+               <!--
+               <test
+                     property="org.eclipse.core.resources.extension"
+                     value="frm">
+               </test>
+               -->
+            <!--</and>-->
+         </enablement>
+      </actionProvider>
+      
+      
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerActionBinding
+            viewerId="ca.uvic.chisel.bfv.views.BigFileProjectNavigator">
+         <includes>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.OpenActions">
+            </actionExtension>
+         </includes>
+      </viewerActionBinding>
+   </extension>
+   
+   <extension point="org.eclipse.ui.decorators">
+	  <decorator
+	    id="ca.uvic.chisel.bfv.views.BigFileIndexedFileDecorator"
+	    label="BFV Indexed File"
+	    state="true"
+	    class= "ca.uvic.chisel.bfv.views.BigFileIndexedFileDecorator"
+	  objectClass="org.eclipse.core.resources.IResource"
+	    adaptable="true">
+	    <description>
+	      Shows whether a given file is indexed for the BFV system.
+	    </description>
+	  </decorator>
+   </extension>
+   
+   <extension
+         point="org.eclipse.ui.navigator.viewer">
+      <viewerActionBinding
+            viewerId="ca.uvic.chisel.bfv.views.BigFileProjectNavigator">
+         <includes>
+            <actionExtension
+                  pattern="org.eclipse.ui.navigator.resources.*">
+            </actionExtension>
+         </includes>
+      </viewerActionBinding>
+      <viewerContentBinding
+            viewerId="ca.uvic.chisel.bfv.views.BigFileProjectNavigator">
+         <includes>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resourceContent">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.filters.*">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.linkHelper">
+            </contentExtension>
+            <contentExtension
+                  pattern="org.eclipse.ui.navigator.resources.workingSets">
+            </contentExtension>
+         </includes>
+      </viewerContentBinding>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors.annotationTypes">
+      <type
+            name="ca.uvic.chisel.bfv.editor.tag">
+      </type>
+      <type
+            name="ca.uvic.chisel.bfv.editor.comment">
+      </type>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors.markerAnnotationSpecification">
+      <specification
+            annotationType="ca.uvic.chisel.bfv.editor.tag"
+            colorPreferenceKey="tagColourPreference"
+            colorPreferenceValue="128,128,255"
+            contributesToHeader="false"
+            highlightPreferenceKey="tagHighlightPreference"
+            highlightPreferenceValue="false"
+            icon="icons/tag.gif"
+            includeOnPreferencePage="true"
+            label="Tags"
+            overviewRulerPreferenceKey="tagOverviewRuler"
+            overviewRulerPreferenceValue="true"
+            textPreferenceKey="tagTextPreference"
+            textPreferenceValue="true"
+            textStylePreferenceKey="tagTextStylePreference"
+            textStylePreferenceValue="SQUIGGLES"
+            verticalRulerPreferenceKey="tagVerticalRuler"
+            verticalRulerPreferenceValue="true">
+      </specification>
+      <specification
+            annotationType="ca.uvic.chisel.bfv.editor.comment"
+            colorPreferenceKey="commentColourPreference"
+            colorPreferenceValue="128,128,128"
+            contributesToHeader="false"
+            highlightPreferenceKey="commentHighlightPreference"
+            highlightPreferenceValue="false"
+            icon="icons/comments.gif"
+            includeOnPreferencePage="true"
+            label="Comments"
+            overviewRulerPreferenceKey="commentOverviewRuler"
+            overviewRulerPreferenceValue="true"
+            textPreferenceKey="commentTextPreference"
+            textPreferenceValue="true"
+            textStylePreferenceKey="commentTextStylePreference"
+            textStylePreferenceValue="SQUIGGLES"
+            verticalRulerPreferenceKey="commentVerticalRuler"
+            verticalRulerPreferenceValue="true">
+      </specification>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="ca.uvic.chisel.bfv.handlers.CreateRegionHandler"
+            id="ca.uvic.chisel.bfv.commands.CreateRegion"
+            name="Create Region">
+      </command>
+      <command
+            defaultHandler="ca.uvic.chisel.bfv.handlers.CollapseAllHandler"
+            id="ca.uvic.chisel.bfv.commands.CollapseAll"
+            name="Collapse All">
+      </command>
+      <command
+            defaultHandler="ca.uvic.chisel.bfv.handlers.ExpandAllHandler"
+            id="ca.uvic.chisel.bfv.commands.ExpandAll"
+            name="Expand All">
+      </command>
+      <command
+            defaultHandler="ca.uvic.chisel.bfv.handlers.AddTagHandler"
+            id="ca.uvic.chisel.bfv.commands.AddTag"
+            name="Add Tag">
+      </command>
+      <command
+            defaultHandler="ca.uvic.chisel.bfv.handlers.NextTagOccurrenceHandler"
+            id="ca.uvic.chisel.bfv.commands.NextTagOccurrence"
+            name="Next Tag Occurrence">
+      </command>
+      <command
+            defaultHandler="ca.uvic.chisel.bfv.handlers.PreviousTagOccurrenceHandler"
+            id="ca.uvic.chisel.bfv.commands.PreviousTagOccurrence"
+            name="Previous Tag Occurrence">
+      </command>
+      <command
+            defaultHandler="ca.uvic.chisel.bfv.handlers.AddCommentHandler"
+            id="ca.uvic.chisel.bfv.commands.AddComment"
+            name="Add Comment">
+      </command>
+      <command
+            defaultHandler="ca.uvic.chisel.bfv.handlers.NextCommentHandler"
+            id="ca.uvic.chisel.bfv.commands.NextComment"
+            name="Next Comment">
+      </command>
+      <command
+            defaultHandler="ca.uvic.chisel.bfv.handlers.PreviousCommentHandler"
+            id="ca.uvic.chisel.bfv.commands.PreviousComment"
+            name="Previous Comment">
+      </command>
+      <command
+            defaultHandler="ca.uvic.chisel.bfv.handlers.FindOccurrences"
+            id="ca.uvic.chisel.bfv.commands.FindOccurrences"
+            name="Search for...">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:org.eclipse.ui.main.toolbar">
+         <toolbar
+               id="ca.uvic.chisel.bfv.toolbars.Editor"
+               label="Annotation Tools">
+            <command
+                  commandId="ca.uvic.chisel.bfv.commands.AddComment"
+                  icon="icons/add_comment.gif"
+                  style="push"
+                  tooltip="Add comment at current location">
+               <visibleWhen>
+	               <with
+	                     variable="activeEditorId">
+	                  <equals
+	                        value="ca.uvic.chisel.bfv.editor.Editor">
+	                  </equals>
+	               </with>
+            	</visibleWhen>
+            </command>
+            <command
+                  commandId="ca.uvic.chisel.bfv.commands.AddTag"
+                  icon="icons/add_tag.gif"
+                  style="push"
+                  tooltip="Add tag at current location">
+               <visibleWhen>
+	               <with
+	                     variable="activeEditorId">
+	                  <equals
+	                        value="ca.uvic.chisel.bfv.editor.Editor">
+	                  </equals>
+	               </with>
+            	</visibleWhen>
+            </command>
+            <command
+                  commandId="ca.uvic.chisel.bfv.commands.CreateRegion"
+                  icon="icons/collapsed.gif"
+                  style="push"
+                  tooltip="Create region with selected lines">
+               <visibleWhen>
+	               <with
+	                     variable="activeEditorId">
+	                  <equals
+	                        value="ca.uvic.chisel.bfv.editor.Editor">
+	                  </equals>
+	               </with>
+            	</visibleWhen>
+            </command>
+         </toolbar>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:#BigFileEditorContext">
+         <separator
+               name="Annotation Tools"
+               visible="true">
+         </separator>
+         <command
+               commandId="ca.uvic.chisel.bfv.commands.FindOccurrences"
+               label="Search for..."
+               style="push">
+         </command>
+         <command
+               commandId="ca.uvic.chisel.bfv.commands.AddComment"
+               icon="icons/add_comment.gif"
+               label="Add Comment"
+               style="push">
+         </command>
+         <command
+               commandId="ca.uvic.chisel.bfv.commands.AddTag"
+               icon="icons/add_tag.gif"
+               label="Add Tag"
+               style="push">
+         </command>
+         <command
+               commandId="ca.uvic.chisel.bfv.commands.CreateRegion"
+               icon="icons/collapsed.gif"
+               label="Create Region"
+               style="push">
+         </command>
+         <separator
+               name="Annotation Tools"
+               visible="true">
+         </separator>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:ca.uvic.chisel.bfv.views.RegionsView">
+         <command
+               commandId="ca.uvic.chisel.bfv.commands.CollapseAll"
+               icon="icons/collapseall.gif"
+               style="push"
+               tooltip="Collapse All">
+         </command>
+         <command
+               commandId="ca.uvic.chisel.bfv.commands.ExpandAll"
+               icon="icons/expandall.gif"
+               style="push"
+               tooltip="Expand All">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:ca.uvic.chisel.bfv.views.TagsView">
+         <command
+               commandId="ca.uvic.chisel.bfv.commands.PreviousTagOccurrence"
+               icon="icons/prev.gif"
+               style="push"
+               tooltip="Previous occurrence of selected tag">
+         </command>
+         <command
+               commandId="ca.uvic.chisel.bfv.commands.NextTagOccurrence"
+               icon="icons/next.gif"
+               style="push"
+               tooltip="Next occurrence of selected tag">
+         </command>
+      </menuContribution>
+      <menuContribution
+            allPopups="false"
+            locationURI="toolbar:ca.uvic.chisel.bfv.views.CommentsView">
+         <command
+               commandId="ca.uvic.chisel.bfv.commands.PreviousComment"
+               icon="icons/prev.gif"
+               style="push"
+               tooltip="Previous comment in selected group">
+         </command>
+         <command
+               commandId="ca.uvic.chisel.bfv.commands.NextComment"
+               icon="icons/next.gif"
+               style="push"
+               tooltip="Next comment in selected group">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="ca.uvic.chisel.bfv.IFileModelDataLayerFactory">
+      <implementation
+            class="ca.uvic.chisel.bfv.datacache.FileModelDataLayerFactory"
+            priority="0">
+      </implementation>
+   </extension>
+   <extension
+         point="ca.uvic.chisel.bfv.SyntaxHighlightingManagerFactory">
+      <implementation
+            class="ca.uvic.chisel.bfv.editor.DefaultSyntaxHighlightingManagerFactory"
+            priority="0">
+      </implementation>
+   </extension>
+   <extension
+         point="ca.uvic.chisel.bfv.utils.IFileUtils">
+      <implementation
+            class="ca.uvic.chisel.bfv.utils.BfvFileUtils"
+            priority="0">
+      </implementation>
+   </extension>
+</plugin>

@@ -14,6 +14,8 @@ import ca.uvic.chisel.atlantis.AtlantisActivator;
 import ca.uvic.chisel.atlantis.bytecodeparsing.AtlantisBinaryFormat;
 import ca.uvic.chisel.atlantis.eventtracevisualization.AssemblyTraceVisualizationView;
 import ca.uvic.chisel.atlantis.eventtracevisualization.ThreadEventTraceVisualizationView;
+import ca.uvic.chisel.atlantis.functionparsing.NamedPipeFunctions;
+import ca.uvic.chisel.atlantis.functionparsing.TCPUDPFunctions;
 import ca.uvic.chisel.atlantis.handlers.GenerateMemoryViewHandler;
 import ca.uvic.chisel.atlantis.preferences.SyntaxHighlightingPreference;
 import ca.uvic.chisel.atlantis.utils.AtlantisFileUtils;
@@ -30,13 +32,32 @@ public class AtlantisTraceEditor extends BigFileEditor {
 	
 	public static final String ID = "ca.uvic.chisel.atlantis.tracedisplayer.TraceDisplayer";
 	public static final String CONTEXT_MENU_ID = "#TraceDisplayerContext";
+	private NamedPipeFunctions namedPipeFunctions;
+	private TCPUDPFunctions tcpudpFunctions;
 	
+	public NamedPipeFunctions getNamedPipeFunctions() {
+		return namedPipeFunctions;
+	}
+
+	public void setNamedPipeFunctions(NamedPipeFunctions namedPipeFunctions) {
+		this.namedPipeFunctions = namedPipeFunctions;
+	}
+
+	public TCPUDPFunctions getTcpudpFunctions() {
+		return tcpudpFunctions;
+	}
+
+	public void setTcpudpFunctions(TCPUDPFunctions tcpudpFunctions) {
+		this.tcpudpFunctions = tcpudpFunctions;
+	}
+
 	@Override
 	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
 		FileEditorInput fileEditorInput = (FileEditorInput) input;
 
 		this.emptyFile = BfvFileUtils.convertFileIFile(fileEditorInput.getFile());
-		
+		this.namedPipeFunctions = new NamedPipeFunctions();
+		this.tcpudpFunctions = new TCPUDPFunctions();
 		super.init(site, input);
 	}
 	

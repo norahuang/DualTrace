@@ -1,4 +1,4 @@
-package ca.uvic.chisel.bfv.handlers;
+package ca.uvic.chisel.atlantis.handlers;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
