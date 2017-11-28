@@ -1,4 +1,4 @@
-package ca.uvic.chisel.bfv.handlers;
+package ca.uvic.chisel.atlantis.handlers;
 
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
@@ -10,7 +10,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import ca.uvic.chisel.bfv.editor.BigFileEditor;
 
 
-public class FindAllChannel extends AbstractHandler {
+public class FindTCPChannel extends AbstractHandler {
 	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {

@@ -155,6 +155,14 @@
       </view>
       <view
             category="ca.uvic.chisel.atlantis.TraceAnalysisViews"
+            class="ca.uvic.chisel.atlantis.views.DualTraceChannelView"
+            icon="icons/message.png"
+            id="ca.uvic.chisel.atlantis.views.DualTraceChannelView"
+            name="Communication Channels"
+            restorable="true">
+      </view>
+      <view
+            category="ca.uvic.chisel.atlantis.TraceAnalysisViews"
             class="ca.uvic.chisel.atlantis.views.MessageTypesView"
             icon="icons/message.png"
             id="ca.uvic.chisel.atlantis.views.MessageTypesView"
@@ -228,7 +236,15 @@
          <view
                id="ca.uvic.chisel.atlantis.views.MessageTypesView"
                minimized="false"
-               closeable="false"
+               closeable="true"
+               relationship="stack"
+               relative="ca.uvic.chisel.bfv.views.RegionsView"
+               visible="true">
+         </view>
+         <view
+               id="ca.uvic.chisel.atlantis.views.DualTraceChannelView"
+               minimized="false"
+               closeable="true"
                relationship="stack"
                relative="ca.uvic.chisel.bfv.views.RegionsView"
                visible="true">
@@ -416,7 +432,7 @@
          <view
                id="ca.uvic.chisel.atlantis.views.MessageTypesView"
                minimized="false"
-               closeable="false"
+               closeable="true"
                relationship="stack"
                relative="ca.uvic.chisel.bfv.views.RegionsView">
          </view>
@@ -608,9 +624,66 @@
      </propertyTester>
      </extension>
 	
+	<extension point="org.eclipse.ui.menus"> 
+		<menuContribution
+	         locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+		   	<command
+	               commandId="ca.uvic.chisel.atlantis.handlers.OpenDualTrace"
+	               serialization="ca.uvic.chisel.atlantis.handlers.OpenDualTraceHandler(ca.uvic.chisel.atlantis.handlers.OpenDualTraceFile)"
+	               label="Open as Dual Trace"
+	               tooltip="Open selected trace as dual trace, alongside active trace"
+	               style="push">
+	               <commandParameter
+	               		id="atlantis.folderPathParameter"
+	               		name="folderPathParameter">
+               		</commandParameter>
+		               <visibleWhen>
+				           <with variable="selection">
+	        			   <iterate operator="or" ifEmpty="false">
+					           <or>
+				                   <test forcePluginActivation="true"
+			            					property="atlantis.propertyTester.checkFolder"
+			             					value="true">
+				                   </test>
+			                   </or>
+			               </iterate>
+				           </with>
+	            	   </visibleWhen>
+	         </command>
+      </menuContribution>
+	</extension>
 	
 	<!-- Tried this combined with the other nearly identical one, but could not get the <or> clause working properly.
 	It would always select the first test and skip the second. -->
+	<extension point="org.eclipse.ui.menus"> 
+		<menuContribution
+	         locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+		   	<command
+	               commandId="ca.uvic.chisel.atlantis.handlers.OpenDualTrace"
+	               serialization="ca.uvic.chisel.atlantis.handlers.OpenDualTraceHandler(ca.uvic.chisel.atlantis.handlers.OpenDualTraceFile)"
+	               label="Open as Dual Trace"
+	               tooltip="Open selected trace as dual trace, alongside active trace"
+	               style="push">
+	               <commandParameter
+	               		id="atlantis.filePathParameter"
+	               		name="filePathParameter">
+               		</commandParameter>
+		               <visibleWhen>
+				           <with variable="selection">
+	        			   <iterate operator="or" ifEmpty="false">
+					           <or>
+				                   
+						           <test forcePluginActivation="true"
+			            					property="atlantis.propertyTester.checkFile"
+			             					value="true">
+				                   </test>
+			                   </or>
+			               </iterate>
+				           </with>
+	            	   </visibleWhen>
+	         </command>
+      </menuContribution>
+	</extension>
 	
    
    <!-- used to be viewerId="org.eclipse.ui.navigator.ProjectExplorer"> -->
@@ -843,6 +916,26 @@
                id="org.eclipse.ui.commands.toggleState">
          </state>
       </command>
+         <command
+            defaultHandler="ca.uvic.chisel.atlantis.handlers.FindAllChannel"
+            id="ca.uvic.chisel.atlantis.handlers.FindAllChannel"
+            name="Find All Channels">
+      </command>
+      <command
+            defaultHandler="ca.uvic.chisel.atlantis.handlers.FindTCPChannel"
+            id="ca.uvic.chisel.atlantis.handlers.FindTCPChannel"
+            name="Find TCP Channels">
+      </command>
+      <command
+            defaultHandler="ca.uvic.chisel.atlantis.handlers.FindUDPChannel"
+            id="ca.uvic.chisel.atlantis.handlers.FindUDPChannel"
+            name="Find UDP Channels">
+      </command>
+      <command
+            defaultHandler="ca.uvic.chisel.atlantis.handlers.FindNamedPipeChannel"
+            id="ca.uvic.chisel.atlantis.handlers.FindNamedPipeChannel"
+            name="Find Named Pipe Channels">
+      </command>
    </extension>
    
    <extension
@@ -944,6 +1037,34 @@
                   style="push">
             </command>
          </menu>
+         <menu
+               id="ca.uvic.chisel.bfv.commands.Tools"
+               label="Tool">  
+         <menu
+               id="ca.uvic.chisel.bfv.commands.FindCommunicationChannel"
+               label="Find Communication Channels">  
+            <command
+               commandId="ca.uvic.chisel.atlantis.handlers.FindAllChannel"
+               label="All"
+               style="push">
+            </command>
+            <command
+               commandId="ca.uvic.chisel.atlantis.handlers.FindTCPChannel"
+               label="TCP Channels"
+               style="push">
+            </command>
+            <command
+               commandId="ca.uvic.chisel.atlantis.handlers.FindUDPChannel"
+               label="UDP Channels"
+               style="push">
+            </command>
+            <command
+               commandId="ca.uvic.chisel.atlantis.handlers.FindNamedPipeChannel"
+               label="Named Pipe Channels"
+               style="push">
+            </command>
+            </menu>
+          </menu>
       </menuContribution>
       
       <menuContribution
@@ -1085,36 +1206,6 @@
                icon="icons/load_library_exports.gif"
                style="push"
                tooltip="Load Library Exports">
-         </command>
-      </menuContribution>
-      <menuContribution
-            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
-         <command
-               commandId="ca.uvic.chisel.atlantis.handlers.OpenDualTrace"
-               label="Open as Dual Trace"
-               serialization="ca.uvic.chisel.atlantis.handlers.OpenDualTraceHandler(ca.uvic.chisel.atlantis.handlers.OpenDualTraceFile)"
-               style="push"
-               tooltip="Open selected trace as dual trace, alongside active trace">
-            <commandParameter
-                  id="atlantis.filePathParameter"
-                  name="filePathParameter">
-            </commandParameter>
-            <visibleWhen>
-               <with
-                     variable="selection">
-                  <iterate
-                        ifEmpty="false"
-                        operator="or">
-                     <or>
-                        <test
-                              forcePluginActivation="true"
-                              property="atlantis.propertyTester.checkFile"
-                              value="true">
-                        </test>
-                     </or>
-                  </iterate>
-               </with>
-            </visibleWhen>
          </command>
       </menuContribution>
    </extension>

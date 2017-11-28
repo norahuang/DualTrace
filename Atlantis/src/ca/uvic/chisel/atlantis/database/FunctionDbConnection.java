@@ -237,6 +237,33 @@ public class FunctionDbConnection extends DbConnectionManager {
 		}
 	}
 	
+	public Function getSingleFunctionFromModule(String module, Long offset, InstructionDbConnection instructionDb) {
+		try {
+			
+			SelectSingleFunctionFromModule q = AtlantisQueries.mk(connection,new SelectSingleFunctionFromModule());
+					
+			q.setParam(q.inst_moduleParam, module);
+			q.setParam(q.inst_offsetParam, offset);
+			
+			TypedResultSet rs = q.executeQuery();
+			Function func = null;
+			while(rs.next()) {
+				Instruction first = new Instruction(rs.get(q.firstInstruction), 0,
+						rs.get(q.inst_instructionName), "", rs.get(q.inst_module),
+						rs.get(q.inst_moduleId), rs.get(q.inst_moduleOffset), null,
+						rs.get(q.inst_parentFunctionId));
+				func = new Function(first, rs.get(q.name));				
+			}
+			rs.close();
+			q.close();
+			return func;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	public void finalizeInsertionBatch() {
 		try {
 			refreshConnection(); // Can close via timeout, this safely opens only if closed already.

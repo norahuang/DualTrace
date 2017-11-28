@@ -13,18 +13,14 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.ui.MElementContainer;
 import org.eclipse.e4.ui.model.application.ui.MUIElement;
-import org.eclipse.e4.ui.model.application.ui.advanced.MArea;
 import org.eclipse.e4.ui.model.application.ui.basic.MCompositePart;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.basic.MPartSashContainer;
 import org.eclipse.e4.ui.model.application.ui.basic.MPartSashContainerElement;
 import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
 import org.eclipse.e4.ui.model.application.ui.basic.MStackElement;
-import org.eclipse.e4.ui.model.application.ui.basic.MTrimmedWindow;
-import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.model.application.ui.basic.impl.PartSashContainerImpl;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
@@ -32,10 +28,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchWindow;
-import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
-import org.eclipse.ui.internal.EditorReference;
 import org.eclipse.ui.internal.WorkbenchPage;
 import org.eclipse.ui.part.FileEditorInput;
 
@@ -171,96 +165,7 @@ public class OpenDualTraceHandler extends AbstractHandler {
 
 		return (MPartStack) parent;
 	}
-
-	/**
-	 * Inserts the editor into the container editor.
-	 *
-	 * @param ratio
-	 *            the ratio
-	 * @param where
-	 *            where to insert ({@link EModelService#LEFT_OF},
-	 *            {@link EModelService#RIGHT_OF}, {@link EModelService#ABOVE} or
-	 *            {@link EModelService#BELOW})
-	 * @param containerEditor
-	 *            the container editor
-	 * @param editorToInsert
-	 *            the editor to insert
-	 */
-	public void insertEditor(float ratio, int where, MPart containerEditor, MPart editorToInsert) {
-		/*
-		 * IWorkbenchWindow window =
-		 * PlatformUI.getWorkbench().getActiveWorkbenchWindow(); EModelService
-		 * service = window.getService(EModelService.class); MPartStack toInsert
-		 * = getPartStack(editorToInsert);
-		 * 
-		 * 
-		 * MArea area = getArea(containerEditor); MPartSashContainerElement
-		 * relToElement = area.getChildren().get(0); service.insert(toInsert,
-		 * relToElement, where, ratio);
-		 */
-
-		/*
-		 * MStackSashContainer stackedSash =
-		 * SplitFactoryImpl.eINSTANCE.createStackSashContainer();
-		 * stackedSash.setHorizontal(true);
-		 * containerEditor.getParent().getChildren().add(stackedSash);
-		 * stackedSash.getChildren().add(containerEditor);
-		 * stackedSash.getChildren().add(editorToInsert);
-		 */
-
-		/*
-		 * MPlaceholder placeholder = containerEditor.getCurSharedRef();
-		 * 
-		 * MStackSashContainer stackedSash =
-		 * SplitFactoryImpl.eINSTANCE.createStackSashContainer();
-		 * stackedSash.setHorizontal(true);
-		 * stackedSash.getChildren().add(editorToInsert);
-		 * placeholder.getParent().getChildren().add(stackedSash);
-		 * stackedSash.getChildren().add(placeholder);
-		 */
-
-		/*
-		 * IWorkbenchWindow window =
-		 * PlatformUI.getWorkbench().getActiveWorkbenchWindow(); EModelService
-		 * ms = window.getService(EModelService.class); EPartService ps =
-		 * window.getService(EPartService.class);
-		 * 
-		 * MPartSashContainer psc =
-		 * ms.createModelElement(MPartSashContainer.class);
-		 * psc.setHorizontal(true);
-		 * psc.getChildren().add((MPartSashContainerElement) containerEditor);
-		 * psc.getChildren().add(editorToInsert);
-		 * psc.setSelectedElement((MPartSashContainerElement) containerEditor);
-		 * 
-		 * MCompositePart compPart =
-		 * ms.createModelElement(MCompositePart.class);
-		 * compPart.setCloseable(true); compPart.getChildren().add(psc);
-		 * compPart.setSelectedElement(psc);
-		 * 
-		 * MElementContainer<MUIElement> parent = containerEditor.getParent();
-		 * int index = parent.getChildren().indexOf(containerEditor);
-		 * parent.getChildren().add(index, compPart); ps.activate(compPart);
-		 */
-	}
-
-	@SuppressWarnings("restriction")
-	private MPartStack getPartStack(MPart childPart) {
-		MStackElement stackElement = childPart;
-		MPartStack newStack = org.eclipse.e4.ui.model.application.ui.basic.impl.BasicFactoryImpl.eINSTANCE
-				.createPartStack();
-		newStack.getChildren().add(stackElement);
-		newStack.setSelectedElement(stackElement);
-		return newStack;
-	}
-
-	private MArea getArea(MPart containerPart) {
-		MUIElement targetParent = containerPart.getParent();
-		while (!(targetParent instanceof MArea)) {
-			targetParent = targetParent.getParent();
-		}
-		MArea area = (MArea) targetParent;
-		return area;
-	}
+	
 
 	@Override
 	protected void setBaseEnabled(boolean b) {
@@ -268,9 +173,6 @@ public class OpenDualTraceHandler extends AbstractHandler {
 	}
 
 	private IFile getPathOfSelectedFile(ExecutionEvent event) {
-		// The plugin.xml should only be allowing commands to be issued on
-		// IFolder and IFile entities.
-		IFile f = null;
 		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 		if (window != null) {
 			window = HandlerUtil.getActiveWorkbenchWindow(event);

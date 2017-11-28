@@ -662,6 +662,33 @@ class SelectFunctionsFromModule extends CommonFunctionResults {
 	}
 }
 
+/**
+ * Fetch all functions from the specified module (i.e. dll). 
+ *
+ */
+class SelectSingleFunctionFromModule extends CommonFunctionResults {
+	StringParameter inst_moduleParam = new StringParameter("inst_module");
+	LongParameter inst_offsetParam = new LongParameter("inst_offsetParam");
+	{
+		this.q =
+		"SELECT " +
+		 name+"," +
+		 firstInstruction+"," +
+		 inst_firstLineNumber+"," +
+		 inst_moduleOffset+"," +
+		 inst_module+"," +
+		 inst_moduleId+"," +
+		 inst_instructionName+"," +
+		 inst_instructionText+", " +
+		 inst_parentFunctionId+" " +
+		" FROM " + FunctionDbConnection.FUNCTION_TABLE_NAME +
+		" LEFT JOIN " + InstructionDbConnection.INSTRUCTION_TABLE_NAME + " AS inst ON inst.instructionId = firstInstruction" +
+		" WHERE inst.module = :"+inst_moduleParam +
+		" AND inst.moduleOffset = :"+inst_offsetParam +
+		" ORDER BY inst.moduleOffset ASC";
+	}
+}
+
 //9 interesting
 /**
  * Selects all functions that either start threads or have an unknown start.
