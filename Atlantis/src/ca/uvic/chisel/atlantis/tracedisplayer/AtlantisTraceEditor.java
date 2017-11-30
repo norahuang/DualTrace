@@ -56,7 +56,6 @@ public class AtlantisTraceEditor extends BigFileEditor {
 		FileEditorInput fileEditorInput = (FileEditorInput) input;
 
 		this.emptyFile = BfvFileUtils.convertFileIFile(fileEditorInput.getFile());
-		this.namedPipeFunctions = new NamedPipeFunctions();
 		this.tcpudpFunctions = new TCPUDPFunctions();
 		super.init(site, input);
 	}

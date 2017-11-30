@@ -858,7 +858,7 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 						}
 					}
 
-					int retLineNumber = (int) fileModel.getFunctionRetLine(moduleId, lineElement.getLine() - 1);
+					int retLineNumber = (int) fileModel.getFunctionRetLine(lineElement.getLine() - 1);
 					System.out.println("ret line:" + retLineNumber);
 
 					FileMatch retMatch = (FileMatch) ((BinaryFormatFileModelDataLayer) fileModel)
@@ -974,7 +974,7 @@ public class MessageTypesView extends ViewPart implements IPartListener2, MenuLi
 							map.get(channelNameAddReg.toUpperCase()).getMemoryContent().getMemoryValue(), 16);
 					BigInteger channelNameAddress = BigInteger.valueOf(add);
 
-					int retLineNumber = (int) fileModel.getFunctionRetLine(moduleId, lineElement.getLine() - 1);
+					int retLineNumber = (int) fileModel.getFunctionRetLine(lineElement.getLine() - 1);
 					System.out.println("ret line:" + retLineNumber);
 
 					FileMatch retMatch = (FileMatch) ((BinaryFormatFileModelDataLayer) fileModel)

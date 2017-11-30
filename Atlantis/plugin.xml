@@ -1039,7 +1039,7 @@
          </menu>
          <menu
                id="ca.uvic.chisel.bfv.commands.Tools"
-               label="Tool">  
+               label="Dual Trace Tool">  
          <menu
                id="ca.uvic.chisel.bfv.commands.FindCommunicationChannel"
                label="Find Communication Channels">  
@@ -1064,6 +1064,11 @@
                style="push">
             </command>
             </menu>
+            <command
+               commandId="ca.uvic.chisel.atlantis.commands.LoadLibraryExports"
+               label="Load Library Exports"
+               style="push">
+            </command>
           </menu>
       </menuContribution>
       

@@ -609,90 +609,7 @@ public class LoadLibraryExportsDialog extends TitleAreaDialog  {
 		List<Pair<Long, String>> functionsList = (ArrayList<Pair<Long, String>>)functionsTableViewer.getInput();
 		
 		if(functionsList.size() > 0) {
-			String dllFileName = fileName.getText().substring(fileName.getText().lastIndexOf('\\') + 1);
-			IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
-			AtlantisTraceEditor activeTraceDisplayer = (AtlantisTraceEditor) activeWorkbenchWindow.getActivePage().getActiveEditor();
-			NamedPipeFunctions namedPipeFunctions = activeTraceDisplayer.getNamedPipeFunctions();
-			AtlantisFileModelDataLayer fileModel = (AtlantisFileModelDataLayer) RegistryUtils
-					.getFileModelDataLayerFromRegistry(activeTraceDisplayer.getCurrentBlankFile());
-			for(Pair<Long, String> function : functionsList) {
-				FunctionNameRegistry.registerFunction(dllFileName, function.getLeft(), function.getRight());
-				
-				if (namedPipeFunctions.getCreateNamedPipeAFuncName().equals(function.getRight())){
-					Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb());
-					if(func != null){
-						namedPipeFunctions.setCreateNamedPipeA(fileModel.getFunctionDb().getSingleFunctionFromModule(
-								dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-					}
-					
-				}
-				if (namedPipeFunctions.getCreateFileAFuncName().equals(function.getRight())){
-					Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb());
-					if(func != null){
-						namedPipeFunctions.setCreateFileA(fileModel.getFunctionDb().getSingleFunctionFromModule(
-								dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-					}
-				}
-				
-				if (namedPipeFunctions.getCreateNamedPipeWFuncName().equals(function.getRight())){
-					Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb());
-					if(func != null){
-						namedPipeFunctions.setCreateNamedPipeW(fileModel.getFunctionDb().getSingleFunctionFromModule(
-								dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-					}
-					
-				}
-				if (namedPipeFunctions.getCreateFileWFuncName().equals(function.getRight())){
-					Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb());
-					if(func != null){
-						namedPipeFunctions.setCreateFileW(fileModel.getFunctionDb().getSingleFunctionFromModule(
-								dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-					}
-				}
-				
-				if (namedPipeFunctions.getWriteFileFuncName().equals(function.getRight())){
-					Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb());
-					if(func != null){
-						namedPipeFunctions.setWriteFile(fileModel.getFunctionDb().getSingleFunctionFromModule(
-								dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-					}
-					
-				}
-				if (namedPipeFunctions.getReadFileFuncName().equals(function.getRight())){
-					Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb());
-					if(func != null){
-						namedPipeFunctions.setReadFile(fileModel.getFunctionDb().getSingleFunctionFromModule(
-								dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-					}
-					
-				}
-				if (namedPipeFunctions.getGetOverlappedResultFuncName().equals(function.getRight())){
-					Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb());
-					if(func != null){
-						namedPipeFunctions.setGetOverlappedResult(fileModel.getFunctionDb().getSingleFunctionFromModule(
-								dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-					}
-					
-				}
-				if (namedPipeFunctions.getCloseHandleFuncName().equals(function.getRight())){
-					Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb());
-					if(func != null){
-						namedPipeFunctions.setCloseHandle(fileModel.getFunctionDb().getSingleFunctionFromModule(
-								dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-					}
-					
-				}
-
-			}
-		
+			setNamedPipeFuncSet(functionsList);
 			FunctionsView functionsView = (FunctionsView) 
 					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(FunctionsView.ID);
 			if(functionsView != null) {
@@ -708,4 +625,94 @@ public class LoadLibraryExportsDialog extends TitleAreaDialog  {
 		
 		super.okPressed();
 	}
+	
+	private void setNamedPipeFuncSet(List<Pair<Long, String>> functionsList){
+		String dllFileName = fileName.getText().substring(fileName.getText().lastIndexOf('\\') + 1);
+		IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		AtlantisTraceEditor activeTraceDisplayer = (AtlantisTraceEditor) activeWorkbenchWindow.getActivePage().getActiveEditor();
+		AtlantisFileModelDataLayer fileModel = (AtlantisFileModelDataLayer) RegistryUtils
+				.getFileModelDataLayerFromRegistry(activeTraceDisplayer.getCurrentBlankFile());
+		NamedPipeFunctions namedPipeFunctions = new NamedPipeFunctions();
+		for(Pair<Long, String> function : functionsList) {
+			FunctionNameRegistry.registerFunction(dllFileName, function.getLeft(), function.getRight());
+			
+			if (namedPipeFunctions.getCreateNamedPipeAFuncName().equals(function.getRight())){
+				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
+						dllFileName, function.getLeft(), fileModel.getInstructionDb());
+				if(func != null){
+					namedPipeFunctions.setCreateNamedPipeA(fileModel.getFunctionDb().getSingleFunctionFromModule(
+							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
+				}
+				
+			}
+			if (namedPipeFunctions.getCreateFileAFuncName().equals(function.getRight())){
+				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
+						dllFileName, function.getLeft(), fileModel.getInstructionDb());
+				if(func != null){
+					namedPipeFunctions.setCreateFileA(fileModel.getFunctionDb().getSingleFunctionFromModule(
+							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
+				}
+			}
+			
+			if (namedPipeFunctions.getCreateNamedPipeWFuncName().equals(function.getRight())){
+				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
+						dllFileName, function.getLeft(), fileModel.getInstructionDb());
+				if(func != null){
+					namedPipeFunctions.setCreateNamedPipeW(fileModel.getFunctionDb().getSingleFunctionFromModule(
+							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
+				}
+				
+			}
+			if (namedPipeFunctions.getCreateFileWFuncName().equals(function.getRight())){
+				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
+						dllFileName, function.getLeft(), fileModel.getInstructionDb());
+				if(func != null){
+					namedPipeFunctions.setCreateFileW(fileModel.getFunctionDb().getSingleFunctionFromModule(
+							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
+				}
+			}
+			
+			if (namedPipeFunctions.getWriteFileFuncName().equals(function.getRight())){
+				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
+						dllFileName, function.getLeft(), fileModel.getInstructionDb());
+				if(func != null){
+					namedPipeFunctions.setWriteFile(fileModel.getFunctionDb().getSingleFunctionFromModule(
+							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
+				}
+				
+			}
+			if (namedPipeFunctions.getReadFileFuncName().equals(function.getRight())){
+				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
+						dllFileName, function.getLeft(), fileModel.getInstructionDb());
+				if(func != null){
+					namedPipeFunctions.setReadFile(fileModel.getFunctionDb().getSingleFunctionFromModule(
+							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
+				}
+				
+			}
+			if (namedPipeFunctions.getGetOverlappedResultFuncName().equals(function.getRight())){
+				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
+						dllFileName, function.getLeft(), fileModel.getInstructionDb());
+				if(func != null){
+					namedPipeFunctions.setGetOverlappedResult(fileModel.getFunctionDb().getSingleFunctionFromModule(
+							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
+				}
+				
+			}
+			if (namedPipeFunctions.getCloseHandleFuncName().equals(function.getRight())){
+				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
+						dllFileName, function.getLeft(), fileModel.getInstructionDb());
+				if(func != null){
+					namedPipeFunctions.setCloseHandle(fileModel.getFunctionDb().getSingleFunctionFromModule(
+							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
+				}
+				
+			}
+
+		}
+		
+		activeTraceDisplayer.setNamedPipeFunctions(namedPipeFunctions);
+	}
 }
+
+     

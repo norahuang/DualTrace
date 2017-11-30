@@ -10,8 +10,8 @@ import org.eclipse.jface.text.source.Annotation;
 public class Channel extends Annotation implements Comparable<Channel> {
 	public static final String TYPE_ANNOTATION_TYPE = "ca.uvic.chisel.bfv.dualtrace.channel";		
 	private Trace trace;
-	private int channelStartLineNum;
-	private int channelEndLineNum;
+	private int channelStartLineNum = 0;
+	private int channelEndLineNum = 0;
 	private List<ChannelEvent> events;
 	private String channelHandle;
 	private String channelID;

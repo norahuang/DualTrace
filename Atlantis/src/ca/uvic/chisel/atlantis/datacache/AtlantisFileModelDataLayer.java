@@ -271,8 +271,8 @@ abstract public class AtlantisFileModelDataLayer extends FileModelDataLayer {
 		return modules;
 	}
 	
-	public long getFunctionRetLine(int moduleId, int startLineNumber) {
-		return gibraltar.instructionDbBackend.getFunctionRetLine(moduleId, startLineNumber);
+	public long getFunctionRetLine(int startLineNumber) {
+		return gibraltar.instructionDbBackend.getFunctionRetLine(startLineNumber);
 	}
 
 }

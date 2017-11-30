@@ -1,0 +1,5299 @@
+// fn0041100A
+// Return size: 0
+void fn0041100A()
+fn0041100A_entry:
+	// succ:  l0041100A
+l0041100A:
+	esp = fp
+	// succ:  l00415418
+l00415418:
+	call _wmakepath_s (retsize: 4;)
+	return
+	// succ:  fn0041100A_exit
+fn0041100A_exit:
+
+
+// fn0041101E
+// Return size: 0
+void fn0041101E()
+fn0041101E_entry:
+	// succ:  l0041101E
+l0041101E:
+	esp = fp
+	// succ:  l004154E0_in_fn0041101E
+l004154E0_in_fn0041101E:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	al = 0x01
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn0041101E_exit
+fn0041101E_exit:
+
+
+// fn00411023
+// Return size: 0
+void fn00411023()
+fn00411023_entry:
+	// succ:  l00411023
+l00411023:
+	esp = fp
+	// succ:  l004154B0_in_fn00411023
+l004154B0_in_fn00411023:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	al = 0x01
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411023_exit
+fn00411023_exit:
+
+
+// fn00411037
+// Return size: 4
+void fn00411037()
+fn00411037_entry:
+	// succ:  l00411037
+l00411037:
+	esp = fp
+	// succ:  l00411037_thunk_fn004143F0
+l00411037_thunk_fn004143F0:
+	call fn004143F0 (retsize: 4;)
+	return
+	// succ:  fn00411037_exit
+fn00411037_exit:
+
+
+// fn00411055
+// Return size: 0
+void fn00411055()
+fn00411055_entry:
+	// succ:  l00411055
+l00411055:
+	esp = fp
+	// succ:  l00415424
+l00415424:
+	call wcscpy_s (retsize: 4;)
+	return
+	// succ:  fn00411055_exit
+fn00411055_exit:
+
+
+// fn0041105A
+// Return size: 0
+void fn0041105A()
+fn0041105A_entry:
+	// succ:  l0041105A
+l0041105A:
+	esp = fp
+	// succ:  l004153CA
+l004153CA:
+	call strcpy_s (retsize: 4;)
+	return
+	// succ:  fn0041105A_exit
+fn0041105A_exit:
+
+
+// fn00411064
+// Return size: 0
+void fn00411064()
+fn00411064_entry:
+	// succ:  l00411064
+l00411064:
+	esp = fp
+	// succ:  l004153D0
+l004153D0:
+	call strcat_s (retsize: 4;)
+	return
+	// succ:  fn00411064_exit
+fn00411064_exit:
+
+
+// fn0041106E
+// Return size: 4
+void fn0041106E()
+fn0041106E_entry:
+	// succ:  l0041106E
+l0041106E:
+	esp = fp
+	// succ:  l004140B0
+l004140B0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x0000032C
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000017
+	call fn00411348 (retsize: 4;)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l004140C9
+	// succ:  l004140C4 l004140C9
+l004140C4:
+	ecx = Mem0[ebp + 0x00000008:word32]
+	__fastfail(ecx)
+l004140C9:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000003
+	call fn00411037 (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x000002CC
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	eax = ebp - 0x0000032C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn004110CD (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	Mem0[ebp - 0x0000027C:word32] = eax
+	Mem0[ebp - 0x00000280:word32] = ecx
+	Mem0[ebp - 0x00000284:word32] = edx
+	Mem0[ebp - 0x00000288:word32] = ebx
+	Mem0[ebp - 0x0000028C:word32] = esi
+	Mem0[ebp - 0x00000290:word32] = edi
+	Mem0[ebp - 0x00000264:word16] = ss
+	Mem0[ebp - 0x00000270:word16] = cs
+	Mem0[ebp - 0x00000294:word16] = ds
+	Mem0[ebp - 0x00000298:word16] = es
+	Mem0[ebp - 0x0000029C:word16] = fs
+	Mem0[ebp - 0x000002A0:word16] = gs
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = SCZDOP
+	Mem0[ebp - 0x0000026C:word32] = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	Mem0[ebp - 0x0000032C:word32] = 0x00010001
+	ecx = Mem0[ebp + 0x00000004:word32]
+	Mem0[ebp - 0x00000274:word32] = ecx
+	edx = ebp + 0x00000004
+	Mem0[ebp - 0x00000268:word32] = edx
+	eax = ebp + 0x00000004
+	ecx = Mem0[eax - 0x00000004:word32]
+	Mem0[ebp - 0x00000278:word32] = ecx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000050
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	edx = ebp - 0x00000060
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	call fn004110CD (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	Mem0[ebp - 0x00000060:word32] = 0x40000015
+	Mem0[ebp - 0x0000005C:word32] = 0x00000001
+	eax = Mem0[ebp + 0x00000004:word32]
+	Mem0[ebp - 0x00000054:word32] = eax
+	eax = IsDebuggerPresent()
+	SCZO = cond(eax - 0x00000001)
+	branch Test(NE,Z) l0041419B
+	// succ:  l00414195 l0041419B
+l00414195:
+	Mem0[ebp - 0x00000001:byte] = 0x01
+	goto l0041419F
+	// succ:  l0041419F
+l0041419B:
+	Mem0[ebp - 0x00000001:byte] = 0x00
+	// succ:  l0041419F
+l0041419F:
+	cl = Mem0[ebp - 0x00000001:byte]
+	Mem0[ebp - 0x00000002:byte] = cl
+	edx = ebp - 0x00000060
+	Mem0[ebp - 0x00000010:word32] = edx
+	eax = ebp - 0x0000032C
+	Mem0[ebp - 0x0000000C:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	eax = SetUnhandledExceptionFilter(Mem0[esp:LPTOP_LEVEL_EXCEPTION_FILTER])
+	esp = esp + 0x00000004
+	ecx = ebp - 0x00000010
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	eax = UnhandledExceptionFilter(Mem0[esp:(ptr (struct "_EXCEPTION_POINTERS"))])
+	esp = esp + 0x00000004
+	Mem0[ebp - 0x00000008:word32] = eax
+	SCZO = cond(Mem0[ebp - 0x00000008:word32] - 0x00000000)
+	branch Test(NE,Z) l004141E1
+	// succ:  l004141CF l004141E1
+l004141CF:
+	edx = (word32) Mem0[ebp - 0x00000002:byte]
+	SZO = cond(edx & edx)
+	C = false
+	branch Test(NE,Z) l004141E1
+	// succ:  l004141D7 l004141E1
+l004141D7:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000003
+	call fn00411037 (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	// succ:  l004141E1
+l004141E1:
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn0041106E_exit
+fn0041106E_exit:
+
+
+// fn00411073
+// Return size: 4
+void fn00411073()
+fn00411073_entry:
+	// succ:  l00411073
+l00411073:
+	esp = fp
+	// succ:  l00415250
+l00415250:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	SCZO = cond(Mem0[0x0041A030:word32] - 0x00000000)
+	branch Test(EQ,Z) l00415266
+	// succ:  l0041525D l00415266
+l0041525D:
+	Mem0[ebp - 0x00000004:word32] = 0x00000001
+	goto l0041526D
+	// succ:  l0041526D
+l00415266:
+	Mem0[ebp - 0x00000004:word32] = 0x00000000
+	// succ:  l0041526D
+l0041526D:
+	eax = Mem0[ebp - 0x00000004:word32]
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411073_exit
+fn00411073_exit:
+
+
+// fn0041107D
+// Return size: 4
+void fn0041107D()
+fn0041107D_entry:
+	// succ:  l0041107D
+l0041107D:
+	esp = fp
+	// succ:  l004117C0
+l004117C0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x000000C0
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	edi = ebp - 0x000000C0
+	ecx = 0x00000030
+	eax = 0xCCCCCCCC
+	// succ:  l004117DC
+l004117DC:
+	branch ecx == 0x00000000 l004117DE
+	// succ:  l004117DC_1 l004117DE
+l004117DC_1:
+	Mem0[edi:word32] = eax
+	edi = edi + 0x00000004
+	ecx = ecx - 0x00000001
+	goto l004117DC
+	// succ:  l004117DC
+l004117DE:
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn0041107D_exit
+fn0041107D_exit:
+
+
+// fn00411082
+// Return size: 4
+void fn00411082()
+fn00411082_entry:
+	// succ:  l00411082
+l00411082:
+	esp = fp
+	// succ:  l00413720
+l00413720:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	eax = Mem0[fs:0x00000018:word32]
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411082_exit
+fn00411082_exit:
+
+
+// fn004110A0
+// Return size: 0
+void fn004110A0()
+fn004110A0_entry:
+	// succ:  l004110A0
+l004110A0:
+	esp = fp
+	// succ:  l00415382
+l00415382:
+	call initterm_e (retsize: 4;)
+	return
+	// succ:  fn004110A0_exit
+fn004110A0_exit:
+
+
+// fn004110B9
+// Return size: 0
+void fn004110B9()
+fn004110B9_entry:
+	// succ:  l004110B9
+l004110B9:
+	esp = fp
+	// succ:  l004153A6
+l004153A6:
+	call cexit (retsize: 4;)
+	return
+	// succ:  fn004110B9_exit
+fn004110B9_exit:
+
+
+// fn004110C8
+// Return size: 4
+void fn004110C8()
+fn004110C8_entry:
+	// succ:  l004110C8
+l004110C8:
+	esp = fp
+	// succ:  l00413460
+l00413460:
+	eax = Mem0[0x0041A510:word32]
+	return
+	// succ:  fn004110C8_exit
+fn004110C8_exit:
+
+
+// fn004110CD
+// Return size: 0
+void fn004110CD()
+fn004110CD_entry:
+	// succ:  l004110CD
+l004110CD:
+	esp = fp
+	// succ:  l00415310
+l00415310:
+	call memset (retsize: 4;)
+	return
+	// succ:  fn004110CD_exit
+fn004110CD_exit:
+
+
+// fn004110D2
+// Return size: 0
+void fn004110D2()
+fn004110D2_entry:
+	// succ:  l004110D2
+l004110D2:
+	esp = fp
+	// succ:  l00415376
+l00415376:
+	call get_initial_wide_environment (retsize: 4;)
+	return
+	// succ:  fn004110D2_exit
+fn004110D2_exit:
+
+
+// fn004110E1
+// Return size: 4
+void fn004110E1()
+fn004110E1_entry:
+	// succ:  l004110E1
+l004110E1:
+	esp = fp
+	// succ:  l004140A0
+l004140A0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	eax = 0x0041A57C
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn004110E1_exit
+fn004110E1_exit:
+
+
+// fn004110F5
+// Return size: 4
+void fn004110F5()
+fn004110F5_entry:
+	// succ:  l004110F5
+l004110F5:
+	esp = fp
+	// succ:  l004110F5_thunk_fn00412AC0
+l004110F5_thunk_fn00412AC0:
+	call fn00412AC0 (retsize: 4;)
+	return
+	// succ:  fn004110F5_exit
+fn004110F5_exit:
+
+
+// fn00411136
+// Return size: 4
+void fn00411136()
+fn00411136_entry:
+	// succ:  l00411136
+l00411136:
+	esp = fp
+	// succ:  l00414EC0
+l00414EC0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000040
+	SCZO = cond(esp)
+	eax = Mem0[0x0041A000:word32]
+	eax = eax ^ ebp
+	SZO = cond(eax)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	Mem0[0x0041A570:word32] = 0x00000000
+	eax = Mem0[0x0041A02C:word32]
+	eax = eax | 0x00000001
+	SZO = cond(eax)
+	C = false
+	Mem0[0x0041A02C:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x0000000A
+	call fn00411348 (retsize: 4;)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00414EFB
+	// succ:  l00414EF4 l00414EFB
+l00414EF4:
+	eax = eax ^ eax
+	SZO = cond(eax)
+	C = false
+	goto l00415183
+	// succ:  l00415183
+l00414EFB:
+	Mem0[ebp - 0x00000010:word32] = 0x00000000
+	Mem0[ebp - 0x0000000C:word32] = 0x00000000
+	Mem0[ebp - 0x00000008:word32] = 0x00000000
+	Mem0[0x0041A570:word32] = 0x00000001
+	ecx = Mem0[0x0041A02C:word32]
+	ecx = ecx | 0x00000002
+	SZO = cond(ecx)
+	C = false
+	Mem0[0x0041A02C:word32] = ecx
+	esi = ebp - 0x00000020
+	eax = eax ^ eax
+	SZO = cond(eax)
+	C = false
+	ecx = ecx ^ ecx
+	SZO = cond(ecx)
+	C = false
+	__cpuid(eax, ecx, &eax, &ebx, &ecx, &edx)
+	Mem0[esi:word32] = eax
+	Mem0[esi + 0x00000004:word32] = ebx
+	Mem0[esi + 0x00000008:word32] = ecx
+	Mem0[esi + 0x0000000C:word32] = edx
+	edx = 0x00000004
+	eax = edx *s 0x00000000
+	SCZO = cond(eax)
+	ecx = Mem0[ebp - 0x00000020 + eax:word32]
+	Mem0[ebp - 0x00000030:word32] = ecx
+	edx = 0x00000004
+	edx = edx << 0x00000000
+	SCZO = cond(edx)
+	eax = Mem0[ebp - 0x00000020 + edx:word32]
+	eax = eax ^ 0x756E6547
+	SZO = cond(eax)
+	C = false
+	ecx = 0x00000004
+	edx = ecx *s 0x00000003
+	SCZO = cond(edx)
+	ecx = Mem0[ebp - 0x00000020 + edx:word32]
+	ecx = ecx ^ 0x49656E69
+	SZO = cond(ecx)
+	C = false
+	eax = eax | ecx
+	SZO = cond(eax)
+	C = false
+	edx = 0x00000004
+	edx = edx << 0x00000001
+	SCZO = cond(edx)
+	ecx = Mem0[ebp - 0x00000020 + edx:word32]
+	ecx = ecx ^ 0x6C65746E
+	SZO = cond(ecx)
+	C = false
+	eax = eax | ecx
+	SZO = cond(eax)
+	C = false
+	branch Test(NE,Z) l00414F8F
+	// succ:  l00414F86 l00414F8F
+l00414F86:
+	Mem0[ebp - 0x0000002C:word32] = 0x00000001
+	goto l00414F96
+	// succ:  l00414F96
+l00414F8F:
+	Mem0[ebp - 0x0000002C:word32] = 0x00000000
+	// succ:  l00414F96
+l00414F96:
+	dl = Mem0[ebp - 0x0000002C:byte]
+	Mem0[ebp - 0x00000021:byte] = dl
+	esi = ebp - 0x00000020
+	eax = 0x00000001
+	ecx = ecx ^ ecx
+	SZO = cond(ecx)
+	C = false
+	__cpuid(eax, ecx, &eax, &ebx, &ecx, &edx)
+	Mem0[esi:word32] = eax
+	Mem0[esi + 0x00000004:word32] = ebx
+	Mem0[esi + 0x00000008:word32] = ecx
+	Mem0[esi + 0x0000000C:word32] = edx
+	eax = 0x00000004
+	ecx = eax *s 0x00000000
+	SCZO = cond(ecx)
+	edx = Mem0[ebp - 0x00000020 + ecx:word32]
+	Mem0[ebp - 0x00000028:word32] = edx
+	eax = (word32) Mem0[ebp - 0x00000021:byte]
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l0041503B
+	// succ:  l00414FCA l0041503B
+l00414FCA:
+	ecx = Mem0[ebp - 0x00000028:word32]
+	ecx = ecx & 0x0FFF3FF0
+	SZO = cond(ecx)
+	C = false
+	SCZO = cond(ecx - 0x000106C0)
+	branch Test(EQ,Z) l0041502C
+	// succ:  l00414FDB l0041502C
+l00414FDB:
+	edx = Mem0[ebp - 0x00000028:word32]
+	edx = edx & 0x0FFF3FF0
+	SZO = cond(edx)
+	C = false
+	SCZO = cond(edx - 0x00020660)
+	branch Test(EQ,Z) l0041502C
+	// succ:  l00414FEC l0041502C
+l00414FEC:
+	eax = Mem0[ebp - 0x00000028:word32]
+	eax = eax & 0x0FFF3FF0
+	SZO = cond(eax)
+	C = false
+	SCZO = cond(eax - 0x00020670)
+	branch Test(EQ,Z) l0041502C
+	// succ:  l00414FFB l0041502C
+l00414FFB:
+	ecx = Mem0[ebp - 0x00000028:word32]
+	ecx = ecx & 0x0FFF3FF0
+	SZO = cond(ecx)
+	C = false
+	SCZO = cond(ecx - 0x00030650)
+	branch Test(EQ,Z) l0041502C
+	// succ:  l0041500C l0041502C
+l0041500C:
+	edx = Mem0[ebp - 0x00000028:word32]
+	edx = edx & 0x0FFF3FF0
+	SZO = cond(edx)
+	C = false
+	SCZO = cond(edx - 0x00030660)
+	branch Test(EQ,Z) l0041502C
+	// succ:  l0041501D l0041502C
+l0041501D:
+	eax = Mem0[ebp - 0x00000028:word32]
+	eax = eax & 0x0FFF3FF0
+	SZO = cond(eax)
+	C = false
+	SCZO = cond(eax - 0x00030670)
+	branch Test(NE,Z) l0041503B
+	// succ:  l0041502C l0041503B
+l0041502C:
+	ecx = Mem0[0x0041A574:word32]
+	ecx = ecx | 0x00000001
+	SZO = cond(ecx)
+	C = false
+	Mem0[0x0041A574:word32] = ecx
+	// succ:  l0041503B
+l0041503B:
+	edx = 0x00000004
+	eax = edx *s 0x00000003
+	SCZO = cond(eax)
+	ecx = 0x00000004
+	edx = ecx *s 0x00000000
+	SCZO = cond(edx)
+	eax = Mem0[ebp - 0x00000020 + eax:word32]
+	Mem0[ebp - 0x00000010 + edx:word32] = eax
+	ecx = 0x00000004
+	ecx = ecx << 0x00000001
+	SCZO = cond(ecx)
+	edx = 0x00000004
+	edx = edx << 0x00000000
+	SCZO = cond(edx)
+	eax = Mem0[ebp - 0x00000020 + ecx:word32]
+	Mem0[ebp - 0x00000010 + edx:word32] = eax
+	SCZO = cond(Mem0[ebp - 0x00000030:word32] - 0x00000007)
+	branch Test(LT,SO) l004150BF
+	// succ:  l00415070 l004150BF
+l00415070:
+	esi = ebp - 0x00000020
+	eax = 0x00000007
+	ecx = ecx ^ ecx
+	SZO = cond(ecx)
+	C = false
+	__cpuid(eax, ecx, &eax, &ebx, &ecx, &edx)
+	Mem0[esi:word32] = eax
+	Mem0[esi + 0x00000004:word32] = ebx
+	Mem0[esi + 0x00000008:word32] = ecx
+	Mem0[esi + 0x0000000C:word32] = edx
+	ecx = 0x00000004
+	ecx = ecx << 0x00000000
+	SCZO = cond(ecx)
+	edx = 0x00000004
+	edx = edx << 0x00000001
+	SCZO = cond(edx)
+	eax = Mem0[ebp - 0x00000020 + ecx:word32]
+	Mem0[ebp - 0x00000010 + edx:word32] = eax
+	ecx = 0x00000004
+	ecx = ecx << 0x00000000
+	SCZO = cond(ecx)
+	edx = Mem0[ebp - 0x00000020 + ecx:word32]
+	edx = edx & 0x00000200
+	SZO = cond(edx)
+	C = false
+	branch Test(EQ,Z) l004150BF
+	// succ:  l004150B2 l004150BF
+l004150B2:
+	eax = Mem0[0x0041A574:word32]
+	eax = eax | 0x00000002
+	SZO = cond(eax)
+	C = false
+	Mem0[0x0041A574:word32] = eax
+	// succ:  l004150BF
+l004150BF:
+	ecx = 0x00000004
+	ecx = ecx << 0x00000000
+	SCZO = cond(ecx)
+	edx = Mem0[ebp - 0x00000010 + ecx:word32]
+	edx = edx & 0x00100000
+	SZO = cond(edx)
+	C = false
+	branch Test(EQ,Z) l00415181
+	// succ:  l004150D7 l00415181
+l004150D7:
+	Mem0[0x0041A570:word32] = 0x00000002
+	eax = Mem0[0x0041A02C:word32]
+	eax = eax | 0x00000004
+	SZO = cond(eax)
+	C = false
+	Mem0[0x0041A02C:word32] = eax
+	ecx = 0x00000004
+	ecx = ecx << 0x00000000
+	SCZO = cond(ecx)
+	edx = Mem0[ebp - 0x00000010 + ecx:word32]
+	edx = edx & 0x08000000
+	SZO = cond(edx)
+	C = false
+	branch Test(EQ,Z) l00415181
+	// succ:  l00415102 l00415181
+l00415102:
+	eax = 0x00000004
+	eax = eax << 0x00000000
+	SCZO = cond(eax)
+	ecx = Mem0[ebp - 0x00000010 + eax:word32]
+	ecx = ecx & 0x10000000
+	SZO = cond(ecx)
+	C = false
+	branch Test(EQ,Z) l00415181
+	// succ:  l00415116 l00415181
+l00415116:
+	ecx = ecx ^ ecx
+	SZO = cond(ecx)
+	C = false
+	edx_eax = __xgetbv(ecx)
+	Mem0[ebp - 0x00000038:word32] = eax
+	Mem0[ebp - 0x00000034:word32] = edx
+	edx = Mem0[ebp - 0x00000038:word32]
+	eax = Mem0[ebp - 0x00000034:word32]
+	edx = edx & 0x00000006
+	SZO = cond(edx)
+	C = false
+	eax = eax & 0x00000000
+	SZO = cond(eax)
+	C = false
+	Mem0[ebp - 0x00000040:word32] = edx
+	Mem0[ebp - 0x0000003C:word32] = eax
+	SCZO = cond(Mem0[ebp - 0x00000040:word32] - 0x00000006)
+	branch Test(NE,Z) l00415181
+	// succ:  l00415139 l00415181
+l00415139:
+	SCZO = cond(Mem0[ebp - 0x0000003C:word32] - 0x00000000)
+	branch Test(NE,Z) l00415181
+	// succ:  l0041513F l00415181
+l0041513F:
+	Mem0[0x0041A570:word32] = 0x00000003
+	ecx = Mem0[0x0041A02C:word32]
+	ecx = ecx | 0x00000008
+	SZO = cond(ecx)
+	C = false
+	Mem0[0x0041A02C:word32] = ecx
+	edx = 0x00000004
+	edx = edx << 0x00000001
+	SCZO = cond(edx)
+	eax = Mem0[ebp - 0x00000010 + edx:word32]
+	eax = eax & 0x00000020
+	SZO = cond(eax)
+	C = false
+	branch Test(EQ,Z) l00415181
+	// succ:  l00415168 l00415181
+l00415168:
+	Mem0[0x0041A570:word32] = 0x00000005
+	ecx = Mem0[0x0041A02C:word32]
+	ecx = ecx | 0x00000020
+	SZO = cond(ecx)
+	C = false
+	Mem0[0x0041A02C:word32] = ecx
+	// succ:  l00415181
+l00415181:
+	eax = eax ^ eax
+	SZO = cond(eax)
+	C = false
+	// succ:  l00415183
+l00415183:
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ecx = Mem0[ebp - 0x00000004:word32]
+	ecx = ecx ^ ebp
+	SZO = cond(ecx)
+	C = false
+	call fn004112B2 (retsize: 4;)
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411136_exit
+fn00411136_exit:
+
+
+// fn0041113B
+// Return size: 4
+void fn0041113B()
+fn0041113B_entry:
+	// succ:  l0041113B
+l0041113B:
+	esp = fp
+	// succ:  l0041113B_thunk_fn00412230
+l0041113B_thunk_fn00412230:
+	call fn00412230 (retsize: 4;)
+	return
+	// succ:  fn0041113B_exit
+fn0041113B_exit:
+
+
+// fn00411145
+// Return size: 4
+void fn00411145()
+fn00411145_entry:
+	// succ:  l00411145
+l00411145:
+	esp = fp
+	// succ:  l004142A0
+l004142A0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000008
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	eax = GetModuleHandleW(Mem0[esp:LPCWSTR])
+	esp = esp + 0x00000004
+	Mem0[ebp - 0x00000004:word32] = eax
+	SCZO = cond(Mem0[ebp - 0x00000004:word32] - 0x00000000)
+	branch Test(NE,Z) l004142BB
+	// succ:  l004142B7 l004142BB
+l004142B7:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l0041431F
+	// succ:  l0041431F
+l004142BB:
+	eax = Mem0[ebp - 0x00000004:word32]
+	ecx = (word32) Mem0[eax:word16]
+	SCZO = cond(ecx - 0x00005A4D)
+	branch Test(EQ,Z) l004142CD
+	// succ:  l004142C9 l004142CD
+l004142C9:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l0041431F
+	// succ:  l0041431F
+l004142CD:
+	edx = Mem0[ebp - 0x00000004:word32]
+	eax = Mem0[ebp - 0x00000004:word32]
+	eax = eax + Mem0[edx + 0x0000003C:word32]
+	SCZO = cond(eax)
+	Mem0[ebp - 0x00000008:word32] = eax
+	ecx = Mem0[ebp - 0x00000008:word32]
+	SCZO = cond(Mem0[ecx:word32] - 0x00004550)
+	branch Test(EQ,Z) l004142E8
+	// succ:  l004142E4 l004142E8
+l004142E4:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l0041431F
+	// succ:  l0041431F
+l004142E8:
+	edx = Mem0[ebp - 0x00000008:word32]
+	eax = (word32) Mem0[edx + 0x00000018:word16]
+	SCZO = cond(eax - 0x0000010B)
+	branch Test(EQ,Z) l004142FA
+	// succ:  l004142F6 l004142FA
+l004142F6:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l0041431F
+	// succ:  l0041431F
+l004142FA:
+	ecx = Mem0[ebp - 0x00000008:word32]
+	SCZO = cond(Mem0[ecx + 0x00000074:word32] - 0x0000000E)
+	branch Test(UGT,CZ) l00414307
+	// succ:  l00414303 l00414307
+l00414303:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l0041431F
+	// succ:  l0041431F
+l00414307:
+	edx = 0x00000008
+	eax = edx *s 0x0000000E
+	SCZO = cond(eax)
+	ecx = Mem0[ebp - 0x00000008:word32]
+	SCZO = cond(Mem0[ecx + 0x00000078 + eax:word32] - 0x00000000)
+	branch Test(NE,Z) l0041431D
+	// succ:  l00414319 l0041431D
+l00414319:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l0041431F
+	// succ:  l0041431F
+l0041431D:
+	al = 0x01
+	// succ:  l0041431F
+l0041431F:
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411145_exit
+fn00411145_exit:
+
+
+// fn00411154
+// Return size: 4
+void fn00411154()
+fn00411154_entry:
+	// succ:  l00411154
+l00411154:
+	esp = fp
+	// succ:  l004119C0
+l004119C0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x000006AC
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	edi = ebp - 0x000006AC
+	ecx = 0x000001AB
+	eax = 0xCCCCCCCC
+	// succ:  l004119DC
+l004119DC:
+	branch ecx == 0x00000000 l004119DE
+	// succ:  l004119DC_1 l004119DE
+l004119DC_1:
+	Mem0[edi:word32] = eax
+	edi = edi + 0x00000004
+	ecx = ecx - 0x00000001
+	goto l004119DC
+	// succ:  l004119DC
+l004119DE:
+	eax = Mem0[0x0041A000:word32]
+	eax = eax ^ ebp
+	SZO = cond(eax)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = eax
+	Mem0[ebp - 0x00000018:word32] = 0x00417B30
+	Mem0[ebp - 0x0000042C:word32] = 0x00000000
+	Mem0[ebp - 0x00000468:word32] = 0x00417B78
+	SCZO = cond(Mem0[ebp + 0x00000008:word32] - 0x00000001)
+	branch Test(LE,SZO) l00411A1A
+	// succ:  l00411A09 l00411A1A
+l00411A09:
+	eax = 0x00000004
+	eax = eax << 0x00000000
+	SCZO = cond(eax)
+	ecx = Mem0[ebp + 0x0000000C:word32]
+	edx = Mem0[ecx + eax:word32]
+	Mem0[ebp - 0x00000018:word32] = edx
+	// succ:  l00411A1A
+l00411A1A:
+	eax = 0x00000001
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00411B1C
+	// succ:  l00411A27 l00411B1C
+l00411A27:
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000003
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0xC0000000
+	eax = Mem0[ebp - 0x00000468:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = CreateFileW(Mem0[esp:LPCWSTR], Mem0[esp + 4:DWORD], Mem0[esp + 8:DWORD], Mem0[esp + 12:LPSECURITY_ATTRIBUTES], Mem0[esp + 16:DWORD], Mem0[esp + 20:DWORD], Mem0[esp + 24:HANDLE])
+	esp = esp + 0x0000001C
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	Mem0[ebp - 0x0000000C:word32] = eax
+	SCZO = cond(Mem0[ebp - 0x0000000C:word32] - 0xFFFFFFFF)
+	branch Test(EQ,Z) l00411A5A
+	// succ:  l00411A55 l00411A5A
+l00411A55:
+	goto l00411B1C
+	// succ:  l00411B1C
+l00411A5A:
+	esi = esp
+	eax = GetLastError()
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	SCZO = cond(eax - 0x000000E7)
+	branch Test(EQ,Z) l00411ABC
+	// succ:  l00411A70 l00411ABC
+l00411A70:
+	esi = esp
+	eax = GetLastError()
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417BAC
+	call fn004112BC (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp + 0x00000008
+	SCZO = cond(esp)
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	call _acrt_iob_func (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call ucrtbased.dll!fflush (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	eax = eax | 0xFFFFFFFF
+	SZO = cond(eax)
+	C = false
+	goto l00411E4C
+	// succ:  l00411E4C
+l00411ABC:
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00004E20
+	eax = Mem0[ebp - 0x00000468:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = WaitNamedPipeW(Mem0[esp:LPCWSTR], Mem0[esp + 4:DWORD])
+	esp = esp + 0x00000008
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00411B17
+	// succ:  l00411ADB l00411B17
+l00411ADB:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417BF4
+	call fn0041137F (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	call _acrt_iob_func (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call ucrtbased.dll!fflush (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	eax = eax | 0xFFFFFFFF
+	SZO = cond(eax)
+	C = false
+	goto l00411E4C
+	// succ:  l00411E4C
+l00411B17:
+	goto l00411A1A
+	// succ:  l00411A1A
+l00411B1C:
+	Mem0[ebp - 0x0000045C:word32] = 0x00000002
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	eax = ebp - 0x0000045C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	ecx = Mem0[ebp - 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	eax = SetNamedPipeHandleState(Mem0[esp:HANDLE], Mem0[esp + 4:LPDWORD], Mem0[esp + 8:LPDWORD], Mem0[esp + 12:LPDWORD])
+	esp = esp + 0x00000010
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	Mem0[ebp - 0x0000042C:word32] = eax
+	SCZO = cond(Mem0[ebp - 0x0000042C:word32] - 0x00000000)
+	branch Test(NE,Z) l00411B9F
+	// succ:  l00411B53 l00411B9F
+l00411B53:
+	esi = esp
+	eax = GetLastError()
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417C30
+	call fn004112BC (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp + 0x00000008
+	SCZO = cond(esp)
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	call _acrt_iob_func (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call ucrtbased.dll!fflush (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	eax = eax | 0xFFFFFFFF
+	SZO = cond(eax)
+	C = false
+	goto l00411E4C
+	// succ:  l00411E4C
+l00411B9F:
+	esi = esp
+	eax = Mem0[ebp - 0x00000018:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = lstrlenW(Mem0[esp:LPCWSTR])
+	esp = esp + 0x00000004
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	ecx = eax + 0x00000002 + eax
+	Mem0[ebp - 0x00000444:word32] = ecx
+	eax = Mem0[ebp - 0x00000018:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	ecx = Mem0[ebp - 0x00000444:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417C90
+	call fn004112BC (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	call _acrt_iob_func (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call ucrtbased.dll!fflush (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	eax = ebp - 0x00000450
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	ecx = Mem0[ebp - 0x00000444:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	edx = Mem0[ebp - 0x00000018:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	eax = Mem0[ebp - 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = WriteFile(Mem0[esp:HANDLE], Mem0[esp + 4:LPCVOID], Mem0[esp + 8:DWORD], Mem0[esp + 12:LPDWORD], Mem0[esp + 16:LPOVERLAPPED])
+	esp = esp + 0x00000014
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	Mem0[ebp - 0x0000042C:word32] = eax
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	eax = ebp - 0x00000450
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	ecx = Mem0[ebp - 0x00000444:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	edx = Mem0[ebp - 0x00000018:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	eax = Mem0[ebp - 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = WriteFile(Mem0[esp:HANDLE], Mem0[esp + 4:LPCVOID], Mem0[esp + 8:DWORD], Mem0[esp + 12:LPDWORD], Mem0[esp + 16:LPOVERLAPPED])
+	esp = esp + 0x00000014
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	Mem0[ebp - 0x0000042C:word32] = eax
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	eax = ebp - 0x00000450
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	ecx = Mem0[ebp - 0x00000444:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	edx = Mem0[ebp - 0x00000018:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	eax = Mem0[ebp - 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = WriteFile(Mem0[esp:HANDLE], Mem0[esp + 4:LPCVOID], Mem0[esp + 8:DWORD], Mem0[esp + 12:LPDWORD], Mem0[esp + 16:LPOVERLAPPED])
+	esp = esp + 0x00000014
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	Mem0[ebp - 0x0000042C:word32] = eax
+	SCZO = cond(Mem0[ebp - 0x0000042C:word32] - 0x00000000)
+	branch Test(NE,Z) l00411CD7
+	// succ:  l00411C8B l00411CD7
+l00411C8B:
+	esi = esp
+	eax = GetLastError()
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417CE0
+	call fn004112BC (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp + 0x00000008
+	SCZO = cond(esp)
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	call _acrt_iob_func (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call ucrtbased.dll!fflush (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	eax = eax | 0xFFFFFFFF
+	SZO = cond(eax)
+	C = false
+	goto l00411E4C
+	// succ:  l00411E4C
+l00411CD7:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417D34
+	call fn0041137F (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	call _acrt_iob_func (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call ucrtbased.dll!fflush (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	// succ:  l00411D0B
+l00411D0B:
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	eax = ebp - 0x00000438
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000400
+	ecx = ebp - 0x00000420
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	edx = Mem0[ebp - 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	eax = ReadFile(Mem0[esp:HANDLE], Mem0[esp + 4:LPVOID], Mem0[esp + 8:DWORD], Mem0[esp + 12:LPDWORD], Mem0[esp + 16:LPOVERLAPPED])
+	esp = esp + 0x00000014
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	Mem0[ebp - 0x0000042C:word32] = eax
+	SCZO = cond(Mem0[ebp - 0x0000042C:word32] - 0x00000000)
+	branch Test(NE,Z) l00411D5A
+	// succ:  l00411D42 l00411D5A
+l00411D42:
+	esi = esp
+	eax = GetLastError()
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	SCZO = cond(eax - 0x000000EA)
+	branch Test(EQ,Z) l00411D5A
+	// succ:  l00411D58 l00411D5A
+l00411D58:
+	goto l00411DA2
+	// succ:  l00411DA2
+l00411D5A:
+	eax = ebp - 0x00000420
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417D74
+	call fn004112BC (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp + 0x00000008
+	SCZO = cond(esp)
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	call _acrt_iob_func (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call ucrtbased.dll!fflush (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	SCZO = cond(Mem0[ebp - 0x0000042C:word32] - 0x00000000)
+	branch Test(EQ,Z) l00411D0B
+	// succ:  l00411DA2 l00411D0B
+l00411DA2:
+	SCZO = cond(Mem0[ebp - 0x0000042C:word32] - 0x00000000)
+	branch Test(NE,Z) l00411DF4
+	// succ:  l00411DAB l00411DF4
+l00411DAB:
+	esi = esp
+	eax = GetLastError()
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417D88
+	call fn004112BC (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp + 0x00000008
+	SCZO = cond(esp)
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	call _acrt_iob_func (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call ucrtbased.dll!fflush (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	eax = eax | 0xFFFFFFFF
+	SZO = cond(eax)
+	C = false
+	goto l00411E4C
+	// succ:  l00411E4C
+l00411DF4:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417DE0
+	call fn0041137F (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	call _acrt_iob_func (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call ucrtbased.dll!fflush (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esi = esp
+	call getch (retsize: 4;)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esi = esp
+	eax = Mem0[ebp - 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = CloseHandle(Mem0[esp:HANDLE])
+	esp = esp + 0x00000004
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	eax = eax ^ eax
+	SZO = cond(eax)
+	C = false
+	// succ:  l00411E4C
+l00411E4C:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	ecx = ebp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	edx = 0x00411E7C
+	call fn004112A3 (retsize: 4;)
+	eax = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	edx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ecx = Mem0[ebp - 0x00000004:word32]
+	ecx = ecx ^ ebp
+	SZO = cond(ecx)
+	C = false
+	call fn004112B2 (retsize: 4;)
+	esp = esp + 0x000006AC
+	SCZO = cond(esp)
+	SCZO = cond(ebp - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411154_exit
+fn00411154_exit:
+
+
+// fn00411190
+// Return size: 4
+void fn00411190()
+fn00411190_entry:
+	// succ:  l00411190
+l00411190:
+	esp = fp
+	// succ:  l00413C50
+l00413C50:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	eax = (word32) Mem0[0x0041A53C:byte]
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00413C6A
+	// succ:  l00413C5E l00413C6A
+l00413C5E:
+	ecx = (word32) Mem0[ebp + 0x0000000C:byte]
+	SZO = cond(ecx & ecx)
+	C = false
+	branch Test(EQ,Z) l00413C6A
+	// succ:  l00413C66 l00413C6A
+l00413C66:
+	al = 0x01
+	goto l00413C86
+	// succ:  l00413C86
+l00413C6A:
+	edx = (word32) Mem0[ebp + 0x00000008:byte]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	call fn0041101E (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	eax = (word32) Mem0[ebp + 0x00000008:byte]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn00411235 (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	al = 0x01
+	// succ:  l00413C86
+l00413C86:
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411190_exit
+fn00411190_exit:
+
+
+// fn004111C7
+// Return size: 4
+void fn004111C7()
+fn004111C7_entry:
+	// succ:  l004111C7
+l004111C7:
+	esp = fp
+	// succ:  l00411830
+l00411830:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x000000C0
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	edi = ebp - 0x000000C0
+	ecx = 0x00000030
+	eax = 0xCCCCCCCC
+	// succ:  l0041184C
+l0041184C:
+	branch ecx == 0x00000000 l0041184E
+	// succ:  l0041184C_1 l0041184E
+l0041184C_1:
+	Mem0[edi:word32] = eax
+	edi = edi + 0x00000004
+	ecx = ecx - 0x00000001
+	goto l0041184C
+	// succ:  l0041184C
+l0041184E:
+	esi = esp
+	eax = Mem0[ebp + 0x00000014:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	ecx = Mem0[ebp + 0x00000010:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	edx = Mem0[ebp + 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	eax = Mem0[ebp + 0x00000008:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn00411398 (retsize: 4;)
+	ecx = Mem0[eax + 0x00000004:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	edx = Mem0[eax:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	call _stdio_common_vfprintf (retsize: 4;)
+	esp = esp + 0x00000018
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = esp + 0x000000C0
+	SCZO = cond(esp)
+	SCZO = cond(ebp - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn004111C7_exit
+fn004111C7_exit:
+
+
+// fn004111E0
+// Return size: 0
+void fn004111E0()
+fn004111E0_entry:
+	// succ:  l004111E0
+l004111E0:
+	esp = fp
+	// succ:  l004153B2
+l004153B2:
+	call register_thread_local_exe_atexit_callback (retsize: 4;)
+	return
+	// succ:  fn004111E0_exit
+fn004111E0_exit:
+
+
+// fn004111F9
+// Return size: 4
+void fn004111F9()
+fn004111F9_entry:
+	// succ:  l004111F9
+l004111F9:
+	esp = fp
+	// succ:  l004111F9_thunk_fn00413030
+l004111F9_thunk_fn00413030:
+	call fn00413030 (retsize: 4;)
+	return
+	// succ:  fn004111F9_exit
+fn004111F9_exit:
+
+
+// fn00411203
+// Return size: 4
+void fn00411203()
+fn00411203_entry:
+	// succ:  l00411203
+l00411203:
+	esp = fp
+	// succ:  l00411790
+l00411790:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x000000C0
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	edi = ebp - 0x000000C0
+	ecx = 0x00000030
+	eax = 0xCCCCCCCC
+	// succ:  l004117AC
+l004117AC:
+	branch ecx == 0x00000000 l004117AE
+	// succ:  l004117AC_1 l004117AE
+l004117AC_1:
+	Mem0[edi:word32] = eax
+	edi = edi + 0x00000004
+	ecx = ecx - 0x00000001
+	goto l004117AC
+	// succ:  l004117AC
+l004117AE:
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411203_exit
+fn00411203_exit:
+
+
+// fn00411230
+// Return size: 4
+void fn00411230()
+fn00411230_entry:
+	// succ:  l00411230
+l00411230:
+	esp = fp
+	// succ:  l00411230_thunk_fn00413E60
+l00411230_thunk_fn00413E60:
+	call fn00413E60 (retsize: 4;)
+	return
+	// succ:  fn00411230_exit
+fn00411230_exit:
+
+
+// fn00411235
+// Return size: 4
+void fn00411235()
+fn00411235_entry:
+	// succ:  l00411235
+l00411235:
+	esp = fp
+	// succ:  l004154E0
+l004154E0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	al = 0x01
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411235_exit
+fn00411235_exit:
+
+
+// fn0041123F
+// Return size: 4
+void fn0041123F()
+fn0041123F_entry:
+	// succ:  l0041123F
+l0041123F:
+	esp = fp
+	// succ:  l004118B0
+l004118B0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x000000C0
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	edi = ebp - 0x000000C0
+	ecx = 0x00000030
+	eax = 0xCCCCCCCC
+	// succ:  l004118CC
+l004118CC:
+	branch ecx == 0x00000000 l004118CE
+	// succ:  l004118CC_1 l004118CE
+l004118CC_1:
+	Mem0[edi:word32] = eax
+	edi = edi + 0x00000004
+	ecx = ecx - 0x00000001
+	goto l004118CC
+	// succ:  l004118CC
+l004118CE:
+	esi = esp
+	eax = Mem0[ebp + 0x00000014:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	ecx = Mem0[ebp + 0x00000010:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	edx = Mem0[ebp + 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	eax = Mem0[ebp + 0x00000008:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn00411398 (retsize: 4;)
+	ecx = Mem0[eax + 0x00000004:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	edx = Mem0[eax:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	call _stdio_common_vfwprintf (retsize: 4;)
+	esp = esp + 0x00000018
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = esp + 0x000000C0
+	SCZO = cond(esp)
+	SCZO = cond(ebp - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn0041123F_exit
+fn0041123F_exit:
+
+
+// fn00411258
+// Return size: 4
+void fn00411258()
+fn00411258_entry:
+	// succ:  l00411258
+l00411258:
+	esp = fp
+	// succ:  l004154B0
+l004154B0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	al = 0x01
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411258_exit
+fn00411258_exit:
+
+
+// fn004112A3
+// Return size: 4
+void fn004112A3()
+fn004112A3_entry:
+	// succ:  l004112A3
+l004112A3:
+	esp = fp
+	// succ:  l004121C0
+l004121C0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	ebx = edx
+	Mem0[ebp - 0x00000004:word32] = ecx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esi = esi ^ esi
+	SZO = cond(esi)
+	C = false
+	SCZO = cond(Mem0[ebx:word32] - esi)
+	branch Test(LE,SZO) l00412212
+	// succ:  l004121D1 l00412212
+l004121D1:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	edi = edi ^ edi
+	SZO = cond(edi)
+	C = false
+	// succ:  l004121D4
+l004121D4:
+	ecx = Mem0[ebx + 0x00000004:word32]
+	eax = Mem0[ebp - 0x00000004:word32]
+	edx = Mem0[ecx + edi:word32]
+	SCZO = cond(Mem0[edx - 0x00000004 + eax:word32] - 0xCCCCCCCC)
+	branch Test(NE,Z) l004121F9
+	// succ:  l004121E7 l004121F9
+l004121E7:
+	eax = Mem0[ecx + 0x00000004 + edi:word32]
+	eax = eax + edx
+	SCZO = cond(eax)
+	edx = Mem0[ebp - 0x00000004:word32]
+	SCZO = cond(Mem0[eax + edx:word32] - 0xCCCCCCCC)
+	branch Test(EQ,Z) l00412209
+	// succ:  l004121F9 l00412209
+l004121F9:
+	v14 = Mem0[ecx + 0x00000008 + edi:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v14
+	eax = Mem0[ebp + 0x00000004:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn004110F5 (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp + 0x00000008
+	SCZO = cond(esp)
+	// succ:  l00412209
+l00412209:
+	esi = esi + 0x00000001
+	SZO = cond(esi)
+	edi = edi + 0x0000000C
+	SCZO = cond(edi)
+	SCZO = cond(esi - Mem0[ebx:word32])
+	branch Test(LT,SO) l004121D4
+	// succ:  l00412211 l004121D4
+l00412211:
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	// succ:  l00412212
+l00412212:
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn004112A3_exit
+fn004112A3_exit:
+
+
+// fn004112AD
+// Return size: 0
+void fn004112AD()
+fn004112AD_entry:
+	// succ:  l004112AD
+l004112AD:
+	esp = fp
+	// succ:  l0041539A
+l0041539A:
+	call _p___argc (retsize: 4;)
+	return
+	// succ:  fn004112AD_exit
+fn004112AD_exit:
+
+
+// fn004112B2
+// Return size: 4
+void fn004112B2()
+fn004112B2_entry:
+	// succ:  l004112B2
+l004112B2:
+	esp = fp
+	goto l00412270
+	// succ:  l00412270
+l00411316:
+	// succ:  l00411316_thunk_fn00413070
+l00411316_thunk_fn00413070:
+	call fn00413070 (retsize: 4;)
+	return
+	// succ:  fn004112B2_exit
+l00412270:
+	SCZO = cond(ecx - Mem0[0x0041A000:word32])
+	branch Test(NE,Z) l0041227B
+	// succ:  l00412279 l0041227B
+l00412279:
+	return
+	// succ:  fn004112B2_exit
+l0041227B:
+	goto l00411316
+	// succ:  l00411316
+fn004112B2_exit:
+
+
+// fn004112B7
+// Return size: 4
+void fn004112B7()
+fn004112B7_entry:
+	// succ:  l004112B7
+l004112B7:
+	esp = fp
+	// succ:  l00414090
+l00414090:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	eax = 0x0041A588
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn004112B7_exit
+fn004112B7_exit:
+
+
+// fn004112BC
+// Return size: 4
+void fn004112BC()
+fn004112BC_entry:
+	// succ:  l004112BC
+l004112BC:
+	esp = fp
+	// succ:  l004112BC_thunk_fn00411FB0
+l004112BC_thunk_fn00411FB0:
+	call fn00411FB0 (retsize: 4;)
+	return
+	// succ:  fn004112BC_exit
+fn004112BC_exit:
+
+
+// fn004112C6
+// Return size: 4
+void fn004112C6()
+fn004112C6_entry:
+	// succ:  l004112C6
+l004112C6:
+	esp = fp
+	// succ:  l004112C6_thunk_fn00413920
+l004112C6_thunk_fn00413920:
+	call fn00413920 (retsize: 4;)
+	return
+	// succ:  fn004112C6_exit
+fn004112C6_exit:
+
+
+// fn004112DF
+// Return size: 0
+void fn004112DF()
+fn004112DF_entry:
+	// succ:  l004112DF
+l004112DF:
+	esp = fp
+	// succ:  l0041541E
+l0041541E:
+	call _wsplitpath_s (retsize: 4;)
+	return
+	// succ:  fn004112DF_exit
+fn004112DF_exit:
+
+
+// Win32CrtStartup
+// Return size: 4
+DWORD Win32CrtStartup()
+Win32CrtStartup_entry:
+	// succ:  l004112EE
+l004112EE:
+	esp = fp
+	// succ:  l00412780
+l00412780:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	call fn00412410 (retsize: 4;)
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  Win32CrtStartup_exit
+Win32CrtStartup_exit:
+
+
+// fn0041130C
+// Return size: 4
+void fn0041130C()
+fn0041130C_entry:
+	// succ:  l0041130C
+l0041130C:
+	esp = fp
+	// succ:  l00414490
+l00414490:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	Mem0[ebp - 0x00000004:word32] = ecx
+	ecx = Mem0[ebp - 0x00000004:word32]
+	call Mem0[0x0041C000:word32] (retsize: 4;)
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn0041130C_exit
+fn0041130C_exit:
+
+
+// fn0041131B
+// Return size: 0
+void fn0041131B()
+fn0041131B_entry:
+	// succ:  l0041131B
+l0041131B:
+	esp = fp
+	// succ:  l00415388
+l00415388:
+	call exit (retsize: 4;)
+	return
+	// succ:  fn0041131B_exit
+fn0041131B_exit:
+
+
+// fn00411320
+// Return size: 0
+void fn00411320()
+fn00411320_entry:
+	// succ:  l00411320
+l00411320:
+	esp = fp
+	// succ:  l0041537C
+l0041537C:
+	call initterm (retsize: 4;)
+	return
+	// succ:  fn00411320_exit
+fn00411320_exit:
+
+
+// fn00411339
+// Return size: 0
+void fn00411339()
+fn00411339_entry:
+	// succ:  l00411339
+l00411339:
+	esp = fp
+	// succ:  l0041531C
+l0041531C:
+	call _vcrt_GetModuleFileNameW (retsize: 4;)
+	return
+	// succ:  fn00411339_exit
+fn00411339_exit:
+
+
+// fn00411348
+// Return size: 0
+void fn00411348()
+fn00411348_entry:
+	// succ:  l00411348
+l00411348:
+	esp = fp
+fn00411348_exit:
+
+
+// fn00411352
+// Return size: 4
+void fn00411352()
+fn00411352_entry:
+	// succ:  l00411352
+l00411352:
+	esp = fp
+	// succ:  l00413450
+l00413450:
+	eax = Mem0[0x0041A50C:word32]
+	return
+	// succ:  fn00411352_exit
+fn00411352_exit:
+
+
+// fn00411366
+// Return size: 4
+void fn00411366()
+fn00411366_entry:
+	// succ:  l00411366
+l00411366:
+	esp = fp
+	// succ:  l00413C20
+l00413C20:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	call fn00411073 (retsize: 4;)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00413C2E
+	// succ:  l00413C2C l00413C2E
+l00413C2C:
+	goto l00413C41
+	// succ:  l00413C41
+l00413C2E:
+	eax = (word32) Mem0[ebp + 0x00000008:byte]
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00413C38
+	// succ:  l00413C36 l00413C38
+l00413C36:
+	goto l00413C41
+	// succ:  l00413C41
+l00413C38:
+	ecx = ecx ^ ecx
+	SZO = cond(ecx)
+	C = false
+	edx = 0x0041A538
+	v10 = Mem0[edx:word32]
+	Mem0[edx:word32] = ecx
+	ecx = v10
+	// succ:  l00413C41
+l00413C41:
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411366_exit
+fn00411366_exit:
+
+
+// fn00411370
+// Return size: 4
+void fn00411370()
+fn00411370_entry:
+	// succ:  l00411370
+l00411370:
+	esp = fp
+	// succ:  l00413730
+l00413730:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000008
+	SCZO = cond(esp)
+	call fn00411073 (retsize: 4;)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00413743
+	// succ:  l0041373F l00413743
+l0041373F:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l00413775
+	// succ:  l00413775
+l00413743:
+	call fn00411082 (retsize: 4;)
+	eax = Mem0[eax + 0x00000004:word32]
+	Mem0[ebp - 0x00000004:word32] = eax
+	// succ:  l0041374E
+l0041374E:
+	ecx = Mem0[ebp - 0x00000004:word32]
+	edx = 0x0041A538
+	eax = eax ^ eax
+	SZO = cond(eax)
+	C = false
+	__lock()
+	Z = __cmpxchg(Mem0[edx:word32], ecx, eax, out eax)
+	Mem0[ebp - 0x00000008:word32] = eax
+	SCZO = cond(Mem0[ebp - 0x00000008:word32] - 0x00000000)
+	branch Test(EQ,Z) l00413773
+	// succ:  l00413765 l00413773
+l00413765:
+	eax = Mem0[ebp - 0x00000004:word32]
+	SCZO = cond(eax - Mem0[ebp - 0x00000008:word32])
+	branch Test(NE,Z) l00413771
+	// succ:  l0041376D l00413771
+l0041376D:
+	al = 0x01
+	goto l00413775
+	// succ:  l00413775
+l00413771:
+	goto l0041374E
+	// succ:  l0041374E
+l00413773:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	// succ:  l00413775
+l00413775:
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411370_exit
+fn00411370_exit:
+
+
+// fn0041137A
+// Return size: 4
+void fn0041137A()
+fn0041137A_entry:
+	// succ:  l0041137A
+l0041137A:
+	esp = fp
+	// succ:  l00414AA0
+l00414AA0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	eax = Mem0[ebp + 0x00000014:word32]
+	esp = esp - 0x0000004C
+	SCZO = cond(esp)
+	ecx = ecx ^ ecx
+	SZO = cond(ecx)
+	C = false
+	Mem0[eax:word32] = 0x00000000
+	eax = Mem0[ebp + 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esi = Mem0[ebp + 0x00000008:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x0000001C
+	Mem0[eax:word16] = cx
+	esi = esi - 0x00000001
+	SZO = cond(esi)
+	eax = ebp - 0x0000004C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	eax = VirtualQuery(Mem0[esp:LPCVOID], Mem0[esp + 4:PMEMORY_BASIC_INFORMATION], Mem0[esp + 8:SIZE_T])
+	esp = esp + 0x0000000C
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00414AD4
+	// succ:  l00414ACD l00414AD4
+l00414ACD:
+	eax = eax ^ eax
+	SZO = cond(eax)
+	C = false
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn0041137A_exit
+l00414AD4:
+	v12 = Mem0[ebp + 0x0000001C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v12
+	v13 = Mem0[ebp + 0x00000018:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v13
+	v14 = Mem0[ebp - 0x00000048:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v14
+	call fn00411339 (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00414ACD
+	// succ:  l00414AE9 l00414ACD
+l00414AE9:
+	eax = Mem0[ebp - 0x00000048:word32]
+	ecx = 0x00005A4D
+	SCZO = cond(Mem0[eax:word16] - cx)
+	branch Test(NE,Z) l00414ACD
+	// succ:  l00414AF6 l00414ACD
+l00414AF6:
+	ecx = Mem0[eax + 0x0000003C:word32]
+	SZO = cond(ecx & ecx)
+	C = false
+	branch Test(LE,SZO) l00414ACD
+	// succ:  l00414AFD l00414ACD
+l00414AFD:
+	ecx = ecx + eax
+	SCZO = cond(ecx)
+	SCZO = cond(Mem0[ecx:word32] - 0x00004550)
+	branch Test(NE,Z) l00414ACD
+	// succ:  l00414B07 l00414ACD
+l00414B07:
+	edx = (word32) Mem0[ecx + 0x00000014:word16]
+	esi = esi - eax
+	SCZO = cond(esi)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	edi = (word32) Mem0[ecx + 0x00000006:word16]
+	edx = edx + 0x00000020
+	SCZO = cond(edx)
+	ebx = ebx ^ ebx
+	SZO = cond(ebx)
+	C = false
+	eax = eax ^ eax
+	SZO = cond(eax)
+	C = false
+	SZO = cond(edi & edi)
+	C = false
+	branch Test(EQ,Z) l00414B37
+	// succ:  l00414B1E l00414B37
+l00414B1E:
+	ecx = ecx + edx
+	SCZO = cond(ecx)
+	// succ:  l00414B20
+l00414B20:
+	edx = Mem0[ecx + 0x00000004:word32]
+	SCZO = cond(esi - edx)
+	branch Test(ULT,C) l00414B2F
+	// succ:  l00414B27 l00414B2F
+l00414B27:
+	ebx = esi
+	ebx = ebx - edx
+	SCZO = cond(ebx)
+	SCZO = cond(esi - Mem0[ecx:word32])
+	branch Test(ULT,C) l00414B37
+	// succ:  l00414B2F l00414B37
+l00414B2F:
+	eax = eax + 0x00000001
+	SZO = cond(eax)
+	ecx = ecx + 0x00000028
+	SCZO = cond(ecx)
+	SCZO = cond(eax - edi)
+	branch Test(ULT,C) l00414B20
+	// succ:  l00414B37 l00414B20
+l00414B37:
+	SCZO = cond(eax - edi)
+	branch Test(EQ,Z) l00414BA4
+	// succ:  l00414B3B l00414BA4
+l00414B3B:
+	eax = eax + 0x00000001
+	SZO = cond(eax)
+	SCZO = cond(Mem0[0x0041A56D:byte] - 0x00)
+	Mem0[ebp - 0x0000000C:word32] = eax
+	branch Test(NE,Z) l00414B68
+	// succ:  l00414B48 l00414B68
+l00414B48:
+	SCZO = cond(Mem0[0x0041A568:word32] - 0x00000000)
+	branch Test(NE,Z) l00414BA4
+	// succ:  l00414B51 l00414BA4
+l00414B51:
+	call fn004144E0 (retsize: 4;)
+	Mem0[0x0041A568:word32] = eax
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00414BA4
+	// succ:  l00414B5F l00414BA4
+l00414B5F:
+	Mem0[0x0041A56D:byte] = 0x01
+	goto l00414B6D
+	// succ:  l00414B6D
+l00414B68:
+	eax = Mem0[0x0041A568:word32]
+	// succ:  l00414B6D
+l00414B6D:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004187C4
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = GetProcAddress(Mem0[esp:HMODULE], Mem0[esp + 4:LPCSTR])
+	esp = esp + 0x00000008
+	esi = eax
+	SZO = cond(esi & esi)
+	C = false
+	branch Test(EQ,Z) l00414BA4
+	// succ:  l00414B7F l00414BA4
+l00414B7F:
+	eax = ebp - 0x00000018
+	ecx = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	eax = ebp - 0x00000030
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	v18 = Mem0[ebp + 0x00000018:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v18
+	call fn0041130C (retsize: 4;)
+	call esi (retsize: 4;)
+	esp = esp + 0x00000020
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00414BAD
+	// succ:  l00414BA4 l00414BAD
+l00414BA4:
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	eax = eax ^ eax
+	SZO = cond(eax)
+	C = false
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn0041137A_exit
+l00414BAD:
+	edi = Mem0[ebp - 0x00000018:word32]
+	Mem0[ebp - 0x00000024:word32] = 0x00000000
+	eax = Mem0[edi:word32]
+	esi = Mem0[eax:word32]
+	ecx = esi
+	call fn0041130C (retsize: 4;)
+	ecx = edi
+	call esi (retsize: 4;)
+	SCZO = cond(eax - 0x01329141)
+	branch Test(NE,Z) l00414D0D
+	// succ:  l00414BD1 l00414D0D
+l00414BD1:
+	edi = Mem0[ebp - 0x00000018:word32]
+	ecx = ebp - 0x00000020
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004187D8
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	eax = Mem0[edi:word32]
+	esi = Mem0[eax + 0x0000001C:word32]
+	ecx = esi
+	call fn0041130C (retsize: 4;)
+	ecx = edi
+	call esi (retsize: 4;)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00414D0D
+	// succ:  l00414BF7 l00414D0D
+l00414BF7:
+	edi = Mem0[ebp - 0x00000020:word32]
+	eax = ebp - 0x00000014
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esi = Mem0[edi:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	v19 = Mem0[ebp - 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v19
+	esi = Mem0[esi + 0x00000020:word32]
+	ecx = esi
+	call fn0041130C (retsize: 4;)
+	ecx = edi
+	call esi (retsize: 4;)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00414CFA
+	// succ:  l00414C20 l00414CFA
+l00414C20:
+	edi = Mem0[ebp - 0x00000014:word32]
+	ecx = ebp - 0x00000008
+	Mem0[ebp - 0x00000008:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	eax = Mem0[edi:word32]
+	esi = Mem0[eax + 0x00000068:word32]
+	ecx = esi
+	call fn0041130C (retsize: 4;)
+	ecx = edi
+	call esi (retsize: 4;)
+	SZO = cond(al & al)
+	C = false
+	branch Test(EQ,Z) l00414CE7
+	// succ:  l00414C46 l00414CE7
+l00414C46:
+	eax = Mem0[ebp - 0x00000008:word32]
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00414CE7
+	// succ:  l00414C51 l00414CE7
+l00414C51:
+	eax = Mem0[eax:word32]
+	edi = edi ^ edi
+	SZO = cond(edi)
+	C = false
+	esi = Mem0[eax + 0x00000008:word32]
+	ecx = esi
+	call fn0041130C (retsize: 4;)
+	ecx = Mem0[ebp - 0x00000008:word32]
+	call esi (retsize: 4;)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00414CC5
+	// succ:  l00414C68 l00414CC5
+l00414C68:
+	edi = Mem0[ebp - 0x00000008:word32]
+	eax = ebp - 0x00000010
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x00000028
+	esi = Mem0[edi:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x00000004
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esi = Mem0[esi + 0x0000000C:word32]
+	eax = ebp - 0x0000001C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	ecx = esi
+	call fn0041130C (retsize: 4;)
+	ecx = edi
+	call esi (retsize: 4;)
+	SZO = cond(al & al)
+	C = false
+	branch Test(EQ,Z) l00414CD5
+	// succ:  l00414C93 l00414CD5
+l00414C93:
+	eax = (word32) Mem0[ebp - 0x00000004:word16]
+	SCZO = cond(eax - Mem0[ebp - 0x0000000C:word32])
+	branch Test(NE,Z) l00414CAC
+	// succ:  l00414C9C l00414CAC
+l00414C9C:
+	ecx = Mem0[ebp - 0x0000001C:word32]
+	SCZO = cond(ecx - ebx)
+	branch Test(UGT,CZ) l00414CAC
+	// succ:  l00414CA3 l00414CAC
+l00414CA3:
+	eax = Mem0[ebp - 0x00000028:word32]
+	eax = eax + ecx
+	SCZO = cond(eax)
+	SCZO = cond(ebx - eax)
+	branch Test(ULT,C) l00414D2A
+	// succ:  l00414CAC l00414D2A
+l00414CAC:
+	edi = Mem0[ebp - 0x00000008:word32]
+	eax = Mem0[edi:word32]
+	esi = Mem0[eax + 0x00000008:word32]
+	ecx = esi
+	call fn0041130C (retsize: 4;)
+	ecx = edi
+	call esi (retsize: 4;)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00414C68
+	// succ:  l00414CC3 l00414C68
+l00414CC3:
+	edi = edi ^ edi
+	SZO = cond(edi)
+	C = false
+	// succ:  l00414CC5
+l00414CC5:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	eax = GetProcessHeap()
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = HeapFree(Mem0[esp:HANDLE], Mem0[esp + 4:DWORD], Mem0[esp + 8:LPVOID])
+	esp = esp + 0x0000000C
+	// succ:  l00414CD5
+l00414CD5:
+	edi = Mem0[ebp - 0x00000008:word32]
+	eax = Mem0[edi:word32]
+	esi = Mem0[eax:word32]
+	ecx = esi
+	call fn0041130C (retsize: 4;)
+	ecx = edi
+	call esi (retsize: 4;)
+	// succ:  l00414CE7
+l00414CE7:
+	edi = Mem0[ebp - 0x00000014:word32]
+	eax = Mem0[edi:word32]
+	esi = Mem0[eax + 0x00000040:word32]
+	ecx = esi
+	call fn0041130C (retsize: 4;)
+	ecx = edi
+	call esi (retsize: 4;)
+	// succ:  l00414CFA
+l00414CFA:
+	edi = Mem0[ebp - 0x00000020:word32]
+	eax = Mem0[edi:word32]
+	esi = Mem0[eax + 0x00000038:word32]
+	ecx = esi
+	call fn0041130C (retsize: 4;)
+	ecx = edi
+	call esi (retsize: 4;)
+	// succ:  l00414D0D
+l00414D0D:
+	edi = Mem0[ebp - 0x00000018:word32]
+	edx = Mem0[edi:word32]
+	esi = Mem0[edx + 0x0000002C:word32]
+	ecx = esi
+	call fn0041130C (retsize: 4;)
+	ecx = edi
+	call esi (retsize: 4;)
+	eax = Mem0[ebp - 0x00000024:word32]
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn0041137A_exit
+l00414D2A:
+	eax = Mem0[ebp - 0x00000010:word32]
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00414CD5
+	// succ:  l00414D31 l00414CD5
+l00414D31:
+	SCZO = cond(eax - 0x1FFFFFFF)
+	branch Test(UGE,C) l00414CD5
+	// succ:  l00414D38 l00414CD5
+l00414D38:
+	eax = eax << 0x00000003
+	SCZO = cond(eax)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	eax = GetProcessHeap()
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = HeapAlloc(Mem0[esp:HANDLE], Mem0[esp + 4:DWORD], Mem0[esp + 8:SIZE_T])
+	esp = esp + 0x0000000C
+	Mem0[ebp - 0x0000000C:word32] = eax
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00414CD5
+	// succ:  l00414D52 l00414CD5
+l00414D52:
+	edi = Mem0[ebp - 0x00000008:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x00000010
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esi = Mem0[edi:word32]
+	eax = ebp - 0x0000002C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esi = Mem0[esi + 0x0000000C:word32]
+	ecx = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn0041130C (retsize: 4;)
+	ecx = edi
+	call esi (retsize: 4;)
+	edi = Mem0[ebp - 0x0000000C:word32]
+	SZO = cond(al & al)
+	C = false
+	branch Test(EQ,Z) l00414CC5
+	// succ:  l00414D7F l00414CC5
+l00414D7F:
+	ebx = ebx - Mem0[ebp - 0x0000001C:word32]
+	SCZO = cond(ebx)
+	SCZO = cond(ebx - Mem0[edi:word32])
+	branch Test(ULT,C) l00414CC5
+	// succ:  l00414D8A l00414CC5
+l00414D8A:
+	ecx = Mem0[ebp - 0x00000010:word32]
+	eax = 0x00000001
+	SCZO = cond(ecx - eax)
+	branch Test(ULE,CZ) l00414DA0
+	// succ:  l00414D96 l00414DA0
+l00414D96:
+	SCZO = cond(ebx - Mem0[edi + eax * 0x00000008:word32])
+	branch Test(ULT,C) l00414DA0
+	// succ:  l00414D9B l00414DA0
+l00414D9B:
+	eax = eax + 0x00000001
+	SZO = cond(eax)
+	SCZO = cond(eax - ecx)
+	branch Test(ULT,C) l00414D96
+	// succ:  l00414DA0 l00414D96
+l00414DA0:
+	eax = Mem0[edi - 0x00000004 + eax * 0x00000008:word32]
+	ecx = Mem0[ebp + 0x00000014:word32]
+	eax = eax & 0x00FFFFFF
+	SZO = cond(eax)
+	C = false
+	edi = Mem0[ebp - 0x00000014:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	Mem0[ecx:word32] = eax
+	eax = ebp + 0x00000010
+	esi = Mem0[edi:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	v22 = Mem0[ebp + 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v22
+	esi = Mem0[esi + 0x00000070:word32]
+	ecx = esi
+	v23 = Mem0[ebp - 0x0000002C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v23
+	call fn0041130C (retsize: 4;)
+	ecx = edi
+	call esi (retsize: 4;)
+	edi = Mem0[ebp - 0x0000000C:word32]
+	SZO = cond(al & al)
+	C = false
+	branch Test(EQ,Z) l00414CC5
+	// succ:  l00414DDC l00414CC5
+l00414DDC:
+	Mem0[ebp - 0x00000024:word32] = 0x00000001
+	goto l00414CC5
+	// succ:  l00414CC5
+fn0041137A_exit:
+
+
+// fn0041137F
+// Return size: 4
+void fn0041137F()
+fn0041137F_entry:
+	// succ:  l0041137F
+l0041137F:
+	esp = fp
+	// succ:  l00411930
+l00411930:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x000000D8
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	edi = ebp - 0x000000D8
+	ecx = 0x00000036
+	eax = 0xCCCCCCCC
+	// succ:  l0041194C
+l0041194C:
+	branch ecx == 0x00000000 l0041194E
+	// succ:  l0041194C_1 l0041194E
+l0041194C_1:
+	Mem0[edi:word32] = eax
+	edi = edi + 0x00000004
+	ecx = ecx - 0x00000001
+	goto l0041194C
+	// succ:  l0041194C
+l0041194E:
+	call fn00411203 (retsize: 4;)
+	eax = ebp + 0x0000000C
+	Mem0[ebp - 0x00000014:word32] = eax
+	eax = Mem0[ebp - 0x00000014:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	ecx = Mem0[ebp + 0x00000008:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	call _acrt_iob_func (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn004111C7 (retsize: 4;)
+	esp = esp + 0x00000010
+	SCZO = cond(esp)
+	Mem0[ebp - 0x00000008:word32] = eax
+	Mem0[ebp - 0x00000014:word32] = 0x00000000
+	eax = Mem0[ebp - 0x00000008:word32]
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = esp + 0x000000D8
+	SCZO = cond(esp)
+	SCZO = cond(ebp - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn0041137F_exit
+fn0041137F_exit:
+
+
+// fn00411398
+// Return size: 4
+void fn00411398()
+fn00411398_entry:
+	// succ:  l00411398
+l00411398:
+	esp = fp
+	// succ:  l004117F0
+l004117F0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x000000C0
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	edi = ebp - 0x000000C0
+	ecx = 0x00000030
+	eax = 0xCCCCCCCC
+	// succ:  l0041180C
+l0041180C:
+	branch ecx == 0x00000000 l0041180E
+	// succ:  l0041180C_1 l0041180E
+l0041180C_1:
+	Mem0[edi:word32] = eax
+	edi = edi + 0x00000004
+	ecx = ecx - 0x00000001
+	goto l0041180C
+	// succ:  l0041180C
+l0041180E:
+	eax = 0x0041A138
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411398_exit
+fn00411398_exit:
+
+
+// fn004113AC
+// Return size: 0
+void fn004113AC()
+fn004113AC_entry:
+	// succ:  l004113AC
+l004113AC:
+	esp = fp
+	// succ:  l00415328
+l00415328:
+	call _vcrt_LoadLibraryExW (retsize: 4;)
+	return
+	// succ:  fn004113AC_exit
+fn004113AC_exit:
+
+
+// fn004113B1
+// Return size: 4
+void fn004113B1()
+fn004113B1_entry:
+	// succ:  l004113B1
+l004113B1:
+	esp = fp
+	// succ:  l00413AA0
+l00413AA0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0xFFFFFFFE
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00419218
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004144B0
+	eax = Mem0[fs:0x00000000:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp + 0xFFFFFFD8
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	eax = Mem0[0x0041A000:word32]
+	v10 = Mem0[ebp - 0x00000008:word32] ^ eax
+	Mem0[ebp - 0x00000008:word32] = v10
+	SZO = cond(Mem0[ebp - 0x00000008:word32])
+	C = false
+	eax = eax ^ ebp
+	SZO = cond(eax)
+	C = false
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x00000010
+	Mem0[fs:0x00000000:word32] = eax
+	Mem0[ebp - 0x00000018:word32] = esp
+	eax = Mem0[ebp + 0x00000008:word32]
+	Mem0[ebp - 0x00000030:word32] = eax
+	Mem0[ebp - 0x00000024:word32] = 0x00400000
+	Mem0[ebp - 0x00000004:word32] = 0x00000000
+	ecx = Mem0[ebp - 0x00000024:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	call fn00413690 (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	edx = (word32) al
+	SZO = cond(edx & edx)
+	C = false
+	branch Test(NE,Z) l00413B0D
+	// succ:  l00413AFA l00413B0D
+l00413AFA:
+	Mem0[ebp - 0x00000019:byte] = 0x00
+	Mem0[ebp - 0x00000004:word32] = 0xFFFFFFFE
+	al = Mem0[ebp - 0x00000019:byte]
+	goto l00413BB7
+	// succ:  l00413BB7
+l00413B0D:
+	eax = Mem0[ebp - 0x00000030:word32]
+	eax = eax - Mem0[ebp - 0x00000024:word32]
+	SCZO = cond(eax)
+	Mem0[ebp - 0x00000034:word32] = eax
+	ecx = Mem0[ebp - 0x00000034:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	edx = Mem0[ebp - 0x00000024:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	call fn004135D0 (retsize: 4;)
+	esp = esp + 0x00000008
+	SCZO = cond(esp)
+	Mem0[ebp - 0x00000028:word32] = eax
+	SCZO = cond(Mem0[ebp - 0x00000028:word32] - 0x00000000)
+	branch Test(NE,Z) l00413B3F
+	// succ:  l00413B2F l00413B3F
+l00413B2F:
+	Mem0[ebp - 0x0000001A:byte] = 0x00
+	Mem0[ebp - 0x00000004:word32] = 0xFFFFFFFE
+	al = Mem0[ebp - 0x0000001A:byte]
+	goto l00413BB7
+	// succ:  l00413BB7
+l00413B3F:
+	eax = Mem0[ebp - 0x00000028:word32]
+	ecx = Mem0[eax + 0x00000024:word32]
+	ecx = ecx & 0x80000000
+	SZO = cond(ecx)
+	C = false
+	branch Test(EQ,Z) l00413B5D
+	// succ:  l00413B4D l00413B5D
+l00413B4D:
+	Mem0[ebp - 0x0000001B:byte] = 0x00
+	Mem0[ebp - 0x00000004:word32] = 0xFFFFFFFE
+	al = Mem0[ebp - 0x0000001B:byte]
+	goto l00413BB7
+	// succ:  l00413BB7
+l00413B5D:
+	Mem0[ebp - 0x0000001C:byte] = 0x01
+	Mem0[ebp - 0x00000004:word32] = 0xFFFFFFFE
+	al = Mem0[ebp - 0x0000001C:byte]
+	// succ:  l00413BB7
+l00413BB7:
+	ecx = Mem0[ebp - 0x00000010:word32]
+	Mem0[fs:0x00000000:word32] = ecx
+	ecx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn004113B1_exit
+fn004113B1_exit:
+
+
+// fn004113C0
+// Return size: 0
+void fn004113C0()
+fn004113C0_entry:
+	// succ:  l004113C0
+l004113C0:
+	esp = fp
+	// succ:  l004153A0
+l004153A0:
+	call _p___wargv (retsize: 4;)
+	return
+	// succ:  fn004113C0_exit
+fn004113C0_exit:
+
+
+// fn004113C5
+// Return size: 0
+void fn004113C5()
+fn004113C5_entry:
+	// succ:  l004113C5
+l004113C5:
+	esp = fp
+	// succ:  l00415322
+l00415322:
+	call _vcrt_GetModuleHandleW (retsize: 4;)
+	return
+	// succ:  fn004113C5_exit
+fn004113C5_exit:
+
+
+// fn00411FB0
+// Return size: 4
+void fn00411FB0()
+fn00411FB0_entry:
+	// succ:  l00411FB0
+l00411FB0:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x000000D8
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	edi = ebp - 0x000000D8
+	ecx = 0x00000036
+	eax = 0xCCCCCCCC
+	goto l00411FCC
+	// succ:  l00411FCC
+l00411FB0:
+l00411FCC:
+	branch ecx == 0x00000000 l00411FCE
+	// succ:  l00411FCC_1 l00411FCE
+l00411FCC_1:
+	Mem0[edi:word32] = eax
+	edi = edi + 0x00000004
+	ecx = ecx - 0x00000001
+	goto l00411FCC
+	// succ:  l00411FCC
+l00411FCE:
+	call fn0041107D (retsize: 4;)
+	eax = ebp + 0x0000000C
+	Mem0[ebp - 0x00000014:word32] = eax
+	eax = Mem0[ebp - 0x00000014:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	ecx = Mem0[ebp + 0x00000008:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	esi = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	call _acrt_iob_func (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(esi - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn0041123F (retsize: 4;)
+	esp = esp + 0x00000010
+	SCZO = cond(esp)
+	Mem0[ebp - 0x00000008:word32] = eax
+	Mem0[ebp - 0x00000014:word32] = 0x00000000
+	eax = Mem0[ebp - 0x00000008:word32]
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = esp + 0x000000D8
+	SCZO = cond(esp)
+	SCZO = cond(ebp - esp)
+	call fn0041113B (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00411FB0_exit
+fn00411FB0_exit:
+
+
+// fn00412230
+// Return size: 4
+void fn00412230()
+fn00412230_entry:
+	// succ:  l00412230
+l00412230:
+	esp = fp
+	branch Test(NE,Z) l00412235
+	goto l00412233
+	// succ:  l00412233 l00412235
+l00412230:
+l00412233:
+	return
+	// succ:  fn00412230_exit
+l00412235:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000000
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+fn00412230_exit:
+
+
+// fn00412410
+// Return size: 4
+void fn00412410()
+fn00412410_entry:
+	// succ:  l00412410
+l00412410:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	call fn00411230 (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	call fn00412430 (retsize: 4;)
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00412410_exit
+fn00412410_exit:
+
+
+// fn00412430
+// Return size: 4
+void fn00412430()
+fn00412430_entry:
+	// succ:  l00412430
+l00412430:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0xFFFFFFFE
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004191B8
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004144B0
+	eax = Mem0[fs:0x00000000:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp + 0xFFFFFFD0
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	eax = Mem0[0x0041A000:word32]
+	v10 = Mem0[ebp - 0x00000008:word32] ^ eax
+	Mem0[ebp - 0x00000008:word32] = v10
+	SZO = cond(Mem0[ebp - 0x00000008:word32])
+	C = false
+	eax = eax ^ ebp
+	SZO = cond(eax)
+	C = false
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x00000010
+	Mem0[fs:0x00000000:word32] = eax
+	Mem0[ebp - 0x00000018:word32] = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	call fn004112C6 (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	eax = (word32) al
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l0041247B
+	// succ:  l00412474 l0041247B
+l00412474:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000007
+	call fn0041106E (retsize: 4;)
+	// succ:  l0041247B
+l0041247B:
+	Mem0[ebp - 0x00000019:byte] = 0x00
+	Mem0[ebp - 0x00000004:word32] = 0x00000000
+	call fn00411370 (retsize: 4;)
+	Mem0[ebp - 0x0000001A:byte] = al
+	SCZO = cond(Mem0[0x0041A534:word32] - 0x00000001)
+	branch Test(NE,Z) l004124A0
+	// succ:  l00412497 l004124A0
+l00412497:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000007
+	call fn0041106E (retsize: 4;)
+	goto l00412501
+	// succ:  l00412501
+l004124A0:
+	SCZO = cond(Mem0[0x0041A534:word32] - 0x00000000)
+	branch Test(NE,Z) l004124FD
+	// succ:  l004124A9 l004124FD
+l004124A9:
+	Mem0[0x0041A534:word32] = 0x00000001
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417618
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x0041730C
+	call fn004110A0 (retsize: 4;)
+	esp = esp + 0x00000008
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l004124DF
+	// succ:  l004124C9 l004124DF
+l004124C9:
+	Mem0[ebp - 0x00000038:word32] = 0x000000FF
+	Mem0[ebp - 0x00000004:word32] = 0xFFFFFFFE
+	eax = Mem0[ebp - 0x00000038:word32]
+	goto l0041262B
+	// succ:  l0041262B
+l004124DF:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417208
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417000
+	call fn00411320 (retsize: 4;)
+	esp = esp + 0x00000008
+	SCZO = cond(esp)
+	Mem0[0x0041A534:word32] = 0x00000002
+	goto l00412501
+	// succ:  l00412501
+l004124FD:
+	Mem0[ebp - 0x00000019:byte] = 0x01
+	// succ:  l00412501
+l00412501:
+	ecx = (word32) Mem0[ebp - 0x0000001A:byte]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	call fn00411366 (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	call fn004112B7 (retsize: 4;)
+	Mem0[ebp - 0x00000020:word32] = eax
+	edx = Mem0[ebp - 0x00000020:word32]
+	SCZO = cond(Mem0[edx:word32] - 0x00000000)
+	branch Test(EQ,Z) l0041254A
+	// succ:  l0041251E l0041254A
+l0041251E:
+	eax = Mem0[ebp - 0x00000020:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn004113B1 (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	ecx = (word32) al
+	SZO = cond(ecx & ecx)
+	C = false
+	branch Test(EQ,Z) l0041254A
+	// succ:  l00412531 l0041254A
+l00412531:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000002
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	edx = Mem0[ebp - 0x00000020:word32]
+	eax = Mem0[edx:word32]
+	Mem0[ebp - 0x00000028:word32] = eax
+	ecx = Mem0[ebp - 0x00000028:word32]
+	call fn0041130C (retsize: 4;)
+	call Mem0[ebp - 0x00000028:word32] (retsize: 4;)
+	// succ:  l0041254A
+l0041254A:
+	call fn004110E1 (retsize: 4;)
+	Mem0[ebp - 0x00000024:word32] = eax
+	ecx = Mem0[ebp - 0x00000024:word32]
+	SCZO = cond(Mem0[ecx:word32] - 0x00000000)
+	branch Test(EQ,Z) l0041257B
+	// succ:  l0041255A l0041257B
+l0041255A:
+	edx = Mem0[ebp - 0x00000024:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	call fn004113B1 (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	eax = (word32) al
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l0041257B
+	// succ:  l0041256D l0041257B
+l0041256D:
+	ecx = Mem0[ebp - 0x00000024:word32]
+	edx = Mem0[ecx:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edx
+	call fn004111E0 (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	// succ:  l0041257B
+l0041257B:
+	call fn004126F0 (retsize: 4;)
+	Mem0[ebp - 0x0000002C:word32] = eax
+	call fn00411145 (retsize: 4;)
+	eax = (word32) al
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00412598
+	// succ:  l0041258F l00412598
+l0041258F:
+	ecx = Mem0[ebp - 0x0000002C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	call fn0041131B (retsize: 4;)
+	// succ:  l00412598
+l00412598:
+	edx = (word32) Mem0[ebp - 0x00000019:byte]
+	SZO = cond(edx & edx)
+	C = false
+	branch Test(NE,Z) l004125A5
+	// succ:  l004125A0 l004125A5
+l004125A0:
+	call fn004110B9 (retsize: 4;)
+	// succ:  l004125A5
+l004125A5:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	call fn00411190 (retsize: 4;)
+	esp = esp + 0x00000008
+	SCZO = cond(esp)
+	eax = Mem0[ebp - 0x0000002C:word32]
+	Mem0[ebp - 0x0000003C:word32] = eax
+	Mem0[ebp - 0x00000004:word32] = 0xFFFFFFFE
+	eax = Mem0[ebp - 0x0000003C:word32]
+	// succ:  l0041262B
+l0041262B:
+	ecx = Mem0[ebp - 0x00000010:word32]
+	Mem0[fs:0x00000000:word32] = ecx
+	ecx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00412430_exit
+fn00412430_exit:
+
+
+// fn004126F0
+// Return size: 4
+void fn004126F0()
+fn004126F0_entry:
+	// succ:  l004126F0
+l004126F0:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	call fn004110D2 (retsize: 4;)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn004113C0 (retsize: 4;)
+	eax = Mem0[eax:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn004112AD (retsize: 4;)
+	ecx = Mem0[eax:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	call fn00411154 (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn004126F0_exit
+fn004126F0_exit:
+
+
+// fn00412790
+// Return size: 4
+void fn00412790()
+fn00412790_entry:
+	// succ:  l00412790
+l00412790:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0xFFFFFFFE
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004191D8
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004144B0
+	eax = Mem0[fs:0x00000000:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000024
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	eax = Mem0[0x0041A000:word32]
+	v10 = Mem0[ebp - 0x00000008:word32] ^ eax
+	Mem0[ebp - 0x00000008:word32] = v10
+	SZO = cond(Mem0[ebp - 0x00000008:word32])
+	C = false
+	eax = eax ^ ebp
+	SZO = cond(eax)
+	C = false
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x00000010
+	Mem0[fs:0x00000000:word32] = eax
+	Mem0[ebp - 0x00000018:word32] = esp
+	Mem0[ebp - 0x00000019:byte] = 0x00
+	Mem0[ebp - 0x00000034:word32] = 0x00001001
+	eax = Mem0[ebp + 0x00000008:word32]
+	Mem0[ebp - 0x00000030:word32] = eax
+	eax = ebp - 0x00000019
+	Mem0[ebp - 0x0000002C:word32] = eax
+	Mem0[ebp - 0x00000004:word32] = 0x00000000
+	eax = ebp - 0x00000034
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000006
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x406D1388
+	RaiseException(Mem0[esp:DWORD], Mem0[esp + 4:DWORD], Mem0[esp + 8:DWORD], Mem0[esp + 12:(ptr ULONG_PTR)])
+	esp = esp + 0x00000010
+	// succ:  l0041280C
+l0041280C:
+	Mem0[ebp - 0x00000004:word32] = 0xFFFFFFFE
+	eax = (word32) Mem0[ebp - 0x00000019:byte]
+	ecx = Mem0[ebp - 0x00000010:word32]
+	Mem0[fs:0x00000000:word32] = ecx
+	ecx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00412790_exit
+fn00412790_exit:
+
+
+// fn00412850
+// Return size: 4
+void fn00412850()
+fn00412850_entry:
+	// succ:  l00412850
+l00412850:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0xFFFFFFFE
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004191F8
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004144B0
+	eax = Mem0[fs:0x00000000:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000024
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	eax = Mem0[0x0041A000:word32]
+	v10 = Mem0[ebp - 0x00000008:word32] ^ eax
+	Mem0[ebp - 0x00000008:word32] = v10
+	SZO = cond(Mem0[ebp - 0x00000008:word32])
+	C = false
+	eax = eax ^ ebp
+	SZO = cond(eax)
+	C = false
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x00000010
+	Mem0[fs:0x00000000:word32] = eax
+	Mem0[ebp - 0x00000018:word32] = esp
+	Mem0[ebp - 0x00000019:byte] = 0x00
+	Mem0[ebp - 0x00000034:word32] = 0x00001002
+	eax = Mem0[ebp + 0x00000008:word32]
+	Mem0[ebp - 0x00000030:word32] = eax
+	eax = Mem0[ebp + 0x0000000C:word32]
+	Mem0[ebp - 0x0000002C:word32] = eax
+	eax = Mem0[ebp + 0x00000010:word32]
+	Mem0[ebp - 0x00000028:word32] = eax
+	eax = ebp - 0x00000019
+	Mem0[ebp - 0x00000024:word32] = eax
+	eax = Mem0[ebp + 0x00000014:word32]
+	Mem0[ebp - 0x00000020:word32] = eax
+	Mem0[ebp - 0x00000004:word32] = 0x00000000
+	eax = ebp - 0x00000034
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000006
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x406D1388
+	RaiseException(Mem0[esp:DWORD], Mem0[esp + 4:DWORD], Mem0[esp + 8:DWORD], Mem0[esp + 12:(ptr ULONG_PTR)])
+	esp = esp + 0x00000010
+	// succ:  l004128DE
+l004128DE:
+	Mem0[ebp - 0x00000004:word32] = 0xFFFFFFFE
+	eax = (word32) Mem0[ebp - 0x00000019:byte]
+	ecx = Mem0[ebp - 0x00000010:word32]
+	Mem0[fs:0x00000000:word32] = ecx
+	ecx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00412850_exit
+fn00412850_exit:
+
+
+// fn00412AC0
+// Return size: 4
+void fn00412AC0()
+fn00412AC0_entry:
+	// succ:  l00412AC0
+l00412AC0:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000404
+	SCZO = cond(esp)
+	eax = Mem0[0x0041A000:word32]
+	eax = eax ^ ebp
+	SZO = cond(eax)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	ebx = Mem0[ebp + 0x00000008:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esi = Mem0[ebp + 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	edi = Mem0[0x0041A014:word32]
+	SCZO = cond(edi - 0xFFFFFFFF)
+	branch Test(EQ,Z) l00412B5A
+	goto l00412AE7
+	// succ:  l00412AE7 l00412B5A
+l00412AC0:
+l00412AE7:
+	SCZO = cond(Mem0[esi:byte] - 0x00)
+	branch Test(EQ,Z) l00412B48
+	// succ:  l00412AEC l00412B48
+l00412AEC:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	call fn00412C40 (retsize: 4;)
+	eax = eax + 0x0000002D
+	SCZO = cond(eax)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SCZO = cond(eax - 0x00000400)
+	branch Test(UGT,CZ) l00412B48
+	// succ:  l00412AFF l00412B48
+l00412AFF:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417E5C
+	eax = ebp - 0x00000404
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000400
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn0041105A (retsize: 4;)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	eax = ebp - 0x00000404
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000400
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn00411064 (retsize: 4;)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00417E78
+	eax = ebp - 0x00000404
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000400
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn00411064 (retsize: 4;)
+	esp = esp + 0x00000024
+	SCZO = cond(esp)
+	eax = ebp - 0x00000404
+	goto l00412B4D
+	// succ:  l00412B4D
+l00412B48:
+	eax = 0x00418338
+	// succ:  l00412B4D
+l00412B4D:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000002
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	call fn00412C60 (retsize: 4;)
+	esp = esp + 0x00000010
+	SCZO = cond(esp)
+	// succ:  l00412B5A
+l00412B5A:
+	ecx = Mem0[ebp - 0x00000004:word32]
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ecx = ecx ^ ebp
+	SZO = cond(ecx)
+	C = false
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	call fn004112B2 (retsize: 4;)
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00412AC0_exit
+fn00412AC0_exit:
+
+
+// fn00412C40
+// Return size: 4
+void fn00412C40()
+fn00412C40_entry:
+	// succ:  l00412C40
+l00412C40:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	edx = Mem0[ebp + 0x00000008:word32]
+	eax = edx
+	// succ:  l00412C48
+l00412C48:
+	cl = Mem0[eax:byte]
+	eax = eax + 0x00000001
+	SZO = cond(eax)
+	SZO = cond(cl & cl)
+	C = false
+	branch Test(NE,Z) l00412C48
+	// succ:  l00412C4F l00412C48
+l00412C4F:
+	eax = eax - edx
+	SCZO = cond(eax)
+	eax = eax - 0x00000001
+	SZO = cond(eax)
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00412C40_exit
+fn00412C40_exit:
+
+
+// fn00412C60
+// Return size: 4
+void fn00412C60()
+fn00412C60_entry:
+	// succ:  l00412C60
+l00412C60:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000E3C
+	SCZO = cond(esp)
+	eax = Mem0[0x0041A000:word32]
+	eax = eax ^ ebp
+	SZO = cond(eax)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = eax
+	eax = Mem0[ebp + 0x00000010:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	ebx = Mem0[ebp + 0x00000014:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esi = Mem0[ebp + 0x00000008:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	Mem0[ebp + 0xFFFFF1D0:word32] = eax
+	Mem0[ebp + 0xFFFFF1C4:word32] = ebx
+	Mem0[ebp + 0xFFFFF1CC:word32] = 0x00000000
+	call fn004110C8 (retsize: 4;)
+	edi = eax
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SZO = cond(edi & edi)
+	C = false
+	branch Test(NE,Z) l00412CB3
+	// succ:  l00412CA4 l00412CB3
+l00412CA4:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	call fn00411352 (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	Mem0[ebp + 0xFFFFF1CC:word32] = eax
+	// succ:  l00412CB3
+l00412CB3:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0xFFFFFFFF
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x0000FDE9
+	eax = MultiByteToWideChar(Mem0[esp:UINT], Mem0[esp + 4:DWORD], Mem0[esp + 8:LPCSTR], Mem0[esp + 12:int32], Mem0[esp + 16:LPWSTR], Mem0[esp + 20:int32])
+	esp = esp + 0x00000018
+	SCZO = cond(eax - 0x00000200)
+	branch Test(UGE,C) l00412CF0
+	// succ:  l00412CCE l00412CF0
+l00412CCE:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp + 0xFFFFF1D4
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0xFFFFFFFF
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x0000FDE9
+	eax = MultiByteToWideChar(Mem0[esp:UINT], Mem0[esp + 4:DWORD], Mem0[esp + 8:LPCSTR], Mem0[esp + 12:int32], Mem0[esp + 16:LPWSTR], Mem0[esp + 20:int32])
+	esp = esp + 0x00000018
+	ebx = ebp + 0xFFFFF1D4
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00412CF5
+	// succ:  l00412CF0 l00412CF5
+l00412CF0:
+	ebx = 0x00418210
+	// succ:  l00412CF5
+l00412CF5:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00001002
+	call fn00412790 (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00412D2A
+	// succ:  l00412D06 l00412D2A
+l00412D06:
+	eax = Mem0[ebp + 0xFFFFF1D0:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	v12 = Mem0[0x00417E44 + eax * 0x00000004:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v12
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn00412850 (retsize: 4;)
+	esp = esp + 0x00000010
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00412E4D
+	// succ:  l00412D26 l00412E4D
+l00412D26:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l00412D2C
+	// succ:  l00412D2C
+l00412D2A:
+	al = 0x01
+	// succ:  l00412D2C
+l00412D2C:
+	SCZO = cond(Mem0[ebp + 0xFFFFF1CC:word32] - 0x00000000)
+	branch Test(NE,Z) l00412D3D
+	// succ:  l00412D35 l00412D3D
+l00412D35:
+	SZO = cond(edi & edi)
+	C = false
+	branch Test(EQ,Z) l00412E4C
+	// succ:  l00412D3D l00412E4C
+l00412D3D:
+	SZO = cond(al & al)
+	C = false
+	branch Test(EQ,Z) l00412D4F
+	// succ:  l00412D41 l00412D4F
+l00412D41:
+	eax = IsDebuggerPresent()
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00412E4C
+	// succ:  l00412D4F l00412E4C
+l00412D4F:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000104
+	eax = ebp - 0x00000414
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp + 0xFFFFF1C8
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000104
+	eax = ebp - 0x0000020C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = esi - 0x00000005
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn0041137A (retsize: 4;)
+	esp = esp + 0x00000018
+	SCZO = cond(esp)
+	SZO = cond(edi & edi)
+	C = false
+	branch Test(EQ,Z) l00412DAF
+	// succ:  l00412D7E l00412DAF
+l00412D7E:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	v15 = Mem0[ebp + 0xFFFFF1D0:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v15
+	eax = ebp - 0x00000414
+	ecx = edi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00418298
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	v16 = Mem0[ebp + 0xFFFFF1C8:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v16
+	eax = ebp - 0x0000020C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	v17 = Mem0[ebp + 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v17
+	call fn0041130C (retsize: 4;)
+	call edi (retsize: 4;)
+	goto l00412E44
+	// succ:  l00412E44
+l00412DAF:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x0000030A
+	eax = ebp - 0x00000720
+	esi = 0x004182E4
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0xFFFFFFFF
+	eax = ebp - 0x0000020C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x0000FDE9
+	eax = WideCharToMultiByte(Mem0[esp:UINT], Mem0[esp + 4:DWORD], Mem0[esp + 8:LPCWSTR], Mem0[esp + 12:int32], Mem0[esp + 16:LPSTR], Mem0[esp + 20:int32], Mem0[esp + 24:LPCSTR], Mem0[esp + 28:LPBOOL])
+	esp = esp + 0x00000020
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00412DE4
+	// succ:  l00412DDE l00412DE4
+l00412DDE:
+	esi = ebp - 0x00000720
+	// succ:  l00412DE4
+l00412DE4:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x0000030A
+	eax = ebp + 0xFFFFF5D4
+	edi = 0x004182F8
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0xFFFFFFFF
+	eax = ebp - 0x00000414
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x0000FDE9
+	eax = WideCharToMultiByte(Mem0[esp:UINT], Mem0[esp + 4:DWORD], Mem0[esp + 8:LPCWSTR], Mem0[esp + 12:int32], Mem0[esp + 16:LPSTR], Mem0[esp + 20:int32], Mem0[esp + 24:LPCSTR], Mem0[esp + 28:LPBOOL])
+	esp = esp + 0x00000020
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00412E19
+	// succ:  l00412E13 l00412E19
+l00412E13:
+	edi = ebp + 0xFFFFF5D4
+	// succ:  l00412E19
+l00412E19:
+	v18 = Mem0[ebp + 0xFFFFF1C4:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v18
+	ebx = Mem0[ebp + 0xFFFFF1CC:word32]
+	ecx = ebx
+	v19 = Mem0[ebp + 0xFFFFF1D0:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v19
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00418310
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	v20 = Mem0[ebp + 0xFFFFF1C8:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v20
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	v21 = Mem0[ebp + 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v21
+	call fn0041130C (retsize: 4;)
+	call ebx (retsize: 4;)
+	// succ:  l00412E44
+l00412E44:
+	esp = esp + 0x0000001C
+	SCZO = cond(esp)
+	SCZO = cond(eax - 0x00000001)
+	branch Test(NE,Z) l00412E4D
+	// succ:  l00412E4C l00412E4D
+l00412E4C:
+	int3()
+	// succ:  l00412E4D
+l00412E4D:
+	ecx = Mem0[ebp - 0x00000004:word32]
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ecx = ecx ^ ebp
+	SZO = cond(ecx)
+	C = false
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	call fn004112B2 (retsize: 4;)
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00412C60_exit
+fn00412C60_exit:
+
+
+// fn00413030
+// Return size: 4
+void fn00413030()
+fn00413030_entry:
+	// succ:  l00413030
+l00413030:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	eax = SetUnhandledExceptionFilter(Mem0[esp:LPTOP_LEVEL_EXCEPTION_FILTER])
+	esp = esp + 0x00000004
+	eax = Mem0[ebp + 0x00000008:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = UnhandledExceptionFilter(Mem0[esp:(ptr (struct "_EXCEPTION_POINTERS"))])
+	esp = esp + 0x00000004
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0xC0000409
+	eax = GetCurrentProcess()
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = TerminateProcess(Mem0[esp:HANDLE], Mem0[esp + 4:UINT])
+	esp = esp + 0x00000008
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00413030_exit
+l00413030:
+fn00413030_exit:
+
+
+// fn00413070
+// Return size: 4
+void fn00413070()
+fn00413070_entry:
+	// succ:  l00413070
+l00413070:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000324
+	SCZO = cond(esp)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000017
+	call fn00411348 (retsize: 4;)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l0041308B
+	goto l00413084
+	// succ:  l00413084 l0041308B
+l00413070:
+l00413084:
+	ecx = 0x00000002
+	__fastfail(ecx)
+l0041308B:
+	Mem0[0x0041A250:word32] = eax
+	Mem0[0x0041A24C:word32] = ecx
+	Mem0[0x0041A248:word32] = edx
+	Mem0[0x0041A244:word32] = ebx
+	Mem0[0x0041A240:word32] = esi
+	Mem0[0x0041A23C:word32] = edi
+	Mem0[0x0041A268:word16] = ss
+	Mem0[0x0041A25C:word16] = cs
+	Mem0[0x0041A238:word16] = ds
+	Mem0[0x0041A234:word16] = es
+	Mem0[0x0041A230:word16] = fs
+	Mem0[0x0041A22C:word16] = gs
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = SCZDOP
+	Mem0[0x0041A260:word32] = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	eax = Mem0[ebp + 0x00000000:word32]
+	Mem0[0x0041A254:word32] = eax
+	eax = Mem0[ebp + 0x00000004:word32]
+	Mem0[0x0041A258:word32] = eax
+	eax = ebp + 0x00000008
+	Mem0[0x0041A264:word32] = eax
+	eax = Mem0[ebp - 0x00000324:word32]
+	Mem0[0x0041A1A0:word32] = 0x00010001
+	eax = Mem0[0x0041A258:word32]
+	Mem0[0x0041A15C:word32] = eax
+	Mem0[0x0041A150:word32] = 0xC0000409
+	Mem0[0x0041A154:word32] = 0x00000001
+	Mem0[0x0041A160:word32] = 0x00000001
+	ecx = 0x00000004
+	edx = ecx *s 0x00000000
+	SCZO = cond(edx)
+	Mem0[edx + 0x0041A164:word32] = 0x00000002
+	eax = 0x00000004
+	ecx = eax *s 0x00000000
+	SCZO = cond(ecx)
+	edx = Mem0[0x0041A000:word32]
+	Mem0[ebp - 0x00000008 + ecx:word32] = edx
+	eax = 0x00000004
+	eax = eax << 0x00000000
+	SCZO = cond(eax)
+	ecx = Mem0[0x0041A004:word32]
+	Mem0[ebp - 0x00000008 + eax:word32] = ecx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004184E8
+	call fn004111F9 (retsize: 4;)
+	esp = esp + 0xFFFFFFFC
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00413070_exit
+fn00413070_exit:
+
+
+// fn004135D0
+// Return size: 4
+void fn004135D0()
+fn004135D0_entry:
+	// succ:  l004135D0
+l004135D0:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000018
+	SCZO = cond(esp)
+	eax = Mem0[ebp + 0x00000008:word32]
+	Mem0[ebp - 0x0000000C:word32] = eax
+	ecx = Mem0[ebp - 0x0000000C:word32]
+	edx = Mem0[ebp - 0x0000000C:word32]
+	edx = edx + Mem0[ecx + 0x0000003C:word32]
+	SCZO = cond(edx)
+	Mem0[ebp - 0x00000014:word32] = edx
+	eax = Mem0[ebp - 0x00000014:word32]
+	Mem0[ebp - 0x00000008:word32] = eax
+	ecx = Mem0[ebp - 0x00000008:word32]
+	edx = (word32) Mem0[ecx + 0x00000014:word16]
+	eax = Mem0[ebp - 0x00000008:word32]
+	ecx = eax + 0x00000018 + edx
+	Mem0[ebp - 0x00000010:word32] = ecx
+	edx = Mem0[ebp - 0x00000008:word32]
+	eax = (word32) Mem0[edx + 0x00000006:word16]
+	ecx = eax *s 0x00000028
+	SCZO = cond(ecx)
+	ecx = ecx + Mem0[ebp - 0x00000010:word32]
+	SCZO = cond(ecx)
+	Mem0[ebp - 0x00000018:word32] = ecx
+	edx = Mem0[ebp - 0x00000010:word32]
+	Mem0[ebp - 0x00000004:word32] = edx
+	goto l00413620
+	// succ:  l00413620
+l00413617:
+	eax = Mem0[ebp - 0x00000004:word32]
+	eax = eax + 0x00000028
+	SCZO = cond(eax)
+	Mem0[ebp - 0x00000004:word32] = eax
+	// succ:  l00413620
+l00413620:
+	ecx = Mem0[ebp - 0x00000004:word32]
+	SCZO = cond(ecx - Mem0[ebp - 0x00000018:word32])
+	branch Test(EQ,Z) l0041364B
+	// succ:  l00413628 l0041364B
+l00413628:
+	edx = Mem0[ebp - 0x00000004:word32]
+	eax = Mem0[ebp + 0x0000000C:word32]
+	SCZO = cond(eax - Mem0[edx + 0x0000000C:word32])
+	branch Test(ULT,C) l00413649
+	// succ:  l00413633 l00413649
+l00413633:
+	ecx = Mem0[ebp - 0x00000004:word32]
+	edx = Mem0[ecx + 0x0000000C:word32]
+	eax = Mem0[ebp - 0x00000004:word32]
+	edx = edx + Mem0[eax + 0x00000008:word32]
+	SCZO = cond(edx)
+	SCZO = cond(Mem0[ebp + 0x0000000C:word32] - edx)
+	branch Test(UGE,C) l00413649
+	// succ:  l00413644 l00413649
+l00413644:
+	eax = Mem0[ebp - 0x00000004:word32]
+	goto l0041364D
+	// succ:  l0041364D
+l00413649:
+	goto l00413617
+	// succ:  l00413617
+l0041364B:
+	eax = eax ^ eax
+	SZO = cond(eax)
+	C = false
+	// succ:  l0041364D
+l0041364D:
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn004135D0_exit
+fn004135D0_exit:
+
+
+// fn00413690
+// Return size: 4
+void fn00413690()
+fn00413690_entry:
+	// succ:  l00413690
+l00413690:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000010
+	SCZO = cond(esp)
+	SCZO = cond(Mem0[ebp + 0x00000008:word32] - 0x00000000)
+	branch Test(NE,Z) l004136A0
+	// succ:  l0041369C l004136A0
+l0041369C:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l004136F5
+	// succ:  l004136F5
+l004136A0:
+	eax = Mem0[ebp + 0x00000008:word32]
+	Mem0[ebp - 0x00000004:word32] = eax
+	ecx = Mem0[ebp - 0x00000004:word32]
+	edx = (word32) Mem0[ecx:word16]
+	SCZO = cond(edx - 0x00005A4D)
+	branch Test(EQ,Z) l004136B8
+	// succ:  l004136B4 l004136B8
+l004136B4:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l004136F5
+	// succ:  l004136F5
+l004136B8:
+	eax = Mem0[ebp - 0x00000004:word32]
+	ecx = Mem0[ebp - 0x00000004:word32]
+	ecx = ecx + Mem0[eax + 0x0000003C:word32]
+	SCZO = cond(ecx)
+	Mem0[ebp - 0x0000000C:word32] = ecx
+	edx = Mem0[ebp - 0x0000000C:word32]
+	Mem0[ebp - 0x00000008:word32] = edx
+	eax = Mem0[ebp - 0x00000008:word32]
+	SCZO = cond(Mem0[eax:word32] - 0x00004550)
+	branch Test(EQ,Z) l004136D9
+	// succ:  l004136D5 l004136D9
+l004136D5:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l004136F5
+	// succ:  l004136F5
+l004136D9:
+	ecx = Mem0[ebp - 0x00000008:word32]
+	ecx = ecx + 0x00000018
+	SCZO = cond(ecx)
+	Mem0[ebp - 0x00000010:word32] = ecx
+	edx = Mem0[ebp - 0x00000010:word32]
+	eax = (word32) Mem0[edx:word16]
+	SCZO = cond(eax - 0x0000010B)
+	branch Test(EQ,Z) l004136F3
+	// succ:  l004136EF l004136F3
+l004136EF:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l004136F5
+	// succ:  l004136F5
+l004136F3:
+	al = 0x01
+	// succ:  l004136F5
+l004136F5:
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00413690_exit
+fn00413690_exit:
+
+
+// fn00413920
+// Return size: 4
+void fn00413920()
+fn00413920_entry:
+	// succ:  l00413920
+l00413920:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	SCZO = cond(Mem0[ebp + 0x00000008:word32] - 0x00000000)
+	branch Test(NE,Z) l00413930
+	goto l00413929
+	// succ:  l00413929 l00413930
+l00413920:
+l00413929:
+	Mem0[0x0041A53C:byte] = 0x01
+	// succ:  l00413930
+l00413930:
+	call fn00411136 (retsize: 4;)
+	call fn00411258 (retsize: 4;)
+	eax = (word32) al
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00413945
+	// succ:  l00413941 l00413945
+l00413941:
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l00413961
+	// succ:  l00413961
+l00413945:
+	call fn00411023 (retsize: 4;)
+	ecx = (word32) al
+	SZO = cond(ecx & ecx)
+	C = false
+	branch Test(NE,Z) l0041395F
+	// succ:  l00413951 l0041395F
+l00413951:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	call fn00411235 (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	al = al ^ al
+	SZO = cond(al)
+	C = false
+	goto l00413961
+	// succ:  l00413961
+l0041395F:
+	al = 0x01
+	// succ:  l00413961
+l00413961:
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00413920_exit
+fn00413920_exit:
+
+
+// fn00413DD0
+// Return size: 4
+void fn00413DD0()
+fn00413DD0_entry:
+	// succ:  l00413DD0
+l00413DD0:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000014
+	SCZO = cond(esp)
+	Mem0[ebp - 0x0000000C:word32] = 0x00000000
+	Mem0[ebp - 0x00000008:word32] = 0x00000000
+	eax = ebp - 0x0000000C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	GetSystemTimeAsFileTime(Mem0[esp:LPFILETIME])
+	esp = esp + 0x00000004
+	ecx = Mem0[ebp - 0x0000000C:word32]
+	Mem0[ebp - 0x00000004:word32] = ecx
+	edx = Mem0[ebp - 0x00000004:word32]
+	edx = edx ^ Mem0[ebp - 0x00000008:word32]
+	SZO = cond(edx)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = edx
+	eax = GetCurrentThreadId()
+	eax = eax ^ Mem0[ebp - 0x00000004:word32]
+	SZO = cond(eax)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = eax
+	eax = GetCurrentProcessId()
+	eax = eax ^ Mem0[ebp - 0x00000004:word32]
+	SZO = cond(eax)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = eax
+	eax = ebp - 0x00000014
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = QueryPerformanceCounter(Mem0[esp:(ptr LARGE_INTEGER)])
+	esp = esp + 0x00000004
+	ecx = Mem0[ebp - 0x00000004:word32]
+	ecx = ecx ^ Mem0[ebp - 0x00000014:word32]
+	SZO = cond(ecx)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = ecx
+	edx = Mem0[ebp - 0x00000004:word32]
+	edx = edx ^ Mem0[ebp - 0x00000010:word32]
+	SZO = cond(edx)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = edx
+	eax = Mem0[ebp - 0x00000004:word32]
+	ecx = ebp - 0x00000004
+	eax = eax ^ ecx
+	SZO = cond(eax)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = eax
+	eax = Mem0[ebp - 0x00000004:word32]
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00413DD0_exit
+fn00413DD0_exit:
+
+
+// fn00413E60
+// Return size: 4
+void fn00413E60()
+fn00413E60_entry:
+	// succ:  l00413E60
+l00413E60:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	SCZO = cond(Mem0[0x0041A000:word32] - 0xBB40E64E)
+	branch Test(EQ,Z) l00413E8C
+	goto l00413E70
+	// succ:  l00413E70 l00413E8C
+l00413E60:
+l00413E70:
+	eax = Mem0[0x0041A000:word32]
+	eax = eax & 0xFFFF0000
+	SZO = cond(eax)
+	C = false
+	branch Test(EQ,Z) l00413E8C
+	// succ:  l00413E7C l00413E8C
+l00413E7C:
+	ecx = Mem0[0x0041A000:word32]
+	ecx = ~ecx
+	Mem0[0x0041A004:word32] = ecx
+	goto l00413ED6
+	// succ:  l00413ED6
+l00413E8C:
+	call fn00413DD0 (retsize: 4;)
+	Mem0[ebp - 0x00000004:word32] = eax
+	SCZO = cond(Mem0[ebp - 0x00000004:word32] - 0xBB40E64E)
+	branch Test(NE,Z) l00413EA6
+	// succ:  l00413E9D l00413EA6
+l00413E9D:
+	Mem0[ebp - 0x00000004:word32] = 0xBB40E64F
+	goto l00413EC2
+	// succ:  l00413EC2
+l00413EA6:
+	edx = Mem0[ebp - 0x00000004:word32]
+	edx = edx & 0xFFFF0000
+	SZO = cond(edx)
+	C = false
+	branch Test(NE,Z) l00413EC2
+	// succ:  l00413EB1 l00413EC2
+l00413EB1:
+	eax = Mem0[ebp - 0x00000004:word32]
+	eax = eax | 0x00004711
+	SZO = cond(eax)
+	C = false
+	eax = eax << 0x00000010
+	SCZO = cond(eax)
+	eax = eax | Mem0[ebp - 0x00000004:word32]
+	SZO = cond(eax)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = eax
+	// succ:  l00413EC2
+l00413EC2:
+	ecx = Mem0[ebp - 0x00000004:word32]
+	Mem0[0x0041A000:word32] = ecx
+	edx = Mem0[ebp - 0x00000004:word32]
+	edx = ~edx
+	Mem0[0x0041A004:word32] = edx
+	// succ:  l00413ED6
+l00413ED6:
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00413E60_exit
+fn00413E60_exit:
+
+
+// fn004143F0
+// Return size: 4
+void fn004143F0()
+fn004143F0_entry:
+	// succ:  l004143F0
+l004143F0:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	Mem0[0x0041A564:word32] = 0x00000000
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn004143F0_exit
+l004143F0:
+fn004143F0_exit:
+
+
+// fn004144E0
+// Return size: 4
+void fn004144E0()
+fn004144E0_entry:
+	// succ:  l004144E0
+l004144E0:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x00000414
+	SCZO = cond(esp)
+	eax = Mem0[0x0041A000:word32]
+	eax = eax ^ ebp
+	SZO = cond(eax)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = eax
+	SCZO = cond(Mem0[0x0041A56C:byte] - 0x00)
+	branch Test(NE,Z) l00414610
+	// succ:  l00414500 l00414610
+l00414500:
+	Mem0[0x0041A56C:byte] = 0x01
+	call fn00414670 (retsize: 4;)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00414612
+	// succ:  l00414514 l00414612
+l00414514:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004185FC
+	call fn004113C5 (retsize: 4;)
+	esp = esp + 0x00000004
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l0041459D
+	// succ:  l00414525 l0041459D
+l00414525:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000104
+	ecx = ebp - 0x00000414
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn00411339 (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l0041459D
+	// succ:  l0041453E l0041459D
+l0041453E:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000104
+	eax = ebp - 0x0000020C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x00000414
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn00414990 (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l0041459D
+	// succ:  l0041455D l0041459D
+l0041455D:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000900
+	eax = ebp - 0x0000020C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn004113AC (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00414612
+	// succ:  l0041457B l00414612
+l0041457B:
+	eax = GetLastError()
+	SCZO = cond(eax - 0x00000057)
+	branch Test(NE,Z) l0041459D
+	// succ:  l00414586 l0041459D
+l00414586:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000008
+	eax = ebp - 0x0000020C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn004113AC (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00414612
+	// succ:  l0041459D l00414612
+l0041459D:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000A00
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004187AC
+	call fn004113AC (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00414612
+	// succ:  l004145B5 l00414612
+l004145B5:
+	eax = GetLastError()
+	SCZO = cond(eax - 0x00000057)
+	branch Test(NE,Z) l00414610
+	// succ:  l004145C0 l00414610
+l004145C0:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000104
+	eax = ebp - 0x00000414
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	call fn00411339 (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00414610
+	// succ:  l004145DA l00414610
+l004145DA:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000104
+	eax = ebp - 0x0000020C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x00000414
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn00414990 (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00414610
+	// succ:  l004145F9 l00414610
+l004145F9:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000008
+	eax = ebp - 0x0000020C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn004113AC (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l00414612
+	// succ:  l00414610 l00414612
+l00414610:
+	eax = eax ^ eax
+	SZO = cond(eax)
+	C = false
+	// succ:  l00414612
+l00414612:
+	ecx = Mem0[ebp - 0x00000004:word32]
+	ecx = ecx ^ ebp
+	SZO = cond(ecx)
+	C = false
+	call fn004112B2 (retsize: 4;)
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn004144E0_exit
+fn004144E0_exit:
+
+
+// fn00414670
+// Return size: 4
+void fn00414670()
+fn00414670_entry:
+	// succ:  l00414670
+l00414670:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x0000021C
+	SCZO = cond(esp)
+	eax = Mem0[0x0041A000:word32]
+	eax = eax ^ ebp
+	SZO = cond(eax)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000800
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00418630
+	call fn004113AC (retsize: 4;)
+	edi = eax
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(edi & edi)
+	C = false
+	branch Test(NE,Z) l004146E8
+	// succ:  l0041469E l004146E8
+l0041469E:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000800
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00418688
+	call fn004113AC (retsize: 4;)
+	edi = eax
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(edi & edi)
+	C = false
+	branch Test(NE,Z) l004146E8
+	// succ:  l004146B7 l004146E8
+l004146B7:
+	eax = GetLastError()
+	SCZO = cond(eax - 0x00000057)
+	branch Test(NE,Z) l004146D7
+	// succ:  l004146C2 l004146D7
+l004146C2:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00418688
+	call fn004113AC (retsize: 4;)
+	edi = eax
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(edi & edi)
+	C = false
+	branch Test(NE,Z) l004146E8
+	// succ:  l004146D7 l004146E8
+l004146D7:
+	eax = eax ^ eax
+	SZO = cond(eax)
+	C = false
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ecx = Mem0[ebp - 0x00000004:word32]
+	ecx = ecx ^ ebp
+	SZO = cond(ecx)
+	C = false
+	call fn004112B2 (retsize: 4;)
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00414670_exit
+l004146E8:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004186A8
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	eax = GetProcAddress(Mem0[esp:HMODULE], Mem0[esp + 4:LPCSTR])
+	esp = esp + 0x00000008
+	esi = eax
+	SZO = cond(esi & esi)
+	C = false
+	branch Test(NE,Z) l0041470B
+	// succ:  l004146FB l0041470B
+l004146FB:
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ecx = Mem0[ebp - 0x00000004:word32]
+	ecx = ecx ^ ebp
+	SZO = cond(ecx)
+	C = false
+	call fn004112B2 (retsize: 4;)
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00414670_exit
+l0041470B:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004186B8
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	eax = GetProcAddress(Mem0[esp:HMODULE], Mem0[esp + 4:LPCSTR])
+	esp = esp + 0x00000008
+	ebx = eax
+	SZO = cond(ebx & ebx)
+	C = false
+	branch Test(EQ,Z) l0041475D
+	// succ:  l0041471E l0041475D
+l0041471E:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004186CC
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	eax = GetProcAddress(Mem0[esp:HMODULE], Mem0[esp + 4:LPCSTR])
+	esp = esp + 0x00000008
+	Mem0[ebp - 0x00000218:word32] = eax
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l0041475D
+	// succ:  l00414734 l0041475D
+l00414734:
+	eax = ebp - 0x00000210
+	ecx = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000001
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x004186E0
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x80000002
+	call fn0041130C (retsize: 4;)
+	call esi (retsize: 4;)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l00414770
+	// succ:  l00414756 l00414770
+l00414756:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	eax = FreeLibrary(Mem0[esp:HMODULE])
+	esp = esp + 0x00000004
+	// succ:  l0041475D
+l0041475D:
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	eax = eax ^ eax
+	SZO = cond(eax)
+	C = false
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ecx = Mem0[ebp - 0x00000004:word32]
+	ecx = ecx ^ ebp
+	SZO = cond(ecx)
+	C = false
+	call fn004112B2 (retsize: 4;)
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00414670_exit
+l00414770:
+	eax = ebp - 0x00000214
+	Mem0[ebp - 0x00000214:word32] = 0x00000208
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x0000020C
+	ecx = ebx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x0000021C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x0041876C
+	v13 = Mem0[ebp - 0x00000210:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v13
+	call fn0041130C (retsize: 4;)
+	call ebx (retsize: 4;)
+	v14 = Mem0[ebp - 0x00000210:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v14
+	ebx = Mem0[ebp - 0x00000218:word32]
+	esi = eax
+	ecx = ebx
+	call fn0041130C (retsize: 4;)
+	call ebx (retsize: 4;)
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = edi
+	eax = FreeLibrary(Mem0[esp:HMODULE])
+	esp = esp + 0x00000004
+	SZO = cond(esi & esi)
+	C = false
+	branch Test(NE,Z) l0041475D
+	// succ:  l004147C7 l0041475D
+l004147C7:
+	SCZO = cond(Mem0[ebp - 0x0000021C:word32] - 0x00000001)
+	branch Test(NE,Z) l0041475D
+	// succ:  l004147D0 l0041475D
+l004147D0:
+	ecx = Mem0[ebp - 0x00000214:word32]
+	SZO = cond(cl & 0x01)
+	C = false
+	branch Test(NE,Z) l0041475D
+	// succ:  l004147DB l0041475D
+l004147DB:
+	ecx = ecx >>u 0x00000001
+	SCZO = cond(ecx)
+	edx = ecx
+	SCZO = cond(ecx - 0x00000002)
+	branch Test(ULT,C) l0041475D
+	// succ:  l004147E8 l0041475D
+l004147E8:
+	ecx = ecx - 0x00000001
+	SZO = cond(ecx)
+	eax = ebp - 0x0000020C
+	SCZO = cond(Mem0[eax + ecx * 0x00000002:word16] - si)
+	eax = eax + ecx * 0x00000002
+	branch Test(NE,Z) l0041475D
+	// succ:  l004147FC l0041475D
+l004147FC:
+	SCZO = cond(Mem0[eax - 0x00000002:word16] - 0x005C)
+	branch Test(EQ,Z) l0041480D
+	// succ:  l00414803 l0041480D
+l00414803:
+	ecx = 0x0000005C
+	Mem0[eax:word16] = cx
+	ecx = edx
+	// succ:  l0041480D
+l0041480D:
+	eax = ecx
+	eax = ~eax
+	SCZO = cond(eax - 0x00000012)
+	branch Test(ULT,C) l0041475D
+	// succ:  l0041481A l0041475D
+l0041481A:
+	eax = ecx + 0x00000011
+	SCZO = cond(eax - 0x00000104)
+	branch Test(UGT,CZ) l0041475D
+	// succ:  l00414828 l0041475D
+l00414828:
+	eax = Mem0[0x004185D8:word32]
+	Mem0[ebp - 0x0000020C + ecx * 0x00000002:word32] = eax
+	eax = Mem0[0x004185DC:word32]
+	Mem0[ebp - 0x00000208 + ecx * 0x00000002:word32] = eax
+	eax = Mem0[0x004185E0:word32]
+	Mem0[ebp - 0x00000204 + ecx * 0x00000002:word32] = eax
+	eax = Mem0[0x004185E4:word32]
+	Mem0[ebp - 0x00000200 + ecx * 0x00000002:word32] = eax
+	eax = Mem0[0x004185E8:word32]
+	Mem0[ebp - 0x000001FC + ecx * 0x00000002:word32] = eax
+	eax = Mem0[0x004185EC:word32]
+	Mem0[ebp - 0x000001F8 + ecx * 0x00000002:word32] = eax
+	eax = Mem0[0x004185F0:word32]
+	Mem0[ebp - 0x000001F4 + ecx * 0x00000002:word32] = eax
+	eax = Mem0[0x004185F4:word32]
+	Mem0[ebp - 0x000001F0 + ecx * 0x00000002:word32] = eax
+	ax = Mem0[0x004185F8:word16]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000900
+	Mem0[ebp - 0x000001EC + ecx * 0x00000002:word16] = ax
+	eax = ebp - 0x0000020C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000000
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn004113AC (retsize: 4;)
+	esi = eax
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(esi & esi)
+	C = false
+	branch Test(NE,Z) l004148D1
+	// succ:  l004148B2 l004148D1
+l004148B2:
+	eax = GetLastError()
+	SCZO = cond(eax - 0x00000057)
+	branch Test(NE,Z) l004148D1
+	// succ:  l004148BD l004148D1
+l004148BD:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000008
+	eax = ebp - 0x0000020C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn004113AC (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	esi = eax
+	// succ:  l004148D1
+l004148D1:
+	ecx = Mem0[ebp - 0x00000004:word32]
+	eax = esi
+	ebx = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ecx = ecx ^ ebp
+	SZO = cond(ecx)
+	C = false
+	edi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	call fn004112B2 (retsize: 4;)
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00414670_exit
+fn00414670_exit:
+
+
+// fn00414990
+// Return size: 4
+void fn00414990()
+fn00414990_entry:
+	// succ:  l00414990
+l00414990:
+	esp = fp
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ebp
+	ebp = esp
+	esp = esp - 0x0000060C
+	SCZO = cond(esp)
+	eax = Mem0[0x0041A000:word32]
+	eax = eax ^ ebp
+	SZO = cond(eax)
+	C = false
+	Mem0[ebp - 0x00000004:word32] = eax
+	eax = Mem0[ebp + 0x00000008:word32]
+	ecx = ebp - 0x0000020C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	esi = Mem0[ebp + 0x0000000C:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000100
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000100
+	ecx = ebp - 0x0000040C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000100
+	ecx = ebp - 0x0000060C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000003
+	ecx = ebp - 0x0000000C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = ecx
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn004112DF (retsize: 4;)
+	esp = esp + 0x00000024
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(EQ,Z) l004149F2
+	// succ:  l004149E1 l004149F2
+l004149E1:
+	eax = eax ^ eax
+	SZO = cond(eax)
+	C = false
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	ecx = Mem0[ebp - 0x00000004:word32]
+	ecx = ecx ^ ebp
+	SZO = cond(ecx)
+	C = false
+	call fn004112B2 (retsize: 4;)
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00414990_exit
+l004149F2:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00418794
+	eax = ebp - 0x0000040C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000009
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn00411055 (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l004149E1
+	// succ:  l00414A0C l004149E1
+l00414A0C:
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00418788
+	eax = ebp - 0x0000020C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = 0x00000004
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	call fn00411055 (retsize: 4;)
+	esp = esp + 0x0000000C
+	SCZO = cond(esp)
+	SZO = cond(eax & eax)
+	C = false
+	branch Test(NE,Z) l004149E1
+	// succ:  l00414A26 l004149E1
+l00414A26:
+	eax = ebp - 0x0000020C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x0000040C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x0000060C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	eax = ebp - 0x0000000C
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = eax
+	v11 = Mem0[ebp + 0x00000010:word32]
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = v11
+	esp = esp - 0x00000004
+	Mem0[esp:word32] = esi
+	call fn0041100A (retsize: 4;)
+	ecx = Mem0[ebp - 0x00000004:word32]
+	esp = esp + 0x00000018
+	SCZO = cond(esp)
+	eax = -eax
+	SCZO = cond(eax)
+	C = eax == 0x00000000
+	eax = eax - eax - C
+	SCZO = cond(eax)
+	ecx = ecx ^ ebp
+	SZO = cond(ecx)
+	C = false
+	eax = eax + 0x00000001
+	SZO = cond(eax)
+	esi = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	call fn004112B2 (retsize: 4;)
+	esp = ebp
+	ebp = Mem0[esp:word32]
+	esp = esp + 0x00000004
+	return
+	// succ:  fn00414990_exit
+fn00414990_exit:
+
+

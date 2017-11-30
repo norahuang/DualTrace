@@ -87,6 +87,7 @@ public abstract class TypedQuery implements AutoCloseable {
 		clearParameterCheckContainers();
 	}
 	
+
 	private void clearParameterCheckContainers(){
 		// Clearing only our record of the parameters, not the prepared statement's set parameters.
 		// Keep a copy for debugging purposes, just swap them back and forth as current and previous.

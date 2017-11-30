@@ -244,16 +244,14 @@ public class InstructionDbConnection extends DbConnectionManager {
 		}
 	}
 	
-	public long getFunctionRetLine(int moduleId, int startLineNumber){
-		long retLineNumber = 0;
+	public int getFunctionRetLine(int startLineNumber){
+		int retLineNumber = 0;
 		GetFunctionRetLineNumber q = getFunctionRetLineStatement;
 		try {
-			q.setParam(q.funStartLineNumber, startLineNumber);
-			q.setParam(q.moduleIdParam, moduleId);
-			q.setParam(q.funCallLineNumber, startLineNumber -1 );
+			q.setParam(q.funCallLineNumber, startLineNumber -1);
 			TypedResultSet rs = q.executeQuery();
 			if(rs.next()){
-			retLineNumber = rs.get(q.firstLineNumber);
+			retLineNumber = rs.get(q.startLineNum);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
