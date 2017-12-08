@@ -76,4 +76,6 @@ public interface IFileUtils {
 	public void createParentFolders(IFile file);
 
 	public void createEmptyFile(IFile file);
+	
+	
 }

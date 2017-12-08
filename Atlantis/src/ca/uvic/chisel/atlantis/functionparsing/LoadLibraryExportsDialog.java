@@ -1,5 +1,7 @@
 package ca.uvic.chisel.atlantis.functionparsing;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.lang.reflect.InvocationTargetException;
@@ -9,6 +11,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.collections.ListUtils;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -41,9 +44,12 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
+import com.google.gson.Gson;
+
 import ca.uvic.chisel.atlantis.bytecodeparsing.externals.ModuleRec;
 import ca.uvic.chisel.atlantis.datacache.AtlantisFileModelDataLayer;
 import ca.uvic.chisel.atlantis.tracedisplayer.AtlantisTraceEditor;
+import ca.uvic.chisel.atlantis.utils.AtlantisFileUtils;
 import ca.uvic.chisel.atlantis.views.FunctionsView;
 import ca.uvic.chisel.atlantis.views.ThreadFunctionsView;
 import ca.uvic.chisel.bfv.editor.RegistryUtils;
@@ -609,7 +615,7 @@ public class LoadLibraryExportsDialog extends TitleAreaDialog  {
 		List<Pair<Long, String>> functionsList = (ArrayList<Pair<Long, String>>)functionsTableViewer.getInput();
 		
 		if(functionsList.size() > 0) {
-			setNamedPipeFuncSet(functionsList);
+			setChannelTypeFuncSet(functionsList);
 			FunctionsView functionsView = (FunctionsView) 
 					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(FunctionsView.ID);
 			if(functionsView != null) {
@@ -626,92 +632,69 @@ public class LoadLibraryExportsDialog extends TitleAreaDialog  {
 		super.okPressed();
 	}
 	
-	private void setNamedPipeFuncSet(List<Pair<Long, String>> functionsList){
+	private void setChannelTypeFuncSet(List<Pair<Long, String>> functionsList){
 		String dllFileName = fileName.getText().substring(fileName.getText().lastIndexOf('\\') + 1);
 		IWorkbenchWindow activeWorkbenchWindow = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
 		AtlantisTraceEditor activeTraceDisplayer = (AtlantisTraceEditor) activeWorkbenchWindow.getActivePage().getActiveEditor();
 		AtlantisFileModelDataLayer fileModel = (AtlantisFileModelDataLayer) RegistryUtils
 				.getFileModelDataLayerFromRegistry(activeTraceDisplayer.getCurrentBlankFile());
-		NamedPipeFunctions namedPipeFunctions = new NamedPipeFunctions();
-		for(Pair<Long, String> function : functionsList) {
-			FunctionNameRegistry.registerFunction(dllFileName, function.getLeft(), function.getRight());
-			
-			if (namedPipeFunctions.getCreateNamedPipeAFuncName().equals(function.getRight())){
-				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-						dllFileName, function.getLeft(), fileModel.getInstructionDb());
-				if(func != null){
-					namedPipeFunctions.setCreateNamedPipeA(fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
+		File f = activeTraceDisplayer.getEmptyFile();
+		File jsonFile = AtlantisFileUtils.getChannelTypeSettingFile(f);
+		Gson gson = new Gson();
+		try ( final FileReader fileReader = new FileReader(jsonFile.getAbsolutePath()) ) {
+			ChannelType[] channelTypeList = gson.fromJson(fileReader, ChannelType[].class);
+			for(Pair<Long, String> function : functionsList) {
+				FunctionNameRegistry.registerFunction(dllFileName, function.getLeft(), function.getRight());
+				for(ChannelType channelType:channelTypeList){
+					List<ChannelFunctionInstruction> channelOpenStageList = new ArrayList<ChannelFunctionInstruction>();
+					List<ChannelFunctionInstruction> dataTransStageList = new ArrayList<ChannelFunctionInstruction>();
+					List<ChannelFunctionInstruction> channelCloseStageList = new ArrayList<ChannelFunctionInstruction>();
+					for(ChannelFunction channelFunction : channelType.getChannelOpenStageList()){
+						if(channelFunction.getFunctionName().equals(function.getRight())){
+							Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
+									dllFileName, function.getLeft(), fileModel.getInstructionDb());
+							if(func != null){
+								channelOpenStageList.add(new ChannelFunctionInstruction(channelFunction, fileModel.getFunctionDb().getSingleFunctionFromModule(
+										dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst()));
+							}
+						}
+					}
+					for(ChannelFunction channelFunction : channelType.getDataTransStageList()){
+						if(channelFunction.getFunctionName().equals(function.getRight())){
+							Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
+									dllFileName, function.getLeft(), fileModel.getInstructionDb());
+							if(func != null){
+								dataTransStageList.add(new ChannelFunctionInstruction(channelFunction, fileModel.getFunctionDb().getSingleFunctionFromModule(
+										dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst()));
+							}
+						}
+					}
+					for(ChannelFunction channelFunction : channelType.getChannelCloseStageList()){
+						if(channelFunction.getFunctionName().equals(function.getRight())){
+							Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
+									dllFileName, function.getLeft(), fileModel.getInstructionDb());
+							if(func != null){
+								channelCloseStageList.add(new ChannelFunctionInstruction(channelFunction, fileModel.getFunctionDb().getSingleFunctionFromModule(
+										dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst()));
+							}
+						}
+					}
+					if(channelOpenStageList.size() != 0){
+						activeTraceDisplayer.getChannelTypeInc(channelType.getChannelTypeName(), true).addAllToChannelOpenStageList(channelOpenStageList);
+					}
+					if(dataTransStageList.size() != 0){
+						activeTraceDisplayer.getChannelTypeInc(channelType.getChannelTypeName(), true).addAllToDataTransStageList(dataTransStageList);
+					}
+					if(channelCloseStageList.size() != 0){
+						activeTraceDisplayer.getChannelTypeInc(channelType.getChannelTypeName(), true).addAllToChannelCloseStageList(channelCloseStageList);
+					}
 				}
-				
 			}
-			if (namedPipeFunctions.getCreateFileAFuncName().equals(function.getRight())){
-				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-						dllFileName, function.getLeft(), fileModel.getInstructionDb());
-				if(func != null){
-					namedPipeFunctions.setCreateFileA(fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-				}
-			}
-			
-			if (namedPipeFunctions.getCreateNamedPipeWFuncName().equals(function.getRight())){
-				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-						dllFileName, function.getLeft(), fileModel.getInstructionDb());
-				if(func != null){
-					namedPipeFunctions.setCreateNamedPipeW(fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-				}
-				
-			}
-			if (namedPipeFunctions.getCreateFileWFuncName().equals(function.getRight())){
-				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-						dllFileName, function.getLeft(), fileModel.getInstructionDb());
-				if(func != null){
-					namedPipeFunctions.setCreateFileW(fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-				}
-			}
-			
-			if (namedPipeFunctions.getWriteFileFuncName().equals(function.getRight())){
-				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-						dllFileName, function.getLeft(), fileModel.getInstructionDb());
-				if(func != null){
-					namedPipeFunctions.setWriteFile(fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-				}
-				
-			}
-			if (namedPipeFunctions.getReadFileFuncName().equals(function.getRight())){
-				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-						dllFileName, function.getLeft(), fileModel.getInstructionDb());
-				if(func != null){
-					namedPipeFunctions.setReadFile(fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-				}
-				
-			}
-			if (namedPipeFunctions.getGetOverlappedResultFuncName().equals(function.getRight())){
-				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-						dllFileName, function.getLeft(), fileModel.getInstructionDb());
-				if(func != null){
-					namedPipeFunctions.setGetOverlappedResult(fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-				}
-				
-			}
-			if (namedPipeFunctions.getCloseHandleFuncName().equals(function.getRight())){
-				Function func = fileModel.getFunctionDb().getSingleFunctionFromModule(
-						dllFileName, function.getLeft(), fileModel.getInstructionDb());
-				if(func != null){
-					namedPipeFunctions.setCloseHandle(fileModel.getFunctionDb().getSingleFunctionFromModule(
-							dllFileName, function.getLeft(), fileModel.getInstructionDb()).getFirst());
-				}
-				
-			}
-
+	    } catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		activeTraceDisplayer.setNamedPipeFunctions(namedPipeFunctions);
+
 	}
 }
 

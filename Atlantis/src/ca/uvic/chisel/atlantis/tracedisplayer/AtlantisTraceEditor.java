@@ -1,5 +1,8 @@
 package ca.uvic.chisel.atlantis.tracedisplayer;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.jface.text.ITextSelection;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.viewers.ISelection;
@@ -14,7 +17,7 @@ import ca.uvic.chisel.atlantis.AtlantisActivator;
 import ca.uvic.chisel.atlantis.bytecodeparsing.AtlantisBinaryFormat;
 import ca.uvic.chisel.atlantis.eventtracevisualization.AssemblyTraceVisualizationView;
 import ca.uvic.chisel.atlantis.eventtracevisualization.ThreadEventTraceVisualizationView;
-import ca.uvic.chisel.atlantis.functionparsing.NamedPipeFunctions;
+import ca.uvic.chisel.atlantis.functionparsing.ChannelTypeInstruction;
 import ca.uvic.chisel.atlantis.functionparsing.TCPUDPFunctions;
 import ca.uvic.chisel.atlantis.handlers.GenerateMemoryViewHandler;
 import ca.uvic.chisel.atlantis.preferences.SyntaxHighlightingPreference;
@@ -32,15 +35,23 @@ public class AtlantisTraceEditor extends BigFileEditor {
 	
 	public static final String ID = "ca.uvic.chisel.atlantis.tracedisplayer.TraceDisplayer";
 	public static final String CONTEXT_MENU_ID = "#TraceDisplayerContext";
-	private NamedPipeFunctions namedPipeFunctions;
 	private TCPUDPFunctions tcpudpFunctions;
+	private Map<String,ChannelTypeInstruction> channelTypeIncMap = new HashMap<String, ChannelTypeInstruction>();
 	
-	public NamedPipeFunctions getNamedPipeFunctions() {
-		return namedPipeFunctions;
+	public Map<String,ChannelTypeInstruction> getChannelTypeIncMap() {
+		return channelTypeIncMap;
 	}
+	
+	public ChannelTypeInstruction getChannelTypeInc(String ChannelTypeName, boolean createWhenNull) {
+		ChannelTypeInstruction c = channelTypeIncMap.get(ChannelTypeName);
+		if(c == null && createWhenNull){
+			c = new ChannelTypeInstruction(ChannelTypeName);
+		}
+        return c;
+    }
 
-	public void setNamedPipeFunctions(NamedPipeFunctions namedPipeFunctions) {
-		this.namedPipeFunctions = namedPipeFunctions;
+	public void addChannelType(ChannelTypeInstruction c) {
+		this.channelTypeIncMap.put(c.getChannelTypeName(),c);
 	}
 
 	public TCPUDPFunctions getTcpudpFunctions() {

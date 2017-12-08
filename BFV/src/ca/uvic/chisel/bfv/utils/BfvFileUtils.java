@@ -63,6 +63,7 @@ public class BfvFileUtils implements IFileUtils {
 		}
 		return filePath.substring(0, filePath.lastIndexOf('.')) + targetSuffix;
 	}
+	
 
 	
 	@Override

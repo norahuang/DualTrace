@@ -11,9 +11,9 @@
 \contentsline {section}{\numberline {2.2}Obtain Background Knowledge}{3}
 \contentsline {section}{\numberline {2.3}Model the Communication Channels}{3}
 \contentsline {section}{\numberline {2.4}Develop the Dual Trace Synchronization Algorithms}{3}
-\contentsline {section}{\numberline {2.5}Match the Channels in WCF to the Model}{3}
+\contentsline {section}{\numberline {2.5}Apply the Channel Models to Windows APIs}{3}
 \contentsline {section}{\numberline {2.6}Implement the Trace Synchronization Algorithms}{4}
-\contentsline {section}{\numberline {2.7}Verify the Algorithm by Traces from DRDC}{4}
+\contentsline {section}{\numberline {2.7}Evaluate the Communication Channel Rebuilt Feature in Atlantis}{4}
 \contentsline {chapter}{\numberline {3}Background}{5}
 \contentsline {section}{\numberline {3.1}Software Security}{5}
 \contentsline {section}{\numberline {3.2}Software Vulnerability Detection}{6}
@@ -48,14 +48,15 @@
 \contentsline {subsubsection}{Asynchronous Receiving with Call Back Functions}{21}
 \contentsline {subsubsection}{Asynchronous Receiving without Call Back Functions}{21}
 \contentsline {section}{\numberline {5.3}TCP/UDP Socket Channel}{22}
-\contentsline {section}{\numberline {5.4}HTTP Channel}{22}
+\contentsline {section}{\numberline {5.4}Verification}{22}
+\contentsline {subsection}{\numberline {5.4.1}Executable Disassemble}{22}
 \contentsline {chapter}{\numberline {6}Channel Information Retrieval Algorithms}{24}
 \contentsline {section}{\numberline {6.1}Channel Information Retrieval Algorithm for TCP}{24}
 \contentsline {section}{\numberline {6.2}Channel Information Retrieval Algorithm for UDP}{29}
 \contentsline {section}{\numberline {6.3}Channel Information Retrieval Algorithm for Named pipe}{32}
 \contentsline {chapter}{\numberline {7}Feature Prototype On Atlantis}{36}
-\contentsline {subsection}{\numberline {7.0.1}User Defined Communication Type}{36}
-\contentsline {subsubsection}{Function Calls in the Traces}{36}
+\contentsline {subsection}{\numberline {7.0.1}User Defined Channel Type By Json}{36}
+\contentsline {subsubsection}{Channel Searching}{36}
 \contentsline {subsubsection}{Communication Type Data Structure}{38}
 \contentsline {subsubsection}{Communication Type View}{39}
 \contentsline {subsection}{\numberline {7.0.2}Communication Event Searching}{40}
@@ -63,9 +64,9 @@
 \contentsline {subsubsection}{Search send and receive Message}{41}
 \contentsline {subsubsection}{Matching the send/receive messages pair}{41}
 \contentsline {subsubsection}{Matching Event Data Structure}{41}
-\contentsline {subsection}{\numberline {7.0.3}Matching Event Visualization and Navigation}{41}
+\contentsline {subsection}{\numberline {7.0.3}Navigation From Channel Search Result to Dual-Trace}{41}
 \contentsline {chapter}{\numberline {8}Evaluation}{43}
-\contentsline {subsection}{\numberline {8.0.1}Test and Verification Design}{43}
+\contentsline {subsection}{\numberline {8.0.1}Experiment Verification Design}{43}
 \contentsline {subsection}{\numberline {8.0.2}Result}{43}
 \contentsline {chapter}{\numberline {9}Conclusions}{46}
 \contentsline {section}{\numberline {9.1}Limitations}{46}

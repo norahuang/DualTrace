@@ -916,28 +916,12 @@
                id="org.eclipse.ui.commands.toggleState">
          </state>
       </command>
-         <command
-            defaultHandler="ca.uvic.chisel.atlantis.handlers.FindAllChannel"
-            id="ca.uvic.chisel.atlantis.handlers.FindAllChannel"
-            name="Find All Channels">
-      </command>
       <command
-            defaultHandler="ca.uvic.chisel.atlantis.handlers.FindTCPChannel"
-            id="ca.uvic.chisel.atlantis.handlers.FindTCPChannel"
-            name="Find TCP Channels">
-      </command>
-      <command
-            defaultHandler="ca.uvic.chisel.atlantis.handlers.FindUDPChannel"
-            id="ca.uvic.chisel.atlantis.handlers.FindUDPChannel"
-            name="Find UDP Channels">
-      </command>
-      <command
-            defaultHandler="ca.uvic.chisel.atlantis.handlers.FindNamedPipeChannel"
-            id="ca.uvic.chisel.atlantis.handlers.FindNamedPipeChannel"
-            name="Find Named Pipe Channels">
+            defaultHandler="ca.uvic.chisel.atlantis.handlers.FindCommunicationChannel"
+            id="ca.uvic.chisel.atlantis.handlers.FindCommunicationChannel"
+            name="Find Channels">
       </command>
    </extension>
-   
    <extension
 		point="org.eclipse.ui.handlers">
 			<handler
@@ -1040,30 +1024,11 @@
          <menu
                id="ca.uvic.chisel.bfv.commands.Tools"
                label="Dual Trace Tool">  
-         <menu
-               id="ca.uvic.chisel.bfv.commands.FindCommunicationChannel"
-               label="Find Communication Channels">  
             <command
-               commandId="ca.uvic.chisel.atlantis.handlers.FindAllChannel"
-               label="All"
+               commandId="ca.uvic.chisel.atlantis.handlers.FindCommunicationChannel"
+               label="Find Communication Channels"
                style="push">
             </command>
-            <command
-               commandId="ca.uvic.chisel.atlantis.handlers.FindTCPChannel"
-               label="TCP Channels"
-               style="push">
-            </command>
-            <command
-               commandId="ca.uvic.chisel.atlantis.handlers.FindUDPChannel"
-               label="UDP Channels"
-               style="push">
-            </command>
-            <command
-               commandId="ca.uvic.chisel.atlantis.handlers.FindNamedPipeChannel"
-               label="Named Pipe Channels"
-               style="push">
-            </command>
-            </menu>
             <command
                commandId="ca.uvic.chisel.atlantis.commands.LoadLibraryExports"
                label="Load Library Exports"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  6 NOV 2017 11:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  4 DEC 2017 13:33
 entering extended mode
 **./mainthesisUVIC.tex
 (mainthesisUVIC.tex
@@ -444,8 +444,11 @@ LaTeX Warning: Label `tcp' multiply defined.
 LaTeX Warning: Label `chapter:Mod' multiply defined.
 
 ) (chapters/6/chapter_algorithm.aux) (chapters/7/chapter_implementation.aux)
-No file chapters/8/chapter_verification.aux.
-(chapters/9/chapter_conclusion.aux) (chapters/appendix/chapter_app.aux))
+(chapters/8/chapter_Evaluation.aux
+
+LaTeX Warning: Label `occclientresult' multiply defined.
+
+) (chapters/9/chapter_conclusion.aux) (chapters/appendix/chapter_app.aux))
 \openout1 = `mainthesisUVIC.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
@@ -971,21 +974,6 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
  (chapters/8/chapter_Evaluation.tex
 Chapter 8.
-
-LaTeX Warning: Reference `addcomtyperesult' on page 43 undefined on input line 
-12.
-
-
-LaTeX Warning: Reference `occclientresult' on page 43 undefined on input line 1
-2.
-
-
-LaTeX Warning: Reference `occclientresult' on page 43 undefined on input line 1
-2.
-
-
-LaTeX Warning: Reference `send' on page 43 undefined on input line 12.
-
 [43
 
 
@@ -1058,10 +1046,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7587 strings out of 493335
- 113296 string characters out of 3139261
- 211694 words of memory out of 3000000
- 10832 multiletter control sequences out of 15000+200000
+ 7589 strings out of 493335
+ 113374 string characters out of 3139261
+ 212207 words of memory out of 3000000
+ 10833 multiletter control sequences out of 15000+200000
  21264 words of font info for 53 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,19n,45p,1591b,1396s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1072,7 +1060,7 @@ s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
 urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8
 a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (59 pages, 448974 bytes).
+Output written on mainthesisUVIC.pdf (59 pages, 454277 bytes).
 PDF statistics:
  240 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

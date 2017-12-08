@@ -3,15 +3,15 @@ package ca.uvic.chisel.bfv.dualtracechannel;
 import javax.xml.bind.annotation.XmlElement;
 
 public class ChannelGroup{
-	private ChennelType groupName;
+	private String groupName;
 	private Trace trace1;
 	private Trace trace2;
 	
-	public enum ChennelType {
+/*	public enum ChennelType {
 	    TCPChannels,
 	    UDPChannels,
 	    NamedPipeChannels;			
-	}
+	}*/
 	
 	
 	@SuppressWarnings("unused") // Default constructor is for JAXB's use only--do not use elsewhere!
@@ -21,7 +21,7 @@ public class ChannelGroup{
 	 * Creates a new comment group with the specified name.
 	 * @param name
 	 */
-	public ChannelGroup(ChennelType name, Trace trace1, Trace trace2) {
+	public ChannelGroup(String name, Trace trace1, Trace trace2) {
 		this.groupName = name;	
 		this.trace1 = trace1;
 		this.trace2 = trace2;
@@ -38,7 +38,7 @@ public class ChannelGroup{
 	 * @return comment group name
 	 */
 	@XmlElement
-	public ChennelType getName() {
+	public String getName() {
 		return groupName;
 	}
 	
@@ -46,15 +46,15 @@ public class ChannelGroup{
 	 * Sets the name of this comment group.
 	 * @param name name to use for this group
 	 */
-	protected void setName(ChennelType name) {
+	protected void setName(String name) {
 		this.groupName = name;
 	}
 
-	public ChennelType getGroupName() {
+	public String getGroupName() {
 		return groupName;
 	}
 
-	public void setGroupName(ChennelType groupName) {
+	public void setGroupName(String groupName) {
 		this.groupName = groupName;
 	}
 

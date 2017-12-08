@@ -14,5 +14,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/BFV"/>
 	<classpathentry kind="lib" path="libs/durian-3.4.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/guava-19.0.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/bfv.org.eclipse.ui.editors"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

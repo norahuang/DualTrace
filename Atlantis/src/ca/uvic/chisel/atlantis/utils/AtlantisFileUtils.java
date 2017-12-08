@@ -1,6 +1,7 @@
 package ca.uvic.chisel.atlantis.utils;
 
 import java.io.File;
+import java.io.IOException;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -34,6 +35,34 @@ public class AtlantisFileUtils extends BfvFileUtils implements IFileUtils {
 			return AtlantisFileUtils.convertFileIFile(emptyFile);
 		} else {
 			return super.convertFileToBlankFile(file);
+		}
+	}
+	
+	public static File getChannelTypeSettingFile(File file){
+		IFile f = AtlantisFileUtils.convertFileIFile(file);
+		IFile emptyFile = f.getProject().getFile(new Path(BfvFileUtils.TMP_DIRECTORY_NAME+"/"+"channelTypes.json"));
+		File jsonFile = AtlantisFileUtils.convertFileIFile(emptyFile);
+		if(!jsonFile.exists() && !jsonFile.isDirectory())
+		{
+		    try {
+		    	jsonFile.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return jsonFile;
+	}
+	
+	public static void createChannelTypeSettingFile(File jsonFile){
+		if(!jsonFile.exists() && !jsonFile.isDirectory())
+		{
+		    try {
+		    	jsonFile.createNewFile();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 	

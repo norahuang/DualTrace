@@ -1,6 +1,28 @@
 package ca.uvic.chisel.atlantis.functionparsing;
 
-public class NamedPipeFunctions extends ChannelFunction{
+public class NamedPipeFunctions{
+	
+    private static final NamedPipeFunctions instance = new NamedPipeFunctions();
+    private ChannelType namedPipe;
+    
+
+
+	//private constructor to avoid client applications to use constructor
+    private NamedPipeFunctions(){
+    	namedPipe = new ChannelType("NamedPipeChannel");
+		namedPipe.addFuncInChannelOpenStage(new ChannelFunction(CreateNamedPipeAFuncName, RetrunValReg, CreateNamedPipeFileNameReg, null, null, true));
+    	namedPipe.addFuncInChannelOpenStage(new ChannelFunction(CreateFileAFuncName, RetrunValReg, CreateFileFileNameReg, null, null, true));
+    	namedPipe.addFuncInDataTransStage(new ChannelFunction(WriteFileFuncName, RetrunValReg, WriteFileFileHandleReg, WriteFileDataAddrReg, null, false));
+    	namedPipe.addFuncInDataTransStage(new ChannelFunction(ReadFileFuncName, RetrunValReg, ReadFileFileHandleReg, null, ReadFileDataAddrReg, false));
+    	namedPipe.addFuncInDataTransStage(new ChannelFunction(GetOverlappedResultFuncName, RetrunValReg, GetOverlappedResultFileHandleReg, null, GetOverlappedResultOverLapReg, false));
+    	namedPipe.addFuncInChannelCloseStage(new ChannelFunction(CloseHandleFuncName, RetrunValReg, CloseHandleFileHandleReg, null, null, false));
+    	
+    }
+    
+    public static NamedPipeFunctions getInstance(){
+        return instance;
+    }
+	
 	private Instruction CreateNamedPipeA;
 	private Instruction CreateNamedPipeW;
 	private String CreateNamedPipeAFuncName = "CreateNamedPipeA";
@@ -28,7 +50,14 @@ public class NamedPipeFunctions extends ChannelFunction{
 	private Instruction CloseHandle;
 	private String CloseHandleFuncName = "CloseHandle";
 	private Register CloseHandleFileHandleReg = new Register("RCX", true);
+	private Register RetrunValReg = new Register("RAX", true);
 	
+	public Register getRetrunValReg() {
+		return RetrunValReg;
+	}
+	public void setRetrunValReg(Register retrunValReg) {
+		RetrunValReg = retrunValReg;
+	}
 	public Register getWriteFileFileHandleReg() {
 		return WriteFileFileHandleReg;
 	}
@@ -193,6 +222,10 @@ public class NamedPipeFunctions extends ChannelFunction{
 	}
 	public void setCreateFileFileHandleReg(Register createFileFileHandleReg) {
 		CreateFileFileHandleReg = createFileFileHandleReg;
+	}
+
+    public ChannelType getNamedPipe() {
+		return namedPipe;
 	}
 
 }
