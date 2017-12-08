@@ -1,17 +1,13 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Named Pipe Channel properties\relax }}{16}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Send/Receive Scenarios of Named Pipe\relax }}{16}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Functions for communication stages definition of synchronous named pipe\relax }}{18}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Functions for additional communication type definition of asynchronous named pipe\relax }}{19}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Named Pipe Channel properties\relax }}{20}
-\contentsline {table}{\numberline {5.6}{\ignorespaces Send/Receive Scenarios of Named Pipe\relax }}{21}
-\contentsline {table}{\numberline {5.7}{\ignorespaces Functions for communication stages of MSMQ for synchronous receiving\relax }}{22}
-\contentsline {table}{\numberline {5.8}{\ignorespaces Functions for communication stages of MSMQ for asynchronous receiving with call back function\relax }}{22}
-\contentsline {table}{\numberline {5.9}{\ignorespaces Functions for communication stages of MSMQ for asynchronous receiving without call back function\relax }}{23}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Communication Methods Discussed in This Work\relax }}{9}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Function APIs for Synchronous Named Pipe\relax }}{13}
+\contentsline {table}{\numberline {3.3}{\ignorespaces Function APIs for Asynchronous Named Pipe\relax }}{14}
+\contentsline {table}{\numberline {3.4}{\ignorespaces Function APIs for Synchronous MSMQ\relax }}{15}
+\contentsline {table}{\numberline {3.5}{\ignorespaces Function APIs for Asynchronous MSMQ with Callback\relax }}{15}
+\contentsline {table}{\numberline {3.6}{\ignorespaces Function APIs for Asynchronous MSMQ without Callback\relax }}{16}
+\contentsline {table}{\numberline {3.7}{\ignorespaces Function APIs for TCP and UDP\relax }}{17}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
