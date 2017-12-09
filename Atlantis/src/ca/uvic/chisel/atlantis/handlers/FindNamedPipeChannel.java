@@ -35,7 +35,7 @@ public class FindNamedPipeChannel extends AbstractHandler {
 			DualTraceChannelView dualTraceChannelView = (DualTraceChannelView) HandlerUtil
 					.getActiveWorkbenchWindow(event).getActivePage().findView(DualTraceChannelView.ID);
 			if (dualTraceChannelView != null) {
-				dualTraceChannelView.getNamedPipeChannels(true, editor1, editor2);
+				//dualTraceChannelView.getNamedPipeChannels(true, editor1, editor2);
 				//dualTraceChannelView.updateView();
 			}
 

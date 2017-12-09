@@ -162,33 +162,6 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 		}
 
 	}
-
-/*	public ChannelGroup getNamedPipeChannels(boolean setInput, IEditorPart editorPart1, IEditorPart editorPart2) {
-		if(((AtlantisTraceEditor) editorPart1).getNamedPipeFunctions() == null || ((AtlantisTraceEditor) editorPart2).getNamedPipeFunctions() == null){
-			Throwable throwable = new Throwable("No corresponding library exports has been loaded");
-			BigFileApplication.showErrorDialog("No corresponding library exports has been loaded","Please load library exports from \"Dual trace Tool\" Menu for both traces",throwable);
-		    return null;
-		}
-		Trace trace1 = new Trace(((AtlantisTraceEditor) editorPart1).getTitle());
-		Trace trace2 = new Trace(((AtlantisTraceEditor) editorPart2).getTitle());
-		ChannelGroup namedPipeChannelGroup = new ChannelGroup(ChennelType.NamedPipeChannels, trace1, trace2);
-		trace1.setChannelGroup(namedPipeChannelGroup);
-		trace2.setChannelGroup(namedPipeChannelGroup);
-
-		IFile editorFile1 = BfvFileUtils.convertFileIFile(((AtlantisTraceEditor) editorPart1).getEmptyFile());
-		searchNamedPipeChannels(editorFile1, (AtlantisTraceEditor) editorPart1, trace1);
-		IFile editorFile2 = BfvFileUtils.convertFileIFile(((AtlantisTraceEditor) editorPart2).getEmptyFile());
-		searchNamedPipeChannels(editorFile2, (AtlantisTraceEditor) editorPart2, trace2);
-
-		if (setInput) {
-			Collection<ChannelGroup> channelGroups = new ArrayList<ChannelGroup>();
-			channelGroups.add(namedPipeChannelGroup);
-			resultTableViewer.setInput(channelGroups);
-			traceEditor1 = (AtlantisTraceEditor) editorPart1;
-			traceEditor2 = (AtlantisTraceEditor) editorPart2;
-		}
-		return namedPipeChannelGroup;
-	}*/
 	
 	public void getChannels(List<String> selectedChannels, IEditorPart editorPart1, IEditorPart editorPart2) {
 		Collection<ChannelGroup> channelGroups = new ArrayList<ChannelGroup>();
@@ -213,43 +186,6 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 			traceEditor2 = (AtlantisTraceEditor) editorPart2;
 	}
 
-	/*public ChannelGroup getTcpChannels(boolean setInput, IEditorPart editorPart1, IEditorPart editorPart2) {
-		Trace trace1 = new Trace(((AtlantisTraceEditor) editorPart1).getTitle());
-		Trace trace2 = new Trace(((AtlantisTraceEditor) editorPart1).getTitle());
-		ChannelGroup tcpChannelGroup = new ChannelGroup(ChennelType.TCPChannels, trace1, trace2);
-
-		if (setInput) {
-			resultTableViewer.setInput(tcpChannelGroup);
-			traceEditor1 = (AtlantisTraceEditor) editorPart1;
-			traceEditor2 = (AtlantisTraceEditor) editorPart2;
-		}
-		return tcpChannelGroup;
-	}
-
-	public ChannelGroup getUDPChannels(boolean setInput, IEditorPart editorPart1, IEditorPart editorPart2) {
-		Trace trace1 = new Trace(((AtlantisTraceEditor) editorPart1).getTitle());
-		Trace trace2 = new Trace(((AtlantisTraceEditor) editorPart1).getTitle());
-		ChannelGroup udpChannelGroup = new ChannelGroup(ChennelType.UDPChannels, trace1, trace2);
-		if (setInput) {
-			resultTableViewer.setInput(udpChannelGroup);
-			traceEditor1 = (AtlantisTraceEditor) editorPart1;
-			traceEditor2 = (AtlantisTraceEditor) editorPart2;
-		}
-		return udpChannelGroup;
-	}
-
-	public void searchAllChannels(IEditorPart editorPart1, IEditorPart editorPart2) {
-		Collection<ChannelGroup> channelGroups = new ArrayList<ChannelGroup>();
-		ChannelGroup namedPipeChannelGroup = getNamedPipeChannels(false, editorPart1, editorPart2);
-		ChannelGroup tcpChannelGroup = getTcpChannels(false, editorPart1, editorPart2);
-		ChannelGroup udpChannelGroup = getUDPChannels(false, editorPart1, editorPart2);
-		channelGroups.add(namedPipeChannelGroup);
-		channelGroups.add(tcpChannelGroup);
-		channelGroups.add(udpChannelGroup);
-		resultTableViewer.setInput(udpChannelGroup);
-		traceEditor1 = (AtlantisTraceEditor) editorPart1;
-		traceEditor2 = (AtlantisTraceEditor) editorPart2;
-	}*/
 
 	/**
 	 * Update this view with the current comments data from the File Editor
@@ -407,6 +343,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 			mgr.add(removeChannel);
 			return;
 		}
+
 	}
 
 	@Override
@@ -475,106 +412,6 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 
 	}
 
-	
-/*	private void searchNamedPipeChannels(IFile currentFile, AtlantisTraceEditor editor, Trace trace) {
-		System.out.println("Searching database function table backend");
-		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		Date date = new Date();
-		System.out.println("Starting database function table search at time " + dateFormat.format(date));
-
-		// search for createNamePipe function calls
-		List<FullFunctionMatch> createNamePipeAFuncs = searchFullFunction(currentFile, editor, trace,
-				editor.getNamedPipeFunctions().getCreateNamedPipeA(),
-				editor.getNamedPipeFunctions().getCreateNamedPipeFileNameReg(),
-				editor.getNamedPipeFunctions().getCreateNamedPipeFileNameReg(), null);
-
-		List<FullFunctionMatch> createFileAFuncs = searchFullFunction(currentFile, editor, trace,
-				editor.getNamedPipeFunctions().getCreateFileA(),
-				editor.getNamedPipeFunctions().getCreateFileFileNameReg(),
-				editor.getNamedPipeFunctions().getCreateFileFileNameReg(), null);
-
-		List<FullFunctionMatch> createNamePipeWFuncs = searchFullFunction(currentFile, editor, trace,
-				editor.getNamedPipeFunctions().getCreateNamedPipeW(),
-				editor.getNamedPipeFunctions().getCreateNamedPipeFileNameReg(),
-				editor.getNamedPipeFunctions().getCreateNamedPipeFileNameReg(), null);
-
-		List<FullFunctionMatch> createFileWFuncs = searchFullFunction(currentFile, editor, trace,
-				editor.getNamedPipeFunctions().getCreateFileW(),
-				editor.getNamedPipeFunctions().getCreateFileFileNameReg(),
-				editor.getNamedPipeFunctions().getCreateFileFileNameReg(), null);
-
-		List<FullFunctionMatch> writeFileFuncs = searchFullFunction(currentFile, editor, trace,
-				editor.getNamedPipeFunctions().getWriteFile(),
-				editor.getNamedPipeFunctions().getWriteFileFileHandleReg(),
-				editor.getNamedPipeFunctions().getWriteFileDataAddrReg(), null);
-
-		List<FullFunctionMatch> readFileFuncs = searchFullFunction(currentFile, editor, trace,
-				editor.getNamedPipeFunctions().getReadFile(), editor.getNamedPipeFunctions().getReadFileFileHandleReg(),
-				null, editor.getNamedPipeFunctions().getReadFileDataAddrReg());
-		
-		List<FullFunctionMatch> GetOverlappedResultFuncs = searchFullFunction(currentFile, editor, trace,
-				editor.getNamedPipeFunctions().getGetOverlappedResult(), editor.getNamedPipeFunctions().getGetOverlappedResultFileHandleReg(),
-				null, editor.getNamedPipeFunctions().getGetOverlappedResultOverLapReg());
-
-		List<FullFunctionMatch> closeHandleFuncs = searchFullFunction(currentFile, editor, trace,
-				editor.getNamedPipeFunctions().getCloseHandle(),
-				editor.getNamedPipeFunctions().getCloseHandleFileHandleReg(), null, null);
-
-		for (FullFunctionMatch createPipe : createNamePipeAFuncs) {
-			Channel c = new Channel(trace, createPipe.getEventStart().getLineElement().getLine(),
-					createPipe.getRetVal(), createPipe.getInputVal());
-			ChannelEvent e = new ChannelEvent(editor.getNamedPipeFunctions().getCreateNamedPipeAFuncName(),
-					CommunicationStage.OPENING, createPipe, c);
-			c.addEvent(e);
-			trace.addChannel(c);
-
-		}
-
-		for (FullFunctionMatch createFile : createFileAFuncs) {
-			Channel c = new Channel(trace, createFile.getEventStart().getLineElement().getLine(),
-					createFile.getRetVal(), createFile.getInputVal());
-			ChannelEvent e = new ChannelEvent(editor.getNamedPipeFunctions().getCreateFileAFuncName(),
-					CommunicationStage.OPENING, createFile, c);
-			c.addEvent(e);
-			trace.addChannel(c);
-		}
-
-		for (FullFunctionMatch createPipe : createNamePipeWFuncs) {
-			Channel c = new Channel(trace, createPipe.getEventStart().getLineElement().getLine(),
-					createPipe.getRetVal(), createPipe.getInputVal());
-			ChannelEvent e = new ChannelEvent(editor.getNamedPipeFunctions().getCreateNamedPipeWFuncName(),
-					CommunicationStage.OPENING, createPipe, c);
-			c.addEvent(e);
-			trace.addChannel(c);
-
-		}
-
-		for (FullFunctionMatch createFile : createFileWFuncs) {
-			Channel c = new Channel(trace, createFile.getEventStart().getLineElement().getLine(),
-					createFile.getRetVal(), createFile.getInputVal());
-			ChannelEvent e = new ChannelEvent(editor.getNamedPipeFunctions().getCreateFileWFuncName(),
-					CommunicationStage.OPENING, createFile, c);
-			c.addEvent(e);
-			trace.addChannel(c);
-		}
-
-		for (FullFunctionMatch closeHandle : closeHandleFuncs) {
-			searchChannelForClose(closeHandle.getInputVal(), closeHandle, trace.getChannels(), editor);
-		}
-
-		for (FullFunctionMatch writeFile : writeFileFuncs) {
-			searchChannelForDataTrans(writeFile.getInputVal(), writeFile, trace.getChannels(), editor, editor.getNamedPipeFunctions().getWriteFileFuncName());
-		}
-
-		for (FullFunctionMatch readFile : readFileFuncs) {
-			searchChannelForDataTrans(readFile.getInputVal(), readFile, trace.getChannels(), editor, editor.getNamedPipeFunctions().getReadFileFuncName());
-		}
-		
-		for (FullFunctionMatch GetOverlappedResult : GetOverlappedResultFuncs) {
-			searchChannelForDataTrans(GetOverlappedResult.getInputVal(), GetOverlappedResult, trace.getChannels(), editor, editor.getNamedPipeFunctions().getGetOverlappedResultFuncName());
-		}
-
-	}*/
 
 	private void searchChannelForClose(String channelHandle, FullFunctionMatch closeHandle, List<Channel> channels,
 			AtlantisTraceEditor editor, String functionName) {
@@ -596,7 +433,6 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 
 	}
 
-
 	private void searchChannelForDataTrans(String channelHandle, FullFunctionMatch match, List<Channel> channels,
 			AtlantisTraceEditor editor, String functionName) {
 		Channel resultChannel = null;
@@ -604,6 +440,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 		for (Channel c : channels) {
 			if (c.getChannelHandle().equals(channelHandle) && c.getChannelStartLineNum() < lineNum
 					&& (c.getChannelEndLineNum() == 0 || c.getChannelEndLineNum() > lineNum)) {
+
 				resultChannel = c;
 			}
 		}
@@ -724,6 +561,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 							} else {
 								Long add = Long.parseLong(mfInput.getMemoryContent().getMemoryValue(), 16);
 								for (MemoryReference memRef : functionStartMemoryReferencesResult.getMemoryList()
+
 										.values()) {
 									if (add <= memRef.getAddress() && add + 256 > memRef.getEndAddress()) {
 										String hex = memRef.getMemoryContent().getMemoryValue();

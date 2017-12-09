@@ -22,7 +22,6 @@ public class NamedPipeFunctions{
     public static NamedPipeFunctions getInstance(){
         return instance;
     }
-	
 	private Instruction CreateNamedPipeA;
 	private Instruction CreateNamedPipeW;
 	private String CreateNamedPipeAFuncName = "CreateNamedPipeA";
@@ -223,7 +222,6 @@ public class NamedPipeFunctions{
 	public void setCreateFileFileHandleReg(Register createFileFileHandleReg) {
 		CreateFileFileHandleReg = createFileFileHandleReg;
 	}
-
     public ChannelType getNamedPipe() {
 		return namedPipe;
 	}

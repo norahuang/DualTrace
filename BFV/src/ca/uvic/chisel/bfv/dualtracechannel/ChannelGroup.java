@@ -12,6 +12,7 @@ public class ChannelGroup{
 	    UDPChannels,
 	    NamedPipeChannels;			
 	}*/
+
 	
 	
 	@SuppressWarnings("unused") // Default constructor is for JAXB's use only--do not use elsewhere!

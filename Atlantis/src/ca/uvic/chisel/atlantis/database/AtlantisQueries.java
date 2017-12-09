@@ -590,7 +590,7 @@ class SelectSingleFunctionFromModule extends CommonFunctionResults {
 	}
 }
 
-// 9 interesting
+
 /**
  * Selects all functions that either start threads or have an unknown start.
  * Currently unused.

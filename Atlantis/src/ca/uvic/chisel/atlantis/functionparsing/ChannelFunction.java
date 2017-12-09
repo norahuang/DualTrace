@@ -70,5 +70,6 @@ public class ChannelFunction {
 
 	public void setCreateHandle(boolean createHandle) {
 		this.createHandle = createHandle;
+
 	}
 }

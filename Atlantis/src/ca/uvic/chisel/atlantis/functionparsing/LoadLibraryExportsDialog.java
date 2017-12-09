@@ -615,6 +615,7 @@ public class LoadLibraryExportsDialog extends TitleAreaDialog  {
 		List<Pair<Long, String>> functionsList = (ArrayList<Pair<Long, String>>)functionsTableViewer.getInput();
 		
 		if(functionsList.size() > 0) {
+
 			setChannelTypeFuncSet(functionsList);
 			FunctionsView functionsView = (FunctionsView) 
 					PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(FunctionsView.ID);
