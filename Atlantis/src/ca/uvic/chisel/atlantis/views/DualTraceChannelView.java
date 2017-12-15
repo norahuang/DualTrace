@@ -329,7 +329,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 						new FullFunctionMatchOfTrace(e1.getFullFunctionMatch(), c1.getTrace().getTraceName(),e1.getFunctionName()), channel, c1.getTrace().getTraceName());
 				channel.addEventToCloseList1(e);
 				
-			} else if (e1.getStage() == CommunicationStage.DATATRANS && Integer.parseInt(retval1)!=0) {
+			} else if (e1.getStage() == CommunicationStage.DATATRANS && !retval1.equals("00000000")) {
 				String messageSend1 = "";
 				String messageRecv1 = "";
 				if (e1.getFullFunctionMatch().getType() == FunctionType.send) {
@@ -342,7 +342,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 					String messageSend2= "";
 					String messageRecv2 = "";
 					String retval2 = e2.getFullFunctionMatch().getRetVal().substring(e2.getFullFunctionMatch().getRetVal().length()-8, 16);
-					if(Integer.parseInt(retval2)==0){
+					if(retval2.equals("00000000")){
 						continue;
 					}
 					if (e1.getFullFunctionMatch().getType() == FunctionType.send
