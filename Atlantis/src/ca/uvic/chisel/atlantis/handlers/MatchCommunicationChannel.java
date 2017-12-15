@@ -10,11 +10,11 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-import ca.uvic.chisel.atlantis.views.FindChannelTypeDialog;
+import ca.uvic.chisel.atlantis.views.MatchChannelTypeDialog;
 import ca.uvic.chisel.bfv.BigFileApplication;
 
 
-public class FindCommunicationChannel extends AbstractHandler {
+public class MatchCommunicationChannel extends AbstractHandler {
 	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -27,7 +27,7 @@ public class FindCommunicationChannel extends AbstractHandler {
 			return null;
 		}
 		
-		FindChannelTypeDialog dialog = new FindChannelTypeDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
+		MatchChannelTypeDialog dialog = new MatchChannelTypeDialog(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell());
 		dialog.create();
         dialog.open();
 		return null;

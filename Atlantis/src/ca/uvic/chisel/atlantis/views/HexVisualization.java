@@ -8,6 +8,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 
+import org.apache.commons.lang3.StringUtils;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ControlEvent;
 import org.eclipse.swt.events.ControlListener;
@@ -33,7 +34,6 @@ import org.eclipse.ui.IWorkbenchPartReference;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.ViewPart;
 
-import org.apache.commons.lang3.StringUtils;
 import ca.uvic.chisel.atlantis.controls.HexEditControl;
 import ca.uvic.chisel.atlantis.datacache.AtlantisFileModelDataLayer;
 import ca.uvic.chisel.atlantis.datacache.MemoryQueryResults;

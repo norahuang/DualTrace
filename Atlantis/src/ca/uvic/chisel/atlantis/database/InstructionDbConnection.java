@@ -248,7 +248,7 @@ public class InstructionDbConnection extends DbConnectionManager {
 		int retLineNumber = 0;
 		GetFunctionRetLineNumber q = getFunctionRetLineStatement;
 		try {
-			q.setParam(q.funCallLineNumber, startLineNumber -1);
+			q.setParam(q.funCallLineNumber, startLineNumber);
 			TypedResultSet rs = q.executeQuery();
 			if(rs.next()){
 			retLineNumber = rs.get(q.startLineNum);

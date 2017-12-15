@@ -1,5 +1,7 @@
 package ca.uvic.chisel.atlantis.functionparsing;
 
+import ca.uvic.chisel.bfv.dualtracechannel.FunctionType;
+
 public class NamedPipeFunctions{
 	
     private static final NamedPipeFunctions instance = new NamedPipeFunctions();
@@ -10,12 +12,13 @@ public class NamedPipeFunctions{
 	//private constructor to avoid client applications to use constructor
     private NamedPipeFunctions(){
     	namedPipe = new ChannelType("NamedPipeChannel");
-		namedPipe.addFuncInChannelOpenStage(new ChannelFunction(CreateNamedPipeAFuncName, RetrunValReg, CreateNamedPipeFileNameReg, null, null, true));
-    	namedPipe.addFuncInChannelOpenStage(new ChannelFunction(CreateFileAFuncName, RetrunValReg, CreateFileFileNameReg, null, null, true));
-    	namedPipe.addFuncInDataTransStage(new ChannelFunction(WriteFileFuncName, RetrunValReg, WriteFileFileHandleReg, WriteFileDataAddrReg, null, false));
-    	namedPipe.addFuncInDataTransStage(new ChannelFunction(ReadFileFuncName, RetrunValReg, ReadFileFileHandleReg, null, ReadFileDataAddrReg, false));
-    	namedPipe.addFuncInDataTransStage(new ChannelFunction(GetOverlappedResultFuncName, RetrunValReg, GetOverlappedResultFileHandleReg, null, GetOverlappedResultOverLapReg, false));
-    	namedPipe.addFuncInChannelCloseStage(new ChannelFunction(CloseHandleFuncName, RetrunValReg, CloseHandleFileHandleReg, null, null, false));
+    	String dataAddressIndex = namedPipe.getChannelTypeName() + ReadFileDataAddrReg.getName();
+		namedPipe.addFuncInChannelOpenStage(new ChannelFunction(CreateNamedPipeAFuncName, RetrunValReg, CreateNamedPipeFileNameReg, null, null, null, null, true, FunctionType.na, null));
+    	namedPipe.addFuncInChannelOpenStage(new ChannelFunction(CreateFileAFuncName, RetrunValReg, CreateFileFileNameReg, null, null, null, null, true, FunctionType.na, null));
+    	namedPipe.addFuncInDataTransStage(new ChannelFunction(WriteFileFuncName, RetrunValReg, WriteFileFileHandleReg, WriteFileDataAddrReg, null, WriteFileDataLenReg, null,false, FunctionType.send, null));
+    	namedPipe.addFuncInDataTransStage(new ChannelFunction(ReadFileFuncName, RetrunValReg, ReadFileFileHandleReg, null, ReadFileDataAddrReg, null, ReadFileDataBufLenReg, false, FunctionType.recv, dataAddressIndex));
+    	namedPipe.addFuncInDataTransStage(new ChannelFunction(GetOverlappedResultFuncName, RetrunValReg, GetOverlappedResultFileHandleReg, null, GetOverlappedResultOverLapReg, null, null,false, FunctionType.check, dataAddressIndex));
+    	namedPipe.addFuncInChannelCloseStage(new ChannelFunction(CloseHandleFuncName, RetrunValReg, CloseHandleFileHandleReg, null, null, null, null, false, FunctionType.na, null));
     	
     }
     
@@ -38,14 +41,17 @@ public class NamedPipeFunctions{
 	private String WriteFileFuncName = "WriteFile";
 	private Register WriteFileFileHandleReg = new Register("RCX", true);
 	private Register WriteFileDataAddrReg = new Register("RDX", false);
+	private Register WriteFileDataLenReg = new Register("R8", true);
 	private Instruction ReadFile;
 	private String ReadFileFuncName = "ReadFile";
 	private Register ReadFileFileHandleReg = new Register("RCX", true);
 	private Register ReadFileDataAddrReg = new Register("RDX", false);
+	private Register ReadFileDataBufLenReg = new Register("R8", true);
 	private Instruction GetOverlappedResult;
 	private String GetOverlappedResultFuncName = "GetOverlappedResult";
 	private Register GetOverlappedResultFileHandleReg = new Register("RCX", true);
 	private Register GetOverlappedResultOverLapReg = new Register("RDX", false);
+	private Register GetOverlappedResultLenReg = new Register("R8", false);
 	private Instruction CloseHandle;
 	private String CloseHandleFuncName = "CloseHandle";
 	private Register CloseHandleFileHandleReg = new Register("RCX", true);

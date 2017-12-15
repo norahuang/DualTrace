@@ -1,6 +1,8 @@
 package ca.uvic.chisel.atlantis.tracedisplayer;
 
+import java.math.BigInteger;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.eclipse.jface.text.ITextSelection;
@@ -17,6 +19,7 @@ import ca.uvic.chisel.atlantis.AtlantisActivator;
 import ca.uvic.chisel.atlantis.bytecodeparsing.AtlantisBinaryFormat;
 import ca.uvic.chisel.atlantis.eventtracevisualization.AssemblyTraceVisualizationView;
 import ca.uvic.chisel.atlantis.eventtracevisualization.ThreadEventTraceVisualizationView;
+import ca.uvic.chisel.atlantis.functionparsing.ChannelFunctionInstruction;
 import ca.uvic.chisel.atlantis.functionparsing.ChannelTypeInstruction;
 import ca.uvic.chisel.atlantis.functionparsing.TCPUDPFunctions;
 import ca.uvic.chisel.atlantis.handlers.GenerateMemoryViewHandler;
@@ -37,20 +40,57 @@ public class AtlantisTraceEditor extends BigFileEditor {
 	public static final String CONTEXT_MENU_ID = "#TraceDisplayerContext";
 	private TCPUDPFunctions tcpudpFunctions;
 	private Map<String,ChannelTypeInstruction> channelTypeIncMap = new HashMap<String, ChannelTypeInstruction>();
+	private Map<String,BigInteger> dataAddressMap = new HashMap<String, BigInteger>();
+	private Map<String,Long> dataBufLenMap = new HashMap<String, Long>();
 	
+	public Map<String, BigInteger> getDataAddressMap() {
+		return dataAddressMap;
+	}
+
+	public void setDataAddressMap(Map<String, BigInteger> dataAddressMap) {
+		this.dataAddressMap = dataAddressMap;
+	}
+
+	public void setChannelTypeIncMap(Map<String, ChannelTypeInstruction> channelTypeIncMap) {
+		this.channelTypeIncMap = channelTypeIncMap;
+	}
+
 	public Map<String,ChannelTypeInstruction> getChannelTypeIncMap() {
 		return channelTypeIncMap;
 	}
 	
-	public ChannelTypeInstruction getChannelTypeInc(String ChannelTypeName, boolean createWhenNull) {
+	public ChannelTypeInstruction getChannelTypeInc(String ChannelTypeName) {
+        return channelTypeIncMap.get(ChannelTypeName);
+    }
+	
+	public void addAllToChannelOpenStageList(String ChannelTypeName, List<ChannelFunctionInstruction> functionList) {
 		ChannelTypeInstruction c = channelTypeIncMap.get(ChannelTypeName);
-		if(c == null && createWhenNull){
+		if(c == null){
 			c = new ChannelTypeInstruction(ChannelTypeName);
 		}
-        return c;
+		c.getChannelOpenStageList().addAll(functionList);
+		this.channelTypeIncMap.put(c.getChannelTypeName(),c);
+    }
+	
+	public void addAllToDataTransStageList(String ChannelTypeName, List<ChannelFunctionInstruction> functionList) {
+		ChannelTypeInstruction c = channelTypeIncMap.get(ChannelTypeName);
+		if(c == null){
+			c = new ChannelTypeInstruction(ChannelTypeName);
+		}
+		c.getDataTransStageList().addAll(functionList);
+		this.channelTypeIncMap.put(c.getChannelTypeName(),c);
+    }
+	
+	public void addAllToChannelCloseStageList(String ChannelTypeName, List<ChannelFunctionInstruction> functionList) {
+		ChannelTypeInstruction c = channelTypeIncMap.get(ChannelTypeName);
+		if(c == null){
+			c = new ChannelTypeInstruction(ChannelTypeName);
+		}
+		c.getChannelCloseStageList().addAll(functionList);
+		this.channelTypeIncMap.put(c.getChannelTypeName(),c);
     }
 
-	public void addChannelType(ChannelTypeInstruction c) {
+	public void addChannelTypeInc(ChannelTypeInstruction c) {
 		this.channelTypeIncMap.put(c.getChannelTypeName(),c);
 	}
 
@@ -278,4 +318,20 @@ public class AtlantisTraceEditor extends BigFileEditor {
 		}
 	}
 	
+	
+	public void addToDataAddressMap(String index, BigInteger address){
+		this.dataAddressMap.put(index, address);
+	}
+	
+	public BigInteger getFromDataAddressMap(String index){
+		return this.dataAddressMap.get(index);
+	}
+	
+	public void addToDataBufLenMap(String index, Long bufLen){
+		this.dataBufLenMap.put(index, bufLen);
+	}
+	
+	public Long getFromDataBufLenMap(String index){
+		return this.dataBufLenMap.get(index);
+	}
 }

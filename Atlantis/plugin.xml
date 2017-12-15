@@ -921,6 +921,11 @@
             id="ca.uvic.chisel.atlantis.handlers.FindCommunicationChannel"
             name="Find Channels">
       </command>
+      <command
+            defaultHandler="ca.uvic.chisel.atlantis.handlers.MatchCommunicationChannel"
+            id="ca.uvic.chisel.atlantis.handlers.MatchCommunicationChannel"
+            name="Find Channels">
+      </command>
    </extension>
    <extension
 		point="org.eclipse.ui.handlers">
@@ -1026,8 +1031,15 @@
                label="Dual Trace Tool">  
             <command
                commandId="ca.uvic.chisel.atlantis.handlers.FindCommunicationChannel"
-               label="Find Communication Channels"
-               style="push">
+               label="Find Communication Channel Ends"
+               style="push"
+               tooltip="Find all channel ends in each side of the open dual-trace ">
+            </command>
+            <command
+               commandId="ca.uvic.chisel.atlantis.handlers.MatchCommunicationChannel"
+               label="Match Communication Channels"
+               style="push"
+               tooltip="Find all matched channels for the open dual-trace ">
             </command>
             <command
                commandId="ca.uvic.chisel.atlantis.commands.LoadLibraryExports"

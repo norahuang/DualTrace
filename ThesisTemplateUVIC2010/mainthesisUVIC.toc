@@ -6,78 +6,6 @@
 \contentsline {chapter}{Acknowledgements}{ix}
 \contentsline {chapter}{Dedication}{x}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
-<<<<<<< HEAD
-\contentsline {chapter}{\numberline {2}Methodology}{2}
-\contentsline {section}{\numberline {2.1}Define the Problem}{2}
-\contentsline {section}{\numberline {2.2}Obtain Background Knowledge}{3}
-\contentsline {section}{\numberline {2.3}Model the Communication Channels}{3}
-\contentsline {section}{\numberline {2.4}Develop the Dual Trace Synchronization Algorithms}{3}
-\contentsline {section}{\numberline {2.5}Apply the Channel Models to Windows APIs}{3}
-\contentsline {section}{\numberline {2.6}Implement the Trace Synchronization Algorithms}{4}
-\contentsline {section}{\numberline {2.7}Evaluate the Communication Channel Rebuilt Feature in Atlantis}{4}
-\contentsline {chapter}{\numberline {3}Background}{5}
-\contentsline {section}{\numberline {3.1}Software Security}{5}
-\contentsline {section}{\numberline {3.2}Software Vulnerability Detection}{6}
-\contentsline {section}{\numberline {3.3}Assembly Level Trace}{6}
-\contentsline {section}{\numberline {3.4}Software Interaction}{6}
-\contentsline {section}{\numberline {3.5}Atlantis}{6}
-\contentsline {section}{\numberline {3.6}Windows Communication Foundation}{7}
-\contentsline {section}{\numberline {3.7}Assembly Calling Convention}{7}
-\contentsline {chapter}{\numberline {4}Channel Modeling}{9}
-\contentsline {section}{\numberline {4.1}General Communication Model}{9}
-\contentsline {section}{\numberline {4.2}Data Transfer Model in Different Communication Methods}{10}
-\contentsline {subsection}{\numberline {4.2.1}Data Transfer Model For TCP}{10}
-\contentsline {subsection}{\numberline {4.2.2}Data Transfer Model For UDP}{11}
-\contentsline {subsection}{\numberline {4.2.3}Data Transfer Model For Named Pipe}{12}
-\contentsline {chapter}{\numberline {5}Apply the Model on Windows C++ API}{14}
-\contentsline {section}{\numberline {5.1}Named Pipes Channel}{14}
-\contentsline {subsection}{\numberline {5.1.1}Important Channel Parameters}{15}
-\contentsline {subsubsection}{Blocking/Non-Blocking}{15}
-\contentsline {subsubsection}{Synchronous/Asynchronous}{15}
-\contentsline {subsection}{\numberline {5.1.2}Send/Receive Scenarios}{15}
-\contentsline {subsection}{\numberline {5.1.3}Function Calls In Each Communication Stage}{16}
-\contentsline {subsubsection}{Synchronous}{17}
-\contentsline {subsubsection}{Asynchronous}{17}
-\contentsline {section}{\numberline {5.2}MQMS Channel}{18}
-\contentsline {subsection}{\numberline {5.2.1}Important Channel Parameters}{19}
-\contentsline {subsubsection}{Synchronous/Asynchronous Receiving}{19}
-\contentsline {subsubsection}{Asynchronous Receiving With Call Back Functio or Completion port}{20}
-\contentsline {subsubsection}{Message Properties Description Structure}{20}
-\contentsline {subsection}{\numberline {5.2.2}Send/Receive Scenarios}{20}
-\contentsline {subsection}{\numberline {5.2.3}Function Calls In Each Communication Stage}{20}
-\contentsline {subsubsection}{Synchronous Receiving}{21}
-\contentsline {subsubsection}{Asynchronous Receiving with Call Back Functions}{21}
-\contentsline {subsubsection}{Asynchronous Receiving without Call Back Functions}{21}
-\contentsline {section}{\numberline {5.3}TCP/UDP Socket Channel}{22}
-\contentsline {section}{\numberline {5.4}Verification}{22}
-\contentsline {subsection}{\numberline {5.4.1}Executable Disassemble}{22}
-\contentsline {chapter}{\numberline {6}Channel Information Retrieval Algorithms}{24}
-\contentsline {section}{\numberline {6.1}Channel Information Retrieval Algorithm for TCP}{24}
-\contentsline {section}{\numberline {6.2}Channel Information Retrieval Algorithm for UDP}{29}
-\contentsline {section}{\numberline {6.3}Channel Information Retrieval Algorithm for Named pipe}{32}
-\contentsline {chapter}{\numberline {7}Feature Prototype On Atlantis}{36}
-\contentsline {subsection}{\numberline {7.0.1}User Defined Channel Type By Json}{36}
-\contentsline {subsubsection}{Channel Searching}{36}
-\contentsline {subsubsection}{Communication Type Data Structure}{38}
-\contentsline {subsubsection}{Communication Type View}{39}
-\contentsline {subsection}{\numberline {7.0.2}Communication Event Searching}{40}
-\contentsline {subsubsection}{Record opened Channel}{41}
-\contentsline {subsubsection}{Search send and receive Message}{41}
-\contentsline {subsubsection}{Matching the send/receive messages pair}{41}
-\contentsline {subsubsection}{Matching Event Data Structure}{41}
-\contentsline {subsection}{\numberline {7.0.3}Navigation From Channel Search Result to Dual-Trace}{41}
-\contentsline {chapter}{\numberline {8}Evaluation}{43}
-\contentsline {subsection}{\numberline {8.0.1}Experiment Verification Design}{43}
-\contentsline {subsection}{\numberline {8.0.2}Result}{43}
-\contentsline {chapter}{\numberline {9}Conclusions}{46}
-\contentsline {section}{\numberline {9.1}Limitations}{46}
-\contentsline {subsection}{\numberline {9.1.1}Event Status: Success or Fail}{46}
-\contentsline {subsection}{\numberline {9.1.2}Match Events Distinguishing}{46}
-\contentsline {subsection}{\numberline {9.1.3}Match Events Ordering}{47}
-\contentsline {subsection}{\numberline {9.1.4}Buffer Sizes Of Sender and Receiver Mismatch}{47}
-\contentsline {chapter}{\numberline {A}Additional Information}{48}
-\contentsline {chapter}{Bibliography}{49}
-=======
 \contentsline {section}{\numberline {1.1}Define the Problem}{2}
 \contentsline {section}{\numberline {1.2}Obtain Background Knowledge}{2}
 \contentsline {section}{\numberline {1.3}Model the Communication Channels}{2}
@@ -93,7 +21,7 @@
 \contentsline {section}{\numberline {2.5}Atlantis}{5}
 \contentsline {section}{\numberline {2.6}Windows Communication Foundation}{6}
 \contentsline {section}{\numberline {2.7}Assembly Calling Convention}{6}
-\contentsline {chapter}{\numberline {3}Modelling}{8}
+\contentsline {chapter}{\numberline {3}Modeling}{8}
 \contentsline {section}{\numberline {3.1}Communication of Two Applications}{9}
 \contentsline {section}{\numberline {3.2}First Level Communication Model: General Model}{9}
 \contentsline {subsection}{\numberline {3.2.1}Modelling}{9}
@@ -114,8 +42,8 @@
 \contentsline {section}{\numberline {4.2}Channel Information Retrieval Algorithm for UDP}{28}
 \contentsline {section}{\numberline {4.3}Channel Information Retrieval Algorithm for Named pipe}{31}
 \contentsline {chapter}{\numberline {5}Feature Prototype On Atlantis}{35}
-\contentsline {subsection}{\numberline {5.0.1}User Defined Communication Type}{35}
-\contentsline {subsubsection}{Function Calls in the Traces}{35}
+\contentsline {subsection}{\numberline {5.0.1}User Defined Channel Type By Json}{35}
+\contentsline {subsubsection}{Channel Searching}{35}
 \contentsline {subsubsection}{Communication Type Data Structure}{37}
 \contentsline {subsubsection}{Communication Type View}{38}
 \contentsline {subsection}{\numberline {5.0.2}Communication Event Searching}{39}
@@ -123,9 +51,9 @@
 \contentsline {subsubsection}{Search send and receive Message}{40}
 \contentsline {subsubsection}{Matching the send/receive messages pair}{40}
 \contentsline {subsubsection}{Matching Event Data Structure}{40}
-\contentsline {subsection}{\numberline {5.0.3}Matching Event Visualization and Navigation}{40}
+\contentsline {subsection}{\numberline {5.0.3}Navigation From Channel Search Result to Dual-Trace}{40}
 \contentsline {chapter}{\numberline {6}Evaluation}{42}
-\contentsline {subsection}{\numberline {6.0.1}Test and Verification Design}{42}
+\contentsline {subsection}{\numberline {6.0.1}Experiment Verification Design}{42}
 \contentsline {subsection}{\numberline {6.0.2}Result}{42}
 \contentsline {chapter}{\numberline {7}Conclusions}{45}
 \contentsline {section}{\numberline {7.1}Limitations}{45}
@@ -135,4 +63,3 @@
 \contentsline {subsection}{\numberline {7.1.4}Buffer Sizes Of Sender and Receiver Mismatch}{46}
 \contentsline {chapter}{\numberline {A}Additional Information}{47}
 \contentsline {chapter}{Bibliography}{48}
->>>>>>> dbf06a633ced520911200a79b9a179fb20e14b6f

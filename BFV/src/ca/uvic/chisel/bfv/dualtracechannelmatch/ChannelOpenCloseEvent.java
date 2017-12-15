@@ -1,21 +1,26 @@
-package ca.uvic.chisel.bfv.dualtracechannel;
+package ca.uvic.chisel.bfv.dualtracechannelmatch;
 
-public class ChannelEvent implements Comparable<ChannelEvent> {
+import ca.uvic.chisel.bfv.dualtracechannel.CommunicationStage;
+import ca.uvic.chisel.bfv.dualtracechannel.FunctionType;
+
+public class ChannelOpenCloseEvent implements Comparable<ChannelOpenCloseEvent> {
 		private String functionName;
 		private CommunicationStage stage;
-		private FullFunctionMatch fullFunctionMatch;
-		private Channel channel;
+		private FullFunctionMatchOfTrace fullFunctionMatch;
+		private MatchChannel channel;
+		private String traceName;
 
 		
 		@SuppressWarnings("unused") // Default constructor is for JAXB's use only--do not use elsewhere!
-		private ChannelEvent() {}
+		private ChannelOpenCloseEvent() {}
 		
-		public ChannelEvent(String functionName, CommunicationStage stage, FullFunctionMatch fullFunctionMatch, Channel channel) {
+		public ChannelOpenCloseEvent(String functionName, CommunicationStage stage, FullFunctionMatchOfTrace fullFunctionMatch, MatchChannel channel, String traceName) {
 			super();		
+		    this.functionName = functionName;
 			this.stage = stage;
-			this.functionName = functionName;
 			this.fullFunctionMatch = fullFunctionMatch;
 			this.channel = channel;
+			this.traceName = traceName;
 		}
 		
 		@SuppressWarnings("restriction")
@@ -31,15 +36,15 @@ public class ChannelEvent implements Comparable<ChannelEvent> {
 			    	datatran = ",receive";
 			    }
 			}
-			return stage + datatran + ":"+ functionName + "() at line " + this.fullFunctionMatch.getEventStart().getLineElement().getLine();
+			return stage + datatran + ":"+ functionName + "() in "+ this.traceName +" at line " + this.fullFunctionMatch.getEventStart().getLineElement().getLine();
 		}
 
 		
-	    public Channel getChannel() {
+	    public MatchChannel getChannel() {
 			return channel;
 		}
 
-		public void setChannel(Channel channel) {
+		public void setChannel(MatchChannel channel) {
 			this.channel = channel;
 		}
 
@@ -52,11 +57,11 @@ public class ChannelEvent implements Comparable<ChannelEvent> {
 		}
 
 		
-		public FullFunctionMatch getFullFunctionMatch() {
+		public FullFunctionMatchOfTrace getFullFunctionMatch() {
 			return fullFunctionMatch;
 		}
 
-		public void setFullFunctionMatch(FullFunctionMatch fullFunctionMatch) {
+		public void setFullFunctionMatch(FullFunctionMatchOfTrace fullFunctionMatch) {
 			this.fullFunctionMatch = fullFunctionMatch;
 		}
 
@@ -75,7 +80,7 @@ public class ChannelEvent implements Comparable<ChannelEvent> {
 		 * @return -1 if this occurrence's location is before the other's, 1 if it is after the other's, or 0 if they have the same location
 		 */
 		@Override
-		public int compareTo(ChannelEvent other) {
+		public int compareTo(ChannelOpenCloseEvent other) {
 			if (other == null) {
 				return -1;
 			} 

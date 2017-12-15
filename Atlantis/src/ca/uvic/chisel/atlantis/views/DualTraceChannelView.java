@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.SortedMap;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
@@ -67,10 +68,16 @@ import ca.uvic.chisel.bfv.BigFileApplication;
 import ca.uvic.chisel.bfv.dualtracechannel.BfvFileWithAddrMatch;
 import ca.uvic.chisel.bfv.dualtracechannel.Channel;
 import ca.uvic.chisel.bfv.dualtracechannel.ChannelEvent;
-import ca.uvic.chisel.bfv.dualtracechannel.ChannelEvent.CommunicationStage;
 import ca.uvic.chisel.bfv.dualtracechannel.ChannelGroup;
+import ca.uvic.chisel.bfv.dualtracechannel.CommunicationStage;
 import ca.uvic.chisel.bfv.dualtracechannel.FullFunctionMatch;
+import ca.uvic.chisel.bfv.dualtracechannel.FunctionType;
 import ca.uvic.chisel.bfv.dualtracechannel.Trace;
+import ca.uvic.chisel.bfv.dualtracechannelmatch.ChannelDataTransEvent;
+import ca.uvic.chisel.bfv.dualtracechannelmatch.ChannelOpenCloseEvent;
+import ca.uvic.chisel.bfv.dualtracechannelmatch.FullFunctionMatchOfTrace;
+import ca.uvic.chisel.bfv.dualtracechannelmatch.MatchChannel;
+import ca.uvic.chisel.bfv.dualtracechannelmatch.MatchChannelGroup;
 import ca.uvic.chisel.bfv.editor.RegistryUtils;
 import ca.uvic.chisel.bfv.utils.BfvFileUtils;
 
@@ -80,14 +87,97 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 	private FileSearchResult searchResults = new FileSearchResult((FileSearchQuery) null);
 	// private Table resultTable;
 	private TreeViewer resultTableViewer;
+	private TreeViewer matchResultTableViewer;
 	private Action gotoFunctionEnd;
 	private Action removeChannel;
+	private Action gotoFunctionEndInMatch;
+	private Action removeChannelInMatch;
 	FullFunctionMatch fullFunctionMatch = null;
 	private AtlantisTraceEditor traceEditor1;
 	private AtlantisTraceEditor traceEditor2;
 
 	public DualTraceChannelView() {
 		this.searchResults = new FileSearchResult((FileSearchQuery) null);
+	}
+
+	private class MatchChannelContentPrivider implements ITreeContentProvider {
+
+		private Collection<MatchChannelGroup> channelGroups;
+
+		@Override
+		public void dispose() {
+		}
+
+		@Override
+		public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
+			if (newInput instanceof Collection<?>) {
+				channelGroups = new ArrayList<MatchChannelGroup>(); // clear out
+																	// the
+				// old data
+				Collection<?> input = (Collection<?>) newInput;
+				for (Object o : input) { // add in the new data
+					channelGroups.add((MatchChannelGroup) o);
+				}
+			}
+		}
+
+		@Override
+		public Object[] getChildren(Object parentElement) {
+			if (parentElement instanceof MatchChannelGroup) {
+				MatchChannelGroup group = (MatchChannelGroup) parentElement;
+				return group.getChannels().toArray();
+			} else if (parentElement instanceof MatchChannel) {
+				MatchChannel channel = (MatchChannel) parentElement;
+				Object[] openEventsInTrace1 = channel.getOpenEventsInTrace1().toArray();
+				Object[] openEventsInTrace2 = ArrayUtils.addAll(openEventsInTrace1,
+						channel.getOpenEventsInTrace2().toArray());
+				Object[] closeEventsInTrace1 = ArrayUtils.addAll(openEventsInTrace2,
+						channel.getCloseEventsInTrace1().toArray());
+				Object[] closeEventsInTrace2 = ArrayUtils.addAll(closeEventsInTrace1,
+						channel.getCloseEventsInTrace2().toArray());
+				Object[] channelDatatransEvents = ArrayUtils.addAll(closeEventsInTrace2,
+						channel.getChannelDatatransEvents().toArray());
+				return channelDatatransEvents;
+			} else if (parentElement instanceof ChannelDataTransEvent) {
+				ChannelDataTransEvent event = (ChannelDataTransEvent) parentElement;
+				Object[] sendrecv = new Object[] { event.getSend(), event.getRecv() };
+				return sendrecv;
+			} else {
+				return null;
+			}
+		}
+
+		@Override
+		public Object[] getElements(Object inputElement) {
+			return channelGroups.toArray();
+		}
+
+		@Override
+		public boolean hasChildren(Object element) {
+			if (element instanceof MatchChannelGroup) {
+				return true;
+			} else if (element instanceof MatchChannel) {
+				return true;
+			} else if (element instanceof ChannelDataTransEvent) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+
+		@Override
+		public Object getParent(Object element) {
+			if (element instanceof ChannelDataTransEvent) {
+				return ((ChannelDataTransEvent) element).getChannel();
+			} else if (element instanceof ChannelOpenCloseEvent) {
+				return ((ChannelOpenCloseEvent) element).getChannel();
+			} else if (element instanceof MatchChannel) {
+				return ((MatchChannel) element).getChannelGroup();
+			} else {
+				return null;
+			}
+		}
+
 	}
 
 	private class ChannelContentProvider implements ITreeContentProvider {
@@ -162,14 +252,16 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 		}
 
 	}
-	
+
 	public void getChannels(List<String> selectedChannels, IEditorPart editorPart1, IEditorPart editorPart2) {
 		Collection<ChannelGroup> channelGroups = new ArrayList<ChannelGroup>();
-		for(String channel :  selectedChannels){
-			if(((AtlantisTraceEditor) editorPart1).getChannelTypeInc(channel, false) == null || ((AtlantisTraceEditor) editorPart2).getChannelTypeInc(channel, false) == null ){
+		for (String channel : selectedChannels) {
+			if (((AtlantisTraceEditor) editorPart1).getChannelTypeInc(channel) == null
+					|| ((AtlantisTraceEditor) editorPart2).getChannelTypeInc(channel) == null) {
 				Throwable throwable = new Throwable("No corresponding library exports has been loaded for " + channel);
-				BigFileApplication.showErrorDialog("No corresponding library exports has been loaded for " + channel,"Please load library exports from \"Dual trace Tool\" Menu for both traces",throwable);
-			    return;
+				BigFileApplication.showErrorDialog("No corresponding library exports has been loaded for " + channel,
+						"Please load library exports from \"Dual trace Tool\" Menu for both traces", throwable);
+				return;
 			}
 			Trace trace1 = new Trace(((AtlantisTraceEditor) editorPart1).getTitle());
 			Trace trace2 = new Trace(((AtlantisTraceEditor) editorPart2).getTitle());
@@ -180,12 +272,121 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 			searchChannels(editorFile2, (AtlantisTraceEditor) editorPart2, trace2, channel);
 			channelGroups.add(channelGroup);
 		}
-		
-			resultTableViewer.setInput(channelGroups);
-			traceEditor1 = (AtlantisTraceEditor) editorPart1;
-			traceEditor2 = (AtlantisTraceEditor) editorPart2;
+
+		resultTableViewer.setInput(channelGroups);
+		traceEditor1 = (AtlantisTraceEditor) editorPart1;
+		traceEditor2 = (AtlantisTraceEditor) editorPart2;
 	}
 
+	public void getMatchChannels(List<String> selectedChannels, IEditorPart editorPart1, IEditorPart editorPart2) {
+		Collection<MatchChannelGroup> channelGroups = new ArrayList<MatchChannelGroup>();
+		Trace trace1 = new Trace(((AtlantisTraceEditor) editorPart1).getTitle());
+		Trace trace2 = new Trace(((AtlantisTraceEditor) editorPart2).getTitle());
+		IFile editorFile1 = BfvFileUtils.convertFileIFile(((AtlantisTraceEditor) editorPart1).getEmptyFile());
+		IFile editorFile2 = BfvFileUtils.convertFileIFile(((AtlantisTraceEditor) editorPart2).getEmptyFile());
+		traceEditor1 = (AtlantisTraceEditor) editorPart1;
+		traceEditor2 = (AtlantisTraceEditor) editorPart2;
+		for (String channelGroupName : selectedChannels) {
+			if (((AtlantisTraceEditor) editorPart1).getChannelTypeInc(channelGroupName) == null
+					|| ((AtlantisTraceEditor) editorPart2).getChannelTypeInc(channelGroupName) == null) {
+				Throwable throwable = new Throwable(
+						"No corresponding library exports has been loaded for " + channelGroupName);
+				BigFileApplication.showErrorDialog(
+						"No corresponding library exports has been loaded for " + channelGroupName,
+						"Please load library exports from \"Dual trace Tool\" Menu for both traces", throwable);
+				return;
+			}
+
+			searchChannels(editorFile1, (AtlantisTraceEditor) editorPart1, trace1, channelGroupName);
+			searchChannels(editorFile2, (AtlantisTraceEditor) editorPart2, trace2, channelGroupName);
+			MatchChannelGroup channelGroup = new MatchChannelGroup(channelGroupName,
+					((AtlantisTraceEditor) editorPart1).getTitle(), ((AtlantisTraceEditor) editorPart2).getTitle());
+			for (Channel c1 : trace1.getChannels()) {
+				for (Channel c2 : trace2.getChannels()) {
+					if (c1.getChannelID().equals(c2.getChannelID())) {
+						MatchChannel channel = matchTwoChannels(c1, c2, channelGroup);
+						channelGroup.addChannelToGroup(channel);
+					}
+				}
+			}
+			
+			channelGroups.add(channelGroup);
+		}
+
+		matchResultTableViewer.setInput(channelGroups);
+	}
+
+	private MatchChannel matchTwoChannels(Channel c1, Channel c2, MatchChannelGroup channelGroup) {
+		MatchChannel channel = new MatchChannel(c1.getChannelID(), channelGroup);
+		for (ChannelEvent e1 : c1.getEvents()) {
+			String retval1 = e1.getFullFunctionMatch().getRetVal().substring(e1.getFullFunctionMatch().getRetVal().length()-8, 16);
+			if (e1.getStage() == CommunicationStage.OPENING) {
+				ChannelOpenCloseEvent e = new ChannelOpenCloseEvent(e1.getFunctionName(), CommunicationStage.OPENING,
+						new FullFunctionMatchOfTrace(e1.getFullFunctionMatch(), c1.getTrace().getTraceName(),e1.getFunctionName()), channel, c1.getTrace().getTraceName());
+				channel.addEventToOpenList1(e);
+			} else if (e1.getStage() == CommunicationStage.CLOSING) {
+				ChannelOpenCloseEvent e = new ChannelOpenCloseEvent(e1.getFunctionName(), CommunicationStage.CLOSING,
+						new FullFunctionMatchOfTrace(e1.getFullFunctionMatch(), c1.getTrace().getTraceName(),e1.getFunctionName()), channel, c1.getTrace().getTraceName());
+				channel.addEventToCloseList1(e);
+				
+			} else if (e1.getStage() == CommunicationStage.DATATRANS && Integer.parseInt(retval1)!=0) {
+				String messageSend1 = "";
+				String messageRecv1 = "";
+				if (e1.getFullFunctionMatch().getType() == FunctionType.send) {
+					messageSend1 = e1.getFullFunctionMatch().getEventStart().getMessage();
+				} else {
+					messageRecv1 = e1.getFullFunctionMatch().getEventEnd().getMessage();
+				}
+
+				for (ChannelEvent e2 : c2.getEvents()) {
+					String messageSend2= "";
+					String messageRecv2 = "";
+					String retval2 = e2.getFullFunctionMatch().getRetVal().substring(e2.getFullFunctionMatch().getRetVal().length()-8, 16);
+					if(Integer.parseInt(retval2)==0){
+						continue;
+					}
+					if (e1.getFullFunctionMatch().getType() == FunctionType.send
+							&& e2.getFullFunctionMatch().getType() != FunctionType.send) {
+						messageRecv2 = e2.getFullFunctionMatch().getEventEnd().getMessage();
+					} else if (e1.getFullFunctionMatch().getType() != FunctionType.send
+							&& e2.getFullFunctionMatch().getType() == FunctionType.send) {
+						messageSend2 = e2.getFullFunctionMatch().getEventStart().getMessage();
+					}
+					
+					
+					if (!messageSend1.equals("") && !messageRecv2.equals("") && messageRecv2.startsWith(messageSend1)) {
+						FullFunctionMatchOfTrace match1 = new FullFunctionMatchOfTrace(e1.getFullFunctionMatch(),
+								e1.getChannel().getTrace().getTraceName(),e1.getFunctionName());
+						FullFunctionMatchOfTrace match2 = new FullFunctionMatchOfTrace(e2.getFullFunctionMatch(),
+								e2.getChannel().getTrace().getTraceName(),e2.getFunctionName());
+						ChannelDataTransEvent dataTransEvent = new ChannelDataTransEvent(match1, match2, messageSend1,channel);
+						channel.addEventToDataTransList(dataTransEvent);
+					}else if (!messageSend2.equals("") && !messageRecv1.equals("") && messageRecv1.startsWith(messageSend2)) {
+						FullFunctionMatchOfTrace match1 = new FullFunctionMatchOfTrace(e1.getFullFunctionMatch(),
+								e1.getChannel().getTrace().getTraceName(),e1.getFunctionName());
+						FullFunctionMatchOfTrace match2 = new FullFunctionMatchOfTrace(e2.getFullFunctionMatch(),
+								e2.getChannel().getTrace().getTraceName(),e2.getFunctionName());
+						ChannelDataTransEvent dataTransEvent = new ChannelDataTransEvent(match1, match2, messageSend2,channel);
+						channel.addEventToDataTransList(dataTransEvent);
+					}
+				}
+			}
+
+		}
+		for (ChannelEvent e2 : c2.getEvents()) {
+			if (e2.getStage() == CommunicationStage.OPENING) {
+				ChannelOpenCloseEvent e = new ChannelOpenCloseEvent(e2.getFunctionName(), CommunicationStage.OPENING,
+						new FullFunctionMatchOfTrace(e2.getFullFunctionMatch(), c2.getTrace().getTraceName(),e2.getFunctionName()), channel, c2.getTrace().getTraceName());
+				channel.addEventToOpenList1(e);
+			} else if (e2.getStage() == CommunicationStage.CLOSING) {
+				ChannelOpenCloseEvent e = new ChannelOpenCloseEvent(e2.getFunctionName(), CommunicationStage.CLOSING,
+						new FullFunctionMatchOfTrace(e2.getFullFunctionMatch(), c2.getTrace().getTraceName(),e2.getFunctionName()), channel, c2.getTrace().getTraceName());
+				channel.addEventToCloseList1(e);
+			}
+		}
+
+		return channel;
+	}
 
 	/**
 	 * Update this view with the current comments data from the File Editor
@@ -204,6 +405,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 	@Override
 	public void partClosed(IWorkbenchPartReference arg0) {
 		resultTableViewer.setInput(new ArrayList<ChannelGroup>());
+		matchResultTableViewer.setInput(new ArrayList<ChannelGroup>());
 	}
 
 	@Override
@@ -238,6 +440,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 
 	public void refresh() {
 		resultTableViewer.refresh();
+		matchResultTableViewer.refresh();
 	}
 
 	public void clearContents() {
@@ -258,10 +461,21 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 				DualTraceChannelView.this.doubleClick(e);
 			}
 		});
+
+		matchResultTableViewer = new TreeViewer(parent, SWT.V_SCROLL);
+		matchResultTableViewer.setContentProvider(new MatchChannelContentPrivider());
+		matchResultTableViewer.setInput(new ArrayList<ChannelGroup>());
+		createContextMenuForMatch();
+		matchResultTableViewer.addDoubleClickListener(new IDoubleClickListener() {
+			@Override
+			public void doubleClick(DoubleClickEvent e) {
+				DualTraceChannelView.this.doubleClickForMatch(e);
+			}
+		});
 	}
-	
+
 	private void doubleClick(DoubleClickEvent e) {
-		if(!e.getSelection().isEmpty()) {
+		if (!e.getSelection().isEmpty()) {
 
 			ITreeSelection selection = (ITreeSelection) e.getSelection();
 			Object selected = selection.getFirstElement();
@@ -282,17 +496,20 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 					if (activeTraceDisplayer != null) {
 						BfvFileWithAddrMatch match = channelEvent.getFullFunctionMatch().getEventStart();
 						BigInteger targetMemoryAdd = match.getTargetMemoryAddress();
-						if (targetMemoryAdd != null){
+						if (targetMemoryAdd != null) {
 							gotoAddressOfMessage(targetMemoryAdd);
 						}
-						
-						activeTraceDisplayer.getProjectionViewer()
-								.gotoLineAtOffset(match.getLineElement().getLine(), 0);
+
+						activeTraceDisplayer.getProjectionViewer().gotoLineAtOffset(match.getLineElement().getLine(),
+								0);
 						activeTraceDisplayer.triggerCursorPositionChanged();
-						
+
 						RegistersView registersView = getRegistersView();
-						if(registersView != null) {
-							registersView.refresh(); // suspicious, this does not occur when the new line's memory data is available
+						if (registersView != null) {
+							registersView.refresh(); // suspicious, this does
+														// not occur when the
+														// new line's memory
+														// data is available
 						}
 					}
 
@@ -304,10 +521,59 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 				return;
 			}
 
-		
 		}
 	}
 	
+	private void doubleClickForMatch(DoubleClickEvent e) {
+		if (!e.getSelection().isEmpty()) {
+
+			ITreeSelection selection = (ITreeSelection) e.getSelection();
+			Object selected = selection.getFirstElement();
+
+			AtlantisTraceEditor activeTraceDisplayer = null;
+
+			if (selected instanceof FullFunctionMatchOfTrace) {
+				FullFunctionMatchOfTrace functionMatch = (FullFunctionMatchOfTrace) selected;
+				String traceName = functionMatch.getTraceName();
+				if (traceEditor1.getTitle().equals(traceName)) {
+					activeTraceDisplayer = (AtlantisTraceEditor) traceEditor1;
+				} else if (traceEditor2.getTitle().equals(traceName)) {
+					activeTraceDisplayer = (AtlantisTraceEditor) traceEditor2;
+				} else {
+					return;
+				}
+				try {
+					if (activeTraceDisplayer != null) {
+						BfvFileWithAddrMatch match = functionMatch.getEventStart();
+						BigInteger targetMemoryAdd = match.getTargetMemoryAddress();
+						if (targetMemoryAdd != null) {
+							gotoAddressOfMessage(targetMemoryAdd);
+						}
+
+						activeTraceDisplayer.getProjectionViewer().gotoLineAtOffset(match.getLineElement().getLine(),
+								0);
+						activeTraceDisplayer.triggerCursorPositionChanged();
+
+						RegistersView registersView = getRegistersView();
+						if (registersView != null) {
+							registersView.refresh(); // suspicious, this does
+														// not occur when the
+														// new line's memory
+														// data is available
+						}
+					}
+
+				} catch (Exception ex) {
+					System.err.println("Error jumping to line");
+					ex.printStackTrace();
+				}
+			} else {
+				return;
+			}
+
+		}
+	}
+
 	private void createContextMenu() {
 
 		createActions();
@@ -328,6 +594,33 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 
 		// Register menu for extension.
 		getSite().registerContextMenu(menuMgr, resultTableViewer);
+		
+		
+		//
+
+	}
+	
+	private void createContextMenuForMatch() {
+		// Create menu manager.
+		MenuManager menuMgr = new MenuManager();
+		menuMgr.setRemoveAllWhenShown(true);
+		menuMgr.addMenuListener(new IMenuListener() {
+			@Override
+			public void menuAboutToShow(IMenuManager mgr) {
+				fillContextMenuForMatch(mgr);
+			}
+		});
+
+		// Create menu.
+		Menu menu = menuMgr.createContextMenu(matchResultTableViewer.getControl());
+		matchResultTableViewer.getControl().setMenu(menu);
+
+		// Register menu for extension.
+		getSite().registerContextMenu(menuMgr, matchResultTableViewer);
+		
+		
+		//
+
 	}
 
 	private void fillContextMenu(IMenuManager mgr) {
@@ -338,9 +631,25 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 			mgr.add(gotoFunctionEnd);
 			return;
 		}
-		
+
 		if (selected instanceof Channel) {
 			mgr.add(removeChannel);
+			return;
+		}
+
+	}
+	
+	private void fillContextMenuForMatch(IMenuManager mgr) {
+		ITreeSelection mselection = (ITreeSelection) matchResultTableViewer.getSelection();
+		Object mselected = mselection.getFirstElement();
+
+		if (mselected instanceof ChannelOpenCloseEvent || mselected instanceof FullFunctionMatchOfTrace) {
+			mgr.add(gotoFunctionEndInMatch);
+			return;
+		}
+
+		if (mselected instanceof MatchChannel) {
+			mgr.add(removeChannelInMatch);
 			return;
 		}
 
@@ -363,55 +672,50 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date date = new Date();
 		System.out.println("Starting database function table search at time " + dateFormat.format(date));
-		
+
 		Map<String, List<FullFunctionMatch>> channelOpenStagefuns = new HashMap<String, List<FullFunctionMatch>>();
 		Map<String, List<FullFunctionMatch>> dataTransStagefuns = new HashMap<String, List<FullFunctionMatch>>();
 		Map<String, List<FullFunctionMatch>> channelCloseStagefuns = new HashMap<String, List<FullFunctionMatch>>();
-		
-		ChannelTypeInstruction channelTypeInc = editor.getChannelTypeInc(channel, false);
-		for(ChannelFunctionInstruction function : channelTypeInc.getChannelOpenStageList()){
-			List<FullFunctionMatch> functionList = searchFullFunction(currentFile, editor, trace,function);
+
+		ChannelTypeInstruction channelTypeInc = editor.getChannelTypeInc(channel);
+		for (ChannelFunctionInstruction function : channelTypeInc.getChannelOpenStageList()) {
+			List<FullFunctionMatch> functionList = searchFullFunction(currentFile, editor, trace, function);
 			channelOpenStagefuns.put(function.getFunction().getFunctionName(), functionList);
 		}
-		
-		for(ChannelFunctionInstruction function : channelTypeInc.getDataTransStageList()){
-			List<FullFunctionMatch> functionList = searchFullFunction(currentFile, editor, trace,function);
+
+		for (ChannelFunctionInstruction function : channelTypeInc.getDataTransStageList()) {
+			List<FullFunctionMatch> functionList = searchFullFunction(currentFile, editor, trace, function);
 			dataTransStagefuns.put(function.getFunction().getFunctionName(), functionList);
 		}
-		
-		for(ChannelFunctionInstruction function : channelTypeInc.getChannelCloseStageList()){
-			List<FullFunctionMatch> functionList = searchFullFunction(currentFile, editor, trace,function);
+
+		for (ChannelFunctionInstruction function : channelTypeInc.getChannelCloseStageList()) {
+			List<FullFunctionMatch> functionList = searchFullFunction(currentFile, editor, trace, function);
 			channelCloseStagefuns.put(function.getFunction().getFunctionName(), functionList);
 		}
 
-		
-		for (Entry<String, List<FullFunctionMatch>> entry : channelOpenStagefuns.entrySet())
-		{
-			for(FullFunctionMatch match : entry.getValue()){
-				Channel c = new Channel(trace, match.getEventStart().getLineElement().getLine(),
-						match.getRetVal(), match.getInputVal());
-				ChannelEvent e = new ChannelEvent(entry.getKey(),CommunicationStage.OPENING, match, c);
+		for (Entry<String, List<FullFunctionMatch>> entry : channelOpenStagefuns.entrySet()) {
+			for (FullFunctionMatch match : entry.getValue()) {
+				Channel c = new Channel(trace, match.getEventStart().getLineElement().getLine(), match.getRetVal(),
+						match.getInputVal());
+				ChannelEvent e = new ChannelEvent(entry.getKey(), CommunicationStage.OPENING, match, c);
 				c.addEvent(e);
 				trace.addChannel(c);
 			}
 		}
-		
-		for (Entry<String, List<FullFunctionMatch>> entry : channelCloseStagefuns.entrySet())
-		{
-			for(FullFunctionMatch match : entry.getValue()){
+
+		for (Entry<String, List<FullFunctionMatch>> entry : channelCloseStagefuns.entrySet()) {
+			for (FullFunctionMatch match : entry.getValue()) {
 				searchChannelForClose(match.getInputVal(), match, trace.getChannels(), editor, entry.getKey());
 			}
 		}
-		
-		for (Entry<String, List<FullFunctionMatch>> entry : dataTransStagefuns.entrySet())
-		{
-			for(FullFunctionMatch match : entry.getValue()){
+
+		for (Entry<String, List<FullFunctionMatch>> entry : dataTransStagefuns.entrySet()) {
+			for (FullFunctionMatch match : entry.getValue()) {
 				searchChannelForDataTrans(match.getInputVal(), match, trace.getChannels(), editor, entry.getKey());
 			}
 		}
 
 	}
-
 
 	private void searchChannelForClose(String channelHandle, FullFunctionMatch closeHandle, List<Channel> channels,
 			AtlantisTraceEditor editor, String functionName) {
@@ -426,8 +730,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 
 		if (resultChannel != null) {
 			resultChannel.setChannelEndLineNum(lineNum);
-			ChannelEvent e = new ChannelEvent(functionName,
-					CommunicationStage.CLOSING, closeHandle, resultChannel);
+			ChannelEvent e = new ChannelEvent(functionName, CommunicationStage.CLOSING, closeHandle, resultChannel);
 			resultChannel.addEvent(e);
 		}
 
@@ -451,7 +754,8 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 		}
 	}
 
-	private List<FullFunctionMatch> searchFullFunction(IFile currentFile, AtlantisTraceEditor editor, Trace trace, ChannelFunctionInstruction function) {
+	private List<FullFunctionMatch> searchFullFunction(IFile currentFile, AtlantisTraceEditor editor, Trace trace,
+			ChannelFunctionInstruction function) {
 		Instruction instruction = function.getInstruction();
 		if (instruction == null) {
 			return new ArrayList<FullFunctionMatch>();
@@ -461,6 +765,8 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 		Register inputAddReg = function.getFunction().getMemoryInputReg();
 		Register outputAddReg = function.getFunction().getMemoryOutputReg();
 		Register retValReg = function.getFunction().getRetrunValReg();
+		Register inputLengthReg = function.getFunction().getMemoryInputLenReg();
+		Register outputLengthReg = function.getFunction().getMemoryOutputBufLenReg();
 
 		InstructionId instructionId = instruction.getIdGlobalUnique();
 
@@ -490,14 +796,12 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 			LineElement lineElement = match.getLineElement();
 			int intraLineOffset = match.getOffset() - lineElement.getOffset();
 			IFile activeEmpty = BfvFileUtils.convertFileIFile(editor.getEmptyFile());
-
 			Job memoryUpdateJob = new Job("Memory Update Job") {
 				@Override
 				protected IStatus run(IProgressMonitor monitor) {
 					fullFunctionMatch = null;
 					final AsyncResult<MemoryQueryResults> funcStartMemoryEventsAsync = fileModel
 							.getMemoryEventsAsync(lineElement.getLine() + 1, monitor);
-
 					if (funcStartMemoryEventsAsync.isCancelled()) {
 						return Status.CANCEL_STATUS;
 					}
@@ -508,22 +812,24 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 					SortedMap<String, MemoryReference> map = functionStartMemoryReferencesResult.getRegisterList();
 
 					BigInteger inputAddress = null;
+					Long inputadd = 0l;
 					if (inputAddReg != null) {
 						MemoryReference mfInputA = map.get(inputAddReg.getName().toUpperCase());
 						if (mfInputA != null) {
-							Long add = Long.parseLong(mfInputA.getMemoryContent().getMemoryValue(), 16);
-							inputAddress = BigInteger.valueOf(add);
+							inputadd = Long.parseLong(mfInputA.getMemoryContent().getMemoryValue(), 16);
+							inputAddress = BigInteger.valueOf(inputadd);
 						}
 					}
 
-					BigInteger outputAddress = null;
-					if (outputAddReg != null) {
-						MemoryReference mfOutput = map.get(outputAddReg.getName().toUpperCase());
-						if (mfOutput != null) {
-							Long add = Long.parseLong(mfOutput.getMemoryContent().getMemoryValue(), 16);
-							outputAddress = BigInteger.valueOf(add);
+					long inputLen = 0;
+					if (inputLengthReg != null) {
+						MemoryReference mfInputLenA = map.get(inputLengthReg.getName().toUpperCase());
+						if (mfInputLenA != null) {
+							String s = mfInputLenA.getMemoryContent().getMemoryValue();
+							inputLen = Long.parseLong(s.substring(s.length()-8), 16);
 						}
 					}
+
 					int moduleId = instruction.getModuleId();
 					int retLineNumber = (int) fileModel.getFunctionRetLine(lineElement.getLine() - 1);
 					System.out.println("ret line:" + retLineNumber);
@@ -535,7 +841,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 
 					// These will cancel themselves and return null if cancelled
 					final AsyncResult<MemoryQueryResults> functionEndMemoryEventsAsync = fileModel
-							.getMemoryEventsAsync(retLineElement.getLine() + 1, monitor);
+							.getMemoryEventsAsync(retLineElement.getLine()+1, monitor);
 
 					if (functionEndMemoryEventsAsync.isCancelled()) {
 						return Status.CANCEL_STATUS;
@@ -545,12 +851,14 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 					ModelProvider.INSTANCE.setMemoryQueryResults(functionEndMemoryReferencesResult, retLineNumber);
 					functionEndMemoryReferencesResult.collateMemoryAndRegisterResults(retLineNumber);
 					SortedMap<String, MemoryReference> retmap = functionEndMemoryReferencesResult.getRegisterList();
-					String returnReg = retValReg.getName();
 					String retVal = "";
-					MemoryReference mfRet = retmap.get(returnReg.toUpperCase());
-					if (mfRet != null) {
-						retVal = mfRet.getMemoryContent().getMemoryValue();
+					if (retValReg != null) {
+						MemoryReference mfRet = retmap.get(retValReg.getName().toUpperCase());
+						if (mfRet != null) {
+							retVal = mfRet.getMemoryContent().getMemoryValue();
+						}
 					}
+
 
 					String inputVal = "";
 					if (inputValReg != null) {
@@ -560,9 +868,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 								inputVal = mfInput.getMemoryContent().getMemoryValue();
 							} else {
 								Long add = Long.parseLong(mfInput.getMemoryContent().getMemoryValue(), 16);
-								for (MemoryReference memRef : functionStartMemoryReferencesResult.getMemoryList()
-
-										.values()) {
+								for (MemoryReference memRef : functionStartMemoryReferencesResult.getMemoryList().values()) {
 									if (add <= memRef.getAddress() && add + 256 > memRef.getEndAddress()) {
 										String hex = memRef.getMemoryContent().getMemoryValue();
 										for (int i = 0; i < hex.length(); i += 2) {
@@ -573,10 +879,9 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 								}
 								inputVal = inputVal.split("\n")[0];
 								inputVal = inputVal.trim();
-								
-								if(inputVal == ""){
-									for (MemoryReference memRef : functionEndMemoryReferencesResult.getMemoryList()
-											.values()) {
+
+								if (inputVal == "") {
+									for (MemoryReference memRef : functionEndMemoryReferencesResult.getMemoryList().values()) {
 										if (add <= memRef.getAddress() && add + 256 > memRef.getEndAddress()) {
 											String hex = memRef.getMemoryContent().getMemoryValue();
 											for (int i = 0; i < hex.length(); i += 2) {
@@ -592,17 +897,84 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 						}
 					}
 
+					long outputBufLen = 0;
+					if (outputLengthReg != null) {
+						MemoryReference mfOutputLen = map.get(outputLengthReg.getName().toUpperCase());
+						if (mfOutputLen != null) {
+							String s = mfOutputLen.getMemoryContent().getMemoryValue();
+							outputBufLen = Long.parseLong(s.substring(s.length()-8), 16);
+						}
+					}
+					
+					BigInteger outputAddress = null;
+					Long outputadd = 0l;
+					if (outputAddReg != null) {
+						MemoryReference mfOutput = map.get(outputAddReg.getName().toUpperCase());
+						if (mfOutput != null) {
+							outputadd = Long.parseLong(mfOutput.getMemoryContent().getMemoryValue(), 16);
+							outputAddress = BigInteger.valueOf(outputadd);
+						}
+					}
+					
+					if (function.getFunction().getType() == FunctionType.recv
+							&& function.getFunction().getOutputDataAddressIndex() != null) {
+						editor.addToDataAddressMap(
+								function.getFunction().getOutputDataAddressIndex() + inputVal, outputAddress);
+						editor.addToDataBufLenMap(
+								function.getFunction().getOutputDataAddressIndex() + inputVal, outputBufLen);
+
+					}
+
+					if (function.getFunction().getType() == FunctionType.check
+							&& function.getFunction().getOutputDataAddressIndex() != null) {
+						outputAddress = editor
+								.getFromDataAddressMap(function.getFunction().getOutputDataAddressIndex() + inputVal);
+						outputBufLen = editor.getFromDataBufLenMap(function.getFunction().getOutputDataAddressIndex() + inputVal);
+					}
+
+					String messageAtStart = "";
+					String messageAtEnd = "";
+					if (function.getFunction().getType() == FunctionType.send && inputAddress != null) {
+						for (MemoryReference memRef : functionStartMemoryReferencesResult.getMemoryList().values()) {
+							if (inputadd <= memRef.getAddress() && inputadd + inputLen + 10 > memRef.getEndAddress()) {
+								String hex = memRef.getMemoryContent().getMemoryValue();
+								for (int i = 0; i < hex.length(); i += 2) {
+									String str = hex.substring(i, i + 2);
+									messageAtStart += (char) Integer.parseInt(str, 16);
+								}
+							}
+						}
+						messageAtStart = messageAtStart.substring(0, (int)inputLen-1);
+					} else if (function.getFunction().getType() == FunctionType.recv
+							|| function.getFunction().getType() == FunctionType.check) {
+						for (MemoryReference memRef : functionEndMemoryReferencesResult.getMemoryList().values()) {
+							if (outputadd <= memRef.getAddress() && outputadd + outputBufLen > memRef.getEndAddress()) {
+								String hex = memRef.getMemoryContent().getMemoryValue();
+								for (int i = 0; i < hex.length(); i += 2) {
+									String str = hex.substring(i, i + 2);
+									messageAtEnd += (char) Integer.parseInt(str, 16);
+								}
+							}
+						}
+						messageAtEnd = messageAtEnd.split("\n")[0];
+						messageAtEnd = messageAtEnd.trim();
+					}
+					
+
+
 					BfvFileWithAddrMatch eventEnd = new BfvFileWithAddrMatch(activeEmpty, retMatch.getOriginalOffset(),
-							retMatch.getLength(), new LineElement(currentFile, retLineNumber,
-									retLineElement.getOffset(), retLineElement.getContents()),
-							intraLineOffset, outputAddress);
+							retMatch.getLength(),
+							new LineElement(currentFile, retLineNumber, retLineElement.getOffset(),
+									retLineElement.getContents()),
+							intraLineOffset, outputAddress, outputBufLen, messageAtEnd);
 
-					BfvFileWithAddrMatch eventStart = new BfvFileWithAddrMatch(activeEmpty,
-							match.getOriginalOffset(), match.getLength(), new LineElement(currentFile,
-									lineElement.getLine(), lineElement.getOffset(), lineElement.getContents()),
-							intraLineOffset, inputAddress);
+					BfvFileWithAddrMatch eventStart = new BfvFileWithAddrMatch(activeEmpty, match.getOriginalOffset(),
+							match.getLength(), new LineElement(currentFile, lineElement.getLine(),
+									lineElement.getOffset(), lineElement.getContents()),
+							intraLineOffset, inputAddress, inputLen, messageAtStart);
 
-					fullFunctionMatch = new FullFunctionMatch(eventStart, eventEnd, inputVal, retVal);
+					fullFunctionMatch = new FullFunctionMatch(eventStart, eventEnd, inputVal, retVal,
+							function.getFunction().getType());
 					return Status.OK_STATUS;
 				}
 			};
@@ -696,17 +1068,21 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 						if (activeTraceDisplayer != null) {
 							BfvFileWithAddrMatch match = e.getFullFunctionMatch().getEventEnd();
 							BigInteger targetMemoryAdd = match.getTargetMemoryAddress();
-							if (targetMemoryAdd != null){
+							if (targetMemoryAdd != null) {
 								gotoAddressOfMessage(targetMemoryAdd);
 							}
-							
+
 							activeTraceDisplayer.getProjectionViewer()
 									.gotoLineAtOffset(match.getLineElement().getLine(), 0);
 							activeTraceDisplayer.triggerCursorPositionChanged();
-							
+
 							RegistersView registersView = getRegistersView();
-							if(registersView != null) {
-								registersView.refresh(); // suspicious, this does not occur when the new line's memory data is available
+							if (registersView != null) {
+								registersView.refresh(); // suspicious, this
+															// does not occur
+															// when the new
+															// line's memory
+															// data is available
 							}
 						}
 
@@ -720,8 +1096,8 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 
 			}
 		};
-		
-		removeChannel = new Action("Remove this matched channel") {
+
+		removeChannel = new Action("Remove this channel") {
 			@Override
 			public void run() {
 
@@ -733,7 +1109,79 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 					Trace trace = c.getTrace();
 					trace.removeChannel(c);
 					DualTraceChannelView.this.refresh();
-					
+
+				} else {
+					return;
+				}
+
+			}
+		};
+		
+		gotoFunctionEndInMatch = new Action("Go To Line of Function End") {
+			@Override
+			public void run() {
+
+				ITreeSelection selection = (ITreeSelection) matchResultTableViewer.getSelection();
+				Object selected = selection.getFirstElement();
+
+				AtlantisTraceEditor activeTraceDisplayer = null;
+
+				if (selected instanceof FullFunctionMatchOfTrace) {
+					FullFunctionMatchOfTrace e = (FullFunctionMatchOfTrace) selected;
+					String traceName = e.getTraceName();
+					if (traceEditor1.getTitle().equals(traceName)) {
+						activeTraceDisplayer = (AtlantisTraceEditor) traceEditor1;
+					} else if (traceEditor2.getTitle().equals(traceName)) {
+						activeTraceDisplayer = (AtlantisTraceEditor) traceEditor2;
+					} else {
+						return;
+					}
+					try {
+						if (activeTraceDisplayer != null) {
+							BfvFileWithAddrMatch match = e.getEventEnd();
+							BigInteger targetMemoryAdd = match.getTargetMemoryAddress();
+							if (targetMemoryAdd != null) {
+								gotoAddressOfMessage(targetMemoryAdd);
+							}
+
+							activeTraceDisplayer.getProjectionViewer()
+									.gotoLineAtOffset(match.getLineElement().getLine(), 0);
+							activeTraceDisplayer.triggerCursorPositionChanged();
+
+							RegistersView registersView = getRegistersView();
+							if (registersView != null) {
+								registersView.refresh(); // suspicious, this
+															// does not occur
+															// when the new
+															// line's memory
+															// data is available
+							}
+						}
+
+					} catch (Exception ex) {
+						System.err.println("Error jumping to line");
+						ex.printStackTrace();
+					}
+				} else {
+					return;
+				}
+
+			}
+		};
+
+		removeChannelInMatch = new Action("Remove this matched channel") {
+			@Override
+			public void run() {
+
+				ITreeSelection selection = (ITreeSelection) matchResultTableViewer.getSelection();
+				Object selected = selection.getFirstElement();
+
+				if (selected instanceof MatchChannel) {
+					MatchChannel c = (MatchChannel) selected;
+					MatchChannelGroup channelGroup = c.getChannelGroup();
+					channelGroup.removeChannelFromGroup(c);
+					DualTraceChannelView.this.refresh();
+
 				} else {
 					return;
 				}
@@ -742,12 +1190,13 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 		};
 
 	}
-	
+
 	private RegistersView getRegistersView() {
-		if(null == PlatformUI.getWorkbench().getActiveWorkbenchWindow()){
+		if (null == PlatformUI.getWorkbench().getActiveWorkbenchWindow()) {
 			return null;
 		}
-		return (RegistersView) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(RegistersView.ID);
+		return (RegistersView) PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+				.findView(RegistersView.ID);
 	}
 
 	private void gotoAddressOfMessage(BigInteger messageAddress) {

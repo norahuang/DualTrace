@@ -140,13 +140,14 @@ public class OpenDualTraceHandler extends AbstractHandler {
 
 	public void createChannelTypeSetting(File f) {
 		IFile file = AtlantisFileUtils.convertFileIFile(f);
-		IFile emptyFile = file.getProject().getFile(new Path(BfvFileUtils.TMP_DIRECTORY_NAME+"/"+"channelTypes.json"));
+		IFile emptyFile = file.getProject()
+				.getFile(new Path(BfvFileUtils.TMP_DIRECTORY_NAME + "/" + "channelTypes.json"));
 		File jsonFile = AtlantisFileUtils.convertFileIFile(emptyFile);
-		if(jsonFile.exists() && !jsonFile.isDirectory()){
-			return; //don't overwrite the existing file.
+		if (jsonFile.exists() && !jsonFile.isDirectory()) {
+			return; // don't overwrite the existing file.
 		}
-		
-	    AtlantisFileUtils.createChannelTypeSettingFile(jsonFile);
+
+		AtlantisFileUtils.createChannelTypeSettingFile(jsonFile);
 		Gson gson = new GsonBuilder().create();
 
 		// 1. Java object to JSON, and save into a file

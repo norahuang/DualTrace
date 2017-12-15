@@ -5,19 +5,30 @@ public class FullFunctionMatch {
 	private BfvFileWithAddrMatch eventEnd;
 	private String inputVal;
 	private String retVal;
+	private FunctionType type;
 
-	
-	public FullFunctionMatch(BfvFileWithAddrMatch eventStart, BfvFileWithAddrMatch eventEnd, String inputVal, String retVal) {
+
+
+	public FullFunctionMatch(BfvFileWithAddrMatch eventStart, BfvFileWithAddrMatch eventEnd, String inputVal, String retVal, FunctionType type) {
 		super();
 		this.eventStart = eventStart;
 		this.eventEnd = eventEnd;
 		this.inputVal = inputVal;
 		this.retVal = retVal;
+		this.type = type;
 	}
 	
 	public BfvFileWithAddrMatch getEventStart() {
 		return eventStart;
 	}
+	public FunctionType getType() {
+		return type;
+	}
+
+	public void setType(FunctionType type) {
+		this.type = type;
+	}
+
 	public void setEventStart(BfvFileWithAddrMatch eventStart) {
 		this.eventStart = eventStart;
 	}
@@ -42,4 +53,5 @@ public class FullFunctionMatch {
 	public void setInputVal(String inputVal) {
 		this.inputVal = inputVal;
 	}
+	
 }

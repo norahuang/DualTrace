@@ -42,12 +42,12 @@ import ca.uvic.chisel.bfv.BigFileApplication;
 /**
  * Dialog for adding a tag to the file.
  * 
- * @author Laura Chan
+ * @author Nora Huang
  */
 public class ChannelTypeDialog extends TitleAreaDialog {
 
 	public static final String ID = "ca.uvic.chisel.bfv.views.ChannelTypeDialog";
-	private CheckboxTreeViewer treeViewer;
+	protected CheckboxTreeViewer treeViewer;
 
 	/**
 	 * Constructs a new dialog for adding or editing a comment.
@@ -219,45 +219,5 @@ public class ChannelTypeDialog extends TitleAreaDialog {
 		cancel.setLayoutData(cancelGridData);
 	}
 
-	@Override
-	protected void okPressed() {
-		Map<String,String> selectedChannels = new HashMap<String,String>();
-		for (Object selection : treeViewer.getCheckedElements()) {
-			if(((String)selection).equals("ALL")){
-				for (Object item : treeViewer.getExpandedElements()){
-					selectedChannels.put((String)item, (String)selection);
-				}
-				break;
-			}
-			selectedChannels.put((String)selection, (String)selection);
-		}
-		findChannels(new ArrayList<String>(selectedChannels.values()));
-		super.okPressed();
-	}
-
-	private void findChannels(List<String> selectedChannels) {
-		IEditorPart editorPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
-		MPart container = (MPart) editorPart.getSite().getService(MPart.class);
-		MElementContainer m = container.getParent();
-		if (!(m instanceof PartSashContainerImpl)) {
-			Throwable throwable = new Throwable("This is not a dual-trace");
-			BigFileApplication.showErrorDialog("This is not a dual-trace!", "Open a dual-trace First", throwable);
-			return;
-		}
-
-		MPart editorPart1 = (MPart) m.getChildren().get(0);
-		MPart editorPart2 = (MPart) m.getChildren().get(1);
-		if (editorPart1.getObject() instanceof CompatibilityEditor
-				&& editorPart2.getObject() instanceof CompatibilityEditor) {
-			IEditorPart editor1 = ((CompatibilityEditor) editorPart1.getObject()).getEditor();
-			IEditorPart editor2 = ((CompatibilityEditor) editorPart2.getObject()).getEditor();
-			DualTraceChannelView dualTraceChannelView = (DualTraceChannelView) PlatformUI.getWorkbench()
-					.getActiveWorkbenchWindow().getActivePage().findView(DualTraceChannelView.ID);
-			if (dualTraceChannelView != null) {
-				dualTraceChannelView.getChannels(selectedChannels, editor1, editor2);
-			}
-
-		}
-	}
 
 }
