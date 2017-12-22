@@ -92,6 +92,8 @@ list for the dual-trace analysis of different communication methods by putting t
 in JSON format as the setting. More detail of the communication methods setting will be discussed in Section \ref{chapter:newsol}, when I discuss the implementation of communication analysis of the dual-trace.
 
 \subsubsection{Named Pipes}
+In this section, I describes what is a Named Pipe channel and how it works briefly. And then I apply it to the general communication model by matching all the stages with the windows calling functions.
+
 A named pipe is a communication method for the pipe server and one or more pipe clients. The pipe has a name, can be one-way or duplex. Both the server and client can read or write into the pipe.\cite{WinNamedpipe} In here we only consider one server versus one client communication. One server to multiple clients scenario can always be divided into multiple server/client communications thanks to the characteristic that each client/server communication has a separate conduit. The server and client are endpoints in the model. We call the server "server endpoint" while the client "client endpoint". The server endpoint and client endpoint of a named pipe share the same pipe name, but each endpoint has its own buffers and handles. 
 
 A named pipe server is responsible for the creation of the pipe, while clients can connect to the pipe after it created. The creation and connection of a named pipe will return the handle ID of that pipe. As we mentioned before, each client or server endpoint has its own handles, so the returned handle Ids of the pipe creation function of the server and pipe connection function from each client are different. These handler Ids will be used later when data are being sent or received to specify a pipe.
@@ -178,7 +180,9 @@ There are two modes for data transfer in the named pipe communication method, sy
     
 
 
-\subsubsection{Message Queue }
+\subsubsection{Message Queue}
+In this section, I describes what is a Message Queue channel and how it works briefly. And then I apply it to the general communication model by matching all the stages with the windows calling functions.
+
 Message Queuing (MSMQ) is a communication method to allow applications which are running at different times across heterogeneous networks and systems that may be temporarily offline can still communicate with each other. Messages are sent to and read from queues by applications. Multiple sending applications can send messages to and multiple receiving applications can read messages from one queue. \cite{redkar2004pro} The applications are the endpoints of the communication. In this work, only one sending application versus one receiving application case is considered. Multiple senders to multiples receiver scenario can always be divided into multiple sender/receiver. Both endpoints of a communication can send to and receive from the channel.
 
 The endpoints of the communication can create the queue or use the existing one. However, both of them have to open the queue before they access it. The handle ID returned by the open queue function will be used later on when messages are being sent or received to identify the queue.
@@ -275,6 +279,8 @@ Similar to Named Pipe, Message Queue also has two modes, synchronous and asynchr
     \end{table}
     
 \subsubsection{TCP and UDP}
+In this section, I describes what is a TCP and UDP channel briefly. And then I apply it to the general communication model by matching all the stages with the windows calling functions.
+
 TCP and UDP are the most fundamental transport methods in computer networking. TCP is a reliable transport method while UDP is not. In Windows programming, these two methods shared the same set of APIs regardless the input parameter and operation behavior is different. In Windows socket solution, one of the two endpoints is the server while the other one is the client. The server opens its socket and listens to the connection from clients. The client connects to the server after opening its own socket. 
 
 Table \ref{tcpupdfunctions} lists the necessary functions consist a UDP or TCP full communication. For the channel opening, the function \textit{socket} should be called on both endpoints. The sever endpoint call the function \textit{bind} to bind to its local service address and port. Then the server endpoint calls the function  \textit{accept} to accept the connection from the clients. The client will call the function \textit{connect} to connect to the server. When the function \textit{accept} return successfully, a new socket handle will return for further data transfer. During the channel open stage, server endpoint has two socket handles, the first one is used to listen to the connection from the client, while the second one is created for real data transfer.
