@@ -1,14 +1,58 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: mainthesisUVIC.aux
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: mainthesisUVIC.aux
 A level-1 auxiliary file: chapters/1/chapter_intro.aux
-A level-1 auxiliary file: chapters/2/chapter_methodology.aux
 A level-1 auxiliary file: chapters/3/chapter_background.aux
 A level-1 auxiliary file: chapters/4/chapter_modeling.aux
-A level-1 auxiliary file: chapters/5/chapter_new.aux
-A level-1 auxiliary file: chapters/6/chapter_experiments.aux
-A level-1 auxiliary file: chapters/7/chapter_evaluation.aux
-A level-1 auxiliary file: chapters/8/chapter_conclusion.aux
+A level-1 auxiliary file: chapters/6/chapter_algorithm.aux
+A level-1 auxiliary file: chapters/7/chapter_implementation.aux
+A level-1 auxiliary file: chapters/8/chapter_evaluation.aux
+A level-1 auxiliary file: chapters/9/chapter_conclusion.aux
 A level-1 auxiliary file: chapters/appendix/chapter_app.aux
 The style file: plain.bst
 Database file #1: UvicThesis.bib
+Warning--entry type for "WinNamedpipe" isn't style-file defined
+--line 75 of file UvicThesis.bib
 Warning--I didn't find a database entry for "PhysRevE.68.046116"
-(There was 1 warning)
+You've used 8 entries,
+            2118 wiz_defined-function locations,
+            549 strings with 5681 characters,
+and the built_in function-call counts, 2408 in all, are:
+= -- 218
+> -- 120
+< -- 2
++ -- 49
+- -- 40
+* -- 138
+:= -- 398
+add.period$ -- 23
+call.type$ -- 8
+change.case$ -- 42
+chr.to.int$ -- 0
+cite$ -- 8
+duplicate$ -- 97
+empty$ -- 207
+format.name$ -- 40
+if$ -- 514
+int.to.chr$ -- 0
+int.to.str$ -- 8
+missing$ -- 8
+newline$ -- 41
+num.names$ -- 16
+pop$ -- 71
+preamble$ -- 1
+purify$ -- 36
+quote$ -- 0
+skip$ -- 77
+stack$ -- 0
+substring$ -- 84
+swap$ -- 22
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 26
+warning$ -- 0
+while$ -- 22
+width$ -- 9
+write$ -- 81
+(There were 2 warnings)

@@ -29,6 +29,10 @@ School of Computing) Advisor (Prof. B.~Kang) KAIST CysecLab (Graduate School~of
   Information~Security.
 \newblock c0demap/codemap: {Codemap}.
 
+\bibitem{WinNamedpipe}
+MultiMedia LLC.
+\newblock Named pipes (windows), 2017.
+
 \bibitem{redkar2004pro}
 Arohi Redkar, Ken Rabold, Richard Costall, Scot Boyd, and Carlos Walzer.
 \newblock {\em Pro MSMQ: Microsoft Message Queue Programming}.
