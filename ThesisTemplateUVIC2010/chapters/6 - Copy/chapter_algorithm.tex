@@ -1,106 +1,8 @@
-\externaldocument{../4/chapter_modeling}
 \startchapter{Communication Identification Algorithms and Prototype Implementation}
 \label{chapter:alo}
-In the Modeling Chapter, I elaborate the definition of the communications and the strategy of the communication identification. There are several major step in the identification strategy and some of them are not strange forward. In this chapter, I will develop the algorithm for some steps in the identification strategy. A prototype of communication identification feature build on top of Atlantis\cite{huang2017atlantis} will also be illustrated.
+Each communication type will have its own algorithm. The algorithms take the dual-traces as input. The dual trace consists of two traces from two application communicated with each other through different communication channels. All algorithms output a list of channel, including the identifiers of the channel, the function calls in each communication stage in the general model and all send and receive function calls. In the following subsections, algorithms are listed for each communication types.
 
-\section{Algorithms for Communication Identification in Dual-trace}
-
-
-\subsection{Event Locating Algorithm}
-The concerned event types in a communication consist of channel open, channel close, send and receive events. Each of these event type would contain one or more functions. The functions list for a communication method is needed as a input of this algorithm. Tables in Section\ref{windows} give the examples of event type list of communication methods. The algorithm is designed for locating events of one communications method. If more than one communication methods are being investigated, this algorithm should be run multiple times, each for a method. Events in the output event list is sorted by time of occurrence, since the search of event is line by line of the assembly instructions.
-
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf Event Locating Algorithm} \label{eventLocAlg}}
-\KwIn{dual-trace, function list for concerned events}
-\KwOut{two event lists for two separative traces in the dual-trace}
-$eventLists \leftarrow Map \langle String, List \langle Event\rangle \rangle$;\; 
-\For{$trace \in dual$-$trace$}{
-   $eventList \leftarrow List \langle Event\rangle$;\; 
-   \While{not at end of trace}{
-       \For{$f \in functionList$}{
-           \If{Is function call of f}{ 
-               find function return instruction line;\;          
-               $event.inputs \leftarrow$ get input parameters from this instruction line;\;              
-               $event.outputs \leftarrow$ get output parameters and return value from the return instruction line;\;
-               $event.type \leftarrow f.eventType$;\;
-               $eventList.add\left( event \right)$;\;
-           }       
-        }
-    }
-    $eventLists.add\left( eventList \right)$;\;
-}
-\KwRet $eventLists$;\;
-\end{algorithm} 
-
-\subsection{Endpoint and Streams Identification Algorithm}
-The events located in the traces may correspond to different endpoints, the next step is to group them for each endpoints and furthermore group them into streams of the endpoints. The input of this algorithm is one of the event list from the Event Locating Algorithm. So this algorithm should be run separately for both trace in the dual-trace. Since the input event list is sorted by time of occurrence and the channel open events should always happen before other events, it is reasonable to assume the new endpoint can be identified by its first channel open function call. The output of this algorithm is the endpoint list. Each endpoint in this list contains the stream which consist of the sub streams. The concepts of the stream and sub streams are defined in Section\ref{term}. 
-
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf Endpoint Indentification Algorithm} \label{endpointIdentAlg}}
-\KwIn{event list of a trace}
-\KwOut{endpoint list}
-$endpoints \leftarrow Map \langle String, List \langle EndPoint\rangle \rangle$;\; 
-\For{$event \in eventList$}{
-   \IF{$event$ is a channel open event}{
-      $handle \leftarrow$ get the handle from the function parameter list;\;
-      $endpoint \leftarrow endpoints.get\left( handle \right)$;\;
-      \IF{$endpoint$ is null}{
-         $endpoint = New EndPoint\left( \right)$;\;
-         $endpoints.add\left( hanele, endpoint \right)$;\;
-      }
-      $endpoint.openStream.add\left( event \right)$;\;
-   }
-   \IF{$event$ is a channel send event}{
-      $handle \leftarrow$ get the handle from the function parameter list;\;
-      $endpoint \leftarrow endpoints.get\left( handle \right)$;\;
-      \IF{$endpoint$ is not $null$ and $endpoint.complete$ is $False$}{
-         $endpoint.sendStream.add\left( event \right)$;\;
-      }
-   }
-   \IF{$event$ is a channel receive event}{
-      $handle \leftarrow$ get the handle from the function parameter list;\;
-      $endpoint \leftarrow endpoints.get\left( handle \right)$;\;
-      \IF{$endpoint$ is not $null$ and $endpoint.complete$ is $False$}{
-         $endpoint.receiveStream.add\left( event \right)$;\;
-      }
-   }
-   \IF{$event$ is a channel close event}{
-      $handle \leftarrow$ get the handle from the function parameter list;\;
-      $endpoint \leftarrow endpoints.get\left( handle \right)$;\;
-      \IF{$endpoint$ is not null}{
-         $endpoint.closeStream.add\left( event \right)$;\;
-         $endpoint \leftarrow True$;\;
-      }
-   } 
-}
-\KwRet $endpoints$;\;
-\end{algorithm} 
-
-After locating all the events from the t
-
-\subsection{Channel Identification Algorithm}
-
-\subsection{Transported Stream Data Verification}
-
-\subsection{Transported Event Data Verification}
-
-\subsection{Data Structure for Identified Communications}
-
-
-\begin{itemize}
- \item Locate all events
- \item Identify the endpoints from the channel open events
- \item Group the related events into streams, send streams and receive streams, then bind them to the corresponding endpoint
- \item Match the endpoints to the communications
- \item For reliable communication, verify if the send data union in the stream of one endpoint match the receive data union in the stream of the other endpoint; For unreliable communication, try to match the send and receive events of both endpoints 
- \item Construct and organize all the retrieved data of the communication 
- \item Present the identified communications to the user
-\end{itemize}
-
-
-
+\section{Channel Information Retrieval Algorithm for TCP}
 From the data transfer model of TCP channel, we can see that the sent packages can be shuffled in the receiver side. So it's meaningless to do a one-to-one send/receive matching from both ends of the channel. This algorithm search thought out the dual-trace, by matching the local and remote ip/port in the create, bind and connect function calls of the socket, identifies all channels of the dual-trace. For each channel, the send and receive function calls are catch. This algorithm will output all the recognized TCP channels. The output data structure of the TCP channel is list in Algorithm\ref{TCPChannelData}, while the algorithm is list in Algorithm\ref{TCPAlgorithm1}, Algorithm\ref{TCPAlgorithm2} and Algorithm\ref{TCPAlgorithm3}.
 
 \begin{algorithm}[H]
@@ -486,5 +388,3 @@ Similar to the data transfer model of TCP channel, the sent packages can be shuf
         }
   }
 \end{algorithm}
-
-\section{Communication Identification Feature Prototype}

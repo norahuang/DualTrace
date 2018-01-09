@@ -19,6 +19,14 @@ Chris Eagle.
   {World}'s {Most} {Popular} {Disassembler}}.
 \newblock No Starch Press, San Francisco, CA, USA, 2008.
 
+\bibitem{huang2017atlantis}
+Huihui~Nora Huang, Eric Verbeek, Daniel German, Margaret-Anne Storey, and
+  Martin Salois.
+\newblock Atlantis: Improving the analysis and visualization of large assembly
+  execution traces.
+\newblock In {\em Software Maintenance and Evolution (ICSME), 2017 IEEE
+  International Conference on}, pages 623--627. IEEE, 2017.
+
 \bibitem{_pin_????}
 Intel.
 \newblock Pin - {A} {Dynamic} {Binary} {Instrumentation} {Tool} {\textbar}
