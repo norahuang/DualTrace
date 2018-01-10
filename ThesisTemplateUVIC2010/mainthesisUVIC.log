@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  8 JAN 2018 16:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  9 JAN 2018 16:00
 entering extended mode
 **./mainthesisUVIC.tex
 (mainthesisUVIC.tex
@@ -435,8 +435,14 @@ Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 ))
 (mainthesisUVIC.aux (chapters/1/chapter_intro.aux)
 (chapters/3/chapter_background.aux) (chapters/4/chapter_modeling.aux)
-(chapters/6/chapter_algorithm.aux) (chapters/7/chapter_implementation.aux)
-(chapters/8/chapter_evaluation.aux
+(chapters/6/chapter_algorithm.aux
+
+LaTeX Warning: Label `communicationhappen' multiply defined.
+
+
+LaTeX Warning: Label `channelAlg1' multiply defined.
+
+) (chapters/7/chapter_implementation.aux) (chapters/8/chapter_evaluation.aux
 
 LaTeX Warning: Label `occclientresult' multiply defined.
 
@@ -776,46 +782,31 @@ l-trace
 
 
 
-] [25] [26]
+] [25] [26] [27]
+<Figures/channelreusetcpudp.png, id=142, 693.59125pt x 475.7775pt>
+File: Figures/channelreusetcpudp.png Graphic file (type png)
 
-LaTeX Font Warning: Font shape `OMS/ptm/bx/n' undefined
-(Font)              using `OMS/ptm/m/n' instead
-(Font)              for symbol `textbraceright' on input line 82.
+<use Figures/channelreusetcpudp.png>
+Package pdftex.def Info: Figures/channelreusetcpudp.png used on input line 118.
 
-LaTeX Font Info:    Font shape `OMS/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 82.
-[27]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 165.
-
- ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
-File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [28] [29]
-[30] [31] [32]
-Overfull \vbox (83.54735pt too high) has occurred while \output is active []
-
-
-[33]
-
-LaTeX Warning: Reference `NamedPipeAlgorithm2' on page 34 undefined on input li
-ne 347.
-
-[34] [35] [36]) [37]
+(pdftex.def)             Requested size: 381.47636pt x 261.67842pt.
+ [28]) [29 <./Figures/channelreusetcpudp.png>] [30]
 \openout2 = `chapters/7/chapter_implementation.aux'.
 
  (chapters/7/chapter_implementation.tex
 Chapter 5.
-[38
+[31
 
 
 
-] <Figures/functionsview.png, id=177, 377.91188pt x 299.61937pt>
+] <Figures/functionsview.png, id=156, 377.91188pt x 299.61937pt>
 File: Figures/functionsview.png Graphic file (type png)
 
 <use Figures/functionsview.png>
 Package pdftex.def Info: Figures/functionsview.png used on input line 13.
 (pdftex.def)             Requested size: 377.91095pt x 299.61864pt.
 
-<Figures/dialog.png, id=178, 404.26031pt x 326.72063pt>
+<Figures/dialog.png, id=157, 404.26031pt x 326.72063pt>
 File: Figures/dialog.png Graphic file (type png)
 
 <use Figures/dialog.png>
@@ -825,7 +816,7 @@ Package pdftex.def Info: Figures/dialog.png used on input line 19.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[39 <./Figures/functionsview.png>]
+[32 <./Figures/functionsview.png>]
 LaTeX Font Info:    Try loading font information for OML+ptm on input line 27.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlptm.fd"
@@ -833,7 +824,7 @@ File: omlptm.fd
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 27.
- [40 <./Figures/dialog.png>] <Figures/CommunicationTypeview.png, id=187, 483.30
+ [33 <./Figures/dialog.png>] <Figures/CommunicationTypeview.png, id=166, 483.30
 562pt x 214.55156pt>
 File: Figures/CommunicationTypeview.png Graphic file (type png)
 
@@ -845,7 +836,7 @@ Package pdftex.def Info: Figures/CommunicationTypeview.png used on input line 6
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<Figures/searchresult.png, id=188, 486.31688pt x 168.63pt>
+<Figures/searchresult.png, id=167, 486.31688pt x 168.63pt>
 File: Figures/searchresult.png Graphic file (type png)
 
 <use Figures/searchresult.png>
@@ -855,24 +846,24 @@ Package pdftex.def Info: Figures/searchresult.png used on input line 75.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[41] [42 <./Figures/CommunicationTypeview.png> <./Figures/searchresult.png>]
-[43]) [44]
+[34] [35 <./Figures/CommunicationTypeview.png> <./Figures/searchresult.png>]
+[36]) [37]
 \openout2 = `chapters/8/chapter_evaluation.aux'.
 
  (chapters/8/chapter_evaluation.tex
 Chapter 6.
-[45
+[38
 
 
 
-] <Figures/addcomtyperesult.png, id=205, 580.41844pt x 193.47281pt>
+] <Figures/addcomtyperesult.png, id=183, 580.41844pt x 193.47281pt>
 File: Figures/addcomtyperesult.png Graphic file (type png)
 
 <use Figures/addcomtyperesult.png>
 Package pdftex.def Info: Figures/addcomtyperesult.png used on input line 16.
 (pdftex.def)             Requested size: 417.90096pt x 139.30031pt.
 
-<Figures/occclientresult.png, id=206, 189.70876pt x 40.65187pt>
+<Figures/occclientresult.png, id=184, 189.70876pt x 40.65187pt>
 File: Figures/occclientresult.png Graphic file (type png)
 
 <use Figures/occclientresult.png>
@@ -883,28 +874,28 @@ File: Figures/occclientresult.png Graphic file (type png)
 Package pdftex.def Info: Figures/occclientresult.png used on input line 29.
 (pdftex.def)             Requested size: 189.70828pt x 40.65176pt.
 
-<Figures/send.png, id=207, 641.39626pt x 458.46281pt>
+<Figures/send.png, id=185, 641.39626pt x 458.46281pt>
 File: Figures/send.png Graphic file (type png)
  <use Figures/send.png>
 Package pdftex.def Info: Figures/send.png used on input line 35.
 (pdftex.def)             Requested size: 423.32283pt x 302.58638pt.
 )
-[46 <./Figures/addcomtyperesult.png> <./Figures/occclientresult.png>] [47 <./Fi
+[39 <./Figures/addcomtyperesult.png> <./Figures/occclientresult.png>] [40 <./Fi
 gures/send.png>]
 \openout2 = `chapters/9/chapter_conclusion.aux'.
 
  (chapters/9/chapter_conclusion.tex
 Chapter 7.
-[48
+[41
 
 
 
-]) [49]
+]) [42]
 \openout2 = `chapters/appendix/chapter_app.aux'.
 
  (chapters/appendix/chapter_app.tex
 Appendix A.
-) [50
+) [43
 
 
 
@@ -913,7 +904,7 @@ Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Â in font ptmr7t!
 Missing character: There is no ® in font ptmr7t!
-) [51
+) [44
 
 
 ] (mainthesisUVIC.aux
@@ -922,9 +913,6 @@ Missing character: There is no ® in font ptmr7t!
 (chapters/7/chapter_implementation.aux) (chapters/8/chapter_evaluation.aux)
 (chapters/9/chapter_conclusion.aux) (chapters/appendix/chapter_app.aux))
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
 LaTeX Warning: There were undefined references.
 
 
@@ -932,23 +920,22 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7610 strings out of 493335
- 113622 string characters out of 3139261
- 208595 words of memory out of 3000000
- 10863 multiletter control sequences out of 15000+200000
- 21264 words of font info for 53 fonts, out of 3000000 for 9000
+ 7539 strings out of 493335
+ 112655 string characters out of 3139261
+ 208497 words of memory out of 3000000
+ 10796 multiletter control sequences out of 15000+200000
+ 20749 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  40i,20n,45p,1591b,1396s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8
-a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (61 pages, 539147 bytes).
+urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on mainthesisUVIC.pdf (54 pages, 560864 bytes).
 PDF statistics:
- 253 PDF objects out of 1000 (max. 8388607)
+ 228 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 76 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

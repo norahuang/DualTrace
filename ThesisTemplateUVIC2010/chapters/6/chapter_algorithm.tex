@@ -1,10 +1,10 @@
 \externaldocument{../4/chapter_modeling}
 \startchapter{Communication Identification Algorithms and Prototype Implementation}
 \label{chapter:alo}
-In the Modeling Chapter, I elaborate the definition of the communications and the strategy of the communication identification. There are several major step in the identification strategy and some of them are not strange forward. In this chapter, I will develop the algorithm for some steps in the identification strategy. A prototype of communication identification feature build on top of Atlantis\cite{huang2017atlantis} will also be illustrated.
+In the Modeling Chapter, I elaborate the definition of the communications and the strategy of the communication identification. There are several major step in the identification strategy and some of them are not strange forward. In this chapter, I list developed the algorithms for some steps in the identification strategy. 
 
 \section{Algorithms for Communication Identification in Dual-trace}
-
+All the algorithms list in this section are those key ones in the identification strategy. 
 
 \subsection{Event Locating Algorithm}
 The concerned event types in a communication consist of channel open, channel close, send and receive events. Each of these event type would contain one or more functions. The functions list for a communication method is needed as a input of this algorithm. Tables in Section\ref{windows} give the examples of event type list of communication methods. The algorithm is designed for locating events of one communications method. If more than one communication methods are being investigated, this algorithm should be run multiple times, each for a method. Events in the output event list is sorted by time of occurrence, since the search of event is line by line of the assembly instructions.
@@ -33,7 +33,7 @@ $eventLists \leftarrow Map \langle String, List \langle Event\rangle \rangle$;\;
 \KwRet $eventLists$;\;
 \end{algorithm} 
 
-\subsection{Endpoint and Streams Identification Algorithm}
+\subsection{Endpoint and Corresponding Streams Identification Algorithm}
 The events located in the traces may correspond to different endpoints, the next step is to group them for each endpoints and furthermore group them into streams of the endpoints. The input of this algorithm is one of the event list from the Event Locating Algorithm. So this algorithm should be run separately for both trace in the dual-trace. Since the input event list is sorted by time of occurrence and the channel open events should always happen before other events, it is reasonable to assume the new endpoint can be identified by its first channel open function call. The output of this algorithm is the endpoint list. Each endpoint in this list contains the stream which consist of the sub streams. The concepts of the stream and sub streams are defined in Section\ref{term}. 
 
 \begin{algorithm}[H]
@@ -43,448 +43,108 @@ The events located in the traces may correspond to different endpoints, the next
 \KwOut{endpoint list}
 $endpoints \leftarrow Map \langle String, List \langle EndPoint\rangle \rangle$;\; 
 \For{$event \in eventList$}{
-   \IF{$event$ is a channel open event}{
+   \If{$event$ is a channel open event}{
       $handle \leftarrow$ get the handle from the function parameter list;\;
       $endpoint \leftarrow endpoints.get\left( handle \right)$;\;
-      \IF{$endpoint$ is null}{
-         $endpoint = New EndPoint\left( \right)$;\;
+      \If{$endpoint$ is null}{
+         $endpoint = New \enspace EndPoint\left( \right)$;\;
          $endpoints.add\left( hanele, endpoint \right)$;\;
       }
       $endpoint.openStream.add\left( event \right)$;\;
    }
-   \IF{$event$ is a channel send event}{
+   \If{$event$ is a channel send event}{
       $handle \leftarrow$ get the handle from the function parameter list;\;
       $endpoint \leftarrow endpoints.get\left( handle \right)$;\;
-      \IF{$endpoint$ is not $null$ and $endpoint.complete$ is $False$}{
+      \If{$endpoint$ is not $null$ and $endpoint.complete$ is $False$}{
          $endpoint.sendStream.add\left( event \right)$;\;
       }
    }
-   \IF{$event$ is a channel receive event}{
+   \If{$event$ is a channel receive event}{
       $handle \leftarrow$ get the handle from the function parameter list;\;
       $endpoint \leftarrow endpoints.get\left( handle \right)$;\;
-      \IF{$endpoint$ is not $null$ and $endpoint.complete$ is $False$}{
+      \If{$endpoint$ is not $null$ and $endpoint.complete$ is $False$}{
          $endpoint.receiveStream.add\left( event \right)$;\;
       }
    }
-   \IF{$event$ is a channel close event}{
+   \If{$event$ is a channel close event}{
       $handle \leftarrow$ get the handle from the function parameter list;\;
       $endpoint \leftarrow endpoints.get\left( handle \right)$;\;
-      \IF{$endpoint$ is not null}{
+      \If{$endpoint$ is not null}{
          $endpoint.closeStream.add\left( event \right)$;\;
          $endpoint \leftarrow True$;\;
       }
-   } 
+   }         
 }
 \KwRet $endpoints$;\;
 \end{algorithm} 
 
-After locating all the events from the t
-
 \subsection{Channel Identification Algorithm}
+The Channel Identification Algorithm aims at identify all the concerned communication channels from the dual-trace. The input of this algorithm is the two endpoint lists for both traces in the dual-trace from the `Endpoint and Corresponding Streams Identification Algorithm'. The output of this algorithm is the channel list. Each channel recognized from the dual-trace contains two endpoints. The channel identification highly depends on the channel opening mechanisms which are different from communication method to communication method. 
+
+In Section\ref{windows}, I elaborate the channel open process for the concerned communication methods. Based on the different process, two algorithms are developed for channel identification, one is for Named Pipe and Message Queue, while the other is for TCP and UDP. For the Named pipe and MSMQ only one channel open function is being call for each endpoint. And the identification is basically done by matching the endpoints with their channel identifier. The channel Identifier for Named pipe is the file name while for MSMQ is the queue format name as input in the channel open functions. But for TCP and UDP multiple functions are collaborating to form the final communication channel. Remote and local addresses and ports of each endpoint are used to identify the channel. 
+
+\subsubsection{For Named pipe and Message Queue}
+This algorithm will find out all the possible channels regardless some of them might be false positive. For example, the server is connected by two clients with the file as the channel. In the server trace, there are two endpoints found. In each client trace, there is one endpoint found. In the channel identification algorithm for the dual-trace of server and client1, there will be two possible identified channels, one is the real used one for server and client1 while the other is the false positive one actually is for server and client2. The endpoint in client1's trace will be matched by two endpoints in the server's trace. In this step in the communication identification, there is no way to district these two channels. One solution is to further check the sent and receive data to verify if the channel is real. However if the data be transmitted in both located channel are identical, there is still no way to exclude the false positive ones unless more information such as timing of the captured traces is provided.
+
+And other example of Named pipe is the same file is reused for multiple times by the endpoint pairs, without further information it's hard to align endpoint matches.
+
+These errors are also applicable for Message Queue Communications.
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf Channel Indentification Algorithm for Named pipe and Message Queue} \label{channelAlg1}}
+\KwIn{two endpoint lists of the dual-trace}
+\KwOut{channel list}
+$channels \leftarrow Map \langle String, List \langle Channel \rangle \rangle$;\; 
+\For{$endpoint \in endpointList1$}{
+   $openEvent1 \leftarrow$ get the event from $endpoint.openStream$, which should only contain one event. 
+   $channelId1 \leftarrow$ get the channel identifier from $openEvent1.inputs$;\;
+   \For{$endpoint2 \in endpointList2$}{
+      $openEvent2 \leftarrow$ get the event from $endpoint2.openStream$, which should only contain one event.
+      $channelId2 \leftarrow$ get the channel identifier from $openEvent2.inputs$;\;
+    \If{$channelId1 == channelId2$}{
+       $channel = New \enspace Channel()$;\;
+       $channels.add\left( channel \right)$;\;
+    }
+   }
+}
+\KwRet $channels$;\;
+\end{algorithm} 
+
+\subsubsection{For TCP and UDP}
+This false positive situation will be a lot better for TCP and UDP transmissions due to the rarely two applications on hosts share the same address and port. So we can assume that the problem of mismatching the endpoints from different host would not happen. However, we can not avoid the address and port being reused by multiple endpoints in the same application. So the false positive error would still happen. The data verification algorithm in later section can help to reduce the error and what is good is that as long as we can find one district channel data from the multiple matching set we can align all of the endpoints from that set properly and exclude the false positive ones. The scenarios of channel(or address and port) reusing are list in Figure. The first scenario represents the transmitted data in all reused endpoint set are identical, while the second one contains district transmitted data in at least one endpoint pair.
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.55]{Figures/channelreusetcpudp}}
+ \caption{Channel Reuse Scenarios}
+\label{communicationhappen}
+\end{figure}
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf Channel Indentification Algorithm for TCP and UDP} \label{channelAlg1}}
+\KwIn{two endpoint lists of the dual-trace}
+\KwOut{channel list}
+$channels \leftarrow Map \langle String, List \langle Channel \rangle \rangle$;\; 
+\For{$endpoint \in endpointList1$}{
+   $openEvent1 \leftarrow$ get the event from $endpoint.openStream$, which should only contain one event. 
+   $channelId1 \leftarrow$ get the channel identifier from $openEvent1.inputs$;\;
+   \For{$endpoint2 \in endpointList2$}{
+      $openEvent2 \leftarrow$ get the event from $endpoint2.openStream$, which should only contain one event.
+      $channelId2 \leftarrow$ get the channel identifier from $openEvent2.inputs$;\;
+    \If{$channelId1 == channelId2$}{
+       $channel = New \enspace Channel()$;\;
+       $channels.add\left( channel \right)$;\;
+    }
+   }
+}
+\KwRet $channels$;\;
+\end{algorithm}
 
 \subsection{Transported Stream Data Verification}
 
 \subsection{Transported Event Data Verification}
 
 \subsection{Data Structure for Identified Communications}
-
-
-\begin{itemize}
- \item Locate all events
- \item Identify the endpoints from the channel open events
- \item Group the related events into streams, send streams and receive streams, then bind them to the corresponding endpoint
- \item Match the endpoints to the communications
- \item For reliable communication, verify if the send data union in the stream of one endpoint match the receive data union in the stream of the other endpoint; For unreliable communication, try to match the send and receive events of both endpoints 
- \item Construct and organize all the retrieved data of the communication 
- \item Present the identified communications to the user
-\end{itemize}
-
-
-
-From the data transfer model of TCP channel, we can see that the sent packages can be shuffled in the receiver side. So it's meaningless to do a one-to-one send/receive matching from both ends of the channel. This algorithm search thought out the dual-trace, by matching the local and remote ip/port in the create, bind and connect function calls of the socket, identifies all channels of the dual-trace. For each channel, the send and receive function calls are catch. This algorithm will output all the recognized TCP channels. The output data structure of the TCP channel is list in Algorithm\ref{TCPChannelData}, while the algorithm is list in Algorithm\ref{TCPAlgorithm1}, Algorithm\ref{TCPAlgorithm2} and Algorithm\ref{TCPAlgorithm3}.
-
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf Output Data Structure for TCP Channel} \label{TCPChannelData}}
-\Struct{Channel}{
-  SocketSR trace1\;
-  SocketSR trace2\;
-}
-
-\Struct{SocketSR}{
-  Socket \quad \quad \quad \quad \ \    socket\; 
-  List$\langle$ Function$\rangle$ \quad sends\;
-  List$\langle$ Function$\rangle$ \quad receives\; 
-}
-
-\Struct{Socket}{
-  Int \quad \quad \quad \ handle\;
-  String \quad \quad local\;
-  String \quad \quad remote\;    
-  Function\quad create\;
-  Function\quad bind\;
-  Function\quad connect\;
-  Function\quad close\;   
-}
-
-\Struct{Function}{
-   Int \quad \quad \quad \ lineNum\;
-}
-
-\end{algorithm} 
-
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf TCP Channel Information Retrival Algorithm} \label{TCPAlgorithm1}}
-\KwIn{Trace1 and Trace2 from both sides of dual-trace}
-\KwOut{All TCP channels}
- $channels \leftarrow List\langle Channel\rangle $\; 
- $trace1sockets \leftarrow searchSockets\left( trace1 \right)  $\;
- $trace2sockets \leftarrow searchSockets\left( trace2 \right)  $\;
-
-
-\For{$s1 \in trace1sockets$}{
-\For{$s2 \in trace2sockets$}{
-\If{$s1.local = s2.remote$ AND $s2.local = s1.remote$}{
-  $channel.trace1.socket\enspace \leftarrow s1$\;
-  $channel.trace2.socket \enspace \leftarrow s2$\;
-  $channels.add\left( channel \right)$\;
-}   
-}
-}
-
- $findAllSendAndRecv \left( trace1,channels,True \right) $\;
- $findAllSendAndRecv \left( trace2,channels,Flase \right) $\;
-\end{algorithm} 
-  
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf searchSockets() Function for TCP Channel Information Retrival Algorithm} \label{TCPAlgorithm2}}
-\SetKwFunction{FsearchSockets}{searchSockets}
-\SetKwProg{Pn}{Function}{:}{\KwRet}
-  \Pn{\FsearchSockets{$trace$}}{
-       $sockets \leftarrow Map\langle Int,Socket \rangle $\; 
-        \While{not at end of trace}{
-            \If{socket create function call}{
-                 $socket.handle \leftarrow$ return value of the function call\;
-                 $socket.create.lineNum \leftarrow currentline$\;                 
-                 $sockets.add\left( handle, socket \right)$\;
-            } 
-            \ElseIf{socket bind function call}{
-                 $handle \leftarrow$ handle parameter of the function call\;
-                 $sockets[handle].local \leftarrow$ address and port parameter of the function call\;
-                 $sockets[handle].bind \leftarrow$ currentline\;
-            }
-            \ElseIf{socket connect function call}{
-                 $handle \leftarrow$ handle parameter of the function call\;
-                 $sockets[handle].remote \leftarrow$ address and port parameter of the function call\;
-                 $sockets[handle].connect \leftarrow$ currentline\;
-            } 
-            \ElseIf{socket close function call}{
-                 $handle \leftarrow$ handle parameter of the function call\;
-                 $sockets[handle].close \leftarrow$ currentline\;
-            }   
-        }
-        \For{$s \in sockets$}{
-            \If{$s.local = null$ OR $s.remote = null$}{
-               $sockets.delete\left( s \right)$\;
-            }
-        }
-        \KwRet $sockets.tolist()$\;
-  }
-\end{algorithm}  
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf findAllSendAndRecv() Function for TCP Channel Information Retrival Algorithm}\label{TCPAlgorithm3}}
-\SetKwFunction{FfindAllSendAndRecv}{findAllSendAndRecv}
-\SetKwProg{Pn}{Function}{:}{\KwRet}
-  \Pn{\FfindAllSendAndRecv{$trace,channels,isTrace1$}}{
-        \While{not at end of trace}{
-            \If{socket send function call}{
-                 $handle \leftarrow$ handle parameter of the function call\;
-                 $sr \leftarrow getSocketSR\left(handle,channels,isTrace1\right)$\;                                                   
-                 \If{$sr != null$ AND $sr.socket.create.lineNum < currentline$ AND $sr.socket.bind.lineNum < currentline$ AND $sr.socket.connect.lineNum < currentline$ AND $sr.socket.close.lineNum > currentline$}{
-                     $send.lineNum \leftarrow currentline$\;
-                     $sr.sends.add(send)$\;   
-                 }
-            } 
-            \If{socket receive function call}{
-                 $handle \leftarrow$ handle parameter of the function call\;
-                 $sr \leftarrow getSocketSR\left(handle,isTrace1\right)$\;                                                   
-                 \If{$sr != null$ AND $sr.socket.create.lineNum < currentline$ AND $sr.socket.bind.lineNum < currentline$ AND $sr.socket.connect.lineNum < currentline$ AND $sr.socket.close.lineNum > currentline$}{
-                     $receive.lineNum \leftarrow currentline$\;
-                     $sr.receives.add(send)$\;  
-                 }
-            }
-  }
-  }  
-\SetKwFunction{FgetSocketSR}{getSocketSR}
-\SetKwProg{Pn}{Function}{:}{\KwRet}
-  \Pn{\FgetSocketSR{$handle,channels,isTrace1$}}{
-        \For{$c \in channels$}{
-            \If{$isTrace1$}{
-               $sr \leftarrow channels.trace1$\;
-            }
-            \Else{
-               $sr \leftarrow channels.trace2$\;
-            }
-            \If{$sr.socket.handle = handle$}{
-               \KwRet $sr$\;
-            }
-        }
-  }
-\end{algorithm}
-
-\section{Channel Information Retrieval Algorithm for UDP}
-The main difference between the UDP and TCP data transfer model is that, a UDP packet sent in the sender side always arrives as the same packet receiver side. However, the packet sent can loss and out of order. So it's meaningful to do a one-to-one send/receive matching from both ends of the channel. This algorithm applies the same search mechanism for channels as TCP, which is list in \ref{TCPAlgorithm2}. However, for each channel, the catch send and receive function calls need to be matched. This algorithm will output all the recognized UDP channels. Each channel contains all matching send/receive function call pairs. The output data structure of the UDP channel is list in Algorithm\ref{UDPChannelData}, while the algorithm is list in Algorithm\ref{UDPAlgorithm1} and Algorithm\ref{UDPAlgorithm2}.
-
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf Output Data Structure for UDP Channel} \label{UDPChannelData}}
-\Struct{Channel}{
-  Socket trace1\;
-  Socket trace2\;
-  List$\langle$ SRPair$\rangle$  trace1Totrace2\;
-  List$\langle$ SRPair$\rangle$  trace2Totrace1\;
-}
-
-\Struct{Socket}{
-  Int \quad \quad \quad \ handle\;
-  String \quad \quad local\;
-  String \quad \quad remote\;    
-  Function\quad create\;
-  Function\quad bind\;
-  Function\quad connect\;
-  Function\quad close\;   
-}
-
-\Struct{SRPair}{
-  Function send\;
-  Function recv\;
-}
-
-\Struct{Function}{
-   Int \quad \quad \quad \ lineNum\;
-   String \quad \quad bytes\;
-   Socket \quad \quad \quad socket\;
-}
-\end{algorithm} 
-  
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf UDP Channel Information Retrival Algorithm} \label{UDPAlgorithm1}}
-\KwIn{Trace1 and Trace2 from both sides of dual-trace}
-\KwOut{All UDP channels}
- $channels \leftarrow List\langle Channel\rangle $\; 
- $trace1sockets \leftarrow searchSockets\left( trace1 \right)  $\;
- $trace2sockets \leftarrow searchSockets\left( trace2 \right)  $\;
-
-
-\For{$s1 \in trace1sockets$}{
-\For{$s2 \in trace2sockets$}{
-\If{$s1.local = s2.remote$ AND $s2.local = s1.remote$}{
-  $channel.trace1Socket\enspace \leftarrow s1$\;
-  $channel.trace2Socket \enspace \leftarrow s2$\;
-  $channels.add\left( channel \right)$\;
-}   
-}
-}
-
- $findAllSendAndRecv \left( trace1,trace2,channels\right) $\;
- 
-\SetKwFunction{FfindAllSendAndRecv}{findAllSendAndRecv}
-\SetKwProg{Pn}{Function}{:}{\KwRet}
-  \Pn{\FfindAllSendAndRecv{$trace1,trace2,channels$}}{    
-    $trace1Sends , trace2Sends, trace1Receives, trace2Receives \leftarrow List\langle Function\rangle $\;  
-        \While{not at end of trace1}{
-            \If{socket send function call}{
-                $addToList\left(trace2Sends,False\right)$\; 
-            } 
-            \If{socket receive function call}{
-                 $addToList\left(trace2Receives,False\right)$\; 
-            }
-  }
-          \While{not at end of trace2}{
-            \If{socket send function call}{
-                 $addToList\left(trace2Sends,False\right)$\; 
-            } 
-            \If{socket receive function call}{
-                 $addToList\left(trace2Receives,False\right)$\; 
-            }
-  }
-  \For{$s \in trace1Sends$}{
-      \For{$r \in trace2Receives$}{
-        \If{$s.bytes = r.bytes$}{
-              $SRPair.send \leftarrow s$\;
-              $SRPair.recv \leftarrow r$
-        }
-  }
-  }  
-  \For{$s \in trace2Sends$}{
-      \For{$r \in trace1Receives$}{
-        \If{$s.socket.local = r.socket.remote$ AND $r.socket.local = s.socket.remote$ AND $s.bytes = r.bytes$}{
-              $SRPair.send \leftarrow s$\;
-              $SRPair.recv \leftarrow r$
-        }
-  }
-  }  
-  }
-\end{algorithm}   
-  
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf Other Functions for UDP Channel Information Retrival Algorithm} \label{UDPAlgorithm2}} 
-  \SetKwFunction{FaddToList}{addToList}
-  \SetKwProg{Pn}{Function}{:}{\KwRet}
-  \Pn{\FaddToList{$List, isTrance1$}}{
-   $handle \leftarrow$ handle parameter of the function call\;
-                 $sr \leftarrow getSocketSR\left(handle,isTrace1\right)$\;                                                   
-                 \If{$sr != null$ AND $sr.socket.create.lineNum < currentline$ AND $sr.socket.bind.lineNum < currentline$ AND $sr.socket.connect.lineNum < currentline$ AND $sr.socket.close.lineNum > currentline$}{
-                     $func.lineNum \leftarrow currentline$\;
-                     $func.bytes \leftarrow$ data that received when the function return\;              
-                     $func.socket \leftarrow sr$ \;
-                     $list.add(func)$
-                 }
-  }
-  \SetKwFunction{FgetSocketSR}{getSocketSR}
-\SetKwProg{Pn}{Function}{:}{\KwRet}
-  \Pn{\FgetSocketSR{$handle,channels,isTrace1$}}{
-        \For{$c \in channels$}{
-            \If{$isTrace1$}{
-               $sr \leftarrow channels.trace1$\;
-            }
-            \Else{
-               $sr \leftarrow channels.trace2$\;
-            }
-            \If{$sr.socket.handle = handle$}{
-               \KwRet $sr$\;
-            }
-        }
-  }
-  
-  \SetKwFunction{FgetChannel}{getChannel}
-\SetKwProg{Pn}{Function}{:}{\KwRet}
-  \Pn{\FgetChannel{$channels, trace1Socket, trace2Socket$}}{
-        \For{$c \in channels$}{
-            \If{$trace1Socket = c.trace1$ AND $trace2Socket = c.trace2$}{
-               \KwRet $c$\;
-            }
-        }
-  }
-\end{algorithm}
-
-\section{Channel Information Retrieval Algorithm for Named pipe}
-Similar to the data transfer model of TCP channel, the sent packages can be shuffled in the receiver side in Named pipe. So we don't do one-to-one send/receive matching for Named pipe channel as neither. The channel search is based only on the name of the Named pipe. In both ends, the name for the Name pipe is identical but have different handles. For each channel, the send and receive function calls are catch. This algorithm will output all the recognized Named pipe channels. The output data structure of the channel is list in Algorithm\ref{NamepipeChannelData}, while the algorithm is list in Algorithm\ref{NamedPipeAlgorithm1}, Algorithm\ref{NamedPipeAlgorithm2} and Algorithm\ref{NamedPipeAlgorithm3}.
-
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf Output Data Structure for Named pipe Channel} \label{NamepipeChannelData}}
-\Struct{RebuiltChannel}{
-  pipeSR trace1\;
-  pipeSR trace2\;
-}
-
-\Struct{pipeSR}{
-  pipeEnd \quad \quad \quad \quad \ \   end\; 
-  List$\langle$ Function$\rangle$ \quad sends\;
-  List$\langle$ Function$\rangle$ \quad receives\; 
-}
-
-\Struct{pipeEnd}{
-  Int \quad \quad \quad \ handle\;
-  String \quad \quad pipeName\;  
-  Function\quad create\;
-  Function\quad close\;   
-}
-
-\Struct{Function}{
-   Int \quad \quad \quad \ lineNum\;
-}
-
-\end{algorithm} 
-
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf Named Pipe Channel Information Retrival Algorithm} \label{NamedPipeAlgorithm1}}
-\KwIn{Trace1 and Trace2 from both sides of dual-trace}
-\KwOut{All Named Pipe channels}
- $channels \leftarrow List\langle Channel\rangle $\; 
- $trace1PipeEnds \leftarrow searchPipeEnds\left( trace1 \right)  $\;
- $trace2PipeEnds \leftarrow searchPipeEnds\left( trace2 \right)  $\;
-
-
-\For{$e1 \in trace1PipeEnds$}{
-\For{$e2 \in trace2PipeEnds$}{
-\If{$e1.pipeName = e2.pipeName$}{
-  $channel.trace1Socket\enspace \leftarrow e1$\;
-  $channel.trace2Socket \enspace \leftarrow e2$\;
-  $channels.add\left( channel \right)$\;
-}   
-}
-}
-
- $findAllSendAndRecv \left( trace1,channels,True \right) $\;
- $findAllSendAndRecv \left( trace2,channels,Flase \right) $\;
- \SetKwFunction{FsearchPipeEnds}{searchPipeEnds}
-\SetKwProg{Pn}{Function}{:}{\KwRet}
-  \Pn{\FsearchPipeEnds{$trace$}}{
-       $ends \leftarrow Map\langle Int,pipeEnd \rangle $\; 
-        \While{not at end of trace}{
-            \If{Name create function call}{
-                 $end.handle \leftarrow$ return value of the function call\;
-                 $end.pipeName \leftarrow$ pipName parameter of the function call\;                 
-                 $end.create.lineNum \leftarrow currentline$\;                 
-                 $ends.add\left( handle, socket \right)$\;
-            } 
-            \ElseIf{socket close function call}{
-                 $handle \leftarrow$ handle parameter of the function call\;
-                 $ends[handle].close \leftarrow$ currentline\;
-            }   
-        }
-        \KwRet $sockets.tolist()$\;
-  }
-\end{algorithm} 
-  
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf findAllSendAndRecv() Function for Named Pipe Channel Information Retrival Algorithm}\label{NamedPipeAlgorithm3}}
-\SetKwFunction{FfindAllSendAndRecv}{findAllSendAndRecv}
-\SetKwProg{Pn}{Function}{:}{\KwRet}
-  \Pn{\FfindAllSendAndRecv{$trace,channels,isTrace1$}}{
-        \While{not at end of trace}{
-            \If{pipe send function call}{
-                 $handle \leftarrow$ handle parameter of the function call\;
-                 $sr \leftarrow getEndSR\left(handle,channels,isTrace1\right)$\;                                                   
-                 \If{$sr != null$ AND $sr.end.create.lineNum < currentline$ AND  $sr.end.close.lineNum > currentline$}{
-                     $send.lineNum \leftarrow currentline$\;
-                     $sr.sends.add(send)$\; 
-                 }
-            } 
-            \If{pipe receive function call}{
-                 $handle \leftarrow$ handle parameter of the function call\;
-                 $sr \leftarrow getEndSR\left(handle,isTrace1\right)$\;                                                   
-                 \If{$sr != null$ AND $sr.socket.create.lineNum < currentline$ AND $sr.socket.close.lineNum > currentline$}{
-                     $receive.lineNum \leftarrow currentline$\;
-                     $sr.receives.add(send)$\; 
-                 }
-            }
-  }
-  }  
-\SetKwFunction{FgetEndSR}{getEndSR}
-\SetKwProg{Pn}{Function}{:}{\KwRet}
-  \Pn{\FgetEndSR{$handle,channels,isTrace1$}}{
-        \For{$c \in channels$}{
-            \If{$isTrace1$}{
-               $endSr \leftarrow channels.trace1$\;
-            }
-            \Else{
-               $endSr \leftarrow channels.trace2$\;
-            }
-            \If{$sr.socket.handle = handle$}{
-               \KwRet $endSr$\;
-            }
-        }
-  }
-\end{algorithm}
 
 \section{Communication Identification Feature Prototype}
