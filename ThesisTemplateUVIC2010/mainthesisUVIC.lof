@@ -1,25 +1,11 @@
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces General Communication Model\relax }}{3}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Data Transfer Scenarios for Named Pipe\relax }}{6}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Data Transfer Scenarios for Message Queue\relax }}{7}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Data Transfer Scenarios for TCP\relax }}{8}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{9}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Channel Open Process for a Named Pipe\relax }}{13}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Channel Open Process for a Message Queue\relax }}{15}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Channel Open Model for TCP and UDP\relax }}{16}
 \addvspace {10\p@ }
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces General Communication Model\relax }}{9}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Data Transfer Scenarios for Named Pipe\relax }}{11}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Data Transfer Scenarios for Message Queue\relax }}{12}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Data Transfer Scenarios for TCP\relax }}{13}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{14}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Channel Open Process for a Named Pipe\relax }}{18}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Channel Open Process for a Message Queue\relax }}{20}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Channel Open Model for TCP and UDP\relax }}{22}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces General Communication Model\relax }}{29}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Add function to a Communication type from Functions View\relax }}{32}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Dialog to input information for a function adding to a communication type\relax }}{33}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces New View: Communication Type View\relax }}{35}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Right Click menu to navigate to send and receive event in the traces\relax }}{35}
-\addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Defined clientsend and serversend communication types in Communication View\relax }}{39}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces the search result of clientsend communication type\relax }}{39}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces the search result of the serversend communication type\relax }}{39}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces instruction view and memory view updated correctly\relax }}{40}
-\addvspace {10\p@ }
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Second Level Matching Scenarios\relax }}{22}

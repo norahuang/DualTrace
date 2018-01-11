@@ -1,76 +1,38 @@
 \contentsline {chapter}{Supervisory Committee}{ii}
 \contentsline {chapter}{Abstract}{iii}
 \contentsline {chapter}{Table of Contents}{iv}
-\contentsline {chapter}{List of Tables}{vii}
-\contentsline {chapter}{List of Figures}{viii}
-\contentsline {chapter}{Acknowledgements}{ix}
-\contentsline {chapter}{Dedication}{x}
-\contentsline {chapter}{\numberline {1}Introduction}{1}
-\contentsline {section}{\numberline {1.1}Define the Problem}{2}
-\contentsline {section}{\numberline {1.2}Obtain Background Knowledge}{2}
-\contentsline {section}{\numberline {1.3}Model the Communication Channels}{2}
-\contentsline {section}{\numberline {1.4}Develop the Dual Trace Synchronization Algorithms}{3}
-\contentsline {section}{\numberline {1.5}Apply the Channel Models to Windows APIs}{3}
-\contentsline {section}{\numberline {1.6}Implement the Trace Synchronization Algorithms}{3}
-\contentsline {section}{\numberline {1.7}Evaluate the Communication Channel Rebuilt Feature in Atlantis}{3}
-\contentsline {chapter}{\numberline {2}Background}{4}
-\contentsline {section}{\numberline {2.1}Software Security}{4}
-\contentsline {section}{\numberline {2.2}Software Vulnerability Detection}{5}
-\contentsline {section}{\numberline {2.3}Assembly Level Trace}{5}
-\contentsline {section}{\numberline {2.4}Software Interaction}{5}
-\contentsline {section}{\numberline {2.5}Atlantis}{5}
-\contentsline {section}{\numberline {2.6}Windows Communication Foundation}{6}
-\contentsline {chapter}{\numberline {3}Modeling}{7}
-\contentsline {section}{\numberline {3.1}Communication of Two Programs}{7}
-\contentsline {subsection}{\numberline {3.1.1}Terminology}{8}
-\contentsline {subsection}{\numberline {3.1.2}Definition}{8}
-\contentsline {section}{\numberline {3.2}Communication Categorization and Communication Methods}{10}
-\contentsline {subsection}{\numberline {3.2.1}Reliable Communication}{10}
-\contentsline {subsection}{\numberline {3.2.2}Unreliable Communication}{10}
-\contentsline {subsection}{\numberline {3.2.3}Communication Methods}{11}
-\contentsline {subsubsection}{Named Pipe}{11}
-\contentsline {subsubsection}{Message Queue}{12}
-\contentsline {subsubsection}{TCP}{13}
-\contentsline {subsubsection}{UDP}{13}
-\contentsline {section}{\numberline {3.3}Communication Identification Strategy}{14}
-\contentsline {section}{\numberline {3.4}Communication Methods' Implementation in Windows}{15}
-\contentsline {subsection}{\numberline {3.4.1}Windows Calling Convention}{16}
-\contentsline {subsection}{\numberline {3.4.2}Named Pipes}{16}
-\contentsline {subsection}{\numberline {3.4.3}Message Queue}{19}
-\contentsline {subsection}{\numberline {3.4.4}TCP and UDP}{20}
-\contentsline {section}{\numberline {3.5}Communication Event Locating in Assembly Execution Traces}{22}
-\contentsline {subsection}{\numberline {3.5.1}Assembly Execution Trace}{22}
-\contentsline {subsection}{\numberline {3.5.2}Event Information Retrieval}{23}
-\contentsline {chapter}{\numberline {4}Communication Identification Algorithms and Prototype Implementation}{24}
-\contentsline {section}{\numberline {4.1}Algorithms for Communication Identification in Dual-trace}{24}
-\contentsline {subsection}{\numberline {4.1.1}Event Locating Algorithm}{24}
-\contentsline {subsection}{\numberline {4.1.2}Endpoint and Corresponding Streams Identification Algorithm}{25}
-\contentsline {subsection}{\numberline {4.1.3}Channel Identification Algorithm}{27}
-\contentsline {subsubsection}{For Named pipe and Message Queue}{27}
-\contentsline {subsubsection}{For TCP and UDP}{28}
-\contentsline {subsection}{\numberline {4.1.4}Transported Stream Data Verification}{30}
-\contentsline {subsection}{\numberline {4.1.5}Transported Event Data Verification}{30}
-\contentsline {subsection}{\numberline {4.1.6}Data Structure for Identified Communications}{30}
-\contentsline {section}{\numberline {4.2}Communication Identification Feature Prototype}{30}
-\contentsline {chapter}{\numberline {5}Feature Prototype On Atlantis}{31}
-\contentsline {subsection}{\numberline {5.0.1}User Defined Channel Type By Json}{31}
-\contentsline {subsubsection}{Channel Searching}{31}
-\contentsline {subsubsection}{Communication Type Data Structure}{33}
-\contentsline {subsubsection}{Communication Type View}{34}
-\contentsline {subsection}{\numberline {5.0.2}Communication Event Searching}{35}
-\contentsline {subsubsection}{Record opened Channel}{36}
-\contentsline {subsubsection}{Search send and receive Message}{36}
-\contentsline {subsubsection}{Matching the send/receive messages pair}{36}
-\contentsline {subsubsection}{Matching Event Data Structure}{36}
-\contentsline {subsection}{\numberline {5.0.3}Navigation From Channel Search Result to Dual-Trace}{36}
-\contentsline {chapter}{\numberline {6}Evaluation}{38}
-\contentsline {subsection}{\numberline {6.0.1}Experiment Verification Design}{38}
-\contentsline {subsection}{\numberline {6.0.2}Result}{38}
-\contentsline {chapter}{\numberline {7}Conclusions}{41}
-\contentsline {section}{\numberline {7.1}Limitations}{41}
-\contentsline {subsection}{\numberline {7.1.1}Event Status: Success or Fail}{41}
-\contentsline {subsection}{\numberline {7.1.2}Match Events Distinguishing}{41}
-\contentsline {subsection}{\numberline {7.1.3}Match Events Ordering}{42}
-\contentsline {subsection}{\numberline {7.1.4}Buffer Sizes Of Sender and Receiver Mismatch}{42}
-\contentsline {chapter}{\numberline {A}Additional Information}{43}
-\contentsline {chapter}{Bibliography}{44}
+\contentsline {chapter}{List of Tables}{vi}
+\contentsline {chapter}{List of Figures}{vii}
+\contentsline {chapter}{Acknowledgements}{viii}
+\contentsline {chapter}{Dedication}{ix}
+\contentsline {chapter}{\numberline {1}Modeling}{1}
+\contentsline {section}{\numberline {1.1}Communication of Two Programs}{1}
+\contentsline {subsection}{\numberline {1.1.1}Terminology}{2}
+\contentsline {subsection}{\numberline {1.1.2}Definition}{2}
+\contentsline {section}{\numberline {1.2}Communication Categorization and Communication Methods}{4}
+\contentsline {subsection}{\numberline {1.2.1}Reliable Communication}{4}
+\contentsline {subsection}{\numberline {1.2.2}Unreliable Communication}{4}
+\contentsline {subsection}{\numberline {1.2.3}Communication Methods}{5}
+\contentsline {subsubsection}{Named Pipe}{5}
+\contentsline {subsubsection}{Message Queue}{6}
+\contentsline {subsubsection}{TCP}{7}
+\contentsline {subsubsection}{UDP}{8}
+\contentsline {section}{\numberline {1.3}Communication Identification Strategy}{9}
+\contentsline {section}{\numberline {1.4}Communication Methods' Implementation in Windows}{10}
+\contentsline {subsection}{\numberline {1.4.1}Windows Calling Convention}{10}
+\contentsline {subsection}{\numberline {1.4.2}Named Pipes}{11}
+\contentsline {subsection}{\numberline {1.4.3}Message Queue}{13}
+\contentsline {subsection}{\numberline {1.4.4}TCP and UDP}{15}
+\contentsline {section}{\numberline {1.5}Communication Event Locating in Assembly Execution Traces}{16}
+\contentsline {subsection}{\numberline {1.5.1}Assembly Execution Trace}{17}
+\contentsline {subsection}{\numberline {1.5.2}Event Information Retrieval}{17}
+\contentsline {chapter}{\numberline {2}Communication Identification Algorithms}{18}
+\contentsline {section}{\numberline {2.1}Event Locating Algorithm}{18}
+\contentsline {section}{\numberline {2.2}Endpoint and Corresponding Streams Identification Algorithm}{19}
+\contentsline {section}{\numberline {2.3}Communication Identification Algorithm}{21}
+\contentsline {subsection}{\numberline {2.3.1}Communication Identification Algorithm for Named pipe and Message Queue}{23}
+\contentsline {subsection}{\numberline {2.3.2}Communication Identification Algorithm for TCP and UDP}{24}
+\contentsline {subsection}{\numberline {2.3.3}Transmitted Data Verification for Named pipe and TCP by Data Union}{26}
+\contentsline {subsection}{\numberline {2.3.4}Transmitted Data Verification for MSMQ and UDP by Data of Events}{27}
+\contentsline {section}{\numberline {2.4}Data Structures for Identified Communications}{29}
+\contentsline {chapter}{Bibliography}{31}
