@@ -1,10 +1,7 @@
 package ca.uvic.chisel.atlantis.functionparsing;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
-
-import org.apache.commons.collections.ListUtils;
 
 public class ChannelTypeInstruction{
 	private String channelTypeName;

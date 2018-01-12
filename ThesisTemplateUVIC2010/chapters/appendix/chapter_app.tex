@@ -1,3 +1,27 @@
 \startappendix{Additional Information}
 \label{chapter:appendix}
 
+\section{Terminology}\label{term}
+\textbf{Endpoint:}\\
+An instance in a program at which a stream of data are sent or received (or both). It usually is identified by the handle of a specific communication method in the program. Such as a socket handle of TCP or UDP or a file handle of the named piped channel.\\
+\textbf{Channel:}\\
+A conduit connected two endpoints through  which data can be sent and received\\
+\textbf{Channel open event:}\\
+Operation to create and connect an endpoint to a specific channel\\
+\textbf{Channel close event:}\\
+Operation to disconnect and delete the endpoint from the channel.\\
+\textbf{Send event:}\\
+Operation to send a trunk of data from one endpoint to the other through  the channel.\\
+\textbf{Receive event:}\\
+Operation to receive a trunk of data at one endpoint from the other through the channel.\\
+\textbf{Channel open stream:}\\
+A set of all channel open events regarding to a specific endpoint.\\
+\textbf{Channel close stream:}\\
+A set of all channel close events regarding to a specific endpoint.\\
+\textbf{Send stream:}\\
+A set of all send events regarding to a specific endpoint.\\
+\textbf{Receive stream:}\\
+A set of all receive events regarding to a specific endpoint.\\
+\textbf{Stream:}\\
+A stream consist of a channel open stream, a channel close stream, a send stream and a receive stream. All of these streams regard to the same endpoint.
+
