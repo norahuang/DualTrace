@@ -3,8 +3,6 @@ package ca.uvic.chisel.atlantis.functionparsing;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.collections.ListUtils;
-
 public class ChannelType{
 	private String channelTypeName;
 	private List<ChannelFunction> channelOpenStageList;

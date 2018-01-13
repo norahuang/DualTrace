@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  10 JAN 2018 16:36
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  12 JAN 2018 16:15
 entering extended mode
 **./mainthesisUVIC.tex
 (mainthesisUVIC.tex
@@ -451,7 +451,11 @@ Package: relsize 2003/07/04 ver 3.1
 \algocf@algobox=\box69
 )
 (mainthesisUVIC.aux (chapters/4/chapter_modeling.aux)
-(chapters/6/chapter_algorithm.aux))
+(chapters/6/chapter_algorithm.aux) (chapters/appendix/chapter_app.aux
+
+LaTeX Warning: Label `chapter:appendix' multiply defined.
+
+))
 \openout1 = `mainthesisUVIC.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
@@ -467,8 +471,7 @@ LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
 LaTeX Font Info:    ... okay on input line 18.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 18.
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 *geometry* driver: auto-detecting
@@ -624,13 +627,7 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[4]
-Overfull \hbox (0.61865pt too wide) in paragraph at lines 33--33
- [][] []\OT1/ptm/m/n/12 Communication Iden-ti-fi-ca-tion Al-go-rithm for Named 
-pipe and Mes-sage Queue []  
- []
-
-)
+[4])
 \tf@toc=\write3
 \openout3 = `mainthesisUVIC.toc'.
 
@@ -647,102 +644,66 @@ pipe and Mes-sage Queue []
 \openout2 = `chapters/4/chapter_modeling.aux'.
 
  (chapters/4/chapter_modeling.tex
+
+Package xr Warning: 
+No file ../appendix/chapter_app.aux
+LABELS NOT IMPORTED.
+ on input line 1.
+
 Chapter 1.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 7.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 10.
-[1
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 6.
 
-
-] <Figures/communicationdefinition.png, id=37, 557.08125pt x 819.06pt>
-File: Figures/communicationdefinition.png Graphic file (type png)
-
-<use Figures/communicationdefinition.png>
-Package pdftex.def Info: Figures/communicationdefinition.png used on input line
- 39.
-(pdftex.def)             Requested size: 306.39563pt x 450.48439pt.
- [2]
-Overfull \hbox (2.71101pt too wide) in paragraph at lines 45--45
+Overfull \hbox (2.71101pt too wide) in paragraph at lines 6--6
 []\OT1/ptm/b/n/17.28 Communication Cat-e-go-riza-tion and Com-mu-ni-ca-tion Met
 h-
  []
 
-[3 <./Figures/communicationdefinition.png>] [4]
-<Figures/namedpipe.png, id=50, 683.55376pt x 468.75125pt>
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
+[1
+
+
+] [2] <Figures/namedpipe.png, id=40, 683.55376pt x 468.75125pt>
 File: Figures/namedpipe.png Graphic file (type png)
 
 <use Figures/namedpipe.png>
-Package pdftex.def Info: Figures/namedpipe.png used on input line 84.
+Package pdftex.def Info: Figures/namedpipe.png used on input line 45.
 (pdftex.def)             Requested size: 328.10208pt x 224.99803pt.
- [5]
-<Figures/msmq.png, id=54, 422.57875pt x 468.75125pt>
+
+<Figures/msmq.png, id=42, 422.57875pt x 468.75125pt>
 File: Figures/msmq.png Graphic file (type png)
  <use Figures/msmq.png>
-Package pdftex.def Info: Figures/msmq.png used on input line 101.
+Package pdftex.def Info: Figures/msmq.png used on input line 62.
 (pdftex.def)             Requested size: 202.8355pt x 224.99803pt.
 
-[6 <./Figures/namedpipe.png>]
-<Figures/tcp.png, id=59, 422.57875pt x 408.52625pt>
+[3 <./Figures/namedpipe.png>]
+<Figures/tcp.png, id=47, 422.57875pt x 408.52625pt>
 File: Figures/tcp.png Graphic file (type png)
  <use Figures/tcp.png>
-Package pdftex.def Info: Figures/tcp.png used on input line 119.
+Package pdftex.def Info: Figures/tcp.png used on input line 80.
 (pdftex.def)             Requested size: 202.8355pt x 196.09036pt.
 
-Overfull \hbox (10.82419pt too wide) in paragraph at lines 117--122
+Overfull \hbox (10.82419pt too wide) in paragraph at lines 78--83
 []\OT1/ptm/m/n/12 Based on these char-ac-ter-is-tics, the data trans-fer sce-na
-r-ios of TCP can be sum-ma-rized in Figure1.4[]. 
+r-ios of TCP can be sum-ma-rized in Figure1.3[]. 
  []
 
-[7 <./Figures/msmq.png>] <Figures/udp.png, id=64, 422.57875pt x 468.75125pt>
+[4 <./Figures/msmq.png>] <Figures/udp.png, id=53, 422.57875pt x 468.75125pt>
 File: Figures/udp.png Graphic file (type png)
 
 <use Figures/udp.png>
-Package pdftex.def Info: Figures/udp.png used on input line 137.
+Package pdftex.def Info: Figures/udp.png used on input line 98.
 (pdftex.def)             Requested size: 202.8355pt x 224.99803pt.
- [8 <./Figures/tcp.png>] [9 <./Figures/udp.png>] [10]
-Overfull \hbox (26.32033pt too wide) in paragraph at lines 188--219
- [][] 
- []
+ [5 <./Figures/tcp.png>] [6 <./Figures/udp.png>]
+<Figures/communicationdefinition.png, id=67, 557.08125pt x 819.06pt>
+File: Figures/communicationdefinition.png Graphic file (type png)
 
-[11]
-Overfull \hbox (41.45245pt too wide) in paragraph at lines 225--262
- [][] 
- []
-
-<Figures/namepipechannelopen.png, id=80, 673.51625pt x 287.0725pt>
-File: Figures/namepipechannelopen.png Graphic file (type png)
-
-<use Figures/namepipechannelopen.png>
-Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 266
-.
-(pdftex.def)             Requested size: 370.43507pt x 157.89035pt.
- [12] [13 <./Figures/namepipechannelopen.png>] <Figures/msmqchannelopen.png, id
-=88, 673.51625pt x 287.0725pt>
-File: Figures/msmqchannelopen.png Graphic file (type png)
-
-<use Figures/msmqchannelopen.png>
-Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 367.
-(pdftex.def)             Requested size: 370.43507pt x 157.89035pt.
- [14]
-Overfull \hbox (57.94193pt too wide) in paragraph at lines 378--415
- [][] 
- []
-
-[15 <./Figures/msmqchannelopen.png>]
-<Figures/tcpudpchannelopen.png, id=97, 502.87875pt x 391.4625pt>
-File: Figures/tcpudpchannelopen.png Graphic file (type png)
-
-<use Figures/tcpudpchannelopen.png>
-Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 420.
-(pdftex.def)             Requested size: 276.58417pt x 215.30502pt.
-
-Overfull \hbox (24.1719pt too wide) in paragraph at lines 425--425
-[]\OT1/ptm/b/n/17.28 Communication Event Lo-cat-ing in As-sem-bly Ex-e-cu-tion 
-Traces 
- []
-
-[16 <./Figures/tcpudpchannelopen.png>]) [17]
+<use Figures/communicationdefinition.png>
+Package pdftex.def Info: Figures/communicationdefinition.png used on input line
+ 129.
+(pdftex.def)             Requested size: 306.39563pt x 450.48439pt.
+ [7]) [8 <./Figures/communicationdefinition.png>]
 \openout2 = `chapters/6/chapter_algorithm.aux'.
 
  (chapters/6/chapter_algorithm.tex
@@ -753,31 +714,85 @@ LABELS NOT IMPORTED.
  on input line 1.
 
 Chapter 2.
+[9
+
+
+
+] [10] [11]
+Overfull \hbox (26.32033pt too wide) in paragraph at lines 55--86
+ [][] 
+ []
+
+
+Overfull \hbox (41.45245pt too wide) in paragraph at lines 92--129
+ [][] 
+ []
+
+[12] <Figures/namepipechannelopen.png, id=88, 673.51625pt x 287.0725pt>
+File: Figures/namepipechannelopen.png Graphic file (type png)
+
+<use Figures/namepipechannelopen.png>
+Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 133
+.
+(pdftex.def)             Requested size: 370.43507pt x 157.89035pt.
+ [13 <./Figures/namepipechannelopen.png>]
+[14] <Figures/msmqchannelopen.png, id=96, 673.51625pt x 287.0725pt>
+File: Figures/msmqchannelopen.png Graphic file (type png)
+
+<use Figures/msmqchannelopen.png>
+Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 234.
+(pdftex.def)             Requested size: 370.43507pt x 157.89035pt.
+
+Overfull \hbox (57.94193pt too wide) in paragraph at lines 245--282
+ [][] 
+ []
+
+[15 <./Figures/msmqchannelopen.png>]
+<Figures/tcpudpchannelopen.png, id=101, 502.87875pt x 391.4625pt>
+File: Figures/tcpudpchannelopen.png Graphic file (type png)
+
+<use Figures/tcpudpchannelopen.png>
+Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 287.
+(pdftex.def)             Requested size: 276.58417pt x 215.30502pt.
+ [16]
+Overfull \hbox (24.1719pt too wide) in paragraph at lines 293--293
+[]\OT1/ptm/b/n/17.28 Communication Event Lo-cat-ing in As-sem-bly Ex-e-cu-tion 
+Traces 
+ []
+
+[17 <./Figures/tcpudpchannelopen.png>]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 14.
-[18
-
-
-
-] [19]
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 310.
+ [18] [19]
 Overfull \vbox (35.418pt too high) has occurred while \output is active []
 
 
-[20] <Figures/secondlevelmatching.png, id=116, 690.58pt x 527.9725pt>
+[20] [21] <Figures/secondlevelmatching.png, id=122, 690.58pt x 527.9725pt>
 File: Figures/secondlevelmatching.png Graphic file (type png)
 
 <use Figures/secondlevelmatching.png>
-Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 94.
-
+Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 390
+.
 (pdftex.def)             Requested size: 379.82018pt x 290.38577pt.
- [21] [22 <./Figures/secondlevelmatching.png>] [23] [24]
-Overfull \hbox (0.32834pt too wide) in paragraph at lines 174--174
-[]\OT1/ptm/b/n/14.4 Transmitted Data Ver-i-fi-ca-tion for Named pipe and TCP by
+ [22 <./Figures/secondlevelmatching.png>]
+Overfull \hbox (34.52391pt too wide) in paragraph at lines 401--402
+\OT1/ptm/m/n/12 point. So in the be-low al-go-rithm, when it try to get the cha
+n-nel open event from the $\OML/cmm/m/it/12 endpoint:openStream$
+ []
+
+[23] [24]
+Overfull \hbox (1.1204pt too wide) in paragraph at lines 472--472
+[]\OT1/ptm/b/n/14.4 Transmitted Data Ver-i-fi-ca-tion for Named Pipe and TCP by
  Data Union 
  []
 
+
+Overfull \hbox (67.22319pt too wide) in paragraph at lines 473--507
+\OT1/ptm/m/n/12 the first level. $[]$ 
+ []
+
 [25] [26] [27] [28]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 266.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 564.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
@@ -785,46 +800,62 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 
 LaTeX Font Warning: Font shape `OMS/ptm/bx/n' undefined
 (Font)              using `OMS/ptm/m/n' instead
-(Font)              for symbol `textbraceright' on input line 272.
+(Font)              for symbol `textbraceright' on input line 570.
 
 LaTeX Font Info:    Font shape `OMS/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 272.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 570.
 ) [29]
 Overfull \vbox (73.47467pt too high) has occurred while \output is active []
 
 
-[30] (mainthesisUVIC.bbl
+[30]
+\openout2 = `chapters/appendix/chapter_app.aux'.
+
+ (chapters/appendix/chapter_app.tex
+Appendix A.
+[31
+
+
+
+]) [32] (mainthesisUVIC.bbl
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Â in font ptmr7t!
 Missing character: There is no ® in font ptmr7t!
-) [31
+) [33
 
 
 ] (mainthesisUVIC.aux
-(chapters/4/chapter_modeling.aux) (chapters/6/chapter_algorithm.aux))
+(chapters/4/chapter_modeling.aux) (chapters/6/chapter_algorithm.aux)
+(chapters/appendix/chapter_app.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 7940 strings out of 493335
- 115800 string characters out of 3139261
- 214338 words of memory out of 3000000
- 11243 multiletter control sequences out of 15000+200000
+ 7951 strings out of 493335
+ 116089 string characters out of 3139261
+ 214850 words of memory out of 3000000
+ 11245 multiletter control sequences out of 15000+200000
  23397 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,21n,45p,1437b,535s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 41i,21n,45p,1568b,535s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8
-a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program
- Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (40 pages, 430118 bytes).
+ 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsf
+onts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/sym
+bols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program File
+s/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/urw/times/utmri8a.pfb>
+Output written on mainthesisUVIC.pdf (42 pages, 422295 bytes).
 PDF statistics:
- 180 PDF objects out of 1000 (max. 8388607)
+ 198 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

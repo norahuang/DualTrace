@@ -6,33 +6,34 @@
 \contentsline {chapter}{Acknowledgements}{viii}
 \contentsline {chapter}{Dedication}{ix}
 \contentsline {chapter}{\numberline {1}Modeling}{1}
-\contentsline {section}{\numberline {1.1}Communication of Two Programs}{1}
-\contentsline {subsection}{\numberline {1.1.1}Terminology}{2}
-\contentsline {subsection}{\numberline {1.1.2}Definition}{2}
-\contentsline {section}{\numberline {1.2}Communication Categorization and Communication Methods}{4}
-\contentsline {subsection}{\numberline {1.2.1}Reliable Communication}{4}
-\contentsline {subsection}{\numberline {1.2.2}Unreliable Communication}{4}
-\contentsline {subsection}{\numberline {1.2.3}Communication Methods}{5}
-\contentsline {subsubsection}{Named Pipe}{5}
-\contentsline {subsubsection}{Message Queue}{6}
-\contentsline {subsubsection}{TCP}{7}
-\contentsline {subsubsection}{UDP}{8}
-\contentsline {section}{\numberline {1.3}Communication Identification Strategy}{9}
-\contentsline {section}{\numberline {1.4}Communication Methods' Implementation in Windows}{10}
-\contentsline {subsection}{\numberline {1.4.1}Windows Calling Convention}{10}
-\contentsline {subsection}{\numberline {1.4.2}Named Pipes}{11}
-\contentsline {subsection}{\numberline {1.4.3}Message Queue}{13}
-\contentsline {subsection}{\numberline {1.4.4}TCP and UDP}{15}
-\contentsline {section}{\numberline {1.5}Communication Event Locating in Assembly Execution Traces}{16}
-\contentsline {subsection}{\numberline {1.5.1}Assembly Execution Trace}{17}
-\contentsline {subsection}{\numberline {1.5.2}Event Information Retrieval}{17}
-\contentsline {chapter}{\numberline {2}Communication Identification Algorithms}{18}
-\contentsline {section}{\numberline {2.1}Event Locating Algorithm}{18}
-\contentsline {section}{\numberline {2.2}Endpoint and Corresponding Streams Identification Algorithm}{19}
-\contentsline {section}{\numberline {2.3}Communication Identification Algorithm}{21}
-\contentsline {subsection}{\numberline {2.3.1}Communication Identification Algorithm for Named pipe and Message Queue}{23}
-\contentsline {subsection}{\numberline {2.3.2}Communication Identification Algorithm for TCP and UDP}{24}
-\contentsline {subsection}{\numberline {2.3.3}Transmitted Data Verification for Named pipe and TCP by Data Union}{26}
-\contentsline {subsection}{\numberline {2.3.4}Transmitted Data Verification for MSMQ and UDP by Data of Events}{27}
-\contentsline {section}{\numberline {2.4}Data Structures for Identified Communications}{29}
-\contentsline {chapter}{Bibliography}{31}
+\contentsline {section}{\numberline {1.1}Communication Categorization and Communication Methods}{1}
+\contentsline {subsection}{\numberline {1.1.1}Reliable Communication}{2}
+\contentsline {subsection}{\numberline {1.1.2}Unreliable Communication}{2}
+\contentsline {subsection}{\numberline {1.1.3}Communication Methods}{2}
+\contentsline {subsubsection}{Named Pipe}{2}
+\contentsline {subsubsection}{Message Queue}{3}
+\contentsline {subsubsection}{TCP}{4}
+\contentsline {subsubsection}{UDP}{5}
+\contentsline {section}{\numberline {1.2}Model of Communication}{6}
+\contentsline {section}{\numberline {1.3}Model of the Dual-Trace of Two Communicating Programs}{8}
+\contentsline {chapter}{\numberline {2}Communication Identification Algorithms}{9}
+\contentsline {section}{\numberline {2.1}Communication Identification Process}{9}
+\contentsline {section}{\numberline {2.2}Communication Methods' Implementation in Windows}{10}
+\contentsline {subsection}{\numberline {2.2.1}Windows Calling Convention}{10}
+\contentsline {subsection}{\numberline {2.2.2}Named Pipes}{11}
+\contentsline {subsection}{\numberline {2.2.3}Message Queue}{14}
+\contentsline {subsection}{\numberline {2.2.4}TCP and UDP}{15}
+\contentsline {section}{\numberline {2.3}Communication Event Locating in Assembly Execution Traces}{17}
+\contentsline {subsection}{\numberline {2.3.1}Assembly Execution Trace}{17}
+\contentsline {subsection}{\numberline {2.3.2}Event Information Retrieval}{18}
+\contentsline {section}{\numberline {2.4}Event Locating Algorithm}{18}
+\contentsline {section}{\numberline {2.5}Endpoint Identification Algorithm}{19}
+\contentsline {section}{\numberline {2.6}Communication Identification Algorithm}{21}
+\contentsline {subsection}{\numberline {2.6.1}Communication Identification Algorithm for Named Pipe and Message Queue}{23}
+\contentsline {subsection}{\numberline {2.6.2}Communication Identification Algorithm for TCP and UDP}{24}
+\contentsline {subsection}{\numberline {2.6.3}Transmitted Data Verification for Named Pipe and TCP by Data Union}{26}
+\contentsline {subsection}{\numberline {2.6.4}Transmitted Data Verification for MSMQ and UDP by Data of Events}{27}
+\contentsline {section}{\numberline {2.7}Data Structures for Identified Communications}{29}
+\contentsline {chapter}{\numberline {A}Additional Information}{31}
+\contentsline {section}{\numberline {A.1}Terminology}{31}
+\contentsline {chapter}{Bibliography}{33}

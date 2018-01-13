@@ -1,9 +1,10 @@
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1.1}{\ignorespaces Communication Methods Discussed in This Work\relax }}{4}
-\contentsline {table}{\numberline {1.2}{\ignorespaces Function List for Synchronous Named Pipe\relax }}{12}
-\contentsline {table}{\numberline {1.3}{\ignorespaces Function List for Asynchronous Named Pipe\relax }}{12}
-\contentsline {table}{\numberline {1.4}{\ignorespaces Function List for Synchronous MSMQ\relax }}{13}
-\contentsline {table}{\numberline {1.5}{\ignorespaces Function List for Asynchronous MSMQ with Callback\relax }}{14}
-\contentsline {table}{\numberline {1.6}{\ignorespaces Function List for Asynchronous MSMQ without Callback\relax }}{14}
-\contentsline {table}{\numberline {1.7}{\ignorespaces Function APIs for TCP and UDP\relax }}{15}
+\contentsline {table}{\numberline {1.1}{\ignorespaces Communication Methods Discussed in This Work\relax }}{1}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {2.1}{\ignorespaces Function List of events for Synchronous Named Pipe\relax }}{12}
+\contentsline {table}{\numberline {2.2}{\ignorespaces Function List of events for Asynchronous Named Pipe\relax }}{13}
+\contentsline {table}{\numberline {2.3}{\ignorespaces Function List of events for Synchronous MSMQ\relax }}{14}
+\contentsline {table}{\numberline {2.4}{\ignorespaces Function List of events for Asynchronous MSMQ with Callback\relax }}{14}
+\contentsline {table}{\numberline {2.5}{\ignorespaces Function List of events for Asynchronous MSMQ without Callback\relax }}{15}
+\contentsline {table}{\numberline {2.6}{\ignorespaces Function List of events for TCP and UDP\relax }}{16}
 \addvspace {10\p@ }

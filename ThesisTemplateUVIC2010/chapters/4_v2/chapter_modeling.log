@@ -1,0 +1,2393 @@
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.5.22)  11 JAN 2018 11:11
+ restricted system commands enabled.
+**chapter_modeling.tex
+(./chapter_modeling.tex
+LaTeX2e <2016/03/31>
+Babel <3.9r> and hyphenation patterns for 1 language(s) loaded.
+! Undefined control sequence.
+l.1 \startchapter
+               {Modeling}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \startchapter{M
+                 odeling}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 1--4
+[]Modeling
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5 W
+   ith this model, it is able to decide how communications being identified ...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 5--6
+[]With
+ []
+
+! Undefined control sequence.
+l.7 \section
+          {Communication of Two Programs}\label{definition}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.7 \section{C
+            ommunication of Two Programs}\label{definition}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 7--9
+[]Communication
+ []
+
+! Undefined control sequence.
+l.10 \subsection
+              {Terminology}\label{term}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.10 \subsection{T
+                erminology}\label{term}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 10--33
+[]Terminology[]
+ []
+
+
+Overfull \hbox (24.16653pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 End-
+ []
+
+
+Overfull \hbox (29.38873pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 point: 
+ []
+
+
+Overfull \hbox (44.72197pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 Channel: 
+ []
+
+
+Overfull \hbox (41.52754pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 Channel
+ []
+
+
+Overfull \hbox (24.11794pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 open
+ []
+
+
+Overfull \hbox (30.02763pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 event: 
+ []
+
+
+Overfull \hbox (41.52754pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 Channel
+ []
+
+
+Overfull \hbox (23.86237pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 close
+ []
+
+
+Overfull \hbox (30.02763pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 event: 
+ []
+
+
+Overfull \hbox (24.43738pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 Send
+ []
+
+
+Overfull \hbox (30.02763pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 event: 
+ []
+
+
+Overfull \hbox (38.49287pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 Receive
+ []
+
+
+Overfull \hbox (30.02763pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 event: 
+ []
+
+
+Overfull \hbox (41.52754pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 Channel
+ []
+
+
+Overfull \hbox (24.11794pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 open
+ []
+
+
+Overfull \hbox (37.38312pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 stream: 
+ []
+
+
+Overfull \hbox (41.52754pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 Channel
+ []
+
+
+Overfull \hbox (23.86237pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 close
+ []
+
+
+Overfull \hbox (37.38312pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 stream: 
+ []
+
+
+Overfull \hbox (24.43738pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 Send
+ []
+
+
+Overfull \hbox (37.38312pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 stream: 
+ []
+
+
+Overfull \hbox (38.49287pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 Receive
+ []
+
+
+Overfull \hbox (37.38312pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 stream: 
+ []
+
+
+Overfull \hbox (39.2359pt too wide) in paragraph at lines 10--33
+\OT1/cmr/bx/n/10 Stream: 
+ []
+
+! Undefined control sequence.
+l.35 \subsection
+              {Definition}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 \subsection{D
+                efinition}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<write> ...ference `communicationhappen' on page \thepage 
+                                                  \space undefined\on@line .
+l.36 ... be found in Figure\ref{communicationhappen}
+                                                  . The event numbers in thi...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `communicationhappen' on page  undefined on input line 
+36.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 35--37
+[]Definition
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 35--37
+Figure[].
+ []
+
+
+! LaTeX Error: Environment figure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 \begin{figure}
+                 [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 \begin{figure}[
+                  H]
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<argument> \includegraphics 
+                 [scale=0.55]{Figures/communicationdefinition}
+l.39 ...cale=0.55]{Figures/communicationdefinition}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.40  \caption
+            {General Communication Model}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: \begin{document} ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.42 \end{figure}
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 38--43
+[][H]
+ []
+
+! Undefined control sequence.
+l.45 \section
+           {Communication Categorization and Communication Methods}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.45 \section{C
+             ommunication Categorization and Communication Methods}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<write> ...ference `methodsInCategories' on page \thepage 
+                                                  \space undefined\on@line .
+l.46 ...thods list in Table\ref{methodsInCategories}
+                                                   will be discussed further...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `methodsInCategories' on page  undefined on input line 
+46.
+
+
+! LaTeX Error: Environment table undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.47 \begin{table}
+                [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.49 \caption
+           {Communication Methods Discussed in This Work}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 51.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 51.
+
+! LaTeX Error: \begin{document} ended by \end{table}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.59 \end{table}
+              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 45--60
+[]Communication
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 45--60
+Table[]
+ []
+
+
+Overfull \hbox (259.23471pt too wide) in paragraph at lines 45--60
+[]
+ []
+
+! Undefined control sequence.
+l.62 \subsection
+              {Reliable Communication}\label{reliable}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62 \subsection{R
+                eliable Communication}\label{reliable}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 62--64
+[]Reliable
+ []
+
+! Undefined control sequence.
+l.65 \subsection
+              {Unreliable Communication}\label{unreliable}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.65 \subsection{U
+                nreliable Communication}\label{unreliable}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 65--67
+[]Unreliable
+ []
+
+! Undefined control sequence.
+l.68 \subsection
+              {Communication Methods}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68 \subsection{C
+                ommunication Methods}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<write> ...ference `methodsInCategories' on page \thepage 
+                                                  \space undefined\on@line .
+l.69 ...ion method in Table\ref{methodsInCategories}
+                                                   briefly. Moreover, data t...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `methodsInCategories' on page  undefined on input line 
+69.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 68--70
+[]Communication
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 68--70
+Table[]
+ []
+
+! Undefined control sequence.
+l.71 \subsubsection
+                 {Named Pipe}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.71 \subsubsection{N
+                   amed Pipe}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 71--73
+[]Named
+ []
+
+
+! LaTeX Error: Missing \begin{document}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.74 T
+    he basic data transfer characteristics of Named Pipe are:
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 74--75
+[]The
+ []
+
+! Undefined control sequence.
+<write> ...arning: Reference `namedpipe' on page \thepage 
+                                                  \space undefined\on@line .
+l.82 ...e can be summarized in Figure\ref{namedpipe}
+                                                  .
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `namedpipe' on page  undefined on input line 82.
+
+
+! LaTeX Error: Environment figure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.83 \begin{figure}
+                 [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+<argument> \includegraphics 
+                 [scale=0.48]{Figures/namedpipe}
+l.84 ...ludegraphics[scale=0.48]{Figures/namedpipe}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.85 \caption
+           {Data Transfer Scenarios for Named Pipe}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: \begin{document} ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.87 \end{figure}
+               
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 82--88
+[]Based
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 82--88
+Figure[].
+ []
+
+! Undefined control sequence.
+l.89 \subsubsection
+                 {Message Queue}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+\citation{redkar2004pro}
+! Undefined control sequence.
+<write> ... Warning: Citation `\@citeb ' on page \thepage 
+                                                  \space undefined\on@line .
+l.90 ...messages from one queue.\cite{redkar2004pro}
+                                                   The applications are the ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Citation `redkar2004pro' on page  undefined on input line 90.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 89--91
+[]Message
+ []
+
+
+Overfull \hbox (5.43053pt too wide) in paragraph at lines 89--91
+queue.[[]]
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 92--93
+[]The
+ []
+
+! Undefined control sequence.
+<write> 
+LaTeX Warning: Reference `msmq' on page \thepage 
+                                                  \space undefined\on@line .
+l.99 ... Queue can be summarized in Figure\ref{msmq}
+                                                  .
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `msmq' on page  undefined on input line 99.
+
+
+! LaTeX Error: Environment figure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.100 \begin{figure}
+                  [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+<argument> \includegraphics 
+                 [scale=0.48]{Figures/msmq}
+l.101 ...\includegraphics[scale=0.48]{Figures/msmq}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.102 \caption
+            {Data Transfer Scenarios for Message Queue}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: \begin{document} ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.104 \end{figure}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 99--105
+Figure[].
+ []
+
+! Undefined control sequence.
+l.106 \subsubsection
+                  {TCP}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 106--108
+[]TCP
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 109--110
+[]The
+ []
+
+! Undefined control sequence.
+<write> 
+LaTeX Warning: Reference `tcp' on page \thepage 
+                                                 \space undefined\on@line .
+l.117 ...of TCP can be summarized in Figure\ref{tcp}
+                                                  .
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `tcp' on page  undefined on input line 117.
+
+
+! LaTeX Error: Environment figure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.118 \begin{figure}
+                  [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+<argument> \includegraphics 
+                 [scale=0.48]{Figures/tcp}
+l.119 ...{\includegraphics[scale=0.48]{Figures/tcp}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.120  \caption
+             {Data Transfer Scenarios for TCP}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: \begin{document} ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.122 \end{figure}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 117--123
+[]Based
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 117--123
+Figure[].
+ []
+
+! Undefined control sequence.
+l.124 \subsubsection
+                  {UDP}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 124--126
+[]UDP
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 127--128
+[]The
+ []
+
+! Undefined control sequence.
+<write> 
+LaTeX Warning: Reference `upd' on page \thepage 
+                                                 \space undefined\on@line .
+l.135 ...of UDP can be summarized in Figure\ref{upd}
+                                                  .
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `upd' on page  undefined on input line 135.
+
+
+! LaTeX Error: Environment figure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.136 \begin{figure}
+                  [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+<argument> \includegraphics 
+                 [scale=0.48]{Figures/udp}
+l.137 ...{\includegraphics[scale=0.48]{Figures/udp}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.138  \caption
+             {Data Transfer Scenarios for UDP}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: \begin{document} ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.140 \end{figure}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 135--141
+[]Based
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 135--141
+Figure[].
+ []
+
+! Undefined control sequence.
+l.142 \section
+            {Communication Identification Strategy}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 142--144
+[]Communication
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 145--146
+[]The
+ []
+
+! Undefined control sequence.
+l.156 \section
+            {Communication Methods' Implementation in Windows}\label{windows}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 156--158
+[]Communication
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 159--160
+[]I
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 161--162
+[]Windows
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 163--164
+[]Moreover,
+ []
+
+! Undefined control sequence.
+l.165 \subsection
+               {Windows Calling Convention}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 165--167
+[]Windows
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 168--168
+[]Calling
+ []
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 169--169
+[] 
+ []
+
+! Undefined control sequence.
+l.179 \subsection
+               {Named Pipes}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+\citation{WinNamedpipe}
+! Undefined control sequence.
+<write> ... Warning: Citation `\@citeb ' on page \thepage 
+                                                  \space undefined\on@line .
+l.180 ... or write into the pipe.\cite{WinNamedpipe}
+                                                   In this work, I only cons...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Citation `WinNamedpipe' on page  undefined on input line 180.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 179--181
+[]Named
+ []
+
+
+Overfull \hbox (5.43053pt too wide) in paragraph at lines 179--181
+pipe.[[]]
+ []
+
+! Undefined control sequence.
+<write> ...ing: Reference `synfunctions' on page \thepage 
+                                                  \space undefined\on@line .
+l.182 ... Structure Address. Table\ref{synfunctions}
+                                                   lists the functions of th...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `synfunctions' on page  undefined on input line 182.
+
+! Undefined control sequence.
+<write> ...ng: Reference `asynfunctions' on page \thepage 
+                                                  \space undefined\on@line .
+l.182 ...hronous mode while Table\ref{asynfunctions}
+                                                   lists the functions of th...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `asynfunctions' on page  undefined on input line 182.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 182--183
+[]There
+ []
+
+
+Overfull \hbox (40.31914pt too wide) in paragraph at lines 182--183
+\OT1/cmr/m/it/10 GetOver-
+ []
+
+
+Overfull \hbox (25.55537pt too wide) in paragraph at lines 182--183
+\OT1/cmr/m/it/10 lappe-
+ []
+
+
+Overfull \hbox (31.82756pt too wide) in paragraph at lines 182--183
+\OT1/cmr/m/it/10 dResult
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 182--183
+Table[]
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 182--183
+Table[]
+ []
+
+
+! LaTeX Error: Environment table undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.184     \begin{table}
+                     [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.186         \caption
+                    {Function List  of events for Synchronous Named Pipe}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.190              \multirow
+                          {2}{*}{\textbf{Event}} &
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.196              \multirow
+                          {2}{*}{{\textbf{Channel Open}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.197              &\multirow
+                           {2}{*}{{CreateNamedPipe}} &  RAX: File Handler & ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.197 ...amedPipe}} &  RAX: File Handler & \multirow
+                                                  {2}{*}{CreateFile} &  RAX:...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.201              \multirow
+                          {3}{*}{{\textbf{Send}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.202              &\multirow
+                           {3}{*}{WriteFile} &  RCX: File Handle & \multirow...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.202 ...{WriteFile} &  RCX: File Handle & \multirow
+                                                  {3}{*}{WriteFile} &  RCX: ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.208              \multirow
+                          {3}{*}{{\textbf{Receive}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.209              & \multirow
+                            {3}{*}{ReadFile}&  RCX: File Handle & \multirow{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.209 ...*}{ReadFile}&  RCX: File Handle & \multirow
+                                                  {3}{*}{ReadFile} &  RCX: F...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{table}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.219     \end{table}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 184--220
+[][H]
+ []
+
+
+Overfull \hbox (275.0166pt too wide) in paragraph at lines 184--220
+[]
+ []
+
+
+! LaTeX Error: Environment table undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.221     \begin{table}
+                     [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.223         \caption
+                    {Function List  of events for Asynchronous Named Pipe}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.227              \multirow
+                          {2}{*}{\textbf{Event}} &
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.233              \multirow
+                          {2}{*}{{\textbf{Channel Open}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.234              &\multirow
+                           {2}{*}{{CreateNamedPipe}} &  RAX: File Handler & ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.234 ...amedPipe}} &  RAX: File Handler & \multirow
+                                                  {2}{*}{CreateFile} &  RAX:...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.238              \multirow
+                          {3}{*}{{\textbf{Send}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.239              &\multirow
+                           {3}{*}{WriteFile} &  RCX: File Handle & \multirow...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.239 ...{WriteFile} &  RCX: File Handle & \multirow
+                                                  {3}{*}{WriteFile} &  RCX: ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.245             \multirow
+                         {3}{*}{{\textbf{Receive}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.246              & \multirow
+                            {3}{*}{ReadFile}&  RAX: File Handle & \multirow{...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.246 ...*}{ReadFile}&  RAX: File Handle & \multirow
+                                                  {3}{*}{ReadFile} &  RCX: F...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.252                \multirow
+                            {2}{*}{{\textbf{Receive}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.253              & \multirow
+                            {2}{*}{GetOverlapped-}&  RCX: File Handler & \mu...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.253 ...verlapped-}&  RCX: File Handler & \multirow
+                                                  {2}{*}{GetOverlapped-} &  ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.255              &  \multirow
+                             {2}{*}{Result} &  RDX:  Overlap  &  \multirow{2...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.255 ...}{*}{Result} &  RDX:  Overlap  &  \multirow
+                                                  {2}{*}{Result }&  RDX:  Ov...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{table}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.262     \end{table}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 221--263
+[][H]
+ []
+
+
+Overfull \hbox (275.0166pt too wide) in paragraph at lines 221--263
+[]
+ []
+
+! Undefined control sequence.
+<write> ...ng: Reference `namedpipeopen' on page \thepage 
+                                                  \space undefined\on@line .
+l.264 ...a specified pipe. Figure\ref{namedpipeopen}
+                                                   shows the channel set up ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `namedpipeopen' on page  undefined on input line 264.
+
+
+! LaTeX Error: Environment figure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.265 \begin{figure}
+                  [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+<argument> \includegraphics 
+                 [scale=0.55]{Figures/namepipechannelopen}
+l.266 ...s[scale=0.55]{Figures/namepipechannelopen}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.267  \caption
+             {Channel Open Process for a Named Pipe}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: \begin{document} ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.269 \end{figure}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 264--270
+[]A
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 264--270
+Figure[]
+ []
+
+! Undefined control sequence.
+l.271 \subsection
+               {Message Queue}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... Reference `msmqsynfunctions' on page \thepage 
+                                                  \space undefined\on@line .
+l.272 ...ucture Address. Table\ref{msmqsynfunctions}
+                                                   lists the functions for s...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `msmqsynfunctions' on page  undefined on input line 272
+.
+
+! Undefined control sequence.
+<write> ...e `msmqasynfunctionscallback' on page \thepage 
+                                                  \space undefined\on@line .
+l.272 ... while Table\ref{msmqasynfunctionscallback}
+                                                   and Table\ref{msmqasynfun...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `msmqasynfunctionscallback' on page  undefined on input
+ line 272.
+
+! Undefined control sequence.
+<write> ...Reference `msmqasynfunctions' on page \thepage 
+                                                  \space undefined\on@line .
+l.272 ...scallback} and Table\ref{msmqasynfunctions}
+                                                   list the functions for th...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `msmqasynfunctions' on page  undefined on input line 27
+2.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 271--273
+[]Message
+ []
+
+
+Overfull \hbox (32.54701pt too wide) in paragraph at lines 271--273
+\OT1/cmr/m/it/10 MQGe-
+ []
+
+
+Overfull \hbox (27.98311pt too wide) in paragraph at lines 271--273
+\OT1/cmr/m/it/10 tOver-
+ []
+
+
+Overfull \hbox (25.55537pt too wide) in paragraph at lines 271--273
+\OT1/cmr/m/it/10 lappe-
+ []
+
+
+Overfull \hbox (31.82756pt too wide) in paragraph at lines 271--273
+\OT1/cmr/m/it/10 dResult
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 271--273
+Table[]
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 271--273
+Table[]
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 271--273
+Table[]
+ []
+
+
+! LaTeX Error: Environment table undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.274     \begin{table}
+                     [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.276         \caption
+                    {Function List  of events for Synchronous MSMQ}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.282              \multirow
+                          {2}{*}{{\textbf{Channel Open}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.283              &\multirow
+                           {2}{*}{{MQOpenQueue}} &  RAX: Queue Handler\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.287              \multirow
+                          {2}{*}{{\textbf{Send}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.288              &\multirow
+                           {2}{*}{MQSendMessage} &  RCX: Queue Handle \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.292              \multirow
+                          {2}{*}{{\textbf{Receive}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.293              & \multirow
+                            {2}{*}{MQReceiveMessage}&  RCX: Queue Handle \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{table}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.300     \end{table}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 274--301
+[][H]
+ []
+
+
+Overfull \hbox (173.71713pt too wide) in paragraph at lines 274--301
+[]
+ []
+
+
+! LaTeX Error: Environment table undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.303     \begin{table}
+                     [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.305         \caption
+                    {Function List of events for Asynchronous MSMQ with Call...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.311              \multirow
+                          {2}{*}{{\textbf{Channel Open}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.312              &\multirow
+                           {2}{*}{{MQOpenQueue}} &  RAX: Queue Handler\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.316              \multirow
+                          {2}{*}{\textbf{Send}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.317              &\multirow
+                           {2}{*}{MQSendMessage} &  RCX: Queue Handle \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.321              \multirow
+                          {2}{*}{\textbf{Receive}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.322              & \multirow
+                            {2}{*}{MQReceiveMessage}&  RCX: Queue Handle \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{table}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.332     \end{table}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 303--333
+[][H]
+ []
+
+
+Overfull \hbox (173.71713pt too wide) in paragraph at lines 303--333
+[]
+ []
+
+
+! LaTeX Error: Environment table undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.334     \begin{table}
+                     [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.336         \caption
+                    {Function List  of events for Asynchronous MSMQ without ...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.342              \multirow
+                          {2}{*}{{\textbf{Channel Open}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.343              &\multirow
+                           {2}{*}{{MQOpenQueue}} &  RAX: Queue Handler\\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.347              \multirow
+                          {2}{*}{{\textbf{Send}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.348              &\multirow
+                           {2}{*}{MQSendMessage} &  RCX: Queue Handle \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.352              \multirow
+                          {2}{*}{{\textbf{Receive}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.353              & \multirow
+                            {2}{*}{MQReceiveMessage}&  RCX: Queue Handle \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{table}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.363     \end{table}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 334--364
+[][H]
+ []
+
+
+Overfull \hbox (173.71713pt too wide) in paragraph at lines 334--364
+[]
+ []
+
+! Undefined control sequence.
+<write> ...Warning: Reference `msmqopen' on page \thepage 
+                                                  \space undefined\on@line .
+l.365 ...to identify the queue. Figure\ref{msmqopen}
+                                                   shows the channel set up ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `msmqopen' on page  undefined on input line 365.
+
+
+! LaTeX Error: Environment figure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.366 \begin{figure}
+                  [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+<argument> \includegraphics 
+                 [scale=0.55]{Figures/msmqchannelopen}
+l.367 ...phics[scale=0.55]{Figures/msmqchannelopen}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.368  \caption
+             {Channel Open Process for a Message Queue}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: \begin{document} ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.370 \end{figure}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 365--371
+[]The
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 365--371
+Figure[]
+ []
+
+! Undefined control sequence.
+l.372 \subsection
+               {TCP and UDP}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ...: Reference `tcpupdfunctions' on page \thepage 
+                                                  \space undefined\on@line .
+l.373 ... is the client. Table \ref{tcpupdfunctions}
+                                                   lists the functions of a ...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `tcpupdfunctions' on page  undefined on input line 373.
+
+
+
+! LaTeX Error: Environment table undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.374   \begin{table}
+                   [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.376         \caption
+                    {Function List  of events for TCP and UDP}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.380              \multirow
+                          {2}{*}{\textbf{Event}} &
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.389                 \multirow
+                             {2}{*}{{\textbf{Channel Open}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.390               &\multirow
+                            {2}{*}{{bind}} &  RCX: Socket Handle & \multirow...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.390 ...}{{bind}} &  RCX: Socket Handle & \multirow
+                                                  {2}{*}{connect} &  RCX: So...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.394                 \multirow
+                             {3}{*}{{\textbf{Channel Open}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.395              &\multirow
+                           {3}{*}{{accept}} &  RAX: New Socket Handle && \\
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.401              \multirow
+                          {2}{*}{{\textbf{Send}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.402              &\multirow
+                           {2}{*}{send} &  RCX: New Socket Handle & \multiro...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.402 ...send} &  RCX: New Socket Handle & \multirow
+                                                  {2}{*}{send} &  RCX: Socke...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<recently read> \multirow 
+          
+l.406               \multirow
+                           {2}{*}{{\textbf{Receive}}}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.407              & \multirow
+                            {2}{*}{recv}&  RCX: New Socket Handle & \multiro...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.407 ...{recv}&  RCX: New Socket Handle & \multirow
+                                                  {2}{*}{recv} &  RCX: Socke...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \begin{document} ended by \end{table}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.415     \end{table}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 372--416
+[]TCP
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 372--416
+[]
+ []
+
+
+Overfull \hbox (275.0166pt too wide) in paragraph at lines 372--416
+[]
+ []
+
+! Undefined control sequence.
+<write> ...ing: Reference `channelopen2' on page \thepage 
+                                                  \space undefined\on@line .
+l.417 ...eal data transfer. Figure\ref{channelopen2}
+                                                   shows the channel open pr...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `channelopen2' on page  undefined on input line 417.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 417--418
+[]The
+ []
+
+
+Overfull \hbox (25.8109pt too wide) in paragraph at lines 417--418
+\OT1/cmr/m/it/10 socket
+ []
+
+
+Overfull \hbox (18.39989pt too wide) in paragraph at lines 417--418
+\OT1/cmr/m/it/10 bind\nullfont .
+ []
+
+
+Overfull \hbox (13.28879pt too wide) in paragraph at lines 417--418
+\OT1/cmr/m/it/10 ac-
+ []
+
+
+Overfull \hbox (17.12207pt too wide) in paragraph at lines 417--418
+\OT1/cmr/m/it/10 cept
+ []
+
+
+Overfull \hbox (18.39986pt too wide) in paragraph at lines 417--418
+\OT1/cmr/m/it/10 con-
+ []
+
+
+Overfull \hbox (17.63318pt too wide) in paragraph at lines 417--418
+\OT1/cmr/m/it/10 nect
+ []
+
+
+Overfull \hbox (13.28879pt too wide) in paragraph at lines 417--418
+\OT1/cmr/m/it/10 ac-
+ []
+
+
+Overfull \hbox (17.12207pt too wide) in paragraph at lines 417--418
+\OT1/cmr/m/it/10 cept
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 417--418
+Figure[]
+ []
+
+
+! LaTeX Error: Environment figure undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.419 \begin{figure}
+                  [H]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Undefined control sequence.
+<argument> \includegraphics 
+                 [scale=0.55]{Figures/tcpudpchannelopen}
+l.420 ...ics[scale=0.55]{Figures/tcpudpchannelopen}}
+                                                  
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+! LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.421  \caption
+             {Channel Open Model for TCP and UDP}
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: \begin{document} ended by \end{figure}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.423 \end{figure}
+                
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 419--424
+[][H]
+ []
+
+! Undefined control sequence.
+l.425 \section
+            {Communication Event Locating in Assembly Execution Traces}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 425--427
+[]Communication
+ []
+
+! Undefined control sequence.
+l.428 \subsection
+               {Assembly Execution Trace}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 428--430
+[]Assembly
+ []
+
+! Undefined control sequence.
+l.431 \subsection
+               {Event Information Retrieval}
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+<write> ... Warning: Reference `windows' on page \thepage 
+                                                  \space undefined\on@line .
+l.432 ...ction line. Tables in section \ref{windows}
+                                                   indicate all the function...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Reference `windows' on page  undefined on input line 432.
+
+
+Overfull \hbox (20.0pt too wide) in paragraph at lines 431--433
+[]Event
+ []
+
+
+Overfull \hbox (10.86105pt too wide) in paragraph at lines 431--433
+[]
+ []
+
+)
+! Emergency stop.
+<*> chapter_modeling.tex
+                     
+*** (job aborted, no legal \end found)
+
+
+
+Here is how much of LuaTeX's memory you used:
+ 53 strings out of 495119
+ 195337,89155 words of node,token memory allocated 183363 words of node memory still in use:
+   949 hlist, 7 vlist, 494 rule, 73 disc, 77 local_par, 1 dir, 20 math, 6611 glu
+e, 194 kern, 255 penalty, 20183 glyph, 32 glue_spec, 21 write nodes
+   avail lists: 1:1,2:17,4:168,5:5,7:132,8:1,10:166
+ 3705 multiletter control sequences out of 65536+600000
+ 27 fonts using 1128471 bytes
+ 19i,7n,21p,1063b,190s stack positions out of 5000i,500n,10000p,200000b,100000s
+!  ==> Fatal error occurred, no output PDF file produced!
