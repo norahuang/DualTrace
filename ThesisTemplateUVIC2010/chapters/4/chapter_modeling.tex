@@ -126,13 +126,18 @@ The terminology of using in this definition can be found in \ref{term}.
 
 Figure\ref{communicationhappen} is a communication example of this definition. 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/communicationexample}}
- \caption{Example of Communication}
+\centerline{\includegraphics[scale=0.55]{Figures/communicationdefinition}}
+\caption{Example of Communication}
 \label{communicationhappen}
 \end{figure}
 
-
 \section{Model of the Dual-Trace of Two Communicating Programs}
+The dual-trace being analysed are in assembly level. One dual-trace contains two execution traces. There is no timing information of these two traces which means we don't know the timestamps of the events of these two traces and can not match the events from both sides by time sequence. However the captured instructions in the trace are ordered in execution sequence. The execution traces contain all executed instructions as well as the corresponding changed memory by each instruction. Additionally, system calls are also captured by instruction id, which means if .dll or .exe files are provided, the system function calls can be identified with function names. Memory states can be reconstructed from the recorded memory changes to get the data information of the communication. In this section, I model the execution trace in the dual-trace. The communication identification is among the information of this model.
+
+A dual-trace consist of two execution traces $\left\lbrace trace1, trace2 \right\rbrace $ . An execution trace is defined as a sequence $trace = (line_{k}, 0 \leqslant l \leqslant K)$. $line_{k}$ in a $trace$ is a 3\_tuple $\langle ins, mem, fi \rangle$ where $ins$ is the assembly instruction, $mem$ is memory changed by this instruction and $fi$ is function call information indicating if this is the function call or return. A function $eventfilter \left( \right) $ is defined to generate the event level trace $event_trace$ from the original $trace$. $event_trace = eventfilter\left( trace, funcset\right) $, where $funcset = \left \lbrace func_{l}, 0 \leqslant L \leqslant Q\right\rbrace $ is a set of the concerned events' function information.Each concerned event's function information can be described a tuple $langle funN, type, pars \rangle$ where $funN$ is the concerned event's function name, $type$ can only be one of these four event types: only be channel open, channel close, data send and data receive and $pars$, is the parameter information list. The output of this function $event_trace$ is a sequence of events $(event_{m}, 0 \leqslant l \leqslant M)$. Only the concerned events in the $funcset$ are filtered in this sequence, all other information in the original trace are ignored. Each event in the trace corresponds to a system function call and is defined as a 4\_tuple $\langle funN, startline, endline, type \rangle$. In this tuple $funN$ is the name of the called function, $startline$ is the line number where the function was being called, $endline$ is the line number where the function returned and $type$ is the event type. The events in the $event_trace$ are interleaving events among multiple handles. Function  $streamfilter \left( \right) $ is defined to generate the stream level trace $event_trace$ from the $event_trace$. $stream_trace =  eventfilter\left( event_trace \right) $. The output $stream_trace$ is a set of stream $\left \lbrace stream_{n}, 0 \leqslant n \leqslant N\right\rbrace$ in which each stream correspond to a handle and consist of 4 sub streams. So that $stream_{n} $ is a set  $\left \lbrace open_stream, send_stream, receive_stream, close_stream \right\rbrace $. Each of these sub streams consist of a sequence of $event$ of a certain handle of the corresponding event types.
+
+\section{Element matching from Trace Modelling and Communication Modelling}
+The goal of this work is to identify the communication from dual-trace. In the modelling, this can be abstracted as finding the elements of the communication model in the dual-trace model. The element matching can be summarized in Table\. By known this matching, algorithms can be developed to identify the communications in the dual-trace model. The developed algorithm will be discuss in next chapter.
 
 
 
