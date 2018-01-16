@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  15 JAN 2018 09:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  16 JAN 2018 11:58
 entering extended mode
 **./mainthesisUVIC.tex
 (mainthesisUVIC.tex
@@ -696,14 +696,21 @@ File: Figures/udp.png Graphic file (type png)
 Package pdftex.def Info: Figures/udp.png used on input line 98.
 (pdftex.def)             Requested size: 202.8355pt x 224.99803pt.
  [5 <./Figures/tcp.png>] [6 <./Figures/udp.png>]
-<Figures/communicationdefinition.png, id=67, 557.08125pt x 819.06pt>
-File: Figures/communicationdefinition.png Graphic file (type png)
+<Figures/reliableexample.png, id=67, 525.965pt x 541.02126pt>
+File: Figures/reliableexample.png Graphic file (type png)
 
-<use Figures/communicationdefinition.png>
-Package pdftex.def Info: Figures/communicationdefinition.png used on input line
- 129.
-(pdftex.def)             Requested size: 306.39563pt x 450.48439pt.
- [7] [8 <./Figures/communicationdefinition.png>] [9]) [10]
+<use Figures/reliableexample.png>
+Package pdftex.def Info: Figures/reliableexample.png used on input line 129.
+(pdftex.def)             Requested size: 289.28163pt x 297.5626pt.
+ [7]
+<Figures/unreliableexample.png, id=71, 525.965pt x 385.44pt>
+File: Figures/unreliableexample.png Graphic file (type png)
+
+<use Figures/unreliableexample.png>
+Package pdftex.def Info: Figures/unreliableexample.png used on input line 136.
+(pdftex.def)             Requested size: 289.28163pt x 211.99265pt.
+ [8 <./Figures/reliableexample.png> <./Figures/unreliableexample.png>] [9]) [10
+]
 \openout2 = `chapters/6/chapter_algorithm.aux'.
 
  (chapters/6/chapter_algorithm.tex
@@ -728,7 +735,7 @@ Overfull \hbox (41.45245pt too wide) in paragraph at lines 92--129
  [][] 
  []
 
-[14] <Figures/namepipechannelopen.png, id=94, 673.51625pt x 287.0725pt>
+[14] <Figures/namepipechannelopen.png, id=96, 673.51625pt x 287.0725pt>
 File: Figures/namepipechannelopen.png Graphic file (type png)
 
 <use Figures/namepipechannelopen.png>
@@ -736,7 +743,7 @@ Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 133
 .
 (pdftex.def)             Requested size: 370.43507pt x 157.89035pt.
  [15 <./Figures/namepipechannelopen.png>]
-[16] <Figures/msmqchannelopen.png, id=103, 673.51625pt x 287.0725pt>
+[16] <Figures/msmqchannelopen.png, id=105, 673.51625pt x 287.0725pt>
 File: Figures/msmqchannelopen.png Graphic file (type png)
 
 <use Figures/msmqchannelopen.png>
@@ -748,7 +755,7 @@ Overfull \hbox (57.94193pt too wide) in paragraph at lines 245--282
  []
 
 [17 <./Figures/msmqchannelopen.png>]
-<Figures/tcpudpchannelopen.png, id=108, 502.87875pt x 391.4625pt>
+<Figures/tcpudpchannelopen.png, id=110, 502.87875pt x 391.4625pt>
 File: Figures/tcpudpchannelopen.png Graphic file (type png)
 
 <use Figures/tcpudpchannelopen.png>
@@ -767,7 +774,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 Overfull \vbox (35.418pt too high) has occurred while \output is active []
 
 
-[22] [23] <Figures/secondlevelmatching.png, id=129, 690.58pt x 527.9725pt>
+[22] [23] <Figures/secondlevelmatching.png, id=131, 690.58pt x 527.9725pt>
 File: Figures/secondlevelmatching.png Graphic file (type png)
 
 <use Figures/secondlevelmatching.png>
@@ -836,10 +843,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 7952 strings out of 493335
- 116097 string characters out of 3139261
- 214850 words of memory out of 3000000
- 11246 multiletter control sequences out of 15000+200000
+ 7958 strings out of 493335
+ 116228 string characters out of 3139261
+ 214862 words of memory out of 3000000
+ 11251 multiletter control sequences out of 15000+200000
  23397 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,21n,45p,2423b,535s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -853,9 +860,9 @@ bols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb
 ><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program File
 s/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/urw/times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (44 pages, 428479 bytes).
+Output written on mainthesisUVIC.pdf (44 pages, 507802 bytes).
 PDF statistics:
- 205 PDF objects out of 1000 (max. 8388607)
+ 207 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 46 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

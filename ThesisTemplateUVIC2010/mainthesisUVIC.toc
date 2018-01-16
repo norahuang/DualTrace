@@ -15,8 +15,8 @@
 \contentsline {subsubsection}{TCP}{4}
 \contentsline {subsubsection}{UDP}{5}
 \contentsline {section}{\numberline {1.2}Model of Communication}{6}
-\contentsline {section}{\numberline {1.3}Model of the Dual-Trace of Two Communicating Programs}{8}
-\contentsline {section}{\numberline {1.4}Element matching from Trace Modelling and Communication Modelling}{9}
+\contentsline {section}{\numberline {1.3}Model of the Dual-Trace of Two Communicating Programs}{9}
+\contentsline {section}{\numberline {1.4}Element matching from Trace Modelling and Communication Modelling}{10}
 \contentsline {chapter}{\numberline {2}Communication Identification Algorithms}{11}
 \contentsline {section}{\numberline {2.1}Communication Identification Process}{11}
 \contentsline {section}{\numberline {2.2}Communication Methods' Implementation in Windows}{12}
