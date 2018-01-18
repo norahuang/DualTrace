@@ -1,6 +1,5 @@
-\externaldocument{../4/chapter_modeling}
+\externaldocument{../3/chapter_modeling}
 \externaldocument{../appendix/chapter_app}
-\label{chapter:appendix}
 \startchapter{Communication Identification Algorithms}
 \label{chapter:alo}
 This chapter discuss the algorithms for communication identification from dual-trace. Pseudo code are listed for algorithms. The algorithm is based on the models developed in the models Chapter\ref{chapter:Mod}.
@@ -380,7 +379,7 @@ For Named Pipe and Message Queue, only one channel open function is being called
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf Communication Indentification Algorithm for Named Pipe and Message Queue} \label{channelAlg1}}
+\caption{{\bf Stream Matching Algorithm for Named Pipe and Message Queue} \label{channelAlg1}}
 \KwIn{$stream\_trace_{0}, stream\_trace_{1}$}
 \KwOut{$cos = \left\lbrace co_{y}: 0\leqslant y \leqslant Y\right\rbrace $}
 $cos \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;\; 
@@ -411,7 +410,7 @@ For TCP and UDP multiple functions are collaborating to create the final communi
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf Communication Indentification Algorithm for TCP and UDP} \label{channelAlg2}}
+\caption{{\bf Stream Matching Algorithm for TCP and UDP} \label{channelAlg2}}
 \KwIn{$stream\_trace_{0}, stream\_trace_{1}$}
 \KwOut{$cos = \left\lbrace co_{y}: 0\leqslant y \leqslant Y\right\rbrace $}
 $cos \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;\; 

@@ -1,5 +1,13 @@
 \begin{thebibliography}{1}
 
+\bibitem{huang2017atlantis}
+Huihui~Nora Huang, Eric Verbeek, Daniel German, Margaret-Anne Storey, and
+  Martin Salois.
+\newblock Atlantis: Improving the analysis and visualization of large assembly
+  execution traces.
+\newblock In {\em Software Maintenance and Evolution (ICSME), 2017 IEEE
+  International Conference on}, pages 623--627. IEEE, 2017.
+
 \bibitem{khambattinamed}
 Mujtaba Khambatti-Mujtaba.
 \newblock Named pipes, sockets and other ipc.

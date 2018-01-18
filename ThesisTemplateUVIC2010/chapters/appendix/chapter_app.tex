@@ -37,3 +37,269 @@ A stream consist of a channel open stream, a channel close stream, a send stream
 \item Larger return values (structs) have space allocated on the stack by the caller, and RCX then contains a pointer to the return space when the callee is called. Register usage for integer parameters is then pushed one to the right. RAX returns this address to the caller.
 \end{enumerate}
 
+\section{Example of Configuration File for Communication Methods' Function Set}\label{funcset}
+\begin{lstlisting}
+[
+   {
+      "communicationMethod": "NamedPipe",
+      "funcList": [
+         {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": true
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": false
+            },
+            "functionName": "CreateNamedPipeA",
+            "createHandle": true,
+            "type": "open"
+         },
+         {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": true
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": false
+            },
+            "functionName": "CreateFileA",
+            "createHandle": true,
+            "type": "open"
+         },
+		 {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": value
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": value
+            },
+            "memoryInputReg": {
+               "name": "RDX",
+               "valueOrAddress": address
+            },
+            "memoryInputLenReg": {
+               "name": "R8",
+               "valueOrAddress": value
+            },
+            "functionName": "WriteFile",
+            "createHandle": false,
+            "type": "send"
+         },
+         {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": value
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": value
+            },
+            "memoryOutputReg": {
+               "name": "RDX",
+               "valueOrAddress": address
+            },
+            "memoryOutputBufLenReg": {
+               "name": "R8",
+               "valueOrAddress": value
+            },
+            "functionName": "ReadFile",
+            "createHandle": false,
+            "type": "recv",
+            "outputDataAddressIndex": "NamedPipeChannelRDX"
+         },
+         {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": value
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": value
+            },
+            "memoryOutputReg": {
+               "name": "RDX",
+               "valueOrAddress": address
+            },
+            "functionName": "GetOverlappedResult",
+            "createHandle": false,
+            "type": "check",
+            "outputDataAddressIndex": "NamedPipeChannelRDX"
+         },
+		 {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": value
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": value
+            },
+            "functionName": "CloseHandle",
+            "createHandle": false,
+            "type": "na"
+         }
+      ]
+   }
+]
+\end{lstlisting}
+
+\section{Open View with Two Parallel Editors programmatically}\label{paralleleditor}
+\subsection{The Editor Area Split Handler}
+\begin{lstlisting}
+public class OpenDualEditorsHandler extends AbstractHandler {
+	EModelService ms;
+	EPartService ps;
+	WorkbenchPage page;
+
+	  
+    public Object execute(ExecutionEvent event) throws ExecutionException {
+		IEditorPart editorPart = HandlerUtil.getActiveEditor(event);
+		if (editorPart == null) {
+			Throwable throwable = new Throwable("No active editor");
+			BigFileApplication.showErrorDialog("No active editor", "Please open one file first", throwable);
+			return null;
+		}
+
+		MPart container = (MPart) editorPart.getSite().getService(MPart.class);
+		MElementContainer m = container.getParent();
+		if (m instanceof PartSashContainerImpl) {
+			Throwable throwable = new Throwable("The active file is already opened in one of the parallel editors");
+			BigFileApplication.showErrorDialog("TThe active file is already opened in one of the parallel editors",
+					"The active file is already opened in one of the parallel editors", throwable);
+			return null;
+		}
+		IFile file = getPathOfSelectedFile(event);
+
+		IEditorDescriptor desc = PlatformUI.getWorkbench().getEditorRegistry().getDefaultEditor(file.getName());
+		try {
+			IFileUtils fileUtil = RegistryUtils.getFileUtils();
+			File f = BfvFileUtils.convertFileIFile(file);
+			f = fileUtil.convertFileToBlankFile(f);
+			IFile convertedFile = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(Path.fromOSString(f.getAbsolutePath()));
+			convertedFile.getProject().refreshLocal(IResource.DEPTH_INFINITE, null);
+			if (!convertedFile.exists()) {
+				createEmptyFile(convertedFile);
+			}
+
+			IEditorPart containerEditor = HandlerUtil.getActiveEditorChecked(event);
+			IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+			ms = window.getService(EModelService.class);
+			ps = window.getService(EPartService.class);
+			page = (WorkbenchPage) window.getActivePage();
+			IEditorPart editorToInsert = page.openEditor(new FileEditorInput(convertedFile), desc.getId());
+			splitEditor(0.5f, 3, editorToInsert, containerEditor, new FileEditorInput(convertedFile));
+			window.getShell().layout(true, true);
+			
+
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+    private void createEmptyFile(IFile file) {
+		byte[] emptyBytes = "".getBytes();
+		InputStream source = new ByteArrayInputStream(emptyBytes);
+		try {
+			createParentFolders(file);
+			if(!file.exists()){
+				file.create(source, false, null);
+			}
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				source.close();
+			} catch (IOException e) {
+				// Don't care
+			}
+		}
+	}
+
+	private void splitEditor(float ratio, int where, IEditorPart editorToInsert, IEditorPart containerEditor,
+			FileEditorInput newEditorInput) {
+		MPart container = (MPart) containerEditor.getSite().getService(MPart.class);
+		if (container == null) {
+			return;
+		}
+
+		MPart toInsert = (MPart) editorToInsert.getSite().getService(MPart.class);
+		if (toInsert == null) {
+			return;
+		}
+
+		MPartStack stackContainer = getStackFor(container);
+		MElementContainer<MUIElement> parent = container.getParent();
+		int index = parent.getChildren().indexOf(container);
+		MStackElement stackSelElement = stackContainer.getChildren().get(index);
+
+		MPartSashContainer psc = ms.createModelElement(MPartSashContainer.class);
+		psc.setHorizontal(true);
+		psc.getChildren().add((MPartSashContainerElement) stackSelElement);
+		psc.getChildren().add(toInsert);
+		psc.setSelectedElement((MPartSashContainerElement) stackSelElement);
+
+		MCompositePart compPart = ms.createModelElement(MCompositePart.class);
+		compPart.getTags().add(EPartService.REMOVE_ON_HIDE_TAG);
+		compPart.setCloseable(true);
+		compPart.getChildren().add(psc);
+		compPart.setSelectedElement(psc);
+		compPart.setLabel("dual-trace:" + containerEditor.getTitle() + " and " + editorToInsert.getTitle());
+
+		parent.getChildren().add(index, compPart);
+		ps.activate(compPart);
+
+	}
+
+	private MPartStack getStackFor(MPart part) {
+		MUIElement presentationElement = part.getCurSharedRef() == null ? part : part.getCurSharedRef();
+		MUIElement parent = presentationElement.getParent();
+		while (parent != null && !(parent instanceof MPartStack))
+			parent = parent.getParent();
+
+		return (MPartStack) parent;
+	}
+
+
+	private IFile getPathOfSelectedFile(ExecutionEvent event) {
+		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		if (window != null) {
+			window = HandlerUtil.getActiveWorkbenchWindow(event);
+			IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
+			Object firstElement = selection.getFirstElement();
+			if (firstElement instanceof IFile) {
+				return (IFile) firstElement;
+			}
+			if (firstElement instanceof IFolder) {
+				IFolder folder = (IFolder) firstElement;
+				AtlantisBinaryFormat binaryFormat = new AtlantisBinaryFormat(
+						folder.getRawLocation().makeAbsolute().toFile());
+				// arbitrary, just any file in the binary set is needed
+				return AtlantisFileUtils.convertFileIFile(binaryFormat.getExecVtableFile());
+			}
+		}
+		return null;
+	}
+}
+\end{lstlisting}
+
+\subsection{Get the Active Parallel Editors}
+\begin{lstlisting}
+IEditorPart editorPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		MPart container = (MPart) editorPart.getSite().getService(MPart.class);
+		MElementContainer m = container.getParent();
+		if (!(m instanceof PartSashContainerImpl)) {
+			Throwable throwable = new Throwable("This is not a dual-trace");
+			BigFileApplication.showErrorDialog("This is not a dual-trace!", "Open a dual-trace First", throwable);
+			return;
+		}
+
+		MPart editorPart1 = (MPart) m.getChildren().get(0);
+		MPart editorPart2 = (MPart) m.getChildren().get(1);
+\end{lstlisting}
