@@ -1,15 +1,11 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: mainthesisUVIC.aux
-A level-1 auxiliary file: chapters/1/chapter_intro.aux
-A level-1 auxiliary file: chapters/3/chapter_background.aux
 A level-1 auxiliary file: chapters/4/chapter_modeling.aux
 A level-1 auxiliary file: chapters/6/chapter_algorithm.aux
-A level-1 auxiliary file: chapters/7/chapter_implementation.aux
-A level-1 auxiliary file: chapters/8/chapter_evaluation.aux
-A level-1 auxiliary file: chapters/9/chapter_conclusion.aux
 A level-1 auxiliary file: chapters/appendix/chapter_app.aux
 The style file: plain.bst
 Database file #1: UvicThesis.bib
 Warning--entry type for "WinNamedpipe" isn't style-file defined
 --line 75 of file UvicThesis.bib
-Warning--I didn't find a database entry for "PhysRevE.68.046116"
-(There were 2 warnings)
+Warning--empty journal in khambattinamed
+Warning--empty year in khambattinamed
+(There were 3 warnings)

@@ -14,27 +14,25 @@
 \contentsline {subsubsection}{Message Queue}{3}
 \contentsline {subsubsection}{TCP}{4}
 \contentsline {subsubsection}{UDP}{5}
-\contentsline {section}{\numberline {1.2}Model of Communication}{6}
-\contentsline {section}{\numberline {1.3}Model of the Dual-Trace of Two Communicating Programs}{9}
-\contentsline {section}{\numberline {1.4}Element matching from Trace Modelling and Communication Modelling}{10}
+\contentsline {section}{\numberline {1.2}Communication Model}{6}
+\contentsline {section}{\numberline {1.3}Dual-Trace Model}{9}
+\contentsline {section}{\numberline {1.4}Element Matching Communication Model and Dual-Trace Model}{10}
 \contentsline {chapter}{\numberline {2}Communication Identification Algorithms}{11}
-\contentsline {section}{\numberline {2.1}Communication Identification Process}{11}
+\contentsline {section}{\numberline {2.1}Communication Identification Algorithm}{11}
 \contentsline {section}{\numberline {2.2}Communication Methods' Implementation in Windows}{12}
 \contentsline {subsection}{\numberline {2.2.1}Windows Calling Convention}{12}
 \contentsline {subsection}{\numberline {2.2.2}Named Pipes}{13}
-\contentsline {subsection}{\numberline {2.2.3}Message Queue}{16}
+\contentsline {subsection}{\numberline {2.2.3}Message Queue}{15}
 \contentsline {subsection}{\numberline {2.2.4}TCP and UDP}{17}
-\contentsline {section}{\numberline {2.3}Communication Event Locating in Assembly Execution Traces}{19}
-\contentsline {subsection}{\numberline {2.3.1}Assembly Execution Trace}{19}
-\contentsline {subsection}{\numberline {2.3.2}Event Information Retrieval}{20}
-\contentsline {section}{\numberline {2.4}Event Locating Algorithm}{20}
-\contentsline {section}{\numberline {2.5}Endpoint Identification Algorithm}{21}
-\contentsline {section}{\numberline {2.6}Communication Identification Algorithm}{23}
-\contentsline {subsection}{\numberline {2.6.1}Communication Identification Algorithm for Named Pipe and Message Queue}{25}
-\contentsline {subsection}{\numberline {2.6.2}Communication Identification Algorithm for TCP and UDP}{26}
-\contentsline {subsection}{\numberline {2.6.3}Transmitted Data Verification for Named Pipe and TCP by Data Union}{28}
-\contentsline {subsection}{\numberline {2.6.4}Transmitted Data Verification for MSMQ and UDP by Data of Events}{29}
-\contentsline {section}{\numberline {2.7}Data Structures for Identified Communications}{31}
+\contentsline {section}{\numberline {2.3}Event Locating Algorithm: $eventfilter\left ( \right )$}{18}
+\contentsline {section}{\numberline {2.4}Stream Identification Algorithm: $streamfilter\left ( \right )$}{19}
+\contentsline {section}{\numberline {2.5}Stream Matching Algorithm: $streammatch()$}{22}
+\contentsline {subsection}{\numberline {2.5.1}Stream Matching Algorithm for Named Pipe and Message Queue}{24}
+\contentsline {subsection}{\numberline {2.5.2}Stream Matching Algorithm for TCP and UDP}{25}
+\contentsline {subsection}{\numberline {2.5.3}Transmitted Data Verification for Named Pipe and TCP by Data Union: $dataVerify()$}{27}
+\contentsline {subsection}{\numberline {2.5.4}Transmitted Data Verification for MSMQ and UDP by Data of Events:$dataVerify()$}{28}
+\contentsline {section}{\numberline {2.6}Data Structures for Identified Communications}{31}
 \contentsline {chapter}{\numberline {3}Additional Information}{33}
 \contentsline {section}{\numberline {3.1}Terminology}{33}
+\contentsline {section}{\numberline {3.2}Microsoft* x64 Calling Convention for C/C++}{34}
 \contentsline {chapter}{Bibliography}{35}

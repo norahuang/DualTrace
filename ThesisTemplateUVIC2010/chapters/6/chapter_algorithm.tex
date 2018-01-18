@@ -1,27 +1,29 @@
 \externaldocument{../4/chapter_modeling}
+\externaldocument{../appendix/chapter_app}
 \label{chapter:appendix}
 \startchapter{Communication Identification Algorithms}
 \label{chapter:alo}
-In the Modeling Chapter, I elaborate the definition of the communications and the strategy of the communication identification. There are several major steps in the identification strategy. In this chapter, I list developed the algorithms for the key steps in the identification strategy.  
+This chapter discuss the algorithms for communication identification from dual-trace. Pseudo code are listed for algorithms. The algorithm is based on the models develop in the Modeling chapter\ref{chapter:Mod}.
 
-\section{Communication Identification Process}
-In the first section of this chapter, I define what is a communication. The identification of the communications from a dual-trace should be able to identify the concerned communications as well as all the components defined in it. The section section in this chapter investigate the characteristics of the communication methods which is the key factor affecting the verification of the transferred data of a communication. From the trace analysis point of view, channel open events are essential to identify an endpoint while all other events are optional in the identification.
-
-The identification contains seven major steps:
-\begin{itemize}
- \item Locate all events
- \item Identify the endpoints from the channel open events
- \item Group the related events into streams, send streams and receive streams, then bind them to the corresponding endpoint
- \item Match the endpoints to the communications
- \item For reliable communication, verify if the send data union in the stream of one endpoint match the receive data union in the stream of the other endpoint; For unreliable communication, try to match the send and receive events of both endpoints 
- \item Construct and organize all the retrieved data of the communication 
- \item Present the identified communications to the user
-\end{itemize}
+\section{Communication Identification Algorithm}
+The identification of the communications from a dual-trace should be able to identify the concerned communications as well as all the components defined in it. The inputs of this algorithm are the $dual-trace=\left\lbrace trace_{x}: x= 0,1 \right\rbrace $ and the concerned communication method's function set $funcset = \left \lbrace func_{l}, 0 \leqslant l \leqslant L\right\rbrace $. The output of this algorithm is all the identified communications of the concerned communication method. This is a very high level algorithm, details of each step in this algorithm will be discussed in the following sub sections.\par
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf Communication Identification Algorithm} \label{endpointIdentAlg}}
+\KwIn{$dual\_trace$, $funcset$}
+\KwOut{$cos = \left\lbrace co_{y}: 0\leqslant y \leqslant Y\right\rbrace $}
+\For{$x \in (0,1)$}{
+   $event\_trace_{x} = eventfilter\left( trace_{x}, funcset\right)$;\;
+   $stream\_trace_{x} = streamfilter\left( event\_trace_{x} \right)$;\;
+}
+$cos = streammatch(stream\_trace_{0}, stream\_trace_{1})$;\;
+\KwRet $cos$;\;
+\end{algorithm} 
 
 \section{Communication Methods' Implementation in Windows}\label{windows}
-Finally I discuss the implementation of the communication methods and draw the function lists of the event types of some concerned communication methods. The function list of a communication method is one of the inputs for the communication identification.
+This section investigate the characteristics of the communication methods which affect the verification of the transferred data of a communication. This verification is a sub step of the stream matching algorithm $streammatch()$. Furthermore, the understanding of Windows' API set is important to get the input $funcset$ of the communication methods. 
 
-In this section, the implementations of the four communication methods in Windows system are investigated. The goal of this investigation is to determine the system functions for the events in the communication definition and summarize the necessary parameters of all the communication events to further identify a communication. Each function call will be considered as an event. The channel opening mechanism is essential for identifying the endpoints and further the communication. Hence the channel opening mechanisms of each method are described in detail and represented in diagrams. 
+The implementations of the four communication methods in Windows system are investigated. The goal of this investigation is to determine the system functions for the events in the communication definition and summarize the necessary parameters of all the communication events to further identify a communication. Each function call will be considered as an event. The channel opening mechanism is essential for identifying the $stream$ and further the communication. Hence the channel opening mechanisms of each method are described in detail and represented in diagrams. 
 
 I reviewed the Windows APIs of the communication methods and their example code. For each communication method, a system function list is provided for reference. These lists contain function names, essential parameters. These functions are supported in most Windows operating systems, such as Windows 8, Window 7. 
 
@@ -30,18 +32,7 @@ Windows API set is very sophisticated and multiple solutions are provided to ful
 Moreover, the instances of this model only demonstrate Windows C++ APIs. This model may be generalizable to other operating systems with the effort of understanding the APIs of those operating systems.
 
 \subsection{Windows Calling Convention}
-The Windows calling convention is important to know in this research. The communication identification relies not only on the system function names but also the key parameter values. In the assembly level execution traces, the parameter values is captured in the memory changes of the instructions. The memory changes are recognized by the register names or the memory address. The calling convention helps us to understand where the parameters are stored so that we can find them in the memory change map in the trace.
-
-Calling Convention is different for operating systems and the programming language. Based on the need of this work, we only list the Microsoft* x64 calling convention for interfacing with C/C++ style functions:\par
-\begin{enumerate}  
-\item RCX, RDX, R8, R9 are used for integer and pointer arguments in that order left to right.
-\item XMM0, 1, 2, and 3 are used for floating point arguments.
-\item Additional arguments are pushed on the stack left to right. \ldots 
-\item Parameters less than 64 bits long are not zero extended; the high bits contain garbage.
-\item Integer return values (similar to x86) are returned in RAX if 64 bits or less.
-\item Floating point return values are returned in XMM0.
-\item Larger return values (structs) have space allocated on the stack by the caller, and RCX then contains a pointer to the return space when the callee is called. Register usage for integer parameters is then pushed one to the right. RAX returns this address to the caller.
-\end{enumerate}
+The Windows calling convention is important to know in this research. The communication identification relies not only on the system function names but also the key parameter values. In the assembly level execution traces, the parameter values is captured in the memory changes of the instructions. The memory changes are recognized by the register names or the memory address. The calling convention helps us to understand where the parameters are stored so that we can find them in the memory change map in the trace. Calling Convention is different for operating systems and the programming language. The Microsoft* x64 example calling convention is listed in \ref{convention} since we used dual-trace from Microsoft* x64 for case study in this work.
 
 \subsection{Named Pipes}
 In Windows, a named pipe is a communication method for the pipe server and one or more pipe clients. The pipe has a name, can be one-way or duplex. Both the server and clients can read or write into the pipe.\cite{WinNamedpipe} In this work, I only consider one server versus one client communication. One server to multiple clients scenario can always be divided into multiple server and client communications thanks to the characteristic that each client and server communication has a separate conduit. The server and client are endpoints in the communication. We call the server ``server endpoint" while the client ``client endpoint".  The server endpoint and client endpoint of a named pipe share the same pipe name, but each endpoint has its own buffers and handles. 
@@ -290,94 +281,83 @@ The communication channel is set up by both of the endpoints. The function \text
 \end{figure}
 
 
-\section{Communication Event Locating in Assembly Execution Traces}
-The goal of this research is to identify the communications from the dual-trace and present them to the user. The identification of all events of the communications from the execution trace would be the first step. Last section concludes communication events including system function names, parameters and the function calls relationship. This section will 1) discuss the basis of the execution traces. and 2) conclude how to retrieve the event information from the execution traces.
-
-\subsection{Assembly Execution Trace}
-The dual-trace being analysed are in assembly level. One dual-trace contains two execution traces. There is no timing information of these two traces which means we don't know the timestamps of the events of these two traces and can not match the events from both sides by time sequence. However the captured instructions in the trace are ordered in execution sequence. The execution traces contain all executed instructions as well as the corresponding changed memory by each instruction. Additionally, system calls are also captured by instruction id, which means if .dll or .exe files are provided, the system function calls can be identified with function names. Memory states can be reconstructed from the recorded memory changes to get the data information of the communication. 
-
-\subsection{Event Information Retrieval}
-For simplification, each function call is treated as an event. A function call in the trace starts from the function call instruction to the function return instruction. The input parameters' value and input buffer content should be retrieved from the memory state of the the function call instruction line while the return value, output parameters' value and output buffer content should be retrieved from the memory state of the function return instruction line. Tables in section \ref{windows} indicate all the functions of the communication methods as well as the concerned parameters. Following the windows calling convention, the concerned parameter value or buffer address can be found in the corresponding register or stack positions. The buffer content can be found in the memory address in the reconstructed memory state. 
-
-\section{Event Locating Algorithm}
-The concerned events in a communication are channel open, channel close, send and receive events. These events are identified as system function calls in this work. Each event can be completed by different function calls. For example, for the client endpoint in TCP communication method, both  \textit{socket} and \textit{connect} function call are considered to be the channel open events. The functions list for a communication method is needed as a input of this algorithm. Tables in Section\ref{windows} give the examples of function list of the events for some communication methods. The algorithm presented in this section is designed for locating all function calls provided in the function list as events of one communications method. If more than one communication methods are being investigated, this algorithm should be run multiple times, each for a method. Events in the output event list is sorted by time of occurrence. Since the function list usually contain a very small number of functions compared to the instruction line number in the execution trace, the time complexity of this algorithm is O(N+M) , N and M are the instruction line numbers of the two traces in the duel-trace.
+\section{Event Locating Algorithm: $eventfilter\left( \right)$}
+The concerned events in a communication are channel open, channel close, send and receive events. These events are identified as system function calls in this work.  A function call in the trace starts from the function call instruction to the function return instruction. The input parameters' value and input buffer content should be retrieved from the memory state of the the function call instruction line while the return value, output parameters' value and output buffer content should be retrieved from the memory state of the function return instruction line. Tables in section \ref{windows} indicate all the functions of the communication methods as well as the concerned parameters. Following the windows calling convention, the concerned parameter value or buffer address can be found in the corresponding register or stack positions. The buffer content can be found in the memory address in the reconstructed memory state. Each event can be completed by different function calls. For example, for the client endpoint in TCP communication method, both  \textit{socket} and \textit{connect} function call are considered to be the channel open events. The functions list for a communication method is needed as a input of this algorithm. Tables in Section\ref{windows} give the examples of function list of the events for some communication methods. The algorithm presented in this section is designed for locating all function calls provided in the function list as events of one communications method. If more than one communication methods are being investigated, this algorithm should be run multiple times, each for a method. Events in the output event list is sorted by time of occurrence. Since the function list usually contain a very small number of functions compared to the instruction line number in the execution trace, the time complexity of this algorithm is O(N+M) , N and M are the instruction line numbers of the two traces in the duel-trace.
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Event Locating Algorithm} \label{eventLocAlg}}
-\KwIn{dual-trace, function list}
-\KwOut{two event lists for two separative traces in the dual-trace}
-$eventLists \leftarrow Map \langle String, List \langle Event\rangle \rangle$;\; 
-\For{$trace \in dual$-$trace$}{
-   $eventList \leftarrow List \langle Event\rangle$;\; 
-   \While{not at end of trace}{
-       \For{$f \in functionList$}{
-           \If{Is function call of f}{ 
-               find function return instruction line;\;          
-               $event.inputs \leftarrow$ get input parameters from this instruction line;\;              
-               $event.outputs \leftarrow$ get output parameters and return value from the return instruction line;\;
-               $event.type \leftarrow f.eventType$;\;
-               $eventList.add\left( event \right)$;\;
-           }       
-        }
+\KwIn{ $trace, funcset$}
+\KwOut{$event\_trace$}
+$event\_trace \leftarrow List \langle Event\rangle$;\; 
+\While{not at end of trace}{
+   \For{$f \in funcset$}{
+       \If{Is function call of f}{ 
+           $event.funN = f.funN$
+           $event.startline \leftarrow$ current Line number;\;
+           $event.endline \leftarrow$ find function return instruction line;\;          
+           $event.inputs \leftarrow$ reconstruct memory of $event.startline$ from the trace and get input values of $f.pars$;\;              
+           $event.outputs \leftarrow$ reconstruct memory of $event.endline$ from the trace and get outputs values of $f.pars$;\;
+           $event.type \leftarrow f.type$;\;
+           $event\_trace.add\left( event \right)$;\;
+       }       
     }
-    $eventLists.add\left( eventList \right)$;\;
 }
-\KwRet $eventLists$;\;
+\KwRet $event\_trace$;\;
 \end{algorithm} 
 
-\section{Endpoint Identification Algorithm}
-The events located in the two traces may correspond to different endpoints, the next step in the strategy is to group them for each endpoints and furthermore group them into streams of the endpoints. The input of this algorithm is one of the event list for one trace from the Event Locating Algorithm. So this algorithm should be run separately for both traces in the dual-trace. Since the input event list is sorted by time of occurrence and the channel open events should always happen before other events, it is reasonable to assume the new endpoint can be identified by its first channel open function call. The identification for TCP and UDP server endpoints are slightly complicated than the other ones, due to its own channel open mechanism. The output of this algorithm is the endpoint list. Each endpoint in this list contains the stream which consist of the sub streams. The concepts of the stream and sub streams are defined in Section\ref{term}. 
+\section{Stream Identification Algorithm: $streamfilter\left( \right)$}
+The events located in the $event\_trace$ may correspond to different $stream$, the next step in the communication identification algorithm is to identify them for each $stream$. The input of this algorithm the $event\_trace$ from the ``Event Locating Algorithm". Since the input  $event\_trace$ is sorted by time of occurrence and the channel open events should always happen before other events, it is reasonable to assume the new stream can be identified by its first channel open function call. The identification for TCP and UDP server endpoints are slightly complicated than the other ones, due to its own channel open mechanism. The output of this algorithm is the $stream\_trace$. Each stream in this $stream\_trace$ consist of the sub streams. The concepts of the stream and sub streams are defined in Section\ref{term}. 
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Endpoint Indentification Algorithm} \label{endpointIdentAlg}}
-\KwIn{event list of a trace}
-\KwOut{endpoint list}
-$endpoints \leftarrow Map \langle String, List \langle EndPoint\rangle \rangle$;\; 
-\For{$event \in eventList$}{
+\KwIn{$event\_trace$}
+\KwOut{$stream\_trace$}
+$stream\_trace \leftarrow Map \langle String, List \langle EndPoint\rangle \rangle$;\; 
+\For{$event \in event\_trace$}{
    \If{$event$ is a channel open event}{
       $handle \leftarrow$ get the handle identifier from the function parameter list;\;
-      $endpoint \leftarrow endpoints.get\left( handle \right)$;\;
+      $stream \leftarrow stream\_trace.get\left( handle \right)$;\;
       \If{$event$ is an $accept\left( event \right)$ function call for TCP or UDP}{
          $newHandle \leftarrow$ get the second socket handle identifier which is the return value from the function parameter list;\;
-         $endpoints.remove\left( handle \right)$;\;
-         $endpoints.add\left( newHandle, endpoint \right)$;\;
+         $stream\_trace.remove\left( handle \right)$;\;
+         $stream\_trace.add\left( newHandle, endpoint \right)$;\;
       }
       
       \If{$endpoint$ is null}{
-         $endpoint = New \enspace EndPoint\left( \right)$;\;
-         $endpoints.add\left( hanele, endpoint \right)$;\;
+         $stream = New \enspace EndPoint\left( \right)$;\;
+         $stream\_trace.add\left( hanele, endpoint \right)$;\;
       }
-      $endpoint.openStream.add\left( event \right)$;\;
+      $stream.openStream.add\left( event \right)$;\;
    }
    \If{$event$ is a channel send event}{
       $handle \leftarrow$ get the handle from the function parameter list;\;
-      $endpoint \leftarrow endpoints.get\left( handle \right)$;\;
-      \If{$endpoint$ is not $null$ and $endpoint.complete$ is $False$}{
-         $endpoint.sendStream.add\left( event \right)$;\;
+      $stream \leftarrow stream\_trace.get\left( handle \right)$;\;
+      \If{$stream$ is not $null$ and $stream.complete$ is $False$}{
+         $stream.sendStream.add\left( event \right)$;\;
       }
    }
    \If{$event$ is a channel receive event}{
       $handle \leftarrow$ get the handle from the function parameter list;\;
-      $endpoint \leftarrow endpoints.get\left( handle \right)$;\;
-      \If{$endpoint$ is not $null$ and $endpoint.complete$ is $False$}{
-         $endpoint.receiveStream.add\left( event \right)$;\;
+      $stream \leftarrow stream\_trace.get\left( handle \right)$;\;
+      \If{$stream$ is not $null$ and $stream.complete$ is $False$}{
+         $stream.receiveStream.add\left( event \right)$;\;
       }
    }
    \If{$event$ is a channel close event}{
       $handle \leftarrow$ get the handle from the function parameter list;\;
-      $endpoint \leftarrow endpoints.get\left( handle \right)$;\;
-      \If{$endpoint$ is not null}{
-         $endpoint.closeStream.add\left( event \right)$;\;
-         $endpoint \leftarrow True$;\;
+      $stream \leftarrow stream\_trace.get\left( handle \right)$;\;
+      \If{$stream$ is not null}{
+         $stream.closeStream.add\left( event \right)$;\;
+         $stream \leftarrow True$;\;
       }
    }         
 }
-\KwRet $endpoints$;\;
+\KwRet $stream\_trace$;\;
 \end{algorithm} 
 
-\section{Communication Identification Algorithm}
+\section{Stream Matching Algorithm: $streammatch()$}
 The communication identification algorithm aims at identifying all the communication of a concerned communication method from the dual-trace. The input of this algorithm is the two endpoint lists for both traces in the dual-trace from the `Endpoint Identification Algorithm'. The output of this algorithm is the communication list. Each communication recognized from the dual-trace contains two endpoints. The channel of a communication defined in Section\ref{definition} is not explicitly represented in the output but it was implicitly used in this algorithm. 
 
 In the communication identification algorithm, it first try to match two endpoints to a channel only by their identifiers. In this level, the matching depends on channel open mechanisms which are different from communication method to communication method. For TCP and UDP the matching can be considered as local address and port of server endpoint matching with remote address and port of client endpoint. For Named Pipe, it uses the file name, while for Message Queue, it uses the queue name as the identifier for matching of two endpoints. 
@@ -397,107 +377,109 @@ The following subsections discuss the algorithms for these two level matching. I
 
 The data transfer characteristics divided the communication methods into reliable and unreliable transmissions. Named Pipe and TCP fall in the reliable category while Message Queue and UDP fall in the unreliable one. The second level matching algorithms are different for these two categories. The corresponding second level data matching algorithms are being used in the communication identification algorithms. The input of the transmitted data verification algorithms is the streams of both endpoint while the output a boolean to indicate if the transmitted data of this two endpoint streams are matched and the verified data.
 
-\subsection{Communication Identification Algorithm for Named Pipe and Message Queue}
-For Named Pipe and Message Queue, only one channel open function is being called for each endpoint. So in the below algorithm, when it try to get the channel open event from the $endpoint.openStream$ list, only one event should be found and return. The channel identifier parameters can be found in the $event.inputs$ of the channel open event. The identifier for Named Pipe is the file name of the pipe while for Message Queue is the format queue name of the queue. 
+\subsection{Stream Matching Algorithm for Named Pipe and Message Queue}
+For Named Pipe and Message Queue, only one channel open function is being called for each endpoint. So in the below algorithm, when it try to get the channel open event from the $stream.openStream$ list, only one event should be found and return. The channel identifier parameters can be found in the $event.inputs$ of the channel open event. The identifier for Named Pipe is the file name of the pipe while for Message Queue is the format queue name of the queue. 
 
 This algorithm finds out all the possible communications regardless some of them might be false positive errors. The called data verification algorithm is either ``Matching by Data Streams Algorithm" for Named Pipe or ``Matching by Data Events Algorithm" for Message Queue.
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Communication Indentification Algorithm for Named Pipe and Message Queue} \label{channelAlg1}}
-\KwIn{two endpoint lists of the dual-trace}
-\KwOut{communication list}
-$communications \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;\; 
-\For{$endpoint1 \in endpointList1$}{
-   $openEvent1 \leftarrow$ get the event from $endpoint1.openStream$, which should only contain one event;\;
-   $channelId1 \leftarrow$ get the channel identifier from $openEvent1.inputs$;\;
-   \For{$endpoint2 \in endpointList2$}{
-      $openEvent2 \leftarrow$ get the event from $endpoint2.openStream$, which should only contain one event;\;
-      $channelId2 \leftarrow$ get the channel identifier from $openEvent2.inputs$;\;
-     \If{$channelId1 == channelId2$}{
-         $DataVerified  \leftarrow $ Call the corresponding data verification algorithm.
+\KwIn{$stream\_trace_{0}, stream\_trace_{1}$}
+\KwOut{$cos = \left\lbrace co_{y}: 0\leqslant y \leqslant Y\right\rbrace $}
+$cos \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;\; 
+\For{$stream0 \in stream\_trace_{0}$}{
+   $openEvent0 \leftarrow$ get the event from $stream0.openStream$, which should only contain one event;\;
+   $channelId0 \leftarrow$ get the channel identifier from $openEvent0.inputs$;\;
+   \For{$stream1 \in stream\_trace_{1}$}{
+      $openEvent1 \leftarrow$ get the event from $stream1.openStream$, which should only contain one event;\;
+      $channelId1 \leftarrow$ get the channel identifier from $openEvent1.inputs$;\;
+     \If{$channelId0 == channelId1$}{
+         $DataVerified = dataVerify(stream0, stream1, outputdata)$.
          \If{$DataVerified == True$}{
             $communication = New \enspace Communication()$;\;
-            $communication.endpoint1 = endpoint1$;\;
-            $communication.endpoint2 = endpoint2$;\;
-            $communication.dataMatch\leftarrow$ The output from data verification algorithm;\;
-            $communications.add\left( communication \right)$;\;
+            $communication.stream0 = stream0$;\;
+            $communication.stream1 = stream1$;\;
+            $communication.dataMatch = outputdata$ The output from data verification algorithm;\;
+            $cos.add\left( communication \right)$;\;
          }    
       }
    }
 }
-\KwRet $channels$;\;
+\KwRet $cos$;\;
 \end{algorithm} 
 
 
-\subsection{Communication Identification Algorithm for TCP and UDP}
+\subsection{Stream Matching Algorithm for TCP and UDP}
 For TCP and UDP multiple functions are collaborating to create the final communication channel. The local address and port of the server endpoint and the remote address and port of the client endpoint are used to identify the channel. This algorithm first try to retrieve the local address and port of the server endpoint and remote address and port from client endpoint. Then it try to match two endpoints by comparing the local and remote address and port.
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Communication Indentification Algorithm for TCP and UDP} \label{channelAlg2}}
-\KwIn{two endpoint lists of the dual-trace}
-\KwOut{channel list}
-$communications \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;\; 
-\For{$endpoint1 \in endpointList1$}{
-   $bindEvent1 \leftarrow$ get the $bind\left( \right)$ function call related event from $endpoint1.openStream$;\;
-   $connectEvent1 \leftarrow$ get the $connect\left( \right)$ function call related event from $endpoint1.openStream$;\;
-   \For{$endpoint2 \in endpointList2$}{
-      $bindEvent2 \leftarrow$ get the $bind\left( \right)$ function call related event from $endpoint2.openStream$;\;
-      $connectEvent2 \leftarrow$ get the $connect\left( \right)$  function call related event from $endpoint2.openStream$;\;
-    \If{$socketEvent1 !=null$ AND $socketEvent2 != null$}{
-       \If{$bindEvent1 != null$ AND $connectEvent2 == null$}{
+\KwIn{$stream\_trace_{0}, stream\_trace_{1}$}
+\KwOut{$cos = \left\lbrace co_{y}: 0\leqslant y \leqslant Y\right\rbrace $}
+$cos \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;\; 
+\For{$stream0 \in stream\_trace_{0}$}{
+   $socketEvent0 \leftarrow$ get the $socket\left( \right)$ function call related event from $stream0.openStream$;\;
+   $bindEvent0 \leftarrow$ get the $bind\left( \right)$ function call related event from $stream0.openStream$;\;
+   $connectEvent0 \leftarrow$ get the $connect\left( \right)$ function call related event from $stream0.openStream$;\;
+   \For{$stream1 \in stream\_trace_{1}$}{
+      $socketEvent1 \leftarrow$ get the $socket\left( \right)$ function call related event from $stream1.openStream$;\;
+      $bindEvent1 \leftarrow$ get the $bind\left( \right)$ function call related event from $stream1.openStream$;\;
+      $connectEvent1 \leftarrow$ get the $connect\left( \right)$  function call related event from $stream1.openStream$;\;
+    \If{$socketEvent0 !=null$ AND $socketEvent1 != null$}{
+       \If{$bindEvent0 != null$ AND $connectEvent1 == null$}{
            $localServerAddr \leftarrow$ get the serverAddr parameter value from $bindEvent1.inputs$;\;
        }
-       \ElseIf{$bindEvent2 == null$ AND $connectEvent1 != null$}{
+       \ElseIf{$bindEvent1 == null$ AND $connectEvent0 != null$}{
            $remoteServerAddr \leftarrow$ get the serverAddr parameter value from $connectEvent1.inputs$;\; 
        }
        \Else{
           Break the inner For loop;\;
        }
        \If{$localServerAddr == remoteServerAddr$}{
-          $DataVerified  \leftarrow $ Call the corresponding data verification algorithm.
+          $DataVerified = dataVerify(stream0, stream1, outputdata)$.
           $communication = New \enspace Communication()$;\;
           $communication.endpoint1 = endpoint1$;\;
           $communication.endpoint2 = endpoint2$;\;
-          $communication.dataMatch\leftarrow$ The output from data verification algorithm;\;
-          $communications.add\left( communication \right)$;\;
+          $communication.dataMatch = outputdata$ The output from data verification algorithm;\;
+          $cos.add\left( communication \right)$;\;
        }
     }
    }
 }
-\KwRet $channels$;\;
+\KwRet $cos$;\;
 \end{algorithm}
 
-\subsection{Transmitted Data Verification for Named Pipe and TCP by Data Union}
+\subsection{Transmitted Data Verification for Named Pipe and TCP by Data Union: $dataVerify()$}
 As describe in Section\ref{reliable}, the data being received by one endpoint should always equal to or at least is sub string of the data being sent from the other endpoint in a communication for the reliable transmission methods, such as Named Pipe and TCP. So the transmitted data verification algorithm is in data union level. The send data union is retrieved by the conjunction of the input buffer content of the send events in the send stream of an endpoint. The receive data union is retrieved by the conjunction of the output buffer content of the receive events in the receive stream of the other endpoint. The input of this algorithm is the two endpoints from two traces which are being matched in the first level.
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Transmitted Verification by Data Union} \label{dataAlg1}}
-\KwIn{two endpoints from each trace of the dual-trace}
-\KwOut{send data union and receive data union of two endpoints}
+\KwIn{$stream0, stream1$}
+\KwOut{send data union and receive data union of two streams}
 \KwRet{Indicator of if transmitted data union are considered to be identical}
 $send1 \leftarrow$ empty string;\;
 $send2 \leftarrow$ empty string;\;
 $recv1 \leftarrow$ empty string;\;
 $recv2 \leftarrow$ empty string;\;
-\For{$sendEvent \in endpoint1.sendStream$}{
+\For{$sendEvent \in stream0.sendStream$}{
+   $sendmessage \leftarrow$ get the input buffer content from the $sendEvent.inputs$;\;
+   $send0.append\left( sendmessage \right)$;\;
+}
+\For{$sendEvent \in stream1.sendStream$}{
    $sendmessage \leftarrow$ get the input buffer content from the $sendEvent.inputs$;\;
    $send1.append\left( sendmessage \right)$;\;
 }
-\For{$sendEvent \in endpoint2.sendStream$}{
-   $sendmessage \leftarrow$ get the input buffer content from the $sendEvent.inputs$;\;
-   $send2.append\left( sendmessage \right)$;\;
+\For{$recvEvent \in stream0.receiveStream$}{
+   $recvmessage \leftarrow$ get the output buffer content from the $recvEvent.outputs$;\;
+   $recv0.append\left( sendmessage \right)$;\;
 }
-\For{$recvEvent \in endpoint1.receiveStream$}{
+\For{$recvEvent \in stream1.receiveStream$}{
    $recvmessage \leftarrow$ get the output buffer content from the $recvEvent.outputs$;\;
    $recv1.append\left( sendmessage \right)$;\;
 }
-\For{$recvEvent \in endpoint2.receiveStream$}{
-   $recvmessage \leftarrow$ get the output buffer content from the $recvEvent.outputs$;\;
-   $recv2.append\left( sendmessage \right)$;\;
-}
-\If{$recv1$ is substring of $send2$ AND $recv2$ is substring of $send1$ }{
+\If{$recv0$ is substring of $send1$ AND $recv1$ is substring of $send0$ }{
    \KwRet True;\;
 }
 \Else{
@@ -506,48 +488,48 @@ $recv2 \leftarrow$ empty string;\;
 
 \end{algorithm} 
 
-\subsection{Transmitted Data Verification for MSMQ and UDP by Data of Events}
+\subsection{Transmitted Data Verification for MSMQ and UDP by Data of Events:$dataVerify()$}
 For the unreliable communication methods, the data packets being transmitted are not delivery and ordering guaranteed. So it is impossible to verify the transmitted data as a whole chunk. Fortunately, the packets arrived to the receivers are always as the original one from the sender. Therefore, we perform the transmitted data verification by single events instead of the whole stream. This algorithm basically goes through the send event list from one endpoint trying to find the matched receive event from the receive event list from the other endpoint. And then calculate the fail packet arrival rate. The fail packet arrival rate should be comparable to the packet lost rate. So we set the packet lost rate as the threshold to determine if the transmitted data can considered to be identical in both directions. The packet lost rate can be various from network to network or even from time to time for the same network. The inputs of this algorithm are the copies of two endpoints from two traces which are being matched and the packet lost rate as the threshold. I use copies instead of original endpoints is that for efficiency I modify the input list directly in the algorithm. The threshold should be an integer. For example if the lost rate is 5\%, the threshold should be set as 5. 
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Transmitted Verification by Data of Events } \label{dataAlg2}}
-\KwIn{two endpoint lists of the dual-trace, threshold}
+\KwIn{$stream0, stream1$}
 \KwOut{matched event list of two endpoints}
 \KwRet{Indicator of if transmitted data union are considered to be identical}
-$sendPktNum1 \leftarrow endpoint1.sendStream.length$;\;
-$sendPktNum2 \leftarrow endpoint2.sendStream.length$;\;
+$sendPktNum0 \leftarrow stream0.sendStream.length$;\;
+$sendPktNum1 \leftarrow stream1.sendStream.length$;\;
+$recvPktNum0 \leftarrow 0$;\;
 $recvPktNum1 \leftarrow 0$;\;
-$recvPktNum2 \leftarrow 0$;\;
 $eventMatchs \leftarrow List \langle EventMatch \rangle$;\;
-\For{$sendEvent \in endpoint1.sendStream$}{
+\For{$sendEvent \in stream0.sendStream$}{
    $sendmessage \leftarrow$ get the input buffer content from the $sendEvent.inputs$;\;
-   \For{$recvEvent \in endpoint2.receiveStream$}{
+   \For{$recvEvent \in stream1.receiveStream$}{
       $recvmessage \leftarrow$ get the output buffer content from the $recvEvent.outputs$;\;
       \If{$sendmessage == recvmessage$}{
-         $recvPktNum1++$;\;
-         $endpoint2.receiveStream.remove\left( recvEvent \right)$;\;
+         $recvPktNum0++$;\;
+         $stream1.receiveStream.remove\left( recvEvent \right)$;\;
          $eventMatch = New eventMatch\left( \right)$;\;
          $eventMatchs.add\left( eventMatch \right)$;\;
       }
    }
 }
 
-\If{$ \left(sendPktNum1-recvPktNum1\right)*100/sendPktNum1 > threshold$}{
+\If{$ \left(sendPktNum0-recvPktNum0\right)*100/sendPktNum0 > threshold$}{
  \KwRet False;\;
 }
 
-\For{$sendEvent \in endpoint2.sendStream$}{
+\For{$sendEvent \in stream1.sendStream$}{
    $sendmessage \leftarrow$ get the input buffer content from the $sendEvent.inputs$;\;
-   \For{$recvEvent \in endpoint1.receiveStream$}{
+   \For{$recvEvent \in stream0.receiveStream$}{
       $recvmessage \leftarrow$ get the output buffer content from the $recvEvent.outputs$;\;
       \If{$sendmessage == recvmessage$}{
-         $recvPktNum2++$;\;
-         $endpoint1.receiveStream.remove\left( recvEvent \right)$;\;
+         $recvPktNum1++$;\;
+         $stream0.receiveStream.remove\left( recvEvent \right)$;\;
       }
    }
 }
 
-\If{$ \left(sendPktNum2-recvPktNum2\right)*100/sendPktNum2 > threshold$}{
+\If{$ \left(sendPktNum1-recvPktNum1\right)*100/sendPktNum1 > threshold$}{
  \KwRet False;\;
 }
  \KwRet True;\;
@@ -561,18 +543,14 @@ In the previous sections, I elaborate all the essential algorithms to identify t
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Data Structure for Identified Communications} \label{communicationlData}}
-$communications \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;\tcp*[f]{communication clustering}\;  
-$traceEndpoints \leftarrow Map \langle String, List \langle Endpoint \rangle \rangle$; \tcp*[f]{endpoint clustering}\;  
+$communications \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;
+$stream\_traces \leftarrow Map \langle String, List \langle Stream \rangle \rangle$;  
 \Struct{Communication}{
-  Endpoint endpoint1 \tcp*[f]{endpoint1 is from trace1 of the dual-trace}\;  
-  Endpoint endpoint2 \tcp*[f]{endpoint2 is from trace2 of the dual-trace}\;  
+  Stream stream0 \tcp*[f]{stream0 is from $trace_{0}$ of the dual-trace}\;  
+  Stream stream1 \tcp*[f]{stream1 is from $trace_{1}$ of the dual-trace}\;  
   DataMatch dataMatch\;  
 }
 
-\Struct{Endpoint}{
-  Int \quad \quad handle\;
-  Stream \enspace stream\;
-}
 
 \Union{DataMatch}{
   DataUnionMatch \quad  unionMatch \tcp*[f]{For data union verification}\;  
@@ -593,6 +571,7 @@ $traceEndpoints \leftarrow Map \langle String, List \langle Endpoint \rangle \ra
 
 
 \Struct{Stream}{
+  Int \quad \quad handle\;
   List $\langle$ Event $\rangle$ \enspace openStream\;
   List $\langle$ Event $\rangle$ \enspace closeStream\;
   List $\langle$ Event $\rangle$ \enspace sendStream\;
@@ -600,7 +579,8 @@ $traceEndpoints \leftarrow Map \langle String, List \langle Endpoint \rangle \ra
 }
 
 \Struct{Event}{
-   Int \quad \quad \quad \quad \quad \quad \quad \quad lineNum\;
+   Int \quad \quad \quad \quad \quad \quad \quad \quad stratline\;
+   Int \quad \quad \quad \quad \quad \quad \quad \quad endline\;
    Map $\langle$ String, String $\rangle$ \enspace inputs\; 
    Map $\langle$ String, String $\rangle$ \enspace outputs\; 
 }
