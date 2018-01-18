@@ -3,10 +3,10 @@
 \label{chapter:appendix}
 \startchapter{Communication Identification Algorithms}
 \label{chapter:alo}
-This chapter discuss the algorithms for communication identification from dual-trace. Pseudo code are listed for algorithms. The algorithm is based on the models develop in the Modeling chapter\ref{chapter:Mod}.
+This chapter discuss the algorithms for communication identification from dual-trace. Pseudo code are listed for algorithms. The algorithm is based on the models developed in the models Chapter\ref{chapter:Mod}.
 
 \section{Communication Identification Algorithm}
-The identification of the communications from a dual-trace should be able to identify the concerned communications as well as all the components defined in it. The inputs of this algorithm are the $dual-trace=\left\lbrace trace_{x}: x= 0,1 \right\rbrace $ and the concerned communication method's function set $funcset = \left \lbrace func_{l}, 0 \leqslant l \leqslant L\right\rbrace $. The output of this algorithm is all the identified communications of the concerned communication method. This is a very high level algorithm, details of each step in this algorithm will be discussed in the following sub sections.\par
+The identification of the communications from a dual\_trace should be able to identify the concerned communications as well as all the components defined in it. The inputs of this algorithm are the $dual\_trace=\left\lbrace trace_{x}: x= 0,1 \right\rbrace $ and the concerned communication method's function set $funcset = \left \lbrace func_{l}, 0 \leqslant l \leqslant L\right\rbrace $. The output of this algorithm is all the identified communications of the concerned communication method. This is a very high level algorithm, details of each step in this algorithm will be discussed in the later sections.\par
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Communication Identification Algorithm} \label{endpointIdentAlg}}
@@ -21,11 +21,9 @@ $cos = streammatch(stream\_trace_{0}, stream\_trace_{1})$;\;
 \end{algorithm} 
 
 \section{Communication Methods' Implementation in Windows}\label{windows}
-This section investigate the characteristics of the communication methods which affect the verification of the transferred data of a communication. This verification is a sub step of the stream matching algorithm $streammatch()$. Furthermore, the understanding of Windows' API set is important to get the input $funcset$ of the communication methods. 
+This section investigate the characteristics and the implementation of the communication methods.  The goal of this investigation is to 1) obtain the system function set $funcset$ for the concerned events in the communication and summarize the necessary parameters for further communication identification. and 2) understand the channel opening mechanism in order to identify the streams from the $event\_trace$ and match the streams from two traces.
 
-The implementations of the four communication methods in Windows system are investigated. The goal of this investigation is to determine the system functions for the events in the communication definition and summarize the necessary parameters of all the communication events to further identify a communication. Each function call will be considered as an event. The channel opening mechanism is essential for identifying the $stream$ and further the communication. Hence the channel opening mechanisms of each method are described in detail and represented in diagrams. 
-
-I reviewed the Windows APIs of the communication methods and their example code. For each communication method, a system function list is provided for reference. These lists contain function names, essential parameters. These functions are supported in most Windows operating systems, such as Windows 8, Window 7. 
+The implementations of four communication methods in Windows system are investigated. I reviewed the Windows APIs of the communication methods and their example code. For each communication method, a system function list is provided for reference. These lists contain function names, essential parameters. These functions are supported in most Windows operating systems, such as Windows 8, Window 7. The channel opening mechanisms of each method are described in detail and represented in diagrams.
 
 Windows API set is very sophisticated and multiple solutions are provided to fulfil a communication method. It is impossible to enumerate all solutions for each communication method. I only give the most basic usage provided in Windows documentation. Therefore, the provided system function lists for the events should not be considered as the only combination or solution for each communication method. With the understanding of the model, it should be fairly easy to draw out lists for other solutions or other communication methods. 
 
@@ -311,7 +309,7 @@ The events located in the $event\_trace$ may correspond to different $stream$, t
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf Endpoint Indentification Algorithm} \label{endpointIdentAlg}}
+\caption{{\bf Stream Indentification Algorithm} \label{endpointIdentAlg}}
 \KwIn{$event\_trace$}
 \KwOut{$stream\_trace$}
 $stream\_trace \leftarrow Map \langle String, List \langle EndPoint\rangle \rangle$;\; 
@@ -326,7 +324,7 @@ $stream\_trace \leftarrow Map \langle String, List \langle EndPoint\rangle \rang
       }
       
       \If{$endpoint$ is null}{
-         $stream = New \enspace EndPoint\left( \right)$;\;
+         $stream = New \enspace Stream\left( \right)$;\;
          $stream\_trace.add\left( hanele, endpoint \right)$;\;
       }
       $stream.openStream.add\left( event \right)$;\;
@@ -358,13 +356,13 @@ $stream\_trace \leftarrow Map \langle String, List \langle EndPoint\rangle \rang
 \end{algorithm} 
 
 \section{Stream Matching Algorithm: $streammatch()$}
-The communication identification algorithm aims at identifying all the communication of a concerned communication method from the dual-trace. The input of this algorithm is the two endpoint lists for both traces in the dual-trace from the `Endpoint Identification Algorithm'. The output of this algorithm is the communication list. Each communication recognized from the dual-trace contains two endpoints. The channel of a communication defined in Section\ref{definition} is not explicitly represented in the output but it was implicitly used in this algorithm. 
+The communication identification algorithm aims at identifying all the communication of a concerned communication method from the dual-trace. The input of this algorithm is the two $stream\_trace$ from the dual-trace. The output of this algorithm is the communication list. Each communication recognized from the dual\_trace contains two $stream$s. The channel of a communication defined in Section\ref{definition} is not explicitly represented in the output but it was implicitly used in this algorithm. 
 
-In the communication identification algorithm, it first try to match two endpoints to a channel only by their identifiers. In this level, the matching depends on channel open mechanisms which are different from communication method to communication method. For TCP and UDP the matching can be considered as local address and port of server endpoint matching with remote address and port of client endpoint. For Named Pipe, it uses the file name, while for Message Queue, it uses the queue name as the identifier for matching of two endpoints. 
+In the communication identification algorithm, it first try to match two $stream$s to a channel only by their identifiers. In this level, the matching depends on channel open mechanisms which are different from communication method to communication method. For TCP and UDP the matching can be considered as local address and port of server endpoint matching with remote address and port of client endpoint. For Named Pipe, it uses the file name, while for Message Queue, it uses the queue name as the identifier for matching of two endpoints. 
 
-The first level matching can not guarantee the exact endpoints matching and channel identification. There are two situations which false positive error might emerge. Take Named Pipe for example, the first situation is multiple(more than two) interacting programs shared the same file or queue as their own channel. Even though the channels are distinct for each communication, but the file or queue used is the same one. For example, the Named Pipe server is connected by two clients using the same file. In the server trace, there are two endpoints found. In each client trace, there is one endpoint found. In the channel identification algorithm for the dual-trace of server and client1, there will be two possible identified channels, one is the real used one for server and client1 communication while the other is the false positive error actually is for server and client2. The endpoint in client1's trace will be matched by two endpoints in the server's trace. The second situation is the same channel is reused by the different endpoints in the same programs. For example, the Named Pipe server and client finished the first communication and then closed the channel. After a while they re-open the same file again for another communication. Since the first level matching is only base on the identifiers and the first and the second communications have the same identifier since they used the same file. Similar situations can also happen in Message Queue, TCP and UDP communication methods. 
+The first level matching can not guarantee the exact endpoints matching and channel identification. There are two situations which false positive error might emerge. Take Named Pipe for example, the first situation is multiple(more than two) interacting programs shared the same file or queue as their own channel. Even though the channels are distinct for each communication, but the file or queue used is the same one. For example, the Named Pipe server is connected by two clients using the same file. In the server trace, there are two $stream$s found. In each client trace, there is one $stream$ found. For the dual\_trace of server and client1, there will be two possible identified communications, one is the real communication for server and client1 while the other is the false positive error actually is for server and client2. The $stream$ in client1's trace will be matched by two $stream$s in the server's trace. The second situation is the same channel is reused by the different endpoints in the same programs. For example, the Named Pipe server and client finished the first communication and then closed the channel. After a while they re-open the same file again for another communication. Since the first level matching is only base on the identifiers and the first and the second communications have the same identifier since they used the same file. Similar situations can also happen in Message Queue, TCP and UDP communication methods. 
 
-To reduce the false positive error, the second level matching should be applied, which is also being named as transmitted data verification algorithm. On top of the endpoint identifiers matching, further data verification should be applied to make sure the matching is reliable. This verification crossly compare the sent and received data of both endpoints in the first leve matching. If the transmitted data of the endpoints is considered to be identical, the matching is confirm, otherwise it was a false positive error. However, we still can not exclude all the false positive errors, due to the data transmitted in two communication can be identical. Figure\ref{secondlevelmatching} indicates the ineffective second level matching scenario and the effective one.
+To reduce the false positive error, the second level matching should be applied, which is also being named as transmitted data verification algorithm. On top of the endpoint identifiers matching, further data verification should be applied to make sure the matching is reliable. This verification crossly compare the sent and received data in both $stream$s in the first level matching. If the transmitted data in the $stream$s are considered to be identical, the matching is confirmed, otherwise it was a false positive error. However, we still can not exclude all the false positive errors, due to the data transmitted in two communication can be identical. Figure\ref{secondlevelmatching} indicates the ineffective second level matching scenario and the effective one.
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.55]{Figures/secondlevelmatching}}
@@ -373,14 +371,12 @@ To reduce the false positive error, the second level matching should be applied,
 \end{figure}
 
 
-The following subsections discuss the algorithms for these two level matching. In Section\ref{windows}, I elaborate the channel open process and the data transfer categories for the concerned communication methods. Based on the different channel process, two algorithms are developed for the communication identification, one is for Named Pipe and Message Queue, the other is for TCP and UDP. The inputs of the these two algorithms are the same, the two endpoint lists of the two traces of the analysing dual-trace. The output is the identified communications. Each communication contains the matched two endpoints from both sides of the traces and each endpoint contains its stream.
+The following subsections discuss the algorithms for these two level matching. In Section\ref{windows}, I elaborate the channel open process and the data transfer categories for the concerned communication methods. Based on the different channel opening process, two algorithms are developed for the communication identification, one is for Named Pipe and Message Queue, the other is for TCP and UDP. The inputs of the these two algorithms are the same, two $stream\_trace$s from the original dual\_trace.
 
-The data transfer characteristics divided the communication methods into reliable and unreliable transmissions. Named Pipe and TCP fall in the reliable category while Message Queue and UDP fall in the unreliable one. The second level matching algorithms are different for these two categories. The corresponding second level data matching algorithms are being used in the communication identification algorithms. The input of the transmitted data verification algorithms is the streams of both endpoint while the output a boolean to indicate if the transmitted data of this two endpoint streams are matched and the verified data.
+The data transfer characteristics divided the communication methods into reliable and unreliable transmissions. Named Pipe and TCP fall in the reliable category while Message Queue and UDP fall in the unreliable one. The second level matching algorithms are different for these two categories. The corresponding second level data verification algorithms are being used in the communication identification algorithms. The inputs of the transmitted data verification algorithms are $stream$s matched in the first level matching while the output a boolean to indicate if the transmitted data of this two $stream$s are matched and the verified data.
 
 \subsection{Stream Matching Algorithm for Named Pipe and Message Queue}
-For Named Pipe and Message Queue, only one channel open function is being called for each endpoint. So in the below algorithm, when it try to get the channel open event from the $stream.openStream$ list, only one event should be found and return. The channel identifier parameters can be found in the $event.inputs$ of the channel open event. The identifier for Named Pipe is the file name of the pipe while for Message Queue is the format queue name of the queue. 
-
-This algorithm finds out all the possible communications regardless some of them might be false positive errors. The called data verification algorithm is either ``Matching by Data Streams Algorithm" for Named Pipe or ``Matching by Data Events Algorithm" for Message Queue.
+For Named Pipe and Message Queue, only one channel open function is being called in each $stream$. So in the below algorithm, when it try to get the channel open event from the $stream.openStream$ list, only one event should be found and return. The channel identifier parameters can be found in the $event.inputs$ of the channel open event. The identifier for Named Pipe is the file name of the pipe while for Message Queue is the format queue name of the queue. This algorithm finds out all the possible communications regardless some of them might be false positive errors. 
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
@@ -400,7 +396,7 @@ $cos \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;
             $communication = New \enspace Communication()$;\;
             $communication.stream0 = stream0$;\;
             $communication.stream1 = stream1$;\;
-            $communication.dataMatch = outputdata$ The output from data verification algorithm;\;
+            $communication.dataMatch = outputdata$; \tcp*[f]{The output from data verification algorithm}\;
             $cos.add\left( communication \right)$;\;
          }    
       }
@@ -411,7 +407,7 @@ $cos \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;
 
 
 \subsection{Stream Matching Algorithm for TCP and UDP}
-For TCP and UDP multiple functions are collaborating to create the final communication channel. The local address and port of the server endpoint and the remote address and port of the client endpoint are used to identify the channel. This algorithm first try to retrieve the local address and port of the server endpoint and remote address and port from client endpoint. Then it try to match two endpoints by comparing the local and remote address and port.
+For TCP and UDP multiple functions are collaborating to create the final communication channel. The local address and port of the server endpoint and the remote address and port of the client endpoint are used to identify the channel. This algorithm first try to retrieve the local address and port of the server endpoint and remote address and port from client endpoint. Then it try to match two endpoints by comparing the local and remote address and port. Transmitted data verification also applied in this algorithm.
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
@@ -440,9 +436,9 @@ $cos \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;
        \If{$localServerAddr == remoteServerAddr$}{
           $DataVerified = dataVerify(stream0, stream1, outputdata)$.
           $communication = New \enspace Communication()$;\;
-          $communication.endpoint1 = endpoint1$;\;
-          $communication.endpoint2 = endpoint2$;\;
-          $communication.dataMatch = outputdata$ The output from data verification algorithm;\;
+          $communication.stream0 = stream0$;\;
+          $communication.stream1 = stream1$;\;
+          $communication.dataMatch = outputdata$; \tcp*[f]{The output from data verification algorithm}\;
           $cos.add\left( communication \right)$;\;
        }
     }
@@ -451,8 +447,8 @@ $cos \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;
 \KwRet $cos$;\;
 \end{algorithm}
 
-\subsection{Transmitted Data Verification for Named Pipe and TCP by Data Union: $dataVerify()$}
-As describe in Section\ref{reliable}, the data being received by one endpoint should always equal to or at least is sub string of the data being sent from the other endpoint in a communication for the reliable transmission methods, such as Named Pipe and TCP. So the transmitted data verification algorithm is in data union level. The send data union is retrieved by the conjunction of the input buffer content of the send events in the send stream of an endpoint. The receive data union is retrieved by the conjunction of the output buffer content of the receive events in the receive stream of the other endpoint. The input of this algorithm is the two endpoints from two traces which are being matched in the first level.
+\subsection{Data Verification $dataVerify()$ for Named Pipe and TCP}
+As described in Section\ref{reliable}, the data being received by one endpoint should always equal to or at least is sub string of the data being sent from the other endpoint in a communication for the reliable transmission methods, such as Named Pipe and TCP. So the data verification algorithm is in data union level. The send data union is retrieved by the concatenation of the input buffer content of the send events in the send stream of an endpoint. The receive data union is retrieved by the concatenation of the output buffer content of the receive events in the receive stream of the other endpoint. The input of this algorithm is the two $stream$s from two traces which are being matched in the first level.
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Transmitted Verification by Data Union} \label{dataAlg1}}
@@ -488,8 +484,8 @@ $recv2 \leftarrow$ empty string;\;
 
 \end{algorithm} 
 
-\subsection{Transmitted Data Verification for MSMQ and UDP by Data of Events:$dataVerify()$}
-For the unreliable communication methods, the data packets being transmitted are not delivery and ordering guaranteed. So it is impossible to verify the transmitted data as a whole chunk. Fortunately, the packets arrived to the receivers are always as the original one from the sender. Therefore, we perform the transmitted data verification by single events instead of the whole stream. This algorithm basically goes through the send event list from one endpoint trying to find the matched receive event from the receive event list from the other endpoint. And then calculate the fail packet arrival rate. The fail packet arrival rate should be comparable to the packet lost rate. So we set the packet lost rate as the threshold to determine if the transmitted data can considered to be identical in both directions. The packet lost rate can be various from network to network or even from time to time for the same network. The inputs of this algorithm are the copies of two endpoints from two traces which are being matched and the packet lost rate as the threshold. I use copies instead of original endpoints is that for efficiency I modify the input list directly in the algorithm. The threshold should be an integer. For example if the lost rate is 5\%, the threshold should be set as 5. 
+\subsection{Data Verification $dataVerify()$ for MSMQ and UDP}
+For the unreliable communication methods, the data packets being transmitted are not delivery and ordering guaranteed. So it is impossible to verify the transmitted data as a whole chunk. Fortunately, the packets arrived to the receivers are always as the original one from the sender. Therefore, we perform the transmitted data verification by single events instead of the whole stream. This algorithm basically goes through $event$s of the $sendstream$ in one $stream$ trying to find the matched receive event in the $receivestream$ in the other $stream$. And then calculate the fail packet arrival rate. The fail packet arrival rate should be comparable to the packet lost rate. So we set the packet lost rate as the threshold to determine if the transmitted data can considered to be identical in both directions. The packet lost rate can be various from network to network or even from time to time for the same network. The inputs of this algorithm are the copies of two $stream$s from two traces which are being matched and the packet lost rate as the threshold. I use copies instead of original data is to modify the input list directly in the algorithm. The threshold should be an integer. For example if the lost rate is 5\%, the threshold should be set as 5. 
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Transmitted Verification by Data of Events } \label{dataAlg2}}
