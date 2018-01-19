@@ -1,0 +1,16 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces Communication Methods Discussed in This Work\relax }}{7}
+\contentsline {table}{\numberline {3.2}{\ignorespaces Element Matching of Communication and Trace Models\relax }}{15}
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces Function List of events for Synchronous Named Pipe\relax }}{18}
+\contentsline {table}{\numberline {4.2}{\ignorespaces Function List of events for Asynchronous Named Pipe\relax }}{19}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Function List of events for Synchronous MSMQ\relax }}{20}
+\contentsline {table}{\numberline {4.4}{\ignorespaces Function List of events for Asynchronous MSMQ with Callback\relax }}{20}
+\contentsline {table}{\numberline {4.5}{\ignorespaces Function List of events for Asynchronous MSMQ without Callback\relax }}{21}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Function List of events for TCP and UDP\relax }}{22}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

@@ -38,7 +38,7 @@ public class Channel extends Annotation implements Comparable<Channel> {
 	
 	@Override
 	public String toString(){
-		return "Channel:" + channelID + ", Channel Handle:" + channelHandle;
+		return "Stream:" + channelID + ", Channel Handle:" + channelHandle;
 	}
 	
 	public List<ChannelEvent> getEvents() {

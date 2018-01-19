@@ -56,7 +56,7 @@ public class MatchChannel extends Annotation implements Comparable<MatchChannel>
 	
 	@Override
 	public String toString(){
-		return "Channel:" + channelID;
+		return "Communication:" + channelID;
 	}
 	
 	

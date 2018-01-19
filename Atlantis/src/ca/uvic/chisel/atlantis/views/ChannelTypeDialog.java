@@ -65,7 +65,7 @@ public class ChannelTypeDialog extends TitleAreaDialog {
 	@Override
 	public void create() {
 		super.create();
-		setTitle("Select Channel Types:");
+		setTitle("Select Communicaton Methods:");
 	}
 
 	private class ChannelTypeContentProvider implements ITreeContentProvider {
@@ -159,9 +159,14 @@ public class ChannelTypeDialog extends TitleAreaDialog {
 			e.printStackTrace();
 		}
 		
-		if(channelTypeNameList.size()>1){
+		
+		channelTypeNameList.add("MessageQueue");
+		channelTypeNameList.add("TCP");
+		channelTypeNameList.add("UDP");
+		
+/*		if(channelTypeNameList.size()>1){
 			channelTypeNameList.add("ALL");
-		}
+		}*/
 		return channelTypeNameList;
 
 	}

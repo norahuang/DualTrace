@@ -1098,7 +1098,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 			}
 		};
 
-		removeChannel = new Action("Remove this channel") {
+		removeChannel = new Action("Remove this Stream") {
 			@Override
 			public void run() {
 
@@ -1170,7 +1170,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 			}
 		};
 
-		removeChannelInMatch = new Action("Remove this matched channel") {
+		removeChannelInMatch = new Action("Remove this Communication") {
 			@Override
 			public void run() {
 

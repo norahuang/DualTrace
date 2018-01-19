@@ -11,7 +11,7 @@ public class NamedPipeFunctions{
 
 	//private constructor to avoid client applications to use constructor
     private NamedPipeFunctions(){
-    	namedPipe = new ChannelType("NamedPipeChannel");
+    	namedPipe = new ChannelType("NamedPipe");
     	String dataAddressIndex = namedPipe.getChannelTypeName() + ReadFileDataAddrReg.getName();
 		namedPipe.addFuncInChannelOpenStage(new ChannelFunction(CreateNamedPipeAFuncName, RetrunValReg, CreateNamedPipeFileNameReg, null, null, null, null, true, FunctionType.na, null));
     	namedPipe.addFuncInChannelOpenStage(new ChannelFunction(CreateFileAFuncName, RetrunValReg, CreateFileFileNameReg, null, null, null, null, true, FunctionType.na, null));

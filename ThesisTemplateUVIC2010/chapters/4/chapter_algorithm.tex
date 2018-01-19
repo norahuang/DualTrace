@@ -448,6 +448,7 @@ $cos \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;
 
 \subsection{Data Verification $dataVerify()$ for Named Pipe and TCP}
 As described in Section\ref{reliable}, the data being received by one endpoint should always equal to or at least is sub string of the data being sent from the other endpoint in a communication for the reliable transmission methods, such as Named Pipe and TCP. So the data verification algorithm is in data union level. The send data union is retrieved by the concatenation of the input buffer content of the send events in the send stream of an endpoint. The receive data union is retrieved by the concatenation of the output buffer content of the receive events in the receive stream of the other endpoint. The input of this algorithm is the two $stream$s from two traces which are being matched in the first level.
+
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Transmitted Verification by Data Union} \label{dataAlg1}}
@@ -485,6 +486,7 @@ $recv2 \leftarrow$ empty string;\;
 
 \subsection{Data Verification $dataVerify()$ for MSMQ and UDP}
 For the unreliable communication methods, the data packets being transmitted are not delivery and ordering guaranteed. So it is impossible to verify the transmitted data as a whole chunk. Fortunately, the packets arrived to the receivers are always as the original one from the sender. Therefore, we perform the transmitted data verification by single events instead of the whole stream. This algorithm basically goes through $event$s of the $sendstream$ in one $stream$ trying to find the matched receive event in the $receivestream$ in the other $stream$. And then calculate the fail packet arrival rate. The fail packet arrival rate should be comparable to the packet lost rate. So we set the packet lost rate as the threshold to determine if the transmitted data can considered to be identical in both directions. The packet lost rate can be various from network to network or even from time to time for the same network. The inputs of this algorithm are the copies of two $stream$s from two traces which are being matched and the packet lost rate as the threshold. I use copies instead of original data is to modify the input list directly in the algorithm. The threshold should be an integer. For example if the lost rate is 5\%, the threshold should be set as 5. 
+
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Transmitted Verification by Data of Events } \label{dataAlg2}}

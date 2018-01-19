@@ -158,7 +158,7 @@
             class="ca.uvic.chisel.atlantis.views.DualTraceChannelView"
             icon="icons/message.png"
             id="ca.uvic.chisel.atlantis.views.DualTraceChannelView"
-            name="Communication Channels"
+            name="Communication Streams and Channels"
             restorable="true">
       </view>
       <view
@@ -1031,13 +1031,13 @@
                label="Dual Trace Tool">  
             <command
                commandId="ca.uvic.chisel.atlantis.handlers.FindCommunicationChannel"
-               label="Find Communication Channel Ends"
+               label="Stream Identification"
                style="push"
                tooltip="Find all channel ends in each side of the open dual-trace ">
             </command>
             <command
                commandId="ca.uvic.chisel.atlantis.handlers.MatchCommunicationChannel"
-               label="Match Communication Channels"
+               label="Communication Identification"
                style="push"
                tooltip="Find all matched channels for the open dual-trace ">
             </command>
