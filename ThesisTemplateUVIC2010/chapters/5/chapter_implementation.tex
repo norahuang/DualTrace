@@ -2,7 +2,7 @@
 \externaldocument{../4/chapter_algorithm}
 \startchapter{Feature Prototype On Atlantis}
 \label{chapter:newsol}
-In this section I describe the design of the feature prototype of communication identification from the dual\_trace. This prototype is built on top of Atlantis' other features, such as ``memory reconstruction", ``function search" and ``views synchronization". Atlantis is an assembly trace analysis environment. It provides many powerful and novel features to assist assembly level execution trace analysis.\cite{huang2017atlantis} This prototype implemented the algorithms described in Chapter\ref{chapter:alo} as well as the user interfaces for the feature.
+In this section I describe the design of the feature prototype of communication identification from the dual\_trace. This prototype is built on top of Atlantis' other features, such as ``memory reconstruction", ``function inspect" and ``views synchronization". Atlantis is an assembly trace analysis environment. It provides many powerful and novel features to assist assembly level execution trace analysis.\cite{huang2017atlantis} This prototype implemented the algorithms described in Chapter\ref{chapter:alo} as well as the user interfaces for the feature.
 
 This prototype consist of three main components: 1) user interface for defining the concerned communication methods' function set. 2) a view that can parallelly present both traces in the dual\_trace. 3) two identification features: Stream identification and communication identification. 4) functionality that allow user to access the identification result.
 
@@ -28,55 +28,10 @@ The dual\_trace consist of two execution traces which are interacting with each 
 
 
 \section{Identification Features}
-The called functions' name can be inspected  by  search of the symbolic name in the executable binary or any DLLs which used by the program at the time when it is traced. This functionality exists in the current Atlantis. By importing the DLLs and execution  executable binary, Atlantis can list all called functions for the users in the Functions view. From this list, users can chose the interested functions and generate their interested communication type. In Figure\ref{functionsview} there is  an action item "Add to Communication type" in the right click menu of the function entry. Figure \ref{dialog} shows the dialogue for entering the information for the adding function. As this figure shows, users can get the existing communication type list in the drop down menu. They can choose to add the current function to an exist communication type or they can add it to a new communication type by entering a new name. For the channel create/open function, the register holding the address of channel's name as input and the register holding the handle identification of the channel as output are required. For the send/receive function, the register holding the address of the send/receiver buffer, the register holding the length of the sending/receiving message and the register holding the channel's identification are required. As there are 4 functions for each communication type users have to repeat this add function to communication type action for 4 times to generate one communication type.
+I implemented two identification features, one is stream identification for both traces in the dual\_trace, the other is the communication identification. These two features align to the ``stream identification algorithm" and ``communication identification algorithm" designed in Chapter\ref{chapter:alo}. The implementation the identification features relies on the existing ``function inspect" feature of Atlantis. The called functions' name can be inspected  by  search of the symbolic name in the executable binary or any DLLs which used by the program at the time when it is traced. By importing the DLLs and execution  executable binary, Atlantis can recognize the function call from the execution trace by the function names. A new menu ``Dual\_trace Tool" with two menu options ``Stream Identification" and ``Communication Identification" are designed for these two identification features. Figure\ref{opendualtracemenu} shows this new menu in Atlantis. A new  ``Communication" view is designed for presenting the identification of the streams and communication. There are two sub tables in this view, the right one is for the stream identification result while the left one is for communication identification result. The reason for putting this two result in the same view is for easy access and comparison of the data for the users. Figure\ref{opendualtracemenu} shows this view with result data in it. each time when the user rerun the identification feature the result in the corresponding table will be refreshed to show only the latest identification result. But the other table will not be affected and its own last identification result will stay. For example, if the user run the ``Stream Identification" feature first, the stream identification result will show on the left table of the view. And then the user run the ``communication Identification", the communication identification result will be shown on the right table while the left one still holding the last stream identification result.
 
-\subsection{Stream Identification Feature}
-
-\subsection{Communication Identification Feature}
 
 \section{Identification Result View and Result Navigation}
+To allow the user 
 
-
-\begin{figure}[h]
-\includegraphics{Figures/functionsview}
- \caption{Add function to a Communication type from Functions View}
-\label{functionsview}
-\end{figure}
-
-\begin{figure}[h]
-\includegraphics{Figures/dialog}
- \caption{Dialog to input information for a function adding to a communication type}
-\label{dialog}
-\end{figure}
-
-
-
-The right click menu of an entry in the search result list has two action items: Go To Line of Message Sender and Go To Line of Message Receiver. Both of the action items allow users to navigate to the trace Instruction view. When the user click on these items, it will navigate to the corresponding trace sender or receiver trace instruction view.  Meanwhile the memory view jumps to the target address of the message buffer, and the memory state is reconstructed so that the message content in that buffer will be shown in the memory view.
-
-
-A new view named Communication Types view is for the user defined communication types. All user defined communication type are stored in the .xml file and listed in communication type view when it's opened as shown in Figure \ref{CommunicationTypeview}. User can change the name of a communication type, remove an existing communication type or searching of the match message occurrences of selected communication type by selecting action item in the right click menu of an communication type entry. The matched messages are listed in the result window of the view. By clicking the entry of the search  result, user can navigate to it's sender or receiver's corresponding instruction line as shown in Figure\ref{searchresult}. Message content in the memory view will be shown as well.
-
-
-\begin{figure}[h]
-\includegraphics[scale=.9]{Figures/CommunicationTypeview}
- \caption{New View: Communication Type View}
-\label{CommunicationTypeview}
-\end{figure}
-
-\begin{figure}[h]
-\includegraphics[scale=.9]{Figures/searchresult}
- \caption{Right Click menu to navigate to send and receive event in the traces}
-\label{searchresult}
-\end{figure}
-
-
-The communication event consists of the send message event in the sender side and receive message event in the receiver side. The communication event searching algorithm can be divided into three main steps: 1. search all channel create/open event in the sender and receiver side, save the handle id and corresponding channel name. 2. Search all message send and receive event in sender and receiver sides. 3. Matching the send/receive messages pair based on the channel names and message contents.
-
-In this step the algorithm is supposed to search all the open channel both in the sender and receiver side. The found created channels are recorded in a map. The key of the map is the handler id of the channel and the value is the channel name. A channel in the sender and receiver sides will have different handler id but same channel name.
-
-All send message and receive message function calls will be found out in the trace. When a send function hit, the memory state of the hit instruction line will be reconstructed, and the message content can be get from the memory with the send message buffer address. When a receive function hit, the return line of that function is needed for getting the message content. The memory state of the function return line is reconstructed and the message content can be get  from the reconstructed memory state with the receive message buffer address.
-
-After the created channel and send/receive message are found out in the sender and receiver side, a matching algorithm is used to match the send/receive message pairs.
-
-The matching event is stored in cache when the tool is running. Only the most recent search result is cached currently. If users need the previous result, they need to apply the search again. The matching Event consist of two sub-events, one is message send event while the other is message receive event. Both of these two sub-events are object of BfvFileMessageMatch. BfvFileMessageMatch is an Java class extends org.eclipse.search.internal.ui.text.FileMatch. FileMatch class containing the information needed to navigate to the trace file editor. In order to show the corresponding send/receive message in the memory view, the target memory address storing the message content is set in BfvFileMessageMatch. Two more elements: message and channel name are also set in BfvFileMessageMatch which are listed in the search result.
 
