@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  22 JAN 2018 13:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  22 JAN 2018 14:07
 entering extended mode
 **./mainthesisUVIC.tex
 (mainthesisUVIC.tex
@@ -450,7 +450,8 @@ Package: relsize 2003/07/04 ver 3.1
 \algocf@algoframe=\box68
 \algocf@algobox=\box69
 )
-(mainthesisUVIC.aux (chapters/3/chapter_modeling.aux
+(mainthesisUVIC.aux (chapters/1/chapter_intro.aux)
+(chapters/3/chapter_background.aux) (chapters/3/chapter_modeling.aux
 
 LaTeX Warning: Label `methodsInCategories' multiply defined.
 
@@ -461,6 +462,10 @@ LaTeX Warning: Label `endpointIdentAlg' multiply defined.
 ) (chapters/5/chapter_implementation.aux
 
 LaTeX Warning: Label `idenview' multiply defined.
+
+) (chapters/6/chapter_evaluation.aux
+
+LaTeX Warning: Label `occclientresult' multiply defined.
 
 ) (chapters/appendix/chapter_app.aux
 
@@ -652,6 +657,66 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
 
  (frontmatter/ack.tex
 [7]) (frontmatter/ded.tex [8]) [9])
+\openout2 = `chapters/1/chapter_intro.aux'.
+
+ (chapters/1/chapter_intro.tex
+Chapter 1.
+\savedunitlength=\skip120
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 17.
+[1
+
+
+]
+Overfull \hbox (46.8606pt too wide) in paragraph at lines 24--24
+[]\OT1/ptm/b/n/17.28 Develop Com-mu-ni-ca-tion Iden-ti-fi-ca-tion Al-go-rithms 
+for Dual[]trace 
+ []
+
+) [2]
+\openout2 = `chapters/2/chapter_background.aux'.
+
+ (chapters/2/chapter_background.tex
+Chapter 2.
+
+LaTeX Warning: Citation `dowd_art_2006' on page 3 undefined on input line 9.
+
+[3
+
+
+
+]
+
+LaTeX Warning: Citation `cleary_reconstructing_2013' on page 4 undefined on inp
+ut line 13.
+
+
+LaTeX Warning: Citation `wang_predicting_2011' on page 4 undefined on input lin
+e 13.
+
+
+LaTeX Warning: Citation `eagle_ida_2008' on page 4 undefined on input line 17.
+
+
+LaTeX Warning: Citation `_c0demap/codemap:_????' on page 4 undefined on input l
+ine 17.
+
+
+LaTeX Warning: Citation `_pin_????' on page 4 undefined on input line 17.
+
+
+LaTeX Warning: Reference `brueningqz' on page 4 undefined on input line 17.
+
+
+LaTeX Warning: Citation `PhysRevE.68.046116' on page 4 undefined on input line 
+20.
+
+[4]
+
+LaTeX Warning: Citation `PhysRevE.68.046116' on page 5 undefined on input line 
+23.
+
+) [5]
 \openout2 = `chapters/3/chapter_modeling.aux'.
 
  (chapters/3/chapter_modeling.tex
@@ -661,35 +726,34 @@ No file ../appendix/chapter_app.aux
 LABELS NOT IMPORTED.
  on input line 1.
 
-Chapter 1.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 6.
+Chapter 3.
 
 Overfull \hbox (2.71101pt too wide) in paragraph at lines 6--6
 []\OT1/ptm/b/n/17.28 Communication Cat-e-go-riza-tion and Com-mu-ni-ca-tion Met
 h-
  []
 
-[1
+[6
+
 
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 23.
- [2] <Figures/namedpipe.png, id=42, 683.55376pt x 468.75125pt>
+ [7] <Figures/namedpipe.png, id=58, 683.55376pt x 468.75125pt>
 File: Figures/namedpipe.png Graphic file (type png)
 
 <use Figures/namedpipe.png>
 Package pdftex.def Info: Figures/namedpipe.png used on input line 45.
 (pdftex.def)             Requested size: 328.10208pt x 224.99803pt.
- [3 <./Figures/namedpipe.png>]
-<Figures/msmq.png, id=48, 422.57875pt x 468.75125pt>
+ [8 <./Figures/namedpipe.png>]
+<Figures/msmq.png, id=64, 422.57875pt x 468.75125pt>
 File: Figures/msmq.png Graphic file (type png)
  <use Figures/msmq.png>
 Package pdftex.def Info: Figures/msmq.png used on input line 62.
 (pdftex.def)             Requested size: 202.8355pt x 224.99803pt.
 
-[4 <./Figures/msmq.png>] <Figures/tcp.png, id=54, 422.57875pt x 408.52625pt>
+[9 <./Figures/msmq.png>] <Figures/tcp.png, id=69, 422.57875pt x 408.52625pt>
 File: Figures/tcp.png Graphic file (type png)
 
 <use Figures/tcp.png>
@@ -698,35 +762,35 @@ Package pdftex.def Info: Figures/tcp.png used on input line 80.
 
 Overfull \hbox (10.82419pt too wide) in paragraph at lines 78--83
 []\OT1/ptm/m/n/12 Based on these char-ac-ter-is-tics, the data trans-fer sce-na
-r-ios of TCP can be sum-ma-rized in Figure1.3[]. 
+r-ios of TCP can be sum-ma-rized in Figure2.3[]. 
  []
 
-<Figures/udp.png, id=55, 422.57875pt x 468.75125pt>
+<Figures/udp.png, id=70, 422.57875pt x 468.75125pt>
 File: Figures/udp.png Graphic file (type png)
  <use Figures/udp.png>
 Package pdftex.def Info: Figures/udp.png used on input line 98.
 (pdftex.def)             Requested size: 202.8355pt x 224.99803pt.
 
-[5 <./Figures/tcp.png>] [6 <./Figures/udp.png>]
-<Figures/reliableexample.png, id=67, 525.965pt x 440.64626pt>
+[10 <./Figures/tcp.png>] [11 <./Figures/udp.png>]
+<Figures/reliableexample.png, id=83, 525.965pt x 440.64626pt>
 File: Figures/reliableexample.png Graphic file (type png)
 
 <use Figures/reliableexample.png>
 Package pdftex.def Info: Figures/reliableexample.png used on input line 128.
 (pdftex.def)             Requested size: 289.28163pt x 242.35619pt.
- [7]
-<Figures/unreliableexample.png, id=71, 525.965pt x 385.44pt>
+ [12]
+<Figures/unreliableexample.png, id=87, 525.965pt x 385.44pt>
 File: Figures/unreliableexample.png Graphic file (type png)
 
 <use Figures/unreliableexample.png>
 Package pdftex.def Info: Figures/unreliableexample.png used on input line 135.
 (pdftex.def)             Requested size: 289.28163pt x 211.99265pt.
- [8 <./Figures/reliableexample.png> <./Figures/unreliableexample.png>] [9]
+ [13 <./Figures/reliableexample.png> <./Figures/unreliableexample.png>] [14]
 Overfull \hbox (54.34258pt too wide) in paragraph at lines 153--176
  [][] 
  []
 
-) [10]
+) [15]
 \openout2 = `chapters/4/chapter_algorithm.aux'.
 
  (chapters/4/chapter_algorithm.tex
@@ -742,14 +806,14 @@ No file ../appendix/chapter_app.aux
 LABELS NOT IMPORTED.
  on input line 2.
 
-Chapter 2.
+Chapter 4.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 18.
-[11
+[16
 
 
 
-] [12]
+] [17]
 Overfull \hbox (26.32033pt too wide) in paragraph at lines 43--74
  [][] 
  []
@@ -759,15 +823,15 @@ Overfull \hbox (41.45245pt too wide) in paragraph at lines 80--117
  [][] 
  []
 
-[13] <Figures/namepipechannelopen.png, id=93, 673.51625pt x 287.0725pt>
+[18] <Figures/namepipechannelopen.png, id=109, 673.51625pt x 287.0725pt>
 File: Figures/namepipechannelopen.png Graphic file (type png)
 
 <use Figures/namepipechannelopen.png>
 Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 121
 .
 (pdftex.def)             Requested size: 370.43507pt x 157.89035pt.
- [14 <./Figures/namepipechannelopen.png>]
-[15] <Figures/msmqchannelopen.png, id=101, 673.51625pt x 287.0725pt>
+ [19 <./Figures/namepipechannelopen.png>]
+[20] <Figures/msmqchannelopen.png, id=117, 673.51625pt x 287.0725pt>
 File: Figures/msmqchannelopen.png Graphic file (type png)
 
 <use Figures/msmqchannelopen.png>
@@ -778,48 +842,48 @@ Overfull \hbox (57.94193pt too wide) in paragraph at lines 233--270
  [][] 
  []
 
-[16 <./Figures/msmqchannelopen.png>]
-<Figures/tcpudpchannelopen.png, id=107, 502.87875pt x 391.4625pt>
+[21 <./Figures/msmqchannelopen.png>]
+<Figures/tcpudpchannelopen.png, id=122, 502.87875pt x 391.4625pt>
 File: Figures/tcpudpchannelopen.png Graphic file (type png)
 
 <use Figures/tcpudpchannelopen.png>
 Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 275.
 (pdftex.def)             Requested size: 276.58417pt x 215.30502pt.
- [17] [18 <./Figures/tcpudpchannelopen.png>] [19]
+ [22] [23 <./Figures/tcpudpchannelopen.png>] [24]
 Overfull \vbox (35.30403pt too high) has occurred while \output is active []
 
 
-[20]
+[25]
 Overfull \hbox (21.00267pt too wide) in paragraph at lines 358--359
 \OT1/ptm/m/n/12 cerned com-mu-ni-ca-tion method from the dual-trace. The in-put
  of this al-go-rithm is the two $\OML/cmm/m/it/12 stream[]trace$
  []
 
-<Figures/secondlevelmatching.png, id=122, 690.58pt x 527.9725pt>
+<Figures/secondlevelmatching.png, id=138, 690.58pt x 527.9725pt>
 File: Figures/secondlevelmatching.png Graphic file (type png)
 
 <use Figures/secondlevelmatching.png>
 Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 367
 .
 (pdftex.def)             Requested size: 379.82018pt x 290.38577pt.
- [21]
+ [26]
 Overfull \hbox (39.05734pt too wide) in paragraph at lines 378--379
 \OML/cmm/m/it/12 stream$\OT1/ptm/m/n/12 . So in the be-low al-go-rithm, when it
  try to get the chan-nel open event from the $\OML/cmm/m/it/12 stream:openStrea
 m$
  []
 
-[22 <./Figures/secondlevelmatching.png>]
+[27 <./Figures/secondlevelmatching.png>]
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 404.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
-) [23] [24]
+) [28] [29]
 Overfull \vbox (39.69855pt too high) has occurred while \output is active []
 
 
-[25] [26] [27] [28] [29]
+[30] [31] [32] [33] [34]
 
 LaTeX Font Warning: Font shape `OMS/ptm/bx/n' undefined
 (Font)              using `OMS/ptm/m/n' instead
@@ -827,11 +891,11 @@ LaTeX Font Warning: Font shape `OMS/ptm/bx/n' undefined
 
 LaTeX Font Info:    Font shape `OMS/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 549.
-) [30]
+) [35]
 Overfull \vbox (0.49686pt too high) has occurred while \output is active []
 
 
-[31]
+[36]
 \openout2 = `chapters/5/chapter_implementation.aux'.
 
  (chapters/5/chapter_implementation.tex
@@ -847,46 +911,46 @@ No file ../4/chapter_algorithm.aux
 LABELS NOT IMPORTED.
  on input line 2.
 
-Chapter 3.
-[32
+Chapter 5.
+[37
 
 
 
-] <Figures/opendualtracemenu.png, id=165, 411.5375pt x 475.7775pt>
+] <Figures/opendualtracemenu.png, id=181, 411.5375pt x 475.7775pt>
 File: Figures/opendualtracemenu.png Graphic file (type png)
 
 <use Figures/opendualtracemenu.png>
 Package pdftex.def Info: Figures/opendualtracemenu.png used on input line 17.
 (pdftex.def)             Requested size: 288.07428pt x 333.04196pt.
 
-<Figures/paralleleditor.png, id=166, 867.24pt x 478.03593pt>
+<Figures/paralleleditor.png, id=182, 867.24pt x 478.03593pt>
 File: Figures/paralleleditor.png Graphic file (type png)
 
 <use Figures/paralleleditor.png>
 Package pdftex.def Info: Figures/paralleleditor.png used on input line 23.
 (pdftex.def)             Requested size: 520.34802pt x 286.82376pt.
- [33 <./Figures/opendualtracemenu.png>]
+ [38 <./Figures/opendualtracemenu.png>]
 Overfull \hbox (10.43076pt too wide) in paragraph at lines 31--32
 \OT1/ptm/m/n/12 I im-ple-mented two iden-ti-fi-ca-tion fea-tures, one is stream
  iden-ti-fi-ca-tion for both traces in the dual[]trace,
  []
 
-[34 <./Figures/paralleleditor.png>]
-<Figures/dualtracetoolmenu.png, id=175, 325.96782pt x 124.21407pt>
+[39 <./Figures/paralleleditor.png>]
+<Figures/dualtracetoolmenu.png, id=190, 325.96782pt x 124.21407pt>
 File: Figures/dualtracetoolmenu.png Graphic file (type png)
 
 <use Figures/dualtracetoolmenu.png>
 Package pdftex.def Info: Figures/dualtracetoolmenu.png used on input line 36.
 (pdftex.def)             Requested size: 325.96701pt x 124.21375pt.
 
-<Figures/methods.png, id=176, 404.26031pt x 220.57407pt>
+<Figures/methods.png, id=191, 404.26031pt x 220.57407pt>
 File: Figures/methods.png Graphic file (type png)
 
 <use Figures/methods.png>
 Package pdftex.def Info: Figures/methods.png used on input line 42.
 (pdftex.def)             Requested size: 323.40869pt x 176.45947pt.
- [35 <./Figures/dualtracetoolmenu.png> <./Figures/methods.png>] <Figures/idenvi
-ew.png, id=180, 724.95844pt x 405.01312pt>
+ [40 <./Figures/dualtracetoolmenu.png> <./Figures/methods.png>] <Figures/idenvi
+ew.png, id=196, 724.95844pt x 405.01312pt>
 File: Figures/idenview.png Graphic file (type png)
 
 <use Figures/idenview.png>
@@ -894,10 +958,10 @@ Package pdftex.def Info: Figures/idenview.png used on input line 50.
 (pdftex.def)             Requested size: 507.46745pt x 283.50723pt.
 
 
-LaTeX Warning: Reference `gotoend' on page 36 undefined on input line 58.
+LaTeX Warning: Reference `gotoend' on page 41 undefined on input line 58.
 
-[36 <./Figures/idenview.png>]
-<Figures/gotoend.png, id=184, 287.57437pt x 54.9553pt>
+[41 <./Figures/idenview.png>]
+<Figures/gotoend.png, id=200, 287.57437pt x 54.9553pt>
 File: Figures/gotoend.png Graphic file (type png)
 
 <use Figures/gotoend.png>
@@ -907,23 +971,57 @@ Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no œ in font ptmr7t!
 
-<Figures/remove.png, id=185, 721.19438pt x 161.10187pt>
+<Figures/remove.png, id=201, 721.19438pt x 161.10187pt>
 File: Figures/remove.png Graphic file (type png)
 
 <use Figures/remove.png>
 Package pdftex.def Info: Figures/remove.png used on input line 69.
 (pdftex.def)             Requested size: 504.83263pt x 112.77052pt.
-) [37 <./Figures/gotoend.png> <./Figures/remove.png>]
+) [42 <./Figures/gotoend.png> <./Figures/remove.png>]
+\openout2 = `chapters/6/chapter_evaluation.aux'.
+
+
+(chapters/6/chapter_evaluation.tex
+Chapter 6.
+[43
+
+
+
+] <Figures/addcomtyperesult.png, id=208, 580.41844pt x 193.47281pt>
+File: Figures/addcomtyperesult.png Graphic file (type png)
+
+<use Figures/addcomtyperesult.png>
+Package pdftex.def Info: Figures/addcomtyperesult.png used on input line 18.
+(pdftex.def)             Requested size: 417.90096pt x 139.30031pt.
+
+<Figures/occclientresult.png, id=209, 189.70876pt x 40.65187pt>
+File: Figures/occclientresult.png Graphic file (type png)
+
+<use Figures/occclientresult.png>
+Package pdftex.def Info: Figures/occclientresult.png used on input line 24.
+(pdftex.def)             Requested size: 189.70828pt x 40.65176pt.
+File: Figures/occclientresult.png Graphic file (type png)
+ <use Figures/occclientresult.png>
+Package pdftex.def Info: Figures/occclientresult.png used on input line 31.
+(pdftex.def)             Requested size: 189.70828pt x 40.65176pt.
+
+<Figures/send.png, id=210, 641.39626pt x 458.46281pt>
+File: Figures/send.png Graphic file (type png)
+ <use Figures/send.png>
+Package pdftex.def Info: Figures/send.png used on input line 37.
+(pdftex.def)             Requested size: 423.32283pt x 302.58638pt.
+)
+[44 <./Figures/addcomtyperesult.png> <./Figures/occclientresult.png>] [45 <./Fi
+gures/send.png>]
 \openout2 = `chapters/appendix/chapter_app.aux'.
 
-
-(chapters/appendix/chapter_app.tex
-Chapter 4.
-[38
-
+ (chapters/appendix/chapter_app.tex
+Chapter 7.
+[46
 
 
-] [39] [40] [41] [42]
+
+] [47] [48] [49] [50]
 Overfull \hbox (70.25047pt too wide) in paragraph at lines 160--161
 [][][][][][][][][][][][][][][][][][][] 
  []
@@ -993,7 +1091,7 @@ Overfull \hbox (221.45201pt too wide) in paragraph at lines 189--190
 [][][][][][][][][][][][][][][] 
  []
 
-[43]
+[51]
 Overfull \hbox (257.45238pt too wide) in paragraph at lines 190--191
 [][][][][][][][][][][][][][][] 
  []
@@ -1028,7 +1126,7 @@ Overfull \hbox (63.0504pt too wide) in paragraph at lines 208--209
 [][][][][][][][][][][][][][][] 
  []
 
-[44]
+[52]
 Overfull \hbox (343.85326pt too wide) in paragraph at lines 225--226
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1100,7 +1198,7 @@ Overfull \hbox (365.45348pt too wide) in paragraph at lines 253--255
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[45]
+[53]
 Overfull \hbox (336.65318pt too wide) in paragraph at lines 261--262
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -1165,7 +1263,7 @@ Overfull \hbox (307.85289pt too wide) in paragraph at lines 284--285
 [][][][][][][][][][][][][] 
  []
 
-[46]
+[54]
 Overfull \hbox (336.65318pt too wide) in paragraph at lines 294--295
 [][][][][][][][][][][][][][][][][][] 
  []
@@ -1195,12 +1293,14 @@ Overfull \hbox (12.64989pt too wide) in paragraph at lines 304--305
 [][][][][][][][][][][][][][][][][][][] 
  []
 
-) [47] (mainthesisUVIC.bbl) [48
+) [55] (mainthesisUVIC.bbl) [56
 
 
 ] (mainthesisUVIC.aux
+(chapters/1/chapter_intro.aux) (chapters/2/chapter_background.aux)
 (chapters/3/chapter_modeling.aux) (chapters/4/chapter_algorithm.aux)
-(chapters/5/chapter_implementation.aux) (chapters/appendix/chapter_app.aux))
+(chapters/5/chapter_implementation.aux) (chapters/6/chapter_evaluation.aux)
+(chapters/appendix/chapter_app.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1212,10 +1312,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 8062 strings out of 493335
- 118189 string characters out of 3139261
- 227424 words of memory out of 3000000
- 11331 multiletter control sequences out of 15000+200000
+ 8120 strings out of 493335
+ 119583 string characters out of 3139261
+ 228881 words of memory out of 3000000
+ 11362 multiletter control sequences out of 15000+200000
  31364 words of font info for 85 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,21n,45p,2606b,1402s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1232,9 +1332,9 @@ ram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program
 .9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/ur
 w/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.p
 fb>
-Output written on mainthesisUVIC.pdf (57 pages, 713944 bytes).
+Output written on mainthesisUVIC.pdf (65 pages, 793942 bytes).
 PDF statistics:
- 268 PDF objects out of 1000 (max. 8388607)
+ 296 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 86 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 

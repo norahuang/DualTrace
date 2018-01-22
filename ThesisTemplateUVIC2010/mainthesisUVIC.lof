@@ -1,21 +1,28 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Data Transfer Scenarios for Named Pipe\relax }}{3}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Data Transfer Scenarios for Message Queue\relax }}{4}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Data Transfer Scenarios for TCP\relax }}{5}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{6}
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Example of Communication\relax }}{8}
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Example of Communication\relax }}{8}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Channel Open Process for a Named Pipe\relax }}{14}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Channel Open Process for a Message Queue\relax }}{16}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Channel Open Model for TCP and UDP\relax }}{18}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Second Level Matching Scenarios\relax }}{22}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Menu Item for opening Dual\_trace\relax }}{33}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Parallel Editor View\relax }}{34}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Dual\_trace Tool Menu\relax }}{35}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Prompt Dialog for Communication Selection\relax }}{35}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Communication View for Showing Identification Result\relax }}{36}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Right Click Menu on Event Entry\relax }}{37}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Right Click Menu on Event Entry\relax }}{37}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Data Transfer Scenarios for Named Pipe\relax }}{8}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Data Transfer Scenarios for Message Queue\relax }}{9}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Data Transfer Scenarios for TCP\relax }}{10}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{11}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Example of Communication\relax }}{13}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Example of Communication\relax }}{13}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Channel Open Process for a Named Pipe\relax }}{19}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Channel Open Process for a Message Queue\relax }}{21}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Channel Open Model for TCP and UDP\relax }}{23}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Second Level Matching Scenarios\relax }}{27}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Menu Item for opening Dual\_trace\relax }}{38}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Parallel Editor View\relax }}{39}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Dual\_trace Tool Menu\relax }}{40}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Prompt Dialog for Communication Selection\relax }}{40}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Communication View for Showing Identification Result\relax }}{41}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Right Click Menu on Event Entry\relax }}{42}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Right Click Menu on Event Entry\relax }}{42}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Defined clientsend and serversend communication types in Communication View\relax }}{44}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces the search result of clientsend communication type\relax }}{44}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces the search result of the serversend communication type\relax }}{44}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces instruction view and memory view updated correctly\relax }}{45}
 \addvspace {10\p@ }
