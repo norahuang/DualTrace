@@ -1,10 +1,10 @@
 \contentsline {chapter}{Supervisory Committee}{ii}
 \contentsline {chapter}{Abstract}{iii}
 \contentsline {chapter}{Table of Contents}{iv}
-\contentsline {chapter}{List of Tables}{vii}
-\contentsline {chapter}{List of Figures}{viii}
-\contentsline {chapter}{Acknowledgements}{ix}
-\contentsline {chapter}{Dedication}{x}
+\contentsline {chapter}{List of Tables}{vi}
+\contentsline {chapter}{List of Figures}{vii}
+\contentsline {chapter}{Acknowledgements}{viii}
+\contentsline {chapter}{Dedication}{ix}
 \contentsline {chapter}{\numberline {1}Modeling}{1}
 \contentsline {section}{\numberline {1.1}Communication Categorization and Communication Methods}{1}
 \contentsline {subsection}{\numberline {1.1.1}Reliable Communication}{2}
