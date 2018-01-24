@@ -384,18 +384,18 @@ For Named Pipe and Message Queue, only one channel open function is being called
 \KwOut{$cos = \left\lbrace co_{y}: 0\leqslant y \leqslant Y\right\rbrace $}
 $cos \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;\; 
 \For{$stream0 \in stream\_trace_{0}$}{
-   $openEvent0 \leftarrow$ get the event from $stream0.openStream$, which should only contain one event;\;
+   $openEvent0 \leftarrow$ get the opening event from $stream0.openStream$;\;
    $channelId0 \leftarrow$ get the channel identifier from $openEvent0.inputs$;\;
    \For{$stream1 \in stream\_trace_{1}$}{
-      $openEvent1 \leftarrow$ get the event from $stream1.openStream$, which should only contain one event;\;
+      $openEvent1 \leftarrow$ get the opening event from $stream1.openStream$;\;
       $channelId1 \leftarrow$ get the channel identifier from $openEvent1.inputs$;\;
      \If{$channelId0 == channelId1$}{
-         $DataVerified = dataVerify(stream0, stream1, outputdata)$.
+         $DataVerified = dataVerify(stream0, stream1, outputdata)$;\;
          \If{$DataVerified == True$}{
             $communication = New \enspace Communication()$;\;
             $communication.stream0 = stream0$;\;
             $communication.stream1 = stream1$;\;
-            $communication.dataMatch = outputdata$; \tcp*[f]{The output from data verification algorithm}\;
+            $communication.dataMatch = outputdata$;\;
             $cos.add\left( communication \right)$;\;
          }    
       }
@@ -415,19 +415,19 @@ For TCP and UDP multiple functions are collaborating to create the final communi
 \KwOut{$cos = \left\lbrace co_{y}: 0\leqslant y \leqslant Y\right\rbrace $}
 $cos \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;\; 
 \For{$stream0 \in stream\_trace_{0}$}{
-   $socketEvent0 \leftarrow$ get the $socket\left( \right)$ function call related event from $stream0.openStream$;\;
-   $bindEvent0 \leftarrow$ get the $bind\left( \right)$ function call related event from $stream0.openStream$;\;
-   $connectEvent0 \leftarrow$ get the $connect\left( \right)$ function call related event from $stream0.openStream$;\;
+   $socketEvent0 \leftarrow$ get the $socket\left( \right)$ event from $stream0.openStream$;\;
+   $bindEvent0 \leftarrow$ get the $bind\left( \right)$ event from $stream0.openStream$;\;
+   $connectEvent0 \leftarrow$ get the $connect\left( \right)$ event from $stream0.openStream$;\;
    \For{$stream1 \in stream\_trace_{1}$}{
-      $socketEvent1 \leftarrow$ get the $socket\left( \right)$ function call related event from $stream1.openStream$;\;
-      $bindEvent1 \leftarrow$ get the $bind\left( \right)$ function call related event from $stream1.openStream$;\;
-      $connectEvent1 \leftarrow$ get the $connect\left( \right)$  function call related event from $stream1.openStream$;\;
+      $socketEvent1 \leftarrow$ get the $socket\left( \right)$ event from $stream1.openStream$;\;
+      $bindEvent1 \leftarrow$ get the $bind\left( \right)$ event from $stream1.openStream$;\;
+      $connectEvent1 \leftarrow$ get the $connect\left( \right)$ event from $stream1.openStream$;\;
     \If{$socketEvent0 !=null$ AND $socketEvent1 != null$}{
        \If{$bindEvent0 != null$ AND $connectEvent1 == null$}{
-           $localServerAddr \leftarrow$ get the serverAddr parameter value from $bindEvent1.inputs$;\;
+           $localServerAddr \leftarrow$ get serverAddr from $bindEvent1.inputs$;\;
        }
        \ElseIf{$bindEvent1 == null$ AND $connectEvent0 != null$}{
-           $remoteServerAddr \leftarrow$ get the serverAddr parameter value from $connectEvent1.inputs$;\; 
+           $remoteServerAddr \leftarrow$ get serverAddr from $connectEvent1.inputs$;\; 
        }
        \Else{
           Break the inner For loop;\;
@@ -437,7 +437,7 @@ $cos \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;
           $communication = New \enspace Communication()$;\;
           $communication.stream0 = stream0$;\;
           $communication.stream1 = stream1$;\;
-          $communication.dataMatch = outputdata$; \tcp*[f]{The output from data verification algorithm}\;
+          $communication.dataMatch = outputdata$; 
           $cos.add\left( communication \right)$;\;
        }
     }

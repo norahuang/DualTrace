@@ -9,7 +9,19 @@ Two experiments are conducted for this evaluation.  All the programs in these tw
 
 In the first experiment, two programs communicated with each other through a synchronous Named pipe channel. One of the programs acted as the Named pipe server while the other as the client. Figure\ref{exp1} is the sequence diagram of the interaction between the server and client. Traces were captured while these two program were running and interacting. The two captured traces are analysis as dual\_trace exp1 in this experiment. 
 
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.7]{Figures/exp1}}
+ \caption{Sequence Diagram of Experiment 1}
+\label{exp1}
+\end{figure}
+
 In the second experiment, one program was running as the Named pipe server, while two other programs as the Named pipe clients connected to this server. Those two clients (client 1 and client 2) use the identical program but run in sequence. Figure\ref{exp2} is the sequence diagram of  the interaction among the server and clients. Three traces were captured at the time when these three programs were running and interacting. These three traces generated two dua\_traces, exp2.1 and exp2.2, exp2.1 consist of traces of server and client 1 and exp2.2 consist of traces of server and client 2. Both dual\_traces were being analysed in this experiment.
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.6]{Figures/exp2}}
+ \caption{Sequence Diagram of Experiment 2}
+\label{exp2}
+\end{figure}
 
 I used the implemented feature on Atlantis to conduct the dual\_traces analysis for the experiments. ``Communication identification" was conducted for all dual\_traces. The result of these two experiments is discussed in next section. 
 

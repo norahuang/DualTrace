@@ -38,7 +38,7 @@ A stream consist of a channel open stream, a channel close stream, a send stream
 \end{enumerate}
 
 \section{Example of Configuration File for Communication Methods' Function Set}\label{funcset}
-\begin{lstlisting}
+\begin{lstlisting}[caption= communicationMethods.json]
 [
    {
       "communicationMethod": "NamedPipe",
@@ -151,7 +151,7 @@ A stream consist of a channel open stream, a channel close stream, a send stream
 \section{Code for Parallel Editors}\label{paralleleditor}
 Two essential pieces of code are listed for the parallel editor. One is for splitting the editor area for two editors while the other is to get the active parallel editors later on  for dual\_trace analysis.
 \subsection{The Editor Area Split Handler}
-\begin{lstlisting}
+\begin{lstlisting}[caption= code in OpenDualEditorsHandler.java]
 public class OpenDualEditorsHandler extends AbstractHandler {
 	EModelService ms;
 	EPartService ps;
@@ -291,7 +291,7 @@ public class OpenDualEditorsHandler extends AbstractHandler {
 \end{lstlisting}
 
 \subsection{Get the Active Parallel Editors}
-\begin{lstlisting}
+\begin{lstlisting}[caption= code for getting parallel editors ]
 IEditorPart editorPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 		MPart container = (MPart) editorPart.getSite().getService(MPart.class);
 		MElementContainer m = container.getParent();
@@ -308,5 +308,11 @@ IEditorPart editorPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().ge
 \section{Code of the Programs for the Experiments in the Evaluation}\label{expcode}
 \subsection{Experiment 1}
 The two interacting programs were Named pipe server and client. The first piece of code listed below is the code for the server's program while the second piece is for the client program.
+\lstinputlisting[language=C++,caption= NamedPipeServer.cpp]{./sourcecode/experiment1/NamedPipeServer.cpp}
+\lstinputlisting[language=C++,caption= NamedPipeClient.cpp]{./sourcecode/experiment1/NamedPipeClient.cpp}
+
+
 \subsection{Experiment 2}
 In the experiment 2, two clients run the same program in sequence to connect to the server with asynchronous Named pipe channel. The first piece of code listed below is the code for the server's program while the second piece is for the clients' program.
+\lstinputlisting[language=C++,caption= NamedPipeServerOverlapped.cpp]{./sourcecode/experiment2/NamedPipeServerOverlapped.cpp}
+\lstinputlisting[language=C++,caption= NamedPipeClient.cpp]{./sourcecode/experiment2/NamedPipeClient.cpp}
