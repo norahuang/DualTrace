@@ -1,10 +1,10 @@
 \contentsline {chapter}{Supervisory Committee}{ii}
 \contentsline {chapter}{Abstract}{iii}
 \contentsline {chapter}{Table of Contents}{iv}
-\contentsline {chapter}{List of Tables}{vi}
-\contentsline {chapter}{List of Figures}{vii}
-\contentsline {chapter}{Acknowledgements}{viii}
-\contentsline {chapter}{Dedication}{ix}
+\contentsline {chapter}{List of Tables}{vii}
+\contentsline {chapter}{List of Figures}{viii}
+\contentsline {chapter}{Acknowledgements}{ix}
+\contentsline {chapter}{Dedication}{x}
 \contentsline {chapter}{\numberline {1}Introduction}{1}
 \contentsline {section}{\numberline {1.1}Define the Problem}{2}
 \contentsline {section}{\numberline {1.2}Model the Communications and the Dual\_Trace}{2}
@@ -51,13 +51,17 @@
 \contentsline {section}{\numberline {5.3}Identification Features}{39}
 \contentsline {section}{\numberline {5.4}Identification Result View and Result Navigation}{41}
 \contentsline {chapter}{\numberline {6}Evaluation}{43}
-\contentsline {subsection}{\numberline {6.0.1}Experiment Verification Design}{43}
-\contentsline {subsection}{\numberline {6.0.2}Result}{43}
-\contentsline {chapter}{\numberline {7}Additional Information}{46}
-\contentsline {section}{\numberline {7.1}Terminology}{46}
-\contentsline {section}{\numberline {7.2}Microsoft* x64 Calling Convention for C/C++}{47}
-\contentsline {section}{\numberline {7.3}Example of Configuration File for Communication Methods' Function Set}{47}
-\contentsline {section}{\numberline {7.4}Open View with Two Parallel Editors programmatically}{50}
-\contentsline {subsection}{\numberline {7.4.1}The Editor Area Split Handler}{50}
-\contentsline {subsection}{\numberline {7.4.2}Get the Active Parallel Editors}{55}
-\contentsline {chapter}{Bibliography}{56}
+\contentsline {subsection}{\numberline {6.0.1}Experiment Evaluation Design}{43}
+\contentsline {subsection}{\numberline {6.0.2}Result and Conclusion}{44}
+\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{45}
+\contentsline {chapter}{\numberline {8}Additional Information}{47}
+\contentsline {section}{\numberline {8.1}Terminology}{47}
+\contentsline {section}{\numberline {8.2}Microsoft* x64 Calling Convention for C/C++}{48}
+\contentsline {section}{\numberline {8.3}Example of Configuration File for Communication Methods' Function Set}{48}
+\contentsline {section}{\numberline {8.4}Code for Parallel Editors}{51}
+\contentsline {subsection}{\numberline {8.4.1}The Editor Area Split Handler}{52}
+\contentsline {subsection}{\numberline {8.4.2}Get the Active Parallel Editors}{57}
+\contentsline {section}{\numberline {8.5}Code of the Programs for the Experiments in the Evaluation}{58}
+\contentsline {subsection}{\numberline {8.5.1}Experiment 1}{58}
+\contentsline {subsection}{\numberline {8.5.2}Experiment 2}{58}
+\contentsline {chapter}{Bibliography}{59}

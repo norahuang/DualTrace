@@ -148,7 +148,8 @@ A stream consist of a channel open stream, a channel close stream, a send stream
 ]
 \end{lstlisting}
 
-\section{Open View with Two Parallel Editors programmatically}\label{paralleleditor}
+\section{Code for Parallel Editors}\label{paralleleditor}
+Two essential pieces of code are listed for the parallel editor. One is for splitting the editor area for two editors while the other is to get the active parallel editors later on  for dual\_trace analysis.
 \subsection{The Editor Area Split Handler}
 \begin{lstlisting}
 public class OpenDualEditorsHandler extends AbstractHandler {
@@ -303,3 +304,9 @@ IEditorPart editorPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().ge
 		MPart editorPart1 = (MPart) m.getChildren().get(0);
 		MPart editorPart2 = (MPart) m.getChildren().get(1);
 \end{lstlisting}
+
+\section{Code of the Programs for the Experiments in the Evaluation}\label{expcode}
+\subsection{Experiment 1}
+The two interacting programs were Named pipe server and client. The first piece of code listed below is the code for the server's program while the second piece is for the client program.
+\subsection{Experiment 2}
+In the experiment 2, two clients run the same program in sequence to connect to the server with asynchronous Named pipe channel. The first piece of code listed below is the code for the server's program while the second piece is for the clients' program.

@@ -15,6 +15,15 @@
 \SetKwRepeat{Union}{union \{}{\}}%
 \newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
 \SetCommentSty{mycommfont}
+\usepackage{listings}
+ \lstset{
+ basicstyle=\ttfamily,
+ columns=fullflexible,
+ frame=single,
+ breaklines=true,
+ postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+ }
+ \usepackage[flushleft]{threeparttable}
 \begin{document}
 
 % Front Matter
@@ -28,7 +37,7 @@
     \include{chapters/4/chapter_algorithm}
 	\include{chapters/5/chapter_implementation}
 	\include{chapters/6/chapter_evaluation}
-	%\include{chapters/9/chapter_conclusion}
+	\include{chapters/7/chapter_conclusion}
 	\include{chapters/appendix/chapter_app}
 
 
