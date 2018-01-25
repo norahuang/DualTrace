@@ -62,6 +62,4 @@
 \contentsline {subsection}{\numberline {8.4.1}The Editor Area Split Handler}{52}
 \contentsline {subsection}{\numberline {8.4.2}Get the Active Parallel Editors}{57}
 \contentsline {section}{\numberline {8.5}Code of the Programs for the Experiments in the Evaluation}{58}
-\contentsline {subsection}{\numberline {8.5.1}Experiment 1}{58}
-\contentsline {subsection}{\numberline {8.5.2}Experiment 2}{69}
-\contentsline {chapter}{Bibliography}{83}
+\contentsline {chapter}{Bibliography}{59}
