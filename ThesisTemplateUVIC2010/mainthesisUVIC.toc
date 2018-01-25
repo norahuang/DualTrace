@@ -36,30 +36,31 @@
 \contentsline {subsection}{\numberline {4.2.1}Windows Calling Convention}{17}
 \contentsline {subsection}{\numberline {4.2.2}Named Pipes}{18}
 \contentsline {subsection}{\numberline {4.2.3}Message Queue}{20}
-\contentsline {subsection}{\numberline {4.2.4}TCP and UDP}{21}
-\contentsline {section}{\numberline {4.3}Event Locating Algorithm: $eventfilter\left ( \right )$}{23}
-\contentsline {section}{\numberline {4.4}Stream Identification Algorithm: $streamfilter\left ( \right )$}{24}
-\contentsline {section}{\numberline {4.5}Stream Matching Algorithm: $streammatch()$}{26}
-\contentsline {subsection}{\numberline {4.5.1}Stream Matching Algorithm for Named Pipe and Message Queue}{28}
-\contentsline {subsection}{\numberline {4.5.2}Stream Matching Algorithm for TCP and UDP}{28}
-\contentsline {subsection}{\numberline {4.5.3}Data Verification $dataVerify()$ for Named Pipe and TCP}{29}
-\contentsline {subsection}{\numberline {4.5.4}Data Verification $dataVerify()$ for MSMQ and UDP}{31}
-\contentsline {section}{\numberline {4.6}Data Structures for Identified Communications}{33}
-\contentsline {chapter}{\numberline {5}Feature Prototype On Atlantis}{35}
-\contentsline {section}{\numberline {5.1}User Defined Function Set}{35}
-\contentsline {section}{\numberline {5.2}Parallel Editor View For Dual\_Trace}{36}
-\contentsline {section}{\numberline {5.3}Identification Features}{37}
-\contentsline {section}{\numberline {5.4}Identification Result View and Result Navigation}{39}
-\contentsline {chapter}{\numberline {6}Evaluation}{41}
-\contentsline {subsection}{\numberline {6.0.1}Experiment Evaluation Design}{41}
-\contentsline {subsection}{\numberline {6.0.2}Result and Conclusion}{44}
-\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{45}
-\contentsline {chapter}{\numberline {8}Additional Information}{47}
-\contentsline {section}{\numberline {8.1}Terminology}{47}
-\contentsline {section}{\numberline {8.2}Microsoft* x64 Calling Convention for C/C++}{48}
-\contentsline {section}{\numberline {8.3}Example of Configuration File for Communication Methods' Function Set}{48}
-\contentsline {section}{\numberline {8.4}Code for Parallel Editors}{52}
-\contentsline {subsection}{\numberline {8.4.1}The Editor Area Split Handler}{52}
-\contentsline {subsection}{\numberline {8.4.2}Get the Active Parallel Editors}{57}
-\contentsline {section}{\numberline {8.5}Code of the Programs for the Experiments in the Evaluation}{58}
-\contentsline {chapter}{Bibliography}{59}
+\contentsline {subsection}{\numberline {4.2.4}TCP and UDP}{22}
+\contentsline {section}{\numberline {4.3}Event Locating Algorithm: $eventfilter\left ( \right )$}{24}
+\contentsline {section}{\numberline {4.4}Stream Identification Algorithm: $streamfilter\left ( \right )$}{25}
+\contentsline {section}{\numberline {4.5}Stream Matching Algorithm: $streammatch()$}{27}
+\contentsline {subsection}{\numberline {4.5.1}Stream Matching Algorithm for Named Pipe and Message Queue}{29}
+\contentsline {subsection}{\numberline {4.5.2}Stream Matching Algorithm for TCP and UDP}{29}
+\contentsline {subsection}{\numberline {4.5.3}Data Verification $dataVerify()$ for Named Pipe and TCP}{30}
+\contentsline {subsection}{\numberline {4.5.4}Data Verification $dataVerify()$ for MSMQ and UDP}{32}
+\contentsline {section}{\numberline {4.6}Data Structures for Identified Communications}{34}
+\contentsline {chapter}{\numberline {5}Feature Prototype On Atlantis}{36}
+\contentsline {section}{\numberline {5.1}User Defined Function Set}{36}
+\contentsline {section}{\numberline {5.2}Parallel Editor View For Dual\_Trace}{37}
+\contentsline {section}{\numberline {5.3}Identification Features}{38}
+\contentsline {section}{\numberline {5.4}Identification Result View and Result Navigation}{40}
+\contentsline {chapter}{\numberline {6}Evaluation}{42}
+\contentsline {subsection}{\numberline {6.0.1}Experiment Evaluation Design}{42}
+\contentsline {subsection}{\numberline {6.0.2}Result and Conclusion}{45}
+\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{46}
+\contentsline {chapter}{Bibliography}{48}
+\contentsline {chapter}{Appendix \numberline {A}Terminology}{49}
+\contentsline {chapter}{Appendix \numberline {B}Microsoft x64 Calling Convention for C/C++}{50}
+\contentsline {chapter}{Appendix \numberline {C}Function Set Configuration Example}{51}
+\contentsline {chapter}{Appendix \numberline {D}Code of the Parallel Editors}{54}
+\contentsline {section}{\numberline {D.1}The Editor Area Split Handler}{54}
+\contentsline {section}{\numberline {D.2}Get the Active Parallel Editors}{57}
+\contentsline {chapter}{Appendix \numberline {E}Code of the Programs in the Experiments}{58}
+\contentsline {section}{\numberline {E.1}Experiment 1}{58}
+\contentsline {section}{\numberline {E.2}Experiment 2}{63}

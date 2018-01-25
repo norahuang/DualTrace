@@ -1,0 +1,120 @@
+[
+   {
+      "communicationMethod": "NamedPipe",
+      "funcList": [
+         {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": true
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": false
+            },
+            "functionName": "CreateNamedPipeA",
+            "createHandle": true,
+            "type": "open"
+         },
+		 {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": true
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": false
+            },
+            "functionName": "ConnectNamedPipe",
+            "createHandle": false,
+            "type": "open"
+         },
+         {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": true
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": false
+            },
+            "functionName": "CreateFileA",
+            "createHandle": true,
+            "type": "open"
+         },
+		 {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": value
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": value
+            },
+            "memoryInputReg": {
+               "name": "RDX",
+               "valueOrAddress": address
+            },
+            "memoryInputLenReg": {
+               "name": "R8",
+               "valueOrAddress": value
+            },
+            "functionName": "WriteFile",
+            "createHandle": false,
+            "type": "send"
+         },
+         {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": value
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": value
+            },
+            "memoryOutputReg": {
+               "name": "RDX",
+               "valueOrAddress": address
+            },
+            "memoryOutputBufLenReg": {
+               "name": "R8",
+               "valueOrAddress": value
+            },
+            "functionName": "ReadFile",
+            "createHandle": false,
+            "type": "recv",
+            "outputDataAddressIndex": "NamedPipeChannelRDX"
+         },
+         {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": value
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": value
+            },
+            "memoryOutputReg": {
+               "name": "RDX",
+               "valueOrAddress": address
+            },
+            "functionName": "GetOverlappedResult",
+            "createHandle": false,
+            "type": "check",
+            "outputDataAddressIndex": "NamedPipeChannelRDX"
+         },
+		 {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": value
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": value
+            },
+            "functionName": "CloseHandle",
+            "createHandle": false,
+            "type": "na"
+         }
+      ]
+   }
+]

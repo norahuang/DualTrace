@@ -17,13 +17,14 @@
 \SetCommentSty{mycommfont}
 \usepackage{listings}
  \lstset{
- basicstyle=\ttfamily,
+ basicstyle=\ttfamily\scriptsize,
  columns=fullflexible,
  frame=single,
  breaklines=true,
  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
  }
  \usepackage[flushleft]{threeparttable}
+ \usepackage[titletoc]{appendix}
 \begin{document}
 
 % Front Matter
@@ -38,6 +39,11 @@
 	\include{chapters/5/chapter_implementation}
 	\include{chapters/6/chapter_evaluation}
 	\include{chapters/7/chapter_conclusion}
+
+	\TOCadd{Bibliography}
+	\bibliographystyle{plain}
+	\bibliography{UvicThesis}
+
 	\include{chapters/appendix/chapter_app}
 
 
@@ -51,9 +57,7 @@
 % The Bibliography file is a BibTex file named
 % UVicThesis.bib and called below
 
-	\TOCadd{Bibliography}
-	\bibliographystyle{plain}
-	\bibliography{UvicThesis}
+
 
 \end{document}
 vardef  enddefvardef  enddef

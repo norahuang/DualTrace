@@ -53,6 +53,9 @@ There are two modes for data transfer in the named pipe communication method, sy
               \cline{3-3} \cline{5-5}
              &&  RCX: File Name &  &  RCX: File Name\\
             \hline
+             {{\textbf{Channel Open}}}
+             &{ConnectNamedPipe} & {RCX: File Handler} & & \\
+            \hline
              \multirow{3}{*}{{\textbf{Send}}}
              &\multirow{3}{*}{WriteFile} &  RCX: File Handle & \multirow{3}{*}{WriteFile} &  RCX: File Handle\\
               \cline{3-3} \cline{5-5}
@@ -89,6 +92,9 @@ There are two modes for data transfer in the named pipe communication method, sy
              &\multirow{2}{*}{{CreateNamedPipe}} &  RAX: File Handler & \multirow{2}{*}{CreateFile} &  RAX: File Handle\\
               \cline{3-3} \cline{5-5}
              &&  RCX: File Name &  &  RCX: File Name\\
+            \hline
+            {{\textbf{Channel Open}}}
+             &{ConnectNamedPipe} & {RCX: File Handler} & & \\
             \hline
              \multirow{3}{*}{{\textbf{Send}}}
              &\multirow{3}{*}{WriteFile} &  RCX: File Handle & \multirow{3}{*}{WriteFile} &  RCX: File Handle\\
@@ -454,7 +460,7 @@ As described in Section\ref{reliable}, the data being received by one endpoint s
 \caption{{\bf Transmitted Verification by Data Union} \label{dataAlg1}}
 \KwIn{$stream0, stream1$}
 \KwOut{send data union and receive data union of two streams}
-\KwRet{Indicator of if transmitted data union are considered to be identical}
+\KwRet{Indicator of if transmitted data union are considered to be identical}\;
 $send1 \leftarrow$ empty string;\;
 $send2 \leftarrow$ empty string;\;
 $recv1 \leftarrow$ empty string;\;
@@ -492,7 +498,7 @@ For the unreliable communication methods, the data packets being transmitted are
 \caption{{\bf Transmitted Verification by Data of Events } \label{dataAlg2}}
 \KwIn{$stream0, stream1$}
 \KwOut{matched event list of two endpoints}
-\KwRet{Indicator of if transmitted data union are considered to be identical}
+\KwRet{Indicator of if transmitted data union are considered to be identical}\;
 $sendPktNum0 \leftarrow stream0.sendStream.length$;\;
 $sendPktNum1 \leftarrow stream1.sendStream.length$;\;
 $recvPktNum0 \leftarrow 0$;\;

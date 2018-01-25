@@ -1,32 +1,20 @@
-\startappendix{Additional Information}
-\label{chapter:appendix}
+\begin{appendices}
+\chapter{Terminology}\label{term}
+\begin{enumerate}  
+\item \textbf{Endpoint:}An instance in a program at which a stream of data are sent or received (or both). Such as a socket handle of TCP or a file handle of the named pipe.
+\item \textbf{Channel:}A conduit connected two endpoints through  which data can be sent and received.
+\item \textbf{Channel open event:}Operation to create and connect an endpoint to a specific channel.
+\item \textbf{Channel close event:}Operation to disconnect and delete the endpoint from the channel.
+\item \textbf{Send event:}Operation to send a trunk of data from one endpoint to the other through  the channel.
+\item \textbf{Receive event:}Operation to receive a trunk of data at one endpoint from the other through the channel.
+\item \textbf{Channel open stream:}A set of all channel open events regarding to a specific endpoint.
+\item \textbf{Channel close stream:}A set of all channel close events regarding to a specific endpoint.
+\item \textbf{Send stream:}A set of all send events regarding to a specific endpoint.
+\item \textbf{Receive stream:}A set of all receive events regarding to a specific endpoint.
+\item \textbf{Stream:}A stream consist of a channel open, a channel close, a send and a receive streams of an endpoint.
+\end{enumerate}
 
-\section{Terminology}\label{term}
-\textbf{Endpoint:}\\
-An instance in a program at which a stream of data are sent or received (or both). It usually is identified by the handle of a specific communication method in the program. Such as a socket handle of TCP or UDP or a file handle of the named piped channel.\\
-\textbf{Channel:}\\
-A conduit connected two endpoints through  which data can be sent and received\\
-\textbf{Channel open event:}\\
-Operation to create and connect an endpoint to a specific channel\\
-\textbf{Channel close event:}\\
-Operation to disconnect and delete the endpoint from the channel.\\
-\textbf{Send event:}\\
-Operation to send a trunk of data from one endpoint to the other through  the channel.\\
-\textbf{Receive event:}\\
-Operation to receive a trunk of data at one endpoint from the other through the channel.\\
-\textbf{Channel open stream:}\\
-A set of all channel open events regarding to a specific endpoint.\\
-\textbf{Channel close stream:}\\
-A set of all channel close events regarding to a specific endpoint.\\
-\textbf{Send stream:}\\
-A set of all send events regarding to a specific endpoint.\\
-\textbf{Receive stream:}\\
-A set of all receive events regarding to a specific endpoint.\\
-\textbf{Stream:}\\
-A stream consist of a channel open stream, a channel close stream, a send stream and a receive stream. All of these streams regard to the same endpoint.
-
-
-\section{Microsoft* x64 Calling Convention for C/C++}\label{convention}
+\chapter{Microsoft x64 Calling Convention for C/C++}\label{convention}
 \begin{enumerate}  
 \item RCX, RDX, R8, R9 are used for integer and pointer arguments in that order left to right.
 \item XMM0, 1, 2, and 3 are used for floating point arguments.
@@ -37,120 +25,12 @@ A stream consist of a channel open stream, a channel close stream, a send stream
 \item Larger return values (structs) have space allocated on the stack by the caller, and RCX then contains a pointer to the return space when the callee is called. Register usage for integer parameters is then pushed one to the right. RAX returns this address to the caller.
 \end{enumerate}
 
-\section{Example of Configuration File for Communication Methods' Function Set}\label{funcset}
-\begin{lstlisting}[caption= communicationMethods.json]
-[
-   {
-      "communicationMethod": "NamedPipe",
-      "funcList": [
-         {
-            "retrunValReg": {
-               "name": "RAX",
-               "valueOrAddress": true
-            },
-            "valueInputReg": {
-               "name": "RCX",
-               "valueOrAddress": false
-            },
-            "functionName": "CreateNamedPipeA",
-            "createHandle": true,
-            "type": "open"
-         },
-         {
-            "retrunValReg": {
-               "name": "RAX",
-               "valueOrAddress": true
-            },
-            "valueInputReg": {
-               "name": "RCX",
-               "valueOrAddress": false
-            },
-            "functionName": "CreateFileA",
-            "createHandle": true,
-            "type": "open"
-         },
-		 {
-            "retrunValReg": {
-               "name": "RAX",
-               "valueOrAddress": value
-            },
-            "valueInputReg": {
-               "name": "RCX",
-               "valueOrAddress": value
-            },
-            "memoryInputReg": {
-               "name": "RDX",
-               "valueOrAddress": address
-            },
-            "memoryInputLenReg": {
-               "name": "R8",
-               "valueOrAddress": value
-            },
-            "functionName": "WriteFile",
-            "createHandle": false,
-            "type": "send"
-         },
-         {
-            "retrunValReg": {
-               "name": "RAX",
-               "valueOrAddress": value
-            },
-            "valueInputReg": {
-               "name": "RCX",
-               "valueOrAddress": value
-            },
-            "memoryOutputReg": {
-               "name": "RDX",
-               "valueOrAddress": address
-            },
-            "memoryOutputBufLenReg": {
-               "name": "R8",
-               "valueOrAddress": value
-            },
-            "functionName": "ReadFile",
-            "createHandle": false,
-            "type": "recv",
-            "outputDataAddressIndex": "NamedPipeChannelRDX"
-         },
-         {
-            "retrunValReg": {
-               "name": "RAX",
-               "valueOrAddress": value
-            },
-            "valueInputReg": {
-               "name": "RCX",
-               "valueOrAddress": value
-            },
-            "memoryOutputReg": {
-               "name": "RDX",
-               "valueOrAddress": address
-            },
-            "functionName": "GetOverlappedResult",
-            "createHandle": false,
-            "type": "check",
-            "outputDataAddressIndex": "NamedPipeChannelRDX"
-         },
-		 {
-            "retrunValReg": {
-               "name": "RAX",
-               "valueOrAddress": value
-            },
-            "valueInputReg": {
-               "name": "RCX",
-               "valueOrAddress": value
-            },
-            "functionName": "CloseHandle",
-            "createHandle": false,
-            "type": "na"
-         }
-      ]
-   }
-]
-\end{lstlisting}
+\chapter{Function Set Configuration Example}\label{funcset}
+\lstinputlisting[caption= communicationMethods.json]{./sourcecode/communicationMethods.json}
 
-\section{Code for Parallel Editors}\label{paralleleditor}
+\chapter{Code of the Parallel Editors}\label{paralleleditor}
 Two essential pieces of code are listed for the parallel editor. One is for splitting the editor area for two editors while the other is to get the active parallel editors later on  for dual\_trace analysis.
-\subsection{The Editor Area Split Handler}
+\section{The Editor Area Split Handler}
 \begin{lstlisting}[caption= code in OpenDualEditorsHandler.java]
 public class OpenDualEditorsHandler extends AbstractHandler {
 	EModelService ms;
@@ -290,7 +170,7 @@ public class OpenDualEditorsHandler extends AbstractHandler {
 }
 \end{lstlisting}
 
-\subsection{Get the Active Parallel Editors}
+\section{Get the Active Parallel Editors}
 \begin{lstlisting}[caption= code for getting parallel editors ]
 IEditorPart editorPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
 		MPart container = (MPart) editorPart.getSite().getService(MPart.class);
@@ -305,5 +185,15 @@ IEditorPart editorPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().ge
 		MPart editorPart2 = (MPart) m.getChildren().get(1);
 \end{lstlisting}
 
-\section{Code of the Programs for the Experiments in the Evaluation}\label{expcode}
+\chapter{Code of the Programs in the Experiments}\label{expcode}
+\section{Experiment 1}
+The two interacting programs were Named pipe server and client. The first piece of code listed below is the code for the server's program while the second piece is for the client program.
+\lstinputlisting[language=C++,caption= NamedPipeServer.cpp]{./sourcecode/experiment1/NamedPipeServer.cpp}
+\lstinputlisting[language=C++,caption= NamedPipeClient.cpp]{./sourcecode/experiment1/NamedPipeClient.cpp}
 
+\section{Experiment 2}
+In the experiment 2, two clients run the same program in sequence to connect to the server with asynchronous Named pipe channel. The first piece of code listed below is the code for the server's program while the second piece is the test.bat is the script for running the experiment. The client  program's code is identical to experiment 1.
+\lstinputlisting[language=C++,caption= NamedPipeServerOverlapped.cpp]{./sourcecode/experiment2/NamedPipeServerOverlapped.cpp}
+\lstinputlisting[caption= test.bat]{./sourcecode/experiment2/test.bat}
+
+\end{appendices}
