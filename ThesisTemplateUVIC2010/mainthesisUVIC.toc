@@ -51,16 +51,18 @@
 \contentsline {section}{\numberline {5.3}Identification Features}{38}
 \contentsline {section}{\numberline {5.4}Identification Result View and Result Navigation}{40}
 \contentsline {chapter}{\numberline {6}Evaluation}{42}
-\contentsline {subsection}{\numberline {6.0.1}Experiment Evaluation Design}{42}
-\contentsline {subsection}{\numberline {6.0.2}Result and Conclusion}{45}
-\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{46}
-\contentsline {chapter}{Bibliography}{48}
-\contentsline {chapter}{Appendix \numberline {A}Terminology}{49}
-\contentsline {chapter}{Appendix \numberline {B}Microsoft x64 Calling Convention for C/C++}{50}
-\contentsline {chapter}{Appendix \numberline {C}Function Set Configuration Example}{51}
-\contentsline {chapter}{Appendix \numberline {D}Code of the Parallel Editors}{54}
-\contentsline {section}{\numberline {D.1}The Editor Area Split Handler}{54}
-\contentsline {section}{\numberline {D.2}Get the Active Parallel Editors}{57}
-\contentsline {chapter}{Appendix \numberline {E}Code of the Programs in the Experiments}{58}
-\contentsline {section}{\numberline {E.1}Experiment 1}{58}
-\contentsline {section}{\numberline {E.2}Experiment 2}{63}
+\contentsline {section}{\numberline {6.1}Evaluation Experiments}{42}
+\contentsline {subsection}{\numberline {6.1.1}Experiment 1}{42}
+\contentsline {subsection}{\numberline {6.1.2}Experiment 2}{44}
+\contentsline {section}{\numberline {6.2}Discussion}{45}
+\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{47}
+\contentsline {chapter}{Bibliography}{49}
+\contentsline {chapter}{Appendix \numberline {A}Terminology}{50}
+\contentsline {chapter}{Appendix \numberline {B}Microsoft x64 Calling Convention for C/C++}{51}
+\contentsline {chapter}{Appendix \numberline {C}Function Set Configuration Example}{52}
+\contentsline {chapter}{Appendix \numberline {D}Code of the Parallel Editors}{55}
+\contentsline {section}{\numberline {D.1}The Editor Area Split Handler}{55}
+\contentsline {section}{\numberline {D.2}Get the Active Parallel Editors}{58}
+\contentsline {chapter}{Appendix \numberline {E}Code of the Programs in the Experiments}{59}
+\contentsline {section}{\numberline {E.1}Experiment 1}{59}
+\contentsline {section}{\numberline {E.2}Experiment 2}{64}
