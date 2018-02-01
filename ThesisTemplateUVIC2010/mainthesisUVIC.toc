@@ -22,10 +22,10 @@
 \contentsline {section}{\numberline {3.2}Communication Model}{10}
 \contentsline {subsection}{\numberline {3.2.1}Communication Definition}{10}
 \contentsline {subsection}{\numberline {3.2.2}Communication Properties}{11}
-\contentsline {subsubsection}{Properties of reliable communication:}{12}
+\contentsline {subsubsection}{Properties of reliable communication:}{11}
 \contentsline {subsubsection}{Properties of unreliable communication:}{12}
 \contentsline {section}{\numberline {3.3}Dual-Trace Model}{15}
-\contentsline {section}{\numberline {3.4}Element Matching Communication Model and Dual-Trace Model}{16}
+\contentsline {section}{\numberline {3.4}Relationship between Communication Model and Dual-Trace Model}{17}
 \contentsline {chapter}{\numberline {4}Communication Identification Algorithms}{18}
 \contentsline {section}{\numberline {4.1}Communication Identification Algorithm}{18}
 \contentsline {section}{\numberline {4.2}Communication Methods' Implementation in Windows}{19}

@@ -5,8 +5,8 @@
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Data Transfer Scenarios for Message Queue\relax }}{8}
 \contentsline {figure}{\numberline {3.3}{\ignorespaces Data Transfer Scenarios for TCP\relax }}{9}
 \contentsline {figure}{\numberline {3.4}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{10}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Example of Reliable Communication\relax }}{14}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Example of Unreliable Communication\relax }}{15}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Example of Reliable Communication\relax }}{13}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Example of Unreliable Communication\relax }}{14}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Channel Open Process for a Named Pipe\relax }}{22}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Channel Open Process for a Message Queue\relax }}{24}

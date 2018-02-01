@@ -108,17 +108,17 @@ In the context of a dual\_trace, a communication is a sequence of data transmitt
 
 $c =<ch, e0, e1>$
 
-where $e0$ and $e1$ are endpoints and where ch is the communication channel used (e.g. a named piped located at /tmp/pipe).
+where $e0$ and $e1$ are endpoints while $ch$ is the communication channel used (e.g. a named piped located at /tmp/pipe).
 
-For the purpose of modelling the trace, the endpoints $e_0$ and $e_1$ are defined in terms of three properties: the handle created within a process for the endpoint for subsequent operations(such as data send and receive), the data stream received and the data stream sent. Therefore, we define an endpoint e as a triplet:
+From the point of view of traces, the endpoints $e_0$ and $e_1$ are defined in terms of three properties: the handle created within a process for the endpoint for subsequent operations(e.g. data send and receive), the data stream received and the data stream sent. Therefore, I define an endpoint e as a triplet:
 
 $ e =<handle, d_r, d_s>$
 
-From the point of view of a trace, a data stream is a sequence of events that send or receive a package. Each package is composed contains data that is being sent or received (its payload). Hence, we can define a data stream $d$ as a sequence of $n$ packages:
+where $d_r$ and $d_s$ are data streams. A data stream is a sequence of events that send or receive a package. Each package contains data that is being sent or received (its payload). Hence, we can define a data stream $d$ as a sequence of $n$ packages:
 
 $ d = (pk_1, pk_2, ..., pk_n)$ 
 
-Note that this is the sequence of packages as seen from the end-point and might be different than the sequence of packages seen in the other end point, specially where there is package reordering or loss.
+Note that this is the sequence of packages as seen from the endpoint and might be different than the sequence of packages seen in the other endpoint, specially where there is package reordering or loss.
 
 Each package has several attributes:
 \begin{itemize}
@@ -126,11 +126,7 @@ Each package has several attributes:
 
 $time(pkg)$ 
 
-to denote this relative time. Hence, if 
-
-$i < j $
-
-, then 
+to denote this relative time. Hence, if  $i < j $ , then 
 
 $time(pk_i) < time(pk_j)$
 
@@ -186,7 +182,7 @@ In unreliable communication sender and receiver are not concerned with the conca
 \begin{itemize}
  \item \textit{ Content Preservation:} a package that is received should have been sent:
 
-for a sent data stream of size $m$, $ds= <pks_1, pks_2, ... pks_m>$ that is received in data stream  of size $n$, $dr = <pkr_1, pkr_2, ... pkr_n>$
+for a sent data stream of size $m$, $ds= <pks_1, pks_2, ... pks_m>$ that is received in data stream of size $n$, $dr = <pkr_1, pkr_2, ... pkr_n>$
 
 for any $pkr_j \in dr$ there must exist $pks_i \in ds$
 
@@ -212,7 +208,13 @@ In the following two examples, $h0$ and $h1$ are the handles of the two endpoint
 
 Figure\ref{reliableexample} is an example of the reliable communication. 
 
-The payloads of the packages are:
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.55]{Figures/reliableexample}}
+\caption{Example of Reliable Communication}
+\label{reliableexample}
+\end{figure}
+
+In this example, the payloads of the packages are:
 
 $pl(pks0_1)=``ab"$, $ pl(pks0_2)=``cde"$, $pl(pks0_3)=``fgh"$;
 
@@ -250,13 +252,16 @@ $pl(pkr1_1) \cdot pl(pkr1_2)= ``abcdef"$ and  $pl(pkr1_1) \cdot pl(pkr1_2) \cdot
 
 satisfy the timing preservation. 
 
+
+Figure\ref{unreliableexample} is an example of the unreliable communication. 
+
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/reliableexample}}
-\caption{Example of Reliable Communication}
-\label{reliableexample}
+\centerline{\includegraphics[scale=0.55]{Figures/unreliableexample}}
+\caption{Example of Unreliable Communication}
+\label{unreliableexample}
 \end{figure}
 
-Figure\ref{unreliableexample} is an example of the unreliable communication. In this example:
+In this example:
 
 $pkr1_1 = pks0_2=``cde"$, $time(pkr1_1) > time(pks0_2)$; 
 
@@ -269,48 +274,87 @@ $pkr0_2 = pks1_2=``ijklm"$, $time(pkr0_2) > time(pks1_2)$;
 $pkr0_3 = pks1_3=``n"$, $time(pkr0_3) > time(pks1_3)$.
 
 All of these satisfy the content preservation and timing preservation of the unreliable communication.
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/unreliableexample}}
-\caption{Example of Unreliable Communication}
-\label{unreliableexample}
-\end{figure}
+
 
 \section{Dual-Trace Model}
 In this section, I model the execution trace in the dual-trace. The modeling aims at identify the communications from the information summarized in the model. 
 
 Before the modeling, I describe the facts of the dual-trace being analyzed. The traces in a dual-trace are in assembly level. One dual-trace contains two execution traces. There is no timing information of these two traces which means we don't know the time-stamps of the events of these two traces and can not match the events from both sides by time sequence. However the captured instructions in the trace are ordered in execution sequence. The execution traces contain all executed instructions as well as the corresponding changed memory by each instruction. Additionally, system calls are also captured by instruction id, which means if .dll or .exe files are provided, the system function calls can be identified with function names. Memory states can be reconstructed from the recorded memory changes to get the data information of the communication. 
 
-In this model, a $dual\_trace$ consist of two execution traces which are $\left\lbrace trace_{x}: x= 0,1 \right\rbrace $ . An execution $trace$ is defined as a sequence $(line_{k}, 0 \leqslant k \leqslant K)$. $line_{k}$ in a $trace$ is a 3\_tuple $\langle ins, mem, inf \rangle$ where $ins$ is the assembly instruction, $mem$ is memory changed by this instruction and $inf$ is function call information. This information includes an indicator of function call and return and the function's name if applicable. A function $eventfilter \left( \right) $ is defined to generate the event level trace $event\_trace_{x}$ from the original $trace_{x}$. So that $event\_trace_{x} = eventfilter\left( trace_{x}, funcset\right) $, where $funcset = \left \lbrace func_{l}, 0 \leqslant l \leqslant L\right\rbrace $ is a set of the concerned events' function information. Each concerned event's function information can be described a tuple $\langle funN, type, pars \rangle$ where $funN$ is the function name, $type$ can only be one of these four event types: channel open, channel close, data send and data receive, $pars$ is the parameter information list. The output of this function $event\_trace_{x}$ is a sequence of events $(event_{x,m}, 0 \leqslant m \leqslant M_{x})$. Only the concerned events in the $funcset$ are filtered in this sequence, all other information in the original trace are ignored. Each event in the trace corresponds to a system function call and is defined as a 6\_tuple $\langle funN, startline, endline, inputs, outputs, type \rangle$. In this tuple $funN$ is the name of the called function, $startline$ is the line number where the function was being called, $endline$ is the line number where the function returned and $type$ is the event type. The events in the $event\_trace_{x}$ are interleaving events among multiple handles. Function  $streamfilter \left( \right) $ is defined to generate the stream level trace $stream\_trace_{x}$ from the $event\_trace_{x}$ so that $stream\_trace_{x} = streamfilter\left( event\_trace_{x} \right) $. The output $stream\_trace_{x}$ is a set of stream $\left \lbrace stream_{x,n}, 0 \leqslant n \leqslant N_{x}\right\rbrace$ in which each stream corresponds to a handle, a channel id and consist of 4 sub streams. So $stream_{x,n} $ is a 6\_tuple $\langle handle, channelid, open\_stream,$ $ send\_stream, receive\_stream, close\_stream \rangle $. Each of these sub streams consist of a sequence of $event$ of a certain handle of the corresponding event types.
+In this model,  a dual\_trace is defined as $dtr = {tr0, tr1}$
 
-\section{Element Matching Communication Model and Dual-Trace Model}
-The identification the communication from dual-trace can be simply abstracted as finding the elements of the communication model in the dual-trace model. The element matching can be summarized in Table\. By known this matching, algorithms can be developed to identify the communications in the dual-trace model. The developed algorithm will be discussed in next chapter.
-\begin{table}[H]
-\centering
-\caption{Element Matching of Communication and Trace Models}
-\label{methodsInCategories}
-\begin{tabular}{|c|l|}
- \hline
-\textbf{Communication Model Element}& \textbf{Trace Model Element}\\
- \hline
-$c$ & matching $channelid$ in two $stream$ respectively of $trace_{0}$ and $trace_{1}$  \\
- \hline
-$ep_{x}$ & a $stream$ in $trace_{x}$ \\
- \hline
-$h_{x}$ & $handle$ of a $stream$ in $trace_{x}$\\
- \hline
-$ds_{x}$ & a $send\_stream$ of a $stream$ in $trace_{x}$ \\
- \hline
-$dr_{x}$ & a $receive\_stream$ of a $stream$ in $trace_{x}$\\
- \hline
-$ps_{x,i}$ & a packet send event $event_{x,m}$ in $event\_trace_{x}$\\
- \hline
-$ps_{x,i}$ & a packet receive event $event_{x,m}$ in in $event\_trace_{x}$\\
- \hline
-$ss_{x,i}$ & the payload can be find in $inputs$ of an send event $event_{x,m}$\\
- \hline
-$sr_{x,i}$ & the payload can be find in $outputs$ of an receive event $event_{x,m}$\\
- \hline
-\end{tabular}
-\end{table}
+where $trace0$ and $trace1$ are two assembly execution traces of two interacting programs.
 
+A trace is a sequence of executed instruction line. Hence, we can define a trace $tr$ as a sequence of $n$ line:
+
+$ tr = (l_1, l_2, ..., l_n)$ 
+
+Each instruction line has three attributes:
+
+\begin{itemize}
+\item \textit{Memory changes:}  each assembly instruction has operands which can be register or memory. These operands are being manipulated by the instruction and change the values they hold. The memory changes include all manipulated registers and memories as well as the changed values. we will use the notation 
+
+$mem(l)$ 
+
+to denote this memory changes. 
+
+\item \textit{Function information:} a assembly instruction line can be an entry or return of a function. If it is an entry of a function, it would be able to acquire the function name with presence of the corresponding dynamic libraries. We assume that the function related information can be retrieved by some methods and stored along with the instruction line.
+
+$fun(l)$ 
+
+to denote this function information. 
+
+\item \textit{Line number:} each instruction in a trace is line. The line number of a instruction is the offset of it compare to the first instruction whose line number is 0.
+
+$num(l)$ 
+
+to denote this line number. 
+
+\end{itemize}
+
+From the point of view of the communication analysis, the communications can be recovered by analysis of the relevant function calls(i.e. the function name, function call line function return line, input parameters and output parameters) in the traces. This function call can be treated as an event $ev$ and defined as a tripled:
+
+$ev = <funN, sl, el, in, out, type>$
+
+where $funN$ is the function name, $sl$ is the function call line, $el$ is the function return line, $in$ is the input parameters, $out$ is the output parameters and type is the event type which can be one of the four types: channel open, data send, data receive and channel close.
+
+And the trace can be represented in a sequence of events.  This new form of trace is called event trace and defined as $etr$ :
+
+$etr = (ev_1, ev_2, ..., ev_m)$
+
+This event trace is acquired through the processing of the original trace and screen out the concerned function calls. The process to acquire function calls and filter out the relevant ones can be denoted by the notation: 
+
+$etr = eventfilter(tr)$
+
+The events in $etr$ belong to various data streams. So that the original trace can be also represented as stream trace $str$, which is a set of stream:
+
+$str = {s_1, s_2, ..., s_p}$
+
+where $s_i$ is a stream consist of four sub string: channel open stream, data send stream, data receive stream and channel close stream and can be denoted as a tripled:
+
+$s = <so,ss,sr,sc>$
+
+The sub string $sx$ in $s$ consist of a sequence of size $q$ events which is the sub sequence of $etr$. 
+
+$s = <ev_1, ev_2,..., ev_q>$
+
+Note 1:  the event numbering here is different from the numbering in the $etr$ definition, in another word, $ev_1$ in $s$ is not the same event as $ev_1$ in $etr$. 
+
+Note 2: the events belong to the same sub stream has the same event type. 
+
+A process is used to further distinct them for data streams (i.e. data stream received and the data stream sent) of the corresponding communications, we use the notation:
+
+$str = streamfilter(etr)$
+
+to denote this process.
+
+
+\section{Relationship between Communication Model and Dual-Trace Model}
+The identification the communication from dual\_trace can be simply abstracted as finding the elements of each communication as defined in the communication model from the dual\_trace. 
+
+A communication is $c =<ch, e0, e1>$ while a dual\_trace is $dtr = {tr0, tr1}$. In the dual\_trace model, a trace $tr$ can also be represent as stream trace $str = {s_1, s_2, ..., s_p}$. In the communication model, $ e =<handle, d_r, d_s>$. 
+
+Each stream in $str$ contains four sub stream: $so, ss, sr, sc$.  The $handle$ of $e$ and $ch$ in $c$ can be acquired from the events in $so$, $d_r$ can be obtain from $sr$ while $d_s$ can be obtained from $ss$. And $pkg$ in the data stream in the communication model has a one to one relationship with $ev$ in the data send and receive stream in the dual\_trace model.
+
+By understanding this relationship, I am optimistic that as long as I can retrieve all the elements defined in the trace in dual\_trace model, there will be a way to identify the communication. In next chapter algorithms for communication identification will be discussed in detail. 
 
