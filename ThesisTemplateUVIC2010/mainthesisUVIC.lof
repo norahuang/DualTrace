@@ -8,18 +8,18 @@
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Example of Reliable Communication\relax }}{13}
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Example of Unreliable Communication\relax }}{14}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Channel Open Process for a Named Pipe\relax }}{22}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Channel Open Process for a Named Pipe\relax }}{21}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Channel Open Process for a Message Queue\relax }}{24}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Channel Open Model for TCP and UDP\relax }}{26}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Channel Open Model for TCP and UDP\relax }}{25}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Second Level Matching Scenarios\relax }}{30}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Menu Item for opening Dual\_trace\relax }}{39}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Parallel Editor View\relax }}{40}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Dual\_trace Tool Menu\relax }}{41}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Prompt Dialog for Communication Selection\relax }}{41}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Communication View for Showing Identification Result\relax }}{42}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Right Click Menu on Event Entry\relax }}{43}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Right Click Menu on Event Entry\relax }}{43}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Menu Item for opening Dual\_trace\relax }}{37}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Parallel Editor View\relax }}{38}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Dual\_trace Tool Menu\relax }}{39}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Prompt Dialog for Communication Selection\relax }}{39}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Communication View for Showing Identification Result\relax }}{40}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Right Click Menu on Event Entry\relax }}{41}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Right Click Menu on Event Entry\relax }}{41}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Sequence Diagram of Experiment 1\relax }}{45}
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Identification result of $exp1$\relax }}{46}

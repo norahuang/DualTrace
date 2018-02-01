@@ -71,4 +71,54 @@ Moreover, the ``remove" option as shown in Figure\ref{remove} in the right click
 \label{remove}
 \end{figure}
 
+\section{Data Structures for Identified Communications}
+The information of identified communications should be organized properly for the user. In this section, I define the output data structures to fulfil this requirement. There are totally two major data set. The first one is clustered as communications aligning the definition at Section\ref{definition}. The second one is clustered by endpoints in the traces. The reason to provide the second data set is due to the false negative errors of the channel identification. The identified endpoint lists of the traces provide more original data information. So with other assistant information and the access of this relatively original information of the dual-trace, the user has more flexibility to analysis the dual-trace. The data structures have been used in the algorithms implicitly.
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf Data Structure for Identified Communications} \label{communicationlData}}
+$cs \leftarrow Map \langle String, List \langle Communication \rangle \rangle$;\tcp*[f]{the key is the communication method}\;  
+$str \leftarrow Map \langle String, List \langle Stream \rangle \rangle$;  \tcp*[f]{the key is the communication method}\;  
+\Struct{Communication}{
+  Stream s0 \tcp*[f]{s0 is from $tr0$ of the dual-trace}\;  
+  Stream s1 \tcp*[f]{s1 is from $tr1$ of the dual-trace}\;  
+  DataMatch dataMatch\;  
+}
+
+
+\Union{DataMatch}{
+  DataUnionMatch \quad  unionMatch \tcp*[f]{For data union verification}\;  
+  List $\langle$ EventMatch $\rangle$ \enspace eventMatchs \tcp*[f]{For data event verification}\;  
+}
+
+\Struct{DataUnionMatch}{
+  String sData1 \tcp*[f]{send data union of endpoint1}\;  
+  String rData1 \tcp*[f]{receive data union of endpoint1,substring of sData2}\;  
+  String sData2 \tcp*[f]{send data union of endpoint2}\;  
+  String rData2 \tcp*[f]{receive data union of endpoint2,substring of sData1}\; 
+}
+
+\Struct{EventMatch}{
+  Event \quad \quad event1 \tcp*[f]{event1 is from enpoint1}\;  
+  Event \quad \quad event2 \tcp*[f]{event2 is from enpoint2}\;  
+}
+
+
+\Struct{Stream}{
+  Int \quad \quad handle\;
+  List $\langle$ Event $\rangle$ \enspace openStream\;
+  List $\langle$ Event $\rangle$ \enspace closeStream\;
+  List $\langle$ Event $\rangle$ \enspace sendStream\;
+  List $\langle$ Event $\rangle$ \enspace receiveStream\; 
+}
+
+\Struct{Event}{
+   Int \quad \quad \quad \quad \quad \quad \quad \quad stratline\;
+   Int \quad \quad \quad \quad \quad \quad \quad \quad endline\;
+   Map $\langle$ String, String $\rangle$ \enspace inputs\; 
+   Map $\langle$ String, String $\rangle$ \enspace outputs\; 
+}
+
+\end{algorithm} 
+
 

@@ -1,16 +1,21 @@
 \externaldocument{../appendix/chapter_app}
 \externaldocument{../4/chapter_algorithm}
 \externaldocument{../3/chapter_modeling}
-\startchapter{Evaluation}
+\startchapter{Proof of Concept}
 \label{chapter:Exp}
-This evaluation aimed to experimentally evaluate the model for communication analysis and the identification algorithms. It focus on evaluating the model and and algorithms. By the evaluation, it should be able to know if the captured dual\_traces contain sufficient information of the communication model in ChapterChapter\ref{chapter:Mod}. The evaluation also verify the design of the algorithms, for their correctness and efficiency.  
+In this section, I present two experiments I did for the proof of concept of the communication analysis though execution traces.
 
-User case study is not included in this thesis and can be the future work. The feature prototype implementation is not evaluated and can be part of the user case study. But I used the implemented feature on Atlantis to conduct the evaluation experiments.
+These experiments aimed to test the model for communication analysis and the identification algorithms. By these experiment, it should be able to know if the captured dual\_traces contain sufficient information of the communication model in Chapter\ref{chapter:Mod}. They also verify the design of the some algorithms, for their correctness.  
 
-In this section, I describe the design of the evaluation. Two Evaluation experiments are conducted for this evaluation.  All the programs in these two experiments were written in C++ and the source code can be found in Section\ref{expcode}. Our search partner DRDC provided the captured traces, the used .dll files and  the source code of the programs for the experiments. Evaluation results are provided for each experiment. At the end, I discuss the result of the experiments.  
+User case study is not included in this thesis and can be the future work. The feature prototype implementation is not evaluated and can be part of the user case study. But I used the implemented feature on Atlantis to conduct the experiments.
 
-\section{Evaluation Experiments}
-Both of the conducted experiments are about named pipe communication method. The following two subsections provides the details of the experiments and their result.
+I first present the design of the experiments and their result. And then, I discuss the result of the experiments.  
+
+\section{Experiments}
+In this section, I describe the design of the evaluation. Two Evaluation experiments are conducted for this evaluation. All the programs in these two experiments were written in C++ and the source code can be found in Section\ref{expcode}. Our search partner DRDC provided the captured traces, the used .dll files and  the source code of the programs for the experiments.
+
+Evaluation results are provided for each experiment. Both of the conducted experiments are about named pipe communication method. The following two subsections provides the details of the experiments and their result.
+
 \subsection{Experiment 1}
 In the first experiment, two programs communicated with each other through a synchronous Named pipe channel. One of the programs acted as the Named pipe server while the other as the client. Figure\ref{exp1} is the sequence diagram of the interaction between the server and client. Traces were captured while these two program were running and interacting. The two captured traces are analysis as dual\_trace $exp1$ in this experiment. I used the implemented features in Atlantis to analyse this dual\_trace. I ran the ``Stream identification" and ``Communication identification" operations for this dual\_trace. The identified streams, communication and the processing time are listed in Figure\ref{result1}.
 

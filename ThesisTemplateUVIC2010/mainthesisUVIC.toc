@@ -33,22 +33,22 @@
 \contentsline {subsection}{\numberline {4.2.2}Named Pipes}{20}
 \contentsline {subsection}{\numberline {4.2.3}Message Queue}{22}
 \contentsline {subsection}{\numberline {4.2.4}TCP and UDP}{24}
-\contentsline {section}{\numberline {4.3}Event Locating Algorithm: $eventfilter\left ( \right )$}{26}
+\contentsline {section}{\numberline {4.3}Event Locating Algorithm: $eventfilter\left ( \right )$}{25}
 \contentsline {section}{\numberline {4.4}Stream Identification Algorithm: $streamfilter\left ( \right )$}{27}
 \contentsline {section}{\numberline {4.5}Stream Matching Algorithm: $streammatch()$}{29}
 \contentsline {subsection}{\numberline {4.5.1}Stream Matching Algorithm for Named Pipe and Message Queue}{31}
 \contentsline {subsection}{\numberline {4.5.2}Stream Matching Algorithm for TCP and UDP}{31}
 \contentsline {subsection}{\numberline {4.5.3}Data Verification $dataVerify()$ for Named Pipe and TCP}{32}
 \contentsline {subsection}{\numberline {4.5.4}Data Verification $dataVerify()$ for MSMQ and UDP}{34}
-\contentsline {section}{\numberline {4.6}Data Structures for Identified Communications}{36}
-\contentsline {chapter}{\numberline {5}Feature Prototype On Atlantis}{38}
-\contentsline {section}{\numberline {5.1}User Defined Function Set}{38}
-\contentsline {section}{\numberline {5.2}Parallel Editor View For Dual\_Trace}{39}
-\contentsline {section}{\numberline {5.3}Identification Features}{40}
-\contentsline {section}{\numberline {5.4}Identification Result View and Result Navigation}{42}
-\contentsline {chapter}{\numberline {6}Evaluation}{44}
-\contentsline {section}{\numberline {6.1}Evaluation Experiments}{44}
-\contentsline {subsection}{\numberline {6.1.1}Experiment 1}{44}
+\contentsline {chapter}{\numberline {5}Feature Prototype On Atlantis}{36}
+\contentsline {section}{\numberline {5.1}User Defined Function Set}{36}
+\contentsline {section}{\numberline {5.2}Parallel Editor View For Dual\_Trace}{37}
+\contentsline {section}{\numberline {5.3}Identification Features}{38}
+\contentsline {section}{\numberline {5.4}Identification Result View and Result Navigation}{40}
+\contentsline {section}{\numberline {5.5}Data Structures for Identified Communications}{41}
+\contentsline {chapter}{\numberline {6}Proof of Concept}{44}
+\contentsline {section}{\numberline {6.1}Experiments}{44}
+\contentsline {subsection}{\numberline {6.1.1}Experiment 1}{45}
 \contentsline {subsection}{\numberline {6.1.2}Experiment 2}{46}
 \contentsline {section}{\numberline {6.2}Discussion}{48}
 \contentsline {chapter}{\numberline {7}Conclusions and Future Work}{49}

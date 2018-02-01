@@ -5,10 +5,10 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces Function List of events for Synchronous Named Pipe\relax }}{20}
 \contentsline {table}{\numberline {4.2}{\ignorespaces Function List of events for Asynchronous Named Pipe\relax }}{21}
-\contentsline {table}{\numberline {4.3}{\ignorespaces Function List of events for Synchronous MSMQ\relax }}{23}
+\contentsline {table}{\numberline {4.3}{\ignorespaces Function List of events for Synchronous MSMQ\relax }}{22}
 \contentsline {table}{\numberline {4.4}{\ignorespaces Function List of events for Asynchronous MSMQ with Callback\relax }}{23}
 \contentsline {table}{\numberline {4.5}{\ignorespaces Function List of events for Asynchronous MSMQ without Callback\relax }}{23}
-\contentsline {table}{\numberline {4.6}{\ignorespaces Function List of events for TCP and UDP\relax }}{25}
+\contentsline {table}{\numberline {4.6}{\ignorespaces Function List of events for TCP and UDP\relax }}{24}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
