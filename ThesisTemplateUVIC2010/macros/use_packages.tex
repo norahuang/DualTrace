@@ -21,5 +21,29 @@
 \usepackage{graphicx}   % A package to allow insertion of
                         % external image files
 
-\usepackage{listings}
 \usepackage{float}
+
+\usepackage{placeins}
+\usepackage{longtable} % <---- new
+\usepackage{fancyhdr,graphicx,amsmath,amssymb}
+\usepackage{fullpage}
+\usepackage{times}
+\usepackage{float}
+\usepackage{xr}
+\usepackage{caption}
+\usepackage{xcolor}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\SetKwRepeat{Struct}{struct \{}{\}}%
+\SetKwRepeat{Union}{union \{}{\}}%
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+\SetCommentSty{mycommfont}
+\usepackage{listings}
+ \lstset{
+ basicstyle=\ttfamily\scriptsize,
+ columns=fullflexible,
+ frame=single,
+ breaklines=true,
+ postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+ }
+ \usepackage[flushleft]{threeparttable}
+ \usepackage[titletoc]{appendix}

@@ -113,7 +113,20 @@
             },
             "functionName": "CloseHandle",
             "createHandle": false,
-            "type": "na"
+            "type": "close"
+         }
+		 {
+            "retrunValReg": {
+               "name": "RAX",
+               "valueOrAddress": value
+            },
+            "valueInputReg": {
+               "name": "RCX",
+               "valueOrAddress": value
+            },
+            "functionName": "DisconnectNamedPipe",
+            "createHandle": false,
+            "type": "close"
          }
       ]
    }

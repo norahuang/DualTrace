@@ -1,4 +1,27 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
+
+\bibitem{brueningqz}
+Derek Bruening.
+\newblock Qz: Dynamorio: Dynamic instrumentation tool platform.
+
+\bibitem{cleary_reconstructing_2013}
+B.~Cleary, P.~Gorman, E.~Verbeek, M.~A. Storey, M.~Salois, and F.~Painchaud.
+\newblock Reconstructing program memory state from multi-gigabyte instruction
+  traces to support interactive analysis.
+\newblock In {\em 2013 20th {Working} {Conference} on {Reverse} {Engineering}
+  ({WCRE})}, pages 42--51, October 2013.
+
+\bibitem{dowd_art_2006}
+Mark Dowd, John McDonald, and Justin Schuh.
+\newblock {\em Art of {Software} {Security} {Assessment}, {The}: {Identifying}
+  and {Preventing} {Software} {Vulnerabilities}}.
+\newblock Addison-Wesley Professional., 1st edition, November 2006.
+
+\bibitem{eagle_ida_2008}
+Chris Eagle.
+\newblock {\em The {IDA} {Pro} {Book}: {The} {Unofficial} {Guide} to the
+  {World}'s {Most} {Popular} {Disassembler}}.
+\newblock No Starch Press, San Francisco, CA, USA, 2008.
 
 \bibitem{huang2017atlantis}
 Huihui~Nora Huang, Eric Verbeek, Daniel German, Margaret-Anne Storey, and
@@ -7,6 +30,16 @@ Huihui~Nora Huang, Eric Verbeek, Daniel German, Margaret-Anne Storey, and
   execution traces.
 \newblock In {\em Software Maintenance and Evolution (ICSME), 2017 IEEE
   International Conference on}, pages 623--627. IEEE, 2017.
+
+\bibitem{_pin_????}
+Intel.
+\newblock Pin - {A} {Dynamic} {Binary} {Instrumentation} {Tool} {\textbar}
+  {Intel}Â® {Software}.
+
+\bibitem{_c0demap/codemap:_????}
+School of Computing) Advisor (Prof. B.~Kang) KAIST CysecLab (Graduate School~of
+  Information~Security.
+\newblock c0demap/codemap: {Codemap}.
 
 \bibitem{khambattinamed}
 Mujtaba Khambatti-Mujtaba.
@@ -20,5 +53,17 @@ MultiMedia LLC.
 Arohi Redkar, Ken Rabold, Richard Costall, Scot Boyd, and Carlos Walzer.
 \newblock {\em Pro MSMQ: Microsoft Message Queue Programming}.
 \newblock Apress, 2004.
+
+\bibitem{wang_predicting_2011}
+Chao Wang and Malay Ganai.
+\newblock Predicting {Concurrency} {Failures} in the {Generalized} {Execution}
+  {Traces} of x86 {Executables}.
+\newblock In {\em Runtime {Verification}}, pages 4--18. Springer, Berlin,
+  Heidelberg, September 2011.
+\newblock DOI: 10.1007/978-3-642-29860-8\_2.
+
+\bibitem{yuschuk2007ollydbg}
+Oleh Yuschuk.
+\newblock Ollydbg, 2007.
 
 \end{thebibliography}

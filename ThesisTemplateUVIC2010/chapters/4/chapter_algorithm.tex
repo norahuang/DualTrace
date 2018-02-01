@@ -38,6 +38,7 @@ There are two modes for data transfer in the named pipe communication method, sy
 
     \begin{table}[H]
         \centering
+        \small
         \caption{Function List  of events for Synchronous Named Pipe}
         \label{synfunctions}
         \begin{tabular}{|l|l|l|l|l|}
@@ -73,11 +74,15 @@ There are two modes for data transfer in the named pipe communication method, sy
            {{\textbf{Channel Close}}}
              &{CloseHandle} & {RCX: File Handler} & {CloseHandle} & {RCX: File Handler}\\
             \hline
+             {{\textbf{Channel Close}}}
+             &{DisconnectNamedPipe} & {RCX: File Handler} & {DisconnectNamedPipe} & {RCX: File Handler}\\
+            \hline
         \end{tabular}
     \end{table}
 
     \begin{table}[H]
         \centering
+        \small
         \caption{Function List  of events for Asynchronous Named Pipe}
         \label{asynfunctions}
         \begin{tabular}{|l|l|l|l|l|}
@@ -118,6 +123,9 @@ There are two modes for data transfer in the named pipe communication method, sy
             \hline                       
             \textbf{Channel Close}
              &{CloseHandle} &{RCX: File Handler} & {CloseHandle} &  {RCX: File Handler}\\
+            \hline
+           {{\textbf{Channel Close}}}
+             &{DisconnectNamedPipe} & {RCX: File Handler} & {DisconnectNamedPipe} & {RCX: File Handler}\\
             \hline
         \end{tabular}
     \end{table}
@@ -302,7 +310,10 @@ $event\_trace \leftarrow List \langle Event\rangle$;\;
            $event.inputs \leftarrow$ reconstruct memory of $event.startline$ from the trace and get input values of $f.pars$;\;              
            $event.outputs \leftarrow$ reconstruct memory of $event.endline$ from the trace and get outputs values of $f.pars$;\;
            $event.type \leftarrow f.type$;\;
-           $event\_trace.add\left( event \right)$;\;
+           $success \leftarrow$ get the success code from $event.outputs$;\;
+           \If{$success$}{
+              $event\_trace.add\left( event \right)$;\;
+           }
        }       
     }
 }

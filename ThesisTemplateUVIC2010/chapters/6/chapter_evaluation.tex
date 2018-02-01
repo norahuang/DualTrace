@@ -12,7 +12,7 @@ In this section, I describe the design of the evaluation. Two Evaluation experim
 \section{Evaluation Experiments}
 Both of the conducted experiments are about named pipe communication method. The following two subsections provides the details of the experiments and their result.
 \subsection{Experiment 1}
-In the first experiment, two programs communicated with each other through a synchronous Named pipe channel. One of the programs acted as the Named pipe server while the other as the client. Figure\ref{exp1} is the sequence diagram of the interaction between the server and client. Traces were captured while these two program were running and interacting. The two captured traces are analysis as dual\_trace $exp1$ in this experiment. I used the implemented features in Atlantis to analyse this dual\_trace. I ran the ``Stream identification" and ``Communication identification" operations for this dual\_trace. The identified streams, communication and the processing time are listed in Table\ref{resutl1}.
+In the first experiment, two programs communicated with each other through a synchronous Named pipe channel. One of the programs acted as the Named pipe server while the other as the client. Figure\ref{exp1} is the sequence diagram of the interaction between the server and client. Traces were captured while these two program were running and interacting. The two captured traces are analysis as dual\_trace $exp1$ in this experiment. I used the implemented features in Atlantis to analyse this dual\_trace. I ran the ``Stream identification" and ``Communication identification" operations for this dual\_trace. The identified streams, communication and the processing time are listed in Figure\ref{result1}.
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.7]{Figures/exp1}}
@@ -20,77 +20,38 @@ In the first experiment, two programs communicated with each other through a syn
 \label{exp1}
 \end{figure}
 
-    \begin{table}[H]
-        \centering
-        \caption{Dual\_trace  $exp1$  Analysis Result}
-        \label{result1}
-        \begin{tabular}{|l|l|l|l|}
-            \hline
-             \multirow{2}{*}{\textbf{}} &
-               \multicolumn{2}{c|}{\textbf{Stream Identification}} &
-                \multirow{2}{*}{\textbf{Communication Identification}}\\
-             \cline{2-3}
-              &Server &Client &   \\
-              \hline
-              \textbf{Result} & & &   \\
-             \hline
-               \textbf{Processing Time}& \multicolumn{2}{c|}{}&  \\
-              \hline
-        \end{tabular}
-    \end{table}
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.6]{Figures/result1}}
+ \caption{Identification result of $exp1$}
+\label{result1}
+\end{figure}
 
 \subsection{Experiment 2}
-In the second experiment, one program was running as the Named pipe server, while four other programs as the Named pipe clients connected to this server. Those four clients (client 1, client 2, client 3 and client 4) used the identical program but run in sequence. Figure\ref{exp2} is the sequence diagram of  the interaction among the server and clients. Traces were captured at the time when these five programs were running and interacting. One trace for each program. I only analyzed  three traces which are considered as two dual\_traces, $exp2.1$ and $exp2.2$. $exp2.1$ consist of traces of server and client 1 and $exp2.2$ consist of traces of server and client 2. I also ran the ``Stream identification" and ``Communication identification" operations for these two dual\_trace. The identified streams, communication and the processing time are listed in Table\ref{resutl21} and Table\ref{resutl21}
-
-
-    \begin{table}[H]
-        \centering
-        \caption{Dual\_trace  $exp2.1$  Analysis Result}
-        \label{result21}
-        \begin{tabular}{|l|l|l|l|}
-            \hline
-             \multirow{2}{*}{\textbf{}} &
-               \multicolumn{2}{c|}{\textbf{Stream Identification}} &
-                \multirow{2}{*}{\textbf{Communication Identification}}\\
-             \cline{2-3}
-              &Server &Client &   \\
-              \hline
-              \textbf{Result} & & &   \\
-             \hline
-               \textbf{Processing Time}& \multicolumn{2}{c|}{}&  \\
-              \hline
-        \end{tabular}
-    \end{table}
-
-    \begin{table}[H]
-        \centering
-        \caption{Dual\_trace  $exp2.2$  Analysis Result}
-        \label{result22}
-        \begin{tabular}{|l|l|l|l|}
-            \hline
-             \multirow{2}{*}{\textbf{}} &
-               \multicolumn{2}{c|}{\textbf{Stream Identification}} &
-                \multirow{2}{*}{\textbf{Communication Identification}}\\
-             \cline{2-3}
-              &Server &Client &   \\
-              \hline
-              \textbf{Result} & & &   \\
-             \hline
-               \textbf{Processing Time}& \multicolumn{2}{c|}{}&  \\
-              \hline
-        \end{tabular}
-    \end{table}
-
-
+In the second experiment, one program was running as the Named pipe server. In this server program, four named pipes were created and can be connected by up to four client at a time. Two other programs as the Named pipe clients connected to this server. Those two clients (client 1 and client 2) used the identical program but run in sequence. Figure\ref{exp2} is the sequence diagram of  the interaction among the server and clients. The function calls' sequence is only a possible combination from analyzing the source code. The real happening sequence can be vary from program run to program run. Traces were captured at the time when these five programs were running and interacting. One trace for each program. I only analyzed  three traces which are considered as two dual\_traces, $exp2.1$ and $exp2.2$. $exp2.1$ consist of traces of server and client 1 and $exp2.2$ consist of traces of server and client 2. I also ran the ``Stream identification" and ``Communication identification" operations for these two dual\_trace. The identified streams, communication and the processing time are listed in Figure\ref{result21} and Figure\ref{result22}.
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.4]{Figures/exp2}}
+\centerline{\includegraphics[scale=0.48]{Figures/exp2}}
  \caption{Sequence Diagram of Experiment 2}
 \label{exp2}
 \end{figure}
 
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.6]{Figures/result21}}
+ \caption{Identification result of $exp2.1$}
+\label{result21}
+\end{figure}
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.6]{Figures/result22}}
+ \caption{Identification result of $exp2.1$}
+\label{result22}
+\end{figure}
+
+
 \section{Discussion}
-The identification result and the processing time of the identifications of each experiment are listed in Table\ref{expresult}. All communications in the dual\_traces are being successfully identified. However, dual to the channel id and transmitted data of the communication between server and client 1 was identical to those of the communication  between server and client 2. There is one false negative error in exp2.1 and one in exp2.2 which is align to the explanation in Section\ref{streammatch}. The dual\_traces being analysed is relatively small, so that the processing times of the identification are acceptable. Fortunately, according to the time complexity of the main algorithm of the identification which is O(N+M), the processing time will only grow linearly corresponding to the size of the dual\_trace.
+In the result of $exp1$, there are one stream identified in client trace and one in server trace, and these two streams are matched into a communication of this dual\_trace. This identification result represents the actual communication happen between the named pipe server and client.
+In the result of $exp2.1$ and $exp2.2$, there are one stream identified in client traces and four in server trace respectively for each dual\_trace. The streams are further matched and verified and eventually one communication is identified for each dual\_trace. The result aligns to the sequence diagram in Figure\ref{exp2}.
+
 
    
 

@@ -306,7 +306,10 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 				for (Channel c2 : trace2.getChannels()) {
 					if (c1.getChannelID().equals(c2.getChannelID())) {
 						MatchChannel channel = matchTwoChannels(c1, c2, channelGroup);
-						channelGroup.addChannelToGroup(channel);
+						if(channel != null){
+						    channelGroup.addChannelToGroup(channel);
+						}
+						
 					}
 				}
 			}
@@ -320,7 +323,6 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 	private MatchChannel matchTwoChannels(Channel c1, Channel c2, MatchChannelGroup channelGroup) {
 		MatchChannel channel = new MatchChannel(c1.getChannelID(), channelGroup);
 		for (ChannelEvent e1 : c1.getEvents()) {
-			String retval1 = e1.getFullFunctionMatch().getRetVal().substring(e1.getFullFunctionMatch().getRetVal().length()-8, 16);
 			if (e1.getStage() == CommunicationStage.OPENING) {
 				ChannelOpenCloseEvent e = new ChannelOpenCloseEvent(e1.getFunctionName(), CommunicationStage.OPENING,
 						new FullFunctionMatchOfTrace(e1.getFullFunctionMatch(), c1.getTrace().getTraceName(),e1.getFunctionName()), channel, c1.getTrace().getTraceName());
@@ -330,22 +332,19 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 						new FullFunctionMatchOfTrace(e1.getFullFunctionMatch(), c1.getTrace().getTraceName(),e1.getFunctionName()), channel, c1.getTrace().getTraceName());
 				channel.addEventToCloseList1(e);
 				
-			} else if (e1.getStage() == CommunicationStage.DATATRANS && !retval1.equals("00000000")) {
+			} else if (e1.getStage() == CommunicationStage.DATATRANS) {
 				String messageSend1 = "";
 				String messageRecv1 = "";
 				if (e1.getFullFunctionMatch().getType() == FunctionType.send) {
-					messageSend1 = e1.getFullFunctionMatch().getEventStart().getMessage();
+					messageSend1 = e1.getFullFunctionMatch().getEventStart().getMessage();					
 				} else {
 					messageRecv1 = e1.getFullFunctionMatch().getEventEnd().getMessage();
 				}
-
+				
+				ChannelDataTransEvent dataTransEvent = null;
 				for (ChannelEvent e2 : c2.getEvents()) {
 					String messageSend2= "";
 					String messageRecv2 = "";
-					String retval2 = e2.getFullFunctionMatch().getRetVal().substring(e2.getFullFunctionMatch().getRetVal().length()-8, 16);
-					if(retval2.equals("00000000")){
-						continue;
-					}
 					if (e1.getFullFunctionMatch().getType() == FunctionType.send
 							&& e2.getFullFunctionMatch().getType() != FunctionType.send) {
 						messageRecv2 = e2.getFullFunctionMatch().getEventEnd().getMessage();
@@ -354,23 +353,29 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 						messageSend2 = e2.getFullFunctionMatch().getEventStart().getMessage();
 					}
 					
-					
+
 					if (!messageSend1.equals("") && !messageRecv2.equals("") && messageRecv2.startsWith(messageSend1)) {
 						FullFunctionMatchOfTrace match1 = new FullFunctionMatchOfTrace(e1.getFullFunctionMatch(),
 								e1.getChannel().getTrace().getTraceName(),e1.getFunctionName());
 						FullFunctionMatchOfTrace match2 = new FullFunctionMatchOfTrace(e2.getFullFunctionMatch(),
 								e2.getChannel().getTrace().getTraceName(),e2.getFunctionName());
-						ChannelDataTransEvent dataTransEvent = new ChannelDataTransEvent(match1, match2, messageSend1,channel);
-						channel.addEventToDataTransList(dataTransEvent);
+						dataTransEvent = new ChannelDataTransEvent(match1, match2, messageSend1,channel);
 					}else if (!messageSend2.equals("") && !messageRecv1.equals("") && messageRecv1.startsWith(messageSend2)) {
 						FullFunctionMatchOfTrace match1 = new FullFunctionMatchOfTrace(e1.getFullFunctionMatch(),
 								e1.getChannel().getTrace().getTraceName(),e1.getFunctionName());
 						FullFunctionMatchOfTrace match2 = new FullFunctionMatchOfTrace(e2.getFullFunctionMatch(),
 								e2.getChannel().getTrace().getTraceName(),e2.getFunctionName());
-						ChannelDataTransEvent dataTransEvent = new ChannelDataTransEvent(match1, match2, messageSend2,channel);
-						channel.addEventToDataTransList(dataTransEvent);
+						dataTransEvent = new ChannelDataTransEvent(match1, match2, messageSend2,channel);
 					}
 				}
+				
+				if(dataTransEvent != null){
+					channel.addEventToDataTransList(dataTransEvent);
+				}
+				else{
+					return null;
+				}
+				
 			}
 
 		}
@@ -748,10 +753,14 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 				resultChannel = c;
 			}
 		}
-
+		
 		if (resultChannel != null) {
-			ChannelEvent e = new ChannelEvent(functionName, CommunicationStage.DATATRANS, match, resultChannel);
-			resultChannel.addEvent(e);
+			String retval = match.getRetVal().substring(match.getRetVal().length()-8,16);
+			if (!retval.equals("00000000"))
+			{
+			   ChannelEvent e = new ChannelEvent(functionName, CommunicationStage.DATATRANS, match, resultChannel);
+			   resultChannel.addEvent(e);
+			}
 		}
 	}
 
