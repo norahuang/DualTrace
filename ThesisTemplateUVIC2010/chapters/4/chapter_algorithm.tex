@@ -4,22 +4,6 @@
 \label{chapter:alo}
 This chapter discuss the algorithms for communication identification from dual-trace. Pseudo code are listed for algorithms. The algorithm is based on the models developed in the models Chapter\ref{chapter:Mod}.
 
-\section{Communication Identification Algorithm}
-The identification of the communications from a dual\_trace should be able to identify the concerned communications as well as all the components defined in it. The inputs of this algorithm are the $dual\_trace=\left\lbrace tr0, tr1 \right\rbrace $ and the concerned communication method's function set $fset = \left \lbrace f_1,f_2...f_m \right\rbrace $. The output of this algorithm is all the identified communications of the concerned communication method. This is a very high level algorithm, details of each step in this algorithm will be discussed in the later sections.\par
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf Communication Identification Algorithm} \label{endpointIdentAlg}}
-\KwIn{$dual\_trace$, $fset$}
-\KwOut{$cs = \left\lbrace c_1, c_2...c_n\right\rbrace $}
-$i = 0;$\;
-\For{$tr \in dual\_trace$}{
-   $etri = eventfilter\left( tr, fset\right)$;\;
-   $stri = streamfilter\left( etr \right)$;\;
-}
-$cs = streammatch(str0, str1)$;\;
-\KwRet $cs$;\;
-\end{algorithm} 
-
 \section{Communication Methods' Implementation in Windows}\label{windows}
 This section investigate the characteristics and the implementation of the communication methods.  The goal of this investigation is to 1) obtain the system function set $fset$ for the concerned events in the communication and summarize the necessary parameters for further communication identification. and 2) understand the channel opening mechanism in order to identify the streams from the $etr$ and match the streams from two traces.
 
@@ -293,6 +277,24 @@ The communication channel is set up by both of the endpoints. The function \text
  \caption{Channel Open Model for TCP and UDP}
 \label{channelopen2}    
 \end{figure}
+
+\section{Communication Identification Algorithm}
+The identification of the communications from a dual\_trace should be able to identify the concerned communications as well as all the components defined in it. The inputs of this algorithm are the $dual\_trace=\left\lbrace tr0, tr1 \right\rbrace $ and the concerned communication method's function set $fset = \left \lbrace f_1,f_2...f_m \right\rbrace $. The output of this algorithm is all the identified communications of the concerned communication method. This is a very high level algorithm, details of each step in this algorithm will be discussed in the later sections.\par
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf Communication Identification Algorithm} \label{endpointIdentAlg}}
+\KwIn{$dual\_trace$, $fset$}
+\KwOut{$cs = \left\lbrace c_1, c_2...c_n\right\rbrace $}
+$i = 0;$\;
+\For{$tr \in dual\_trace$}{
+   $etri = eventfilter\left( tr, fset\right)$;\;
+   $stri = streamfilter\left( etr \right)$;\;
+}
+$cs = streammatch(str0, str1)$;\;
+\KwRet $cs$;\;
+\end{algorithm} 
+
+
 
 
 \section{Event Locating Algorithm: $eventfilter\left( \right)$}

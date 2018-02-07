@@ -26,7 +26,7 @@ In the first experiment, two programs communicated with each other through a syn
 \end{figure}
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.6]{Figures/result1}}
+\centerline{\includegraphics[scale=0.65]{Figures/result1}}
  \caption{Identification result of $exp1$}
 \label{result1}
 \end{figure}
@@ -35,19 +35,19 @@ In the first experiment, two programs communicated with each other through a syn
 In the second experiment, one program was running as the Named pipe server. In this server program, four named pipes were created and can be connected by up to four client at a time. Two other programs as the Named pipe clients connected to this server. Those two clients (client 1 and client 2) used the identical program but run in sequence. Figure\ref{exp2} is the sequence diagram of  the interaction among the server and clients. The function calls' sequence is only a possible combination from analyzing the source code. The real happening sequence can be vary from program run to program run. Traces were captured at the time when these five programs were running and interacting. One trace for each program. I only analyzed  three traces which are considered as two dual\_traces, $exp2.1$ and $exp2.2$. $exp2.1$ consist of traces of server and client 1 and $exp2.2$ consist of traces of server and client 2. I also ran the ``Stream identification" and ``Communication identification" operations for these two dual\_trace. The identified streams, communication and the processing time are listed in Figure\ref{result21} and Figure\ref{result22}.
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.48]{Figures/exp2}}
+\centerline{\includegraphics[scale=0.6]{Figures/exp2}}
  \caption{Sequence Diagram of Experiment 2}
 \label{exp2}
 \end{figure}
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.6]{Figures/result21}}
+\centerline{\includegraphics[scale=0.65]{Figures/result21}}
  \caption{Identification result of $exp2.1$}
 \label{result21}
 \end{figure}
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.6]{Figures/result22}}
+\centerline{\includegraphics[scale=0.65]{Figures/result22}}
  \caption{Identification result of $exp2.1$}
 \label{result22}
 \end{figure}
