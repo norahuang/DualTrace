@@ -12,9 +12,9 @@ User case study is not included in this thesis and can be the future work. The f
 I first present the design of the experiments and their result. And then, I discuss the result of the experiments.  
 
 \section{Experiments}
-In this section, I describe the design of the evaluation. Two Evaluation experiments are conducted for this evaluation. All the programs in these two experiments were written in C++ and the source code can be found in Section\ref{expcode}. Our search partner DRDC provided the captured traces, the used .dll files and  the source code of the programs for the experiments.
+In this section, I describe the design of the experiments. Two experiments are conducted in this research. All the programs in these two experiments were written in C++ and the source code can be found in Section\ref{expcode}. Our search partner DRDC executed the programs in their environment and provided the captured traces, the used .dll files along with the source code of the programs for the experiments.
 
-Evaluation results are provided for each experiment. Both of the conducted experiments are about named pipe communication method. The following two subsections provides the details of the experiments and their result.
+Results are provided for each experiment. Both of the conducted experiments are about named pipe communication method. The following two subsections provides the details of the experiments and their result.
 
 \subsection{Experiment 1}
 In the first experiment, two programs communicated with each other through a synchronous Named pipe channel. One of the programs acted as the Named pipe server while the other as the client. Figure\ref{exp1} is the sequence diagram of the interaction between the server and client. Traces were captured while these two program were running and interacting. The two captured traces are analysis as dual\_trace $exp1$ in this experiment. I used the implemented features in Atlantis to analyse this dual\_trace. I ran the ``Stream identification" and ``Communication identification" operations for this dual\_trace. The identified streams, communication and the processing time are listed in Figure\ref{result1}.

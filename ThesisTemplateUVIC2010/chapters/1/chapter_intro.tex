@@ -10,42 +10,78 @@ Most of the software vulnerabilities are caused by malicious data intrusion. So 
 
 The data flow among various programs with in the system or across different systems helps to understand how the system work as well as disclose the vulnerabilities of the system as stated before. There are multiple mechanism to grab the data across programs. And the methods for the grasp of this data flow is essential and can affect the analysis result greatly. For instance, packet capture by some sort of sniffers in the network is considered to be insufficient for security problems detection by the experience security engineer from DRDC(research partner of our group). Instead, dynamic analysis of the programs by capturing and analyzing their execution traces with memory accesses is an relatively accurate to analysis the data transmitted throughout the programs of the system. 
 
-\section{Research Goal}
-In this research, my goal is to develop a method to analysis communications between the programs by the analysis of the execution traces of them. I didn't aim at covering all the communication types but only focus on the data exchanging ones. This method should be able to guide the security engineers to investigate the communications of the programs in the circumstance that they have the captured execution traces and want to understand the interaction behavior of the programs. The research is not specified for vulnerabilities detection but generalized for the comprehension of the behavior of the programs.
+In this research, I developed a method to analysis communications between the programs by the analysis of the execution traces of them. I didn't aim at covering all the communication types but only focus on the data exchanging ones. This method should be able to guide the security engineers to investigate the communications of the programs in the circumstance that they have the captured execution traces and want to understand the interaction behavior of the programs. The research is not specified for vulnerabilities detection but generalized for the comprehension of the behavior of the programs.
 
 \section{Motivation}
-This project started with an informal requirement from DRDC for visualizing multiple assembly traces to assist their software and security analysis. The literature review and the conversation with DRDC help to clarify the goal and target of this research. In this section, I discuss the need of performing assembly trace investigation for communication analysis. First I explain why security engineers perform assembly trace analysis. Then I elaborate why they need to perform communication analysis at assembly trace level. Out of the answers of these two question, it is reasonable for me to conduct this research.
+This project started with an informal requirement from DRDC for visualizing multiple assembly traces to assist their software and security analysis. The literature review and the conversation with DRDC help to clarify the goal and target of this research. In this section, I discuss the need of performing assembly trace investigation for communication analysis. First I explain why security engineers perform assembly trace analysis. Then I elaborate why they need to perform communication analysis at assembly trace level. Out of the answers of these two questions, I conduct this research.
 
 \subsection{Why Assembly Trace Analysis}
-Application Access Application access is divided into the five categories listed in Table 4-1. These distinctions are not, of course, absolute. There are always minor variations, such as limited source access or inconsistencies between test environments and deployment environments. However, these distinctions work well enough to cover most possibilities. Table 4-1. Categories of Application Access Category Description Source only Only the source code has been supplied, with no build environment or application binaries. You might be able to build a working binary with some effort, although some required components typically aren't available. As a result, the review is generally done using only static analysis. This type of access is common for contracted application reviews, when the client can provide source but not a functional build or testing environment. Binary only Application binaries have been supplied, but no source code is provided. The application review focuses on live analysis and reverse engineering. This type of access is common when performing vulnerability research on closed-source commercial software. Both source and binary access Both a source tree and access to a working application build are available. This type of access provides the most efficient review possible. It's most common for in-house application assessments, although security- and cost- conscious clients provide this access for contracted reviews, too. The Art of Software Security Assessment - Identifying and Preventing Software Vulnerabilities 106 Table 4-1. Categories of Application Access Category Description Checked build You have an application binary and no source code, but the application binary has additional debugging information. This approach is often taken for contracted code reviews when a client is unwilling to provide source but does want to expedite the review process somewhat. Strict black box No direct access to the application source or binary is available. Only external, blind testing techniques, such as black box and fuzz- testing, are possible with this type of access. It's common when assessing Web applications (discussed more in Chapter 17(? [????.]), "Web Applications").
+Dynamic analysis of program is adopted mainly in software maintenance and security auditing\cite{zhang2010detecting}, \cite{cai2016sworddta}, \cite{somorovsky2016systematic}. Sanjay Bhansali et al. claimed that program execution traces with the most intimate detail of a program's dynamic behavior can facilitate the program optimization and failure diagnosis. Jonas Tr{\"u}mper et al. give a example of how tracing can facilitate software-maintenance tasks \cite{trumper2012maintenance}.
+
+The dynamic analysis can be done by using debuggers, however, debuggers would halt the execution of the system and result in a distortion of the timing behavior of the running system \cite{trumper2012maintenance}. Instead, tracing a running program with instrumentation would provide more accurate run time behavior information about the system.
+
+The instrumentation of the tracing can be in various level, such as programming language or machine language levels. The choice in some how depends on the accessibility to the application. The application access is divided into five categories with variations: source only, binary only, both source and binary access, checked build, strict black box. Binary only category is common when performing vulnerability research on closed-source commercial software.\cite{dowd_art_2006} In this case, assembly level provides the possibility of the security review of the software. Unavailability of source is the 
+
+On the other hand, since the binary code is actually what is running on the system, it is more representative of what is actually running than the source code.  Some bugs might appear because of a compilation problem or because the compiler optimized away some code that was
+necessary to make the system secure. The piece of code list below is an example in which the code line of code resetting the password before the program end would be optimized away by GNU Compiler Collection(GCC) due to it is not used later. This made the user's password stayed in memory, which is considered as a security flaw. However, by looking at the source code didn't reveal that problem.
+
+\begin{lstlisting}[language=C++, caption= Password Fetching Example ]
+#include <iostream>
+#include <string>
+#include <conio.h>
+using namespace std;
+int main(){
+   string password ="";
+   char ch;
+   cout << "Enter password";
+   ch = _getch();
+   while(ch != 13){//character 13 is enter
+      password.push_back(ch);
+      cout << '*';
+      ch = _getch();
+   }   
+   if(checkPass(password)){
+     allowLogin();
+   }  
+   password ="";
+}
+\end{lstlisting}
+
+
 \subsection{Why Communication Analysis with Assembly Traces}
+Programs nowaday do not alway work isolately,  many software  appear as  reticula collaborating systems connecting different modules in the network\cite{PhysRevE.68.046116} which make the discovery of vulnerabilities even harder. The communication and interaction between modules affect the behavior of the software. Without regarding to the synergy information , analysis of the isolated execution trace on a single computer is usually futile. The tracing data flow process is essential to reviews of both the design and implementation of software.
 
-This process of tracing data flow is central to reviews of both the design and
-implementation of software. User-malleable data presents a serious threat to the
-system, and tracing the end-to-end flow of data is the main way to evaluate this
-threat. Typically, you must identify where user-malleable data enters the system
-through an interface to the outside world, such as a command line or Web request.
-Then you study the different ways in which user-malleable data can travel through
-the system, all the while looking for any potentially exploitable code that acts on the
-data. It's likely the data will pass through multiple components of a software system
-and be validated and manipulated at several points throughout its life span.
-This process isn't always straightforward. Often you find a piece of code that's almost
-vulnerable but ends up being safe because the malicious input is caught or filtered
-earlier in the data flow. More often than you would expect, the exploit is prevented
-only through happenstance; for example, a developer introduces some code for a
-reason completely unrelated to security, but it has the side effect of protecting a
-vulnerable component later down the data flow. Also, tracing data flow in a real-world
-application can be exceedingly difficult. Complex systems often develop organically,
-resulting in highly fragmented data flows. The actual data might traverse dozens of
-components and delve in and out of third-party framework code during the process of
-handling a single user request.
+Many network sniffer such as Wireshark\cite{_wireshark_????} and Tcpdump\cite{tcpdump_tcpdump/libpcap_????} can help to capture the data flow across the network which make the systematic analysis possible. However, it is claimed as the insufficient method due to the fact that security problems can occur even if the information sent is correct. Therefore, analyzing the communications with transmitted data in instruction and memory access level is a solid way to evaluation the system.
 
-Programs nowaday do not alway work isolately,  many software  appear as  reticula collaborating systems connecting different modules in the network\cite{PhysRevE.68.046116} which make the discovery of vulnerabilities even harder. The communication and interaction between modules affect the behaviour of the software. Without regarding to the synergy information , analysis of the isolated execution trace on a single computer is usually futile. Many network sniffer such as Wireshark\cite{_wireshark_????} and Tcpdump\cite{tcpdump_tcpdump/libpcap_????} can help to capture the data streams flow across the network which make the systematic analysis possible.\\
+Shameng Wen et al. argued that fuzz testing and symbolic execution are widely applied to detect vulnerabilities in network protocol implementations. They present their model-guided approach to detect vulnerabilities in the network protocol implementation. Their work emphasized model which guide the symbolic execution for the fuzz testing while ignoring the analysis of the output, which can be the execution traces, from the execution. \cite{wen2017model} Further more, their work focus only on the network protocol implementation but not generalized to all communication method, including network protocol and inter process communications.
 
+Besides vulnerabilities detection and security reason, communication analysis with assembly traces can also be a way to learn how the work is performed by the system or sometime validate a specification of it. Our research partner DRDC provided use cases of communication analysis which related to their work with embedded system. These systems often have more than one processor, each specialized for a specific task, that coordinate to complete the overall job of that device.  In other cases, the embedded device will work with a normal computer and exchange information with it through some means
+(USB, wireless, etc.).  For instance, the data might be coming in from an external sensor in an analog form, transformed by a Digital Signal Processor (DSP) in a device, sent to a more generic processor inside that device to integrate with other data then send wirelessly to an external computer. Being able to visualize more than one trace would help them follow the flow of data through the system.
 
 \section{Approach}
-In this work, I first modeled the communication between two programs. This model defines the communication objects under investigate and identified in the dual\_trace. In simplification, a communication is completed between two programs each of which corresponds to a sequence of events. An event can be one four different event type(channel open, data send, data receive and channel close). However the actual events are various according to the communication method and the user concern. Then, I modeled the dual\_trace, excluding the irrelevant information while abstracting the information related to the communications. Furthermore, I investigated the implementation of the communication methods in Windows. The result of the investigation provides some guidelines and examples of how to draw the concerned event list as described in the communication model which is the prerequisite of the communication identifications. By matching the elements in the communication model and the dual\_trace model, I developed the communication identification algorithms. To provide more concrete idea, I implemented the communication identification features in Atlantis\cite{huang2017atlantis}, an assembly execution trace analysis environment.
+The approach I elaborate in this section is not a forthright process. Instead, it is a back and forth one, for example the implementation changed several times with the changes of the model, and the models was modified based on the understanding throughout the implementation. Here I simply my research approach by listing the key factors in each step while ignoring route of it.
 
-Finally, I tested the models and the algorithms by two experiments. The experiment result shows that 1) the existing dual\_trace contain sufficient information for communication analysis based on the designed models. In addition. 2) the developed algorithm can effectively identify the communications from the dual\_trace. This work is a collaborative work with our research partner DRDC. In the experiment tests, DRDC captured the dual\_traces with its home-make pin tool of the programs running in DRDC's environment. I conducted the analysis of the provided dual\_traces as long as the dynamic libraries of the running environment locally.
+This research requires background knowledge in software security, program communication mechanism and implementation, assembly execution traces. I acquire the software security knowledge basically from literature reviews. It helps me to grab the essential concept of software vulnerabilities and their categories, understand some facilities for vulnerabilities detection and software maintenance in the perspective of security. After that, I was convinced that communication analysis in assembly trace level would benefit software security engineers to understand to behavior of the software and detect software vulnerabilities. 
+
+In order to analysis the communication of programs, I had to know how the communication works. For this purpose, I started the investigation from a piratical experiment by writing example simple programs with the Windows API and run them locally in my desktop. By understanding their behavior and the reading of the Windows API documentation, I abstracted the communication model which is not operating system specific.
+
+The assembly trace model was build on the generalization of the trace format provided by our research partner, DRDC. I don't have the access to their home-made assembly tracer which is based on PIN\cite{_pin_????}. Fortunately, they provides a comprehensive document about the format of the captured trace and example traces to me. With these, I grasped the constructive view of the assembly execution trace. Further more, in the present of some dynamic software analysis works \cite{godefroid2008automated}, \cite{li2013software}, \cite{sailer2016coretana}, \cite{balakrishnan2004analyzing}, \cite{bhansali2006framework} and \cite{trumper2012maintenance}, it is certain that, some other tools can also capture the required information in assembly level for communication analysis. This supports the generalization of the trace format and the abstraction of the dual\_trace modeling.
+
+The implementation of the prototype and the communication identification algorithms are develop in parallel. The high level identification algorithm and the specific algorithms for named pipe communication methods were abstracted based on the implementation, while the others are developed theoretically.
+
+Among the two experiments, the first simpler one was provided directly by DRDC with their initial requirement, while the second one was designed by me. In both experiments, DRDC conducted the program execution and trace capture on their environment while I performed the analysis locally with Atlantis on my desktop with the captured traces and corresponding .dll.
+
 
 \section{Thesis Organization}
+In Chapter 2, I summarize the related background information and knowledge needed to understand or related to this work including security and vulnerability, program communication mechanisms, program execution trace tools, and Atlantis. 
+
+Chapter 3 depicts the model of the communication between two programs and the model of the dual\_trace which contains two execution traces of two interacting program. The communication model defines the communication in the context of trace analysis as well as discusses the properties of the communications. The dual\_trace model not only represents the original format of the execution traces, but also abstract the elements from the original format and matches them to the elements in the communication model. 
+
+
+Chapter 4 describes the algorithms I developed for the communication analysis of the dual\_trace including the high level communication identification algorithm and the detail ones such as event and stream filtering algorithms, stream matching algorithms and data verification algorithms.
+
+To provide more concrete idea, I present, in chapter 5, the implemented communication identification feature prototype. This prototype was built on top of Atlantis\cite{huang2017atlantis}, an assembly execution trace analysis environment.
+
+In chapter 6, I present two detailed experiments with dual\_traces of programs using named pipe for communication on the implemented prototype. Notably, the result shows the communications are correctly identified. 
+
+Finally, In chapter 7, I conclude the result of this research and outline the possible future work.
