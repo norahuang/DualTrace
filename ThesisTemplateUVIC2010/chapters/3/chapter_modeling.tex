@@ -21,26 +21,27 @@ TCP &  UDP \\
 
 
 \subsection{Reliable Communication}\label{reliable}
-A reliable communication guarantees the data being sent by one endpoint of the channel always received losslessly and in order to the other endpoint. For some communication methods, a channel can be closed without waiting the completion of all data transmission. With this property, the concatenated data in the receive stream of one endpoint should be the sub string of the concatenated data in the send stream of the other endpoint. Therefore, the send and receive data verification should be in send and receive stream level by comparing the concatenated received data of one endpoint to the concatenated sent data of another. 
+A reliable communication guarantees the data being sent by one endpoint of the channel is always received losslessly and in the same order in the other endpoint. For some communication methods, a channel can be closed before all sent data being received. With this property, the concatenated data in the receive stream of one endpoint should be the prefix of the concatenated data in the send stream of the other endpoint(potentially equal). Therefore, comparing the concatenated received data of one endpoint to the concatenated sent data of the other can verify the send and receive data.
 
 \subsection{Unreliable Communication}\label{unreliable}
-An unreliable communication does not guarantee the data being sent always arrive the receiver. Moreover, the data packets can arrive to the receiver in any order. However, the bright side of unreliable communication is that the packets being sent are always arrived as the origin packet, no data re-segmentation would happen. Accordingly, the send and receive data verification should be done by matching the data packets in a receive event to a send event on the other side.
+An unreliable communication does not guarantee the data being sent always arrive the receiver. Moreover, the data packets can arrive to the receiver in any order. However, the bright side of unreliable communication is that the packets being sent are always arrived as the origin packet, no data re-segmentation would happen. Accordingly, the send and receive data verification can be done by matching the data packet in a receive event to the data packet in a send event on the other side.
 
 \subsection{Communication Methods}
 In this section, I describe the mechanism and the basic data transfer characteristics of each communication method in Table\ref{methodsInCategories} briefly. Moreover, data transfer scenarios are represented correspondingly in diagrams for each communication method. 
  
 \subsubsection{Named Pipe}
-A named pipe provides FIFO communication mechanism for inter-process communication. It can be one-way or duplex pipe which allows two programs send and receive message through the named pipe. \cite{khambattinamed}
+A named pipe provides FIFO communication mechanism for inter-process communication. It can be a one-way or a duplex pipe. \cite{khambattinamed}
 
 The basic data transfer characteristics of Named Pipe are:
 \begin{itemize}
-  \item Bytes received in order
-  \item Bytes sent as a whole trunk can be received in segments
+  \item Bytes are received in order
+  \item Bytes sent as a segment can be received in multiple segments(the opposite is not true)
   \item No data duplication
-  \item Only the last trunk can be lost
+  \item If a sent segment is loss, all the following segments will lost(this happen when the receiver disconnect from the channel) 
+  
 \end{itemize}
 
-Based on these characteristics, the data transfer scenarios of Named pipe can be summarized in Figure\ref{namedpipe}. 
+Based on these characteristics, the data transfer scenarios of Named pipe can be exemplified in Figure\ref{namedpipe}. 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.48]{Figures/namedpipe}}
 \caption{Data Transfer Scenarios for Named Pipe}
@@ -57,7 +58,7 @@ The basic data transfer characteristics of Message Queue are:
   \item Packets received in order
   \item No data duplication
 \end{itemize}
-Based on these characteristics, the data transfer scenarios of Message Queue can be summarized in Figure\ref{msmq}.
+Based on these characteristics, the data transfer scenarios of Message Queue can be exemplified in Figure\ref{msmq}.
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.48]{Figures/msmq}}
 \caption{Data Transfer Scenarios for Message Queue}
@@ -75,7 +76,7 @@ The basic data transfer characteristics of TCP are:
   \item Sender window size is different from receiver's window size, so packets can be re-segmented
 \end{itemize}
 
-Based on these characteristics,  the data transfer scenarios of TCP can be summarized in Figure\ref{tcp}.
+Based on these characteristics,  the data transfer scenarios of TCP can be exemplified in Figure\ref{tcp}.
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.48]{Figures/tcp}}
  \caption{Data Transfer Scenarios for TCP}
@@ -93,7 +94,7 @@ The basic data transfer characteristics of UDP are:
   \item Packets can arrive receiver out of order
 \end{itemize}
 
-Based on these characteristics, the data transfer scenarios of UDP can be summarized in Figure\ref{upd}.
+Based on these characteristics, the data transfer scenarios of UDP can be exemplified in Figure\ref{upd}.
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.48]{Figures/udp}}
  \caption{Data Transfer Scenarios for UDP}
@@ -104,9 +105,9 @@ Based on these characteristics, the data transfer scenarios of UDP can be summar
 The communication of two programs is defined in this section. The communication in this work is data transfer activities between two running programs through a specific channel. Some collaborative activities between the programs such as remote procedure call is out of the scope of this research. Communication among multiple programs (more than two) is not discussed in this work. The channel can be reopened again to start new communications after being closed. However, the reopened channel will be treated as a new communication. The way that I define the communication is leading to the communication identification in the dual-trace. So the definition is not about how the communication works but what it looks like. There are many communication methods in the real world and they are compatible to this communication definition. 
 
 \subsection{Communication Definition}
-In the context of a dual\_trace, a communication is a sequence of data transmitted between two endpoints through a communication channel. The endpoints connect to each other using the identifier of this channel. We therefore defined a communication c as a tripled:
+In the context of a dual\_trace, a communication is a sequence of data transmitted between two endpoints through a communication channel. The endpoints connect to each other using the identifier of this channel. We therefore defined a communication c as a triplet:
 
-$c =<ch, e0, e1>$
+$c =<ch, e_0, e_1>$
 
 where $e0$ and $e1$ are endpoints while $ch$ is the communication channel used (e.g. a named piped located at /tmp/pipe).
 
@@ -114,11 +115,11 @@ From the point of view of traces, the endpoints $e_0$ and $e_1$ are defined in t
 
 $ e =<handle, d_r, d_s>$
 
-where $d_r$ and $d_s$ are data streams. A data stream is a sequence of events that send or receive a package. Each package contains data that is being sent or received (its payload). Hence, we can define a data stream $d$ as a sequence of $n$ packages:
+where $d_r$ and $d_s$ are data streams. A data stream is a sequence of events, each sends or receives a package. Each package contains data that is being sent or received (its payload). Hence, we can define a data stream $d$ as a sequence of $n$ packages:
 
 $ d = (pk_1, pk_2, ..., pk_n)$ 
 
-Note that this is the sequence of packages as seen from the endpoint and might be different than the sequence of packages seen in the other endpoint, specially where there is package reordering or loss.
+Note that this is the sequence of packages as seen from the endpoint and might be different than the sequence of packages seen in the other endpoint, specially where there is package reordering, loss or duplication.
 
 Each package has several attributes:
 \begin{itemize}
@@ -153,13 +154,13 @@ Given $ d = <pk_1, pk_2, ..., pk_n>$, $data(d) = pl(pk_1) \cdot pl(pk_2)\cdot \l
 \begin{itemize}
  \item \textit{ Content Preservation:} for a communication:
 
-$c = <ch, <h0, dr0, ds0>, <h1, dr1, ds1>>$
+$c = <ch, <h_0, dr_0, ds_0>, <h_1, dr_1, ds_1>>$
 
 the received data should always be a prefix (potentially equal) of the data sent:
 
-$data(dr0)$ is a prefix of $data(ds1)$  and
+$data(dr_0)$ is a prefix of $data(ds_1)$  and
 
-$data(dr1)$ is a prefix of $data(ds0)$
+$data(dr_1)$ is a prefix of $data(ds_0)$
 
  \item \textit{Timing Preservation:} at any given point in time, the data received by an endpoint should be a prefix of the data that has been sent from the other:
  
@@ -173,7 +174,7 @@ $  time(pks_j) < time(pkr_k)$
 
 $  data(<pkr_1, pkr_2, ..., pkr_k>)$ is a prefix of $data(<pks_1, pks_2, ..., pks_j>)$
 
-  In other words,at any given time, the recipient can only receive at most the data has been sent.
+  In other words, at any given time, the recipient can only receive at most the data that has been sent.
 
 \end{itemize}
 
@@ -204,7 +205,7 @@ In other words, the match of the received package must has been sent before it i
 
 
 
-In the following two examples, $h0$ and $h1$ are the handles of the two endpoints $e0$ and $e1$ of the communications. $ds0$, $dr0$ and $ds1$, $dr1$ data streams of the endpoints $e0$ and $e1$. The string payloads are the strings represented in blue and red in the figures. 
+In the following two examples, $h_0$ and $h_1$ are the handles of the two endpoints $e_0$ and $e_1$ of the communications. $ds_0$, $dr_0$ and $ds_1$, $dr_1$ data streams of the endpoints $e_0$ and $e_1$. The string payloads are the strings represented in blue and red in the figures. 
 
 Figure\ref{reliableexample} is an example of the reliable communication. 
 
@@ -216,39 +217,39 @@ Figure\ref{reliableexample} is an example of the reliable communication.
 
 In this example, the payloads of the packages are:
 
-$pl(pks0_1)=``ab"$, $ pl(pks0_2)=``cde"$, $pl(pks0_3)=``fgh"$;
+$pl(pks_01)=``ab"$, $ pl(pks_02)=``cde"$, $pl(pks_03)=``fgh"$;
 
-$pl(pkr1_1)=``abc"$, $pl(pkr1_2)=``def"$, $pl(pkr1_3)=``gh"$ .
+$pl(pkr_11)=``abc"$, $pl(pkr_12)=``def"$, $pl(pkr_13)=``gh"$ .
 
 and 
 
-$pl(pks1_1)=``mno"$, $pl(pks1_2)=``pqr"$, $pl(pks1_3)=``stu"$;
+$pl(pks_11)=``mno"$, $pl(pks_12)=``pqr"$, $pl(pks_13)=``stu"$;
 
-$pl(pkr0_1)=``mnop"$, $pl(pkr0_2)=``qrstu"$. 
+$pl(pkr_01)=``mnop"$, $pl(pkr_02)=``qrstu"$. 
 
 on the other direction. Their properties:
 
-$pl(pks0_1) \cdot pl(pks0_2) \cdot pl(pks0_3) = pl(pkr1_1) \cdot pl(pkr1_2) \cdot pl(pkr1_3) = ``abcdefgh"$ and 
+$pl(pks_01) \cdot pl(pks_02) \cdot pl(pks_03) = pl(pkr_11) \cdot pl(pkr_12) \cdot pl(pkr_13) = ``abcdefgh"$ and 
 
-$pl(pks1_1) \cdot pl(pks1_2) \cdot pl(pks1_3) = pl(pkr0_1) \cdot pl(pkr0_2) = ``mnopqrstu"$. 
+$pl(pks_11) \cdot pl(pks_12) \cdot pl(pks_13) = pl(pkr_01) \cdot pl(pkr_02) = ``mnopqrstu"$. 
 
 satisfy the content preservation. 
 
 The relative time relationship of the packages are: 
 
-$time(pks0_1) < time(pks0_2) < time(pkr1_1)< time(pks0_3) < time(pkr1_2) < time(pkr1_3) $;
+$time(pks_01) < time(pks_02) < time(pkr_11)< time(pks_03) < time(pkr_12) < time(pkr_13) $;
 
-$time(pks1_1) < time(pks1_2) < time(pkr0_1)< time(pks1_3) < time(pkr0_2)$. 
+$time(pks_11) < time(pks_12) < time(pkr_01)< time(pks_13) < time(pkr_02)$. 
 
 The fact that
  
-$pl(pkr0_1) = ``mnop"$ is the prefix of $pl(pks1_1) \cdot  pl(pks1_2) = ``mnopqr"$,
+$pl(pkr_01) = ``mnop"$ is the prefix of $pl(pks_11) \cdot  pl(pks_12) = ``mnopqr"$,
 
-$pl(pkr0_1) \cdot pl(pkr0_2)=``mnopqrstu"$ is the prefix of(is this case identical to ) $pl(pks1_1) \cdot pl(pks1_2) \cdot pl(pks1_3) = ``mnopqrstu" $,  
+$pl(pkr_01) \cdot pl(pkr_02)=``mnopqrstu"$ is the prefix of(is this case identical to ) $pl(pks_11) \cdot pl(pks_12) \cdot pl(pks_13) = ``mnopqrstu" $,  
 
-$pl(pkr1_1)=``abc"$ is the prefix of $pl(pks0_1 \cdot pl(pks0_2) = "abcde"$,  
+$pl(pkr_11)=``abc"$ is the prefix of $pl(pks_01 \cdot pl(pks_02) = "abcde"$,  
 
-$pl(pkr1_1) \cdot pl(pkr1_2)= ``abcdef"$ and  $pl(pkr1_1) \cdot pl(pkr1_2) \cdot pl(pkr1_3) = ``abcdefgh"$ are  the prefix of  $pl(pks0_1) \cdot pl(pks0_2) \cdot pl(pks0_3)= ``abcdefgh"$
+$pl(pkr_11) \cdot pl(pkr_12)= ``abcdef"$ and  $pl(pkr_11) \cdot pl(pkr_12) \cdot pl(pkr_13) = ``abcdefgh"$ are  the prefix of  $pl(pks_01) \cdot pl(pks_02) \cdot pl(pks_03)= ``abcdefgh"$
 
 satisfy the timing preservation. 
 
@@ -263,15 +264,17 @@ Figure\ref{unreliableexample} is an example of the unreliable communication.
 
 In this example:
 
-$pkr1_1 = pks0_2=``cde"$, $time(pkr1_1) > time(pks0_2)$; 
+$pkr_11 = pks_02=``cde"$, $time(pkr_11) > time(pks_02)$; 
 
-$pkr1_2 = pks0_3=``fi"$, $time(pkr1_2) > time(pks0_3)$;
+$pkr_12 = pks_02=``cde"$, $time(pkr_12) > time(pks_02)$; 
 
-$pkr0_1 = pks1_1=``gh"$, $time(pkr0_1) > time(pks1_1)$;
+$pkr_13 = pks_03=``fi"$, $time(pkr_13) > time(pks_03)$;
 
-$pkr0_2 = pks1_2=``ijklm"$, $time(pkr0_2) > time(pks1_2)$;
+$pkr_01 = pks_11=``gh"$, $time(pkr_01) > time(pks_11)$;
 
-$pkr0_3 = pks1_3=``n"$, $time(pkr0_3) > time(pks1_3)$.
+$pkr_02 = pks_12=``ijklm"$, $time(pkr_02) > time(pks_12)$;
+
+$pkr_03 = pks_13=``n"$, $time(pkr_03) > time(pks_13)$.
 
 All of these satisfy the content preservation and timing preservation of the unreliable communication.
 

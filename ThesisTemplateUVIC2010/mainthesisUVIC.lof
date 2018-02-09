@@ -1,11 +1,11 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Data Transfer Scenarios for Named Pipe\relax }}{12}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Data Transfer Scenarios for Message Queue\relax }}{13}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Data Transfer Scenarios for TCP\relax }}{14}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{15}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Example of Reliable Communication\relax }}{18}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Data Transfer Scenarios for Named Pipe\relax }}{11}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Data Transfer Scenarios for Message Queue\relax }}{12}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Data Transfer Scenarios for TCP\relax }}{13}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{14}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Example of Reliable Communication\relax }}{17}
 \contentsline {figure}{\numberline {3.6}{\ignorespaces Example of Unreliable Communication\relax }}{19}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Channel Open Process for a Named Pipe\relax }}{26}
