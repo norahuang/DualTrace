@@ -1,10 +1,10 @@
 \externaldocument{../appendix/chapter_app}
 \startchapter{Modeling}
 \label{chapter:Mod}
-In this chapter, I modeled the communication of two running programs. The dual-trace captured from two interacting programs are also modeled in the perspective of communication analysis. The modeling are based on the investigation of some common used communication methods. The communication methods are divided into two categories based on their data transmission properties. This modeling are the foundation to decide how communications being identified from the dual-trace and how to present them to the user. The terminology of using in this chapter can be found in \ref{term}.
+In this chapter, I modeled the communication of two running programs. The modeling are based on the investigation of some common used communication methods. The communication methods are divided into two categories based on their data transmission properties. The terminology of using in this chapter can be found in \ref{term}.
 
 \section{Communication Categorization and Communication Methods}
-The goal of this work is to identify the communications from the dual-trace. We need to understand the properties of the communications to identify them. In general, there are two types of communication: reliable and unreliable in the terms of their reliability of data transmission. The reason to divide the communication methods into these two categories is that the data transmission properties of the communications fall in different categories affect the mechanism of the data verification in the identification algorithm. In the following two subsections, I summarize the characteristics of these two communication categories. The communication methods list in Table\ref{methodsInCategories} will be discussed further to provide more concrete comprehension. 
+In general, there are two types of communication: reliable and unreliable in the terms of their reliability of data transmission. The reason to divide the communication methods into these two categories is that the data transmission properties of the communications fall in different categories affect the mechanism of the data verification in the identification algorithm. In the following two subsections, I summarize the characteristics of these two communication categories. The communication methods list in Table\ref{methodsInCategories} will be discussed further to provide more concrete comprehension. 
 \begin{table}[H]
 \centering
 \caption{Communication Methods Discussed in This Work}
@@ -277,85 +277,4 @@ $pkr_02 = pks_12=``ijklm"$, $time(pkr_02) > time(pks_12)$;
 $pkr_03 = pks_13=``n"$, $time(pkr_03) > time(pks_13)$.
 
 All of these satisfy the content preservation and timing preservation of the unreliable communication.
-
-
-\section{Dual-Trace Model}
-Before the modeling, I describe the facts of the dual-trace being analyzed. The traces in a dual-trace are in assembly level. One dual-trace contains two execution traces. There is no timing information of these two traces which means we don't know the time-stamps of the events of these two traces and can not match the events from both sides by time sequence. However the captured instructions in the trace are ordered in execution sequence. The execution traces contain all executed instructions as well as the corresponding changed memory by each instruction. Additionally, system calls are also captured by instruction id, which means if .dll or .exe files are provided, the system function calls can be identified with function names. Memory states can be reconstructed from the recorded memory changes to get the data information of the communication. 
-
-In this model,  a dual\_trace is defined as $dtr = \lbrace tr0, tr1\rbrace$
-
-where $tr0$ and $tr1$ are two assembly execution traces of two interacting programs.
-
-A trace is a sequence of executed instruction line. Hence, we can define a trace $tr$ as a sequence of $n$ lines:
-
-$ tr = (l_1, l_2, ..., l_n)$ 
-
-Each instruction line has three attributes:
-
-\begin{itemize}
-\item \textit{Memory changes:}  each assembly instruction has operands which can be register or memory. These operands are being manipulated by the instruction and change the values they hold. The memory changes include all manipulated registers and memories as well as the changed values. we will use the notation 
-
-$mem(l)$ 
-
-to denote this memory changes. 
-
-\item \textit{Function information:} an assembly instruction line might be an entry or return of a function. If it is an entry of a function, it would be able to acquire the function name with presence of the corresponding dynamic libraries. We assume that the function related information can be retrieved by some methods and stored along with the instruction line.
-
-$fun(l)$ 
-
-to denote this function information. 
-
-\item \textit{Line number:} each instruction in a trace is line. The line number of a instruction is the offset of it compare to the first instruction whose line number is 0.
-
-$num(l)$ 
-
-to denote this line number. 
-
-\end{itemize}
-
-From the point of view of the communication analysis, the communications can be recovered by analysis of the relevant function calls(i.e. get the function name, function call line, function return line, input parameters and output parameters) in the traces. This function call can be treated as an event $ev$ and defined as a tripled:
-
-$ev = <funN, sl, el, in, out, type>$
-
-where $funN$ is the function name, $sl$ is the function call line, $el$ is the function return line, $in$ is the input parameters, $out$ is the output parameters and type is the event type which can be one of the four types: channel open, data send, data receive and channel close.
-
-After the definition of event, the trace can be represented in a sequence of events while ignoring all other unconcerned information. This new form of trace is called event trace and defined as $etr$ :
-
-$etr = (ev_1, ev_2, ..., ev_m)$
-
-This event trace is acquired through the processing of the original trace and screen out the concerned function calls. The process to acquire function calls and filter out the relevant ones can be denoted by the notation: 
-
-$etr = eventfilter(tr)$
-
-The events in $etr$ belong to various data streams. The original trace can be also represented as stream trace $str$, which is a set of stream:
-
-$str = \lbrace s_1, s_2, ..., s_p\rbrace$
-
-where $s_i$ is a stream consist of four sub string: channel open stream, data send stream, data receive stream and channel close stream and can be denoted as a tripled:
-
-$s = <so,ss,sr,sc>$
-
-The sub string $sx$ in $s$ consist of a sequence of events which is the sub sequence of $etr$. 
-
-$s = <ev_1, ev_2,..., ev_q>$
-
-Note 1:  the event numbering here is different from the numbering in the $etr$ definition, in another word, $ev_1$ in $s$ is not the same event as $ev_1$ in $etr$. 
-
-Note 2: the events belong to the same sub stream has the same event type. 
-
-A process is used to further distinct them for data streams (i.e. data stream received and the data stream sent) of the corresponding communications, we use the notation:
-
-$str = streamfilter(etr)$
-
-to denote this process.
-
-
-\section{Relationship between Communication Model and Dual-Trace Model}
-The identification of the communication from dual\_trace can be simply abstracted as finding the elements of each communication as defined in the communication model from the dual\_trace. 
-
-A communication is defined as $c =<ch, e0, e1>$ while a dual\_trace is defined as $dtr = \lbrace tr0, tr1\rbrace$. In the dual\_trace model, a trace $tr$ can also be represented as stream trace $str = \lbrace s_1, s_2, ..., s_p\rbrace$. In the communication model, $ e =<handle, d_r, d_s>$. 
-
-Each stream in $str$ contains four sub stream: $so, ss, sr, sc$.  The $handle$ of $e$ and $ch$ in $c$ can be acquired from the events in $so$. $d_r$ can be obtain from $sr$ while $d_s$ can be obtained from $ss$. And $pkg$ in the data stream in the communication model has a one to one relationship with $ev$ in the data send and receive stream in the dual\_trace model.
-
-By understanding this relationship, I am optimistic that as long as I can retrieve all the elements defined in the trace in dual\_trace model, there will be a way to identify the communication. In next chapter algorithms for communication identification will be discussed in detail. 
 

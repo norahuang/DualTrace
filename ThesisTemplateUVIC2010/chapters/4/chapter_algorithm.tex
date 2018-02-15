@@ -1,303 +1,86 @@
 \externaldocument{../3/chapter_modeling}
+\externaldocument{../5/chapter_implementation}
 \externaldocument{../appendix/chapter_app}
 \startchapter{Communication Identification Algorithms}
 \label{chapter:alo}
-This chapter discuss the algorithms for communication identification from dual-trace. Pseudo code are listed for algorithms. The algorithm is based on the models developed in the models Chapter\ref{chapter:Mod}.
+The goal of this work is to identify the communications from the dual\_trace. A dual\_trace is a pair of assembly level execution traces of two interacting programs. In this chapter, I discuss the characteristics of the execution trace and give the abstract definition of the execution trace. Based on the communication model in Chapter\ref{chapter:Mod}, I developed the algorithms for communication identification from dual\_trace. Traces captured by different tracers can be analyzed with these developed algorithms, as long as the traces comply the abstract trace definition.
 
-\section{Communication Methods' Implementation in Windows}\label{windows}
-This section investigate the characteristics and the implementation of the communication methods.  The goal of this investigation is to 1) obtain the system function set $fset$ for the concerned events in the communication and summarize the necessary parameters for further communication identification. and 2) understand the channel opening mechanism in order to identify the streams from the $etr$ and match the streams from two traces.
+\section{Dual\_Trace}
+A dual\_trace consists of two assembly level execution traces of two interacting programs. There is no timing information of these two traces which means we don't know the timing relationship of the events of one trace with respect to the other. However the captured instructions in the trace are ordered in execution sequence. An execution trace consist of a sequence of executed instruction lines. Each instruction line contains the executed instruction, the changed memories, the changed registers, execution information. The execution info indicate the execution type which can be: Instruction, System call entry, System call exit, etc. For the execution type of system call entry and system call exit, system call Id is given in this information. With the system call id and the provided .dll files, the called system function name can be obtained. 
 
-The implementations of four communication methods in Windows system are investigated. I reviewed the Windows APIs of the communication methods and their example code. For each communication method, a system function list is provided for reference. These lists contain function names, essential parameters. These functions are supported in most Windows operating systems, such as Windows 8, Window 7. The channel opening mechanisms of each method are described in detail and represented in diagrams.
+Based on the characteristics of the execution trace, a dual\_trace is defined as :
 
-Windows API set is very sophisticated and multiple solutions are provided to fulfil a communication method. It is impossible to enumerate all solutions for each communication method. I only give the most basic usage provided in Windows documentation. Therefore, the provided system function lists for the events should not be considered as the only combination or solution for each communication method. With the understanding of the model, it should be fairly easy to draw out lists for other solutions or other communication methods. 
+$dual\_trace = \lbrace trace_0, trace_1\rbrace$
 
-Moreover, the instances of this model only demonstrate Windows C++ APIs. This model may be generalizable to other operating systems with the effort of understanding the APIs of those operating systems.
+where $trace_0$ and $trace_1$ are two assembly execution traces of two interacting programs.
 
-\subsection{Windows Calling Convention}
-The Windows calling convention is important to know in this research. The communication identification relies not only on the system function names but also the key parameter values. In the assembly level execution traces, the parameter values is captured in the memory changes of the instructions. The memory changes are recognized by the register names or the memory address. The calling convention helps us to understand where the parameters are stored so that we can find them in the memory change map in the trace. Calling Convention is different for operating systems and the programming language. The Microsoft* x64 example calling convention is listed in \ref{convention} since we used dual-trace from Microsoft* x64 for case study in this work.
+A trace is a sequence of executed instruction line. Hence, we can define a trace $trace$ as a sequence of $n$ instruction lines:
 
-\subsection{Named Pipes}
-In Windows, a named pipe is a communication method for the pipe server and one or more pipe clients. The pipe has a name, can be one-way or duplex. Both the server and clients can read or write into the pipe.\cite{WinNamedpipe} In this work, I only consider one server versus one client communication. One server to multiple clients scenario can always be divided into multiple server and client communications thanks to the characteristic that each client and server communication has a separate conduit. The server and client are endpoints in the communication. We call the server ``server endpoint" while the client ``client endpoint".  The server endpoint and client endpoint of a named pipe share the same pipe name, but each endpoint has its own buffers and handles. 
+$ trace = (l_1, l_2, ..., l_n)$ 
 
-There are two modes for data transfer in the named pipe communication method, synchronous and asynchronous.  Modes affect the functions used to complete the send and receive operation. I list the related functions for both synchronous mode and asynchronous mode. The create channel functions for both modes are the same but with different input parameter value. The functions for send and receive message are also the same for both cases. However, the operation of the send and receive functions are different for different modes. In addition, an extra function \textit{GetOverlappedResult} is being called to check if the sending or receiving operation finish, the output message will be stored in the overlap structure whose memory address saved in the function's output parameter Overlap Structure Address. Table\ref{synfunctions} lists the functions of the events for synchronous mode while Table\ref{asynfunctions} lists the functions of the events for the asynchronous mode for a Named pipe communication.
+Each instruction line, $l$ is a tuple:
 
-    \begin{table}[H]
-        \centering
-        \small
-        \caption{Function List  of events for Synchronous Named Pipe}
-        \label{synfunctions}
-        \begin{tabular}{|l|l|l|l|l|}
-            \hline
-             \multirow{2}{*}{\textbf{Event}} &
-               \multicolumn{2}{c|}{\textbf{Server Endpoint}} &
-               \multicolumn{2}{c|}{\textbf{Client Endpoint}} \\
-             \cline{2-5}
-              & \textbf{Function}& \textbf{Parameters} & \textbf{Function} & \textbf{Parameters}  \\
-             \hline
-             \multirow{2}{*}{{\textbf{Channel Open}}}
-             &\multirow{2}{*}{{CreateNamedPipe}} &  RAX: File Handler & \multirow{2}{*}{CreateFile} &  RAX: File Handler\\
-              \cline{3-3} \cline{5-5}
-             &&  RCX: File Name &  &  RCX: File Name\\
-            \hline
-             {{\textbf{Channel Open}}}
-             &{ConnectNamedPipe} & {RCX: File Handler} & & \\
-            \hline
-             \multirow{3}{*}{{\textbf{Send}}}
-             &\multirow{3}{*}{WriteFile} &  RCX: File Handle & \multirow{3}{*}{WriteFile} &  RCX: File Handle\\
-              \cline{3-3} \cline{5-5}
-             &&  RDX: Buffer Address &  &  RDX: Buffer Address\\
-                           \cline{3-3} \cline{5-5}
-             & &  R9: Message Length &  &  R9: Message Length\\
-            \hline
-             \multirow{3}{*}{{\textbf{Receive}}}
-             & \multirow{3}{*}{ReadFile}&  RCX: File Handle & \multirow{3}{*}{ReadFile} &  RCX: File Handle\\
-              \cline{3-3} \cline{5-5}
-              &&  RDX: Buffer Address &  &  RDX: Buffer Address\\
-                           \cline{3-3} \cline{5-5}
-             & &  R9: Message Length &  &  R9: Message Length\\
-            \hline
-           {{\textbf{Channel Close}}}
-             &{CloseHandle} & {RCX: File Handler} & {CloseHandle} & {RCX: File Handler}\\
-            \hline
-             {{\textbf{Channel Close}}}
-             &{DisconnectNamedPipe} & {RCX: File Handler} & {DisconnectNamedPipe} & {RCX: File Handler}\\
-            \hline
-        \end{tabular}
-    \end{table}
+$l = <ins, mch, rch, exetype, syscallInfo>$
 
-    \begin{table}[H]
-        \centering
-        \small
-        \caption{Function List  of events for Asynchronous Named Pipe}
-        \label{asynfunctions}
-        \begin{tabular}{|l|l|l|l|l|}
-            \hline
-             \multirow{2}{*}{\textbf{Event}} &
-               \multicolumn{2}{c|}{\textbf{Server Endpoint}} &
-               \multicolumn{2}{c|}{\textbf{Client Endpoint}} \\
-             \cline{2-5}
-              & \textbf{Function}& \textbf{Parameters} & \textbf{Function} & \textbf{Parameters}  \\
-             \hline
-             \multirow{2}{*}{{\textbf{Channel Open}}}
-             &\multirow{2}{*}{{CreateNamedPipe}} &  RAX: File Handler & \multirow{2}{*}{CreateFile} &  RAX: File Handle\\
-              \cline{3-3} \cline{5-5}
-             &&  RCX: File Name &  &  RCX: File Name\\
-            \hline
-            {{\textbf{Channel Open}}}
-             &{ConnectNamedPipe} & {RCX: File Handler} & & \\
-            \hline
-             \multirow{3}{*}{{\textbf{Send}}}
-             &\multirow{3}{*}{WriteFile} &  RCX: File Handle & \multirow{3}{*}{WriteFile} &  RCX: File Handle\\
-              \cline{3-3} \cline{5-5}
-             &&  RDX: Buffer Address &  &  RDX: Buffer Address\\
-                           \cline{3-3} \cline{5-5}
-             & &  R9: Message Length &  &  R9: Message Length\\
-            \hline
-            \multirow{3}{*}{{\textbf{Receive}}}
-             & \multirow{3}{*}{ReadFile}&  RAX: File Handle & \multirow{3}{*}{ReadFile} &  RCX: File Handle\\
-              \cline{3-3} \cline{5-5}
-              &&  RDX: Buffer Address &  &  RDX: Buffer Address\\
-                           \cline{3-3} \cline{5-5}
-             & &  R9: Message Length &  &  R9: Message Length\\
-              \hline
-               \multirow{2}{*}{{\textbf{Receive}}}
-             & \multirow{2}{*}{GetOverlapped-}&  RCX: File Handler & \multirow{2}{*}{GetOverlapped-} &  RCX: File Handler\\
-              \cline{3-3} \cline{5-5}
-             &  \multirow{2}{*}{Result} &  RDX:  Overlap  &  \multirow{2}{*}{Result }&  RDX:  Overlap \\
-              &  &  Structure address &  &  Structure Address\\
-            \hline                       
-            \textbf{Channel Close}
-             &{CloseHandle} &{RCX: File Handler} & {CloseHandle} &  {RCX: File Handler}\\
-            \hline
-           {{\textbf{Channel Close}}}
-             &{DisconnectNamedPipe} & {RCX: File Handler} & {DisconnectNamedPipe} & {RCX: File Handler}\\
-            \hline
-        \end{tabular}
-    \end{table}
-    
+where $ins$ is the instruction, $mch$ is the memory changes, $rch$ is the register changes, $exetype$ is the execution type which can be instruction, system call entry, system call exit, and other types which are not concerned, $syscallInfo = <exeName, offset>$ only appear when $exetype$ is system call entry or system call exit. $exeName$ is the executable file(e.g .dll and .exe) name, while $offset$ is the offset of the system function in this executable file.
+
+Figure\ref{trace} is an example of a piece of execution trace comply to this definition. Some executed instructions are hidden to highlight the characteristic of the trace. 
+
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/namepipechannelopen}}
- \caption{Channel Open Process for a Named Pipe}
-\label{namedpipeopen}
-\end{figure}
-    
-A named pipe server is responsible for the creation of the pipe, while clients can connect to the pipe after it was created. The creation and connection of a named pipe returns the handle ID of that pipe. These handler Ids will be used later when data is being sent or received to a specified pipe. Figure\ref{namedpipeopen} shows the channel set up process for a Named Pipe communication.
-
-
-\subsection{Message Queue}
-Similar to Named Pipe, Message Queue's implementation in Windows also has two modes, synchronous and asynchronous. Moreover, the asynchronous mode further divides into two operations, one with callback function while the other without. With the callback function, the callback function would be called when the send or receive operations finish. Without callback function, the general function \textit{MQGetOverlappedResult} should be called by the endpoints to check if the message sending or receiving operation finish, the output message will be stored in the overlap structure whose memory address saved in the function's output parameter Overlap Structure Address. Table\ref{msmqsynfunctions} lists the functions for synchronous mode while Table\ref{msmqasynfunctionscallback} and Table\ref{msmqasynfunctions} list the functions for the asynchronous mode with and without callback. 
-
-    \begin{table}[H]
-        \centering
-        \caption{Function List  of events for Synchronous MSMQ}
-        \label{msmqsynfunctions}
-        \begin{tabular}{|l|l|l|}
-            \hline
-             \textbf{Event} & \textbf{Function}& \textbf{Parameters}  \\
-             \hline
-             \multirow{2}{*}{{\textbf{Channel Open}}}
-             &\multirow{2}{*}{{MQOpenQueue}} &  RAX: Queue Handler\\
-              \cline{3-3} 
-             & &  RCX: Queue Format Name\\
-            \hline
-             \multirow{2}{*}{{\textbf{Send}}}
-             &\multirow{2}{*}{MQSendMessage} &  RCX: Queue Handle \\
-              \cline{3-3} 
-             &&  RDX: Message description structure Address \\
-            \hline
-             \multirow{2}{*}{{\textbf{Receive}}}
-             & \multirow{2}{*}{MQReceiveMessage}&  RCX: Queue Handle \\
-              \cline{3-3} 
-              &&  R9: Message description structure Address \\
-            \hline
-            \textbf{Channel Close} &MQCloseQueue & RCX: Queue Handler \\
-            \hline
-        \end{tabular}
-    \end{table}
-
-
-    \begin{table}[H]
-        \centering
-        \caption{Function List of events for Asynchronous MSMQ with Callback}
-        \label{msmqasynfunctionscallback}
-        \begin{tabular}{|l|l|l|}
-            \hline
-             \textbf{Event} & \textbf{Function}& \textbf{Parameters}  \\
-             \hline
-             \multirow{2}{*}{{\textbf{Channel Open}}}
-             &\multirow{2}{*}{{MQOpenQueue}} &  RAX: Queue Handler\\
-              \cline{3-3} 
-             & &  RCX: Queue Format Name\\
-            \hline
-             \multirow{2}{*}{\textbf{Send}}
-             &\multirow{2}{*}{MQSendMessage} &  RCX: Queue Handle \\
-              \cline{3-3} 
-             &&  RDX: Message description structure Address \\
-            \hline
-             \multirow{2}{*}{\textbf{Receive}}
-             & \multirow{2}{*}{MQReceiveMessage}&  RCX: Queue Handle \\
-              \cline{3-3} 
-              &&  R9: Message description structure Address \\
-             \hline
-             \textbf{Receive}
-              &CallbackFuncName&  Parameters for the callback function. \\
-            \hline
-            \textbf{Channel Close} &MQCloseQueue & RCX: Queue Handler \\
-            \hline
-        \end{tabular}
-    \end{table}
-
-    \begin{table}[H]
-        \centering
-        \caption{Function List  of events for Asynchronous MSMQ without Callback}
-        \label{msmqasynfunctions}
-        \begin{tabular}{|l|l|l|}
-            \hline
-             \textbf{Event} & \textbf{Function}& \textbf{Parameters}  \\
-             \hline
-             \multirow{2}{*}{{\textbf{Channel Open}}}
-             &\multirow{2}{*}{{MQOpenQueue}} &  RAX: Queue Handler\\
-              \cline{3-3} 
-             & &  RCX: Queue Format Name\\
-            \hline
-             \multirow{2}{*}{{\textbf{Send}}}
-             &\multirow{2}{*}{MQSendMessage} &  RCX: Queue Handle \\
-              \cline{3-3} 
-             &&  RDX: Message description structure Address \\
-            \hline
-             \multirow{2}{*}{{\textbf{Receive}}}
-             & \multirow{2}{*}{MQReceiveMessage}&  RCX: Queue Handle \\
-              \cline{3-3} 
-              &&  R9: Message description structure Address \\
-              \hline
-              \textbf{Receive} 
-              & MQGetOverlappedResult &  RCX: Overlap Structure address  \\
-            \hline
-            \textbf{Channel Close} &MQCloseQueue & RCX: Queue Handler \\
-            \hline
-        \end{tabular}
-    \end{table}
-    
-The endpoints of the communication can create the queue or use the existing one. However, both of them have to open the queue before they access it. The handle ID returned by the open queue function will be used later on when messages are being sent or received to identify the queue. Figure\ref{msmqopen} shows the channel set up process for a Message Queue communication.
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/msmqchannelopen}}
- \caption{Channel Open Process for a Message Queue}
-\label{msmqopen}
-\end{figure}
-    
-\subsection{TCP and UDP}
-In Windows programming, these two methods shared the same set of APIs regardless the input parameter values and operation behaviour are different. In Windows socket solution, one of the two endpoints is the server while the other one is the client. Table \ref{tcpupdfunctions} lists the functions of a UDP or TCP communication. 
-  \begin{table}[H]
-        \centering
-        \caption{Function List  of events for TCP and UDP}
-        \label{tcpupdfunctions}
-        \begin{tabular}{|l|l|l|l|l|}
-            \hline
-             \multirow{2}{*}{\textbf{Event}} &
-               \multicolumn{2}{c|}{\textbf{Server Endpoint}} &
-               \multicolumn{2}{c|}{\textbf{Client Endpoint}} \\
-             \cline{2-5}
-              & \textbf{Function}& \textbf{Parameters} & \textbf{Function} & \textbf{Parameters}  \\
-             \hline
-             \textbf{Channel Open}
-             &socket&  RAX: Socket Handle & socket &  RAX: Socket Handle\\
-             \hline
-                \multirow{2}{*}{{\textbf{Channel Open}}}
-              &\multirow{2}{*}{{bind}} &  RCX: Socket Handle & \multirow{2}{*}{connect} &  RCX: Socket Handle\\
-              \cline{3-3} \cline{5-5}
-             &&  RDX: Server Address $\&$ Port &  &  RDX: Server Address $\&$ Port\\
-            \hline
-                \multirow{3}{*}{{\textbf{Channel Open}}}
-             &\multirow{3}{*}{{accept}} &  RAX: New Socket Handle && \\
-              \cline{3-3} 
-             &&  RCX:  Socket Handle &  & \\
-             \cline{3-3} 
-             &&  RDX: Client Address $\&$ Port &  &  \\
-            \hline
-             \multirow{2}{*}{{\textbf{Send}}}
-             &\multirow{2}{*}{send} &  RCX: New Socket Handle & \multirow{2}{*}{send} &  RCX: Socket Handle\\
-              \cline{3-3} \cline{5-5}
-             &&  RDX: Buffer Address &  &  RDX: Buffer Address\\
-           \hline
-              \multirow{2}{*}{{\textbf{Receive}}}
-             & \multirow{2}{*}{recv}&  RCX: New Socket Handle & \multirow{2}{*}{recv} &  RCX: Socket Handle\\
-              \cline{3-3} \cline{5-5}
-              &&  RDX: Buffer Address &  &  RDX: Buffer Address\\
-            \hline
-          {{\textbf{Channel Close}}}&
-            {closesocket} & {RCX: New Socket Handle} &{closesocket} & {RCX: Socket Handle}\\
-            \hline
-        \end{tabular}
-    \end{table} 
-    
-The communication channel is set up by both of the endpoints. The function \textit{socket} should be called to create their own socket on both endpoints. After the sockets are created, the server endpoint binds the socket to its service address and port by calling the function \textit{bind}. Then the server endpoint calls the function  \textit{accept} to accept the client connection. The client will call the function \textit{connect} to connect to the server. When the function \textit{accept} return successfully, a new socket handle will be generated and returned for further data transfer between the server endpoint and  the connected client endpoint. After all these operations are performed successfully, the channel is established and the data transfer can start. During the channel open stage, server endpoint has two socket handles, the first one is used to listen to the connection from the client, while the second one is created for real data transfer. Figure\ref{channelopen2} shows the channel open process for TCP and UDP.
-    
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/tcpudpchannelopen}}
- \caption{Channel Open Model for TCP and UDP}
-\label{channelopen2}    
+\centerline{\includegraphics[scale=0.5]{Figures/trace}}
+\caption{An example trace }
+\label{trace}
 \end{figure}
 
-\section{Communication Identification Algorithm}
-The identification of the communications from a dual\_trace should be able to identify the concerned communications as well as all the components defined in it. The inputs of this algorithm are the $dual\_trace=\left\lbrace tr0, tr1 \right\rbrace $ and the concerned communication method's function set $fset = \left \lbrace f_1,f_2...f_m \right\rbrace $. The output of this algorithm is all the identified communications of the concerned communication method. This is a very high level algorithm, details of each step in this algorithm will be discussed in the later sections.\par
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf Communication Identification Algorithm} \label{endpointIdentAlg}}
-\KwIn{$dual\_trace$, $fset$}
-\KwOut{$cs = \left\lbrace c_1, c_2...c_n\right\rbrace $}
-$i = 0;$\;
-\For{$tr \in dual\_trace$}{
-   $etri = eventfilter\left( tr, fset\right)$;\;
-   $stri = streamfilter\left( etr \right)$;\;
-}
-$cs = streammatch(str0, str1)$;\;
-\KwRet $cs$;\;
-\end{algorithm} 
+Figure\ref{executable} is an example of the information decoded from a executable file kernal32.dll, from which the function name can be obtained by the offset.
+
+\begin{figure}[H]
+\centerline{\includegraphics{Figures/executable}}
+\caption{Information of kernal32.dll}
+\label{executable}
+\end{figure}
+
+\section{Function Event Reconstruction Algorithm}
+In last section, I define the assembly execution trace. As to this definition, it is possible to recognize the function call and function call return from the trace.  In this section, I define the function event and discuss the algorithm to reconstruct the function events from the assembly execution trace. 
 
 
+There would be lots of function calls in an execution trace while most of them are not of interest. This algorithm will only reconstruct those function calls of interest. To be able to identify the functions of interest, function descriptions is required. The function descriptions are:
+
+A list of function name, for each function name, there are a function type indicator and a function description. The function type indicator is marked as one of the four types: channel open, channel close, send and receive events. This indicator is not needed in this algorithm but will be heritaged for the stream extration algorithm. The function description illustrate how the current registers and memory contents map to a given function call and the list of its parameter of interest(you might not care for all parameters). By memory reconstruction\cite{cleary_reconstructing_2013}, the parameters and return value of the function call can be computed from the execution trace. Table\ref{functionexample} is an example of an element in the function descriptions. In this example, the function name is ReadFile, it is a function for data receiving. The description includes the concerned parameters, which are File Handle, Send Buffer and Message Length. The File Handle is a input parameter which is a value stored in the register RCX. The Send Buffer is an address for the input message stored in the register RAX. The Message Length is a output value stored in register R9. The value of the input parameters can be retrieved from the memory reconstruction on the function call instruction line while the value of the output parameters can be retrieved from the memory reconstruction on the function return instruction line. If a parameter is a address instead of value, the address should be retrieved first, then the retrieved address should be used to find the buffer content in the memory reconstruction result as well.  The function description requires the understanding of the calling convention of the operating system. More example will be given in Chapter\ref{chapter:newsol}.
+
+\begin{table}[H]
+        \centering
+        \caption{An example of an element in the function descriptions}
+        \label{functionexample}
+        \begin{tabular}{|l|l|l|l|l|l|}
+            \hline
+             \multirow{2}{*}{{\textbf{Name}}} & \multirow{2}{*}{{\textbf{Type}}} & \multicolumn{4}{c|}{\textbf{Description}}  \\
+              \cline{3-6} 
+             & & \textbf{Parameter}& \textbf{Register/Stack Position}& \textbf{In or Out} &  \textbf{Buffer Or Value}  \\
+             \hline
+             \multirow{3}{*}{ReadFile}
+             &\multirow{3}{*}{Data Receive} &  File Handle & RCX & In & Value\\
+              \cline{3-6} 
+             & & Send Buffer & RDX & In & Address\\
+              \cline{3-6} 
+             & & Message Length & R9 & Out & Value\\
+            \hline            
+        \end{tabular}
+    \end{table}
+
+With the function descriptions and the execution trace as input, the function event reconstruction algorithm outputs all the function call events which are calls to the functions of interest from the execution trace. A function call event is defined as a tuple:
+
+$ev = <funN, paras, type>$
+
+where $funN$ is the function name, $paras$ are the parameters' name and value and $type$ is the event type which can be one of the four types: channel open, data send, data receive and channel close.
+
+Note: if the parameter is an address, the value is the string from the buffer pointed by this address instead of the value of the address.
+
+The output of the algorithm is a sequence of function call events which can be defined as:
+
+$etr = (ev_1, ev_2, ..., ev_m)$
 
 
-\section{Event Locating Algorithm: $eventfilter\left( \right)$}
 The concerned events in a communication are channel open, channel close, send and receive events. These events are identified as system function calls in this work.  A function call in the trace starts from the function call instruction to the function return instruction. The input parameters' value and input buffer content should be retrieved from the memory state of the the function call instruction line while the return value, output parameters' value and output buffer content should be retrieved from the memory state of the function return instruction line. Tables in section \ref{windows} indicate all the functions of the communication methods as well as the concerned parameters. Following the windows calling convention, the concerned parameter value or buffer address can be found in the corresponding register or stack positions. The buffer content can be found in the memory address in the reconstructed memory state. Each event can be completed by different function calls. For example, for the client endpoint in TCP communication method, both  \textit{socket} and \textit{connect} function call are considered to be the channel open events. The functions list for a communication method is needed as a input of this algorithm. Tables in Section\ref{windows} give the examples of function list of the events for some communication methods. The algorithm presented in this section is designed for locating all function calls provided in the function list as events of one communications method. If more than one communication methods are being investigated, this algorithm should be run multiple times, each for a method. Events in the output event list is sorted by time of occurrence. Since the function list usually contain a very small number of functions compared to the instruction line number in the execution trace, the time complexity of this algorithm is O(N+M) , N and M are the instruction line numbers of the two traces in the duel-trace.
 
 \begin{algorithm}[H]
@@ -325,7 +108,8 @@ $etr \leftarrow $ empty event list;\;
 \KwRet $etr$;\;
 \end{algorithm} 
 
-\section{Stream Identification Algorithm: $streamfilter\left( \right)$}
+
+\section{Stream Extraction Algorithm}
 The events located in the $etr$ may belong to different stream, the next step in the communication identification algorithm is to identify them for each stream. The input of this algorithm the $etr$ from the ``Event Locating Algorithm". Since the input  $etr$ is sorted by time of occurrence and the channel open events should always happen before other events, it is reasonable to assume the new stream can be identified by its first channel open function call. The identification for TCP and UDP server endpoints are slightly complicated than the other ones, due to its own channel open mechanism. The output of this algorithm is the $str$. Each stream in this $str$ consist of the sub streams. The concepts of the stream and sub streams are defined in Section\ref{term}. 
 
 \begin{algorithm}[H]
@@ -376,7 +160,7 @@ $str \leftarrow Map \langle h, s\rangle$;\;
 \KwRet $str$;\;
 \end{algorithm} 
 
-\section{Stream Matching Algorithm: $streammatch()$}\label{streammatch}
+\section{Stream Matching Algorithm}\label{streammatch}
 The communication identification algorithm aims at identifying all the communication of a concerned communication method from the dual-trace. The input of this algorithm is the two $str$ from the dual-trace. The output of this algorithm is the communication list. Each communication recognized from the dual\_trace contains two streams. The channel of a communication defined in Section\ref{definition} is not explicitly represented in the output but it was implicitly used in this algorithm. 
 
 In the communication identification algorithm, it first try to match two streams to a channel only by their identifiers. In this level, the matching depends on channel open mechanisms which are different from communication method to communication method. For TCP and UDP the matching can be considered as local address and port of server endpoint matching with remote address and port of client endpoint. For Named Pipe, it uses the file name, while for Message Queue, it uses the queue name as the identifier for matching of two endpoints. 
@@ -553,3 +337,29 @@ $eventMatchs \leftarrow List \langle EventMatch \rangle$;\;
 }
  \KwRet True;\;
 \end{algorithm}
+
+\section{Relationship between Communication Model and Dual-Trace Model}
+The identification of the communication from dual\_trace can be simply abstracted as finding the elements of each communication as defined in the communication model from the dual\_trace. 
+
+A communication is defined as $c =<ch, e0, e1>$ while a dual\_trace is defined as $dtr = \lbrace tr0, tr1\rbrace$. In the dual\_trace model, a trace $tr$ can also be represented as stream trace $str = \lbrace s_1, s_2, ..., s_p\rbrace$. In the communication model, $ e =<handle, d_r, d_s>$. 
+
+Each stream in $str$ contains four sub stream: $so, ss, sr, sc$.  The $handle$ of $e$ and $ch$ in $c$ can be acquired from the events in $so$. $d_r$ can be obtain from $sr$ while $d_s$ can be obtained from $ss$. And $pkg$ in the data stream in the communication model has a one to one relationship with $ev$ in the data send and receive stream in the dual\_trace model.
+
+By understanding this relationship, I am optimistic that as long as I can retrieve all the elements defined in the trace in dual\_trace model, there will be a way to identify the communication. In next chapter algorithms for communication identification will be discussed in detail. 
+
+
+\section{Communication Identification Algorithm}
+The identification of the communications from a dual\_trace should be able to identify the concerned communications as well as all the components defined in it. The inputs of this algorithm are the $dual\_trace=\left\lbrace tr0, tr1 \right\rbrace $ and the concerned communication method's function set $fset = \left \lbrace f_1,f_2...f_m \right\rbrace $. The output of this algorithm is all the identified communications of the concerned communication method. This is a very high level algorithm, details of each step in this algorithm will be discussed in the later sections.\par
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf Communication Identification Algorithm} \label{endpointIdentAlg}}
+\KwIn{$dual\_trace$, $fset$}
+\KwOut{$cs = \left\lbrace c_1, c_2...c_n\right\rbrace $}
+$i = 0;$\;
+\For{$tr \in dual\_trace$}{
+   $etri = eventfilter\left( tr, fset\right)$;\;
+   $stri = streamfilter\left( etr \right)$;\;
+}
+$cs = streammatch(str0, str1)$;\;
+\KwRet $cs$;\;
+\end{algorithm} 
