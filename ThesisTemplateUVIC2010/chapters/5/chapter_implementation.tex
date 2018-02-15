@@ -120,14 +120,7 @@ There are two modes for data transfer in the named pipe communication method, sy
             \hline
         \end{tabular}
     \end{table}
-    
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/namepipechannelopen}}
- \caption{Channel Open Process for a Named Pipe}
-\label{namedpipeopen}
-\end{figure}
-    
-A named pipe server is responsible for the creation of the pipe, while clients can connect to the pipe after it was created. The creation and connection of a named pipe returns the handle ID of that pipe. These handler Ids will be used later when data is being sent or received to a specified pipe. Figure\ref{namedpipeopen} shows the channel set up process for a Named Pipe communication.
+
 
 
 \subsubsection{Message Queue}
@@ -224,12 +217,7 @@ Similar to Named Pipe, Message Queue's implementation in Windows also has two mo
         \end{tabular}
     \end{table}
     
-The endpoints of the communication can create the queue or use the existing one. However, both of them have to open the queue before they access it. The handle ID returned by the open queue function will be used later on when messages are being sent or received to identify the queue. Figure\ref{msmqopen} shows the channel set up process for a Message Queue communication.
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/msmqchannelopen}}
- \caption{Channel Open Process for a Message Queue}
-\label{msmqopen}
-\end{figure}
+
     
 \subsubsection{TCP and UDP}
 In Windows programming, these two methods shared the same set of APIs regardless the input parameter values and operation behaviour are different. In Windows socket solution, one of the two endpoints is the server while the other one is the client. Table \ref{tcpupdfunctions} lists the functions of a UDP or TCP communication. 
@@ -275,14 +263,7 @@ In Windows programming, these two methods shared the same set of APIs regardless
             \hline
         \end{tabular}
     \end{table} 
-    
-The communication channel is set up by both of the endpoints. The function \textit{socket} should be called to create their own socket on both endpoints. After the sockets are created, the server endpoint binds the socket to its service address and port by calling the function \textit{bind}. Then the server endpoint calls the function  \textit{accept} to accept the client connection. The client will call the function \textit{connect} to connect to the server. When the function \textit{accept} return successfully, a new socket handle will be generated and returned for further data transfer between the server endpoint and  the connected client endpoint. After all these operations are performed successfully, the channel is established and the data transfer can start. During the channel open stage, server endpoint has two socket handles, the first one is used to listen to the connection from the client, while the second one is created for real data transfer. Figure\ref{channelopen2} shows the channel open process for TCP and UDP.
-    
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/tcpudpchannelopen}}
- \caption{Channel Open Model for TCP and UDP}
-\label{channelopen2}    
-\end{figure}
+   
 
 \section{Parallel Editor View For Dual\_Trace}
 The dual\_trace consist of two execution traces which are interacting with each other. Presenting them in the same view makes the analysis for the user much easier. The strategy to open parallel editor view is that open one trace as the normal one and the other as the dual\_trace of the current opened one. A new menu option in the project navigation view are created to open the second trace as the dual\_trace of the current active trace. The implementation of the parallel editor take the advantage of the existing SWT of Eclipse plug-in development. The detail of the implementation can be found in Section\ref{paralleleditor}. Figure\ref{opendualtracemenu} shows this menu option and Figure\ref{paralleleditor} shows the parallel editor view.

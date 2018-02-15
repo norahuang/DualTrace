@@ -111,25 +111,30 @@ $c =<ch, e_0, e_1>$
 
 where $e0$ and $e1$ are endpoints while $ch$ is the communication channel used (e.g. a named piped located at /tmp/pipe).
 
-From the point of view of traces, the endpoints $e_0$ and $e_1$ are defined in terms of three properties: the handle created within a process for the endpoint for subsequent operations(e.g. data send and receive), the data stream received and the data stream sent. Therefore, I define an endpoint e as a triplet:
+From the point of view of traces, the endpoints $e_0$ and $e_1$ are defined in terms of three properties: the handle created within a process for the endpoint for subsequent operations(e.g. data send and receive), the data stream received and the data stream sent. Therefore, I define an endpoint e as a tuple:
 
-$ e =<handle, d_r, d_s>$
+$ e =<handle, open, close, d_r, d_s>$
 
-where $d_r$ and $d_s$ are data streams. A data stream is a sequence of events, each sends or receives a package. Each package contains data that is being sent or received (its payload). Hence, we can define a data stream $d$ as a sequence of $n$ packages:
+where handle is the handle identifier of the endpoint, $open$ is the channel open event of the endpoint, $close$ is the channel close event of the endpoint. There might be server channel open or close events of an endpoint, I only consider the open event that can identify the endpoint handle and the close event that after which all data transmission is not allowed. $d_r$ and $d_s$ are data streams. A data stream is a sequence of events, each sends or receives a package. Each package contains data that is being sent or received (its payload). Hence, we can define a data stream $d$ as a sequence of $n$ packages:
 
 $ d = (pk_1, pk_2, ..., pk_n)$ 
 
-Note that this is the sequence of packages as seen from the endpoint and might be different than the sequence of packages seen in the other endpoint, specially where there is package reordering, loss or duplication.
+Note 1. That this is the sequence of packages as seen from the endpoint and might be different than the sequence of packages seen in the other endpoint, specially where there is package reordering, loss or duplication.
 
-Each package has several attributes:
+Note 2. All the events including packet send and receive in the data stream, channel open event and channel close event can be generally denoted as $ev$
+
+Each event $ev$ has several attributes:
 \begin{itemize}
-\item \textit{Relative time(it was sent or received):} In a trace, we do not have absolute time for an event. However, we know when when an event (i.e. sending or receiving a package) has happened with respect to another event. we will use the notation 
+\item \textit{Relative time(it was sent or received):} In a trace, we do not have absolute time for an event. However, we know when when an event (i.e. open, close, sending or receiving a package) has happened with respect to another event. we will use the notation 
 
-$time(pkg)$ 
+$time(ev)$
 
-to denote this relative time. Hence, if  $i < j $ , then 
+to denote this relative time. Hence, 
+\begin{itemize}
+\item  if  $i < j $ , then  $time(pk_i) < time(pk_j)$
 
-$time(pk_i) < time(pk_j)$
+\item  for all $pk$ in $d_r$ and $d_s$, $time(open) < time(pk) < time(close)$
+\end{itemize}
 
 \item \textit{Payload:} Each package has a payload (the data being sent). This payload can be modeled as a string contained in the package.we will use the notation 
 
@@ -167,7 +172,6 @@ $data(dr_1)$ is a prefix of $data(ds_0)$
 for a sent data stream of size $m$, $ds= <pks_1, pks_2, ... pks_m>$ that is received in data stream of size $n$, $dr = <pkr_1, pkr_2, ... pkr_n>$
 
 for any $k \in {1..n}$, there must exist $j \in {1..m}$ such that: $pks_j$ was sent before $pkr_k$ was received:
-
 $  time(pks_j) < time(pkr_k)$
 
   and

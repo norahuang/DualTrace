@@ -44,9 +44,11 @@ Figure\ref{executable} is an example of the information decoded from a executabl
 In last section, I define the assembly execution trace. As to this definition, it is possible to recognize the function call and function call return from the trace.  In this section, I define the function event and discuss the algorithm to reconstruct the function events from the assembly execution trace. 
 
 
-There would be lots of function calls in an execution trace while most of them are not of interest. This algorithm will only reconstruct those function calls of interest. To be able to identify the functions of interest, function descriptions is required. The function descriptions are:
+There would be lots of function calls in an execution trace while most of them are not of interest. This algorithm will only reconstruct those function calls of interest. To be able to identify the functions of interest, function descriptions is required. The function descriptions $fdes$ are:
 
-A list of function description, each description includes a function name, a function type indicator and a function description. The function type indicator is marked as one of the four types: channel open, channel close, send and receive events. This indicator is not needed in this algorithm but will be heritaged for the stream extration algorithm. The function description illustrate how the current registers and memory contents map to a given function call and the list of its parameter of interest(you might not care for all parameters). By memory reconstruction\cite{cleary_reconstructing_2013}, the parameters and return value of the function call can be computed from the execution trace. Table\ref{functionexample} is an example of an element in the function descriptions. In this example, the function name is ReadFile, it is a function for data receiving. The description includes the concerned parameters, which are File Handle, Send Buffer and Message Length. The File Handle is a input parameter which is a value stored in the register RCX. The Send Buffer is an address for the input message stored in the register RAX. The Message Length is a output value stored in register R9. The value of the input parameters can be retrieved from the memory reconstruction on the function call instruction line while the value of the output parameters can be retrieved from the memory reconstruction on the function return instruction line. If a parameter is a address instead of value, the address should be retrieved first, then the retrieved address should be used to find the buffer content in the memory reconstruction result as well.  The function description requires the understanding of the calling convention of the operating system. More example will be given in Chapter\ref{chapter:newsol}.
+A list of function descriptions of a communication method, each description includes a function name, a function type indicator and a function description. The function type indicator is marked as one of the four types: open, close, send and receive events. This indicator is not needed in this algorithm but will be used in the stream extraction algorithm. The function description illustrate how the current registers and memory contents map to a given function call and the list of its parameter of interest(you might not care for all parameters). 
+
+Table\ref{functionexample} is an example of an element in the function descriptions. In this example, the function name is ReadFile, it is a function for data receiving. The description includes the concerned parameters, which are File Handle, Send Buffer and Message Length. The File Handle is a input parameter which is a value stored in the register RCX. The Send Buffer is an address for the input message stored in the register RAX. The Message Length is a output value stored in register R9. The value of the input parameters can be retrieved from the memory reconstruction on the function call instruction line while the value of the output parameters can be retrieved from the memory reconstruction on the function return instruction line. If a parameter is a address instead of value, the address should be retrieved first, then the retrieved address should be used to find the buffer content in the memory reconstruction result as well.  The function description requires the understanding of the calling convention of the operating system. More example will be given in Chapter\ref{chapter:newsol}.
 
 \begin{table}[H]
         \centering
@@ -59,7 +61,7 @@ A list of function description, each description includes a function name, a fun
              & & \textbf{Parameter}& \textbf{Register/Stack Position}& \textbf{In or Out} &  \textbf{Buffer Or Value}  \\
              \hline
              \multirow{3}{*}{ReadFile}
-             &\multirow{3}{*}{data receive} &  FileHandle & RCX & In & Value\\
+             &\multirow{3}{*}{data receive} &  Handle & RCX & In & Value\\
               \cline{3-6} 
              & & SendBuffer & RDX & In & Address\\
               \cline{3-6} 
@@ -72,40 +74,39 @@ With the function descriptions and the execution trace as input, the function ev
 
 $ev = <funN, paras, type>$
 
-where $funN$ is the function name, $paras$ includes the parameters' name and value and $type$ is the event type which can be one of the four types: channel open, data send, data receive and channel close.
+where $funN$ is the function name, $paras$ includes all the input/output parameters and the return value, and $type$ is the event type which can be one of the four types: open, send, receive and close.
 
 Note: if the parameter is an address, the value is the string from the buffer pointed by this address instead of the address value.
 
-The output of the function event reconstruction algorithm $etr$ is a sequence of function call events which can be defined as:
+The output of the function event reconstruction algorithm $etr$ is a size $m$ sequence of function call events which can be defined as:
 
 $etr = (ev_1, ev_2, ..., ev_m)$
 
-An example of a sequence of function call events as the output of this algorithm is listed in Listing\ref{eventsexample}
+An example of a sequence of function call events as the output of this algorithm is shown in Listing\ref{eventsexample}.
 
-\begin{lstlisting}[caption= Example of  $etr$]
-\label{eventsexample}
-$ev_1 : CreateNamedPipe;  FileHandler=18,  File Name="mypipe"; type=channel open
-$ev_2 : CreateNamedPipe;  FileHandler=27,  File Name="Apipe"; type=channel open$
-$ev_3 : WriteFile; FileHandler=27, RecvBuffer="Message 1", MessageLength=9; type=data send$
-$ev_4 : WriteFile; FileHandler=27, RecvBuffer="Message 2", MessageLength=9; type=data send$
-$ev_5 : ReadFile; FileHandler=27, SendBuffer="Message 3", MessageLength=9; type=data receive$
-$ev_6 : CloseHandle; FileHandler = 27; type=channel close$
-$ev_7 : CloseHandle; FileHandler = 18; type=channel close$
+\begin{lstlisting}[caption= Example of  $etr$, label=eventsexample]
+{funN:CreateNamedPipe, paras:{Handler:18, FileName:mypipe}, type:open},
+{funN:CreateNamedPipe,  paras:{Handler:27,  FileName:Apipe}, type:open},
+{funN:WriteFile, paras:{Handler:27, RecvBuffer:Message1, MessageLength:9}, type:send},
+{funN:WriteFile, paras:{Handler:27, RecvBuffer:Message2, MessageLength:9}, type:send},
+{funN:ReadFile, paras:{Handler:27, SendBuffer:Message3, MessageLength:9}, type:receive},
+{funN:CloseHandle, paras:{Handler:27}, type:close},
+{funN:CloseHandle, paras:{Handler:18}, type:close}
 \end{lstlisting}
 
-The function event reconstruction algorithm is listed in Algorithm\ref{eventAlg}. Since the function descriptions usually contain a  small number of concerned functions compared to the instruction line number in the execution trace, the time complexity of this algorithm is O(N) , N is the instruction line number of the trace.
+The function event reconstruction algorithm is listed in Algorithm\ref{eventAlg}. This algorithm is designed for reconstruct the function call events of a communication method. If multiple communication methods are under investigated, this algorithm can be run multiple times to achieve the goal. Since the function descriptions usually contain a  small number of concerned functions compared to the instruction line number in the execution trace, the time complexity of this algorithm is O(N) , N is the instruction line number of the trace.
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Function Event Reconstruction Algorithm} \label{eventAlg}}
-\KwIn{ $trace, function descriptions$}
+\KwIn{ $trace, fdes$}
 \KwOut{$etr$}
 $etr \leftarrow \emptyset$\; 
 Emulate the Execute of each instruction line of the trace;\;
-\If{The instruction is a call to a function in the $function descriptions$}{
-   Create an new function event $ev$;\;
-   $ev.funN  \leftarrow$ Function Name;\;
-   $ev.type \leftarrow$ 
+\If{The instruction is a call to a function in the $fdes$}{
+   Create an new function call event $ev$;\;
+   $ev.funN  \leftarrow$ Function Name from the $fdes$;\;
+   $ev.type  \leftarrow$ Function Type from the $fdes$;\;
    Append all the input parameters of interest to $ev.paras$;\;
    Continue the emulation until the function call return line;\;
    Append all the output parameters of interest to $ev.paras$;\;
@@ -115,51 +116,135 @@ Emulate the Execute of each instruction line of the trace;\;
 \end{algorithm} 
 
 
-\section{Stream Extraction Algorithm}
-The events located in the $etr$ may belong to different stream, the next step in the communication identification algorithm is to identify them for each stream. The input of this algorithm the $etr$ from the ``Event Locating Algorithm". Since the input  $etr$ is sorted by time of occurrence and the channel open events should always happen before other events, it is reasonable to assume the new stream can be identified by its first channel open function call. The identification for TCP and UDP server endpoints are slightly complicated than the other ones, due to its own channel open mechanism. The output of this algorithm is the $str$. Each stream in this $str$ consist of the sub streams. The concepts of the stream and sub streams are defined in Section\ref{term}. 
+\section{Stream Extraction}
+The function call events in the $etr$ may belong to different streams. A stream is a size $k$ sequence of function call events correspond to the same endpoint of a communication which can be defined as:
 
+$s = (ev_1, ev_2, ..., ev_k)$
+
+Note: the definition of $ev$ in $s$ is identical to the that in $etr$. However, the event numbering of $s$ is different from $etr$. For example, $ev_1$ in $s$ and $ev_1$ in $etr$ might be different events.
+
+The stream extraction algorithm is designed to extract the streams from the sequence of function call events. In this algorithm, the stream is need to be identify by the channel open function calls first. Then all other events related to this stream will be added to the stream.
+
+\subsection{Channel Open Mechanisms}
+The channel open mechanism affect the stream identification strategy. The channel open mechanism of named pipe and message queue is relatively simple. In windows implementation, only one function call is related to the handle identification of the stream. However, for TCP and UDP the mechanism is slightly complicated.
+
+\subsubsection{Named Pipe Channel Open Mechanisms} 
+A named pipe server is responsible for the creation of the pipe, while clients can connect to the pipe after it was created. The creation and connection of a named pipe returns the Filehandle of that pipe. So the identification of the stream only need to identify the pipe creation function call on the server side and the pipe connection function call on the client side. The Filehandle returned by these function calls will be used later when data is being sent or received to a specified pipe. Figure\ref{namedpipeopen} exemplify the channel set up process for a Named Pipe communication in Windows. 
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.55]{Figures/namepipechannelopen}}
+ \caption{Channel Open Process for a Named Pipe in Windows}
+\label{namedpipeopen}
+\end{figure}
+    
+\subsubsection{Message Queue Channel Open Mechanisms} 
+For the Message Queue communication method, the endpoints of the communication can create the queue or use the existing one. However, both of them have to open the queue before they access it. The QueueHandle returned by the open queue function will be used later on when messages are being sent or received to identify the queue. Figure\ref{msmqopen} exemplify the channel set up process for a Message Queue communication in Windows.
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.55]{Figures/msmqchannelopen}}
+ \caption{Channel Open Process for a Message Queue in Windows}
+\label{msmqopen}
+\end{figure}
+
+\subsubsection{UDP and TCP Channel Open Mechanisms} 
+The communication channel is set up by both of the endpoints for UDP and TCP channels. The function \textit{socket} should be called to create their own socket on both endpoints. After the socket handle are created, the server endpoint binds the socket to its service address and port by calling the function \textit{bind}. Then the server endpoint calls the function  \textit{accept} to accept the client connection. The client will call the function \textit{connect} to connect to the server. When the function \textit{accept} return successfully, a new socket handle will be generated and returned for further data transfer between the server endpoint and  the connected client endpoint. After all these operations are performed successfully, the channel is established and the data transfer can start. During the channel open stage, server endpoint has two socket handles, the first one is used to listen to the connection from the client, while the second one is created for real data transfer. Figure\ref{channelopen2} exemplify the channel open process for TCP and UDP  in Windows.
+    
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.55]{Figures/tcpudpchannelopen}}
+ \caption{Channel Open Model for TCP and UDP in Windows}
+\label{channelopen2}    
+\end{figure}
+
+\subsection{Algorithm}
+The input of this algorithm the $etr$ from the ``Function Event Reconstruction Algorithm" in Algorithm\ref{eventAlg}. Since the events in $etr$ are reconstructed in sequence of the instructions which are order by the time of occurrence, the events are implicitly sorted by time of occurrence. According to the relative time attribute in the communication model in Chapter\ref{chapter:Mod}, the open events should always happen before other events. So the stream can be identified by its channel open function call event. 
+
+The output of this algorithm is a set of $s$ of size $l$, which can be defined as:
+$str = (s_1, s_2, ..., s_l)$
+
+As to the channel open mechanisms, two different algorithms are designed, one is for Name pipe and Message Queue, while the other is for TCP and UDP. For these communication, the handles which can be File Handle, Queue Handle and Socket Handle are represented as handle.
+
+\subsubsection{Stream Extraction Algorithm for Named Pipe and Message Queue}
+This algorithm is designed for extraction of the streams for Named Pipe and Message Queue. Since for each endpoint of the communication, only one channel open function call exist, it is simple to identify the stream starts once a channel open function call event is found. However, the handle of this stream reuse would not happen before this stream was closed by the channel close function call event. This algorithm handle this by having the $tempstream$ set to keep track of the streams that are still open. Once the stream was closed, the handle can be used by another stream.
 \begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf Stream Indentification Algorithm} \label{endpointIdentAlg}}
+\caption{{\bf Stream Exatraction Algorithm for Named Pipe and Message Queue} \label{endpointIdentAlg}}
 \KwIn{$etr$}
-\KwOut{$str$}
-$str \leftarrow Map \langle h, s\rangle$;\; 
+\KwOut{$str$} 
+$str \leftarrow \emptyset$\; 
+$tempstreams \leftarrow \emptyset$\; \tcp*[f]{store the temperate detected streams before their extraction complete}\;  
 \For{$ev \in etr$}{
-   \If{$ev$ is a channel open event}{
-      $h \leftarrow$ get the handle identifier from the function parameter list;\;
-      $s \leftarrow str.get\left( handle \right)$;\;
-      \If{$ev$ is an $accept\left( \right)$ function call for TCP or UDP}{
-         $h1 \leftarrow$ get the second socket handle identifier from $ev.out$;\;
-         $str.remove\left( h \right)$;\;
-         $str.add\left( h1, s \right)$;\;
+   $h \leftarrow$the handle identifier from $ev.paras$;\;
+   \If{$ev.type = open$}{
+      \If{$tempstreams[h]$ not exist}{\tcp*[f]{A handle would not be reused until the stream closed}\;  
+         $tempstreams[h] \leftarrow$ a new $s$;\;
+         $tempstreams[h].append(ev)$;\;
       }
       
-      \If{$s$ is null}{
-         New a stream $s$;\;
-         $str.add\left( h, s \right)$;\;
-      }
-      $ss.so.add\left( evs \right)$;\;
    }
-   \If{$ev$ is a channel send event}{
-      $h \leftarrow$ get the handle from the function parameter list;\;
-      $s \leftarrow str.get\left( h \right)$;\;
-      \If{$s$ is not $null$ and $s.complete$ is $False$}{
-         $s.ss.add\left( ev \right)$;\;
+   \If{$ev.type = send$ Or $ev.type = receive$}{      
+      \If{$tempstreams[h]$ exist}{
+         $tempstreams[h].append(ev)$;\;
       }
    }
-   \If{$ev$ is a channel receive event}{
-      $h \leftarrow$ get the handle from the function parameter list;\;
-      $s \leftarrow str.get\left( h \right)$;\;
-      \If{$s$ is not $null$ and $s.complete$ is $False$}{
-         $s.sr.add\left( event \right)$;\;
+   \If{$ev.type = close$}{
+      \If{$tempstreams[h]$ exist}{
+         $tempstreams[h].append(ev)$;\;
+         $str.append(tempstreams[h])$;\;        
+         remove $tempstreams[h]$ from $tempstreams$;\;\tcp*[f]{A handle can be reused after the stream closed}\;
+      }
+   }         
+}
+\KwRet $str$;\;
+\end{algorithm} 
+
+\subsubsection{Stream Extraction Algorithm for TCP and UDP}
+This algorithm is designed for extraction of the streams for Named Pipe and Message Queue. mechanism of TCP and UDP is a bit complex. A socket handle created by function call of $socket$ for listening on the server is not the one that created by the function call of $accept$ for the data transmission. In the server side, the socket handle for listening can be treated the one of a parent stream, while the socket handle for data transmission can be treated as the child stream. The parent stream can generate multiple children sockets. The algorithm will only extract the children stream, but store the parent stream in $tempstreas$ for temperate usage. However the events in the parents stream contain the information needed for stream matching algorithm later, so the children stream will inherit all the events from their parent. In the client side, the parent socket and the child socket are the same one. All the socket handle can not be reused before the stream is closed.
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf Stream Exatraction Algorithm for Named Pipe and Message Queue} \label{endpointIdentAlg}}
+\KwIn{$etr$}
+\KwOut{$str$} 
+$str \leftarrow \emptyset$\; 
+$tempstreams \leftarrow \emptyset$\; \tcp*[f]{store the temperate detected streams before their extraction complete}\;  
+\For{$ev \in etr$}{
+   \If{$ev$ is a function call to $socket$}{
+      $h \leftarrow$ the handle identifier from $ev.paras$;\;
+      \If{$tempstreams[h]$ not exist}{\tcp*[f]{A handle would not be reused until the stream closed}\;  
+         $tempstreams[h] \leftarrow$ a new $s$;\;
+         $tempstreams[h].append(ev)$;\;
+      }     
+   }
+   
+   \If{$ev$ is a function call to $bind$ or $connect$}{
+      $h \leftarrow$ the handle identifier from $ev.paras$;\;
+      \If{$tempstreams[h]$ exist}{
+         $tempstreams[h].append(ev)$;\;
+      }     
+   }
+   
+   \If{$ev$ is a function call to $accept$}{
+      $h \leftarrow$ the listen socket handle identifier from $ev.paras$;\;
+      $hc \leftarrow$ the connect socket handle identifier from $ev.paras$;\;
+      \If{$tempstreams[h]$ exist And $tempstreams[hc]$ not exist}{
+         \tcp*[f]{create a new stream for the child stream}\;  
+         $tempstreams[hc] \leftarrow$ a new $s$;\;
+         \tcp*[f]{append all the events in the parent stream to the child stream}\;  
+         $tempstreams[hc].append(tempstreams[h])$;\;
+         \tcp*[f]{append the current event to the child stream}\;  
+         $tempstreams[hc].append(ev)$;\;
+      }     
+   }
+   
+   
+   \If{$ev.type = send$ Or $ev.type = receive$}{      
+      \If{$tempstreams[h]$ exist}{
+         $tempstreams[h].append(ev)$;\;
       }
    }
-   \If{$ev$ is a channel close event}{
-      $h \leftarrow$ get the handle from the function parameter list;\;
-      $s \leftarrow str.get\left( h \right)$;\;
-      \If{$s$ is not null}{
-         $s.sc.add\left( ev \right)$;\;
-         $s \leftarrow True$;\;
+   \If{$ev.type = close$}{
+      \If{$tempstreams[h]$ exist}{
+         $tempstreams[h].append(ev)$;\;
+         $str.append(tempstreams[h])$;\;        
+         remove $tempstreams[h]$ from $tempstreams$;\;\tcp*[f]{A handle can be reused after the stream closed}\;
       }
    }         
 }
