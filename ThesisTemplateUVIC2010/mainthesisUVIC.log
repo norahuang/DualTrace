@@ -1,12 +1,12 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  15 FEB 2018 13:42
-entering extended mode
-**./mainthesisUVIC.tex
-(mainthesisUVIC.tex
-LaTeX2e <2016/03/31> patch level 1
-Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
+This is LuaTeX, Version 0.95.0 (TeX Live 2016)  (format=lualatex 2016.5.22)  15 FEB 2018 16:30
+ restricted system commands enabled.
+**mainthesisUVIC.tex
+(./mainthesisUVIC.tex
+LaTeX2e <2016/03/31>
+Babel <3.9r> and hyphenation patterns for 1 language(s) loaded.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\bk12.clo"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/bk12.clo
 File: bk12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -23,23 +23,24 @@ File: bk12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 \@input{macros/style.aux}
-\openout2 = `macros/style.aux'.
 
-(macros/style.tex ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty
-"
+\openout2 = macros/style.aux
+(./macros/style.tex
+(/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
- ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count88
@@ -54,13 +55,11 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layouthoffset=\dimen109
 \Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks15
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-(C:\Users\norah\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace.sty
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
-Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
+(/usr/local/texlive/2016/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip43
 \f@ncyO@elh=\skip44
 \f@ncyO@erh=\skip45
@@ -71,7 +70,7 @@ Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
 \f@ncyO@olf=\skip50
 \f@ncyO@orf=\skip51
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tocloft\tocloft.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
 Package tocloft Info: The document has chapter divisions on input line 44.
 \cftparskip=\skip52
@@ -112,13 +111,13 @@ Package tocloft Info: The document has chapter divisions on input line 44.
 \cfttabnumwidth=\skip85
 ))
 \@input{macros/use_packages.aux}
-\openout2 = `macros/use_packages.aux'.
 
-(macros/use_packages.tex
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\dcolumn.sty"
+\openout2 = macros/use_packages.aux
+(./macros/use_packages.tex
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/dcolumn.sty
 Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/array.sty
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen111
 \extrarowheight=\dimen112
@@ -126,7 +125,7 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \extratabsurround=\skip86
 \backup@length=\skip87
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\longtable.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTleft=\skip88
 \LTright=\skip89
@@ -144,7 +143,7 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \c@LT@chunks=\count97
 \LT@p@ftn=\toks17
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
 \c@tracingmulticols=\count98
 \mult@box=\box30
@@ -193,27 +192,27 @@ Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
 \colbreak@box=\box55
 \mc@col@check@num=\count106
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen123
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2016/03/10 v2.15b AMS math features
 \@mathmargin=\skip94
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
 \ex@=\dimen124
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen125
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count107
@@ -254,7 +253,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 LaTeX Info: Redefining \[ on input line 2739.
 LaTeX Info: Redefining \] on input line 2740.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2015/03/04 v2.20.2
 \thm@style=\toks23
 \thm@bodyfont=\toks24
@@ -266,55 +265,56 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@headsep=\skip99
 \dth@everypar=\toks28
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\textcase\textcase.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/textcase/textcase.sty
 Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\wasysym\wasysym.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/wasysym/wasysym.sty
 Package: wasysym 2003/10/30 v2.0 Wasy-2 symbol support package
 \symwasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
 (Font)                  U/wasy/m/n --> U/wasy/b/n on input line 90.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2016/06/02 v1.0s Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(C:\Users\norah\AppData\Roaming\MiKTeX\2.9\tex\latex\graphics-cfg\graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
-File: pdftex.def 2016/06/17 v0.06h Graphics/color for pdfTeX
+Package graphics Info: Driver file: luatex.def on input line 96.
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/lualatex/luatex-def/luatex.def
+File: luatex.def 2016/01/23 v0.01b Graphics/Color for luaTeX
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count119
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 \Gin@req@height=\dimen133
 \Gin@req@width=\dimen134
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count120
 \float@exts=\toks29
@@ -322,24 +322,24 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks30
 \@floatcapt=\box59
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\placeins\placeins.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\preprint\fullpage.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/preprint/fullpage.sty
 Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip100
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\times.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xr.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xr.sty
 Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
-Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen135
 \captionmargin@=\dimen136
@@ -353,16 +353,16 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 Package caption Info: float package is loaded.
 Package caption Info: longtable package is loaded.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\ltcaption.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
-(C:\Users\norah\AppData\Roaming\MiKTeX\2.9\tex\latex\graphics-cfg\color.cfg
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Driver file: luatex.def on input line 225.
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
 Package xcolor Info: Model `RGB' extended on input line 1364.
@@ -373,20 +373,21 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-(algorithm2e.sty
+(./algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
 \c@AlgoLine=\count122
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \algocf@hangindent=\skip101
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\ifoddpage\ifoddpage.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
 \c@checkoddpage=\count123
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
-Package: relsize 2003/07/04 ver 3.1
+(/usr/local/texlive/2016/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
 )
 \skiptotal=\skip102
 \skiplinenumber=\skip103
@@ -424,7 +425,7 @@ Package: relsize 2003/07/04 ver 3.1
 \algocf@algoframe=\box66
 \algocf@algobox=\box67
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count127
 \lst@gtempboxa=\box68
 \lst@token=\toks31
@@ -438,46 +439,38 @@ Package: relsize 2003/07/04 ver 3.1
 \lst@lineno=\count132
 \lst@maxwidth=\dimen151
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count133
 \lst@skipnumbers=\count134
 \lst@framebox=\box69
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\threeparttable\threeparttable.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box70
-))
-(appendix.sty
+)) (./appendix.sty
 Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@pps=\count135
 \c@@ppsavesec=\count136
 \c@@ppsaveapp=\count137
-) (mainthesisUVIC.aux (chapters/1/chapter_intro.aux)
-(chapters/2/chapter_background.aux) (chapters/3/chapter_modeling.aux)
-(chapters/4/chapter_algorithm.aux
-
-LaTeX Warning: Label `endpointIdentAlg' multiply defined.
-
-
-LaTeX Warning: Label `endpointIdentAlg' multiply defined.
-
-) (chapters/5/chapter_implementation.aux
+) (./mainthesisUVIC.aux (./chapters/1/chapter_intro.aux)
+(./chapters/2/chapter_background.aux) (./chapters/3/chapter_modeling.aux)
+(./chapters/4/chapter_algorithm.aux) (./chapters/5/chapter_implementation.aux
 
 LaTeX Warning: Label `idenview' multiply defined.
 
-) (chapters/6/chapter_evaluation.aux) (chapters/7/chapter_conclusion.aux)
-(chapters/appendix/chapter_app.aux
+) (./chapters/6/chapter_evaluation.aux) (./chapters/7/chapter_conclusion.aux)
+(./chapters/appendix/chapter_app.aux
 
 LaTeX Warning: Label `paralleleditor' multiply defined.
 
 ))
-\openout1 = `mainthesisUVIC.aux'.
+\openout1 = mainthesisUVIC.aux
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
@@ -492,7 +485,7 @@ LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 4.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 *geometry* driver: auto-detecting
@@ -529,7 +522,7 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count138
 \scratchdimen=\dimen152
@@ -542,78 +535,83 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 \MPnumerator=\count142
 \makeMPintoPDFobject=\count143
 \everyMPtoPDFconversion=\toks33
-) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
-Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX detected.
+))))
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO)
+
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/luatex-loader.sty
+Package: luatex-loader 2016/05/16 v0.6 Lua module loader (HO)
+
+(/usr/local/texlive/2016/texmf-dist/scripts/oberdiek/oberdiek.luatex.lua))
+\pdftexcmds@toks=\toks34
 )
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 43
+8.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG
+,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+
+))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count144
 
-(frontmatter/fm.tex (frontmatter/tp.tex
+(./frontmatter/fm.tex (./frontmatter/tp.tex
 LaTeX Font Info:    Try loading font information for U+msa on input line 18.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 18.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for U+wasy on input line 18.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\wasysym\uwasy.fd"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 )
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 19.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 19.
-) (frontmatter/sc.tex [1
+)
+(./frontmatter/sc.tex [1
 
 
 
@@ -621,7 +619,7 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 
 \providecommand \oddpage@label [2]{}
 
-{C:/Users/norah/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Underfull \hbox (badness 10000) in paragraph at lines 16--19
 
  []
@@ -630,7 +628,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--19
 Overfull \vbox (8.18385pt too high) has occurred while \output is active []
 
 
-[2] (frontmatter/abs.tex
+[2] (./frontmatter/abs.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 4.
 
@@ -645,7 +643,7 @@ Overfull \vbox (8.18385pt too high) has occurred while \output is active []
 [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
- (mainthesisUVIC.toc
+ (./mainthesisUVIC.toc
 
 Package Fancyhdr Warning: \headheight is too small (0.0pt): 
  Make it at least 14.49998pt.
@@ -654,20 +652,21 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
 
 [4] [5])
 \tf@toc=\write3
-\openout3 = `mainthesisUVIC.toc'.
 
- [6] (mainthesisUVIC.lot)
+\openout3 = mainthesisUVIC.toc
+ [6] (./mainthesisUVIC.lot)
 \tf@lot=\write4
-\openout4 = `mainthesisUVIC.lot'.
 
- [7] (mainthesisUVIC.lof)
+\openout4 = mainthesisUVIC.lot
+ [7] (./mainthesisUVIC.lof)
 \tf@lof=\write5
-\openout5 = `mainthesisUVIC.lof'.
 
- (frontmatter/ack.tex [8]) (frontmatter/ded.tex [9]) [10])
-\openout2 = `chapters/1/chapter_intro.aux'.
+\openout5 = mainthesisUVIC.lof
 
- (chapters/1/chapter_intro.tex
+(./frontmatter/ack.tex [8]) (./frontmatter/ded.tex [9]) [10])
+\openout2 = chapters/1/chapter_intro.aux
+
+(./chapters/1/chapter_intro.tex
 Chapter 1.
 [1
 
@@ -677,38 +676,36 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 15.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 18.
- [2] ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+ [2] (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 28.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <8> not available
 (Font)              Font shape `OT1/pcr/b/n' tried instead on input line 29.
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <8> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 38.
- [3] [4] [5])
-[6]
-\openout2 = `chapters/2/chapter_background.aux'.
-
- (chapters/2/chapter_background.tex
+ [3] [4]
+[5]) [6]
+\openout2 = chapters/2/chapter_background.aux
+ (./chapters/2/chapter_background.tex
 Chapter 2.
 [7
 
 
 
 ]) [8]
-\openout2 = `chapters/3/chapter_modeling.aux'.
-
- (chapters/3/chapter_modeling.tex
+\openout2 = chapters/3/chapter_modeling.aux
+ (./chapters/3/chapter_modeling.tex
 
 Package xr Warning: 
 No file ../appendix/chapter_app.aux
@@ -718,69 +715,68 @@ LABELS NOT IMPORTED.
 Chapter 3.
 
 Overfull \hbox (2.71101pt too wide) in paragraph at lines 6--6
-[]\OT1/ptm/b/n/17.28 Communication Cat-e-go-riza-tion and Com-mu-ni-ca-tion Met
-h-
+[]\OT1/ptm/bx/n/17.28 Com-mu-ni-ca-tion Cat-e-go-riza-tion and Com-mu-ni-ca-tio
+n Meth-
  []
 
 [9
 
 
 
-] <Figures/namedpipe.png, id=70, 956.57375pt x 570.13pt>
+] <Figures/namedpipe.png, id=69, 956.57375pt x 570.13pt>
 File: Figures/namedpipe.png Graphic file (type png)
 
 <use Figures/namedpipe.png>
-Package pdftex.def Info: Figures/namedpipe.png used on input line 46.
-(pdftex.def)             Requested size: 459.15018pt x 273.65929pt.
- [10] [11 <./Figures/namedpipe.png>]
-<Figures/msmq.png, id=79, 415.5525pt x 468.75125pt>
+Package luatex.def Info: Figures/namedpipe.png used on input line 46.
+(luatex.def)             Requested size: 459.15018pt x 273.65929pt.
+ [10] [11<./Figures/namedpipe.png>]
+<Figures/msmq.png, id=78, 415.5525pt x 468.75125pt>
 File: Figures/msmq.png Graphic file (type png)
  <use Figures/msmq.png>
-Package pdftex.def Info: Figures/msmq.png used on input line 63.
-(pdftex.def)             Requested size: 199.46294pt x 224.99803pt.
+Package luatex.def Info: Figures/msmq.png used on input line 63.
+(luatex.def)             Requested size: 199.46294pt x 224.99803pt.
 
-<Figures/tcp.png, id=80, 415.5525pt x 408.52625pt>
+<Figures/tcp.png, id=79, 415.5525pt x 408.52625pt>
 File: Figures/tcp.png Graphic file (type png)
  <use Figures/tcp.png>
-Package pdftex.def Info: Figures/tcp.png used on input line 81.
-(pdftex.def)             Requested size: 199.46294pt x 196.09036pt.
+Package luatex.def Info: Figures/tcp.png used on input line 81.
+(luatex.def)             Requested size: 199.46294pt x 196.09036pt.
 
 Overfull \hbox (8.4725pt too wide) in paragraph at lines 79--84
 []\OT1/ptm/m/n/12 Based on these char-ac-ter-is-tics, the data trans-fer sce-na
 r-ios of TCP can be ex-em-pli-fied in Figure3.3[]. 
  []
 
-[12 <./Figures/msmq.png>] <Figures/udp.png, id=85, 415.5525pt x 468.75125pt>
+[12<./Figures/msmq.png>] <Figures/udp.png, id=84, 415.5525pt x 468.75125pt>
 File: Figures/udp.png Graphic file (type png)
 
 <use Figures/udp.png>
-Package pdftex.def Info: Figures/udp.png used on input line 99.
-(pdftex.def)             Requested size: 199.46294pt x 224.99803pt.
+Package luatex.def Info: Figures/udp.png used on input line 99.
+(luatex.def)             Requested size: 199.46294pt x 224.99803pt.
 
 Overfull \hbox (10.46452pt too wide) in paragraph at lines 97--102
 []\OT1/ptm/m/n/12 Based on these char-ac-ter-is-tics, the data trans-fer sce-na
 r-ios of UDP can be ex-em-pli-fied in Figure3.4[]. 
  []
 
-[13 <./Figures/tcp.png>] [14 <./Figures/udp.png>] [15] [16]
-<Figures/reliableexample.png, id=104, 528.97626pt x 448.67625pt>
+[13<./Figures/tcp.png>] [14<./Figures/udp.png>] [15] [16]
+<Figures/reliableexample.png, id=102, 528.97626pt x 448.67625pt>
 File: Figures/reliableexample.png Graphic file (type png)
 
 <use Figures/reliableexample.png>
-Package pdftex.def Info: Figures/reliableexample.png used on input line 217.
-(pdftex.def)             Requested size: 290.93784pt x 246.77269pt.
- [17] [18 <./Figures/reliableexample.png>]
-<Figures/unreliableexample.png, id=112, 525.965pt x 454.69875pt>
+Package luatex.def Info: Figures/reliableexample.png used on input line 217.
+(luatex.def)             Requested size: 290.93784pt x 246.77269pt.
+ [17] [18<./Figures/reliableexample.png>]
+<Figures/unreliableexample.png, id=110, 525.965pt x 454.69875pt>
 File: Figures/unreliableexample.png Graphic file (type png)
 
 <use Figures/unreliableexample.png>
-Package pdftex.def Info: Figures/unreliableexample.png used on input line 264.
-(pdftex.def)             Requested size: 289.28163pt x 250.08508pt.
-) [19 <./Figures/unreliableexample.png>]
-\openout2 = `chapters/4/chapter_algorithm.aux'.
+Package luatex.def Info: Figures/unreliableexample.png used on input line 264.
+(luatex.def)             Requested size: 289.28163pt x 250.08508pt.
+) [19<./Figures/unreliableexample.png>]
+\openout2 = chapters/4/chapter_algorithm.aux
 
-
-(chapters/4/chapter_algorithm.tex
+(./chapters/4/chapter_algorithm.tex
 
 Package xr Warning: 
 No file ../3/chapter_modeling.aux
@@ -804,78 +800,70 @@ Chapter 4.
 
 
 
-] <Figures/trace.png, id=120, 1121.69063pt x 259.7203pt>
+] <Figures/trace.png, id=118, 1121.69063pt x 259.7203pt>
 File: Figures/trace.png Graphic file (type png)
 
 <use Figures/trace.png>
-Package pdftex.def Info: Figures/trace.png used on input line 30.
-(pdftex.def)             Requested size: 560.84395pt x 129.85983pt.
+Package luatex.def Info: Figures/trace.png used on input line 30.
+(luatex.def)             Requested size: 560.84395pt x 129.85983pt.
 
-<Figures/executable.png, id=121, 326.72063pt x 302.63063pt>
+<Figures/executable.png, id=119, 326.72063pt x 302.63063pt>
 File: Figures/executable.png Graphic file (type png)
 
 <use Figures/executable.png>
-Package pdftex.def Info: Figures/executable.png used on input line 38.
-(pdftex.def)             Requested size: 326.71982pt x 302.62988pt.
- [21 <./Figures/trace.png>] [22 <./Figures/executable.png>]
+Package luatex.def Info: Figures/executable.png used on input line 38.
+(luatex.def)             Requested size: 196.03387pt x 181.57977pt.
+ [21<./Figures/trace.png><./Figures/executable.png>]
 Overfull \hbox (31.82018pt too wide) in paragraph at lines 57--71
  [][] 
  []
 
-[23]
+[22]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 104.
- [24] <Figures/namepipechannelopen.png, id=135, 673.51625pt x 406.51875pt>
+ [23] <Figures/namepipechannelopen.png, id=130, 673.51625pt x 406.51875pt>
 File: Figures/namepipechannelopen.png Graphic file (type png)
 
 <use Figures/namepipechannelopen.png>
-Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 135
-.
-(pdftex.def)             Requested size: 370.43507pt x 223.586pt.
+Package luatex.def Info: Figures/namepipechannelopen.png used on input line 126.
 
-<Figures/msmqchannelopen.png, id=136, 673.51625pt x 287.0725pt>
+(luatex.def)             Requested size: 370.43507pt x 223.586pt.
+ [24]
+<Figures/msmqchannelopen.png, id=134, 673.51625pt x 287.0725pt>
 File: Figures/msmqchannelopen.png Graphic file (type png)
 
 <use Figures/msmqchannelopen.png>
-Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 143.
-(pdftex.def)             Requested size: 370.43507pt x 157.89035pt.
- [25 <./Figures/namepipechannelopen.png>]
-<Figures/tcpudpchannelopen.png, id=141, 502.87875pt x 391.4625pt>
+Package luatex.def Info: Figures/msmqchannelopen.png used on input line 134.
+(luatex.def)             Requested size: 370.43507pt x 157.89035pt.
+ [25<./Figures/namepipechannelopen.png><./Figures/msmqchannelopen.png>]
+<Figures/tcpudpchannelopen.png, id=140, 502.87875pt x 391.4625pt>
 File: Figures/tcpudpchannelopen.png Graphic file (type png)
 
 <use Figures/tcpudpchannelopen.png>
-Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 152.
-(pdftex.def)             Requested size: 276.58417pt x 215.30502pt.
- [26 <./Figures/msmqchannelopen.png>]
-Overfull \hbox (19.61092pt too wide) in paragraph at lines 158--159
-\OT1/ptm/m/n/12 The in-put of this al-go-rithm the $\OML/cmm/m/it/12 etr$ \OT1/
-ptm/m/n/12 from the ``Func-tion Event Re-con-struc-tion Al-go-rithm" in Algorit
-hm1[].
- []
+Package luatex.def Info: Figures/tcpudpchannelopen.png used on input line 143.
+(luatex.def)             Requested size: 276.58417pt x 215.30502pt.
+ [26<./Figures/tcpudpchannelopen.png>]
+[27] [28] [29]
+Overfull \vbox (75.8263pt too high) has occurred while \output is active []
 
-[27 <./Figures/tcpudpchannelopen.png>]
-Overfull \hbox (242.51744pt too wide) in paragraph at lines 200--231
-\OT1/ptm/m/n/12 sion stream can not be iden-ti-fied. In this al-go-rithm, $[]$ 
 
- []
-
-[28] [29] <Figures/secondlevelmatching.png, id=157, 690.58pt x 527.9725pt>
+[30] [31] <Figures/secondlevelmatching.png, id=161, 690.58pt x 527.9725pt>
 File: Figures/secondlevelmatching.png Graphic file (type png)
 
 <use Figures/secondlevelmatching.png>
-Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 243
-.
-(pdftex.def)             Requested size: 379.82018pt x 290.38577pt.
- [30] [31 <./Figures/secondlevelmatching.png>] [32] [33] [34] [35]
-Overfull \hbox (16.25777pt too wide) in paragraph at lines 411--411
-[]\OT1/ptm/b/n/17.28 Relationship be-tween Com-mu-ni-ca-tion Model and Dual-Tra
-ce
+Package luatex.def Info: Figures/secondlevelmatching.png used on input line 262.
+
+(luatex.def)             Requested size: 379.82018pt x 290.38577pt.
+ [32<./Figures/secondlevelmatching.png>]
+[33] [34] [35] [36] [37]
+Overfull \hbox (16.25777pt too wide) in paragraph at lines 428--428
+[]\OT1/ptm/bx/n/17.28 Re-la-tion-ship be-tween Com-mu-ni-ca-tion Model and Dual
+-Trace
  []
 
-[36]) [37]
-\openout2 = `chapters/5/chapter_implementation.aux'.
-
- (chapters/5/chapter_implementation.tex
+[38]) [39]
+\openout2 = chapters/5/chapter_implementation.aux
+ (./chapters/5/chapter_implementation.tex
 
 Package xr Warning: 
 No file ../3/chapter_modeling.aux
@@ -889,11 +877,11 @@ LABELS NOT IMPORTED.
  on input line 2.
 
 Chapter 5.
-[38
+[40
 
 
 
-] [39]
+] [41]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 37.
 
@@ -901,78 +889,77 @@ Overfull \hbox (52.84615pt too wide) in paragraph at lines 35--72
  [][] 
  []
 
-[40]
+[42]
 Overfull \hbox (52.84615pt too wide) in paragraph at lines 79--122
  [][] 
  []
 
-[41] [42]
+[43] [44]
 Overfull \hbox (57.94193pt too wide) in paragraph at lines 228--265
  [][] 
  []
 
-[43] <Figures/opendualtracemenu.png, id=203, 411.5375pt x 475.7775pt>
+[45] <Figures/opendualtracemenu.png, id=207, 411.5375pt x 475.7775pt>
 File: Figures/opendualtracemenu.png Graphic file (type png)
 
 <use Figures/opendualtracemenu.png>
-Package pdftex.def Info: Figures/opendualtracemenu.png used on input line 272.
-(pdftex.def)             Requested size: 288.07428pt x 333.04196pt.
+Package luatex.def Info: Figures/opendualtracemenu.png used on input line 272.
+(luatex.def)             Requested size: 288.07428pt x 333.04196pt.
 
-<Figures/paralleleditor.png, id=204, 867.24pt x 478.03593pt>
+<Figures/paralleleditor.png, id=208, 867.24pt x 478.03593pt>
 File: Figures/paralleleditor.png Graphic file (type png)
 
 <use Figures/paralleleditor.png>
-Package pdftex.def Info: Figures/paralleleditor.png used on input line 278.
-(pdftex.def)             Requested size: 520.34802pt x 286.82376pt.
- [44 <./Figures/opendualtracemenu.png>]
+Package luatex.def Info: Figures/paralleleditor.png used on input line 278.
+(luatex.def)             Requested size: 520.34802pt x 286.82376pt.
+ [46<./Figures/opendualtracemenu.png>]
 Overfull \hbox (10.43076pt too wide) in paragraph at lines 286--287
 \OT1/ptm/m/n/12 I im-ple-mented two iden-ti-fi-ca-tion fea-tures, one is stream
  iden-ti-fi-ca-tion for both traces in the dual[]trace,
  []
 
-[45 <./Figures/paralleleditor.png>]
-<Figures/dualtracetoolmenu.png, id=213, 325.96782pt x 124.21407pt>
+[47<./Figures/paralleleditor.png>]
+<Figures/dualtracetoolmenu.png, id=216, 325.96782pt x 124.21407pt>
 File: Figures/dualtracetoolmenu.png Graphic file (type png)
 
 <use Figures/dualtracetoolmenu.png>
-Package pdftex.def Info: Figures/dualtracetoolmenu.png used on input line 291.
-(pdftex.def)             Requested size: 325.96701pt x 124.21375pt.
+Package luatex.def Info: Figures/dualtracetoolmenu.png used on input line 291.
+(luatex.def)             Requested size: 325.96701pt x 124.21375pt.
 
-<Figures/methods.png, id=214, 404.26031pt x 220.57407pt>
+<Figures/methods.png, id=217, 404.26031pt x 220.57407pt>
 File: Figures/methods.png Graphic file (type png)
 
 <use Figures/methods.png>
-Package pdftex.def Info: Figures/methods.png used on input line 297.
-(pdftex.def)             Requested size: 323.40869pt x 176.45947pt.
- [46 <./Figures/dualtracetoolmenu.png> <./Figures/methods.png>] <Figures/idenvi
-ew.png, id=218, 724.95844pt x 405.01312pt>
+Package luatex.def Info: Figures/methods.png used on input line 297.
+(luatex.def)             Requested size: 323.40869pt x 176.45947pt.
+ [48<./Figures/dualtracetoolmenu.png><./Figures/methods.png>] <Figures/idenview
+.png, id=221, 724.95844pt x 405.01312pt>
 File: Figures/idenview.png Graphic file (type png)
 
 <use Figures/idenview.png>
-Package pdftex.def Info: Figures/idenview.png used on input line 305.
-(pdftex.def)             Requested size: 507.46745pt x 283.50723pt.
+Package luatex.def Info: Figures/idenview.png used on input line 305.
+(luatex.def)             Requested size: 507.46745pt x 283.50723pt.
 
 
-LaTeX Warning: Reference `gotoend' on page 47 undefined on input line 313.
+LaTeX Warning: Reference `gotoend' on page 49 undefined on input line 313.
 
-[47 <./Figures/idenview.png>]
-<Figures/gotoend.png, id=222, 287.57437pt x 54.9553pt>
+[49<./Figures/idenview.png>]
+<Figures/gotoend.png, id=225, 287.57437pt x 54.9553pt>
 File: Figures/gotoend.png Graphic file (type png)
 
 <use Figures/gotoend.png>
-Package pdftex.def Info: Figures/gotoend.png used on input line 316.
-(pdftex.def)             Requested size: 287.57367pt x 54.95515pt.
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no œ in font ptmr7t!
+Package luatex.def Info: Figures/gotoend.png used on input line 316.
+(luatex.def)             Requested size: 287.57367pt x 54.95515pt.
 
-<Figures/remove.png, id=223, 721.19438pt x 161.10187pt>
+<Figures/remove.png, id=226, 721.19438pt x 161.10187pt>
 File: Figures/remove.png Graphic file (type png)
 
 <use Figures/remove.png>
-Package pdftex.def Info: Figures/remove.png used on input line 324.
-(pdftex.def)             Requested size: 504.83263pt x 112.77052pt.
- [48 <./Figures/gotoend.png> <./Figures/remove.png>]
+Package luatex.def Info: Figures/remove.png used on input line 324.
+(luatex.def)             Requested size: 504.83263pt x 112.77052pt.
+ [50
+Missing character: There is no â€œ (U+201C) in font ptmr7t!
+<./Figures/gotoend.png><./Figures/remove.png>]
 
 LaTeX Font Warning: Font shape `OMS/ptm/bx/n' undefined
 (Font)              using `OMS/ptm/m/n' instead
@@ -980,14 +967,13 @@ LaTeX Font Warning: Font shape `OMS/ptm/bx/n' undefined
 
 LaTeX Font Info:    Font shape `OMS/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 341.
-) [49]
+) [51]
 Overfull \vbox (36.48578pt too high) has occurred while \output is active []
 
 
-[50]
-\openout2 = `chapters/6/chapter_evaluation.aux'.
-
- (chapters/6/chapter_evaluation.tex
+[52]
+\openout2 = chapters/6/chapter_evaluation.aux
+ (./chapters/6/chapter_evaluation.tex
 
 Package xr Warning: 
 No file ../appendix/chapter_app.aux
@@ -1007,98 +993,91 @@ LABELS NOT IMPORTED.
  on input line 3.
 
 Chapter 6.
-[51
+[53
 
 
 
-] <Figures/exp1.png, id=239, 676.5275pt x 551.05875pt>
+] <Figures/exp1.png, id=242, 676.5275pt x 551.05875pt>
 File: Figures/exp1.png Graphic file (type png)
 
 <use Figures/exp1.png>
-Package pdftex.def Info: Figures/exp1.png used on input line 23.
-(pdftex.def)             Requested size: 473.56601pt x 385.73848pt.
- <Figures/result1.png, id=240, 740.7675pt x 212.29312pt>
+Package luatex.def Info: Figures/exp1.png used on input line 23.
+(luatex.def)             Requested size: 473.56601pt x 385.73848pt.
+ <Figures/result1.png, id=243, 740.7675pt x 212.29312pt>
 File: Figures/result1.png Graphic file (type png)
 
 <use Figures/result1.png>
-Package pdftex.def Info: Figures/result1.png used on input line 29.
-(pdftex.def)             Requested size: 481.49316pt x 137.98889pt.
- [52 <./Figures/exp1.png>]
-<Figures/exp2.png, id=245, 949.5475pt x 734.745pt>
+Package luatex.def Info: Figures/result1.png used on input line 29.
+(luatex.def)             Requested size: 481.49316pt x 137.98889pt.
+ [54<./Figures/exp1.png>]
+<Figures/exp2.png, id=248, 949.5475pt x 734.745pt>
 File: Figures/exp2.png Graphic file (type png)
  <use Figures/exp2.png>
-Package pdftex.def Info: Figures/exp2.png used on input line 38.
-(pdftex.def)             Requested size: 569.7329pt x 440.85039pt.
+Package luatex.def Info: Figures/exp2.png used on input line 38.
+(luatex.def)             Requested size: 569.7329pt x 440.85039pt.
 
-[53 <./Figures/result1.png>]
-<Figures/result21.png, id=249, 738.50906pt x 321.45094pt>
+[55<./Figures/result1.png>]
+<Figures/result21.png, id=252, 738.50906pt x 321.45094pt>
 File: Figures/result21.png Graphic file (type png)
 
 <use Figures/result21.png>
-Package pdftex.def Info: Figures/result21.png used on input line 44.
-(pdftex.def)             Requested size: 480.0252pt x 208.94063pt.
- [54 <./Figures/exp2.png>]
-<Figures/result22.png, id=254, 740.7675pt x 353.82187pt>
+Package luatex.def Info: Figures/result21.png used on input line 44.
+(luatex.def)             Requested size: 480.0252pt x 208.94063pt.
+ [56<./Figures/exp2.png>]
+<Figures/result22.png, id=257, 740.7675pt x 353.82187pt>
 File: Figures/result22.png Graphic file (type png)
 
 <use Figures/result22.png>
-Package pdftex.def Info: Figures/result22.png used on input line 50.
-(pdftex.def)             Requested size: 481.49316pt x 229.98148pt.
- [55 <./Figures/result21.png> <./Figures/result22.png>]) [56]
-\openout2 = `chapters/7/chapter_conclusion.aux'.
-
- (chapters/7/chapter_conclusion.tex
+Package luatex.def Info: Figures/result22.png used on input line 50.
+(luatex.def)             Requested size: 481.49316pt x 229.98148pt.
+ [57<./Figures/result21.png><./Figures/result22.png>]) [58]
+\openout2 = chapters/7/chapter_conclusion.aux
+ (./chapters/7/chapt
+er_conclusion.tex
 Chapter 7.
-[57
+[59
 
 
 
-]) [58] (mainthesisUVIC.bbl
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Â in font ptmr7t!
-Missing character: There is no · in font ptmr7t!
- [59
+]) [60] (./mainthesisUVIC.bbl [61
 
 
-]
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Â in font ptmr7t!
-Missing character: There is no ® in font ptmr7t!
- [60]) [61]
-\openout2 = `chapters/appendix/chapter_app.aux'.
+Missing character: There is no Ã‚ (U+00C2) in font ptmr7t!
+Missing character: There is no Â· (U+00B7) in font ptmr7t!
+] [62
+Missing character: There is no Ã‚ (U+00C2) in font ptmr7t!
+Missing character: There is no Â® (U+00AE) in font ptmr7t!
+]) [63]
+\openout2 = chapters/appendix/chapter_app.aux
 
-
-(chapters/appendix/chapter_app.tex
+(./chapters/appendix/chapter_app.tex
 Appendix A.
-[62
+[64
 
 
 ]
 Appendix B.
-[63
+[65
 
 ]
 Appendix C.
-(sourcecode/communicationMethods.json [64
+(./sourcecode/communicationMethods.json [66
 
-] [65]) [66]
+] [67]) [68]
 Appendix D.
-[67
+[69
 
-] [68] [69] [70]
+] [70] [71] [72]
 Appendix E.
-(sourcecode/experiment1/NamedPipeServer.cpp [71
+(./sourcecode/experiment1/NamedPipeServer.cpp [73
 
-] [72] [73])
-(sourcecode/experiment1/NamedPipeClient.cpp [74] [75])
-(sourcecode/experiment2/NamedPipeServerOverlapped.cpp [76] [77] [78] [79]
-[80] [81]) (sourcecode/experiment2/test.bat)) [82] (mainthesisUVIC.aux
-(chapters/1/chapter_intro.aux) (chapters/2/chapter_background.aux)
-(chapters/3/chapter_modeling.aux) (chapters/4/chapter_algorithm.aux)
-(chapters/5/chapter_implementation.aux) (chapters/6/chapter_evaluation.aux)
-(chapters/7/chapter_conclusion.aux) (chapters/appendix/chapter_app.aux))
+] [74] [75])
+(./sourcecode/experiment1/NamedPipeClient.cpp [76] [77])
+(./sourcecode/experiment2/NamedPipeServerOverlapped.cpp [78] [79] [80] [81]
+[82] [83]) (./sourcecode/experiment2/test.bat)) [84] (./mainthesisUVIC.aux
+(./chapters/1/chapter_intro.aux) (./chapters/2/chapter_background.aux)
+(./chapters/3/chapter_modeling.aux) (./chapters/4/chapter_algorithm.aux)
+(./chapters/5/chapter_implementation.aux) (./chapters/6/chapter_evaluation.aux) (./chapters/7/chapter_conclusion.aux) (./chapters/appendix/chapter_app.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1108,31 +1087,36 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
- ) 
-Here is how much of TeX's memory you used:
- 9230 strings out of 493335
- 135911 string characters out of 3139261
- 431935 words of memory out of 3000000
- 12420 multiletter control sequences out of 15000+200000
- 36440 words of font info for 96 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 41i,24n,62p,1535b,1740s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fon
-ts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
-public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
-/cmr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Pro
-gram Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrb8a.pfb><C:/Program Files/MiKT
-eX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/urw/courier/ucrro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/
-utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (92 pages, 1049223 bytes).
-PDF statistics:
- 393 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+)
+
+Here is how much of LuaTeX's memory you used:
+ 10244 strings out of 495119
+ 305301,266212 words of node,token memory allocated
+ 10703 words of node memory still in use:
+   5 hlist, 2 vlist, 2 rule, 1437 glue, 1 kern, 98 glue_spec, 2 write nodes
+   avail lists: 1:1,2:33,3:132,4:1121,5:10223,6:3180,7:9626,8:5485,9:10848,10:32
+,11:558
+ 12691 multiletter control sequences out of 65536+600000
+ 128 fonts using 5299543 bytes
+ 41i,24n,62p,1512b,868s stack positions out of 5000i,500n,10000p,200000b,100000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2016/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-dist/fo
+nts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1
+/urw/courier/ucrr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/cour
+ier/ucrro8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmb8a
+.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/
+local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on mainthesisUVIC.pdf (94 pages, 803176 bytes).
+
+PDF statistics: 393 PDF objects out of 1000 (max. 8388607)
+ 243 compressed objects within 3 object streams
+ 0 named destinations out of 1000 (max. 131072)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

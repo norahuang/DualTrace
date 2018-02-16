@@ -111,9 +111,9 @@ $c =<ch, e_0, e_1>$
 
 where $e0$ and $e1$ are endpoints while $ch$ is the communication channel used (e.g. a named piped located at /tmp/pipe).
 
-From the point of view of traces, the endpoints $e_0$ and $e_1$ are defined in terms of three properties: the handle created within a process for the endpoint for subsequent operations(e.g. data send and receive), the data stream received and the data stream sent. Therefore, I define an endpoint e as a tuple:
+From the point of view of traces, the endpoints $e_0$ and $e_1$ are defined in terms of three properties: the handle created within a process for the endpoint for subsequent operations(e.g. data send and receive), the data stream received and the data stream sent. Therefore, I define an endpoint e as a triplet:
 
-$ e =<handle, open, close, d_r, d_s>$
+$ e =<handle,  d_r, d_s>$
 
 where handle is the handle identifier of the endpoint, $open$ is the channel open event of the endpoint, $close$ is the channel close event of the endpoint. There might be server channel open or close events of an endpoint, I only consider the open event that can identify the endpoint handle and the close event that after which all data transmission is not allowed. $d_r$ and $d_s$ are data streams. A data stream is a sequence of events, each sends or receives a package. Each package contains data that is being sent or received (its payload). Hence, we can define a data stream $d$ as a sequence of $n$ packages:
 
