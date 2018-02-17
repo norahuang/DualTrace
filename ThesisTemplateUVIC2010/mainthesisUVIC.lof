@@ -1,33 +1,34 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Data Transfer Scenarios for Named Pipe\relax }}{11}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Data Transfer Scenarios for Message Queue\relax }}{12}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Data Transfer Scenarios for TCP\relax }}{13}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{14}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Example of Reliable Communication\relax }}{18}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Example of Unreliable Communication\relax }}{19}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Example of Reliable Communication\relax }}{13}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of Unreliable Communication\relax }}{14}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces An example trace \relax }}{21}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Information of kernal32.dll\relax }}{21}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Channel Open Process for a Named Pipe in Windows\relax }}{25}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Channel Open Process for a Message Queue in Windows\relax }}{25}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Channel Open Model for TCP and UDP in Windows\relax }}{26}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Second Level Matching Scenarios\relax }}{32}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces An example trace \relax }}{16}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Information of kernal32.dll\relax }}{16}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Channel Open Process for a Named Pipe in Windows\relax }}{19}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Channel Open Process for a Message Queue in Windows\relax }}{20}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Channel Open Model for TCP and UDP in Windows\relax }}{21}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Data Transfer Scenarios for Named Pipe\relax }}{29}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Data Transfer Scenarios for TCP\relax }}{31}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Second Level Matching Scenarios\relax }}{33}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Data Transfer Scenarios for Message Queue\relax }}{34}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{35}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Second Level Matching Scenarios\relax }}{37}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Menu Item for opening Dual\_trace\relax }}{46}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Parallel Editor View\relax }}{47}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Dual\_trace Tool Menu\relax }}{48}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Prompt Dialog for Communication Selection\relax }}{48}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Communication View for Showing Identification Result\relax }}{49}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Right Click Menu on Event Entry\relax }}{50}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Right Click Menu on Event Entry\relax }}{50}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Menu Item for opening Dual\_trace\relax }}{44}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Parallel Editor View\relax }}{45}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Dual\_trace Tool Menu\relax }}{46}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Prompt Dialog for Communication Selection\relax }}{46}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Communication View for Showing Identification Result\relax }}{47}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Right Click Menu on Event Entry\relax }}{48}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Right Click Menu on Event Entry\relax }}{48}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Sequence Diagram of Experiment 1\relax }}{54}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Identification result of $exp1$\relax }}{55}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Sequence Diagram of Experiment 2\relax }}{56}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Identification result of $exp2.1$\relax }}{57}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Identification result of $exp2.1$\relax }}{57}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Sequence Diagram of Experiment 1\relax }}{52}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Identification result of $exp1$\relax }}{53}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Sequence Diagram of Experiment 2\relax }}{54}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Identification result of $exp2.1$\relax }}{55}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Identification result of $exp2.1$\relax }}{55}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

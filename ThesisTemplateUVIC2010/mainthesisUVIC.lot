@@ -1,16 +1,16 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {3.1}{\ignorespaces Communication Methods Discussed in This Work\relax }}{9}
+\contentsline {table}{\numberline {3.1}{\ignorespaces Communication Method Examples in Two Categories\relax }}{9}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {4.1}{\ignorespaces An example of a function description\relax }}{22}
+\contentsline {table}{\numberline {4.1}{\ignorespaces An example of a function description\relax }}{17}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Function List of events for Synchronous Named Pipe\relax }}{43}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Function List of events for Asynchronous Named Pipe\relax }}{43}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Function List of events for Synchronous MSMQ\relax }}{44}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Function List of events for Asynchronous MSMQ with Callback\relax }}{44}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Function List of events for Asynchronous MSMQ without Callback\relax }}{45}
-\contentsline {table}{\numberline {5.6}{\ignorespaces Function List of events for TCP and UDP\relax }}{45}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Function List of events for Synchronous Named Pipe\relax }}{41}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Function List of events for Asynchronous Named Pipe\relax }}{41}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Function List of events for Synchronous MSMQ\relax }}{42}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Function List of events for Asynchronous MSMQ with Callback\relax }}{42}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Function List of events for Asynchronous MSMQ without Callback\relax }}{43}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Function List of events for TCP and UDP\relax }}{43}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

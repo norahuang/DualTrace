@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  15 FEB 2018 13:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  16 FEB 2018 11:50
 entering extended mode
 **./chapter_modeling.tex
 (chapter_modeling.tex
@@ -6534,10 +6534,12 @@ Missing character: There is no a in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no a in font nullfont!
 Missing character: There is no t in font nullfont!
-Missing character: There is no u in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no i in font nullfont!
 Missing character: There is no p in font nullfont!
 Missing character: There is no l in font nullfont!
 Missing character: There is no e in font nullfont!
+Missing character: There is no t in font nullfont!
 Missing character: There is no : in font nullfont!
 
 Overfull \hbox (20.0pt too wide) in paragraph at lines 114--115
@@ -6560,8 +6562,8 @@ Overfull \hbox (42.98958pt too wide) in paragraph at lines 116--117
  []
 
 
-Overfull \hbox (119.77321pt too wide) in paragraph at lines 116--117
-\OML/cmm/m/it/10 handle; open; close; d[]; d[] >$ 
+Overfull \hbox (68.64816pt too wide) in paragraph at lines 116--117
+\OML/cmm/m/it/10 handle; d[]; d[] >$ 
  []
 
 Missing character: There is no w in font nullfont!
@@ -8033,7 +8035,7 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 148--150
 
 ! Undefined control sequence.
 l.151 \subsubsection
-                    {Properties of reliable communication:}
+                    {Properties of reliable communication:}\label{reliablepro}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -9011,7 +9013,7 @@ Missing character: There is no t in font nullfont!
 Missing character: There is no . in font nullfont!
 ! Undefined control sequence.
 l.185 \subsubsection
-                    {Properties of unreliable communication:}
+                    {Properties of unreliable communication:}\label{unreliab...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -9841,6 +9843,30 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 \newlabel{definition}{{}{}}
+! Undefined control sequence.
+<write> \newlabel{reliablepro}{{}{\thepage 
+                                           }}
+l.205 
+      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+\newlabel{reliablepro}{{}{}}
+! Undefined control sequence.
+<write> \newlabel{unreliablepro}{{}{\thepage 
+                                             }}
+l.205 
+      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+\newlabel{unreliablepro}{{}{}}
 ]
 Missing character: There is no I in font nullfont!
 Missing character: There is no n in font nullfont!

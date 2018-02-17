@@ -1,13 +1,13 @@
 \externaldocument{../appendix/chapter_app}
 \startchapter{Modeling}
-\label{chapter:Mod}
-In this chapter, I modeled the communication of two running programs. The modeling are based on the investigation of some common used communication methods. The communication methods are divided into two categories based on their data transmission properties. The terminology of using in this chapter can be found in \ref{term}.
+\label{chapter:mod}
+In this chapter, I modeled the communication of two running programs from the trace analysis point of view. The modeling are based on the investigation of some common used communication methods. But the detail of the communication methods will be discussed later in this thesis. This chapter only present the abstract communication model regarding to the two communication categories. The categorization is based on their data transmission properties of the communication methods. The terminology of using in this chapter can be found in \ref{term}.
 
-\section{Communication Categorization and Communication Methods}
-In general, there are two types of communication: reliable and unreliable in the terms of their reliability of data transmission. The reason to divide the communication methods into these two categories is that the data transmission properties of the communications fall in different categories affect the mechanism of the data verification in the identification algorithm. In the following two subsections, I summarize the characteristics of these two communication categories. The communication methods list in Table\ref{methodsInCategories} will be discussed further to provide more concrete comprehension. 
+\section{Communication Methods Categorization}
+In general, there are two types of communication: reliable and unreliable in the terms of their reliability of data transmission. A reliable communication guarantees the data being sent by one endpoint of the channel is always received losslessly and in the same order in the other endpoint. On contrast, an unreliable communication does not guarantee the data being sent always arrive the receiver. Moreover, the data packets can arrive to the receiver in any order. However, the bright side of unreliable communication is that the packets being sent are always arrived as the origin packet, no data re-segmentation would happen. Table\ref{methodsInCategories} gives examples of communication methods fall in these two categories.
 \begin{table}[H]
 \centering
-\caption{Communication Methods Discussed in This Work}
+\caption{Communication Method Examples in Two Categories}
 \label{methodsInCategories}
 \begin{tabular}{|l|l|}
  \hline
@@ -19,87 +19,6 @@ TCP &  UDP \\
 \end{tabular}
 \end{table}
 
-
-\subsection{Reliable Communication}\label{reliable}
-A reliable communication guarantees the data being sent by one endpoint of the channel is always received losslessly and in the same order in the other endpoint. For some communication methods, a channel can be closed before all sent data being received. With this property, the concatenated data in the receive stream of one endpoint should be the prefix of the concatenated data in the send stream of the other endpoint(potentially equal). Therefore, comparing the concatenated received data of one endpoint to the concatenated sent data of the other can verify the send and receive data.
-
-\subsection{Unreliable Communication}\label{unreliable}
-An unreliable communication does not guarantee the data being sent always arrive the receiver. Moreover, the data packets can arrive to the receiver in any order. However, the bright side of unreliable communication is that the packets being sent are always arrived as the origin packet, no data re-segmentation would happen. Accordingly, the send and receive data verification can be done by matching the data packet in a receive event to the data packet in a send event on the other side.
-
-\subsection{Communication Methods}
-In this section, I describe the mechanism and the basic data transfer characteristics of each communication method in Table\ref{methodsInCategories} briefly. Moreover, data transfer scenarios are represented correspondingly in diagrams for each communication method. 
- 
-\subsubsection{Named Pipe}
-A named pipe provides FIFO communication mechanism for inter-process communication. It can be a one-way or a duplex pipe. \cite{khambattinamed}
-
-The basic data transfer characteristics of Named Pipe are:
-\begin{itemize}
-  \item Bytes are received in order
-  \item Bytes sent as a segment can be received in multiple segments(the opposite is not true)
-  \item No data duplication
-  \item If a sent segment is loss, all the following segments will lost(this happen when the receiver disconnect from the channel) 
-  
-\end{itemize}
-
-Based on these characteristics, the data transfer scenarios of Named pipe can be exemplified in Figure\ref{namedpipe}. 
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.48]{Figures/namedpipe}}
-\caption{Data Transfer Scenarios for Named Pipe}
-\label{namedpipe}
-\end{figure}
-
-\subsubsection{Message Queue}
-Message Queuing (MSMQ) is a communication method to allow applications which are running at different times across heterogeneous networks and systems that may be temporarily offline can still communicate with each other. Messages are sent to and read from queues by applications. Multiple sending applications can send messages to and multiple receiving applications can read messages from one queue.\cite{redkar2004pro} In this work, only one sending application versus one receiving application case is considered. Multiple senders to multiple receivers scenario can be divided into multiple sender and receiver situation. Both applications of a communication can send to and receive from the channel.
-
-The basic data transfer characteristics of Message Queue are:
-\begin{itemize}
-  \item Bytes sent in packet and received in packet, no bytes re-segmented
-  \item Packets can lost
-  \item Packets received in order
-  \item No data duplication
-\end{itemize}
-Based on these characteristics, the data transfer scenarios of Message Queue can be exemplified in Figure\ref{msmq}.
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.48]{Figures/msmq}}
-\caption{Data Transfer Scenarios for Message Queue}
-\label{msmq}
-\end{figure}
-
-\subsubsection{TCP}
-TCP is the most fundamental reliable transport method in computer networking. TCP provides reliable, ordered, and error-checked delivery of a stream of octets between applications running on hosts in an IP network. The TCP header contains the sequence number of the sending octets and the acknowledge sequence this endpoint is expecting from the other endpoint(if ACK is set). The re-transmission mechanism is based on the ACK. 
-
-The basic data transfer characteristics of TCP are:
-\begin{itemize}
-  \item Bytes received in order
-  \item No data lost(lost data will be re-transmitted)
-  \item No data duplication
-  \item Sender window size is different from receiver's window size, so packets can be re-segmented
-\end{itemize}
-
-Based on these characteristics,  the data transfer scenarios of TCP can be exemplified in Figure\ref{tcp}.
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.48]{Figures/tcp}}
- \caption{Data Transfer Scenarios for TCP}
-\label{tcp}
-\end{figure}
-
-\subsubsection{UDP}
-UDP is a widely used unreliable transmission method in computer networking. It is a simple protocol mechanism, which has no guarantee of delivery, ordering, or duplicate protection. This transmission method is suitable for many real time systems. 
-
-The basic data transfer characteristics of UDP are:
-\begin{itemize}
-  \item Bytes sent in packet and received in packet, no re-segmentation
-  \item Packets can lost
-  \item Packets can be duplicated
-  \item Packets can arrive receiver out of order
-\end{itemize}
-
-Based on these characteristics, the data transfer scenarios of UDP can be exemplified in Figure\ref{upd}.
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.48]{Figures/udp}}
- \caption{Data Transfer Scenarios for UDP}
-\label{upd}
-\end{figure}
 
 \section{Communication Model}\label{definition}
 The communication of two programs is defined in this section. The communication in this work is data transfer activities between two running programs through a specific channel. Some collaborative activities between the programs such as remote procedure call is out of the scope of this research. Communication among multiple programs (more than two) is not discussed in this work. The channel can be reopened again to start new communications after being closed. However, the reopened channel will be treated as a new communication. The way that I define the communication is leading to the communication identification in the dual-trace. So the definition is not about how the communication works but what it looks like. There are many communication methods in the real world and they are compatible to this communication definition. 
@@ -125,7 +44,7 @@ Note 2. All the events including packet send and receive in the data stream, cha
 
 Each event $ev$ has several attributes:
 \begin{itemize}
-\item \textit{Relative time(it was sent or received):} In a trace, we do not have absolute time for an event. However, we know when when an event (i.e. open, close, sending or receiving a package) has happened with respect to another event. we will use the notation 
+\item \textit{Relative time(it was sent or received):} In a trace, we do not have absolute time for an event. However, we know when when an event (i.e. open, close, sending or receiving a package) has happened with respect to another event. I will use the notation 
 
 $time(ev)$
 
@@ -145,10 +64,10 @@ to denote this payload.
 \end{itemize}
 
 
-\subsection{Communication Properties}
+\subsection{Communication Properties}\label{properties}
 The properties of the communications can be described based on the definition of the communication.
 
-\subsubsection{Properties of reliable communication:}
+\subsubsection{Properties of reliable communication:}\label{reliablepro}
 A reliable communication guarantees that the data sent and received between a package happens without loss and in the same order.
 
 For a given data stream, I will define the data in this stream as the concatenation of all the payloads of all the packages in this stream, in the same order, and denote is as $data(d)$.
@@ -161,7 +80,7 @@ Given $ d = <pk_1, pk_2, ..., pk_n>$, $data(d) = pl(pk_1) \cdot pl(pk_2)\cdot \l
 
 $c = <ch, <h_0, dr_0, ds_0>, <h_1, dr_1, ds_1>>$
 
-the received data should always be a prefix (potentially equal) of the data sent:
+the received data should always be a prefix of (potentially equal to) the data sent:
 
 $data(dr_0)$ is a prefix of $data(ds_1)$  and
 
@@ -182,7 +101,7 @@ $  data(<pkr_1, pkr_2, ..., pkr_k>)$ is a prefix of $data(<pks_1, pks_2, ..., pk
 
 \end{itemize}
 
-\subsubsection{Properties of unreliable communication:}
+\subsubsection{Properties of unreliable communication:}\label{unreliablepro}
 In unreliable communication sender and receiver are not concerned with the concatenation of packages. Instead, they treat each package independent of each other.
 \begin{itemize}
  \item \textit{ Content Preservation:} a package that is received should have been sent:
@@ -266,7 +185,7 @@ Figure\ref{unreliableexample} is an example of the unreliable communication.
 \label{unreliableexample}
 \end{figure}
 
-In this example:
+In this example, the content and timing preservation of the unreliable communication are satisfied since: 
 
 $pkr_11 = pks_02=``cde"$, $time(pkr_11) > time(pks_02)$; 
 
@@ -280,5 +199,4 @@ $pkr_02 = pks_12=``ijklm"$, $time(pkr_02) > time(pks_12)$;
 
 $pkr_03 = pks_13=``n"$, $time(pkr_03) > time(pks_13)$.
 
-All of these satisfy the content preservation and timing preservation of the unreliable communication.
 

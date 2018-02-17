@@ -94,8 +94,6 @@ An example of a sequence of function call events as the output of this algorithm
 {funN:CloseHandle, paras:{Handler:18}, type:close}
 \end{lstlisting}
 
-The function event reconstruction algorithm is listed in Algorithm\ref{eventAlg}. This algorithm is designed for reconstruct the function call events of a communication method. If multiple communication methods are under investigated, this algorithm can be run multiple times to achieve the goal. Since the function descriptions usually contain a  small number of concerned functions compared to the instruction line number in the execution trace, the time complexity of this algorithm is O(N) , N is the instruction line number of the trace.
-
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Function Event Reconstruction Algorithm} \label{eventAlg}}
@@ -115,6 +113,10 @@ Emulate the Execute of each instruction line of the trace;\;
 \KwRet $etr$;\;
 \end{algorithm} 
 
+The function event reconstruction algorithm listed in Algorithm\ref{eventAlg} is designed for reconstruct the function call events of a communication method. If multiple communication methods are under investigated, this algorithm can be run multiple times to achieve the goal. Since the function descriptions usually contain a  small number of concerned functions compared to the instruction line number in the execution trace, the time complexity of this algorithm is O(N) , N is the instruction line number of the trace.
+
+
+
 
 \section{Channel Open Mechanisms}
 The channel open mechanism affect the stream identification and matching strategy. So I discuss them before presenting those algorithms. The channel open mechanism of named pipe and message queue is relatively simple. In windows implementation, only one function call is related to the handle identification of the stream. However, for TCP and UDP the mechanism is slightly complicated.
@@ -123,7 +125,7 @@ The channel open mechanism affect the stream identification and matching strateg
 A named pipe server is responsible for the creation of the pipe, while clients can connect to the pipe after it was created. The creation and connection of a named pipe returns the Filehandle of that pipe. So the identification of the stream only need to identify the pipe creation function call on the server side and the pipe connection function call on the client side. The Filehandle returned by these function calls will be used later when data is being sent or received to a specified pipe. Figure\ref{namedpipeopen} exemplify the channel set up process for a Named Pipe communication in Windows. 
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/namepipechannelopen}}
+\centerline{\includegraphics[scale=0.45]{Figures/namepipechannelopen}}
  \caption{Channel Open Process for a Named Pipe in Windows}
 \label{namedpipeopen}
 \end{figure}
@@ -131,7 +133,7 @@ A named pipe server is responsible for the creation of the pipe, while clients c
 \subsection{Message Queue Channel Open Mechanisms} 
 For the Message Queue communication method, the endpoints of the communication can create the queue or use the existing one. However, both of them have to open the queue before they access it. The QueueHandle returned by the open queue function will be used later on when messages are being sent or received to identify the queue. Figure\ref{msmqopen} exemplify the channel set up process for a Message Queue communication in Windows.
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/msmqchannelopen}}
+\centerline{\includegraphics[scale=0.45]{Figures/msmqchannelopen}}
  \caption{Channel Open Process for a Message Queue in Windows}
 \label{msmqopen}
 \end{figure}
@@ -140,7 +142,7 @@ For the Message Queue communication method, the endpoints of the communication c
 The communication channel is set up by both of the endpoints for UDP and TCP channels. The function \textit{socket} should be called to create their own socket on both endpoints. After the socket handle are created, the server endpoint binds the socket to its service address and port by calling the function \textit{bind}. Then the server endpoint calls the function  \textit{accept} to accept the client connection. The client will call the function \textit{connect} to connect to the server. When the function \textit{accept} return successfully, a new socket handle will be generated and returned for further data transfer between the server endpoint and  the connected client endpoint. After all these operations are performed successfully, the channel is established and the data transfer can start. During the channel open stage, server endpoint has two socket handles, the first one is used to listen to the connection from the client, while the second one is created for real data transfer. Figure\ref{channelopen2} exemplify the channel open process for TCP and UDP  in Windows.
     
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/tcpudpchannelopen}}
+\centerline{\includegraphics[scale=0.45]{Figures/tcpudpchannelopen}}
  \caption{Channel Open Model for TCP and UDP in Windows}
 \label{channelopen2}    
 \end{figure}
@@ -168,15 +170,14 @@ This algorithm is designed for extraction of the streams for Named Pipe and Mess
 \KwIn{$etr$}
 \KwOut{$str$} 
 $str \leftarrow \emptyset$\; 
-$tempstreams \leftarrow \emptyset$\; \tcp*[f]{store the temperate detected streams before their extraction complete}\;  
+$tempstreams \leftarrow \emptyset$ \tcp*[f]{A set of streams which are under processing, indexed by the handle identifier since the handle identifier would not be reused before the stream is closed. Stream will be remove from this set and append to $str$ when the full extraction is complete}\;  
 \For{$ev \in etr$}{
    $h \leftarrow$the handle identifier from $ev.paras$;\;
    \If{$ev.type = open$}{
-      \If{$tempstreams[h]$ not exist}{\tcp*[f]{A handle would not be reused until the stream closed}\;  
+      \If{$tempstreams[h]$ not exist}{
          $tempstreams[h] \leftarrow$ a new $s$;\;
          $tempstreams[h].append(ev)$;\;
-      }
-      
+      }     
    }
    \If{$ev.type = send$ Or $ev.type = receive$}{      
       \If{$tempstreams[h]$ exist}{
@@ -187,7 +188,7 @@ $tempstreams \leftarrow \emptyset$\; \tcp*[f]{store the temperate detected strea
       \If{$tempstreams[h]$ exist}{
          $tempstreams[h].append(ev)$;\;
          $str.append(tempstreams[h])$;\;        
-         remove $tempstreams[h]$ from $tempstreams$;\;\tcp*[f]{A handle can be reused after the stream closed}\;
+         remove $tempstreams[h]$ from $tempstreams$;\;
       }
    }         
 }
@@ -195,7 +196,7 @@ $tempstreams \leftarrow \emptyset$\; \tcp*[f]{store the temperate detected strea
 \end{algorithm} 
 
 \subsubsection{Stream Extraction Algorithm for TCP and UDP}
-This algorithm is designed for extraction of the streams for Named Pipe and Message Queue. mechanism of TCP and UDP is a bit complex. A socket handle created by function call of $socket$ for listening on the server is not the one that created by the function call of $accept$ for the data transmission. In the server side, the socket handle for listening can be treated the one of a parent stream, while the socket handle for data transmission can be treated as the child stream. The parent stream can generate multiple children sockets. The algorithm will only extract the children stream, but store the parent stream in $tempstreas$ for temperate usage. However the events in the parents stream contain the information needed for stream matching algorithm later, so the children stream will inherit all the events from their parent. In the client side, the parent socket and the child socket are the same one. All the socket handle can not be reused before the stream is closed.
+This algorithm is designed for extraction of the streams for TCP and UDP. The channel open mechanism of TCP and UDP is a bit complex. A socket handle created by function call of $socket$ in both client and server. In the server side, this created socket is only used for listening to the client's connect. The listening is accomplished by the calling the function $accept$. The input of the $accept$ function call is the listening socket, and the output of it is a new data transmission socket. This two handles are considered to be two handles for two streams, the stream identified by the listening handle is called the parent stream and the one identified by the data transmission handle is called the child stream. However the events in the parents stream contain the information needed for stream matching algorithm later, so the children stream will inherit all the events from their parents. 
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Stream Exatraction Algorithm for TCP and UDP} \label{streamext2}}
@@ -206,43 +207,39 @@ $tempstreams \leftarrow \emptyset$\;
 \For{$ev \in etr$}{
    \If{$ev$ is a function call to $socket$}{
       $h \leftarrow$ the handle identifier from $ev.paras$;\;
-      \If{$tempstreams[h]$ not exist}{\tcp*[f]{A handle would not be reused until the stream closed}\;  
-         $tempstreams[h] \leftarrow$ a new $s$;\;
+      \If{$tempstreams[h]$ not exist}{
+         $tempstreams[h] \leftarrow$ a new $s$;\tcp*[f]{a new stream}\;
          $tempstreams[h].append(ev)$;\;
       }     
-   }
-   
+   }  
    \If{$ev$ is a function call to $bind$ or $connect$}{
       $h \leftarrow$ the handle identifier from $ev.paras$;\;
       \If{$tempstreams[h]$ exist}{
          $tempstreams[h].append(ev)$;\;
       }     
-   }
-   
+   }   
    \If{$ev$ is a function call to $accept$}{
-      $h \leftarrow$ the listen socket handle identifier from $ev.paras$;\;
-      $hc \leftarrow$ the connect socket handle identifier from $ev.paras$;\;
-      \If{$tempstreams[h]$ exist And $tempstreams[hc]$ not exist}{
-         \tcp*[f]{create a new stream for the child stream}\;  
-         $tempstreams[hc] \leftarrow$ a new $s$;\;
-         \tcp*[f]{append all the events in the parent stream}\;  
-         $tempstreams[hc].append(tempstreams[h])$;\;
-         \tcp*[f]{append the current event to the child stream}\;  
-         $tempstreams[hc].append(ev)$;\;
+      $h \leftarrow$ the input handle in $ev.paras$;\tcp*[f]{handle of parent stream}\; 
+      $hc \leftarrow$ the output handle $ev.paras$;\tcp*[f]{handle of child stream}\; 
+      \If{$tempstreams[h]$ exist And $tempstreams[hc]$ not exist}{         
+         $tempstreams[hc] \leftarrow$ a new $s$;\tcp*[f]{a new stream for the child}\;  
+         $tempstreams[hc].append(tempstreams[h])$;\tcp*[f]{append parent's events}\;           
+         $tempstreams[hc].append(ev)$;\tcp*[f]{append the current event}\;  
       }     
    }
-   
-   
-   \If{$ev.type = send$ Or $ev.type = receive$}{      
+      
+   \If{$ev.type = send$ Or $ev.type = receive$}{  
+      $h \leftarrow$ the handle identifier from $ev.paras$;\;    
       \If{$tempstreams[h]$ exist}{
          $tempstreams[h].append(ev)$;\;
       }
    }
    \If{$ev.type = close$}{
+      $h \leftarrow$ the handle identifier from $ev.paras$;\;
       \If{$tempstreams[h]$ exist}{
          $tempstreams[h].append(ev)$;\;
          $str.append(tempstreams[h])$;\;        
-         remove $tempstreams[h]$ from $tempstreams$;\;\tcp*[f]{A handle can be reused after the stream closed}\;
+         remove $tempstreams[h]$ from $tempstreams$;\;
       }
    }         
 }
@@ -250,27 +247,16 @@ $tempstreams \leftarrow \emptyset$\;
 \end{algorithm} 
 
 \section{Stream Matching Algorithm}\label{streammatch}
-The Function Event Extraction Algorithm and the Stream Extraction Algorithms all work on a single execution trace. To identify the communications from the dual\_trace, I need to match two streams out of those extracted streams from each trace of the dual\_trace. The Stream Matching Algorithm in this section is designed for this purpose. The input of this algorithm is the two sets of $str$ from the two traces of the dual-trace. The output of this algorithm is the communication set. Each communication recognized from the dual\_trace contains two streams. The channel of a communication defined in Section\ref{definition} is not explicitly represented in the output but it was implicitly used in this algorithm as the channel identifier. 
+The Function Event Extraction Algorithm and the Stream Extraction Algorithms all work on a single execution trace. To identify the communications from the dual\_trace, I need to match two streams out of those extracted streams from each trace of the dual\_trace. The Stream Matching Algorithm in this section is designed for this purpose. he inputs of the these two algorithms are the same, two set of streams $str_0$ and $str_1$ output by the stream extraction algorithm from the dual\_trace. The output of this algorithm is the communication set. Each communication recognized from the dual\_trace contains two streams. The channel of a communication defined in Section\ref{definition} is not explicitly represented in the output but it was implicitly used in this algorithm as the channel identifier. 
 
-There are two level of matching in this algorithm. In the first level, the matching depends on channel open mechanisms which are different from communication method to communication method. For TCP and UDP the matching can be considered as local address and port of server endpoint matching with remote address and port of client endpoint. For Named Pipe, it uses the file name, while for Message Queue, it uses the queue name as the identifier for matching of two endpoints. 
+This matching algorithm is not fully reliable. There are two situations which false negative error might emerge. Take Named Pipe for example, the first situation is multiple(more than two) interacting programs shared the same file or queue as their own channel. Even though the channels are distinct for each communication, but the file or queue used is the same one. For example, the Named Pipe server is connected by two clients using the same file. In the server trace, there are two streams found. In each client trace, there is one stream found. For the dual\_trace of server and client1, there will be two possible identified communications, one is the real communication for server and client1 while the other is the false negative error actually is for server and client2. The stream in client1's trace will be matched by two streams in the server's trace. The second situation is the same channel is reused by the different endpoints in the same programs. For example, the Named Pipe server and client finished the first communication and then closed the channel. After a while they re-open the same file again for another communication. Since the first level matching is only base on the identifiers and the first and the second communications have the same identifier since they used the same file. Similar situations can also happen in Message Queue, TCP and UDP communication methods. The data stream verification algorithm discussed in Section\ref{verfication} can eliminate the false negative errors. 
 
-The first level matching can not guarantee the exact streams matching and channel identification. There are two situations which false negative error might emerge. Take Named Pipe for example, the first situation is multiple(more than two) interacting programs shared the same file or queue as their own channel. Even though the channels are distinct for each communication, but the file or queue used is the same one. For example, the Named Pipe server is connected by two clients using the same file. In the server trace, there are two streams found. In each client trace, there is one stream found. For the dual\_trace of server and client1, there will be two possible identified communications, one is the real communication for server and client1 while the other is the false negative error actually is for server and client2. The stream in client1's trace will be matched by two streams in the server's trace. The second situation is the same channel is reused by the different endpoints in the same programs. For example, the Named Pipe server and client finished the first communication and then closed the channel. After a while they re-open the same file again for another communication. Since the first level matching is only base on the identifiers and the first and the second communications have the same identifier since they used the same file. Similar situations can also happen in Message Queue, TCP and UDP communication methods. 
+The stream matching depends on channel open mechanisms which are different from communication method to communication method. For TCP and UDP the matching can be considered as local address and port of server endpoint matching with remote address and port of client endpoint. For Named Pipe, it uses the file name, while for Message Queue, it uses the queue name as the identifier for matching of two endpoints. 
 
-To reduce the false negative error, the second level matching should be applied, which is also being named as transmitted data verification algorithm. On top of the endpoint identifiers matching, further data verification should be applied to make sure the matching is reliable. This verification crossly compare the sent and received data in both streams in the first level matching. If the transmitted data in the streams are considered to be identical, the matching is confirmed, otherwise it was a false negative error. However, we still can not exclude all the false negative errors, due to the data transmitted in two communications can be identical. Figure\ref{secondlevelmatching} indicates the ineffective second level matching scenario and the effective one.
-
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/secondlevelmatching}}
- \caption{Second Level Matching Scenarios}
-\label{secondlevelmatching}
-\end{figure}
-
-
-The following subsections discuss the algorithms for these two level matching. The channel open mechanisms have been elaborated before. Based on the different channel opening mechanism, two algorithms are developed for the communication identification, one is for Named Pipe and Message Queue, the other is for TCP and UDP. The inputs of the these two algorithms are the same, two $str$s from the original dual\_trace.
-
-The data transfer characteristics divided the communication methods into reliable and unreliable transmissions. Named Pipe and TCP fall in the reliable category while Message Queue and UDP fall in the unreliable one. The second level matching algorithms are different for these two categories. The corresponding second level data verification algorithms are being used in the stream matching algorithms. The inputs of the transmitted data verification algorithms are streams matched in the first level matching while the output a boolean to indicate if the transmitted data of this two streams are matched and the verified data.
+The following two subsections discuss the two matching algorithms, one is for Named Pipe and Message Queue, while the other is for TCP and UDP.
 
 \subsection{Stream Matching Algorithm for Named Pipe and Message Queue}
-For Named Pipe and Message Queue, only one channel open function is being called in each $s$, which is the first event $ev_1$ in $s$. The channel identifier parameters can be found in the $ev_1.paras$. The identifier for Named Pipe is the file name of the pipe while for Message Queue is the format queue name of the queue. This algorithm finds out all the possible communications regardless some of them might be false negative errors. The input $str_0$ and $str_1$ are two set of streams from the execution traces of the dual\_trace. The output $cs$ is the set of communications identified by matching the streams.
+For Named Pipe and Message Queue, only one channel open function is being called in each $s$, which is the first event $ev_1$ in $s$. The channel identifier parameter can be found in the $ev_1.paras$. The identifier for Named Pipe is the file name of the pipe while for Message Queue is the queue name. This algorithm finds out all the possible communications regardless some of them might be false negative errors. The input $str_0$ and $str_1$ are two set of streams from the two traces of the dual\_trace. The output $cs$ is a set of communications preliminary identified by matching two streams.
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
@@ -279,26 +265,22 @@ For Named Pipe and Message Queue, only one channel open function is being called
 \KwOut{$cs$}
 $cs \leftarrow \emptyset$\; 
 \For{$s_0 \in str_0$}{
-   $id_0 \leftarrow$ get the channel identifier from $str_0[0].paras$;\;\tcp*[f]{The first event is the open event}\;
+\tcc{The first event is the open event}
+   $id_0 \leftarrow$ get the channel identifier from $str_0[0].paras$;\;
    \For{$s_1 \in str_1$}{
-      $id_1 \leftarrow$ get the channel identifier from $str_1[0].paras$;\;\tcp*[f]{The first event is the open event}\;
+      $id_1 \leftarrow$ get the channel identifier from $str_1[0].paras$;\;
      \If{$id0 equal to id1$}{
-         $DataVerified = dataVerify(s_0, s_1, outputdata)$;\; \tcp*[f]{The data verification algorithm}\;
-         \If{$DataVerified == True$}{
             $c.s_0 = s_0$;\;
             $c.s_1 = s_1$;\;
-            $c.dataMatch = outputdata$;\;
-            $cs.append(c)$;\;
-         }    
+            $cs.append(c)$;\; 
       }
    }
 }
 \KwRet $cs$;\;
 \end{algorithm} 
 
-
 \subsection{Stream Matching Algorithm for TCP and UDP}
-For TCP and UDP multiple function calls collaborate to create the final communication channel. The local address and port of the server endpoint and the remote address and port of the client endpoint are used to identify the channel. This algorithm first try to retrieve the local address and port of the server endpoint and remote address and port from client endpoint. Then it try to match two streams by comparing the local and remote address and port. Transmitted data verification also applied in this algorithm.
+For TCP and UDP, multiple function calls collaborate to create the final communication channel. The local address and port of the server endpoint and the remote address and port of the client endpoint are used to identify the channel. This algorithm gets the local address and port of from the event in the stream of the server and remote address and port from client endpoint. Then it try to match two streams by comparing the local and remote address and port. 
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
@@ -306,31 +288,31 @@ For TCP and UDP multiple function calls collaborate to create the final communic
 \KwIn{$str_0, str_1$}
 \KwOut{$cs$}
 $cs \leftarrow \emptyset$\; 
-\For{$s0 \in str0$}{
-   $socketev0 \leftarrow$ get the $socket\left( \right)$ event from $str0.so$;\;
-   $bindev0 \leftarrow$ get the $bind\left( \right)$ event from $str0.so$;\;
-   $connectev0 \leftarrow$ get the $connect\left( \right)$ event from $str0.so$;\;
-   \For{$s1 \in str1$}{
-      $socketev1 \leftarrow$ get the $socket\left( \right)$ event from $s1.so$;\;
-      $bindev1 \leftarrow$ get the $bind\left( \right)$ event from $s1.so$;\;
-      $connectev1 \leftarrow$ get the $connect\left( \right)$ event from $s1.so$;\;
-    \If{$socketev0 !=null$ AND $socketev != null$}{
-       \If{$bindev0 != null$ AND $connectev1 == null$}{
-           $localServerAddr \leftarrow$ get serverAddr from $bindev1.in$;\;
+\For{$s_0 \in str_0$}{ 
+   $socketev_0 \leftarrow$ the $socket$ function call event from $str_0$;\;   
+   $bindev_0 \leftarrow$  the $bind$ function call event from $str_0$;\;
+   $connectev_0 \leftarrow$  the $connect$ function call event from $str_0$;\;
+   \For{$s_1 \in str_1$}{
+      $socketev_1 \leftarrow$ the $socket$ function call event from $str_1$;\;
+      $bindev_1 \leftarrow$  the $bind$ function call event from $str_1$;\;
+      $connectev_1 \leftarrow$  the $connect$ function call event from $str_1$;\;
+\tcp*[f]{$socket$ function call event exists for both server and client streams, $bind$ function call event only exist for server streams while $connect$ function call event only exist for client streams}\;   
+     \If{$socketev_0 !=null$ AND $socketev_1 != null$}{ 
+\tcp*[f]{$s_0$ is a sever stream, $s_1$ is a client stream}\;
+       \If{$bindev_0 != null$ AND $connectev_1 != null$}{
+           $localServerAddr \leftarrow$ get serverAddr from $bindev_0.paras$;\;
+           $remoteServerAddr \leftarrow$ get serverAddr from $connectev_1.paras$;\; 
        }
-       \ElseIf{$bindev1 == null$ AND $connectev0 != null$}{
-           $remoteServerAddr \leftarrow$ get serverAddr from $connectev1.in$;\; 
-       }
-       \Else{
-          Break the inner For loop;\;
+\tcp*[f]{$s_1$ is a sever stream, $s_0$ is a client stream}\;
+       \ElseIf{$bindev_1 != null$ AND $connectev_0 != null$}{
+           $localServerAddr \leftarrow$ get serverAddr from $bindev_1.paras$;\;
+           $remoteServerAddr \leftarrow$ get serverAddr from $connectev_0.paras$;\; 
        }
        \If{$localServerAddr == remoteServerAddr$}{
-          $DataVerified = dataVerify(stream0, stream1, outputdata)$.
           \If{$DataVerified == True$}{
-            $c.s0 = s0$;\;
-            $c.s1 = s1$;\;
-            $c.dataMatch = outputdata$; 
-            $cs.add\left( c \right)$;\;
+            $c.s_0 = s_0$;\;
+            $c.s_1 = s_1$;\;
+            $cs.append(c)$;\;
           }
        }
     }
@@ -339,8 +321,77 @@ $cs \leftarrow \emptyset$\;
 \KwRet $cs$;\;
 \end{algorithm}
 
-\subsection{Data Verification $dataVerify()$ for Named Pipe and TCP}
-As described in Section\ref{reliable}, the data being received by one endpoint should always equal to or at least is sub string of the data being sent from the other endpoint in a communication for the reliable transmission methods, such as Named Pipe and TCP. So the data verification algorithm is in data union level. The send data union is retrieved by the concatenation of the input buffer content of the send events in the send stream of an endpoint. The receive data union is retrieved by the concatenation of the output buffer content of the receive events in the receive stream of the other endpoint. The input of this algorithm is the two $stream$s from two traces which are being matched in the first level.
+\section{Stream Data Verification Algorithm}\label{verfication}
+The data stream verification aims to verify if the matched two streams align with the communication properties of the communication model in Chapter\ref{chapter:mod}. The data transfer characteristics divided the communications into reliable and unreliable categories. Named Pipe and TCP fall in the reliable category while Message Queue and UDP fall in the unreliable one. The properties of the models consists of content preservation and timing preservation. Due to the preservation set are different from the reliable to the unreliable communications, two verification algorithms are designed. 
+
+The inputs of the data stream verification algorithms is the preliminary identified communication set $cs$ output by the stream matching algorithms. The output is the verified communication set $vcs$ which will be a sub set of $cs$, excluding those communications don't satisfy align to the content preservation and timing preservation.
+
+\subsection{Stream Data Verification Algorithm for Reliable Communication(Named Pipe and TCP)}
+As to the data stream properties of the reliable communication discussed in Section\ref{properties}, the content preservation means the received data of an endpoint should always be a prefix of(potentially equal to) the data sent while the timing preservation means at any given point in time, the data received by an endpoint should be a prefix of the data that has been sent from the other endpoint. In the dual\_trace, a stream is actually correspond to an endpoint in a communication. So the data stream verification should disqualify those matched streams which don't satisfy the content preservation or the timing preservation.
+
+This algorithm has two steps: 
+\begin{itemize}
+\item verify the timing preservation of the data in the matched streams. 
+\item verify the content preservation of the data in the matched streams. 
+\end{itemize}
+The sequence of the these two step doesn't matter in the perspective of effectiveness, but affect the performance. In both steps the verification need to concatenate the payload of the sent packets and the payload of the received packet. The accumulated result of timing preservation verification can be used by the content preservation verification. So that, it is reasonable to verify the timing preservation first.
+
+Even thought both Named Pipe and TCP are both reliable communication methods, their data transfer properties are slightly different from each other. I investigated and present their properties here. The algorithm development depends on the result of this investigation.
+ 
+\subsubsection{Named Pipe}\label{namedpipe}
+A named pipe provides FIFO communication mechanism for inter-process communication. It can be a one-way or a duplex pipe. \cite{khambattinamed}
+
+The basic data transfer characteristics of Named Pipe are:
+\begin{itemize}
+  \item Bytes are received in order
+  \item Bytes sent as a segment can be received in multiple segments(the opposite is not true)
+  \item No data duplication
+  \item If a sent segment is loss, all the following segments will lost(this happen when the receiver disconnect from the channel) 
+  
+\end{itemize}
+
+Based on these characteristics, the data transfer scenarios of Named pipe can be exemplified in Figure\ref{namedpipe}. 
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.48]{Figures/namedpipe}}
+\caption{Data Transfer Scenarios for Named Pipe}
+\label{namedpipe}
+\end{figure}
+
+\subsubsection{TCP}\label{tcp}
+TCP is the most fundamental reliable transport method in computer networking. TCP provides reliable, ordered, and error-checked delivery of a stream of octets between applications running on hosts in an IP network. The TCP header contains the sequence number of the sending octets and the acknowledge sequence this endpoint is expecting from the other endpoint(if ACK is set). The re-transmission mechanism is based on the ACK. 
+
+The basic data transfer characteristics of TCP are:
+\begin{itemize}
+  \item Bytes received in order
+  \item No data lost(lost data will be re-transmitted)
+  \item No data duplication
+  \item Bytes sent in packet and received in packet, no re-segmentation
+\end{itemize}
+
+Based on these characteristics,  the data transfer scenarios of TCP can be exemplified in Figure\ref{tcp}.
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.48]{Figures/tcp}}
+ \caption{Data Transfer Scenarios for TCP}
+\label{tcp}
+\end{figure}
+
+For both Named Pipe and TCP cases, I use the notation 
+
+$time(ev)$
+
+to denote this relative time of the $ev$ in the stream. 
+
+Say $(evs_{01},evs_{02},...,evs_{0M})$ is the set of sent function call events in $s_0$,  $(evr_{01},evr_{02},...,evr_{0N})$ is the set of receive function call events in $s_0$, $(evs_{11},evs_{12},...,evs_{1P})$ is the set of sent function call events in $s_1$ and
+$(evr_{11},evr_{12},...,evr_{1Q})$ is the set of receive function call events in $s_1$. 
+
+As to the data transfer characteristics of Named Pipe, it is determined that: 
+\begin{itemize}
+\item For any $i \in {1..\min_{M,Q}}, time(evs_{0i}) < time(evr_{1i})$
+\item For any $i \in {1..\min_{P,N}}, time(evs_{1i}) < time(evr_{0i})$
+\end{itemize}
+
+\subsubsection{Limitation}
+Due to the timing preservation description, the condition of the timing preservation should be $time(evs_j) < time(evr_k)$
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
@@ -374,11 +425,55 @@ $recv2 \leftarrow$ empty string;\;
 \Else{
     \KwRet False;\;
 }
-
 \end{algorithm} 
 
-\subsection{Data Verification $dataVerify()$ for MSMQ and UDP}
+
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.55]{Figures/secondlevelmatching}}
+ \caption{Second Level Matching Scenarios}
+\label{secondlevelmatching}
+\end{figure}
+
+\subsection{Stream Data Verification Algorithm for Unreliable Communication (MSMQ and UDP)}
 For the unreliable communication methods, the data packets being transmitted are not delivery and ordering guaranteed. So it is impossible to verify the transmitted data as a whole chunk. Fortunately, the packets arrived to the receivers are always as the original one from the sender. Therefore, we perform the transmitted data verification by single events instead of the whole stream. This algorithm basically goes through events of the $ss$ in one stream trying to find the matched receive event in the $sr$ in the other stream. And then calculate the fail packet arrival rate. The fail packet arrival rate should be comparable to the packet lost rate. So we set the packet lost rate as the threshold to determine if the transmitted data can considered to be identical in both directions. The packet lost rate can be various from network to network or even from time to time for the same network. The inputs of this algorithm are the copies of two streams from two traces which are being matched and the packet lost rate as the threshold. I use copies instead of original data is to modify the input list directly in the algorithm. The threshold should be an integer. For example if the lost rate is 5\%, the threshold should be set as 5. 
+
+\subsubsection{Message Queue}\label{msmq}
+Message Queuing (MSMQ) is a communication method to allow applications which are running at different times across heterogeneous networks and systems that may be temporarily offline can still communicate with each other. Messages are sent to and read from queues by applications. Multiple sending applications can send messages to and multiple receiving applications can read messages from one queue.\cite{redkar2004pro} In this work, only one sending application versus one receiving application case is considered. Multiple senders to multiple receivers scenario can be divided into multiple sender and receiver situation. Both applications of a communication can send to and receive from the channel.
+
+The basic data transfer characteristics of Message Queue are:
+\begin{itemize}
+  \item Bytes sent in packet and received in packet, no bytes re-segmented
+  \item Packets can lost
+  \item Packets received in order
+  \item No data duplication
+\end{itemize}
+Based on these characteristics, the data transfer scenarios of Message Queue can be exemplified in Figure\ref{msmq}.
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.48]{Figures/msmq}}
+\caption{Data Transfer Scenarios for Message Queue}
+\label{msmq}
+\end{figure}
+
+
+\subsubsection{UDP}\label{udp}
+UDP is a widely used unreliable transmission method in computer networking. It is a simple protocol mechanism, which has no guarantee of delivery, ordering, or duplicate protection. This transmission method is suitable for many real time systems. 
+
+The basic data transfer characteristics of UDP are:
+\begin{itemize}
+  \item Bytes sent in packet and received in packet, no re-segmentation
+  \item Packets can lost
+  \item Packets can be duplicated
+  \item Packets can arrive receiver out of order
+\end{itemize}
+
+Based on these characteristics, the data transfer scenarios of UDP can be exemplified in Figure\ref{upd}.
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.48]{Figures/udp}}
+ \caption{Data Transfer Scenarios for UDP}
+\label{upd}
+\end{figure}
+
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
@@ -425,28 +520,16 @@ $eventMatchs \leftarrow List \langle EventMatch \rangle$;\;
  \KwRet True;\;
 \end{algorithm}
 
-\section{Relationship between Communication Model and Dual-Trace Model}
-The identification of the communication from dual\_trace can be simply abstracted as finding the elements of each communication as defined in the communication model from the dual\_trace. 
 
-A communication is defined as $c =<ch, e0, e1>$ while a dual\_trace is defined as $dtr = \lbrace tr0, tr1\rbrace$. In the dual\_trace model, a trace $tr$ can also be represented as stream trace $str = \lbrace s_1, s_2, ..., s_p\rbrace$. In the communication model, $ e =<handle, d_r, d_s>$. 
+\subsubsection{Limitation of the Identification}
+If the transmitted data in the streams are considered to be identical, the matching is confirmed, otherwise it was a false negative error. However, we still can not exclude all the false negative errors, due to the data transmitted in two communications can be identical. Figure\ref{secondlevelmatching} indicates the ineffective second level matching scenario and the effective one.
 
-Each stream in $str$ contains four sub stream: $so, ss, sr, sc$.  The $handle$ of $e$ and $ch$ in $c$ can be acquired from the events in $so$. $d_r$ can be obtain from $sr$ while $d_s$ can be obtained from $ss$. And $pkg$ in the data stream in the communication model has a one to one relationship with $ev$ in the data send and receive stream in the dual\_trace model.
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.55]{Figures/secondlevelmatching}}
+ \caption{Second Level Matching Scenarios}
+\label{secondlevelmatching}
+\end{figure}
 
-By understanding this relationship, I am optimistic that as long as I can retrieve all the elements defined in the trace in dual\_trace model, there will be a way to identify the communication. In next chapter algorithms for communication identification will be discussed in detail. 
+\section{Communication Identification Process}
+The algorithms presented in this chapter
 
-
-\section{Communication Identification Algorithm}
-The identification of the communications from a dual\_trace should be able to identify the concerned communications as well as all the components defined in it. The inputs of this algorithm are the $dual\_trace=\left\lbrace tr0, tr1 \right\rbrace $ and the concerned communication method's function set $fset = \left \lbrace f_1,f_2...f_m \right\rbrace $. The output of this algorithm is all the identified communications of the concerned communication method. This is a very high level algorithm, details of each step in this algorithm will be discussed in the later sections.\par
-\begin{algorithm}[H]
-\DontPrintSemicolon
-\caption{{\bf Communication Identification Algorithm} \label{endpointIdentAlg}}
-\KwIn{$dual\_trace$, $fset$}
-\KwOut{$cs = \left\lbrace c_1, c_2...c_n\right\rbrace $}
-$i = 0;$\;
-\For{$tr \in dual\_trace$}{
-   $etri = eventfilter\left( tr, fset\right)$;\;
-   $stri = streamfilter\left( etr \right)$;\;
-}
-$cs = streammatch(str0, str1)$;\;
-\KwRet $cs$;\;
-\end{algorithm} 
