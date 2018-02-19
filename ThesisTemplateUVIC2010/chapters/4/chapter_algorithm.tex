@@ -3,16 +3,16 @@
 \externaldocument{../appendix/chapter_app}
 \startchapter{Communication Identification Algorithms}
 \label{chapter:alo}
-The goal of this work is to identify the communications from the dual\_trace. A dual\_trace is a pair of assembly level execution traces of two interacting programs. In this chapter, I discuss the characteristics of the execution trace and give the abstract definition of the execution trace. Based on the communication model in Chapter\ref{chapter:Mod}, I developed the algorithms for communication identification from dual\_trace. Traces captured by different tracers can be analyzed with these developed algorithms, as long as the traces comply the abstract trace definition.
+The goal of this work is to identify the communications from the dual\_trace. A dual\_trace is a pair of assembly level execution traces of two interacting programs. In this chapter, I discuss the characteristics of the execution trace and give the abstract definition of the dual\_trace and the execution trace. Based on the communication model in Chapter\ref{chapter:mod}, I designed the analysis approach for communication identification from the dual\_trace. This approach includes the algorithms and identification process.  For all traces comply with this abstract trace definition, this analysis approach can be applied for the communication identification.
 
 \section{Dual\_Trace}
-A dual\_trace consists of two assembly level execution traces of two interacting programs. There is no timing information of these two traces which means we don't know the timing relationship of the events of one trace with respect to the other. However the captured instructions in the trace are ordered in execution sequence. An execution trace consist of a sequence of executed instruction lines. Each instruction line contains the executed instruction, the changed memories, the changed registers, execution information. The execution info indicate the execution type which can be: Instruction, System call entry, System call exit, etc. For the execution type of system call entry and system call exit, system call Id is given in this information. With the system call id and the provided .dll files, the called system function name can be obtained. 
+A dual\_trace consists of two assembly level execution traces of two interacting programs. There is no timing information of these two traces which means we don't know the timing relationship of the events of one trace with respect to the other. However the captured instructions in the trace are ordered in execution sequence. An execution trace consist of a sequence of executed instruction lines. Each instruction line contains the executed instruction, the changed memories, the changed registers, execution information. The execution information indicates the execution type which can be: Instruction, System call entry, System call exit, etc. For the execution type of system call entry and system call exit, system call Id is given in this information. With the system call id and the provided .dll files, the called system function name can be obtained. 
 
 Based on the characteristics of the execution trace, a dual\_trace is defined as :
 
 $dual\_trace = \lbrace trace_0, trace_1\rbrace$
 
-where $trace_0$ and $trace_1$ are two assembly execution traces of two interacting programs.
+where $trace_0$ and $trace_1$ are two assembly execution traces.
 
 A trace is a sequence of executed instruction line. Hence, we can define a trace $trace$ as a sequence of $n$ instruction lines:
 
@@ -22,9 +22,9 @@ Each instruction line, $l$ is a tuple:
 
 $l = <ins, mch, rch, exetype, syscallInfo>$
 
-where $ins$ is the instruction, $mch$ is the memory changes, $rch$ is the register changes, $exetype$ is the execution type which can be instruction, system call entry, system call exit, and other types which are not concerned, $syscallInfo = <exeName, offset>$ only appear when $exetype$ is system call entry or system call exit. $exeName$ is the executable file(e.g .dll and .exe) name, while $offset$ is the offset of the system function in this executable file.
+where $ins$ is the instruction, $mch$ is the memory changes, $rch$ is the register changes, $exetype$ is the execution type which can be instruction, system call entry, system call exit, and other types which are not concerned in this work, $syscallInfo = <exeName, offset>$ only appear when $exetype$ is system call entry or system call exit. $exeName$ is the executable file(e.g .dll and .exe) name, while $offset$ is the offset of the system function in this executable file.
 
-Figure\ref{trace} is an example of a piece of execution trace comply to this definition. Some executed instructions are hidden to highlight the characteristic of the trace. 
+Figure\ref{trace} is an example of a piece of execution trace complying to this definition. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.5]{Figures/trace}}
@@ -32,7 +32,7 @@ Figure\ref{trace} is an example of a piece of execution trace comply to this def
 \label{trace}
 \end{figure}
 
-Figure\ref{executable} is an example of the information decoded from a executable file kernal32.dll, from which the function name can be obtained by the offset.
+Figure\ref{executable} is an example of the information decoded from a executable file kernal32.dll. From this example we can see if an instruction line is a system call entry and its $syscallInfo = <kernal32.dll, 0x11870>$, this line is a function call to $copyFileExW$.
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.6]{Figures/executable}}
@@ -41,14 +41,19 @@ Figure\ref{executable} is an example of the information decoded from a executabl
 \end{figure}
 
 \section{Function Event Reconstruction Algorithm}
-In last section, I define the assembly execution trace. As to this definition, it is possible to recognize the function call and function call return from the trace.  In this section, I define the function event and discuss the algorithm to reconstruct the function events from the assembly execution trace. 
+In last section, I define the assembly execution trace. As to this definition, it is possible to recognize the function call and function call return from the trace.  In this section, I define the function event and present the algorithm to reconstruct the function call events from the assembly execution trace. 
 
+There would be lots of function calls in an execution trace while most of them are not of interest. This algorithm will only reconstruct the function calls of a specific communication method. To be able to identify and reconstruct the functions of interest, the communication description is required. The communication description is a set of function descriptions of a communication method and defined as:
 
-There would be lots of function calls in an execution trace while most of them are not of interest. This algorithm will only reconstruct those function calls of interest. To be able to identify the functions of interest, function descriptions is required. The function descriptions $fdes$ are:
+$cdes = {fdes_1, fdes_2,...,fdes_p}$
 
-A list of function descriptions of a communication method, each description includes a function name, a function type indicator and a function description. The function type indicator is marked as one of the four types: open, close, send and receive events. This indicator is not needed in this algorithm but will be used in the stream extraction algorithm. The function description illustrate how the current registers and memory contents map to a given function call and the list of its parameter of interest(you might not care for all parameters). 
+Each element $fdes$ of $cdes$ consists of a function name, a function type and a parameter description and can be defined as:
 
-Table\ref{functionexample} is an example of an element in the function descriptions. In this example, the function name is ReadFile, it is a function for data receiving. The description includes the concerned parameters, which are File Handle, Send Buffer and Message Length. The File Handle is a input parameter which is a value stored in the register RCX. The Send Buffer is an address for the input message stored in the register RAX. The Message Length is a output value stored in register R9. The value of the input parameters can be retrieved from the memory reconstruction on the function call instruction line while the value of the output parameters can be retrieved from the memory reconstruction on the function return instruction line. If a parameter is a address instead of value, the address should be retrieved first, then the retrieved address should be used to find the buffer content in the memory reconstruction result as well.  The function description requires the understanding of the calling convention of the operating system. More example will be given in Chapter\ref{chapter:newsol}.
+$fdes = {name, type, pdes}$
+
+where, $name$ is the function name, $type$ is the function type which can be one of the four types: $open$, $close$, $send$ and $receive$. the function type is not used in this algorithm but will be inherited by the reconstructed function events and used in the stream extraction algorithm. $pdes$ is the parameter descriptions illustrate how the registers and memory contents map to a given function call and the list of its parameter of interest(you might not care for all parameters). 
+
+Table\ref{functionexample} is an example of a function description. In this example, the function name is ReadFile, it is a function for data receiving, so that function type is $receive$. The parameter description includes the concerned parameters, which are File Handle, Send Buffer and Message Length. The File Handle is a input parameter which is a value stored in the register RCX. The Send Buffer is an address for the input message stored in the register RAX. The Message Length is a output value stored in register R9. The value of the input parameters can be retrieved from the memory reconstruction on the function call instruction line while the value of the output parameters can be retrieved from the memory reconstruction on the function return instruction line. If a parameter is a address instead of value, the address should be retrieved first, then the retrieved address should be used to find the buffer content in the memory reconstruction result as well.  The function description requires the understanding of the calling convention of the operating system. More example will be given in Chapter\ref{chapter:newsol}.
 
 \begin{table}[H]
         \centering
@@ -61,7 +66,7 @@ Table\ref{functionexample} is an example of an element in the function descripti
              & & \textbf{Parameter}& \textbf{Register/Stack Position}& \textbf{In or Out} &  \textbf{Buffer Or Value}  \\
              \hline
              \multirow{3}{*}{ReadFile}
-             &\multirow{3}{*}{data receive} &  Handle & RCX & In & Value\\
+             &\multirow{3}{*}{receive} &  Handle & RCX & In & Value\\
               \cline{3-6} 
              & & SendBuffer & RDX & In & Address\\
               \cline{3-6} 
@@ -70,17 +75,17 @@ Table\ref{functionexample} is an example of an element in the function descripti
         \end{tabular}
     \end{table}
 
-With the function descriptions and the execution trace as input, the function event reconstruction algorithm outputs all the function call events from the execution trace. A function call event is defined as a tuple:
+With the communication method description and the execution trace as input, the function event reconstruction algorithm outputs a size $m$ sequence of function call events which can be defined as:
+
+$etr = (ev_1, ev_2, ..., ev_m)$
+
+A function call event $ev$ in $etr$ is defined as a triplet:
 
 $ev = <funN, paras, type>$
 
-where $funN$ is the function name, $paras$ includes all the input/output parameters and the return value, and $type$ is the event type which can be one of the four types: open, send, receive and close.
+where $funN$ is the function name, $paras$ includes all the input/output parameters with the parameter name and value, and $type$ is the event type which inherit from the function description and can be one of the four types: $open$, $send$, $receive$ and $close$.
 
 Note: if the parameter is an address, the value is the string from the buffer pointed by this address instead of the address value.
-
-The output of the function event reconstruction algorithm $etr$ is a size $m$ sequence of function call events which can be defined as:
-
-$etr = (ev_1, ev_2, ..., ev_m)$
 
 An example of a sequence of function call events as the output of this algorithm is shown in Listing\ref{eventsexample}.
 
@@ -94,35 +99,34 @@ An example of a sequence of function call events as the output of this algorithm
 {funN:CloseHandle, paras:{Handler:18}, type:close}
 \end{lstlisting}
 
+
+Algorithm\ref{eventAlg} shows the detail of the function event reconstruction algorithm.
 \begin{algorithm}[H]
 \DontPrintSemicolon
 \caption{{\bf Function Event Reconstruction Algorithm} \label{eventAlg}}
-\KwIn{ $trace, fdes$}
+\KwIn{ $trace, cdes$}
 \KwOut{$etr$}
 $etr \leftarrow \emptyset$\; 
 Emulate the Execute of each instruction line of the trace;\;
-\If{The instruction is a call to a function in the $fdes$}{
+\If{The instruction is a call to a function in the $cdes$}{
    Create an new function call event $ev$;\;
-   $ev.funN  \leftarrow$ Function Name from the $fdes$;\;
-   $ev.type  \leftarrow$ Function Type from the $fdes$;\;
+   $ev.funN  \leftarrow fdes.name$;\;
+   $ev.type  \leftarrow fdes.type$;\;
    Append all the input parameters of interest to $ev.paras$;\;
    Continue the emulation until the function call return line;\;
    Append all the output parameters of interest to $ev.paras$;\;
-   Append $ev$ to $etr$;\;
+   $etr.append(ev)$;\;
 }
 \KwRet $etr$;\;
 \end{algorithm} 
 
-The function event reconstruction algorithm listed in Algorithm\ref{eventAlg} is designed for reconstruct the function call events of a communication method. If multiple communication methods are under investigated, this algorithm can be run multiple times to achieve the goal. Since the function descriptions usually contain a  small number of concerned functions compared to the instruction line number in the execution trace, the time complexity of this algorithm is O(N) , N is the instruction line number of the trace.
+This algorithm is designed to reconstruct the function call events of a communication method. If multiple communication methods are under investigated, this algorithm can be run multiple times to achieve the goal. Since the function descriptions usually contain a  small number of concerned functions compared to the instruction line number in the execution trace, the time complexity of this algorithm is O(N) , N is the instruction line number of the trace.
 
-
-
-
-\section{Channel Open Mechanisms}
+\section{Channel Open Mechanisms}\label{mecha}
 The channel open mechanism affect the stream identification and matching strategy. So I discuss them before presenting those algorithms. The channel open mechanism of named pipe and message queue is relatively simple. In windows implementation, only one function call is related to the handle identification of the stream. However, for TCP and UDP the mechanism is slightly complicated.
 
 \subsection{Named Pipe Channel Open Mechanisms} 
-A named pipe server is responsible for the creation of the pipe, while clients can connect to the pipe after it was created. The creation and connection of a named pipe returns the Filehandle of that pipe. So the identification of the stream only need to identify the pipe creation function call on the server side and the pipe connection function call on the client side. The Filehandle returned by these function calls will be used later when data is being sent or received to a specified pipe. Figure\ref{namedpipeopen} exemplify the channel set up process for a Named Pipe communication in Windows. 
+For Named Pipe communication method, a named pipe server is responsible for the creation of the pipe, while clients can connect to the pipe after it was created. The creation of a named pipe returns the handle of that pipe. So the identification of the stream only need to identify the pipe creation function call on the server side and the pipe connection function call on the client side. The handle returned by these function calls will be used later when data is being sent or received to a specified pipe. Figure\ref{namedpipeopen} exemplify the channel set up process for a Named Pipe communication in Windows. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.45]{Figures/namepipechannelopen}}
@@ -131,7 +135,7 @@ A named pipe server is responsible for the creation of the pipe, while clients c
 \end{figure}
     
 \subsection{Message Queue Channel Open Mechanisms} 
-For the Message Queue communication method, the endpoints of the communication can create the queue or use the existing one. However, both of them have to open the queue before they access it. The QueueHandle returned by the open queue function will be used later on when messages are being sent or received to identify the queue. Figure\ref{msmqopen} exemplify the channel set up process for a Message Queue communication in Windows.
+For the Message Queue communication method, the endpoints of the communication can create the queue or use the existing one. However, both endpoints have to open the queue before they access it. The handle returned by the open queue function will be used later when messages are being sent or received to identify the queue. Figure\ref{msmqopen} exemplify the channel set up process for a Message Queue communication in Windows.
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.45]{Figures/msmqchannelopen}}
  \caption{Channel Open Process for a Message Queue in Windows}
@@ -139,7 +143,7 @@ For the Message Queue communication method, the endpoints of the communication c
 \end{figure}
 
 \subsection{UDP and TCP Channel Open Mechanisms} 
-The communication channel is set up by both of the endpoints for UDP and TCP channels. The function \textit{socket} should be called to create their own socket on both endpoints. After the socket handle are created, the server endpoint binds the socket to its service address and port by calling the function \textit{bind}. Then the server endpoint calls the function  \textit{accept} to accept the client connection. The client will call the function \textit{connect} to connect to the server. When the function \textit{accept} return successfully, a new socket handle will be generated and returned for further data transfer between the server endpoint and  the connected client endpoint. After all these operations are performed successfully, the channel is established and the data transfer can start. During the channel open stage, server endpoint has two socket handles, the first one is used to listen to the connection from the client, while the second one is created for real data transfer. Figure\ref{channelopen2} exemplify the channel open process for TCP and UDP  in Windows.
+For UDP and TCP communication methods, the communication channel is set up by both endpoints of UDP and TCP channels. The function \textit{socket} should be called to create their own socket on both endpoints. After the socket handle are created, the server endpoint binds the socket to its service address and port by calling the function \textit{bind}. Then the server endpoint calls the function  \textit{accept} to accept the client connection. The client will call the function \textit{connect} to connect to the server. When the function \textit{accept} return successfully, a new socket handle will be generated and returned for further data transfer between the server endpoint and  the connected client endpoint. After all these operations are performed successfully, the channel is established and the data transfer can start. During the channel open stage, server endpoint has two socket handles, the first one is used to listen to the connection from the client, while the second one is created for real data transfer. Figure\ref{channelopen2} exemplify the channel open process for TCP and UDP  in Windows.
     
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.45]{Figures/tcpudpchannelopen}}
@@ -148,9 +152,11 @@ The communication channel is set up by both of the endpoints for UDP and TCP cha
 \end{figure}
 
 \section{Stream Extraction Algorithm}
-The function call events in the $etr$ may belong to different streams. A stream is a size $k$ sequence of function call events correspond to the same endpoint of a communication which can be defined as:
+The function call events in the $etr$ may belong to different endpoint. A stream is a size $k$ sequence of function call events correspond to the same endpoint of a communication which can be defined as:
 
 $s = (ev_1, ev_2, ..., ev_k)$
+
+$s$ contains the channel open function call events, data send function call events, data receive function call events and channel close function call events. According to the channel open mechanisms discussed in Section\ref{mecha}, the handle of the endpoint can be retrieved from the channel open function call events, while the data streams of the endpoint can be received from send function call events and data receive function call events. So that, given the stream $s$, the endpoint $ e =<handle,  d_r, d_s>$ defined in a communication in Chapter\ref{chapter:mod} can be retrieved.
 
 Note: the definition of $ev$ in $s$ is identical to the that in $etr$. However, the event numbering of $s$ is different from $etr$. For example, $ev_1$ in $s$ and $ev_1$ in $etr$ might be different events.
 
@@ -308,37 +314,31 @@ $cs \leftarrow \emptyset$\;
            $localServerAddr \leftarrow$ get serverAddr from $bindev_1.paras$;\;
            $remoteServerAddr \leftarrow$ get serverAddr from $connectev_0.paras$;\; 
        }
-       \If{$localServerAddr == remoteServerAddr$}{
-          \If{$DataVerified == True$}{
+       \If{$localServerAddr == remoteServerAddr$}{                  
             $c.s_0 = s_0$;\;
             $c.s_1 = s_1$;\;
             $cs.append(c)$;\;
           }
        }
     }
-   }
-}
+ }
 \KwRet $cs$;\;
 \end{algorithm}
 
 \section{Stream Data Verification Algorithm}\label{verfication}
-The data stream verification aims to verify if the matched two streams align with the communication properties of the communication model in Chapter\ref{chapter:mod}. The data transfer characteristics divided the communications into reliable and unreliable categories. Named Pipe and TCP fall in the reliable category while Message Queue and UDP fall in the unreliable one. The properties of the models consists of content preservation and timing preservation. Due to the preservation set are different from the reliable to the unreliable communications, two verification algorithms are designed. 
-
-The inputs of the data stream verification algorithms is the preliminary identified communication set $cs$ output by the stream matching algorithms. The output is the verified communication set $vcs$ which will be a sub set of $cs$, excluding those communications don't satisfy align to the content preservation and timing preservation.
-
-\subsection{Stream Data Verification Algorithm for Reliable Communication(Named Pipe and TCP)}
-As to the data stream properties of the reliable communication discussed in Section\ref{properties}, the content preservation means the received data of an endpoint should always be a prefix of(potentially equal to) the data sent while the timing preservation means at any given point in time, the data received by an endpoint should be a prefix of the data that has been sent from the other endpoint. In the dual\_trace, a stream is actually correspond to an endpoint in a communication. So the data stream verification should disqualify those matched streams which don't satisfy the content preservation or the timing preservation.
-
-This algorithm has two steps: 
+The data stream verification aims to verify if the matched two streams align with the communication properties of the communication model in Chapter\ref{chapter:mod}. The data transfer characteristics divided the communications into reliable and unreliable categories. Named Pipe and TCP fall in the reliable category while Message Queue and UDP fall in the unreliable one. The properties of the models consists of content preservation and timing preservation. So that the verification should cover both the content preservation and timing preservation: 
 \begin{itemize}
-\item verify the timing preservation of the data in the matched streams. 
 \item verify the content preservation of the data in the matched streams. 
+\item verify the timing preservation of the data in the matched streams. 
 \end{itemize}
-The sequence of the these two step doesn't matter in the perspective of effectiveness, but affect the performance. In both steps the verification need to concatenate the payload of the sent packets and the payload of the received packet. The accumulated result of timing preservation verification can be used by the content preservation verification. So that, it is reasonable to verify the timing preservation first.
 
-Even thought both Named Pipe and TCP are both reliable communication methods, their data transfer properties are slightly different from each other. I investigated and present their properties here. The algorithm development depends on the result of this investigation.
- 
-\subsubsection{Named Pipe}\label{namedpipe}
+To verify the timing preservation, the relative time of the events in the stream is needed. Unfortunately, the timing of the events in the two streams can not be determined. So that it's impossible to verify the timing preservations no matter for reliable or unreliable communications. The verification algorithm discuss in this section will only cover the content preservation.  
+
+The inputs of the data stream verification algorithms are two preliminary matched streams $s_0$ and $s_1$. The output is the a boolean indicate if the streams satisfy the preservations. All communications don't satisfy the content preservation and timing preservation should be excluded.
+
+For each communication method the verification of the corresponding preservation is applied, That is for Named Pipe and TCP,  the reliable communication preservations need to be verified when for Message Queue and UDP the unreliable communication preservations need to be verified. The following sub sections present the versification  algorithm for these four communication methods. In each sub section, I discuss the data transfer properties and scenarios of the communication method then present the developed verification algorithm.
+
+\subsection{Stream Data Verification Algorithm for Named Pipe}
 A named pipe provides FIFO communication mechanism for inter-process communication. It can be a one-way or a duplex pipe. \cite{khambattinamed}
 
 The basic data transfer characteristics of Named Pipe are:
@@ -352,12 +352,31 @@ The basic data transfer characteristics of Named Pipe are:
 
 Based on these characteristics, the data transfer scenarios of Named pipe can be exemplified in Figure\ref{namedpipe}. 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.48]{Figures/namedpipe}}
+\centerline{\includegraphics[scale=0.4]{Figures/namedpipe}}
 \caption{Data Transfer Scenarios for Named Pipe}
 \label{namedpipe}
 \end{figure}
 
-\subsubsection{TCP}\label{tcp}
+The content preservation verification is trivial as comparing the concatenation of the packet content of the sent events in a stream to the the concatenation of the packet content of the receive events in the other stream, which is presented in Algorithm\ref{channelopen2}.
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf Transmitted Verification of Named Pipe} \label{dataAlg1}}
+\KwIn{$s_0, s_1$}
+\KwRet{$satisfied$}\;
+$send_0 \leftarrow$ concatenation of the payload of send function call events in $s_0$;\;
+$send_1 \leftarrow$ concatenation of the payload of send function call events in $s_1$;\;
+$receive_0 \leftarrow$ concatenation of the payload of receive function call events in $s_0$;\;
+$receive_1 \leftarrow$ concatenation of the payload of receive function call events in $s_1$;\;
+\If{$receive_1$ is prefix of $send_0$ AND $receive_0$ is prefix of $send_1$ }{
+   \KwRet True;\;
+}
+\Else{
+    \KwRet False;\;
+}
+\end{algorithm} 
+
+\subsection{Stream Data Verification Algorithm for TCP}
 TCP is the most fundamental reliable transport method in computer networking. TCP provides reliable, ordered, and error-checked delivery of a stream of octets between applications running on hosts in an IP network. The TCP header contains the sequence number of the sending octets and the acknowledge sequence this endpoint is expecting from the other endpoint(if ACK is set). The re-transmission mechanism is based on the ACK. 
 
 The basic data transfer characteristics of TCP are:
@@ -370,76 +389,42 @@ The basic data transfer characteristics of TCP are:
 
 Based on these characteristics,  the data transfer scenarios of TCP can be exemplified in Figure\ref{tcp}.
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.48]{Figures/tcp}}
+\centerline{\includegraphics[scale=0.4]{Figures/tcp}}
  \caption{Data Transfer Scenarios for TCP}
 \label{tcp}
 \end{figure}
 
-For both Named Pipe and TCP cases, I use the notation 
-
-$time(ev)$
-
-to denote this relative time of the $ev$ in the stream. 
-
-Say $(evs_{01},evs_{02},...,evs_{0M})$ is the set of sent function call events in $s_0$,  $(evr_{01},evr_{02},...,evr_{0N})$ is the set of receive function call events in $s_0$, $(evs_{11},evs_{12},...,evs_{1P})$ is the set of sent function call events in $s_1$ and
-$(evr_{11},evr_{12},...,evr_{1Q})$ is the set of receive function call events in $s_1$. 
-
-As to the data transfer characteristics of Named Pipe, it is determined that: 
-\begin{itemize}
-\item For any $i \in {1..\min_{M,Q}}, time(evs_{0i}) < time(evr_{1i})$
-\item For any $i \in {1..\min_{P,N}}, time(evs_{1i}) < time(evr_{0i})$
-\end{itemize}
-
-\subsubsection{Limitation}
-Due to the timing preservation description, the condition of the timing preservation should be $time(evs_j) < time(evr_k)$
+Regrading to the data transfer properties of TCP, the verification can be restricted to packet to packet. If all the send and receive events of the two streams can be matched, we can assert that the content preservation are satisfied. The verification algorithm of TCP is presented in Algorithm\ref{dataAlg2}.
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf Transmitted Verification by Data Union} \label{dataAlg1}}
-\KwIn{$s0, s1$}
-\KwOut{send data union and receive data union of two streams}
-\KwRet{Indicator of if transmitted data union are considered to be identical}\;
-$send1 \leftarrow$ empty string;\;
-$send2 \leftarrow$ empty string;\;
-$recv1 \leftarrow$ empty string;\;
-$recv2 \leftarrow$ empty string;\;
-\For{$sendEvent \in s0.ss$}{
-   $sendmessage \leftarrow$ get the input buffer content from the $sendEvent.in$;\;
-   $send0.append\left( sendmessage \right)$;\;
+\caption{{\bf Transmitted Verification of TCP} \label{dataAlg2}}
+\KwIn{$s_0, s_1$}
+\KwRet{$satisfied$}\;
+$sends_0 \leftarrow$ all sent events of $s_0$ in sequence;\;
+$sends_1 \leftarrow$ all sent events of $s_1$ in sequence;\;
+$receives_0 \leftarrow$ all receive events of $s_0$ in sequence;\;
+$receives_1 \leftarrow$ all receive events of $s_1$ in sequence;\;
+\If{$sends_0.size != receives_1.size$ Or $sends_1.size != receives_0.size$ }{
+   \KwRet False;\;
 }
-\For{$sendEvent \in s1.ss$}{
-   $sendmessage \leftarrow$ get the input buffer content from the $sendEvent.in$;\;
-   $send1.append\left( sendmessage \right)$;\;
+\For{$i \in {0..sends_0.size}$}{
+     \If{$sends_0[i].payload != receives_1[i].payload$}{
+       \KwRet False;\;
+   }
 }
-\For{$recvEvent \in s0.sr$}{
-   $recvmessage \leftarrow$ get the output buffer content from the $recvEvent.out$;\;
-   $recv0.append\left( sendmessage \right)$;\;
+\For{$i \in {0..sends_1.size}$}{
+     \If{$sends_1[i].payload != receives_0[i].payload$}{
+       \KwRet False;\;
+   }
 }
-\For{$recvEvent \in s1.sr$}{
-   $recvmessage \leftarrow$ get the output buffer content from the $recvEvent.out$;\;
-   $recv1.append\left( sendmessage \right)$;\;
-}
-\If{$recv0$ is substring of $send1$ AND $recv1$ is substring of $send0$ }{
-   \KwRet True;\;
-}
-\Else{
-    \KwRet False;\;
-}
+ \KwRet True;\;
 \end{algorithm} 
 
 
 
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/secondlevelmatching}}
- \caption{Second Level Matching Scenarios}
-\label{secondlevelmatching}
-\end{figure}
-
-\subsection{Stream Data Verification Algorithm for Unreliable Communication (MSMQ and UDP)}
-For the unreliable communication methods, the data packets being transmitted are not delivery and ordering guaranteed. So it is impossible to verify the transmitted data as a whole chunk. Fortunately, the packets arrived to the receivers are always as the original one from the sender. Therefore, we perform the transmitted data verification by single events instead of the whole stream. This algorithm basically goes through events of the $ss$ in one stream trying to find the matched receive event in the $sr$ in the other stream. And then calculate the fail packet arrival rate. The fail packet arrival rate should be comparable to the packet lost rate. So we set the packet lost rate as the threshold to determine if the transmitted data can considered to be identical in both directions. The packet lost rate can be various from network to network or even from time to time for the same network. The inputs of this algorithm are the copies of two streams from two traces which are being matched and the packet lost rate as the threshold. I use copies instead of original data is to modify the input list directly in the algorithm. The threshold should be an integer. For example if the lost rate is 5\%, the threshold should be set as 5. 
-
-\subsubsection{Message Queue}\label{msmq}
-Message Queuing (MSMQ) is a communication method to allow applications which are running at different times across heterogeneous networks and systems that may be temporarily offline can still communicate with each other. Messages are sent to and read from queues by applications. Multiple sending applications can send messages to and multiple receiving applications can read messages from one queue.\cite{redkar2004pro} In this work, only one sending application versus one receiving application case is considered. Multiple senders to multiple receivers scenario can be divided into multiple sender and receiver situation. Both applications of a communication can send to and receive from the channel.
+\subsection{Stream Data Verification Algorithm for  Message Queue }
+Message Queuing is a communication method to allow applications which are running at different times across heterogeneous networks and systems that may be temporarily offline can still communicate with each other. Messages are sent to and read from queues by applications. Multiple sending applications can send messages to and multiple receiving applications can read messages from one queue.\cite{redkar2004pro} In this work, only one sending application versus one receiving application case is considered. Multiple senders to multiple receivers scenario can be divided into multiple sender and receiver situation. Both applications of a communication can send to and receive from the channel.
 
 The basic data transfer characteristics of Message Queue are:
 \begin{itemize}
@@ -450,13 +435,56 @@ The basic data transfer characteristics of Message Queue are:
 \end{itemize}
 Based on these characteristics, the data transfer scenarios of Message Queue can be exemplified in Figure\ref{msmq}.
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.48]{Figures/msmq}}
+\centerline{\includegraphics[scale=0.4]{Figures/msmq}}
 \caption{Data Transfer Scenarios for Message Queue}
 \label{msmq}
 \end{figure}
 
+To verify the content preservation of the unreliable communication, Algorithm\ref{dataAlg3} try to find the match sent packet in the other stream for each received packet. If any of the received packet can not be match, the content preservation is not satisfied. Since the sent packets are received in order, the searching for each received packet will start from the next index of the last matching sent packet.
 
-\subsubsection{UDP}\label{udp}
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\caption{{\bf Transmitted Verification of Message Queue } \label{dataAlg3}}
+\KwIn{$s_0, s_1$}
+\KwRet{$satisfied$}\;
+$sends_0 \leftarrow$ all sent events of $s_0$ in sequence;\;
+$sends_1 \leftarrow$ all sent events of $s_1$ in sequence;\;
+$receives_0 \leftarrow$ all receive events of $s_0$ in sequence;\;
+$receives_1 \leftarrow$ all receive events of $s_1$ in sequence;\;
+\If{$sends_0.size < receives_1.size$ Or $sends_1.size < receives_0.size$ }{
+   \KwRet False;\;
+}
+$lastMatchIndex = 0$;\;
+\For{$i \in {0..receives_1.size}$}{
+     $tempIndex = lastMatchIndex$;\;
+     \For{$j \in {lastMatchIndex+1..sends_0.size}$}{
+             \If{$sends_0[j].payload == receives_1[i].payload$}{
+                      $lastMatchIndex = j$;\;
+                      break the inner For loop;\;
+            }  
+     }   
+\tcp*[f]{This received packet can not be matched by any sent packet}\;      
+     \If{$tempIndex == lastMatchIndex$}{
+                      \KwRet False;\;
+            }     
+}     
+$lastMatchIndex = 0$;\;
+\For{$i \in {0..receives_0.size}$}{
+     $tempIndex = lastMatchIndex$;\;
+     \For{$j \in {lastMatchIndex+1..sends_1.size}$}{
+             \If{$sends_1[j].payload == receives_0[i].payload$}{
+                      $lastMatchIndex = j$;\;
+                      break the inner For loop;\;
+            }  
+     }   
+     \If{$tempIndex == lastMatchIndex$}{
+                      \KwRet False;\;
+            }     
+}  
+ \KwRet True;\;
+\end{algorithm} 
+
+\subsection{Stream Data Verification Algorithm for  UDP}
 UDP is a widely used unreliable transmission method in computer networking. It is a simple protocol mechanism, which has no guarantee of delivery, ordering, or duplicate protection. This transmission method is suitable for many real time systems. 
 
 The basic data transfer characteristics of UDP are:
@@ -469,67 +497,83 @@ The basic data transfer characteristics of UDP are:
 
 Based on these characteristics, the data transfer scenarios of UDP can be exemplified in Figure\ref{upd}.
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.48]{Figures/udp}}
+\centerline{\includegraphics[scale=0.4]{Figures/udp}}
  \caption{Data Transfer Scenarios for UDP}
 \label{upd}
 \end{figure}
 
-
+Similar to Message Queue, Algorithm\ref{dataAlg4} try to find the match sent packet in the other stream for each received packet. If any of the received packet can not be match, the content preservation is not satisfied. However, due to the disordering can happen in UDP, the searching for each received packet will not constraint the searching index. But the matched sent packet will excluded from the following searching, which means each sent packet can only match to one received packet.
 \begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf Transmitted Verification by Data of Events } \label{dataAlg2}}
-\KwIn{$s0, s1$}
-\KwOut{matched event list of two endpoints}
-\KwRet{Indicator of if transmitted data union are considered to be identical}\;
-$sendPktNum0 \leftarrow s0.ss.length$;\;
-$sendPktNum1 \leftarrow s1.ss.length$;\;
-$recvPktNum0 \leftarrow 0$;\;
-$recvPktNum1 \leftarrow 0$;\;
-$eventMatchs \leftarrow List \langle EventMatch \rangle$;\;
-\For{$sendEvent \in s0.ss$}{
-   $sendmessage \leftarrow$ get the input buffer content from the $sendEvent.in$;\;
-   \For{$recvEvent \in s1.sr$}{
-      $recvmessage \leftarrow$ get the output buffer content from the $recvEvent.out$;\;
-      \If{$sendmessage == recvmessage$}{
-         $recvPktNum0++$;\;
-         $stream1.sr.remove\left( recvEvent \right)$;\;
-         $eventMatch = New eventMatch\left( \right)$;\;
-         $eventMatchs.add\left( eventMatch \right)$;\;
-      }
-   }
+\caption{{\bf Transmitted Verification of UDP} \label{dataAlg4}}
+\KwIn{$s_0, s_1$}
+\KwRet{$satisfied$}\;
+$sends_0 \leftarrow$ all sent events of $s_0$ in sequence;\;
+$sends_1 \leftarrow$ all sent events of $s_1$ in sequence;\;
+$receives_0 \leftarrow$ all receive events of $s_0$ in sequence;\;
+$receives_1 \leftarrow$ all receive events of $s_1$ in sequence;\;
+\If{$sends_0.size < receives_1.size$ Or $sends_1.size < receives_0.size$ }{
+   \KwRet False;\;
 }
-
-\If{$ \left(sendPktNum0-recvPktNum0\right)*100/sendPktNum0 > threshold$}{
- \KwRet False;\;
-}
-
-\For{$sendEvent \in s1.ss$}{
-   $sendmessage \leftarrow$ get the input buffer content from the $sendEvent.inputs$;\;
-   \For{$recvEvent \in s0.sr$}{
-      $recvmessage \leftarrow$ get the output buffer content from the $recvEvent.out$;\;
-      \If{$sendmessage == recvmessage$}{
-         $recvPktNum1++$;\;
-         $s0.sr.remove\left( recvEvent \right)$;\;
-      }
-   }
-}
-
-\If{$ \left(sendPktNum1-recvPktNum1\right)*100/sendPktNum1 > threshold$}{
- \KwRet False;\;
-}
+\For{$i \in {0..receives_1.size}$}{
+    $matchFlag = False$;\;
+     \For{$j \in {0..sends_0.size}$}{
+             \If{$sends_0[j].payload == receives_1[i].payload$}{
+                      $matchFlag = True$;\;
+                      delete the packet from $sends_0$
+                      break the inner For loop;\;
+            }  
+     }   
+\tcp*[f]{This received packet can not be matched by any sent packet}\;      
+     \If{$tematchFlay == False$}{
+                      \KwRet False;\;
+            }     
+}     
+\For{$i \in {0..receives_0.size}$}{
+    $matchFlag = False$;\;
+     \For{$j \in {0..sends_1.size}$}{
+             \If{$sends_1[j].payload == receives_0[i].payload$}{
+                      $matchFlag = True$;\;
+                      delete the packet from $sends_0$
+                      break the inner For loop;\;
+            }  
+     }   
+     \If{$tematchFlay == False$}{
+                      \KwRet False;\;
+            }     
+} 
  \KwRet True;\;
-\end{algorithm}
+\end{algorithm} 
 
 
-\subsubsection{Limitation of the Identification}
-If the transmitted data in the streams are considered to be identical, the matching is confirmed, otherwise it was a false negative error. However, we still can not exclude all the false negative errors, due to the data transmitted in two communications can be identical. Figure\ref{secondlevelmatching} indicates the ineffective second level matching scenario and the effective one.
+\section{Communication Identification Process}
+The general communication identification of the dual\_trace consist of the algorithms presented previously in this chapter and can be summarized as the follow steps with the corresponding algorithm for each communication categories(i.e. reliable or unreliable) and each communication methods:
+
+\textbf{Step 1.} Execute the Function Event Reconstruction algorithm to the two traces in the dual\_trace
+
+\textbf{Step 2.} Execute the Stream Exaction Algorithm to the both traces 
+
+\textbf{Step 3.} Use the Stream Matching Algorithm to match the streams of the two traces
+
+\textbf{Step 4.} Verify the matched streams by the their satisfaction of the content preservation
+
+\textbf{Step 5.}  Include the matched streams that satisfy the preservation
+
+\textbf{Step 5.}  Retrieve the endpoint $e =<handle,  d_r, d_s>$ and channel identifier $c$ from the matched streams and output the communications. (No corresponding algorithm for this step since the retrieval is only reorganize the information in the streams and is trivial)
+
+
+\section{Limitation of the Identification}
+The Identification discussed in this chapter is not perfect. It has two major limitations:
+
+1. The timing preservation of the communication is not verified.
+
+2. Due to the data transmitted in two communications can be identical(or their difference can not be tell by the content verification), the false negative error of the identification can not be eliminated. Figure\ref{secondlevelmatching} indicates the ineffective and effective identification scenarios. 
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/secondlevelmatching}}
- \caption{Second Level Matching Scenarios}
+\centerline{\includegraphics[scale=0.45]{Figures/secondlevelmatching}}
+ \caption{Communication Identification Scenarios}
 \label{secondlevelmatching}
 \end{figure}
 
-\section{Communication Identification Process}
-The algorithms presented in this chapter
+
 
