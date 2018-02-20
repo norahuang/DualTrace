@@ -1,8 +1,6 @@
-\begin{appendices}
-\chapter{Terminology}\label{term}
-\begin{enumerate}  
+\begin{appendices}	
 \chapter{Microsoft x64 Calling Convention for C/C++}\label{convention}
-\begin{enumerate}  
+\begin{itemize}  
 \item RCX, RDX, R8, R9 are used for integer and pointer arguments in that order left to right.
 \item XMM0, 1, 2, and 3 are used for floating point arguments.
 \item Additional arguments are pushed on the stack left to right. \ldots 
@@ -10,7 +8,7 @@
 \item Integer return values (similar to x86) are returned in RAX if 64 bits or less.
 \item Floating point return values are returned in XMM0.
 \item Larger return values (structs) have space allocated on the stack by the caller, and RCX then contains a pointer to the return space when the callee is called. Register usage for integer parameters is then pushed one to the right. RAX returns this address to the caller.
-\end{enumerate}
+\end{itemize}
 
 \chapter{Function Set Configuration Example}\label{funcset}
 \lstinputlisting[caption= communicationMethods.json]{./sourcecode/communicationMethods.json}

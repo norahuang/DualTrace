@@ -1,9 +1,13 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  18 FEB 2018 23:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  19 FEB 2018 21:26
 entering extended mode
  restricted \write18 enabled.
+ file:line:error style messages enabled.
  %&-line parsing enabled.
-**mainthesisUVIC.tex
-(./mainthesisUVIC.tex
+**/Users/sunxi/WorkNStudy/git/DualTrace/ThesisTemplateUVIC2010/mainthesisUVIC.t
+ex
+
+(/Users/sunxi/WorkNStudy/git/DualTrace/ThesisTemplateUVIC2010/mainthesisUVIC.te
+x
 LaTeX2e <2016/03/31>
 Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/book.cls
@@ -462,11 +466,8 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@ppsaveapp=\count137
 ) (./mainthesisUVIC.aux (./chapters/1/chapter_intro.aux)
 (./chapters/2/chapter_background.aux) (./chapters/3/chapter_modeling.aux)
-(./chapters/4/chapter_algorithm.aux) (./chapters/5/chapter_implementation.aux
-
-LaTeX Warning: Label `idenview' multiply defined.
-
-) (./chapters/6/chapter_evaluation.aux) (./chapters/7/chapter_conclusion.aux)
+(./chapters/4/chapter_algorithm.aux) (./chapters/5/chapter_implementation.aux)
+(./chapters/6/chapter_evaluation.aux) (./chapters/7/chapter_conclusion.aux)
 (./chapters/appendix/chapter_app.aux
 
 LaTeX Warning: Label `paralleleditor' multiply defined.
@@ -732,7 +733,7 @@ Package pdftex.def Info: Figures/reliableexample.png used on input line 130.
 File: Figures/unreliableexample.png Graphic file (type png)
 
 <use Figures/unreliableexample.png>
-Package pdftex.def Info: Figures/unreliableexample.png used on input line 179.
+Package pdftex.def Info: Figures/unreliableexample.png used on input line 181.
 (pdftex.def)             Requested size: 289.28163pt x 250.08508pt.
  [14 <./Figures/unreliableexample.png>])
 [15]
@@ -767,7 +768,7 @@ File: Figures/trace.png Graphic file (type png)
 
 <use Figures/trace.png>
 Package pdftex.def Info: Figures/trace.png used on input line 30.
-(pdftex.def)             Requested size: 560.84395pt x 129.85983pt.
+(pdftex.def)             Requested size: 504.75612pt x 116.87305pt.
 
 <Figures/executable.png, id=102, 326.72063pt x 302.63063pt>
 File: Figures/executable.png Graphic file (type png)
@@ -775,75 +776,79 @@ File: Figures/executable.png Graphic file (type png)
 <use Figures/executable.png>
 Package pdftex.def Info: Figures/executable.png used on input line 38.
 (pdftex.def)             Requested size: 196.03387pt x 181.57977pt.
- [17 <./Figures/trace.png>] [18 <./Figures/executable.png>]
-Overfull \hbox (31.82018pt too wide) in paragraph at lines 56--70
+ [17 <./Figures/trace.png> <./Figures/executable.png>]
+Overfull \hbox (8.82845pt too wide) in paragraph at lines 62--76
  [][] 
  []
 
+[18]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 101.
-[19] [20] <Figures/namepipechannelopen.png, id=115, 673.51625pt x 406.51875pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 110.
+ [19] <Figures/namepipechannelopen.png, id=112, 673.51625pt x 406.51875pt>
 File: Figures/namepipechannelopen.png Graphic file (type png)
 
 <use Figures/namepipechannelopen.png>
-Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 124
+Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 131
 .
-(pdftex.def)             Requested size: 303.07951pt x 182.93173pt.
-
+(pdftex.def)             Requested size: 336.7573pt x 203.25887pt.
+ [20]
 <Figures/msmqchannelopen.png, id=116, 673.51625pt x 287.0725pt>
 File: Figures/msmqchannelopen.png Graphic file (type png)
 
 <use Figures/msmqchannelopen.png>
-Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 132.
-(pdftex.def)             Requested size: 303.07951pt x 129.18143pt.
+Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 139.
+(pdftex.def)             Requested size: 336.7573pt x 143.53589pt.
  [21 <./Figures/namepipechannelopen.png> <./Figures/msmqchannelopen.png>]
 <Figures/tcpudpchannelopen.png, id=123, 502.87875pt x 391.4625pt>
 File: Figures/tcpudpchannelopen.png Graphic file (type png)
 
 <use Figures/tcpudpchannelopen.png>
-Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 141.
-(pdftex.def)             Requested size: 226.29333pt x 176.1565pt.
+Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 148.
+(pdftex.def)             Requested size: 301.72957pt x 234.8793pt.
+ [22 <./Figures/tcpudpchannelopen.png>]
+[23] [24] [25]
+Overfull \vbox (44.37068pt too high) has occurred while \output is active []
 
 
-LaTeX Warning: Reference `chapter:Mod' on page 22 undefined on input line 154.
+[26]
+Overfull \hbox (6.06024pt too wide) in paragraph at lines 271--271
+[]\OT1/ptm/b/n/14.4 Event Stream Match-ing Al-go-rithm for Named Pipe and Mes-s
+age Queue 
+ []
 
-[22 <./Figures/tcpudpchannelopen.png>] [23] [24] [25]
-Overfull \vbox (21.84291pt too high) has occurred while \output is active []
-
-
-[26] [27] [28] [29] [30]
-<Figures/namedpipe.png, id=155, 956.57375pt x 570.13pt>
+[27] [28] [29] [30] <Figures/namedpipe.png, id=155, 956.57375pt x 570.13pt>
 File: Figures/namedpipe.png Graphic file (type png)
 
 <use Figures/namedpipe.png>
-Package pdftex.def Info: Figures/namedpipe.png used on input line 345.
+Package pdftex.def Info: Figures/namedpipe.png used on input line 362.
 (pdftex.def)             Requested size: 382.62271pt x 228.04796pt.
  [31 <./Figures/namedpipe.png>]
 <Figures/tcp.png, id=160, 415.5525pt x 408.52625pt>
 File: Figures/tcp.png Graphic file (type png)
  <use Figures/tcp.png>
-Package pdftex.def Info: Figures/tcp.png used on input line 382.
+Package pdftex.def Info: Figures/tcp.png used on input line 399.
 (pdftex.def)             Requested size: 166.21805pt x 163.4076pt.
 
-Overfull \hbox (8.4725pt too wide) in paragraph at lines 380--385
+Overfull \hbox (8.4725pt too wide) in paragraph at lines 397--402
 []\OT1/ptm/m/n/12 Based on these char-ac-ter-is-tics, the data trans-fer sce-na
 r-ios of TCP can be ex-em-pli-fied in Figure4.7[]. 
  []
 
-[32 <./Figures/tcp.png>] <Figures/msmq.png, id=165, 956.57375pt x 499.8675pt>
+[32] [33 <./Figures/tcp.png>]
+<Figures/msmq.png, id=169, 956.57375pt x 499.8675pt>
 File: Figures/msmq.png Graphic file (type png)
-
-<use Figures/msmq.png>
-Package pdftex.def Info: Figures/msmq.png used on input line 428.
+ <use Figures/msmq.png>
+Package pdftex.def Info: Figures/msmq.png used on input line 445.
 (pdftex.def)             Requested size: 382.62271pt x 199.94345pt.
- [33] [34 <./Figures/msmq.png>] [35]
+
+[34 <./Figures/msmq.png>] [35]
 <Figures/udp.png, id=177, 956.57375pt x 669.50125pt>
 File: Figures/udp.png Graphic file (type png)
  <use Figures/udp.png>
-Package pdftex.def Info: Figures/udp.png used on input line 490.
+Package pdftex.def Info: Figures/udp.png used on input line 509.
 (pdftex.def)             Requested size: 382.62271pt x 267.79576pt.
 
-Overfull \hbox (10.46452pt too wide) in paragraph at lines 488--493
+Overfull \hbox (10.46452pt too wide) in paragraph at lines 507--512
 []\OT1/ptm/m/n/12 Based on these char-ac-ter-is-tics, the data trans-fer sce-na
 r-ios of UDP can be ex-em-pli-fied in Figure4.9[]. 
  []
@@ -853,13 +858,13 @@ r-ios of UDP can be ex-em-pli-fied in Figure4.9[].
 File: Figures/secondlevelmatching.png Graphic file (type png)
 
 <use Figures/secondlevelmatching.png>
-Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 561
+Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 586
 .
-(pdftex.def)             Requested size: 310.75812pt x 218.61473pt.
-) [38 <./Figures/secondlevelmatching.png>]
+(pdftex.def)             Requested size: 345.28915pt x 242.9069pt.
+ [38]) [39 <./Figures/secondlevelmatching.png>]
 \openout2 = `chapters/5/chapter_implementation.aux'.
 
-(./chapters/5/chapter_implementation.tex
+ (./chapters/5/chapter_implementation.tex
 
 Package xr Warning: 
 No file ../3/chapter_modeling.aux
@@ -873,105 +878,82 @@ LABELS NOT IMPORTED.
  on input line 2.
 
 Chapter 5.
-[39
+[40
 
 
 
-] [40]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 37.
-
-Overfull \hbox (52.84615pt too wide) in paragraph at lines 35--72
+] [41] [42]
+Overfull \hbox (24.70439pt too wide) in paragraph at lines 79--121
  [][] 
  []
 
-[41]
-Overfull \hbox (52.84615pt too wide) in paragraph at lines 79--122
+[43]
+Overfull \hbox (69.6683pt too wide) in paragraph at lines 166--199
  [][] 
  []
 
-[42] [43]
-Overfull \hbox (57.94193pt too wide) in paragraph at lines 228--265
- [][] 
- []
-
-[44] <Figures/opendualtracemenu.png, id=210, 411.5375pt x 475.7775pt>
+[44] [45] <Figures/opendualtracemenu.png, id=214, 411.5375pt x 475.7775pt>
 File: Figures/opendualtracemenu.png Graphic file (type png)
 
 <use Figures/opendualtracemenu.png>
-Package pdftex.def Info: Figures/opendualtracemenu.png used on input line 272.
-(pdftex.def)             Requested size: 288.07428pt x 333.04196pt.
-
-<Figures/paralleleditor.png, id=211, 867.24pt x 478.03593pt>
+Package pdftex.def Info: Figures/opendualtracemenu.png used on input line 250.
+(pdftex.def)             Requested size: 226.34633pt x 261.67842pt.
+ [46]
+<Figures/paralleleditor.png, id=218, 867.24pt x 478.03593pt>
 File: Figures/paralleleditor.png Graphic file (type png)
 
 <use Figures/paralleleditor.png>
-Package pdftex.def Info: Figures/paralleleditor.png used on input line 278.
+Package pdftex.def Info: Figures/paralleleditor.png used on input line 256.
 (pdftex.def)             Requested size: 520.34802pt x 286.82376pt.
- [45 <./Figures/opendualtracemenu.png>]
-Overfull \hbox (10.43076pt too wide) in paragraph at lines 286--287
+
+Overfull \hbox (10.43076pt too wide) in paragraph at lines 264--265
 \OT1/ptm/m/n/12 I im-ple-mented two iden-ti-fi-ca-tion fea-tures, one is stream
  iden-ti-fi-ca-tion for both traces in the dual[]trace,
  []
 
-[46 <./Figures/paralleleditor.png>]
-<Figures/dualtracetoolmenu.png, id=220, 325.96782pt x 124.21407pt>
+[47 <./Figures/opendualtracemenu.png> <./Figures/paralleleditor.png>]
+<Figures/dualtracetoolmenu.png, id=223, 325.96782pt x 124.21407pt>
 File: Figures/dualtracetoolmenu.png Graphic file (type png)
 
 <use Figures/dualtracetoolmenu.png>
-Package pdftex.def Info: Figures/dualtracetoolmenu.png used on input line 291.
+Package pdftex.def Info: Figures/dualtracetoolmenu.png used on input line 269.
 (pdftex.def)             Requested size: 325.96701pt x 124.21375pt.
 
-<Figures/methods.png, id=221, 404.26031pt x 220.57407pt>
+<Figures/methods.png, id=224, 404.26031pt x 220.57407pt>
 File: Figures/methods.png Graphic file (type png)
 
 <use Figures/methods.png>
-Package pdftex.def Info: Figures/methods.png used on input line 297.
+Package pdftex.def Info: Figures/methods.png used on input line 275.
 (pdftex.def)             Requested size: 323.40869pt x 176.45947pt.
- [47 <./Figures/dualtracetoolmenu.png> <./Figures/methods.png>] <Figures/idenvi
-ew.png, id=225, 724.95844pt x 405.01312pt>
+ [48 <./Figures/dualtracetoolmenu.png>]
+<Figures/idenview.png, id=228, 724.95844pt x 405.01312pt>
 File: Figures/idenview.png Graphic file (type png)
 
 <use Figures/idenview.png>
-Package pdftex.def Info: Figures/idenview.png used on input line 305.
+Package pdftex.def Info: Figures/idenview.png used on input line 283.
 (pdftex.def)             Requested size: 507.46745pt x 283.50723pt.
-
-
-LaTeX Warning: Reference `gotoend' on page 48 undefined on input line 313.
-
-[48 <./Figures/idenview.png>]
-<Figures/gotoend.png, id=229, 287.57437pt x 54.9553pt>
+ [49 <./Figures/methods.png>] [50 <./Figures/idenview.png>] <Figures/gotoend.pn
+g, id=235, 287.57437pt x 54.9553pt>
 File: Figures/gotoend.png Graphic file (type png)
 
 <use Figures/gotoend.png>
-Package pdftex.def Info: Figures/gotoend.png used on input line 316.
+Package pdftex.def Info: Figures/gotoend.png used on input line 294.
 (pdftex.def)             Requested size: 287.57367pt x 54.95515pt.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no œ in font ptmr7t!
 
-<Figures/remove.png, id=230, 721.19438pt x 161.10187pt>
+<Figures/remove.png, id=236, 721.19438pt x 161.10187pt>
 File: Figures/remove.png Graphic file (type png)
 
 <use Figures/remove.png>
-Package pdftex.def Info: Figures/remove.png used on input line 324.
+Package pdftex.def Info: Figures/remove.png used on input line 302.
 (pdftex.def)             Requested size: 504.83263pt x 112.77052pt.
- [49 <./Figures/gotoend.png> <./Figures/remove.png>]
-
-LaTeX Font Warning: Font shape `OMS/ptm/bx/n' undefined
-(Font)              using `OMS/ptm/m/n' instead
-(Font)              for symbol `textbraceright' on input line 341.
-
-LaTeX Font Info:    Font shape `OMS/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 341.
-) [50]
-Overfull \vbox (36.48578pt too high) has occurred while \output is active []
-
-
-[51]
+) [51 <./Figures/gotoend.png> <./Figures/remove.png>]
 \openout2 = `chapters/6/chapter_evaluation.aux'.
 
- (./chapters/6/chapter_evaluation.tex
+
+(./chapters/6/chapter_evaluation.tex
 
 Package xr Warning: 
 No file ../appendix/chapter_app.aux
@@ -991,41 +973,38 @@ LABELS NOT IMPORTED.
  on input line 3.
 
 Chapter 6.
-
-LaTeX Warning: Reference `chapter:Mod' on page 52 undefined on input line 8.
-
 [52
 
 
 
-] <Figures/exp1.png, id=245, 676.5275pt x 551.05875pt>
+] <Figures/exp1.png, id=244, 676.5275pt x 551.05875pt>
 File: Figures/exp1.png Graphic file (type png)
 
 <use Figures/exp1.png>
 Package pdftex.def Info: Figures/exp1.png used on input line 23.
 (pdftex.def)             Requested size: 473.56601pt x 385.73848pt.
- <Figures/result1.png, id=246, 740.7675pt x 212.29312pt>
+ <Figures/result1.png, id=245, 740.7675pt x 212.29312pt>
 File: Figures/result1.png Graphic file (type png)
 
 <use Figures/result1.png>
 Package pdftex.def Info: Figures/result1.png used on input line 29.
 (pdftex.def)             Requested size: 481.49316pt x 137.98889pt.
  [53 <./Figures/exp1.png>]
-<Figures/exp2.png, id=251, 949.5475pt x 734.745pt>
+<Figures/exp2.png, id=250, 949.5475pt x 734.745pt>
 File: Figures/exp2.png Graphic file (type png)
  <use Figures/exp2.png>
 Package pdftex.def Info: Figures/exp2.png used on input line 38.
 (pdftex.def)             Requested size: 569.7329pt x 440.85039pt.
 
 [54 <./Figures/result1.png>]
-<Figures/result21.png, id=255, 738.50906pt x 321.45094pt>
+<Figures/result21.png, id=254, 738.50906pt x 321.45094pt>
 File: Figures/result21.png Graphic file (type png)
 
 <use Figures/result21.png>
 Package pdftex.def Info: Figures/result21.png used on input line 44.
 (pdftex.def)             Requested size: 480.0252pt x 208.94063pt.
  [55 <./Figures/exp2.png>]
-<Figures/result22.png, id=260, 740.7675pt x 353.82187pt>
+<Figures/result22.png, id=259, 740.7675pt x 353.82187pt>
 File: Figures/result22.png Graphic file (type png)
 
 <use Figures/result22.png>
@@ -1064,65 +1043,54 @@ Appendix A.
 
 ]
 Appendix B.
-[64
+(./sourcecode/communicationMethods.json [64
 
-]
+] [65]) [66]
 Appendix C.
-(./sourcecode/communicationMethods.json [65
+[67
 
-] [66]) [67]
+] [68] [69] [70]
 Appendix D.
-[68
+(./sourcecode/experiment1/NamedPipeServer.cpp [71
 
-] [69] [70] [71]
-Appendix E.
-(./sourcecode/experiment1/NamedPipeServer.cpp [72
-
-] [73] [74])
-(./sourcecode/experiment1/NamedPipeClient.cpp [75] [76])
-(./sourcecode/experiment2/NamedPipeServerOverlapped.cpp [77] [78] [79] [80]
-[81] [82]) (./sourcecode/experiment2/test.bat)) [83] (./mainthesisUVIC.aux
+] [72] [73])
+(./sourcecode/experiment1/NamedPipeClient.cpp [74] [75])
+(./sourcecode/experiment2/NamedPipeServerOverlapped.cpp [76] [77] [78] [79]
+[80] [81]) (./sourcecode/experiment2/test.bat)) [82] (./mainthesisUVIC.aux
 (./chapters/1/chapter_intro.aux) (./chapters/2/chapter_background.aux)
 (./chapters/3/chapter_modeling.aux) (./chapters/4/chapter_algorithm.aux)
 (./chapters/5/chapter_implementation.aux) (./chapters/6/chapter_evaluation.aux)
 (./chapters/7/chapter_conclusion.aux) (./chapters/appendix/chapter_app.aux))
 
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9219 strings out of 493014
- 136775 string characters out of 6133351
- 432230 words of memory out of 5000000
- 12426 multiletter control sequences out of 15000+600000
- 33586 words of font info for 87 fonts, out of 8000000 for 9000
+ 9199 strings out of 493014
+ 136604 string characters out of 6133351
+ 432061 words of memory out of 5000000
+ 12407 multiletter control sequences out of 15000+600000
+ 28614 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,21n,62p,1598b,1742s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,21n,62p,1562b,1742s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/tex
 live/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf
--dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2016/texmf-dist/fo
-nts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
-1/urw/courier/ucrro8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/t
-imes/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8
-a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (93 pages, 836315 bytes).
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/tex
+mf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2016/texmf-dist/
+fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/ty
+pe1/urw/courier/ucrro8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw
+/times/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utm
+r8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on mainthesisUVIC.pdf (92 pages, 835456 bytes).
 PDF statistics:
- 404 PDF objects out of 1000 (max. 8388607)
- 254 compressed objects within 3 object streams
+ 397 PDF objects out of 1000 (max. 8388607)
+ 249 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  121 words of extra memory for PDF output out of 10000 (max. 10000000)
 

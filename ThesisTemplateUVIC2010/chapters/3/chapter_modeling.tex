@@ -4,7 +4,7 @@
 In this chapter, I depict the model of the communication of two running programs from the trace analysis point of view. The modeling is based on the investigation of some common used communication methods. But the detail of the communication methods will be discussed later in the algorithm and implementation chapters. This chapter only present the abstract communication model regarding to the two communication categories: reliable and unreliable communications. 
 
 \section{Communication Methods Categorization}
-In general, there are two types of communication: reliable and unreliable in the terms of their reliability of data transmission. A reliable communication guarantees the data being sent by one endpoint through the channel is always received losslessly and in the same order in the other endpoint. On contrast, an unreliable communication does not guarantee the data being sent always arrive the receiver. Moreover, the data packets can arrive to the receiver in any order. However, the bright side of unreliable communication is that the packets being sent are always arrived as the origin packet, no data re-segmentation would happen. An endpoint is an instance in a program at which a stream of data are sent or received (or both). Such as a socket handle of TCP or a file handle of the named pipe. A channel is a conduit connected two endpoints through  which data can be sent and received. Table\ref{methodsInCategories} gives examples of communication methods fall in these two categories.
+In general, there are two types of communication: reliable and unreliable in the terms of their reliability of data transmission. A reliable communication guarantees the data being sent by one endpoint through the channel is always received losslessly and in the same order in the other endpoint. On contrast, an unreliable communication does not guarantee the data being sent always arrive the receiver. Moreover, the data packets can arrive to the receiver in any order. However, the bright side of unreliable communication is that the packets being sent are always arrived as the origin packet, no data re-segmentation would happen. An endpoint is an instance in a program at which a stream of data is sent or a stream of data is received or both (e.g. socket handle of TCP or a file handle of the named pipe). A channel is a conduit connected two endpoints through  which data can be sent and received. Table\ref{methodsInCategories} gives examples of communication methods fall in these two categories.
 \begin{table}[H]
 \centering
 \caption{Communication Method Examples in Two Categories}
@@ -24,7 +24,7 @@ TCP &  UDP \\
 The communication of two programs is defined in this section. The communication in this work is data transfer activities between two running programs through a specific channel. Some collaborative activities between the programs such as remote procedure call is out of the scope of this research. Communication among multiple programs (more than two) is not discussed in this work. The channel can be reopened again to start new communications after being closed. However, the reopened channel is considered as a new communication. The way that I define the communication is leading to the communication identification in the dual-trace. So the definition is not about how the communication works but what it looks like. There are many communication methods in the real world and they are compatible to this communication definition. 
 
 \subsection{Communication Definition}
-In the context of a dual\_trace, a communication is a sequence of data transmitted of two endpoints through a communication channel. The endpoints connect to each other using the identifier of this channel. We therefore defined a communication c as a triplet:
+In the context of a dual\_trace, a communication is a sequence of data transmitted of two endpoints through a communication channel. The endpoints connect to each other using the identifier of this channel. We therefore defined a communication $c$ as a triplet:
 
 $c =<ch, e_0, e_1>$
 
@@ -32,13 +32,13 @@ where $e_0$ and $e_1$ are endpoints while $ch$ is the communication channel (e.g
 
 From the point of view of traces, the endpoints $e_0$ and $e_1$ are defined in terms of three properties: the handle created within a process for the endpoint for subsequent operations(e.g. data send and receive), the data stream received and the data stream sent. Therefore, I define an endpoint $e$ as a triplet:
 
-$ e =<handle,  d_r, d_s>$
+$ e =<handle, d_r, d_s>$
 
 where $handle$ is the handle identifier of the endpoint, $d_r$ and $d_s$ are data streams. A data stream is a sequence of sent packages or a sequence of received packages. Each package $pk$ contains data that is being sent or received (its payload). Hence, we can define a data stream $d$ as a sequence of $n$ packages:
 
 $ d = (pk_1, pk_2, ..., pk_n)$ 
 
-Note That this is the sequence of packages as seen from the endpoint and might be different than the sequence of packages seen in the other endpoint, specially where there is package reordering, loss or duplication.
+Note: This is the sequence of packages as seen from the endpoint and might be different than the sequence of packages seen in the other endpoint, specially where there is package reordering, loss or duplication.
 
 Each package $pk$ has two attributes:
 \begin{itemize}
@@ -65,7 +65,7 @@ The properties of the communications can be described based on the definition of
 \subsubsection{Properties of reliable communication:}\label{reliablepro}
 A reliable communication guarantees that the data sent and received between a package happens without loss and in the same order.
 
-For a given data stream, I define the data in this stream as the concatenation of all the payloads of all the packages in this stream, in the same order, and denote is as $data(d)$.
+For a given data stream, I define the data in this stream as the concatenation of all the payloads of all the packages in this stream, in the same order, and denote it as $data(d)$.
 
 Given $ d = <pk_1, pk_2, ..., pk_n>$, $data(d) = pl(pk_1) \cdot pl(pk_2)\cdot \ldots \cdot pl(pk_n)$
 
@@ -134,41 +134,43 @@ Figure\ref{reliableexample} is an example of the reliable communication.
 
 In this example, the payloads of the packages are:
 
-$pl(pks_01)=``ab"$, $ pl(pks_02)=``cde"$, $pl(pks_03)=``fgh"$;
+$pl(pks_{01})=``ab"$, $ pl(pks_{02})=``cde"$, $pl(pks_{03})=``fgh"$;
 
-$pl(pkr_11)=``abc"$, $pl(pkr_12)=``def"$, $pl(pkr_13)=``gh"$ .
+$pl(pkr_{11})=``abc"$, $pl(pkr_{12})=``def"$, $pl(pkr_{13})=``gh"$ .
 
 and 
 
-$pl(pks_11)=``mno"$, $pl(pks_12)=``pqr"$, $pl(pks_13)=``stu"$;
+$pl(pks_{11})=``mno"$, $pl(pks_{12})=``pqr"$, $pl(pks_{13})=``stu"$;
 
-$pl(pkr_01)=``mnop"$, $pl(pkr_02)=``qrstu"$. 
+$pl(pkr_{01})=``mnop"$, $pl(pkr_{02})=``qrstu"$. 
 
 on the other direction. 
 
 Their properties:
 
-$pl(pks_01) \cdot pl(pks_02) \cdot pl(pks_03) = pl(pkr_11) \cdot pl(pkr_12) \cdot pl(pkr_13) = ``abcdefgh"$ and 
+$pl(pks_{01}) \cdot pl(pks_{02}) \cdot pl(pks_{03}) = pl(pkr_{11}) \cdot pl(pkr_{12}) \cdot pl(pkr_{13}) = ``abcdefgh"$ 
 
-$pl(pks_11) \cdot pl(pks_12) \cdot pl(pks_13) = pl(pkr_01) \cdot pl(pkr_02) = ``mnopqrstu"$. 
+and
+
+$pl(pks_{11}) \cdot pl(pks_{12}) \cdot pl(pks_{13}) = pl(pkr_{01}) \cdot pl(pkr_{02}) = ``mnopqrstu"$. 
 
 satisfy the content preservation. 
 
 The relative time relationship of the packages are: 
 
-$time(pks_01) < time(pks_02) < time(pkr_11)< time(pks_03) < time(pkr_12) < time(pkr_13) $;
+$time(pks_{01}) < time(pks_{02}) < time(pkr_{11})< time(pks_{03}) < time(pkr_{12}) < time(pkr_{13}) $;
 
-$time(pks_11) < time(pks_12) < time(pkr_01)< time(pks_13) < time(pkr_02)$. 
+$time(pks_{11}) < time(pks_{12}) < time(pkr_{01})< time(pks_{13}) < time(pkr_{02})$. 
 
 The fact that
  
-$pl(pkr_01) = ``mnop"$ is the prefix of $pl(pks_11) \cdot  pl(pks_12) = ``mnopqr"$,
+$pl(pkr_{01}) = ``mnop"$ is the prefix of $pl(pks_{11}) \cdot  pl(pks_{12}) = ``mnopqr"$,
 
-$pl(pkr_01) \cdot pl(pkr_02)=``mnopqrstu"$ is the prefix of(is this case identical to ) $pl(pks_11) \cdot pl(pks_12) \cdot pl(pks_13) = ``mnopqrstu" $,  
+$pl(pkr_{01}) \cdot pl(pkr_{02})=``mnopqrstu"$ is the prefix of (in this case is identical to ) $pl(pks_{11}) \cdot pl(pks_{12}) \cdot pl(pks_{13}) = ``mnopqrstu" $,  
 
-$pl(pkr_11)=``abc"$ is the prefix of $pl(pks_01 \cdot pl(pks_02) = "abcde"$,  
+$pl(pkr_{11})=``abc"$ is the prefix of $pl(pks_{01} \cdot pl(pks_{02}) = "abcde"$,  
 
-$pl(pkr_11) \cdot pl(pkr_12)= ``abcdef"$ and  $pl(pkr_11) \cdot pl(pkr_12) \cdot pl(pkr_13) = ``abcdefgh"$ are  the prefix of  $pl(pks_01) \cdot pl(pks_02) \cdot pl(pks_03)= ``abcdefgh"$
+$pl(pkr_{11}) \cdot pl(pkr_{12})= ``abcdef"$ and  $pl(pkr_{11}) \cdot pl(pkr_{12}) \cdot pl(pkr_{13}) = ``abcdefgh"$ are  the prefix of  $pl(pks_{01}) \cdot pl(pks_{02}) \cdot pl(pks_{03})= ``abcdefgh"$
 
 satisfy the timing preservation. 
 
@@ -183,31 +185,31 @@ Figure\ref{unreliableexample} is an example of the unreliable communication.
 
 In this example, the content preservation of the unreliable communication are satisfied since: 
 
-$pkr_11 = pks_02=``cde"$; 
+$pkr_{11} = pks_{02}=``cde"$; 
 
-$pkr_12 = pks_02=``cde"$;
+$pkr_{12} = pks_{02}=``cde"$;
 
-$pkr_13 = pks_03=``fi"$;
+$pkr_{13} = pks_{03}=``fi"$;
 
-$pkr_01 = pks_11=``gh"$;
+$pkr_{01} = pks_{11}=``gh"$;
 
-$pkr_02 = pks_12=``ijklm"$;
+$pkr_{02} = pks_{12}=``ijklm"$;
 
-$pkr_03 = pks_13=``n"$.
+$pkr_{03} = pks_{13}=``n"$.
 
 while the timing preservation of the unreliable communication are satisfied since: 
 
-$time(pkr_11) > time(pks_02)$;
+$time(pkr_{11}) > time(pks_{02})$;
 
-$time(pkr_12) > time(pks_02)$; 
+$time(pkr_{12}) > time(pks_{02})$; 
 
-$time(pkr_13) > time(pks_03)$;
+$time(pkr_{13}) > time(pks_{03})$;
 
-$time(pkr_01) > time(pks_11)$;
+$time(pkr_{01}) > time(pks_{11})$;
 
-$time(pkr_02) > time(pks_12)$;
+$time(pkr_{02}) > time(pks_{12})$;
 
-$time(pkr_03) > time(pks_13)$;
+$time(pkr_{03}) > time(pks_{13})$;
 
 
 

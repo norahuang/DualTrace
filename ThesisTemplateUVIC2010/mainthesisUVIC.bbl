@@ -25,13 +25,6 @@ Jun Cai, Peng Zou, Jinxin Ma, and Jun He.
 \newblock {\em Wuhan University Journal of Natural Sciences}, 21(1):10--20,
   2016.
 
-\bibitem{cleary_reconstructing_2013}
-B.~Cleary, P.~Gorman, E.~Verbeek, M.~A. Storey, M.~Salois, and F.~Painchaud.
-\newblock Reconstructing program memory state from multi-gigabyte instruction
-  traces to support interactive analysis.
-\newblock In {\em 2013 20th {Working} {Conference} on {Reverse} {Engineering}
-  ({WCRE})}, pages 42--51, October 2013.
-
 \bibitem{_wireshark_????}
 Gerald Combs.
 \newblock Wireshark Â· {Go} {Deep}.
@@ -126,14 +119,6 @@ Jonas Tr{\"u}mper, Stefan Voigt, and J{\"u}rgen D{\"o}llner.
   using dynamic analysis.
 \newblock In {\em Software Engineering for Embedded Systems (SEES), 2012 2nd
   International Workshop on}, pages 58--64. IEEE, 2012.
-
-\bibitem{wang_predicting_2011}
-Chao Wang and Malay Ganai.
-\newblock Predicting {Concurrency} {Failures} in the {Generalized} {Execution}
-  {Traces} of x86 {Executables}.
-\newblock In {\em Runtime {Verification}}, pages 4--18. Springer, Berlin,
-  Heidelberg, September 2011.
-\newblock DOI: 10.1007/978-3-642-29860-8\_2.
 
 \bibitem{wen2017model}
 Shameng Wen, Qingkun Meng, Chao Feng, and Chaojing Tang.
