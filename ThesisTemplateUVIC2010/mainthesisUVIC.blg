@@ -1,6 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2016)
-Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
-The top-level auxiliary file: mainthesisUVIC.aux
+This is BibTeX, Version 0.99dThe top-level auxiliary file: mainthesisUVIC.aux
 A level-1 auxiliary file: chapters/1/chapter_intro.aux
 A level-1 auxiliary file: chapters/2/chapter_background.aux
 A level-1 auxiliary file: chapters/3/chapter_modeling.aux
@@ -15,45 +13,4 @@ Warning--entry type for "WinNamedpipe" isn't style-file defined
 --line 75 of file UvicThesis.bib
 Warning--empty journal in khambattinamed
 Warning--empty year in khambattinamed
-You've used 24 entries,
-            2118 wiz_defined-function locations,
-            632 strings with 8446 characters,
-and the built_in function-call counts, 8574 in all, are:
-= -- 842
-> -- 380
-< -- 12
-+ -- 154
-- -- 128
-* -- 520
-:= -- 1336
-add.period$ -- 72
-call.type$ -- 24
-change.case$ -- 133
-chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 351
-empty$ -- 712
-format.name$ -- 128
-if$ -- 1881
-int.to.chr$ -- 0
-int.to.str$ -- 24
-missing$ -- 20
-newline$ -- 115
-num.names$ -- 48
-pop$ -- 198
-preamble$ -- 1
-purify$ -- 111
-quote$ -- 0
-skip$ -- 291
-stack$ -- 0
-substring$ -- 490
-swap$ -- 120
-text.length$ -- 12
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 90
-warning$ -- 2
-while$ -- 82
-width$ -- 26
-write$ -- 245
 (There were 3 warnings)
