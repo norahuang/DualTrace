@@ -1,10 +1,7 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  20 FEB 2018 12:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  22 FEB 2018 14:15
 entering extended mode
-**c:/Users/norah/WorkNStudy/git/DualTrace/ThesisTemplateUVIC2010/mainthesisUVIC
-.tex
-
-(c:/Users/norah/WorkNStudy/git/DualTrace/ThesisTemplateUVIC2010/mainthesisUVIC.
-tex
+**./mainthesisUVIC.tex
+(mainthesisUVIC.tex
 LaTeX2e <2016/03/31> patch level 1
 Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
@@ -751,109 +748,116 @@ LABELS NOT IMPORTED.
  on input line 3.
 
 Chapter 4.
-[16
+<Figures/overview.png, id=97, 728.7225pt x 161.60374pt>
+File: Figures/overview.png Graphic file (type png)
+
+<use Figures/overview.png>
+Package pdftex.def Info: Figures/overview.png used on input line 11.
+(pdftex.def)             Requested size: 437.23688pt x 96.96298pt.
+ [16
 
 
 
-] <Figures/trace.png, id=100, 1121.69063pt x 259.7203pt>
+]
+<Figures/trace.png, id=102, 1121.69063pt x 259.7203pt>
 File: Figures/trace.png Graphic file (type png)
-
-<use Figures/trace.png>
-Package pdftex.def Info: Figures/trace.png used on input line 30.
+ <use Figures/trace.png>
+Package pdftex.def Info: Figures/trace.png used on input line 38.
 (pdftex.def)             Requested size: 504.75612pt x 116.87305pt.
 
-<Figures/executable.png, id=101, 326.72063pt x 302.63063pt>
+[17 <./Figures/overview.png>]
+<Figures/executable.png, id=107, 326.72063pt x 302.63063pt>
 File: Figures/executable.png Graphic file (type png)
 
 <use Figures/executable.png>
-Package pdftex.def Info: Figures/executable.png used on input line 38.
+Package pdftex.def Info: Figures/executable.png used on input line 46.
 (pdftex.def)             Requested size: 196.03387pt x 181.57977pt.
- [17 <./Figures/trace.png> <./Figures/executable.png>]
-Overfull \hbox (8.82845pt too wide) in paragraph at lines 62--76
+ [18 <./Figures/trace.png> <./Figures/executable.png>]
+Overfull \hbox (34.38425pt too wide) in paragraph at lines 68--80
  [][] 
  []
 
-[18]
+[19]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 110.
- [19] <Figures/namepipechannelopen.png, id=111, 673.51625pt x 406.51875pt>
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 116.
+ [20] <Figures/namepipechannelopen.png, id=117, 673.51625pt x 406.51875pt>
 File: Figures/namepipechannelopen.png Graphic file (type png)
 
 <use Figures/namepipechannelopen.png>
-Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 131
+Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 137
 .
 (pdftex.def)             Requested size: 336.7573pt x 203.25887pt.
- [20]
-<Figures/msmqchannelopen.png, id=115, 673.51625pt x 287.0725pt>
+ [21]
+<Figures/msmqchannelopen.png, id=122, 673.51625pt x 287.0725pt>
 File: Figures/msmqchannelopen.png Graphic file (type png)
 
 <use Figures/msmqchannelopen.png>
-Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 139.
+Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 145.
 (pdftex.def)             Requested size: 336.7573pt x 143.53589pt.
- [21 <./Figures/namepipechannelopen.png> <./Figures/msmqchannelopen.png>]
-<Figures/tcpudpchannelopen.png, id=122, 502.87875pt x 391.4625pt>
+ [22 <./Figures/namepipechannelopen.png> <./Figures/msmqchannelopen.png>]
+<Figures/tcpudpchannelopen.png, id=128, 502.87875pt x 391.4625pt>
 File: Figures/tcpudpchannelopen.png Graphic file (type png)
 
 <use Figures/tcpudpchannelopen.png>
-Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 148.
+Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 154.
 (pdftex.def)             Requested size: 301.72957pt x 234.8793pt.
- [22 <./Figures/tcpudpchannelopen.png>]
-[23] [24] [25]
+ [23 <./Figures/tcpudpchannelopen.png>]
+[24] [25] [26]
 Overfull \vbox (44.37068pt too high) has occurred while \output is active []
 
 
-[26]
-Overfull \hbox (6.06024pt too wide) in paragraph at lines 271--271
+[27]
+Overfull \hbox (6.06024pt too wide) in paragraph at lines 277--277
 []\OT1/ptm/b/n/14.4 Event Stream Match-ing Al-go-rithm for Named Pipe and Mes-s
 age Queue 
  []
 
-[27] [28] [29] [30] <Figures/namedpipe.png, id=154, 956.57375pt x 570.13pt>
+[28] [29] [30] [31] <Figures/namedpipe.png, id=160, 956.57375pt x 570.13pt>
 File: Figures/namedpipe.png Graphic file (type png)
 
 <use Figures/namedpipe.png>
-Package pdftex.def Info: Figures/namedpipe.png used on input line 362.
+Package pdftex.def Info: Figures/namedpipe.png used on input line 368.
 (pdftex.def)             Requested size: 382.62271pt x 228.04796pt.
- [31 <./Figures/namedpipe.png>]
-<Figures/tcp.png, id=159, 415.5525pt x 408.52625pt>
+ [32 <./Figures/namedpipe.png>]
+<Figures/tcp.png, id=165, 415.5525pt x 408.52625pt>
 File: Figures/tcp.png Graphic file (type png)
  <use Figures/tcp.png>
-Package pdftex.def Info: Figures/tcp.png used on input line 399.
+Package pdftex.def Info: Figures/tcp.png used on input line 405.
 (pdftex.def)             Requested size: 166.21805pt x 163.4076pt.
 
-Overfull \hbox (8.4725pt too wide) in paragraph at lines 397--402
+Overfull \hbox (8.4725pt too wide) in paragraph at lines 403--408
 []\OT1/ptm/m/n/12 Based on these char-ac-ter-is-tics, the data trans-fer sce-na
-r-ios of TCP can be ex-em-pli-fied in Figure4.7[]. 
+r-ios of TCP can be ex-em-pli-fied in Figure4.8[]. 
  []
 
-[32] [33 <./Figures/tcp.png>]
-<Figures/msmq.png, id=168, 956.57375pt x 499.8675pt>
+[33] [34 <./Figures/tcp.png>]
+<Figures/msmq.png, id=174, 956.57375pt x 499.8675pt>
 File: Figures/msmq.png Graphic file (type png)
  <use Figures/msmq.png>
-Package pdftex.def Info: Figures/msmq.png used on input line 445.
+Package pdftex.def Info: Figures/msmq.png used on input line 451.
 (pdftex.def)             Requested size: 382.62271pt x 199.94345pt.
 
-[34 <./Figures/msmq.png>] [35]
-<Figures/udp.png, id=176, 956.57375pt x 669.50125pt>
+[35 <./Figures/msmq.png>] [36]
+<Figures/udp.png, id=182, 956.57375pt x 669.50125pt>
 File: Figures/udp.png Graphic file (type png)
  <use Figures/udp.png>
-Package pdftex.def Info: Figures/udp.png used on input line 509.
+Package pdftex.def Info: Figures/udp.png used on input line 515.
 (pdftex.def)             Requested size: 382.62271pt x 267.79576pt.
 
-Overfull \hbox (10.46452pt too wide) in paragraph at lines 507--512
+Overfull \hbox (16.46452pt too wide) in paragraph at lines 513--518
 []\OT1/ptm/m/n/12 Based on these char-ac-ter-is-tics, the data trans-fer sce-na
-r-ios of UDP can be ex-em-pli-fied in Figure4.9[]. 
+r-ios of UDP can be ex-em-pli-fied in Figure4.10[]. 
  []
 
-[36 <./Figures/udp.png>] [37]
-<Figures/secondlevelmatching.png, id=184, 690.58pt x 485.815pt>
+[37 <./Figures/udp.png>] [38]
+<Figures/secondlevelmatching.png, id=190, 690.58pt x 485.815pt>
 File: Figures/secondlevelmatching.png Graphic file (type png)
 
 <use Figures/secondlevelmatching.png>
-Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 586
+Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 592
 .
 (pdftex.def)             Requested size: 345.28915pt x 242.9069pt.
- [38]) [39 <./Figures/secondlevelmatching.png>]
+ [39]) [40 <./Figures/secondlevelmatching.png>]
 \openout2 = `chapters/5/chapter_implementation.aux'.
 
  (chapters/5/chapter_implementation.tex
@@ -870,28 +874,28 @@ LABELS NOT IMPORTED.
  on input line 2.
 
 Chapter 5.
-[40
+[41
 
 
 
-] [41] [42]
+] [42] [43]
 Overfull \hbox (24.70439pt too wide) in paragraph at lines 79--121
  [][] 
  []
 
-[43]
+[44]
 Overfull \hbox (69.6683pt too wide) in paragraph at lines 166--199
  [][] 
  []
 
-[44] [45] <Figures/opendualtracemenu.png, id=212, 411.5375pt x 475.7775pt>
+[45] [46] <Figures/opendualtracemenu.png, id=218, 411.5375pt x 475.7775pt>
 File: Figures/opendualtracemenu.png Graphic file (type png)
 
 <use Figures/opendualtracemenu.png>
 Package pdftex.def Info: Figures/opendualtracemenu.png used on input line 250.
 (pdftex.def)             Requested size: 226.34633pt x 261.67842pt.
- [46]
-<Figures/paralleleditor.png, id=216, 867.24pt x 478.03593pt>
+ [47]
+<Figures/paralleleditor.png, id=222, 867.24pt x 478.03593pt>
 File: Figures/paralleleditor.png Graphic file (type png)
 
 <use Figures/paralleleditor.png>
@@ -903,29 +907,29 @@ Overfull \hbox (10.43076pt too wide) in paragraph at lines 264--265
  iden-ti-fi-ca-tion for both traces in the dual[]trace,
  []
 
-[47 <./Figures/opendualtracemenu.png> <./Figures/paralleleditor.png>]
-<Figures/dualtracetoolmenu.png, id=221, 325.96782pt x 124.21407pt>
+[48 <./Figures/opendualtracemenu.png> <./Figures/paralleleditor.png>]
+<Figures/dualtracetoolmenu.png, id=227, 325.96782pt x 124.21407pt>
 File: Figures/dualtracetoolmenu.png Graphic file (type png)
 
 <use Figures/dualtracetoolmenu.png>
 Package pdftex.def Info: Figures/dualtracetoolmenu.png used on input line 269.
 (pdftex.def)             Requested size: 325.96701pt x 124.21375pt.
 
-<Figures/methods.png, id=222, 404.26031pt x 220.57407pt>
+<Figures/methods.png, id=228, 404.26031pt x 220.57407pt>
 File: Figures/methods.png Graphic file (type png)
 
 <use Figures/methods.png>
 Package pdftex.def Info: Figures/methods.png used on input line 275.
 (pdftex.def)             Requested size: 323.40869pt x 176.45947pt.
- [48 <./Figures/dualtracetoolmenu.png>]
-<Figures/idenview.png, id=226, 724.95844pt x 405.01312pt>
+ [49 <./Figures/dualtracetoolmenu.png>]
+<Figures/idenview.png, id=232, 724.95844pt x 405.01312pt>
 File: Figures/idenview.png Graphic file (type png)
 
 <use Figures/idenview.png>
 Package pdftex.def Info: Figures/idenview.png used on input line 283.
 (pdftex.def)             Requested size: 507.46745pt x 283.50723pt.
- [49 <./Figures/methods.png>] [50 <./Figures/idenview.png>] <Figures/gotoend.pn
-g, id=233, 287.57437pt x 54.9553pt>
+ [50 <./Figures/methods.png>] [51 <./Figures/idenview.png>] <Figures/gotoend.pn
+g, id=240, 287.57437pt x 54.9553pt>
 File: Figures/gotoend.png Graphic file (type png)
 
 <use Figures/gotoend.png>
@@ -935,13 +939,13 @@ Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no œ in font ptmr7t!
 
-<Figures/remove.png, id=234, 721.19438pt x 161.10187pt>
+<Figures/remove.png, id=241, 721.19438pt x 161.10187pt>
 File: Figures/remove.png Graphic file (type png)
 
 <use Figures/remove.png>
 Package pdftex.def Info: Figures/remove.png used on input line 302.
 (pdftex.def)             Requested size: 504.83263pt x 112.77052pt.
-) [51 <./Figures/gotoend.png> <./Figures/remove.png>]
+) [52 <./Figures/gotoend.png> <./Figures/remove.png>]
 \openout2 = `chapters/6/chapter_evaluation.aux'.
 
 
@@ -965,58 +969,58 @@ LABELS NOT IMPORTED.
  on input line 3.
 
 Chapter 6.
-[52
+[53
 
 
 
-] <Figures/exp1.png, id=242, 676.5275pt x 551.05875pt>
+] <Figures/exp1.png, id=248, 676.5275pt x 551.05875pt>
 File: Figures/exp1.png Graphic file (type png)
 
 <use Figures/exp1.png>
 Package pdftex.def Info: Figures/exp1.png used on input line 23.
 (pdftex.def)             Requested size: 473.56601pt x 385.73848pt.
- <Figures/result1.png, id=243, 740.7675pt x 212.29312pt>
+ <Figures/result1.png, id=249, 740.7675pt x 212.29312pt>
 File: Figures/result1.png Graphic file (type png)
 
 <use Figures/result1.png>
 Package pdftex.def Info: Figures/result1.png used on input line 29.
 (pdftex.def)             Requested size: 481.49316pt x 137.98889pt.
- [53 <./Figures/exp1.png>]
-<Figures/exp2.png, id=248, 949.5475pt x 734.745pt>
+ [54 <./Figures/exp1.png>]
+<Figures/exp2.png, id=254, 949.5475pt x 734.745pt>
 File: Figures/exp2.png Graphic file (type png)
  <use Figures/exp2.png>
 Package pdftex.def Info: Figures/exp2.png used on input line 38.
 (pdftex.def)             Requested size: 569.7329pt x 440.85039pt.
 
-[54 <./Figures/result1.png>]
-<Figures/result21.png, id=252, 738.50906pt x 321.45094pt>
+[55 <./Figures/result1.png>]
+<Figures/result21.png, id=258, 738.50906pt x 321.45094pt>
 File: Figures/result21.png Graphic file (type png)
 
 <use Figures/result21.png>
 Package pdftex.def Info: Figures/result21.png used on input line 44.
 (pdftex.def)             Requested size: 480.0252pt x 208.94063pt.
- [55 <./Figures/exp2.png>]
-<Figures/result22.png, id=257, 740.7675pt x 353.82187pt>
+ [56 <./Figures/exp2.png>]
+<Figures/result22.png, id=263, 740.7675pt x 353.82187pt>
 File: Figures/result22.png Graphic file (type png)
 
 <use Figures/result22.png>
 Package pdftex.def Info: Figures/result22.png used on input line 50.
 (pdftex.def)             Requested size: 481.49316pt x 229.98148pt.
- [56 <./Figures/result21.png> <./Figures/result22.png>]) [57]
+ [57 <./Figures/result21.png> <./Figures/result22.png>]) [58]
 \openout2 = `chapters/7/chapter_conclusion.aux'.
 
  (chapters/7/chapter_conclusion.tex
 Chapter 7.
-[58
+[59
 
 
 
-]) [59] (mainthesisUVIC.bbl
+]) [60] (mainthesisUVIC.bbl
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Â in font ptmr7t!
 Missing character: There is no · in font ptmr7t!
- [60
+ [61
 
 
 ]
@@ -1024,31 +1028,31 @@ Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Â in font ptmr7t!
 Missing character: There is no ® in font ptmr7t!
- [61]) [62]
+ [62]) [63]
 \openout2 = `chapters/appendix/chapter_app.aux'.
 
 
 (chapters/appendix/chapter_app.tex
 Appendix A.
-[63
+[64
 
 
 ]
 Appendix B.
-(sourcecode/communicationMethods.json [64
+(sourcecode/communicationMethods.json [65
 
-] [65]) [66]
+] [66]) [67]
 Appendix C.
-[67
+[68
 
-] [68] [69] [70]
+] [69] [70] [71]
 Appendix D.
-(sourcecode/experiment1/NamedPipeServer.cpp [71
+(sourcecode/experiment1/NamedPipeServer.cpp [72
 
-] [72] [73])
-(sourcecode/experiment1/NamedPipeClient.cpp [74] [75])
-(sourcecode/experiment2/NamedPipeServerOverlapped.cpp [76] [77] [78] [79]
-[80] [81]) (sourcecode/experiment2/test.bat)) [82] (mainthesisUVIC.aux
+] [73] [74])
+(sourcecode/experiment1/NamedPipeClient.cpp [75] [76])
+(sourcecode/experiment2/NamedPipeServerOverlapped.cpp [77] [78] [79] [80]
+[81] [82]) (sourcecode/experiment2/test.bat)) [83] (mainthesisUVIC.aux
 (chapters/1/chapter_intro.aux) (chapters/2/chapter_background.aux)
 (chapters/3/chapter_modeling.aux) (chapters/4/chapter_algorithm.aux)
 (chapters/5/chapter_implementation.aux) (chapters/6/chapter_evaluation.aux)
@@ -1058,13 +1062,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9207 strings out of 493335
- 135676 string characters out of 3139261
- 431682 words of memory out of 3000000
- 12398 multiletter control sequences out of 15000+200000
+ 9214 strings out of 493335
+ 135624 string characters out of 3139261
+ 431694 words of memory out of 3000000
+ 12405 multiletter control sequences out of 15000+200000
  28614 words of font info for 76 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,21n,62p,1564b,1740s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,21n,62p,1503b,1740s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
 s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX
  2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fon
@@ -1078,9 +1082,9 @@ X 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/typ
 e1/urw/courier/ucrro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/u
 tmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Pro
 gram Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (92 pages, 887466 bytes).
+Output written on mainthesisUVIC.pdf (93 pages, 953459 bytes).
 PDF statistics:
- 393 PDF objects out of 1000 (max. 8388607)
+ 398 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

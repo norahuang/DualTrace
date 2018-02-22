@@ -3,12 +3,20 @@
 \externaldocument{../appendix/chapter_app}
 \startchapter{Communication Identification}
 \label{chapter:alo}
-The goal of this work is to identify the communications from the dual\_trace. A dual\_trace is a pair of assembly level execution traces of two interacting programs. In this chapter, I discuss the characteristics of the execution trace and give the abstract definition of the dual\_trace and the execution trace. Based on the communication model in Chapter\ref{chapter:mod}, I designed the analysis approach for communication identification from the dual\_trace. This approach includes the algorithms and identification process.  For all traces comply with this abstract trace definition, this analysis approach can be applied for the communication identification.
+The goal of this work is to identify the communications from the dual\_trace. A dual\_trace is a pair of assembly level execution traces of two interacting programs. In this chapter, I discuss the characteristics of the execution trace and give the abstract definition of the dual\_trace and the execution trace. For all traces comply with this abstract trace definition, the analysis approach presented in this chapter can be applied for the communication identification.
+
+The process of the communication identification is shown in Figure \ref{overview}. It takes the two traces $trace_0$ and $trace_1$ in the dual\_trace as input and output the identified communications. In this overview figure, there are four components. The function call event reconstruction component will take $trace_0$ and $trace_1$ as input and reconstruct the function call of interest from them respectively. The output sequences of events $etr_0$ and $etr_1$ will then flow into the stream extraction component separately. The stream extraction component will extract two sets of streams $str_0$ and $str_1$. Each stream in these two set corresponding to an endpoint of a communication. After that, the stream matching component will take both of the stream sets as input and try to match them by their channel identifiers and output the potential identified communications $cs$. Finally, the data verification component will verify each communication $c$ in this set and filter out those who doesn't satisfy the communication data preservation. The final output $cs'$ is the identified communications from the whole process. Algorithms are designed separately for each component.
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.6]{Figures/overview}}
+\caption{Process of the Communication Identification from Dual\_trace}
+\label{overview}
+\end{figure}
 
 \section{Dual\_Trace}
-A dual\_trace consists of two assembly level execution traces of two interacting programs. There is no timing information of these two traces which means we don't know the timing relationship of the events of one trace with respect to the other. However the captured instructions in the trace are ordered in execution sequence. An execution trace consist of a sequence of instruction lines. Each instruction line contains the executed instruction, the changed memories, the changed registers, execution information. The execution information indicates the execution type which can be: Instruction, System call entry, System call exit, etc. For the execution type of system call entry and system call exit, system call Id is given in this information. With the system call id and the provided .dll files, the called system function name can be obtained. 
+A dual\_trace consists of two assembly level execution traces of two interacting programs. There is no timing information of these two traces which means we don't know the timing relationship of the events of one trace with respect to the other. However the captured instructions in the trace are ordered in execution sequence. An execution trace consist of a sequence of instruction lines. Each instruction line contains the executed instruction, the changed memory, the changed registers, execution information. The execution information indicates the execution type which can be: Instruction, System call entry, System call exit, etc. For the execution type of system call entry and system call exit, system call Id is given in this information. With the system call id and the provided .dll files, a called system function name can be obtained. 
 
-A dual\_trace is formally defined as :
+A dual\_trace is formalized as :
 
 $dual\_trace = \lbrace trace_0, trace_1\rbrace$
 
@@ -40,18 +48,16 @@ Figure\ref{executable} is an example of the information decoded from a executabl
 \label{executable}
 \end{figure}
 
-\section{Function Call Event Reconstruction Algorithm}
-In last section, I defined the assembly execution trace. As to this definition, it is possible to recognize the function call entry and function call exit from the trace.  In this section, I define the function call event and present the algorithm to reconstruct the function call events from the assembly execution trace. 
+\section{Function Descriptor}
+There would be lots of function calls in an execution trace. However, most of them are not of interest. We only concern the function call events of a specific communication method. To be able to identify and reconstruct the functions of interest, the function descriptions is required. Hence, I define the function descriptor as a set of function description:
 
-There would be lots of function calls in an execution trace. However, most of them are not of interest. This algorithm will only reconstruct the function call events of a specific communication method. To be able to identify and reconstruct the functions of interest, the communication description is required. The communication description is a set of function descriptions of a communication method and defined as:
+$cdesc = \lbrace fdesc_1, fdesc_2,...,fdesc_p \rbrace$
 
-$cdes = \lbrace fdes_1, fdes_2,...,fdes_p \rbrace$
+Each element $fdesc$ can be defined as:
 
-Each element $fdes$ can be defined as:
+$fdesc = \lbrace name, type, inparamdesc, outparamdesc \rbrace$
 
-$fdes = \lbrace name, type, pdes \rbrace$
-
-where, $name$ is the function name, $type$ is the function type which can be one of the four types: $open$, $close$, $send$ and $receive$. The function type is not used in this algorithm but will be inherited by the reconstructed function call events and used in the event stream extraction algorithm. $pdes$ is the parameter description illustrates how the registers and memory contents map to a given function call and the list of its parameter of interest(you might not care for all parameters). 
+where, $name$ is the function name, $type$ is the function type which can be one of the four types: $open$, $close$, $send$ and $receive$. $inparamdesc$ is the input parameter descriptions illustrating how the registers and memory contents map to a list of parameters of interest(you might not care for all parameters) of a given function call while $outparamdesc$ is the output parameter descriptions. 
 
 Table\ref{functionexample} is an example of a function description. In this example, the function name is ReadFile, it is a function for data receiving, so that function type is $receive$. The parameter description includes the concerned parameters, which are Handle, RecvBuffer and MessageLength. The Handle is an input parameter which is a value stored in the register RCX. The RecvBuffer is an address for the input message stored in the register RAX. The MessageLength is a output value stored in register R9. The value of the input parameters can be retrieved from the memory state on the function call instruction line while the value of the output parameters can be retrieved from the memory state on the function return instruction line. If a parameter is an address instead of value, the address should be retrieved first, then the retrieved address should be used to find the buffer content in the memory state. The function description requires the understanding of the calling convention of the operating system. The Microsoft x64 calling convention can be found in Appendix \ref{convention}. More examples of communication method descriptions will be given in Chapter\ref{chapter:newsol}.
 
@@ -59,46 +65,46 @@ Table\ref{functionexample} is an example of a function description. In this exam
         \centering
         \caption{An example of a function description}
         \label{functionexample}
-        \begin{tabular}{|l|l|l|l|l|l|}
+        \begin{tabular}{|l|l|l|l|l|l|l|l|}
             \hline
-             \multirow{2}{*}{{\textbf{Name}}} & \multirow{2}{*}{{\textbf{Type}}} & \multicolumn{4}{c|}{\textbf{Parameter Description}}  \\
-              \cline{3-6} 
-             & & \textbf{Parameter}& \textbf{Register/Stack Position}& \textbf{In or Out} &  \textbf{Buffer Or Value}  \\
+             \multirow{2}{*}{{\textbf{Name}}} & \multirow{2}{*}{{\textbf{Type}}} & \multicolumn{3}{c|}{\textbf{Input Parameter Description}} & \multicolumn{3}{c|}{\textbf{Output Parameter Description}} \\
+              \cline{3-8} 
+             & & \textbf{Name}& \textbf{Register} &  \textbf{Buffer/Value} & \textbf{Name}& \textbf{Register} &  \textbf{Buffer/Value}  \\
              \hline
-             \multirow{3}{*}{ReadFile}
-             &\multirow{3}{*}{receive} &  Handle & RCX & In & Value\\
-              \cline{3-6} 
-             & & RecvBuffer & RDX & In & Address\\
-              \cline{3-6} 
-             & & MessageLength & R9 & Out & Value\\
+             \multirow{2}{*}{ReadFile}
+             &\multirow{2}{*}{receive} &  \multirow{2}{*}{Handle} & \multirow{2}{*}{RCX} & \multirow{2}{*}{Value} & RecvBuffer & RDX  & Buffer\\
+              \cline{6-8} 
+             & & & & & MessageLength & R9  & Value\\
             \hline            
         \end{tabular}
     \end{table}
 
-With the communication method description and the execution trace as input, the function call event reconstruction algorithm outputs a size $m$ sequence of function call events which can be defined as:
+\section{Function Call Event Reconstruction Algorithm}
+In last two sections, I formalized the assembly execution trace and defined the function descriptor of a communication method. To be able to identify a communication, the elements consists a communication should be reconstruction from the traces first. To do so, we need to reconstruct the function call events, in which the function calls' parameters contain the information of a communication, such as the channel identifier, the packets send or received, etc. In this section, I define the function call event and present the algorithm to reconstruct the function call events from the assembly execution trace. 
+
+With the function descriptor and the execution trace as input, the function call event reconstruction algorithm identifies function call entry instruction line and reconstruct the input parameters from the memory state of that line. Then it identifies the function call exit line of the corresponding function call and reconstruct the output parameters from the memory state of the function exit line. After iterate the whole execution trace, the algorithm outputs a sequence of function call events of size $m$ which can be defined as:
 
 $etr = (ev_1, ev_2, ..., ev_m)$
 
 A function call event $ev$ in $etr$ is defined as a triplet:
 
-$ev = <funN, paras, type>$
+$ev = <funN, inparas, outparas, type>$
 
-where $funN$ is the function name, $paras$ includes all the input/output parameters with the parameter name and value, and $type$ is the event type which inherit from the function description and can be one of the four types: $open$, $send$, $receive$ and $close$.
+where $funN$ is the function name, $inparas$ includes all the input parameters with the parameter name and value while $outparas$ includes all the output parameters, and $type$ is the event type which inherit from the function description and can be one of the four types: $open$, $send$, $receive$ and $close$.
 
-Note: If the parameter is an address, the value is the string from the buffer pointed by this address instead of the address value.
+Note: If the parameter is an buffer, the parameter value is the string from the buffer instead of the buffer address.
 
 An example of a sequence of function call events as the output of this algorithm is shown in Listing\ref{eventsexample}.
 
 \begin{lstlisting}[caption= Example of  $etr$, label=eventsexample]
-{funN:CreateNamedPipe, paras:{Handler:18, FileName:mypipe}, type:open},
-{funN:CreateNamedPipe,  paras:{Handler:27,  FileName:Apipe}, type:open},
-{funN:WriteFile, paras:{Handler:27, RecvBuffer:Message1, MessageLength:9}, type:send},
-{funN:WriteFile, paras:{Handler:27, RecvBuffer:Message2, MessageLength:9}, type:send},
-{funN:ReadFile, paras:{Handler:27, SendBuffer:Message3, MessageLength:9}, type:receive},
-{funN:CloseHandle, paras:{Handler:27}, type:close},
-{funN:CloseHandle, paras:{Handler:18}, type:close}
+{funN:CreateNamedPipe, type:open,inparams:{Handler:18, FileName:mypipe}, outparams:{}},
+{funN:CreateNamedPipe, type:open,  inparams:{Handler:27,  FileName:Apipe}, outparams:{}},
+{funN:WriteFile, type:send, inparams:{Handler:27, SendBuf:Message1}, outparams:{MessageLen:9}},
+{funN:WriteFile, type:send, inparams:{Handler:27, SendBuf:Message2}, outparams:{MessageLen:9}},
+{funN:ReadFile, type:receive, inparams:{Handler:27}, outparams:{RecvBuf:Message3, MessageLen:9}},
+{funN:CloseHandle, type:close, inparams:{Handler:27}, outparams:{}},
+{funN:CloseHandle, type:close, inparams:{Handler:18}, outparams:{}}
 \end{lstlisting}
-
 
 Algorithm \ref{eventAlg} shows the detail of the function call event reconstruction algorithm. This algorithm is designed to reconstruct the function call events of a communication method. If multiple communication methods are under investigated, this algorithm can be run multiple times to achieve the goal. Since the function descriptions usually contain a  small number of concerned functions compared to the instruction line number in the execution trace, the time complexity of this algorithm is $O(N)$ , $N$ is the instruction line number of the trace.
 
