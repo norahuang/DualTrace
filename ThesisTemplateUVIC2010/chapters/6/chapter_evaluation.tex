@@ -17,7 +17,7 @@ In this section, I describe the design of the experiments. Two experiments are c
 Results are provided for each experiment. Both of the conducted experiments were about named pipe communication method. The following two subsections provides the details of the experiments and their result.
 
 \subsection{Experiment 1}
-In the first experiment, two programs communicated with each other through a synchronous Named pipe channel. One of the programs acted as the Named pipe server while the other as the client. Figure \ref{exp1} is the sequence diagram of the interaction between the server and client. Traces were captured while these two program were running and interacting. The two captured traces were analysed as dual\_trace $exp1$ in this experiment. I used the implemented features in Atlantis to analyse this dual\_trace. I ran the ``Stream identification" and ``Communication identification" operations for this dual\_trace. The identified streams, communication and the processing time are showed in Figure\ref{result1}.
+In the first experiment, two programs communicated with each other through a synchronous Named pipe channel. One of the programs acted as the Named pipe server while the other as the client. Figure \ref{exp1} is the sequence diagram of the interaction between the server and client. Traces were captured while these two program were running and interacting. The two captured traces were analysed as dual\_trace $exp1$ in this experiment. I used the implemented features in Atlantis to analyse this dual\_trace. I ran the ``Stream identification" and ``Communication identification" operations for this dual\_trace. The streams and communication are showed in Figure\ref{result1}.
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.7]{Figures/exp1}}
@@ -32,7 +32,7 @@ In the first experiment, two programs communicated with each other through a syn
 \end{figure}
 
 \subsection{Experiment 2}
-In the second experiment, one program was running as the Named pipe server. In this server program, four named pipes were created and can be connected by up to four client at a time. Two other programs as the Named pipe clients connected to this server. Those two clients (client 1 and client 2) used the identical program but run in sequence. Figure \ref{exp2} is the sequence diagram of the interaction among the server and clients. The function calls' sequence is only a possible combination from analyzing the source code. The real happening sequence can varies. Traces were captured at the time when these three programs were running and interacting. One trace for each program. The three traces are analysed as two dual\_traces, $exp2.1$ and $exp2.2$. $exp2.1$ consists of traces of server and client 1 and $exp2.2$ consists of traces of server and client 2. I ran the ``Stream identification" and ``Communication identification" operations for these two dual\_trace. The identified streams, communications are shown in Figure \ref{result21} and Figure \ref{result22}.
+In the second experiment, one program was running as the Named pipe server. In this server program, four named pipes were created and can be connected by up to four client at a time. Two other programs as the Named pipe clients connected to this server. Those two clients (client 1 and client 2) used the identical program but run in sequence. Figure \ref{exp2} is the sequence diagram of the interaction among the server and clients. The function calls' sequence is only a possible combination from analyzing the source code. The real happening sequence can varies. Traces were captured at the time when these three programs were running and interacting. One trace for each program. The three traces are analysed as two dual\_traces, $exp2.1$ and $exp2.2$. $exp2.1$ consists of traces of server and client 1 and $exp2.2$ consists of traces of server and client 2. I ran the ``Stream identification" and ``Communication identification" operations for these two dual\_trace. The identified streams and communications are shown in Figure \ref{result21} and Figure \ref{result22}.
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.6]{Figures/exp2}}
@@ -41,21 +41,21 @@ In the second experiment, one program was running as the Named pipe server. In t
 \end{figure}
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.65]{Figures/result21}}
+\centerline{\includegraphics[scale=0.55]{Figures/result21}}
  \caption{Identification result of $exp2.1$}
 \label{result21}
 \end{figure}
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.65]{Figures/result22}}
+\centerline{\includegraphics[scale=0.55]{Figures/result22}}
  \caption{Identification result of $exp2.1$}
 \label{result22}
 \end{figure}
 
 
 \section{Discussion}
-In the result of $exp1$, there are one stream identified in client trace and one in server trace, and these two streams are matched into a communication of this dual\_trace. This identification result represents the actual communication happen between the named pipe server and client.
-In the result of $exp2.1$ and $exp2.2$, there are one stream identified in client traces and four in server trace respectively for each dual\_trace. The streams are further matched and verified and eventually one communication is identified for each dual\_trace. The result aligns to the sequence diagram in Figure\ref{exp2}.
+In the result of $exp1$, there are one stream extracted in client trace and one in server trace, and these two streams are matched into a communication of this dual\_trace. This identification result represents the actual communication happen between the named pipe server and client.
+In the result of $exp2.1$ and $exp2.2$, there are one stream in each of the client traces and four in the server trace respectively. The streams are further matched and verified and eventually one communication is identified for each dual\_trace. The result aligns to the sequence diagram in Figure\ref{exp2}.
 
 
    
