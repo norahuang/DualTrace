@@ -1031,7 +1031,7 @@
                label="Dual Trace Tool">  
             <command
                commandId="ca.uvic.chisel.atlantis.handlers.FindCommunicationChannel"
-               label="Stream Identification"
+               label="Stream Extraction"
                style="push"
                tooltip="Find all channel ends in each side of the open dual-trace ">
             </command>
