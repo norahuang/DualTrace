@@ -1,15 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  26 FEB 2018 17:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 FEB 2018 22:04
 entering extended mode
-**c:/Users/norah/WorkNStudy/git/DualTrace/ThesisTemplateUVIC2010/mainthesisUVIC
-.tex
-
-(c:/Users/norah/WorkNStudy/git/DualTrace/ThesisTemplateUVIC2010/mainthesisUVIC.
-tex
-LaTeX2e <2016/03/31> patch level 1
-Babel <3.9r> and hyphenation patterns for 75 language(s) loaded.
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\book.cls"
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**mainthesisUVIC.tex
+(./mainthesisUVIC.tex
+LaTeX2e <2016/03/31>
+Babel <3.9r> and hyphenation patterns for 83 language(s) loaded.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2014/09/29 v1.4h Standard LaTeX document class
-("C:\Program Files\MiKTeX 2.9\tex\latex\base\bk12.clo"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/bk12.clo
 File: bk12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -28,21 +27,22 @@ File: bk12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
 \@input{macros/style.aux}
 \openout2 = `macros/style.aux'.
 
-(macros/style.tex ("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.sty
-"
+(./macros/style.tex
+(/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2010/09/12 v5.6 Page Geometry
- ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks14
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2016/05/14 v3.1 Provides the ifpdf switch
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifvtex.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifvtex.sty
 Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/ifxetex/ifxetex.sty
 Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 \Gm@cnth=\count88
@@ -57,13 +57,11 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layouthoffset=\dimen109
 \Gm@layoutvoffset=\dimen110
 \Gm@dimlist=\toks15
-
-("C:\Program Files\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-(C:\Users\norah\AppData\Roaming\MiKTeX\2.9\tex\latex\setspace\setspace.sty
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/setspace/setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\fancyhdr\fancyhdr.sty"
-Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
+(/usr/local/texlive/2016/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip43
 \f@ncyO@elh=\skip44
 \f@ncyO@erh=\skip45
@@ -74,7 +72,7 @@ Package: fancyhdr 2016/09/06 3.8 Extensive control of page headers and footers
 \f@ncyO@olf=\skip50
 \f@ncyO@orf=\skip51
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tocloft\tocloft.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2013/05/02 v2.3f parameterised ToC, etc., typesetting
 Package tocloft Info: The document has chapter divisions on input line 44.
 \cftparskip=\skip52
@@ -117,11 +115,11 @@ Package tocloft Info: The document has chapter divisions on input line 44.
 \@input{macros/use_packages.aux}
 \openout2 = `macros/use_packages.aux'.
 
-(macros/use_packages.tex
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\dcolumn.sty"
+(./macros/use_packages.tex
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/dcolumn.sty
 Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/array.sty
 Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen111
 \extrarowheight=\dimen112
@@ -129,7 +127,7 @@ Package: array 2014/10/28 v2.4c Tabular extension package (FMi)
 \extratabsurround=\skip86
 \backup@length=\skip87
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\longtable.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \LTleft=\skip88
 \LTright=\skip89
@@ -147,7 +145,7 @@ Package: longtable 2014/10/28 v4.11 Multi-page Table package (DPC)
 \c@LT@chunks=\count97
 \LT@p@ftn=\toks17
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\multicol.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/multicol.sty
 Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
 \c@tracingmulticols=\count98
 \mult@box=\box30
@@ -196,27 +194,27 @@ Package: multicol 2016/04/07 v1.8p multicolumn formatting (FMi)
 \colbreak@box=\box55
 \mc@col@check@num=\count106
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\multirow\multirow.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/multirow/multirow.sty
 \bigstrutjot=\dimen123
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2016/03/10 v2.15b AMS math features
 \@mathmargin=\skip94
 
 For additional information on amsmath, use the `?' option.
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01 AMS text
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
 \ex@=\dimen124
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen125
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
 \inf@bad=\count107
@@ -257,7 +255,7 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 635.
 LaTeX Info: Redefining \[ on input line 2739.
 LaTeX Info: Redefining \] on input line 2740.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2015/03/04 v2.20.2
 \thm@style=\toks23
 \thm@bodyfont=\toks24
@@ -269,55 +267,56 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@headsep=\skip99
 \dth@everypar=\toks28
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\textcase\textcase.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/textcase/textcase.sty
 Package: textcase 2004/10/07 v0.07 Text only upper/lower case changing (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\wasysym\wasysym.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/wasysym/wasysym.sty
 Package: wasysym 2003/10/30 v2.0 Wasy-2 symbol support package
 \symwasy=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `wasy' in version `bold'
 (Font)                  U/wasy/m/n --> U/wasy/b/n on input line 90.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
-Package: graphics 2016/06/02 v1.0s Standard LaTeX Graphics (DPC,SPQR)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/05/09 v1.0r Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(C:\Users\norah\AppData\Roaming\MiKTeX\2.9\tex\latex\graphics-cfg\graphics.cfg
-File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/01/02 v1.10 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 99.
-("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
-File: pdftex.def 2016/06/17 v0.06h Graphics/color for pdfTeX
+Package graphics Info: Driver file: pdftex.def on input line 96.
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/infwarerr.sty
 Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
 )
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
 Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count119
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
 \Gin@req@height=\dimen133
 \Gin@req@width=\dimen134
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count120
 \float@exts=\toks29
@@ -325,24 +324,24 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks30
 \@floatcapt=\box59
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\placeins\placeins.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/placeins/placeins.sty
 Package: placeins 2005/04/18  v 2.2
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\preprint\fullpage.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/preprint/fullpage.sty
 Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip100
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\times.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xr.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/tools/xr.sty
 Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption.sty
 Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
-Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 67.
 \captionmargin=\dimen135
 \captionmargin@=\dimen136
@@ -356,13 +355,13 @@ Package caption3 Info: TeX engine: e-TeX on input line 67.
 Package caption Info: float package is loaded.
 Package caption Info: longtable package is loaded.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\caption\ltcaption.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/caption/ltcaption.sty
 Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\xcolor\xcolor.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
 
-(C:\Users\norah\AppData\Roaming\MiKTeX\2.9\tex\latex\graphics-cfg\color.cfg
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 225.
@@ -376,20 +375,21 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
-(algorithm2e.sty
+(./algorithm2e.sty
 Package: algorithm2e 2017/07/18 v5.2 algorithms environments
 \c@AlgoLine=\count122
- ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \algocf@hangindent=\skip101
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\ifoddpage\ifoddpage.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
 Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
 \c@checkoddpage=\count123
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
-Package: relsize 2003/07/04 ver 3.1
+(/usr/local/texlive/2016/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
 )
 \skiptotal=\skip102
 \skiplinenumber=\skip103
@@ -427,7 +427,7 @@ Package: relsize 2003/07/04 ver 3.1
 \algocf@algoframe=\box66
 \algocf@algobox=\box67
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.sty
 \lst@mode=\count127
 \lst@gtempboxa=\box68
 \lst@token=\toks31
@@ -441,31 +441,30 @@ Package: relsize 2003/07/04 ver 3.1
 \lst@lineno=\count132
 \lst@maxwidth=\dimen151
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 \c@lstnumber=\count133
 \lst@skipnumbers=\count134
 \lst@framebox=\box69
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\listings.cfg"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg
 File: listings.cfg 2015/06/04 1.6 listings configuration
 ))
 Package: listings 2015/06/04 1.6 (Carsten Heinz)
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\threeparttable\threeparttable.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/threeparttable/threeparttable.sty
 Package: threeparttable 2003/06/13  v 3.0
 \@tempboxb=\box70
-))
-(appendix.sty
+)) (./appendix.sty
 Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@pps=\count135
 \c@@ppsavesec=\count136
 \c@@ppsaveapp=\count137
-) (mainthesisUVIC.aux (chapters/1/chapter_intro.aux)
-(chapters/2/chapter_background.aux) (chapters/3/chapter_modeling.aux)
-(chapters/4/chapter_algorithm.aux) (chapters/5/chapter_implementation.aux)
-(chapters/6/chapter_evaluation.aux) (chapters/7/chapter_conclusion.aux)
-(chapters/appendix/chapter_app.aux
+) (./mainthesisUVIC.aux (./chapters/1/chapter_intro.aux)
+(./chapters/2/chapter_background.aux) (./chapters/3/chapter_modeling.aux)
+(./chapters/4/chapter_algorithm.aux) (./chapters/5/chapter_implementation.aux)
+(./chapters/6/chapter_evaluation.aux) (./chapters/7/chapter_conclusion.aux)
+(./chapters/appendix/chapter_app.aux
 
 LaTeX Warning: Label `paralleleditor' multiply defined.
 
@@ -485,7 +484,7 @@ LaTeX Font Info:    ... okay on input line 5.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
 LaTeX Font Info:    ... okay on input line 5.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 5.
- ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
+ (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 *geometry* driver: auto-detecting
@@ -522,7 +521,7 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+(/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count138
 \scratchdimen=\dimen152
@@ -535,11 +534,11 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 \MPnumerator=\count142
 \makeMPintoPDFobject=\count143
 \everyMPtoPDFconversion=\toks33
-) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
-Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
+) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
 )
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
@@ -548,65 +547,68 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
 ))
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-38.
 Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
-)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count144
 
-(frontmatter/fm.tex (frontmatter/tp.tex
+(./frontmatter/fm.tex (./frontmatter/tp.tex
 LaTeX Font Info:    Try loading font information for U+msa on input line 18.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 18.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for U+wasy on input line 18.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\wasysym\uwasy.fd"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2003/10/30 v2.0 Wasy-2 symbol font definitions
 )
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 19.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omsptm.fd"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 19.
-) (frontmatter/sc.tex [1
+)
+(./frontmatter/sc.tex [1
 
 
 
@@ -614,7 +616,7 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 
 \providecommand \oddpage@label [2]{}
 
-{C:/Users/norah/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Underfull \hbox (badness 10000) in paragraph at lines 16--19
 
  []
@@ -623,7 +625,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--19
 Overfull \vbox (8.18385pt too high) has occurred while \output is active []
 
 
-[2] (frontmatter/abs.tex
+[2] (./frontmatter/abs.tex
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 4.
 
@@ -638,7 +640,7 @@ Overfull \vbox (8.18385pt too high) has occurred while \output is active []
 [3]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 34.
- (mainthesisUVIC.toc
+ (./mainthesisUVIC.toc
 
 Package Fancyhdr Warning: \headheight is too small (0.0pt): 
  Make it at least 14.49998pt.
@@ -649,18 +651,20 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
 \tf@toc=\write3
 \openout3 = `mainthesisUVIC.toc'.
 
- [6] (mainthesisUVIC.lot)
+ [6] (./mainthesisUVIC.lot)
 \tf@lot=\write4
 \openout4 = `mainthesisUVIC.lot'.
 
- [7] (mainthesisUVIC.lof)
+ [7] (./mainthesisUVIC.lof)
 \tf@lof=\write5
 \openout5 = `mainthesisUVIC.lof'.
 
- (frontmatter/ack.tex [8] [9]) (frontmatter/ded.tex [10]) [11])
+
+(./frontmatter/ack.tex [8] [9]) (./frontmatter/ded.tex [10]) [11])
 \openout2 = `chapters/1/chapter_intro.aux'.
 
- (chapters/1/chapter_intro.tex
+
+(./chapters/1/chapter_intro.tex
 Chapter 1.
 [1
 
@@ -670,18 +674,18 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 13.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 16.
- [2] ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+ [2] (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstmisc.sty"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 26.
 
-("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
+(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <8> not available
@@ -689,7 +693,7 @@ LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <8> not available
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <8> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 36.
  [3] [4]
-<Figures/methodology.png, id=57, 1072.005pt x 337.26pt>
+<Figures/methodology.png, id=58, 1072.005pt x 337.26pt>
 File: Figures/methodology.png Graphic file (type png)
 
 <use Figures/methodology.png>
@@ -704,7 +708,7 @@ Overfull \hbox (10.0475pt too wide) in paragraph at lines 83--84
 [6]) [7]
 \openout2 = `chapters/2/chapter_background.aux'.
 
- (chapters/2/chapter_background.tex
+ (./chapters/2/chapter_background.tex
 Chapter 2.
 [8
 
@@ -713,7 +717,7 @@ Chapter 2.
 ]) [9]
 \openout2 = `chapters/3/chapter_modeling.aux'.
 
- (chapters/3/chapter_modeling.tex
+ (./chapters/3/chapter_modeling.tex
 
 Package xr Warning: 
 No file ../appendix/chapter_app.aux
@@ -726,14 +730,14 @@ Chapter 3.
 
 
 ] [11] [12] [13]
-<Figures/reliableexample.png, id=91, 528.97626pt x 448.67625pt>
+<Figures/reliableexample.png, id=92, 528.97626pt x 448.67625pt>
 File: Figures/reliableexample.png Graphic file (type png)
 
 <use Figures/reliableexample.png>
 Package pdftex.def Info: Figures/reliableexample.png used on input line 130.
 (pdftex.def)             Requested size: 290.93784pt x 246.77269pt.
  [14 <./Figures/reliableexample.png>]
-<Figures/unreliableexample.png, id=97, 525.965pt x 454.69875pt>
+<Figures/unreliableexample.png, id=98, 525.965pt x 454.69875pt>
 File: Figures/unreliableexample.png Graphic file (type png)
 
 <use Figures/unreliableexample.png>
@@ -743,7 +747,7 @@ Package pdftex.def Info: Figures/unreliableexample.png used on input line 181.
 [16]
 \openout2 = `chapters/4/chapter_algorithm.aux'.
 
- (chapters/4/chapter_algorithm.tex
+ (./chapters/4/chapter_algorithm.tex
 
 Package xr Warning: 
 No file ../3/chapter_modeling.aux
@@ -763,7 +767,7 @@ LABELS NOT IMPORTED.
  on input line 3.
 
 Chapter 4.
-<Figures/overview.png, id=105, 728.7225pt x 161.60374pt>
+<Figures/overview.png, id=106, 728.7225pt x 161.60374pt>
 File: Figures/overview.png Graphic file (type png)
 
 <use Figures/overview.png>
@@ -774,14 +778,14 @@ Package pdftex.def Info: Figures/overview.png used on input line 11.
 
 
 ]
-<Figures/trace.png, id=110, 1121.69063pt x 259.7203pt>
+<Figures/trace.png, id=111, 1121.69063pt x 259.7203pt>
 File: Figures/trace.png Graphic file (type png)
  <use Figures/trace.png>
 Package pdftex.def Info: Figures/trace.png used on input line 38.
 (pdftex.def)             Requested size: 504.75612pt x 116.87305pt.
 
 [18 <./Figures/overview.png>]
-<Figures/executable.png, id=115, 326.72063pt x 302.63063pt>
+<Figures/executable.png, id=116, 326.72063pt x 302.63063pt>
 File: Figures/executable.png Graphic file (type png)
 
 <use Figures/executable.png>
@@ -792,96 +796,96 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 114.
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 117.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 118.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 143.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 144.
 
-[21] [22] <Figures/namepipechannelopen.png, id=132, 673.51625pt x 406.51875pt>
+[21] [22] <Figures/namepipechannelopen.png, id=133, 673.51625pt x 406.51875pt>
 File: Figures/namepipechannelopen.png Graphic file (type png)
 
 <use Figures/namepipechannelopen.png>
@@ -889,14 +893,14 @@ Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 160
 .
 (pdftex.def)             Requested size: 336.7573pt x 203.25887pt.
  [23]
-<Figures/msmqchannelopen.png, id=136, 673.51625pt x 287.0725pt>
+<Figures/msmqchannelopen.png, id=137, 673.51625pt x 287.0725pt>
 File: Figures/msmqchannelopen.png Graphic file (type png)
 
 <use Figures/msmqchannelopen.png>
 Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 168.
 (pdftex.def)             Requested size: 336.7573pt x 143.53589pt.
  [24 <./Figures/namepipechannelopen.png> <./Figures/msmqchannelopen.png>]
-<Figures/tcpudpchannelopen.png, id=142, 502.87875pt x 391.4625pt>
+<Figures/tcpudpchannelopen.png, id=143, 502.87875pt x 391.4625pt>
 File: Figures/tcpudpchannelopen.png Graphic file (type png)
 
 <use Figures/tcpudpchannelopen.png>
@@ -905,276 +909,276 @@ Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 177.
  [25 <./Figures/tcpudpchannelopen.png>]
 [26]
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 218.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 220.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 255.
 
 [27]
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 273.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 275.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 329.
 
 [28]
@@ -1183,34 +1187,34 @@ Overfull \vbox (10.9954pt too high) has occurred while \output is active []
 
 [29]
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 348.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 357.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 357.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 357.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 357.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 357.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 357.
 
-[30] [31] <Figures/namedpipe.png, id=166, 956.57375pt x 570.13pt>
+[30] [31] <Figures/namedpipe.png, id=167, 956.57375pt x 570.13pt>
 File: Figures/namedpipe.png Graphic file (type png)
 
 <use Figures/namedpipe.png>
@@ -1218,42 +1222,42 @@ Package pdftex.def Info: Figures/namedpipe.png used on input line 391.
 (pdftex.def)             Requested size: 382.62271pt x 228.04796pt.
  [32 <./Figures/namedpipe.png>]
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 402.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 403.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 404.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 405.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 406.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 410.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 410.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 413.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 413.
 
-<Figures/tcp.png, id=172, 415.5525pt x 408.52625pt>
+<Figures/tcp.png, id=173, 415.5525pt x 408.52625pt>
 File: Figures/tcp.png Graphic file (type png)
  <use Figures/tcp.png>
 Package pdftex.def Info: Figures/tcp.png used on input line 428.
@@ -1266,46 +1270,46 @@ r-ios of TCP can be ex-em-pli-fied in Figure4.8[].
 
 [33]
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 439.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 443.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 443.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 448.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 448.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 448.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 453.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 453.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 453.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 453.
 
-[34 <./Figures/tcp.png>] <Figures/msmq.png, id=180, 956.57375pt x 499.8675pt>
+[34 <./Figures/tcp.png>] <Figures/msmq.png, id=181, 956.57375pt x 499.8675pt>
 File: Figures/msmq.png Graphic file (type png)
 
 <use Figures/msmq.png>
@@ -1313,94 +1317,94 @@ Package pdftex.def Info: Figures/msmq.png used on input line 470.
 (pdftex.def)             Requested size: 382.62271pt x 199.94345pt.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 483.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 487.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 487.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 487.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 501.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 501.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 501.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 501.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 501.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 501.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 501.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 501.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 501.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 514.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 514.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 514.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 514.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 514.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 514.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 514.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 514.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 514.
 
-[35 <./Figures/msmq.png>] <Figures/udp.png, id=185, 956.57375pt x 669.50125pt>
+[35 <./Figures/msmq.png>] <Figures/udp.png, id=186, 956.57375pt x 669.50125pt>
 File: Figures/udp.png Graphic file (type png)
 
 <use Figures/udp.png>
@@ -1414,97 +1418,97 @@ r-ios of UDP can be ex-em-pli-fied in Figure4.10[].
 
 [36]
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 543.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 547.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 547.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 561.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 561.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 561.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 561.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 561.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 561.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 561.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 561.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 574.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 574.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 574.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 574.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 574.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 574.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 574.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 574.
 
 
-Package relsize Warning: Size requested is too small.
+Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 574.
 
-[37 <./Figures/udp.png>]
-<Figures/secondlevelmatching.png, id=193, 690.58pt x 485.815pt>
+[37 <./Figures/udp.png>] [38]
+<Figures/secondlevelmatching.png, id=198, 690.58pt x 485.815pt>
 File: Figures/secondlevelmatching.png Graphic file (type png)
 
 <use Figures/secondlevelmatching.png>
-Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 587
+Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 590
 .
 (pdftex.def)             Requested size: 483.4027pt x 340.06818pt.
- [38]) [39 <./Figures/secondlevelmatching.png>]
+) [39 <./Figures/secondlevelmatching.png>]
 \openout2 = `chapters/5/chapter_implementation.aux'.
 
- (chapters/5/chapter_implementation.tex
+(./chapters/5/chapter_implementation.tex
 
 Package xr Warning: 
 No file ../3/chapter_modeling.aux
@@ -1522,88 +1526,88 @@ Chapter 5.
 
 
 
-] [41]
-Overfull \hbox (43.91603pt too wide) in paragraph at lines 37--66
+] [41] [42] [43]
+Overfull \hbox (43.91603pt too wide) in paragraph at lines 103--132
  [][] 
  []
 
-[42]
-Overfull \hbox (68.884pt too wide) in paragraph at lines 72--104
+[44]
+Overfull \hbox (68.884pt too wide) in paragraph at lines 138--170
  [][] 
  []
 
-[43]
-Overfull \hbox (57.90408pt too wide) in paragraph at lines 113--134
- [][] 
- []
-
-
-Overfull \hbox (64.21605pt too wide) in paragraph at lines 140--164
+[45]
+Overfull \hbox (57.90408pt too wide) in paragraph at lines 179--200
  [][] 
  []
 
 
-Overfull \hbox (58.6485pt too wide) in paragraph at lines 175--205
+Overfull \hbox (64.21605pt too wide) in paragraph at lines 206--230
  [][] 
  []
 
-[44] <Figures/opendualtracemenu.png, id=218, 411.5375pt x 475.7775pt>
+
+Overfull \hbox (58.6485pt too wide) in paragraph at lines 241--271
+ [][] 
+ []
+
+[46] <Figures/opendualtracemenu.png, id=226, 411.5375pt x 475.7775pt>
 File: Figures/opendualtracemenu.png Graphic file (type png)
 
 <use Figures/opendualtracemenu.png>
-Package pdftex.def Info: Figures/opendualtracemenu.png used on input line 211.
+Package pdftex.def Info: Figures/opendualtracemenu.png used on input line 277.
 (pdftex.def)             Requested size: 164.61208pt x 190.30762pt.
 
-<Figures/paralleleditor.png, id=219, 867.24pt x 478.03593pt>
+<Figures/paralleleditor.png, id=227, 867.24pt x 478.03593pt>
 File: Figures/paralleleditor.png Graphic file (type png)
 
 <use Figures/paralleleditor.png>
-Package pdftex.def Info: Figures/paralleleditor.png used on input line 217.
+Package pdftex.def Info: Figures/paralleleditor.png used on input line 283.
 (pdftex.def)             Requested size: 520.34802pt x 286.82376pt.
- [45 <./Figures/opendualtracemenu.png>]
-[46 <./Figures/paralleleditor.png>]
-<Figures/dualtracetoolmenu.png, id=227, 350.05782pt x 121.20282pt>
+ [47 <./Figures/opendualtracemenu.png>]
+[48 <./Figures/paralleleditor.png>]
+<Figures/dualtracetoolmenu.png, id=235, 350.05782pt x 121.20282pt>
 File: Figures/dualtracetoolmenu.png Graphic file (type png)
 
 <use Figures/dualtracetoolmenu.png>
-Package pdftex.def Info: Figures/dualtracetoolmenu.png used on input line 228.
+Package pdftex.def Info: Figures/dualtracetoolmenu.png used on input line 294.
 (pdftex.def)             Requested size: 350.05695pt x 121.20251pt.
 
-<Figures/methods.png, id=228, 404.26031pt x 220.57407pt>
+<Figures/methods.png, id=236, 404.26031pt x 220.57407pt>
 File: Figures/methods.png Graphic file (type png)
 
 <use Figures/methods.png>
-Package pdftex.def Info: Figures/methods.png used on input line 234.
+Package pdftex.def Info: Figures/methods.png used on input line 300.
 (pdftex.def)             Requested size: 323.40869pt x 176.45947pt.
- [47 <./Figures/dualtracetoolmenu.png> <./Figures/methods.png>] <Figures/idenvi
-ew.png, id=232, 724.95844pt x 405.01312pt>
+ [49 <./Figures/dualtracetoolmenu.png> <./Figures/methods.png>] <Figures/idenvi
+ew.png, id=240, 724.95844pt x 405.01312pt>
 File: Figures/idenview.png Graphic file (type png)
 
 <use Figures/idenview.png>
-Package pdftex.def Info: Figures/idenview.png used on input line 242.
+Package pdftex.def Info: Figures/idenview.png used on input line 308.
 (pdftex.def)             Requested size: 507.46745pt x 283.50723pt.
- [48 <./Figures/idenview.png>]
-<Figures/gotoend.png, id=236, 287.57437pt x 54.9553pt>
+ [50 <./Figures/idenview.png>]
+<Figures/gotoend.png, id=245, 287.57437pt x 54.9553pt>
 File: Figures/gotoend.png Graphic file (type png)
 
 <use Figures/gotoend.png>
-Package pdftex.def Info: Figures/gotoend.png used on input line 253.
+Package pdftex.def Info: Figures/gotoend.png used on input line 319.
 (pdftex.def)             Requested size: 287.57367pt x 54.95515pt.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no œ in font ptmr7t!
 
-<Figures/remove.png, id=237, 721.19438pt x 161.10187pt>
+<Figures/remove.png, id=246, 721.19438pt x 161.10187pt>
 File: Figures/remove.png Graphic file (type png)
 
 <use Figures/remove.png>
-Package pdftex.def Info: Figures/remove.png used on input line 261.
+Package pdftex.def Info: Figures/remove.png used on input line 327.
 (pdftex.def)             Requested size: 504.83263pt x 112.77052pt.
-) [49 <./Figures/gotoend.png> <./Figures/remove.png>]
+) [51 <./Figures/gotoend.png> <./Figures/remove.png>]
 \openout2 = `chapters/6/chapter_evaluation.aux'.
 
 
-(chapters/6/chapter_evaluation.tex
+(./chapters/6/chapter_evaluation.tex
 
 Package xr Warning: 
 No file ../appendix/chapter_app.aux
@@ -1623,58 +1627,58 @@ LABELS NOT IMPORTED.
  on input line 3.
 
 Chapter 6.
-[50
+[52
 
 
 
-] <Figures/exp1.png, id=245, 676.5275pt x 551.05875pt>
+] <Figures/exp1.png, id=253, 676.5275pt x 551.05875pt>
 File: Figures/exp1.png Graphic file (type png)
 
 <use Figures/exp1.png>
 Package pdftex.def Info: Figures/exp1.png used on input line 25.
 (pdftex.def)             Requested size: 473.56601pt x 385.73848pt.
- <Figures/result1.png, id=246, 740.7675pt x 212.29312pt>
+ <Figures/result1.png, id=254, 740.7675pt x 212.29312pt>
 File: Figures/result1.png Graphic file (type png)
 
 <use Figures/result1.png>
 Package pdftex.def Info: Figures/result1.png used on input line 31.
 (pdftex.def)             Requested size: 481.49316pt x 137.98889pt.
- [51 <./Figures/exp1.png>]
-<Figures/exp2.png, id=251, 949.5475pt x 734.745pt>
+ [53 <./Figures/exp1.png>]
+<Figures/exp2.png, id=259, 949.5475pt x 734.745pt>
 File: Figures/exp2.png Graphic file (type png)
  <use Figures/exp2.png>
 Package pdftex.def Info: Figures/exp2.png used on input line 40.
 (pdftex.def)             Requested size: 569.7329pt x 440.85039pt.
 
-[52 <./Figures/result1.png>]
-<Figures/result21.png, id=255, 738.50906pt x 321.45094pt>
+[54 <./Figures/result1.png>]
+<Figures/result21.png, id=263, 738.50906pt x 321.45094pt>
 File: Figures/result21.png Graphic file (type png)
 
 <use Figures/result21.png>
 Package pdftex.def Info: Figures/result21.png used on input line 46.
 (pdftex.def)             Requested size: 406.18124pt x 176.79855pt.
- [53 <./Figures/exp2.png>]
-<Figures/result22.png, id=260, 740.7675pt x 353.82187pt>
+ [55 <./Figures/exp2.png>]
+<Figures/result22.png, id=268, 740.7675pt x 353.82187pt>
 File: Figures/result22.png Graphic file (type png)
 
 <use Figures/result22.png>
 Package pdftex.def Info: Figures/result22.png used on input line 52.
 (pdftex.def)             Requested size: 407.42339pt x 194.60262pt.
-) [54 <./Figures/result21.png> <./Figures/result22.png>]
+) [56 <./Figures/result21.png> <./Figures/result22.png>]
 \openout2 = `chapters/7/chapter_conclusion.aux'.
 
- (chapters/7/chapter_conclusion.tex
+ (./chapters/7/chapter_conclusion.tex
 Chapter 7.
-[55
+[57
 
 
 
-]) [56] (mainthesisUVIC.bbl
+]) [58] (./mainthesisUVIC.bbl
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Â in font ptmr7t!
 Missing character: There is no · in font ptmr7t!
- [57
+ [59
 
 
 ]
@@ -1682,63 +1686,65 @@ Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Â in font ptmr7t!
 Missing character: There is no ® in font ptmr7t!
- [58]) [59]
+ [60]) [61]
 \openout2 = `chapters/appendix/chapter_app.aux'.
 
 
-(chapters/appendix/chapter_app.tex
+(./chapters/appendix/chapter_app.tex
 Appendix A.
-[60
+[62
 
 
 ]
 Appendix B.
-(sourcecode/communicationMethods.json [61
+(./sourcecode/communicationMethods.json [63
 
-] [62]) [63]
+] [64]) [65]
 Appendix C.
-[64
+[66
 
-] [65] [66] [67]
+] [67] [68] [69]
 Appendix D.
-(sourcecode/experiment1/NamedPipeServer.cpp [68
+(./sourcecode/experiment1/NamedPipeServer.cpp [70
 
-] [69] [70])
-(sourcecode/experiment1/NamedPipeClient.cpp [71] [72])
-(sourcecode/experiment2/NamedPipeServerOverlapped.cpp [73] [74] [75] [76]
-[77] [78]) (sourcecode/experiment2/test.bat)) [79] (mainthesisUVIC.aux
-(chapters/1/chapter_intro.aux) (chapters/2/chapter_background.aux)
-(chapters/3/chapter_modeling.aux) (chapters/4/chapter_algorithm.aux)
-(chapters/5/chapter_implementation.aux) (chapters/6/chapter_evaluation.aux)
-(chapters/7/chapter_conclusion.aux) (chapters/appendix/chapter_app.aux))
+] [71] [72])
+(./sourcecode/experiment1/NamedPipeClient.cpp [73] [74])
+(./sourcecode/experiment2/NamedPipeServerOverlapped.cpp [75] [76] [77] [78]
+[79] [80]) (./sourcecode/experiment2/test.bat)) [81] (./mainthesisUVIC.aux
+(./chapters/1/chapter_intro.aux) (./chapters/2/chapter_background.aux)
+(./chapters/3/chapter_modeling.aux) (./chapters/4/chapter_algorithm.aux)
+(./chapters/5/chapter_implementation.aux) (./chapters/6/chapter_evaluation.aux)
+(./chapters/7/chapter_conclusion.aux) (./chapters/appendix/chapter_app.aux))
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 9216 strings out of 493335
- 135873 string characters out of 3139261
- 431327 words of memory out of 3000000
- 12404 multiletter control sequences out of 15000+200000
- 30499 words of font info for 71 fonts, out of 3000000 for 9000
+ 9209 strings out of 493014
+ 136640 string characters out of 6133351
+ 431576 words of memory out of 5000000
+ 12415 multiletter control sequences out of 15000+600000
+ 30499 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,24n,62p,1523b,1740s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/font
-s/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/ams
-fonts/cm/cmr6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
-mr8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrb8a.pfb><C:/Program Files/MiKTeX
- 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/urw/courier/ucrro8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/ut
-mb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/Prog
-ram Files/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (90 pages, 926524 bytes).
+ 44i,24n,62p,1460b,1742s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texliv
+e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/201
+6/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texm
+f-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2016/texmf-dist/f
+onts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
+e1/urw/courier/ucrro8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/
+times/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr
+8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on mainthesisUVIC.pdf (92 pages, 883751 bytes).
 PDF statistics:
- 391 PDF objects out of 1000 (max. 8388607)
+ 402 PDF objects out of 1000 (max. 8388607)
+ 249 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  131 words of extra memory for PDF output out of 10000 (max. 10000000)
 

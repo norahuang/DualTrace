@@ -2,9 +2,75 @@
 \externaldocument{../4/chapter_algorithm}
 \startchapter{Feature Prototype On Atlantis}
 \label{chapter:newsol}
-In this chapter, I present the design of the feature prototype of communication identification from the dual\_trace. This feature is implemented on Atlantis and is built on top of Atlantis' other features, such as ``memory reconstruction", ``function inspect" and ``views synchronization". Atlantis is an assembly trace analysis environment. It provides many powerful and novel features to assist assembly level execution trace analysis.\cite{huang2017atlantis} This prototype implemented some of the algorithms described in Chapter\ref{chapter:alo} as well as the user interfaces.
+In this chapter, I present the design of the feature prototype of communication identification from the dual\_trace. This prototype implemented some of the algorithms described in Chapter\ref{chapter:alo} as well as the user interfaces.
 
-This prototype consists of four main components: 1) user setting for the function descriptors of the communication methods. 2) a view that can parallel display both traces in the dual\_trace. 3) two features: stream extraction and communication identification. 4) identification result navigation.
+This feature prototype is implemented on Atlantis to utilize its other features, such as ``memory reconstruction", ``function inspect" and ``views synchronization". Figure \ref{executable} shows the decoded information needed to identify a function call of interest from the trace. The feature ``function inspect" of Atlantis provide this decoding functionality. In the function call event reconstruction algorithm, the parameters of a function call is are retrieved from the memory state. The ``memory reconstruction" functionality of Atlantis which compute the memory state of the instruction line efficiently makes this retrieval easier. Moreover, the ``views synchronization" ability of Atlantis benefit the user when they are navigating and viewing the communication identification result.
+
+This prototype consists of four components: 1) user setting for the function descriptors of the communication methods. 2) a view that can parallel display both traces in the dual\_trace. 3) two features: stream extraction and communication identification. 4) stream extraction or communication identification result navigation.
+
+To analyse a dual\_trace, the user need to 1) open two traces in the parallel editor(developed in this prototype), 2) import the dynamic linked library file for each trace(existing feature of Atlantis), 3) perform the stream extraction or communication identification operations(developed in this prototype), and finally 4) inspect the operation results(by the operation menu developed in this prototype and the navigation functions existing in Atlantis).
+
+Before describing the detail of each of these component, I provide two use cases corresponding to the two main features: stream extraction and communication identification of this prototype as shown in Table \ref{usecase1} and Table \ref{usecase2}.
+
+\begin{table}[H]
+  \centering
+  \caption{Use Case 1: Extract Streams from the Dual\_trace}
+  \label{usecase1}
+  \begin{tabular}{|l|p{13cm}|}
+      \hline
+       \textbf{Name} & Analysis streams of a communication method from the Dual\_trace\\
+       \hline
+       \textbf{Description} & A user captured two assembly execution traces of two interacting program and need to analysis them by extracting all communication streams of each of the traces and inspecting the extraction results \\
+       \hline
+              \textbf{Actor} & A Software Security Engineer \\
+       \hline
+       \textbf{Precondition} & The user has two assembly execution trace and the .dll files on the systems where the programs of the captured traces were running\\
+       \hline
+       \textbf{Main Course}& 1. The user input the function descriptor for the communication methods of interest to the Json format setting file\\
+        & 2. The user open one of the trace in Atlantis\\
+       &  3. The user open the other trace as the dual\_trace of the first one\\
+       & 4. The two opened traces are presented in the parallel editor view\\
+       & 5. The user load the related .dll files which contains the information of the functions in the function descriptors for both opened trace\\
+       & 6. The user select the operation ``Stream Extraction" in the ``Dual\_Trace Tool" menu.\\
+       & 7. Atlantis prompt a dialogue window giving the user all the communication methods in the function descriptor setting file as option\\
+       & 8. The user select the communication methods which they want to analyse and click the ``OK" bottom\\
+       & 9. Atlantis extract the streams for both traces and list the result in ``Communication view"\\
+       & 10. The user expand the result in the ``Communication view"\\
+       & 11. The user select one function call event in a stream and double click the entry\\
+       & 12. Atlantis navigation to the corresponding instruction line in the trace and synchronize all other views\\
+      \hline               
+  \end{tabular}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Use Case 2: Identify Communications from the Dual\_trace}
+  \label{usecase2}
+  \begin{tabular}{|l|p{13cm}|}
+      \hline
+       \textbf{Name} & Analysis communications of a communication method from the Dual\_trace\\
+       \hline
+       \textbf{Description} & A user captured two assembly execution traces of two interacting program and need to analysis them by identify all communications of the dual\_trace and inspecting the extraction results \\
+       \hline
+              \textbf{Actor} & A Software Security Engineer \\
+       \hline
+       \textbf{Precondition} & The user has two assembly execution trace and the .dll files on the systems where the programs of the captured traces were running\\
+       \hline
+       \textbf{Main Course}& 1. The user input the function descriptor for the communication methods of interest to the Json format setting file\\
+        & 2. The user open one of the trace in Atlantis\\
+        &  3. The user open the other trace as the dual\_trace of the first one\\
+       & 4. The two opened traces are presented in the parallel editor view\\
+       & 5. The user load the related .dll files which contains the information of the functions in the function descriptors for both opened trace\\
+       & 6. The user select the operation ``Communication Identification" in the ``Dual\_Trace Tool" menu\\
+       & 7. Atlantis prompt a dialogue window giving the user all the communication methods in the function descriptor setting file as option\\
+       & 8. The user select the communication methods which they want to analyse and click the ``OK" bottom\\
+       & 9. Atlantis identify the communication for both traces and list the result in ``Communication view"\\
+       & 10. The user expand the result in the ``Communication view"\\
+       & 11. The user select one function call event in a stream and double click the entry\\
+       & 12. Atlantis navigation to the corresponding instruction line in the trace and synchronize all other views\\
+      \hline               
+  \end{tabular}
+\end{table}
 
 \section{User Setting of the Function Descriptors}\label{functionset}
 In Section \ref{cdesc}, I defined a function descriptor as a set of function descriptions for a communication method. The communication identification approach can identify the communications described by the function descriptor from the dual\_trace.
@@ -219,7 +285,7 @@ The dual\_trace consist of two execution traces which are interacting with each 
 \label{paralleleditor}
 \end{figure}
 
-\section{Identification Features}
+\section{Features}
 I implemented two features. The first one is stream extraction corresponding to the stream extraction algorithm presented in Chapter\ref{chapter:alo} for both traces in the dual\_trace. The other one is the communication identification corresponding to the overall communication process discussed in Chapter\ref{chapter:alo}. The implementation of these two features relies on the existing ``function inspect" feature of Atlantis. The called functions' name can be inspected  by  search of the symbolic name in the executable binary or any DLLs which used by the program at the time when it is traced. By importing the DLLs and executable binary, Atlantis can recognize the function call from the execution trace by the function names. Therefore the corresponding Dlls or executable binaries for both traces in the dual\_trace have to be loaded into Atlantis before conducting the identification.
 
 A new menu ``Dual\_trace Tool" with three menu options is designed for these two features. In this menu, ``Stream Extraction" is for the operation of stream extraction and ``Communication Identification" is for the operation of communication identification. For both of these two operation ``Load Library Exports" has to be run before for both traces. Currently, the ``Load library export"  operation can only load libraries for the trace in the active editor. So ``Load library export"  in the menu has to be run twice separately for each trace of the dual\_trace.  Figure\ref{dualtracetoolmenu} shows this new menu in Atlantis. When the user perform ``Stream Extraction" or ``Communication Identification", there will be a prompt dialog as shown in Figure \ref{methods} which asks the user what communication methods they want to analyse from the dual\_trace. This list is provided by the configuration file I mention in Section \ref{functionset}. The user can select one or multiple methods. 

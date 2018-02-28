@@ -42,29 +42,29 @@
 \contentsline {subsection}{\numberline {4.7.2}Data Stream Verification Algorithm for TCP}{33}
 \contentsline {subsection}{\numberline {4.7.3}Data Stream Verification Algorithm for Message Queue}{34}
 \contentsline {subsection}{\numberline {4.7.4}Data Stream Verification Algorithm for UDP}{36}
-\contentsline {section}{\numberline {4.8}Limitation of the Identification}{38}
+\contentsline {subsection}{\numberline {4.7.5}Limitation of the Verification}{38}
 \contentsline {chapter}{\numberline {5}Feature Prototype On Atlantis}{40}
-\contentsline {section}{\numberline {5.1}User Setting of the Function Descriptors}{40}
-\contentsline {subsection}{\numberline {5.1.1}Communication Methods' Implementation in Windows}{41}
-\contentsline {subsubsection}{Windows Calling Convention}{41}
-\contentsline {subsubsection}{Named Pipes}{42}
-\contentsline {subsubsection}{Message Queue}{43}
-\contentsline {subsubsection}{TCP and UDP}{44}
-\contentsline {section}{\numberline {5.2}Parallel Editor View For Dual\_Trace}{45}
-\contentsline {section}{\numberline {5.3}Identification Features}{46}
-\contentsline {section}{\numberline {5.4}Result Navigation}{48}
-\contentsline {chapter}{\numberline {6}Proof of Concept}{50}
-\contentsline {section}{\numberline {6.1}Experiments}{50}
-\contentsline {subsection}{\numberline {6.1.1}Experiment 1}{51}
-\contentsline {subsection}{\numberline {6.1.2}Experiment 2}{52}
-\contentsline {section}{\numberline {6.2}Discussion}{54}
-\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{55}
-\contentsline {chapter}{Bibliography}{57}
-\contentsline {chapter}{Appendix \numberline {A}Microsoft x64 Calling Convention for C/C++}{60}
-\contentsline {chapter}{Appendix \numberline {B}Function Set Configuration Example}{61}
-\contentsline {chapter}{Appendix \numberline {C}Code of the Parallel Editors}{64}
-\contentsline {section}{\numberline {C.1}The Editor Area Split Handler}{64}
-\contentsline {section}{\numberline {C.2}Get the Active Parallel Editors}{67}
-\contentsline {chapter}{Appendix \numberline {D}Code of the Programs in the Experiments}{68}
-\contentsline {section}{\numberline {D.1}Experiment 1}{68}
-\contentsline {section}{\numberline {D.2}Experiment 2}{73}
+\contentsline {section}{\numberline {5.1}User Setting of the Function Descriptors}{42}
+\contentsline {subsection}{\numberline {5.1.1}Communication Methods' Implementation in Windows}{43}
+\contentsline {subsubsection}{Windows Calling Convention}{44}
+\contentsline {subsubsection}{Named Pipes}{44}
+\contentsline {subsubsection}{Message Queue}{45}
+\contentsline {subsubsection}{TCP and UDP}{46}
+\contentsline {section}{\numberline {5.2}Parallel Editor View For Dual\_Trace}{47}
+\contentsline {section}{\numberline {5.3}Features}{48}
+\contentsline {section}{\numberline {5.4}Result Navigation}{50}
+\contentsline {chapter}{\numberline {6}Proof of Concept}{52}
+\contentsline {section}{\numberline {6.1}Experiments}{52}
+\contentsline {subsection}{\numberline {6.1.1}Experiment 1}{53}
+\contentsline {subsection}{\numberline {6.1.2}Experiment 2}{54}
+\contentsline {section}{\numberline {6.2}Discussion}{56}
+\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{57}
+\contentsline {chapter}{Bibliography}{59}
+\contentsline {chapter}{Appendix \numberline {A}Microsoft x64 Calling Convention for C/C++}{62}
+\contentsline {chapter}{Appendix \numberline {B}Function Set Configuration Example}{63}
+\contentsline {chapter}{Appendix \numberline {C}Code of the Parallel Editors}{66}
+\contentsline {section}{\numberline {C.1}The Editor Area Split Handler}{66}
+\contentsline {section}{\numberline {C.2}Get the Active Parallel Editors}{69}
+\contentsline {chapter}{Appendix \numberline {D}Code of the Programs in the Experiments}{70}
+\contentsline {section}{\numberline {D.1}Experiment 1}{70}
+\contentsline {section}{\numberline {D.2}Experiment 2}{75}

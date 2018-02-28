@@ -368,7 +368,7 @@ The data transfer characteristics divided the communications into reliable and u
 \item verify the timing preservation of the data in the matched streams. 
 \end{itemize}
 
-To verify the timing preservation, the relative time of the events in both streams is needed. Unfortunately, we can only determine the relative time with in a stream but not crossing two streams. So that it's impossible to verify the timing preservations no matter for reliable or unreliable communications. The verification algorithms discussed in this section will only cover the content preservation.  
+To verify the timing preservation, the relative time of the events in both streams is needed. Unfortunately, we can only determine the relative time with in a stream but not crossing two streams. So that it's infeasible to verify the timing preservations no matter for reliable or unreliable communications. The verification algorithms discussed in this section will only cover the content preservation.  
 
 The inputs of the data stream verification algorithms are two preliminary matched streams $s_0$ and $s_1$. The output is the a boolean indicating if the streams satisfy the content preservation. All communications don't satisfy the content preservation should be excluded.
 
@@ -574,18 +574,21 @@ The time complexity of this algorithm is $O(N^2+M^2)$, $N$ and $M$ are the numbe
  \KwRet True;\;
 \end{algorithm} 
 
-\section{Limitation of the Identification}
+\subsection{Limitation of the Verification}
 The Identification discussed in this chapter is not perfect. It has two major limitations:
 \begin{itemize}
     \item The timing preservation of the communication is not verified.
-    \item Due to the data transmitted in two communications can be identical(or their difference can not be tell by the content verification), the false negative error of the identification can not be eliminated. Figure\ref{secondlevelmatching} indicates the ineffective and effective identification scenarios. 
+    \item Due to the data transmitted in two communications can be identical(or their difference can not be tell by the content verification). In this cases, one stream in one side of the dual\_trace can be matched by two or more streams on the other side. Figure \ref{secondlevelmatching} indicates the ineffective and effective stream matching scenarios even with the content verification. 
+    
+    In the Ineffective Scenario shown in Figure \ref{secondlevelmatching}, $s_{11}$ are matched with $s_{21}$, $s_{22}$ and $s_{23}$ in the stream matching algorithm. So data stream verification algorithm will apply on $(s_{11}, s_{21})$, $(s_{11}, s_{22})$ and $(s_{11}, s_{23})$. In this case, all of them are considered to satisfy the content preservation by this algorithm, so this three streams pairs are all identified as a valid communication, even through that is not true. Same as $(s_{12}, s_{21})$, $(s_{12}, s_{22})$ and $(s_{12}, s_{23})$. There is no way from the analysis point of view to distinct the actual communication and exclude the invalid ones. I conserve all of them in the output and present them to the users to make the decision. With assistant information, the users might be able to distinguish them and find the valid one.
+    
+In the effective scenario, one stream in one side of the dual\_trace is only matched with one stream on the other side, which is ideal from the analysis point of view.
 \end{itemize}
-
 
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.7]{Figures/secondlevelmatching}}
- \caption{Communication Identification Scenarios}
+ \caption{Stream Matching Scenarios}
 \label{secondlevelmatching}
 \end{figure}
 
