@@ -97,13 +97,13 @@ Note: If the parameter is an address, the parameter's value is the string from t
 An example of a sequence of function call events as the output of this algorithm is shown in Listing\ref{eventsexample}.
 
 \begin{lstlisting}[caption= Example of  $etr$, label=eventsexample]
-{funN:CreateNamedPipe, type:open,inparams:{Handler:18, FileName:mypipe}, outparams:{}},
-{funN:CreateNamedPipe, type:open,  inparams:{Handler:27,  FileName:Apipe}, outparams:{}},
-{funN:WriteFile, type:send, inparams:{Handler:27, SendBuf:Message1}, outparams:{MessageLen:9}},
-{funN:WriteFile, type:send, inparams:{Handler:27, SendBuf:Message2}, outparams:{MessageLen:9}},
-{funN:ReadFile, type:receive, inparams:{Handler:27}, outparams:{RecvBuf:Message3, MessageLen:9}},
-{funN:CloseHandle, type:close, inparams:{Handler:27}, outparams:{}},
-{funN:CloseHandle, type:close, inparams:{Handler:18}, outparams:{}}
+{funN:CreateNamedPipe, type:open,inparams:{Handle:18, FileName:mypipe}, outparams:{}},
+{funN:CreateNamedPipe, type:open,  inparams:{Handle:27,  FileName:Apipe}, outparams:{}},
+{funN:WriteFile, type:send, inparams:{Handle:27, SendBuf:Message1}, outparams:{MessageLen:9}},
+{funN:WriteFile, type:send, inparams:{Handle:27, SendBuf:Message2}, outparams:{MessageLen:9}},
+{funN:ReadFile, type:receive, inparams:{Handle:27}, outparams:{RecvBuf:Message3, MessageLen:9}},
+{funN:CloseHandle, type:close, inparams:{Handle:27}, outparams:{}},
+{funN:CloseHandle, type:close, inparams:{Handle:18}, outparams:{}}
 \end{lstlisting}
 
 Algorithm \ref{eventAlg} present the presudo code for the function call event reconstruction algorithm. This algorithm is designed to reconstruct the function call events of a communication method. If multiple communication methods are under investigated, this algorithm can be run multiple times to achieve the goal. Since the function descriptions usually contain a  small number of functions compared to the instruction line number in the execution trace, the time complexity of this algorithm is $O(N)$ , $N$ is the instruction line number of the trace.
