@@ -73,7 +73,7 @@ In order to analysis the communication of programs, I had to know how the commun
 
 The abstract assembly trace definition was build on the generalization of the trace format provided by our research partner, DRDC. I don't have the access to their home-made assembly tracer which is based on PIN\cite{_pin_????}. Fortunately, they provides a comprehensive document about the format of the captured trace and example traces to me. With these, I grasped the constructive view of the assembly execution trace. Further more, in the present of some dynamic software analysis works \cite{godefroid2008automated}, \cite{li2013software}, \cite{sailer2016coretana}, \cite{balakrishnan2004analyzing}, \cite{bhansali2006framework} and \cite{trumper2012maintenance}, it is certain that, some other tools can also capture the required information in assembly level for communication analysis. This supports the generalization of the trace definition and the abstraction of the dual\_trace.
 
-The implementation of the prototype and the communication identification algorithms are develop in parallel. The high level identification algorithm and the specific algorithms for named pipe communication methods were abstracted based on the implementation, while the others are developed theoretically. Two experiments are designed to test the prototype and some algorithms. 
+The implementation of the prototype and the communication analysis algorithms are develop in parallel. The high level communication identification algorithm and the specific algorithms for named pipe communication methods were abstracted based on the implementation, while the others are developed theoretically. Two experiments are designed to test the prototype and some algorithms. 
 
 
 \section{Contribution}
@@ -81,8 +81,8 @@ The main contributions of these work can be summarized as:
 \begin{itemize}
   \item \textbf{Communication Model:} The communication model in this thesis is an abstract model of the communications between two programs. It was abstracted from the understanding of several communication methods and is general for other communication methods that are not mention in this thesis.
   \item \textbf{Dual\_trace Formalization:} By understanding the assembly level execution traces, a dual\_trace was formalized to describe the information that needed for communication analysis. This model doesn't specify the format of the execution traces but defines what information is necessary to be contained to fulfil the analysis requirement. All execution traces comply with this definition can be used for the analysis.
-  \item \textbf{Communication Identification Approach:} The overall approach to identify the communication of a communication method is designed. Some algorithms are developed for the steps in this approach regarding to some communication methods or communication categories.
-  \item \textbf{Feature Prototype:} A feature prototype is designed and implemented on Atlantis to test and prove the communication identification approach.
+  \item \textbf{Communication Analysis Approach:} The overall approach to identify the communication of a communication method is designed. Some algorithms are developed for the steps in this approach regarding to some communication methods or communication categories.
+  \item \textbf{Feature Prototype:} A prototype is designed and implemented on Atlantis to test and prove the communication analysis approach.
 \end{itemize}
 
 \section{Thesis Organization}
@@ -90,9 +90,9 @@ In Chapter 2, I summarize the related background information and knowledge neede
 
 Chapter 3 depicts the model of the communication between two programs. The communication model defines the communication in the context of trace analysis as well as discusses the properties of the communications. 
 
-Chapter 4 presents the abstract dual\_trace definition. Based on this definition, I developed the communication identification process and the essential algorithms.
+Chapter 4 presents the abstract dual\_trace definition. Based on this definition, I developed the communication analysis process and the essential algorithms.
 
-To provide more concrete idea, I present, in chapter 5, the implemented communication identification feature prototype. This prototype was built on top of Atlantis\cite{huang2017atlantis}, an assembly execution trace analysis environment.
+To provide more concrete idea, I present, in chapter 5, the implemented dual\_trace communication analysis prototype. This prototype was built on top of Atlantis\cite{huang2017atlantis}, an assembly execution trace analysis environment.
 
 In chapter 6, I present two experiments of communication analysis with dual\_traces of programs using the implemented prototype. Notably, the result shows the communications are correctly identified. 
 

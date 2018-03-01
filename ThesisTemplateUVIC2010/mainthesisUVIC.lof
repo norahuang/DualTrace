@@ -5,7 +5,7 @@
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Example of Reliable Communication\relax }}{14}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Example of Unreliable Communication\relax }}{15}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Process of the Communication Identification from a Dual\_trace\relax }}{18}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Process of the Communication Analysis from a Dual\_trace\relax }}{18}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces An example trace \relax }}{19}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Information of kernal32.dll\relax }}{19}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Channel Open Process for a Named Pipe in Windows\relax }}{24}
@@ -17,19 +17,20 @@
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{37}
 \contentsline {figure}{\numberline {4.11}{\ignorespaces Stream Matching Scenarios\relax }}{39}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Menu Item for opening Dual\_trace\relax }}{47}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Parallel Editor View\relax }}{48}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Dual\_trace Tool Menu\relax }}{49}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Prompt Dialog for Communication Selection\relax }}{49}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Communication View for Result\relax }}{50}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Right Click Menu on Event Entry\relax }}{51}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Right Click Menu on Event Entry\relax }}{51}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Menu Item for opening Dual\_trace\relax }}{49}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Parallel Trace View\relax }}{49}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Process of the Communication Analysis from a Dual\_trace Separated in Two Sections\relax }}{50}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Dual\_trace Tool Menu\relax }}{51}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Prompt Dialog for Communication Selection\relax }}{51}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Communication View for Result\relax }}{52}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Right Click Menu on Event Entry\relax }}{53}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Right Click Menu on Event Entry\relax }}{53}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Sequence Diagram of Experiment 1\relax }}{53}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Identification result of $exp1$\relax }}{54}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Sequence Diagram of Experiment 2\relax }}{55}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Identification result of $exp2.1$\relax }}{56}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Identification result of $exp2.1$\relax }}{56}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Sequence Diagram of Experiment 1\relax }}{55}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Analysis Result of Dual\_trace in Experiment 1\relax }}{56}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Sequence Diagram of Experiment 2\relax }}{57}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Analysis Result of the Dual\_trace:``Server.trace" and ``Client1.trace" in Experiment 2\relax }}{58}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Analysis Result of the Dual\_trace:``Server.trace" and ``Client2.trace" in Experiment 2\relax }}{58}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
