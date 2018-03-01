@@ -2,7 +2,6 @@ package ca.uvic.chisel.bfv.dualtracechannel;
 
 public class ChannelEvent implements Comparable<ChannelEvent> {
 		private String functionName;
-		private CommunicationStage stage;
 		private FullFunctionMatch fullFunctionMatch;
 		private Channel channel;
 
@@ -10,9 +9,8 @@ public class ChannelEvent implements Comparable<ChannelEvent> {
 		@SuppressWarnings("unused") // Default constructor is for JAXB's use only--do not use elsewhere!
 		private ChannelEvent() {}
 		
-		public ChannelEvent(String functionName, CommunicationStage stage, FullFunctionMatch fullFunctionMatch, Channel channel) {
+		public ChannelEvent(String functionName, FullFunctionMatch fullFunctionMatch, Channel channel) {
 			super();		
-			this.stage = stage;
 			this.functionName = functionName;
 			this.fullFunctionMatch = fullFunctionMatch;
 			this.channel = channel;
@@ -20,18 +18,13 @@ public class ChannelEvent implements Comparable<ChannelEvent> {
 		
 		@SuppressWarnings("restriction")
 		@Override
-		public String toString() {		
-			String datatran = "";
-			if(stage == CommunicationStage.DATATRANS)
-			{
-			    if(fullFunctionMatch.getType()==FunctionType.send){
-			    	datatran = ",send";
-			    }	
-			    else{
-			    	datatran = ",receive";
-			    }
+		public String toString() {	
+			if(fullFunctionMatch.getType() == FunctionType.check){
+				return  "RECEIVE" + ":"+ functionName + "() at line " + this.fullFunctionMatch.getEventStart().getLineElement().getLine();
 			}
-			return stage + datatran + ":"+ functionName + "() at line " + this.fullFunctionMatch.getEventStart().getLineElement().getLine();
+			else{
+			return  fullFunctionMatch.getType().toString().toUpperCase() + ":"+ functionName + "() at line " + this.fullFunctionMatch.getEventStart().getLineElement().getLine();
+			}
 		}
 
 		
@@ -60,13 +53,6 @@ public class ChannelEvent implements Comparable<ChannelEvent> {
 			this.fullFunctionMatch = fullFunctionMatch;
 		}
 
-		public CommunicationStage getStage() {
-			return stage;
-		}
-
-		public void setStage(CommunicationStage stage) {
-			this.stage = stage;
-		}
 
 
 		/**

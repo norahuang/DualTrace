@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -70,7 +69,6 @@ import ca.uvic.chisel.bfv.dualtracechannel.BfvFileWithAddrMatch;
 import ca.uvic.chisel.bfv.dualtracechannel.Channel;
 import ca.uvic.chisel.bfv.dualtracechannel.ChannelEvent;
 import ca.uvic.chisel.bfv.dualtracechannel.ChannelGroup;
-import ca.uvic.chisel.bfv.dualtracechannel.CommunicationStage;
 import ca.uvic.chisel.bfv.dualtracechannel.FullFunctionMatch;
 import ca.uvic.chisel.bfv.dualtracechannel.FunctionType;
 import ca.uvic.chisel.bfv.dualtracechannel.Trace;
@@ -129,20 +127,13 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 				return group.getChannels().toArray();
 			} else if (parentElement instanceof MatchChannel) {
 				MatchChannel channel = (MatchChannel) parentElement;
-				Object[] openEventsInTrace1 = channel.getOpenEventsInTrace1().toArray();
-				Object[] openEventsInTrace2 = ArrayUtils.addAll(openEventsInTrace1,
-						channel.getOpenEventsInTrace2().toArray());
-				Object[] closeEventsInTrace1 = ArrayUtils.addAll(openEventsInTrace2,
-						channel.getCloseEventsInTrace1().toArray());
-				Object[] closeEventsInTrace2 = ArrayUtils.addAll(closeEventsInTrace1,
-						channel.getCloseEventsInTrace2().toArray());
-				Object[] channelDatatransEvents = ArrayUtils.addAll(closeEventsInTrace2,
-						channel.getChannelDatatransEvents().toArray());
-				return channelDatatransEvents;
-			} else if (parentElement instanceof ChannelDataTransEvent) {
-				ChannelDataTransEvent event = (ChannelDataTransEvent) parentElement;
-				Object[] sendrecv = new Object[] { event.getSend(), event.getRecv() };
-				return sendrecv;
+				Object[] streams = {channel.getStream1(),channel.getStream2()};
+				return streams;
+			} else if (parentElement instanceof Channel) {
+				Channel channel = (Channel) parentElement;
+				List<ChannelEvent> events = channel.getEvents();
+				Collections.sort(events);
+				return events.toArray();
 			} else {
 				return null;
 			}
@@ -159,7 +150,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 				return true;
 			} else if (element instanceof MatchChannel) {
 				return true;
-			} else if (element instanceof ChannelDataTransEvent) {
+			} else if (element instanceof Channel) {
 				return true;
 			} else {
 				return false;
@@ -168,10 +159,10 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 
 		@Override
 		public Object getParent(Object element) {
-			if (element instanceof ChannelDataTransEvent) {
-				return ((ChannelDataTransEvent) element).getChannel();
-			} else if (element instanceof ChannelOpenCloseEvent) {
-				return ((ChannelOpenCloseEvent) element).getChannel();
+			if (element instanceof Channel) {
+				return ((Channel) element).getMatchChannel();
+			} else if (element instanceof ChannelEvent) {
+				return ((ChannelEvent) element).getChannel();
 			} else if (element instanceof MatchChannel) {
 				return ((MatchChannel) element).getChannelGroup();
 			} else {
@@ -321,18 +312,19 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 	}
 
 	private MatchChannel matchTwoChannels(Channel c1, Channel c2, MatchChannelGroup channelGroup) {
-		MatchChannel channel = new MatchChannel(c1.getChannelID(), channelGroup);
+		MatchChannel channel = new MatchChannel(c1.getChannelID(), channelGroup, c1, c2);
 		for (ChannelEvent e1 : c1.getEvents()) {
-			if (e1.getStage() == CommunicationStage.OPENING) {
-				ChannelOpenCloseEvent e = new ChannelOpenCloseEvent(e1.getFunctionName(), CommunicationStage.OPENING,
+			if (e1.getFullFunctionMatch().getType() == FunctionType.open) {
+				ChannelOpenCloseEvent e = new ChannelOpenCloseEvent(e1.getFunctionName(), 
 						new FullFunctionMatchOfTrace(e1.getFullFunctionMatch(), c1.getTrace().getTraceName(),e1.getFunctionName()), channel, c1.getTrace().getTraceName());
 				channel.addEventToOpenList1(e);
-			} else if (e1.getStage() == CommunicationStage.CLOSING) {
-				ChannelOpenCloseEvent e = new ChannelOpenCloseEvent(e1.getFunctionName(), CommunicationStage.CLOSING,
+			} else if (e1.getFullFunctionMatch().getType() == FunctionType.check) {
+				ChannelOpenCloseEvent e = new ChannelOpenCloseEvent(e1.getFunctionName(),
 						new FullFunctionMatchOfTrace(e1.getFullFunctionMatch(), c1.getTrace().getTraceName(),e1.getFunctionName()), channel, c1.getTrace().getTraceName());
 				channel.addEventToCloseList1(e);
 				
-			} else if (e1.getStage() == CommunicationStage.DATATRANS) {
+			} else if (e1.getFullFunctionMatch().getType() == FunctionType.send ||
+					   e1.getFullFunctionMatch().getType() == FunctionType.receive) {
 				String messageSend1 = "";
 				String messageRecv1 = "";
 				if (e1.getFullFunctionMatch().getType() == FunctionType.send) {
@@ -380,17 +372,18 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 
 		}
 		for (ChannelEvent e2 : c2.getEvents()) {
-			if (e2.getStage() == CommunicationStage.OPENING) {
-				ChannelOpenCloseEvent e = new ChannelOpenCloseEvent(e2.getFunctionName(), CommunicationStage.OPENING,
+			if (e2.getFullFunctionMatch().getType() == FunctionType.open) {
+				ChannelOpenCloseEvent e = new ChannelOpenCloseEvent(e2.getFunctionName(), 
 						new FullFunctionMatchOfTrace(e2.getFullFunctionMatch(), c2.getTrace().getTraceName(),e2.getFunctionName()), channel, c2.getTrace().getTraceName());
 				channel.addEventToOpenList1(e);
-			} else if (e2.getStage() == CommunicationStage.CLOSING) {
-				ChannelOpenCloseEvent e = new ChannelOpenCloseEvent(e2.getFunctionName(), CommunicationStage.CLOSING,
+			} else if (e2.getFullFunctionMatch().getType() == FunctionType.close) {
+				ChannelOpenCloseEvent e = new ChannelOpenCloseEvent(e2.getFunctionName(), 
 						new FullFunctionMatchOfTrace(e2.getFullFunctionMatch(), c2.getTrace().getTraceName(),e2.getFunctionName()), channel, c2.getTrace().getTraceName());
 				channel.addEventToCloseList1(e);
 			}
 		}
-
+        channel.getStream1().setMatchChannel(channel);
+        channel.getStream2().setMatchChannel(channel);
 		return channel;
 	}
 
@@ -475,7 +468,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 		matchResultTableViewer.addDoubleClickListener(new IDoubleClickListener() {
 			@Override
 			public void doubleClick(DoubleClickEvent e) {
-				DualTraceChannelView.this.doubleClickForMatch(e);
+				DualTraceChannelView.this.doubleClick(e);
 			}
 		});
 	}
@@ -530,7 +523,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 		}
 	}
 	
-	private void doubleClickForMatch(DoubleClickEvent e) {
+/*	private void doubleClickForMatch(DoubleClickEvent e) {
 		if (!e.getSelection().isEmpty()) {
 
 			ITreeSelection selection = (ITreeSelection) e.getSelection();
@@ -578,7 +571,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 			}
 
 		}
-	}
+	}*/
 
 	private void createContextMenu() {
 
@@ -649,7 +642,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 		ITreeSelection mselection = (ITreeSelection) matchResultTableViewer.getSelection();
 		Object mselected = mselection.getFirstElement();
 
-		if (mselected instanceof ChannelOpenCloseEvent || mselected instanceof FullFunctionMatchOfTrace) {
+		if (mselected instanceof ChannelEvent) {
 			mgr.add(gotoFunctionEndInMatch);
 			return;
 		}
@@ -703,7 +696,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 			for (FullFunctionMatch match : entry.getValue()) {
 				Channel c = new Channel(trace, match.getEventStart().getLineElement().getLine(), match.getRetVal(),
 						match.getInputVal());
-				ChannelEvent e = new ChannelEvent(entry.getKey(), CommunicationStage.OPENING, match, c);
+				ChannelEvent e = new ChannelEvent(entry.getKey(), match, c);
 				c.addEvent(e);
 				trace.addChannel(c);
 			}
@@ -736,7 +729,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 
 		if (resultChannel != null) {
 			resultChannel.setChannelEndLineNum(lineNum);
-			ChannelEvent e = new ChannelEvent(functionName, CommunicationStage.CLOSING, closeHandle, resultChannel);
+			ChannelEvent e = new ChannelEvent(functionName, closeHandle, resultChannel);
 			resultChannel.addEvent(e);
 		}
 
@@ -758,7 +751,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 			String retval = match.getRetVal().substring(match.getRetVal().length()-8,16);
 			if (!retval.equals("00000000"))
 			{
-			   ChannelEvent e = new ChannelEvent(functionName, CommunicationStage.DATATRANS, match, resultChannel);
+			   ChannelEvent e = new ChannelEvent(functionName, match, resultChannel);
 			   resultChannel.addEvent(e);
 			}
 		}
@@ -926,7 +919,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 						}
 					}
 					
-					if (function.getFunction().getType() == FunctionType.recv
+					if (function.getFunction().getType() == FunctionType.receive
 							&& function.getFunction().getOutputDataAddressIndex() != null) {
 						editor.addToDataAddressMap(
 								function.getFunction().getOutputDataAddressIndex() + inputVal, outputAddress);
@@ -955,7 +948,7 @@ public class DualTraceChannelView extends ViewPart implements IPartListener2, Me
 							}
 						}
 						messageAtStart = messageAtStart.substring(0, (int)inputLen-1);
-					} else if (function.getFunction().getType() == FunctionType.recv
+					} else if (function.getFunction().getType() == FunctionType.receive
 							|| function.getFunction().getType() == FunctionType.check) {
 						for (MemoryReference memRef : functionEndMemoryReferencesResult.getMemoryList().values()) {
 							if (outputadd <= memRef.getAddress() && outputadd + outputBufLen > memRef.getEndAddress()) {

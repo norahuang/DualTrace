@@ -13,12 +13,12 @@ public class NamedPipeFunctions{
     private NamedPipeFunctions(){
     	namedPipe = new ChannelType("NamedPipe");
     	String dataAddressIndex = namedPipe.getChannelTypeName() + ReadFileDataAddrReg.getName();
-		namedPipe.addFuncInChannelOpenStage(new ChannelFunction(CreateNamedPipeAFuncName, RetrunValReg, CreateNamedPipeFileNameReg, null, null, null, null, true, FunctionType.na, null));
-    	namedPipe.addFuncInChannelOpenStage(new ChannelFunction(CreateFileAFuncName, RetrunValReg, CreateFileFileNameReg, null, null, null, null, true, FunctionType.na, null));
+		namedPipe.addFuncInChannelOpenStage(new ChannelFunction(CreateNamedPipeAFuncName, RetrunValReg, CreateNamedPipeFileNameReg, null, null, null, null, true, FunctionType.open, null));
+    	namedPipe.addFuncInChannelOpenStage(new ChannelFunction(CreateFileAFuncName, RetrunValReg, CreateFileFileNameReg, null, null, null, null, true, FunctionType.open, null));
     	namedPipe.addFuncInDataTransStage(new ChannelFunction(WriteFileFuncName, RetrunValReg, WriteFileFileHandleReg, WriteFileDataAddrReg, null, WriteFileDataLenReg, null,false, FunctionType.send, null));
-    	namedPipe.addFuncInDataTransStage(new ChannelFunction(ReadFileFuncName, RetrunValReg, ReadFileFileHandleReg, null, ReadFileDataAddrReg, null, ReadFileDataBufLenReg, false, FunctionType.recv, dataAddressIndex));
+    	namedPipe.addFuncInDataTransStage(new ChannelFunction(ReadFileFuncName, RetrunValReg, ReadFileFileHandleReg, null, ReadFileDataAddrReg, null, ReadFileDataBufLenReg, false, FunctionType.receive, dataAddressIndex));
     	namedPipe.addFuncInDataTransStage(new ChannelFunction(GetOverlappedResultFuncName, RetrunValReg, GetOverlappedResultFileHandleReg, null, GetOverlappedResultOverLapReg, null, null,false, FunctionType.check, dataAddressIndex));
-    	namedPipe.addFuncInChannelCloseStage(new ChannelFunction(CloseHandleFuncName, RetrunValReg, CloseHandleFileHandleReg, null, null, null, null, false, FunctionType.na, null));
+    	namedPipe.addFuncInChannelCloseStage(new ChannelFunction(CloseHandleFuncName, RetrunValReg, CloseHandleFileHandleReg, null, null, null, null, false, FunctionType.close, null));
     	
     }
     

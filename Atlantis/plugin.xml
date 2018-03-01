@@ -158,15 +158,7 @@
             class="ca.uvic.chisel.atlantis.views.DualTraceChannelView"
             icon="icons/message.png"
             id="ca.uvic.chisel.atlantis.views.DualTraceChannelView"
-            name="Communication Streams and Channels"
-            restorable="true">
-      </view>
-      <view
-            category="ca.uvic.chisel.atlantis.TraceAnalysisViews"
-            class="ca.uvic.chisel.atlantis.views.MessageTypesView"
-            icon="icons/message.png"
-            id="ca.uvic.chisel.atlantis.views.MessageTypesView"
-            name="Communication Types"
+            name="Communication"
             restorable="true">
       </view>
    </extension>

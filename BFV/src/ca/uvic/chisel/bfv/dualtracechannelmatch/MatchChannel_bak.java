@@ -6,13 +6,9 @@ import java.util.List;
 
 import org.eclipse.jface.text.source.Annotation;
 
-import ca.uvic.chisel.bfv.dualtracechannel.Channel;
 
-
-public class MatchChannel extends Annotation implements Comparable<MatchChannel> {
+public class MatchChannel_bak extends Annotation implements Comparable<MatchChannel_bak> {
 	public static final String TYPE_ANNOTATION_TYPE = "ca.uvic.chisel.bfv.dualtrace.matchchannel";	
-	private Channel stream1;
-	private Channel stream2;
 	private List<ChannelOpenCloseEvent> openEventsInTrace1;
 	private List<ChannelOpenCloseEvent> openEventsInTrace2;
 	private List<ChannelOpenCloseEvent> closeEventsInTrace1;
@@ -22,10 +18,8 @@ public class MatchChannel extends Annotation implements Comparable<MatchChannel>
 	private MatchChannelGroup channelGroup;
 
 
-	public MatchChannel(String channelID, MatchChannelGroup channelGroup, Channel s1, Channel s2){
+	public MatchChannel_bak(String channelID, MatchChannelGroup channelGroup){
 		this.channelID = channelID;
-		this.stream1 = s1;
-		this.stream2 = s2;
 		this.openEventsInTrace1 = new ArrayList<ChannelOpenCloseEvent>();
 		this.openEventsInTrace2 = new ArrayList<ChannelOpenCloseEvent>();
 		this.closeEventsInTrace1 = new ArrayList<ChannelOpenCloseEvent>();
@@ -36,7 +30,7 @@ public class MatchChannel extends Annotation implements Comparable<MatchChannel>
 
 
 	@Override
-	public int compareTo(MatchChannel other) {
+	public int compareTo(MatchChannel_bak other) {
 		if (other == null) {
 			return -1;
 		} 
@@ -155,24 +149,5 @@ public class MatchChannel extends Annotation implements Comparable<MatchChannel>
 
 	public void setChannelGroup(MatchChannelGroup channelGroup) {
 		this.channelGroup = channelGroup;
-	}
-	
-	public Channel getStream1() {
-		return stream1;
-	}
-
-
-	public void setStream1(Channel stream1) {
-		this.stream1 = stream1;
-	}
-
-
-	public Channel getStream2() {
-		return stream2;
-	}
-
-
-	public void setStream2(Channel stream2) {
-		this.stream2 = stream2;
 	}
 }

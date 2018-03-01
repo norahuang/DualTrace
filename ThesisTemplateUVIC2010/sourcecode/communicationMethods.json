@@ -81,7 +81,7 @@
             },
             "functionName": "ReadFile",
             "createHandle": false,
-            "type": "recv",
+            "type": "receive",
             "outputDataAddressIndex": "NamedPipeChannelRDX"
          },
          {

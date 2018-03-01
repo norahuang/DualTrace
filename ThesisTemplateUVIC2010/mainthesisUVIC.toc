@@ -58,19 +58,18 @@
 \contentsline {section}{\numberline {6.1}Experiment 1}{55}
 \contentsline {subsection}{\numberline {6.1.1}Experiment Design}{55}
 \contentsline {subsection}{\numberline {6.1.2}Dual\_trace Analysis Result and Discussion}{56}
-\contentsline {section}{\numberline {6.2}Experiment 2}{58}
-\contentsline {subsection}{\numberline {6.2.1}Experiment Design}{58}
-\contentsline {subsection}{\numberline {6.2.2}Dual\_trace Analysis Result and Discussion}{59}
-\contentsline {subsubsection}{Dual\_trace: $Server.trace$ and $Client1.trace$}{59}
-\contentsline {subsubsection}{Dual\_trace: $Server.trace$ and $Client2.trace$}{61}
-\contentsline {subsubsection}{Discussion for Both Dual\_traces}{62}
-\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{63}
-\contentsline {chapter}{Bibliography}{65}
-\contentsline {chapter}{Appendix \numberline {A}Microsoft x64 Calling Convention for C/C++}{68}
-\contentsline {chapter}{Appendix \numberline {B}Function Descriptor Configuration file Example}{69}
-\contentsline {chapter}{Appendix \numberline {C}Code of the Parallel Editors}{72}
-\contentsline {section}{\numberline {C.1}The Editor Area Split Handler}{72}
-\contentsline {section}{\numberline {C.2}Get the Active Parallel Editors}{75}
-\contentsline {chapter}{Appendix \numberline {D}Code of the Programs in the Experiments}{76}
-\contentsline {section}{\numberline {D.1}Experiment 1}{76}
-\contentsline {section}{\numberline {D.2}Experiment 2}{81}
+\contentsline {section}{\numberline {6.2}Experiment 2}{60}
+\contentsline {subsection}{\numberline {6.2.1}Experiment Design}{60}
+\contentsline {subsection}{\numberline {6.2.2}Dual\_trace Analysis Result and Discussion}{61}
+\contentsline {subsubsection}{Dual\_trace: $Server.trace$ and $Client1.trace$}{61}
+\contentsline {subsubsection}{Dual\_trace: $Server.trace$ and $Client2.trace$}{63}
+\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{65}
+\contentsline {chapter}{Bibliography}{67}
+\contentsline {chapter}{Appendix \numberline {A}Microsoft x64 Calling Convention for C/C++}{70}
+\contentsline {chapter}{Appendix \numberline {B}Function Descriptor Configuration file Example}{71}
+\contentsline {chapter}{Appendix \numberline {C}Code of the Parallel Editors}{74}
+\contentsline {section}{\numberline {C.1}The Editor Area Split Handler}{74}
+\contentsline {section}{\numberline {C.2}Get the Active Parallel Editors}{77}
+\contentsline {chapter}{Appendix \numberline {D}Code of the Programs in the Experiments}{78}
+\contentsline {section}{\numberline {D.1}Experiment 1}{78}
+\contentsline {section}{\numberline {D.2}Experiment 2}{83}

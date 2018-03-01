@@ -6,6 +6,8 @@ import java.util.List;
 
 import org.eclipse.jface.text.source.Annotation;
 
+import ca.uvic.chisel.bfv.dualtracechannelmatch.MatchChannel;
+
 
 public class Channel extends Annotation implements Comparable<Channel> {
 	public static final String TYPE_ANNOTATION_TYPE = "ca.uvic.chisel.bfv.dualtrace.channel";		
@@ -15,6 +17,7 @@ public class Channel extends Annotation implements Comparable<Channel> {
 	private List<ChannelEvent> events;
 	private String channelHandle;
 	private String channelID;
+	private MatchChannel matchChannel = null;
 
 
 
@@ -38,7 +41,12 @@ public class Channel extends Annotation implements Comparable<Channel> {
 	
 	@Override
 	public String toString(){
-		return "Stream:" + channelID + ", Channel Handle:" + channelHandle;
+		if (matchChannel != null){
+			return "Stream in " + trace.getTraceName() + ", Handle:" + channelHandle;
+		}else{
+			return "Stream:" + channelID + ", Handle:" + channelHandle;
+		}
+		
 	}
 	
 	public List<ChannelEvent> getEvents() {
@@ -95,5 +103,15 @@ public class Channel extends Annotation implements Comparable<Channel> {
 
 	public void setChannelID(String channelID) {
 		this.channelID = channelID;
+	}
+	
+	
+	public MatchChannel getMatchChannel() {
+		return matchChannel;
+	}
+
+
+	public void setMatchChannel(MatchChannel matchChannel) {
+		this.matchChannel = matchChannel;
 	}
 }

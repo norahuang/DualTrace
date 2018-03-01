@@ -1,11 +1,9 @@
 package ca.uvic.chisel.bfv.dualtracechannelmatch;
 
-import ca.uvic.chisel.bfv.dualtracechannel.CommunicationStage;
 import ca.uvic.chisel.bfv.dualtracechannel.FunctionType;
 
 public class ChannelOpenCloseEvent implements Comparable<ChannelOpenCloseEvent> {
 		private String functionName;
-		private CommunicationStage stage;
 		private FullFunctionMatchOfTrace fullFunctionMatch;
 		private MatchChannel channel;
 		private String traceName;
@@ -14,10 +12,9 @@ public class ChannelOpenCloseEvent implements Comparable<ChannelOpenCloseEvent> 
 		@SuppressWarnings("unused") // Default constructor is for JAXB's use only--do not use elsewhere!
 		private ChannelOpenCloseEvent() {}
 		
-		public ChannelOpenCloseEvent(String functionName, CommunicationStage stage, FullFunctionMatchOfTrace fullFunctionMatch, MatchChannel channel, String traceName) {
+		public ChannelOpenCloseEvent(String functionName, FullFunctionMatchOfTrace fullFunctionMatch, MatchChannel channel, String traceName) {
 			super();		
 		    this.functionName = functionName;
-			this.stage = stage;
 			this.fullFunctionMatch = fullFunctionMatch;
 			this.channel = channel;
 			this.traceName = traceName;
@@ -25,18 +22,12 @@ public class ChannelOpenCloseEvent implements Comparable<ChannelOpenCloseEvent> 
 		
 		@SuppressWarnings("restriction")
 		@Override
-		public String toString() {		
-			String datatran = "";
-			if(stage == CommunicationStage.DATATRANS)
+		public String toString() {
+			if(fullFunctionMatch.getType() == FunctionType.check)
 			{
-			    if(fullFunctionMatch.getType()==FunctionType.send){
-			    	datatran = ",send";
-			    }	
-			    else{
-			    	datatran = ",receive";
-			    }
+				return "READ" + ":"+ functionName + "() in "+ this.traceName +" at line " + this.fullFunctionMatch.getEventStart().getLineElement().getLine();
 			}
-			return stage + datatran + ":"+ functionName + "() in "+ this.traceName +" at line " + this.fullFunctionMatch.getEventStart().getLineElement().getLine();
+			return fullFunctionMatch.getType().toString().toUpperCase() + ":"+ functionName + "() in "+ this.traceName +" at line " + this.fullFunctionMatch.getEventStart().getLineElement().getLine();
 		}
 
 		
@@ -63,14 +54,6 @@ public class ChannelOpenCloseEvent implements Comparable<ChannelOpenCloseEvent> 
 
 		public void setFullFunctionMatch(FullFunctionMatchOfTrace fullFunctionMatch) {
 			this.fullFunctionMatch = fullFunctionMatch;
-		}
-
-		public CommunicationStage getStage() {
-			return stage;
-		}
-
-		public void setStage(CommunicationStage stage) {
-			this.stage = stage;
 		}
 
 
