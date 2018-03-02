@@ -28,13 +28,21 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Sequence Diagram of Experiment 1\relax }}{55}
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Analysis Result of Dual\_trace in Experiment 1\relax }}{57}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Client Receive Event Navigation\relax }}{58}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Client Send Event Navigation\relax }}{58}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Client Receive Event Navigation\relax }}{59}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Client Send Event Navigation\relax }}{59}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Client Send Event Navigation\relax }}{58}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Server Receive Event Navigation\relax }}{58}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Server Send Event Navigation\relax }}{59}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Client Receive Event Navigation\relax }}{60}
 \contentsline {figure}{\numberline {6.7}{\ignorespaces Sequence Diagram of Experiment 2\relax }}{61}
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Analysis Result of the Dual\_trace:``Server.trace" and ``Client1.trace" in Experiment 2\relax }}{63}
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Analysis Result of the Dual\_trace:``Server.trace" and ``Client2.trace" in Experiment 2\relax }}{64}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Analysis Result of the Dual\_trace:$Server.trace$ and $Client1.trace$ in Experiment 2\relax }}{64}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Client1 Send Event Navigation\relax }}{64}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Sever Receive Event Navigation\relax }}{65}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Server Send Event Navigation\relax }}{66}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Client1 Receive Event Navigation\relax }}{66}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Analysis Result of the Dual\_trace:$Server.trace$ and $Client2.trace$ in Experiment 2\relax }}{68}
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Client2 Send Event Navigation\relax }}{68}
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Sever Receive Event Navigation\relax }}{69}
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Server Send Event Navigation\relax }}{70}
+\contentsline {figure}{\numberline {6.17}{\ignorespaces Client2 Receive Event Navigation\relax }}{70}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

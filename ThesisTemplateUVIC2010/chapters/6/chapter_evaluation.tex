@@ -7,7 +7,7 @@ In this section, I present two experiments I ran as a proof of concept of the co
 
 These experiments aimed to test the communication model and the communication analysis approach. They also verify the design of the some algorithms, for their correctness. I used the implemented features on Atlantis to conduct the experiments.
 
-Among these two experiments, the first one was provided directly by our research partner DRDC with their initial requirement, while the second one was designed by me. In both experiments, DRDC conducted the programs execution and captured the traces on their environment while I performed the analysis locally with Atlantis on my desktop with the captured traces and corresponding .dll.
+Among these two experiments, the first one was provided directly by our research partner DRDC with their initial requirement, while the second one was designed by me. In both experiments, DRDC conducted the programs execution and captured the traces on their environment while I performed the analysis locally with Atlantis on my desktop with the captured traces. Since all the system functions of named pipe is in kernel32.dll, The dynamic linked library kernel32.dll which contains all the system functions of named pipe is also provided.
 
 All test programs in these two experiments were written in C++ and the source code can be found in Appendix \ref{expcode}. Results are provided for each experiment. 
 
@@ -22,7 +22,7 @@ In the first experiment, two programs communicated with each other through a syn
 
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.7]{Figures/exp1}}
+\centerline{\includegraphics[scale=0.6]{Figures/exp1}}
  \caption{Sequence Diagram of Experiment 1}
 \label{exp1}
 \end{figure}
@@ -33,7 +33,7 @@ After I got the identification communications listed in the ``Communication view
 
 \begin{table}[H]
   \centering
-  \caption{Function Descriptor of Named Pipe for Experiment 2}
+  \caption{Function Descriptor of Named Pipe for Experiment 1}
   \label{fdescexp1}
   \begin{tabular}{|l|l|l|l|l|l|l|l|}
 \hline
@@ -80,18 +80,18 @@ $Client.trace$ has 412717 instruction lines. Four function call events were reco
   \hline
 \textbf{Line} & \multicolumn{1}{>{\centering\arraybackslash}m{16cm}|}{\textbf{Event}}\\
   \hline
-  375744 & $funN:CreateFileA,  type:open, inparams:\lbrace Handle:F8, FileName:``.\backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
+  375744 & $funN:CreateFileA,  type:open, inparams:\lbrace Handle:0xF8, FileName:``.\backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
  \hline
-  385178 & $funN:WriteFile, type:send, inparams:\lbrace Handle:F8, SendBuf:``This\: is\: a\: test."\rbrace, outparams: \lbrace Length:15 \rbrace$\\
+  385178 & $funN:WriteFile, type:send, inparams:\lbrace Handle:0xF8, SendBuf:``This\: is\: a\: test."\rbrace, outparams: \lbrace Length:15 \rbrace$\\
 \hline
- 391590&$funN:ReadFile, type:receive, inparams: \lbrace Handle:F8 \rbrace, outparams: \lbrace RecvBuf:``This\: is\: the\: answer", Length:18, RetVal:0 \rbrace$\\
+ 391590&$funN:ReadFile, type:receive, inparams: \lbrace Handle:0xF8 \rbrace, outparams: \lbrace RecvBuf:``This\: is\: the\: answer", Length:18, RetVal:0 \rbrace$\\
 \hline
- 402442&$funN:CloseHandle, type:close, inparams: \lbrace Handle:F8 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
+ 402442&$funN:CloseHandle, type:close, inparams: \lbrace Handle:0xF8 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
 \hline               
   \end{tabular}
 \end{table}
 
-The values of the handle parameter of these four event are $F8$. So that a stream identified by the handle $F8$ was extracted, which consists of all these four function call events. 
+The values of the handle parameter of these four event are $0xF8$. So that a stream identified by the handle $0xF8$ was extracted, which consists of all these four function call events. 
 
 $Server.trace$ has 461817 instruction lines. Five function call events were reconstructed from this trace as listed in Table \ref{funcserverexp1}.
 
@@ -104,26 +104,26 @@ $Server.trace$ has 461817 instruction lines. Five function call events were reco
   \hline
 \textbf{Line} & \multicolumn{1}{>{\centering\arraybackslash}m{16cm}|}{\textbf{Event}}\\
   \hline
-  387947 & $funN:CreateNamedPipeA,  type:open, inparams:\lbrace Handle:F4, FileName:``.\backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
+  387947 & $funN:CreateNamedPipeA,  type:open, inparams:\lbrace Handle:0xF4, FileName:``.\backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
  \hline
-  431677&$funN:ReadFile, type:receive, inparams: \lbrace Handle:F4 \rbrace, outparams: \lbrace RecvBuf:``This\: is\: a\: test", Length:15, RetVal:0 \rbrace$\\
+  431677&$funN:ReadFile, type:receive, inparams: \lbrace Handle:0xF4 \rbrace, outparams: \lbrace RecvBuf:``This\: is\: a\: test", Length:15, RetVal:0 \rbrace$\\
 \hline
-  436462 & $funN:WriteFile, type:send, inparams:\lbrace Handle:F4, SendBuf:``This\: is\: the\: answer."\rbrace, outparams: \lbrace Length:18 \rbrace$\\
+  436462 & $funN:WriteFile, type:send, inparams:\lbrace Handle:0xF4, SendBuf:``This\: is\: the\: answer."\rbrace, outparams: \lbrace Length:18 \rbrace$\\
 \hline
- 442158&$funN:DisconnectNamedPipe, type:close, inparams: \lbrace Handle:F4 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
+ 442158&$funN:DisconnectNamedPipe, type:close, inparams: \lbrace Handle:0xF4 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
 \hline   
- 442224&$funN:CloseHandle, type:close, inparams: \lbrace Handle:F4 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
+ 442224&$funN:CloseHandle, type:close, inparams: \lbrace Handle:0xF4 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
 \hline               
   \end{tabular}
 \end{table}
 
-The values of the handle parameter of these f event are $F4$. So that a stream identified by the handle $F8$ was extracted, which consists of all these five function call events. 
+The values of the handle parameter of these f event are $0xF4$. So that a stream identified by the handle $0xF8$ was extracted, which consists of all these five function call events. 
 
 The extracted streams are listed in the left table in the communication view as shown in Figure \ref{result1}.
 
-As shown in Table \ref{funcclientexp1}, the value of the $FileName$ parameter of the $CreateFileA$ function call is $``.\backslash pipe \backslash mynamepipe"$. In Table \ref{funcserverexp1}, the value of the $FileName$ parameter of the $CreateNamePipeA$ function call is also $``.\backslash pipe \backslash mynamepipe"$. According to Algorithm \ref{streammatch}, the file name of a named pipe is treated as the channel identifier and used to match the communication. So that the stream $F8$ in $Client.trace$ is matched to the stream $F4$ in $Server.trace$.
+As shown in Table \ref{funcclientexp1}, the value of the $FileName$ parameter of the $CreateFileA$ function call is $``.\backslash pipe \backslash mynamepipe"$. In Table \ref{funcserverexp1}, the value of the $FileName$ parameter of the $CreateNamePipeA$ function call is also $``.\backslash pipe \backslash mynamepipe"$. According to Algorithm \ref{streammatch}, the file name of a named pipe is treated as the channel identifier and used to match the communication. So that the stream $0xF8$ in $Client.trace$ is matched to the stream $0xF4$ in $Server.trace$.
 
-There is only one send event and one receive event in both streams, the data verification of these two matched stream is trivial. The concatenation of the sent packets in the stream $F8$ of $Client.trace$ and the concatenation of the received packets in the stream $F8$ of $Server.trace$ are all $``This\: is\: a\: test."$. The concatenation of the sent packets in the stream $F8$ of $Server.trace$ and the concatenation of the received packets in the stream $F4$ of $Client.trace$ are all $``This\: is\: an\: answer."$. So these two match stream satisfy the content preservation of a communication. Therefore they are eventually output as a communication by the ``Communication Identification" operation as shown in the right table in Figure \ref{result1}.
+There is only one send event and one receive event in both streams, the data verification of these two matched stream is trivial. The concatenation of the sent packets in the stream $0xF8$ of $Client.trace$ and the concatenation of the received packets in the stream $0xF8$ of $Server.trace$ are all $``This\: is\: a\: test."$. The concatenation of the sent packets in the stream $0xF8$ of $Server.trace$ and the concatenation of the received packets in the stream $0xF4$ of $Client.trace$ are all $``This\: is\: an\: answer."$. So these two match stream satisfy the content preservation of a communication. Therefore they are eventually output as a communication by the ``Communication Identification" operation as shown in the right table in Figure \ref{result1}.
 
 
 \begin{figure}[H]
@@ -132,13 +132,12 @@ There is only one send event and one receive event in both streams, the data ver
 \label{result1}
 \end{figure}
 
-After I got the identified communication from this dual\_trace. I navigated from the send and receive events back to the traces. The navigation result are shown is the Figure \ref{cdesc}.
+After I got the identified communication from this dual\_trace. I navigated from the send and receive events back to the traces. The navigation results are shown is the Figure \ref{result1_client_send},
+\ref{result1_server_read}, 
+\ref{result1_server_send} and \ref{result1_client_read}.
 
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.4]{Figures/result1_client_read}}
- \caption{Client Receive Event Navigation}
-\label{result1_client_read}
-\end{figure}
+
+
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.4]{Figures/result1_client_send}}
@@ -148,17 +147,36 @@ After I got the identified communication from this dual\_trace. I navigated from
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.4]{Figures/result1_server_read}}
- \caption{Client Receive Event Navigation}
+ \caption{Server Receive Event Navigation}
 \label{result1_server_read}
 \end{figure}
 
+Figure \ref{result1_client_send} shows when I double click on the $WriteFile$ function call event of the $Client.trace$, it brought me to the ``Trace view" of the $Client.trace$ on line 385178, and the ``Trace Memory view" jumped to the memory address $0x13F5521F8$, which is the address for the send buffer of the message ``This is a test.".
+
+Figure \ref{result1_server_read} shows when I selected ``Go To Line of Function End" in the right click menu on the $ReadFile$ function call event of the $Server.trace$, it brought me to the ``Trace view" of the $Server.trace$ on line 431757 where the function returned, and the ``Trace Memory view" jumped to the memory address $0x30D630$, which is the address for the receive buffer of the message ``This is a test.".
+
+This two figures perfectly show how the message ``This is a test" being transferred from the client to the server.
+
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.4]{Figures/result1_server_send}}
- \caption{Client Send Event Navigation}
+ \caption{Server Send Event Navigation}
 \label{result1_server_send}
 \end{figure}
 
-In this experiment, ``Stream Extraction" operation is capable of properly extract the streams from both $Server.trace$ and $Client.trace$ while ``Communication Identification" operation is capable to identify the communication between the two traces.
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.4]{Figures/result1_client_read}}
+ \caption{Client Receive Event Navigation}
+\label{result1_client_read}
+\end{figure}
+
+Figure \ref{result1_server_send} shows when I double click on the $WriteFile$ function call event of the $Server.trace$, it brought me to the ``Trace view" of the $Server.trace$ on line 436462, and the ``Trace Memory view" jumped to the memory address $0x30EF50$, which is the address for the send buffer of the message ``This is the answer".
+
+Figure \ref{result1_client_read} shows when I selected ``Go To Line of Function End" in the right click menu on the $ReadFile$ function call event of the $Client.trace$, it brought me to the ``Trace view" of the $Client.trace$ on line 391670 where the function returned, and the ``Trace Memory view" jumped to the memory address $0x1DF5A0$, which is the address for the receive buffer of the message ``This is the answer".
+
+This two figures perfectly show how the message ``This is the answer." being transferred from the server to the client.
+
+In this experiment, ``Stream Extraction" operation is capable of properly extract the streams from both $Server.trace$ and $Client.trace$ while ``Communication Identification" operation is capable to identify the communication between the two traces. Moreover, from the ``Communication view", the user can easily navigate back to the exact instruction line where the function start or end. The messages being transferred can be shown in the ``Trace Memory view" accurately.
 
 
 
@@ -166,6 +184,11 @@ In this experiment, ``Stream Extraction" operation is capable of properly extrac
 \subsection{Experiment Design}
 In the second experiment, a program was running as the named pipe server. In this server program, four named pipes were created and can be connected by up to four client at a time. Two other programs as the named pipe clients connected to this server. Those two clients (client 1 and client 2) used the identical program but run in sequence. Figure \ref{exp2} is the sequence diagram of the interaction among the server and clients. This sequence diagram only exemplify a possible sequence of the events. The actual events sequence can vary depending on the run-time environment. 
 
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.55]{Figures/exp2}}
+ \caption{Sequence Diagram of Experiment 2}
+\label{exp2}
+\end{figure}
 
 Three traces were captured at the time when these three programs were running and interacting. They are ``Server.trace" for the server program, ``Client1.trace" for the Client1 program and ``Client2.trace" for the Client2 program. These three traces are analyzed as two dual\_traces, one consist of ``Server.trace" and ``Client1.trace" while the other consist of ``Server.trace" and ``Client2.trace". I performed the ``Stream Extraction" and ``Communication Identification" operations for these two dual\_traces with the function descriptor as Table \ref{fdescexp2}.
 
@@ -211,13 +234,6 @@ Three traces were captured at the time when these three programs were running an
   \end{tabular}  
 \end{table} 
 
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.6]{Figures/exp2}}
- \caption{Sequence Diagram of Experiment 2}
-\label{exp2}
-\end{figure}
-
-
 \subsection{Dual\_trace Analysis Result  and Discussion}
 \subsubsection{Dual\_trace: $Server.trace$ and $Client1.trace$}
 $Client1.trace$ has instruction lines. Four function call events were reconstructed from this trace as listed in Table \ref{funcclient1exp2}.
@@ -231,18 +247,18 @@ $Client1.trace$ has instruction lines. Four function call events were reconstruc
   \hline
 \textbf{Line} & \multicolumn{1}{>{\centering\arraybackslash}m{16cm}|}{\textbf{Event}}\\
   \hline
-  1723886 & $funN:CreateFileA,  type:open, inparams:\lbrace Handle:114, FileName:``\dot \backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
+  1723886 & $funN:CreateFileA,  type:open, inparams:\lbrace Handle:0x114, FileName:``\dot \backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
  \hline
-  1734413 & $funN:WriteFile, type:send, inparams:\lbrace Handle:114, SendBuf:``Message\:1"\rbrace, outparams: \lbrace Length:15 \rbrace$\\
+  1734413 & $funN:WriteFile, type:send, inparams:\lbrace Handle:0x114, SendBuf:``Message\:1"\rbrace, outparams: \lbrace Length:15 \rbrace$\\
 \hline
- 1740825&$funN:ReadFile, type:receive, inparams: \lbrace Handle:114 \rbrace, outparams: \lbrace RecvBuf:``Default\: answer\: from \: server", Length:17, RetVal:0 \rbrace$\\
+ 1740825&$funN:ReadFile, type:receive, inparams: \lbrace Handle:0x114 \rbrace, outparams: \lbrace RecvBuf:``Default\: answer\: from \: server", Length:17, RetVal:0 \rbrace$\\
 \hline
- 1752640&$funN:CloseHandle, type:close, inparams: \lbrace Handle:114 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
+ 1752640&$funN:CloseHandle, type:close, inparams: \lbrace Handle:0x114 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
 \hline               
   \end{tabular}
 \end{table}
 
-All the values of the handle parameter of these four event are $114$. So that a stream identified by the handle $114$ was extracted, which consists of all these four function call events. 
+All the values of the handle parameter of these four event are $0x114$. So that a stream identified by the handle $0x114$ was extracted, which consists of all these four function call events. 
 
 $Server.trace$ has instruction lines. Ten function call events were reconstructed from this trace as listed in Table \ref{funcserverexp1}.
 
@@ -255,48 +271,94 @@ $Server.trace$ has instruction lines. Ten function call events were reconstructe
   \hline
 \textbf{Line} & \multicolumn{1}{>{\centering\arraybackslash}m{16cm}|}{\textbf{Event}}\\
   \hline
-  1732413 & $funN:CreateNamedPipeA,  type:open, inparams:\lbrace Handle:118, FileName:``\dot \backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
+  1732413 & $funN:CreateNamedPipeA,  type:open, inparams:\lbrace Handle:0x118, FileName:``\dot \backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
  \hline
-   1741477 & $funN:CreateNamedPipeA,  type:open, inparams:\lbrace Handle:120, FileName:``\dot \backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
+   1741477 & $funN:CreateNamedPipeA,  type:open, inparams:\lbrace Handle:0x120, FileName:``\dot \backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
  \hline
-   1749553 & $funN:CreateNamedPipeA,  type:open, inparams:\lbrace Handle:128, FileName:``\dot \backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
+   1749553 & $funN:CreateNamedPipeA,  type:open, inparams:\lbrace Handle:0x128, FileName:``\dot \backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
  \hline
-   1757626 & $funN:CreateNamedPipeA,  type:open, inparams:\lbrace Handle:130, FileName:``\dot \backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
+   1757626 & $funN:CreateNamedPipeA,  type:open, inparams:\lbrace Handle:0x130, FileName:``\dot \backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
  \hline
-   1765903 & $funN:GetOverlappedResult, type:receive, inparams:\lbrace Handle:118 \rbrace, outparams: \lbrace OverlapStruct:``", RetVal:0\rbrace$\\
+   1765903 & $funN:GetOverlappedResult, type:receive, inparams:\lbrace Handle:0x118 \rbrace, outparams: \lbrace OverlapStruct:``", RetVal:0\rbrace$\\
 \hline
-  1765950&$funN:ReadFile, type:receive, inparams: \lbrace Handle:118 \rbrace, outparams: \lbrace RecvBuf:``Message\: 2", Length:10, RetVal:0 \rbrace$\\
+  1765950&$funN:ReadFile, type:receive, inparams: \lbrace Handle:0x118 \rbrace, outparams: \lbrace RecvBuf:``Message\: 2", Length:10, RetVal:0 \rbrace$\\
 \hline
-  1770738 & $funN:WriteFile, type:send, inparams:\lbrace Handle:118, SendBuf:``Default\: answer\: from\: server"\rbrace, outparams: \lbrace Length:20 \rbrace$\\
+  1770738 & $funN:WriteFile, type:send, inparams:\lbrace Handle:0x118, SendBuf:``Default\: answer\: from\: server"\rbrace, outparams: \lbrace Length:20 \rbrace$\\
 \hline
-   1771629 & $funN:GetOverlappedResult, type:receive, inparams:\lbrace Handle:120 \rbrace, outparams: \lbrace OverlapStruct:``", RetVal:0\rbrace$\\
+   1771629 & $funN:GetOverlappedResult, type:receive, inparams:\lbrace Handle:0x120 \rbrace, outparams: \lbrace OverlapStruct:``", RetVal:0\rbrace$\\
 \hline
-  1771676&$funN:ReadFile, type:receive, inparams: \lbrace Handle:120 \rbrace, outparams: \lbrace RecvBuf:``Message\: 1", Length:10, RetVal:0 \rbrace$\\
+  1771676&$funN:ReadFile, type:receive, inparams: \lbrace Handle:0x120 \rbrace, outparams: \lbrace RecvBuf:``Message\: 1", Length:10, RetVal:0 \rbrace$\\
 \hline
-  1775507 & $funN:WriteFile, type:send, inparams:\lbrace Handle:120, SendBuf:``Default\: answer\: from\: server"\rbrace, outparams: \lbrace Length:20 \rbrace$\\
+  1775507 & $funN:WriteFile, type:send, inparams:\lbrace Handle:0x120, SendBuf:``Default\: answer\: from\: server"\rbrace, outparams: \lbrace Length:20 \rbrace$\\
 \hline
- 1777180&$funN:DisconnectNamedPipe, type:close, inparams: \lbrace Handle:118 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
+ 1777180&$funN:DisconnectNamedPipe, type:close, inparams: \lbrace Handle:0x118 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
 \hline   
- 1778658&$funN:DisconnectNamedPipe, type:close, inparams: \lbrace Handle:120 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
+ 1778658&$funN:DisconnectNamedPipe, type:close, inparams: \lbrace Handle:0x120 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
 \hline               
   \end{tabular}
 \end{table}
 
-There are four handle values in this event sequence: $118$, $120$, $128$, $130$. So four streams are extracted with these four identifiers. Both stream $118$ and $120$ have four events while stream $128$ and $130$ only have one channel open event. 
+There are four handle values in this event sequence: $0x118$, $0x120$, $0x128$, $0x130$. So four streams are extracted with these four identifiers. Both stream $0x118$ and $0x120$ have four events while stream $0x128$ and $0x130$ only have one channel open event. 
 
 The extracted streams are listed in the left table in the communication view as shown in Figure \ref{result21}.
 
 In Table \ref{funcclient1exp2}, the value of the FileName parameter of the channel open function call is $``\dot \backslash pipe \backslash mynamepipe"$. In Table \ref{funcserverexp2}, the value of the FileName parameter of all channel open function calls are also $``\dot \backslash pipe \backslash mynamepipe"$. So that all streams of $Server.trace$ will be matched to the only one stream of $Client1.trace$ by the stream matching algorithm.
 
-However, only the stream $120$ of $Server.trace$ and the stream of $Client1.trace$ can satisfy the content preservation of a communication. Therefore they are eventually output as a communication by the ``Communication Identification" operation as shown in the right table in Figure \ref{result21}. 
+However, only the stream $0x120$ of $Server.trace$ and the stream of $Client1.trace$ can satisfy the content preservation of a communication. Therefore they are eventually output as a communication by the ``Communication Identification" operation as shown in the right table in Figure \ref{result21}. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.55]{Figures/result21}}
- \caption{Analysis Result of the Dual\_trace:``Server.trace" and ``Client1.trace" in Experiment 2}
+ \caption{Analysis Result of the Dual\_trace:$Server.trace$ and $Client1.trace$ in Experiment 2}
 \label{result21}
 \end{figure}
 
+After I got the identified communication from this dual\_trace. I navigated from the send and receive events back to the traces. The navigation results are shown is the Figure \ref{result21_client_send},
+Figure \ref{result21_server_read}, 
+Figure \ref{result21_server_send} and Figure \ref{result21_client_read}.
+
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.4]{Figures/result21_client_send}}
+ \caption{Client1 Send Event Navigation}
+\label{result21_client1_send}
+\end{figure}
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.4]{Figures/result21_server_read}}
+ \caption{Sever Receive Event Navigation}
+\label{result21_server_read}
+\end{figure}
+
+Figure \ref{result21_client_send} shows when I double click on the $WriteFile$ function call event of the $Client.trace$, it brought me to the ``Trace view" of the $Client.trace$ on line 1734413, and the ``Trace Memory view" jumped to the memory address $0x4F176c$, which is the address for the send buffer of the message ``Message 1".
+
+Figure \ref{result21_server_read} shows when I selected ``Go To Line of Function End" in the right click menu on the $ReadFile$ function call event of the $Server.trace$, it brought me to the ``Trace view" of the $Server.trace$ on line 1771767 where the function returned, and the ``Trace Memory view" jumped to the memory address $0x13FF95640$, which is the address for the receive buffer of the message ``Message 1".
+
+This two figures perfectly show how the message ``Message 1" being transferred from the client1 to the server.
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.4]{Figures/result21_server_send}}
+ \caption{Server Send Event Navigation}
+\label{result21_server_send}
+\end{figure}
+
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.4]{Figures/result21_client_read}}
+ \caption{Client1 Receive Event Navigation}
+\label{result21_client_read}
+\end{figure}
+
+Figure \ref{result21_server_send} shows when I double click on the $WriteFile$ function call event of the $Server.trace$, it brought me to the ``Trace view" of the $Server.trace$ on line 436462, and the ``Trace Memory view" jumped to the memory address $0x30EF50$, which is the address for the send buffer of the message ``Default answer from server".
+
+Figure \ref{result21_client_read} shows when I selected ``Go To Line of Function End" in the right click menu on the $ReadFile$ function call event of the $Client.trace$, it brought me to the ``Trace view" of the $Client.trace$ on line 391670 where the function returned, and the ``Trace Memory view" jumped to the memory address $0x1DF5A0$, which is the address for the receive buffer of the message ``Default answer from server".
+
+This two figures perfectly show how the message ``Default answer from server" being transferred from the server to the client1.
+
+In this experiment, ``Stream Extraction" operation is capable of properly extract one stream from $Client.trace$ and four stream from  $Server.trace$ . Meanwhile, ``Communication Identification" operation is capable to identify the communication between the two traces when four stream in the $Server.trace$ have the same channel identifier. 
+
 \subsubsection{Dual\_trace: $Server.trace$ and $Client2.trace$}
+The analysis result of the dual\_trace consists of $Server.trace$ and $Client2.trace$ is very similar to the dual\_trace that consists of $Server.trace$ and $Client1.trace$.
+
 $Client2.trace$ has instruction lines. Four function call events were reconstructed from this trace as listed in Table \ref{funcclient2exp2}.
 
 \begin{table}[H]
@@ -308,28 +370,76 @@ $Client2.trace$ has instruction lines. Four function call events were reconstruc
   \hline
 \textbf{Line} & \multicolumn{1}{>{\centering\arraybackslash}m{16cm}|}{\textbf{Event}}\\
   \hline
-  1723886 & $funN:CreateFileA,  type:open, inparams:\lbrace Handle:114, FileName:``\dot \backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
+  1723886 & $funN:CreateFileA,  type:open, inparams:\lbrace Handle:0x114, FileName:``\dot \backslash pipe \backslash mynamepipe" \rbrace, outparams:\lbrace RetVal:0 \rbrace$\\
  \hline
-  1734413 & $funN:WriteFile, type:send, inparams:\lbrace Handle:114, SendBuf:``Message\:1"\rbrace, outparams: \lbrace Length:15 \rbrace$\\
+  1734413 & $funN:WriteFile, type:send, inparams:\lbrace Handle:0x114, SendBuf:``Message\:1"\rbrace, outparams: \lbrace Length:15 \rbrace$\\
 \hline
- 1740825&$funN:ReadFile, type:receive, inparams: \lbrace Handle:114 \rbrace, outparams: \lbrace RecvBuf:``Default\: answer\: from \: server", Length:17, RetVal:0 \rbrace$\\
+ 1740825&$funN:ReadFile, type:receive, inparams: \lbrace Handle:0x114 \rbrace, outparams: \lbrace RecvBuf:``Default\: answer\: from \: server", Length:17, RetVal:0 \rbrace$\\
 \hline
- 1752800&$funN:CloseHandle, type:close, inparams: \lbrace Handle:114 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
+ 1752800&$funN:CloseHandle, type:close, inparams: \lbrace Handle:0x114 \rbrace, outparams: \lbrace RetVal:0 \rbrace$\\
 \hline               
   \end{tabular}
 \end{table}
 
-All the values of the handle parameter of these four event are $114$. So that a stream identified by the handle $114$ was extracted, which consists of all these four function call events. 
+All the values of the handle parameter of these four event are $0x114$. So that a stream identified by the handle $0x114$ was extracted, which consists of all these four function call events. 
+
+The reconstructed events of $Server.trace$ are the same as the ones provided in Table \ref{funcserverexp2}.
 
 Same as the last Dual\_trace, all streams of $Server.trace$ will be matched to the only one stream of $Client2.trace$ by the stream matching algorithm.
 
-However, only the stream $118$ of $Server.trace$ and the stream of $Client2.trace$ can satisfy the content preservation of a communication. Therefore they are eventually output as a communication by the ``Communication Identification" operation as shown in the right table in Figure \ref{result22}. 
+However, only the stream $0x120$ of $Server.trace$ and the stream of $Client2.trace$ can satisfy the content preservation of a communication. Therefore they are eventually output as a communication by the ``Communication Identification" operation as shown in the right table in Figure \ref{result22}. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.55]{Figures/result22}}
- \caption{Analysis Result of the Dual\_trace:``Server.trace" and ``Client2.trace" in Experiment 2}
+ \caption{Analysis Result of the Dual\_trace:$Server.trace$ and $Client2.trace$ in Experiment 2}
 \label{result22}
 \end{figure}
+
+After I got the identified communication from this dual\_trace. I navigated from the send and receive events back to the traces. The navigation results are shown is the Figure \ref{result22_client_send},
+Figure \ref{result22_server_read}, 
+Figure \ref{result22_server_send} and Figure \ref{result22_client_read}.
+
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.4]{Figures/result22_client_send}}
+ \caption{Client2 Send Event Navigation}
+\label{result22_client1_send}
+\end{figure}
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.4]{Figures/result22_server_read}}
+ \caption{Sever Receive Event Navigation}
+\label{result22_server_read}
+\end{figure}
+
+Figure \ref{result22_client_send} shows when I double click on the $WriteFile$ function call event of the $Client.trace$, it brought me to the ``Trace view" of the $Client.trace$ on line 1734413, and the ``Trace Memory view" jumped to the memory address $0x45176c$, which is the address for the send buffer of the message ``Message 2".
+
+Figure \ref{result22_server_read} shows when I selected ``Go To Line of Function End" in the right click menu on the $ReadFile$ function call event of the $Server.trace$, it brought me to the ``Trace view" of the $Server.trace$ on line 1766041 where the function returned, and the ``Trace Memory view" jumped to the memory address $0x13FF93608$, which is the address for the receive buffer of the message ``Message 2".
+
+This two figures perfectly show how the message ``Message 2" being transferred from the client2 to the server.
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.4]{Figures/result22_server_send}}
+ \caption{Server Send Event Navigation}
+\label{result22_server_send}
+\end{figure}
+
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.4]{Figures/result22_client_read}}
+ \caption{Client2 Receive Event Navigation}
+\label{result22_client_read}
+\end{figure}
+
+Figure \ref{result22_server_send} shows when I double click on the $WriteFile$ function call event of the $Server.trace$, it brought me to the ``Trace view" of the $Server.trace$ on line 1770738, and the ``Trace Memory view" jumped to the memory address $0x13FF94608$, which is the address for the send buffer of the message ``Default answer from server".
+
+Figure \ref{result22_client_read} shows when I selected ``Go To Line of Function End" in the right click menu on the $ReadFile$ function call event of the $Client.trace$, it brought me to the ``Trace view" of the $Client.trace$ on line 1740906 where the function returned, and the ``Trace Memory view" jumped to the memory address $0x2BF540$, which is the address for the receive buffer of the message ``Default answer from server".
+
+This two figures perfectly show how the message ``Default answer from server." being transferred from the server to the client2.
+
+In this experiment, ``Stream Extraction" operation is capable of properly extract one stream from $Client.trace$ and four stream from  $Server.trace$ . Meanwhile, ``Communication Identification" operation is capable to identify the communication between the two traces when four stream in the $Server.trace$ have the same channel identifier. 
+
+For all operation results, from the ``Communication view", the user can easily navigate back to the exact instruction line where the function start or end. The messages being transferred can be shown in the ``Trace Memory view" accurately.
 
 
 
