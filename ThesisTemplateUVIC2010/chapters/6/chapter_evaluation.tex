@@ -317,15 +317,56 @@ There are four handle values in this event sequence: $0x118$, $0x120$, $0x128$, 
 
 The value of the $FileName$ parameter of the $CreateFileA$ function call event in $Client1.trace$ is $``.\backslash pipe \backslash mynamepipe"$ as shown in Table \ref{funcclient1exp2}. Meanwhile, the values of the $FileName$ parameter of the $CreateNamePipeA$ function call events of all streams in $Server.trace$ are also $``.\backslash pipe \backslash mynamepipe"$ as shown in Table \ref{funcserverexp2}. So that, the stream identified by the handle $0x114$ of $Client.trace$ is matched to all the streams of $Server.trace$.
 
-However, only the stream $0x120$ of $Server.trace$ and the stream $0x114$ of $Client1.trace$ with the payload concatenations as $``Message\; 1"$ and $``Default\; answer\; from\; server"$ in both directions satisfy the content preservation of the reliable communication. Therefore they are eventually output as a communication by the ``Communication Identification" operation in the right table of ``Communication view" as shown in Figure \ref{result21_communications}. 
+The send and receive packet contents and the payload concatenation of the streams in the server and client 1 are listed in Table \ref{contentresult21}. Comparing the concatenation of each streams in $Server.trace$, it is obvious that the send payload concatenation of Stream $0x114$ in $Client1.trace$ equals to the receive payload concatenation of Stream $0x120$ in $Server.trace$, while on the other direction, the send payload concatenation of Stream $0x120$ in $Server.trace$ equals to the receive payload concatenation of Stream $0x114$ in $Client1.trace$. So that, only Stream $0x120$ of $Server.trace$ and Stream $0x114$ of $Client1.trace$ satisfy the content preservation of the reliable communication. 
+
+\begin{table}[H]
+  \tiny
+  \centering
+  \caption{Content Summarize of the Extracted Streams}
+  \label{contentresult21}
+  \begin{tabular}{|l|l|l|l|l|l|}
+\hline            
+& \multirow{2}{*}{\textbf{Handle}} & \multicolumn{2}{c|}{\textbf{Receive} }&\multicolumn{2}{c|}{\textbf{Send}} \\
+\cline{3-6}
+& &\multicolumn{1}{c|}{ \textbf{Events} }&\multicolumn{1}{c|}{\textbf{ Concatenation}}&\multicolumn{1}{c|}{ \textbf{Events} }&\multicolumn{1}{c|}{\textbf{ Concatenation}}\\
+\hline 
+\multirow{6}{*}{$\boldsymbol{Server.trace}$} &\multirow{2}{*}{$0x118$} & $GetOverlappedResult:``"$ & \multirow{2}{*}{$``Message\; 2"$} & $WriteFile:``Default\; "$ &  $``Default\; answer\; "$\\
+\cline{3-3}
+& &$ReadFile:``Message\; 2"$ &  & $answer\; from\; server"$&$from\; server"$\\
+\cline{2-6}    
+      &\multirow{2}{*}{$0x120$} & $GetOverlappedResult:``"$ & \multirow{2}{*}{$``Message\; 1"$} & $WriteFile:``Default\; $ &  $``Default\; answer\; "$\\
+\cline{3-3}
+& &$ReadFile:``Message\; 1"$ & &$answer\; from\; server"$ &$from\; server"$\\  
+\cline{2-6}   
+& $0x128$&\multicolumn{1}{c|}{- }&\multicolumn{1}{c|}{- } &\multicolumn{1}{c|}{- } &\multicolumn{1}{c|}{- }\\  
+\cline{2-6}   
+& $0x130$&\multicolumn{1}{c|}{- } &\multicolumn{1}{c|}{- } &\multicolumn{1}{c|}{- } &\multicolumn{1}{c|}{- }\\      
+\hline  
+\multirow{2}{*}{$\boldsymbol{Client1.trace}$ }&\multirow{2}{*}{$0x114$ }& $ReadFile: ``Default\; $ & $``Default\; answer\; $ & \multirow{2}{*}{$WriteFile:``Message\; 1"$ } &  \multirow{2}{*}{$``Message\; 1"$}\\
+& &$answer\; from\; server"$& $ from\; server"$ & &\\
+\hline
+  \end{tabular}
+\end{table}
+
+
+
+Therefore, Stream $0x120$ of $Server.trace$ and Stream $0x114$ of $Client1.trace$ are eventually output as a communication by the ``Communication Identification" operation in the right table of ``Communication view" as shown in Figure \ref{result21_communications}. 
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/result21_communications}}
+\centerline{\includegraphics[scale=0.5]{Figures/result21_communications}}
  \caption{Identified Communication of $dual\_trace\_21$}
 \label{result21_communications}
 \end{figure}
 
-After I got the identified communication from $dual\_trace\_21$. I navigated from the send and receive events back to the traces. The navigation results are shown is the Figure \ref{result21_client_to_server} and Figure \ref{result21_server_to_client}.
+After I got the identified communication from $dual\_trace\_21$. I navigated from the send and receive events back to the traces. The navigation results are shown is the Figure \ref{result21_null},  Figure \ref{result21_client_to_server} and Figure \ref{result21_server_to_client}.
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.35]{Figures/result21_server_readnull}}
+ \caption{Navigation Result for the Function Call Event: $GetOverlappedResult$}
+\label{result21_server_readnull}
+\end{figure}
+
+Figure \ref{result21_server_readnull} shows when I selected ``Go To Line of Function End" in the right click menu on the $GetOverlappedResult$ function call event of the $Server.trace$, it brought me to the ``Trace view" of the $Server.trace$ on line 1765927 where the function returned. However, since this function call didn't get any message, the ``Trace Memory view" is blank.
 
 
 \begin{figure}[H]
@@ -409,7 +450,40 @@ The reconstructed events of $Server.trace$ are the same as the ones provided in 
 
 Same as $dual\_trace\_22$, all streams of $Server.trace$ will be matched to the only one stream of $Client2.trace$ by the stream matching algorithm.
 
-However, only the stream $0x118$ of $Server.trace$ and the stream $0x114$ of $Client2.trace$ can satisfy the content preservation of the reliable communication. Therefore, they are eventually output as a communication by the ``Communication Identification" operation in the right table of ``Communication view" as shown in Figure \ref{result22_communications}. 
+The send and receive packet contents and the payload concatenation of the streams in the server and client 1 are listed in Table \ref{contentresult22}. Comparing the concatenation of each streams in $Server.trace$, it is obvious that the send payload concatenation of Stream $0x114$ in $Client2.trace$ equals to the receive payload concatenation of Stream $0x118$ in $Server.trace$, while on the other direction, the send payload concatenation of Stream $0x118$ in $Server.trace$ equals to the receive payload concatenation of Stream $0x114$ in $Client2.trace$. So that, only Stream $0x118$ of $Server.trace$ and Stream $0x114$ of $Client2.trace$ satisfy the content preservation of the reliable communication. 
+
+\begin{table}[H]
+  \tiny
+  \centering
+  \caption{Content Summarize of the Extracted Streams}
+  \label{contentresult22}
+  \begin{tabular}{|l|l|l|l|l|l|}
+\hline            
+& \multirow{2}{*}{\textbf{Handle}} & \multicolumn{2}{c|}{\textbf{Receive} }&\multicolumn{2}{c|}{\textbf{Send}} \\
+\cline{3-6}
+& &\multicolumn{1}{c|}{ \textbf{Events} }&\multicolumn{1}{c|}{\textbf{ Concatenation}}&\multicolumn{1}{c|}{ \textbf{Events} }&\multicolumn{1}{c|}{\textbf{ Concatenation}}\\
+\hline 
+\multirow{6}{*}{$\boldsymbol{Server.trace}$} &\multirow{2}{*}{$0x118$} & $GetOverlappedResult:``"$ & \multirow{2}{*}{$``Message\; 2"$} & $WriteFile:``Default\; "$ &  $``Default\; answer\; "$\\
+\cline{3-3}
+& &$ReadFile:``Message\; 2"$ &  & $answer\; from\; server"$&$from\; server"$\\
+\cline{2-6}    
+      &\multirow{2}{*}{$0x120$} & $GetOverlappedResult:``"$ & \multirow{2}{*}{$``Message\; 1"$} & $WriteFile:``Default\; $ &  $``Default\; answer\; "$\\
+\cline{3-3}
+& &$ReadFile:``Message\; 1"$ & &$answer\; from\; server"$ &$from\; server"$\\  
+\cline{2-6}   
+& $0x128$&\multicolumn{1}{c|}{- }&\multicolumn{1}{c|}{- } &\multicolumn{1}{c|}{- } &\multicolumn{1}{c|}{- }\\  
+\cline{2-6}   
+& $0x130$&\multicolumn{1}{c|}{- } &\multicolumn{1}{c|}{- } &\multicolumn{1}{c|}{- } &\multicolumn{1}{c|}{- }\\      
+\hline  
+\multirow{2}{*}{$\boldsymbol{Client2.trace}$ }&\multirow{2}{*}{$0x114$ }& $ReadFile: ``Default\; $ & $``Default\; answer\; $ & \multirow{2}{*}{$WriteFile:``Message\; 2"$ } &  \multirow{2}{*}{$``Message\; 2"$}\\
+& &$answer\; from\; server"$& $ from\; server"$ & &\\
+\hline
+  \end{tabular}
+\end{table}
+
+
+
+Therefore, Stream $0x118$ of $Server.trace$ and Stream $0x114$ of $Client2.trace$ are eventually output as a communication by the ``Communication Identification" operation in the right table of ``Communication view" as shown in Figure \ref{result22_communications}. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.55]{Figures/result22_communications}}
@@ -417,7 +491,15 @@ However, only the stream $0x118$ of $Server.trace$ and the stream $0x114$ of $Cl
 \label{result22_communications}
 \end{figure}
 
-After I got the identified communication from $dual\_trace\_22$ I navigated from the send and receive events back to the traces. The navigation results are shown is the Figure \ref{result22_client_to_server} and Figure \ref{result22_server_to_client}.
+After I got the identified communication from $dual\_trace\_22$ I navigated from the send and receive events back to the traces. The navigation results are shown is the Figure \ref{result22_server_readnull}, Figure \ref{result22_client_to_server} and Figure \ref{result22_server_to_client}.
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.35]{Figures/result22_server_readnull}}
+ \caption{Navigation Result for the Function Call Event: $GetOverlappedResult$}
+\label{result22_server_readnull}
+\end{figure}
+
+Figure \ref{result22_server_readnull} shows when I selected ``Go To Line of Function End" in the right click menu on the $GetOverlappedResult$ function call event of the $Server.trace$, it brought me to the ``Trace view" of the $Server.trace$ on line 1765927 where the function returned. However, since this function call didn't get any message, the ``Trace Memory view" is blank.
 
 \begin{figure}[H]
 \begin{subfigure}[H]{0.45\linewidth}

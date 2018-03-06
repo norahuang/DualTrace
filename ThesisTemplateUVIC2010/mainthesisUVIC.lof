@@ -34,12 +34,14 @@
 \contentsline {figure}{\numberline {6.6}{\ignorespaces Sequence Diagram of Experiment 2\relax }}{61}
 \contentsline {figure}{\numberline {6.7}{\ignorespaces Extracted Streams of $dual\_trace\_21$\relax }}{63}
 \contentsline {figure}{\numberline {6.8}{\ignorespaces Identified Communication of $dual\_trace\_21$\relax }}{64}
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Navigation Results for the Transmitted Message $``Message\tmspace +\thickmuskip {.2777em} 1"$\relax }}{64}
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Navigation Results for the Transmitted Message $``Default\tmspace +\thickmuskip {.2777em} answer\tmspace +\thickmuskip {.2777em} from\tmspace +\thickmuskip {.2777em} server"$\relax }}{65}
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Extracted Streams of $dual\_trace\_22$\relax }}{66}
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Identified Communication of $dual\_trace\_22$\relax }}{67}
-\contentsline {figure}{\numberline {6.13}{\ignorespaces Navigation Results for the Transmitted Message $``Message\tmspace +\thickmuskip {.2777em} 2"$\relax }}{67}
-\contentsline {figure}{\numberline {6.14}{\ignorespaces Navigation Results for the Transmitted Message $``Default\tmspace +\thickmuskip {.2777em} answer\tmspace +\thickmuskip {.2777em} from\tmspace +\thickmuskip {.2777em} server"$\relax }}{68}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Navigation Result for the Function Call Event: $GetOverlappedResult$\relax }}{65}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Navigation Results for the Transmitted Message $``Message\tmspace +\thickmuskip {.2777em} 1"$\relax }}{65}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Navigation Results for the Transmitted Message $``Default\tmspace +\thickmuskip {.2777em} answer\tmspace +\thickmuskip {.2777em} from\tmspace +\thickmuskip {.2777em} server"$\relax }}{66}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Extracted Streams of $dual\_trace\_22$\relax }}{67}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Identified Communication of $dual\_trace\_22$\relax }}{68}
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Navigation Result for the Function Call Event: $GetOverlappedResult$\relax }}{69}
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Navigation Results for the Transmitted Message $``Message\tmspace +\thickmuskip {.2777em} 2"$\relax }}{69}
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Navigation Results for the Transmitted Message $``Default\tmspace +\thickmuskip {.2777em} answer\tmspace +\thickmuskip {.2777em} from\tmspace +\thickmuskip {.2777em} server"$\relax }}{70}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
