@@ -2,7 +2,7 @@
 \externaldocument{../4/chapter_algorithm}
 \startchapter{Dual\_trace Communication Analysis Prototype On Atlantis}
 \label{chapter:newsol}
-In this chapter, I present the design of the prototype of communication analysis from the dual\_trace. This prototype is implemented on Atlantis. It implemented some of the algorithms described in Chapter\ref{chapter:alo} as well as the user interfaces.
+In this chapter, I present the design of the prototype of communication analysis from the dual\_trace. This prototype is implemented on Atlantis. It implemented some of the algorithms described in Chapter \ref{chapter:alo} as well as the user interfaces.
 
 Atlantis as an assembly execution trace analysis environment, provides some functionalities that benefit the communication analysis of dual\_trace. Figure \ref{executable} shows the decoded information needed to identify a function call of interest from the trace. The feature ``function inspect" of Atlantis provides this decoding functionality. In the function call event reconstruction algorithm, the parameters of a function call are retrieved from the memory state. The ``memory reconstruction" functionality of Atlantis which compute the memory state of the instruction line efficiently makes this retrieval easier. Moreover, the ``views synchronization" ability of Atlantis allows the user access various information at the same time when they are navigating and viewing the communication analysis result.
 
