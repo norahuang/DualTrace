@@ -3,9 +3,9 @@
 \externaldocument{../appendix/chapter_app}
 \startchapter{Communication Analysis}
 \label{chapter:alo}
-I defined a message transferring communication of two programs in Chapter \ref{chapter:mod}. The goal of this work is to develop a method to identify the communications complying with the communication definition from the dual\_trace. A dual\_trace is a pair of assembly level execution traces of two interacting programs. In this chapter, I discuss the characteristics of the assembly level execution trace. And then formalize the dual\_trace and the execution trace. For all traces comply with this abstract trace definition, the analysis approach presented in this chapter can be applied.
+I defined a message transferring communication of two programs in Chapter \ref{chapter:mod}. The goal of this work is to develop a method to identify the communications complying with the communication definition from the dual\_trace. A dual\_trace is a pair of assembly level execution traces of two interacting programs. In this chapter, I discuss the characteristics of the assembly level execution trace. And then formalize the dual\_trace and the execution traces in it. For all traces comply with this abstract trace formalization, the analysis approach presented in this chapter can be applied.
 
-The process of the communication analysis is shown in Figure \ref{overview}. It takes the two traces in the dual\_trace as input. With the function descriptor of a communication method, it outputs the identified communications. In this overview figure, there are four components. The function call event reconstruction component will analyze the traces and try to reconstruct all function calls of the functions in the function descriptor. The two sequence of events of these two traces will then flow into the stream extraction component separately. The stream extraction component will extract two sets of streams. Each stream in these two sets corresponds to a handle. After that, the stream matching component will take both of the stream sets as input and try to match them by their channel identifiers and output the potential identified communications. Finally, the data verification component will verify each communication and filter out those who doesn't satisfy the communication data preservation. Algorithms are designed separately for each component.
+The process of the communication analysis is shown in Figure \ref{overview}. It takes the two traces in the dual\_trace as input. With the function descriptor of a communication method and the native binary for this communication method, it outputs the identified communications. In this overview figure, there are four components. The function call event reconstruction component will analyze the traces and try to reconstruct all function calls of the functions in the function descriptor. These two sequence of events of these two traces will then flow into the stream extraction component separately. The stream extraction component will extract two sets of streams. Each stream in these two sets corresponds to a handle. After that, the stream matching component will take both of the stream sets as input and try to match them by their channel identifiers and output the potential identified communications. Finally, the data verification component will verify each communication and filter out those who doesn't satisfy the communication data preservation. Algorithms are designed separately for each component.
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.55]{Figures/overview}}
@@ -49,7 +49,7 @@ Figure\ref{executable} is an example of the information decoded from a executabl
 \end{figure}
 
 \section{Function Descriptor}\label{cdesc}
-There would be lots of function calls in an execution trace. However, most of them are not of interest. I only concern the function call events of a specific communication method. To be able to identify and reconstruct the function calls of interest, the function descriptions is required. Hence, I define the function descriptor as a set of function description:
+There would be lots of function calls in an execution trace. However, most of them are not of interest. I only concern the function call events of a specific communication method. To be able to identify and reconstruct the function calls of interest, the function descriptions is required. Hence, I define the function descriptor of a communication method as a set of function description:
 
 $cdesc = \lbrace fdesc_1, fdesc_2,...,fdesc_p \rbrace$
 
@@ -57,9 +57,9 @@ Each element $fdesc$ can be defined as:
 
 $fdesc = \lbrace name, type, inparamdesc, outparamdesc \rbrace$
 
-where, $name$ is the function name, $type$ is the function type which can be one of the four types: $open$, $close$, $send$ and $receive$. $inparamdesc$ is the input parameter descriptions illustrating how the registers and memory contents map to a list of parameters of interest(you might not care for all parameters) of a given function call while $outparamdesc$ is the output parameter descriptions. 
+where, $name$ is the function name, $type$ is the function type which can be one of the four types: $open$, $close$, $send$ and $receive$. $inparamdesc$ is the input parameter descriptions illustrating how the registers and memory contents map to a list of parameters of interest(you might not care for all parameters) of a given function call while $outparamdesc$ is the output parameter descriptions similar to the input parameter descriptions. 
 
-Table\ref{functionexample} is an example of a function description. In this example, the function name is ReadFile, it is a function for data receiving, so that function type is $receive$. The input parameter description has one concerned parameter, Handle while the output parameter description has two parameters, RecvBuffer and MessageLength. Handle is a parameter which is a value stored in the register RCX. The RecvBuffer is an address for the input message stored in the register RAX. The MessageLength is a output value stored in register R9. The value of the input parameters can be retrieved from the memory state on the function call instruction line while the value of the output parameters can be retrieved from the memory state on the function return instruction line. If a parameter is an address instead of value, the address should be retrieved first, then the retrieved address should be used to find the buffer content in the memory state. The function description requires the understanding of the calling convention of the operating system. The Microsoft x64 calling convention can be found in Appendix \ref{convention}. More examples of communication method descriptions will be given in Chapter\ref{chapter:newsol}.
+Table\ref{functionexample} is an example of a function description. In this example, the function name is $ReadFile$, it is a function for data receiving, so that function type is $receive$. The input parameter description has one concerned parameter, $Handle$, while the output parameter description has two parameters, $RecvBuffer$ and $MessageLength$. $Handle$ is a parameter which is a value stored in the register RCX. The $RecvBuffer$ is an address for the input message stored in the register RAX. The $MessageLength$ is a output value stored in register R9. The value of the input parameters can be retrieved from the memory state on the function call instruction line while the value of the output parameters can be retrieved from the memory state on the function return instruction line. If a parameter is an address instead of value, the address should be retrieved first, then the retrieved address should be used to find the buffer content in the memory state. The function description requires the understanding of the calling convention of the operating system. The Microsoft x64 calling convention can be found in Appendix \ref{convention}. More examples of communication method descriptions will be given in Chapter \ref{chapter:newsol}.
 
 \begin{table}[H]
         \centering
@@ -86,7 +86,7 @@ With the function descriptor and the execution trace as input, the function call
 
 $etr = (ev_1, ev_2, ..., ev_m)$
 
-A function call event $ev$ in $etr$ is defined as a triplet:
+A function call event $ev$ in $etr$ is defined as a tuple:
 
 $ev = <funN, inparams, outparams, type>$
 
@@ -137,6 +137,7 @@ $i \leftarrow 1$\;
                       }                     
                 }
                 $etr.append(ev)$\;
+                Break the For loop\;
          }
 }
 }
@@ -147,14 +148,14 @@ $i \leftarrow 1$\;
 \section{Channel Open Mechanisms}\label{mecha}
 The channel open mechanism affect the stream extraction and stream matching strategy. So I discuss them before presenting those algorithms. The channel open mechanism of named pipe and message queue is relatively simple. In windows implementation, only one function call is related to the handle identification of the stream. However, for TCP and UDP the mechanism is complicated.
 
-In all communication methods, all operations such as packet send and receive use a handle as an identifier to bind itself to an endpoint. This handle is generated or returned by a channel open function call and will be assigned to an input parameter for all other related function calls to indicate the corresponding endpoint. However, in different communication, the handle might have various name, such as file handle for Named Pipe or socket(sometime called socket handle )for UDP and TCP. But all of these are essentially the same thing.
+In all communication methods, all operations such as packet send and receive use a handle as an identifier to bind itself to an endpoint. This handle is generated or returned by a channel open function call and will be assigned to an input parameter for all other related function calls to indicate the corresponding endpoint. However, in different communications, the handles might have various names, such as file handle for Named Pipe or socket(sometime called socket handle )for UDP and TCP. But all of these can basically treated as the identifier of an endpoint.
 
 A handle is a unique identifier among all open endpoints. Open endpoint means this endpoint is still in used for data transfer. For example, if there are ten endpoints opened for communications, handles for all these ten endpoints are different. However, if any of these endpoint closed, its handle can be reused for any other new created endpoints. Since the handle is the unique identifier for an endpoint and its related events, we need to know it to identify an endpoint and its corresponding function call events. 
 
-Moreover, since two endpoints are connected to a channel for communication, each endpoint has to know the identifier of the channel to connect to it. This channel identifier are usually given to the endpoint in the channel open function calls. The endpoint will remember this channel and know where the data should send to and receive from. Therefore, to identify a communication the channel identifier given to an endpoint need to be found in the channel open stage.
+Moreover, since two endpoints are connected to a channel for communication, each endpoint has to know the identifier of the channel to connect to it. This channel identifier are usually given to the endpoint in the channel open function calls. The endpoint will remember this channel and know where the data should send to and receive from. Therefore, to identify a communication, the channel identifier given to an endpoint need to be found in the channel open stage.
 
 \subsection{Named Pipe Channel Open Mechanisms} 
-For Named Pipe communication method, a named pipe server is responsible for the creation of the pipe, while clients can connect to the pipe after it was created. The creation of a named pipe returns the file handle of that pipe. So the identification of the stream only need to identify the pipe creation function call on the server side and the pipe connection function call on the client side. The  handle returned by these function calls will be used later when data is being sent or received to a specified pipe. In Named pipe, the file is used as the media of the channel, so the identifier in this case is the file name. Figure\ref{namedpipeopen} exemplify the channel set up process for a Named Pipe communication in Windows. 
+For Named Pipe communication method, a named pipe server is responsible for the creation of the pipe, while clients can connect to the pipe after it was created. The creation of a named pipe returns the file handle of that pipe. So the identification of the stream only need to identify the pipe creation function call on the server side and the pipe connection function call on the client side. The  handle returned by these function calls will be used later when data is being sent or received to a specified pipe. In Named pipe, the file is used as the media of the channel, so the identifier in this case is the file name. Figure \ref{namedpipeopen} exemplify the channel set up process for a Named Pipe communication in Windows. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.5]{Figures/namepipechannelopen}}
@@ -163,7 +164,7 @@ For Named Pipe communication method, a named pipe server is responsible for the 
 \end{figure}
     
 \subsection{Message Queue Channel Open Mechanisms} 
-For the Message Queue communication method, the endpoints of the communication can create the queue or use the existing one. However, both endpoints have to open the queue before they access it. The handle returned by the open queue function will be used later when messages are being sent or received to indicate the corresponding endpoint. The queue name as the input for the open queue function is the identifier of the channel. Figure\ref{msmqopen} exemplify the channel set up process for a Message Queue communication in Windows.
+For the Message Queue communication method, the endpoints of the communication can create the queue or use the existing one. However, both endpoints have to open the queue before they access it. The handle returned by the open queue function will be used later when messages are being sent or received to indicate the corresponding endpoint. The queue name as the input for the open queue function is the identifier of the channel. Figure  \ref{msmqopen} exemplify the channel set up process for a Message Queue communication in Windows.
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.5]{Figures/msmqchannelopen}}
  \caption{Channel Open Process for a Message Queue in Windows}

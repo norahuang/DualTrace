@@ -1,10 +1,10 @@
 \externaldocument{../appendix/chapter_app}
 \startchapter{Communication Modeling}
 \label{chapter:mod}
-In this chapter, I depict the model of the communication of two running programs from the trace analysis point of view. The modeling is based on the investigation of some common used communication methods. But the detail of the communication methods will be discussed later in the algorithm and implementation chapters. This chapter only present the abstract communication model regarding to the two communication categories: reliable and unreliable communications. 
+In this chapter, I model the communication of two running programs from the trace analysis point of view. The modeling is based on the investigation of some common used communication methods. But the detail of the communication methods will be discussed later in the algorithm and implementation chapters. This chapter only present the abstract communication model regarding to the two communication categories: reliable and unreliable communications. 
 
 \section{Communication Methods Categorization}
-In general,  in the terms of their reliability of data transmission, there are two types of communication: reliable and unreliable. A reliable communication guarantees the data being sent by one endpoint through the channel is always received losslessly and in the same order in the other endpoint. On contrast, an unreliable communication does not guarantee the data being sent always arrive the receiver. Moreover, the data packets can arrive to the receiver in any order. However, the bright side of unreliable communication is that the packets being sent are always arrived as the origin packet, no data re-segmentation would happen. An endpoint is an instance in a program at which a stream of data is sent or a stream of data is received or both (e.g. socket handle of TCP or a file handle of the named pipe). A channel is a conduit connected two endpoints through  which data can be sent and received. Table\ref{methodsInCategories} gives examples of communication methods fall in these two categories.
+In the terms of their reliability of data transmission, there are two types of communication: reliable and unreliable. A reliable communication guarantees the data being sent by one endpoint through the channel is always received losslessly and in the same order in the other endpoint. On contrast, an unreliable communication does not guarantee the data being sent always arrive the receiver. Moreover, the data packets can arrive to the receiver in any order. However, the bright side of unreliable communication is that the packets being sent are always arrived as the origin packet, no data re-segmentation would happen. An endpoint is an instance in a program at which a stream of data is sent or a stream of data is received or both (e.g. socket handle of TCP or a file handle of the named pipe). A channel is a conduit connected two endpoints through  which data can be sent and received. Table\ref{methodsInCategories} gives examples of communication methods fall in these two categories.
 \begin{table}[H]
 \centering
 \caption{Communication Method Examples in Two Categories}
@@ -24,17 +24,17 @@ TCP &  UDP \\
 The communication of two programs is defined in this section. The communication in this work is data transfer activities between two running programs through a specific channel. Some collaborative activities between the programs such as remote procedure call is out of the scope of this research. Communication among multiple programs (more than two) is not discussed in this work. The channel can be reopened again to start new communications after being closed. However, the reopened channel is considered as a new communication. The way that I define the communication is leading to the communication analysis in the dual-trace. So the definition is not about how the communication works but what it looks like. There are many communication methods in the real world and they are compatible to this communication definition. 
 
 \subsection{Communication Definition}
-In the context of a dual\_trace, a communication is a sequence of data transmitted of two endpoints through a communication channel. The endpoints connect to each other using the identifier of this channel. We therefore defined a communication $c$ as a triplet:
+In the context of a dual\_trace, a communication is a sequence of data transmitted of two endpoints through a communication channel. I, therefore, defined a communication $c$ as a triplet:
 
 $c =<ch, e_0, e_1>$
 
 where $e_0$ and $e_1$ are endpoints while $ch$ is the communication channel (e.g. a named piped located at /tmp/pipe).
 
-From the point of view of traces, the endpoints $e_0$ and $e_1$ are defined in terms of three properties: the handle created within a process for the endpoint for subsequent operations(e.g. data send and receive), the data stream received and the data stream sent. Therefore, I define an endpoint $e$ as a triplet:
+From the point of view of traces, the endpoints $e_0$ and $e_1$ are defined by three properties: the handle created within a process for the endpoint for subsequent operations(e.g. data send and receive), the data stream received and the data stream sent. Therefore, I define an endpoint $e$ as a triplet:
 
 $ e =<handle, d_r, d_s>$
 
-where $handle$ is the handle identifier of the endpoint, $d_r$ and $d_s$ are data streams. A data stream is a sequence of sent packages or a sequence of received packages. Each package $pk$ contains data that is being sent or received (its payload). Hence, we can define a data stream $d$ as a sequence of $n$ packages:
+where $handle$ is the handle identifier of the endpoint, $d_r$ is the data stream received and $d_s$ is the data stream sent. A data stream is a sequence of sent packages or a sequence of received packages. Each package $pk$ contains data that is being sent or received (its payload). Hence, we can define a data stream $d$ as a sequence of $n$ packages:
 
 $ d = (pk_1, pk_2, ..., pk_n)$ 
 
@@ -42,7 +42,7 @@ Note: This is the sequence of packages as seen from the endpoint and might be di
 
 Each package $pk$ has two attributes:
 \begin{itemize}
-\item \textit{Relative time(it was sent or received):} In a trace, we do not have absolute time for an event. However, we know when an event (i.e. open, close, sending or receiving a package) has happened with respect to another event. I will use the notation 
+\item \textit{Relative time(it was sent or received):} In a trace, we do not have absolute time for an event. However, we know when an event (i.e. open, close, sending or receiving a package) has happened with respect to another event. I use the notation 
 
 $time(pk)$
 
@@ -138,7 +138,7 @@ $pl(pks_{01})=``ab"$, $ pl(pks_{02})=``cde"$, $pl(pks_{03})=``fgh"$;
 
 $pl(pkr_{11})=``abc"$, $pl(pkr_{12})=``def"$, $pl(pkr_{13})=``gh"$ .
 
-and 
+in one direction and 
 
 $pl(pks_{11})=``mno"$, $pl(pks_{12})=``pqr"$, $pl(pks_{13})=``stu"$;
 
