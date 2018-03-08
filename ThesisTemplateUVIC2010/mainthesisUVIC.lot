@@ -5,13 +5,13 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces An example of a function description\relax }}{20}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Use Case 1: Extract Streams from the Dual\_trace\relax }}{42}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Use Case 2: Identify Communications from the Dual\_trace\relax }}{43}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Function Descriptor for Synchronous Named Pipe\relax }}{46}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Function Descriptor for Asynchronous Named Pipe\relax }}{46}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Function Descriptor for Synchronous Message Queue\relax }}{47}
-\contentsline {table}{\numberline {5.6}{\ignorespaces Function Descriptor for Asynchronous Message Queue\relax }}{47}
-\contentsline {table}{\numberline {5.7}{\ignorespaces Function Descriptor for for TCP and UDP\relax }}{48}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Use Case 1: Extract Streams from the Dual\_trace\relax }}{41}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Use Case 2: Identify Communications from the Dual\_trace\relax }}{42}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Function Descriptor for Synchronous Named Pipe\relax }}{45}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Function Descriptor for Asynchronous Named Pipe\relax }}{45}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Function Descriptor for Synchronous Message Queue\relax }}{46}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Function Descriptor for Asynchronous Message Queue\relax }}{46}
+\contentsline {table}{\numberline {5.7}{\ignorespaces Function Descriptor for for TCP and UDP\relax }}{47}
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {6.1}{\ignorespaces Function Descriptor of Named Pipe for Experiment 1\relax }}{56}
 \contentsline {table}{\numberline {6.2}{\ignorespaces The sequence of function call events of $Client.trace$\relax }}{56}

@@ -27,7 +27,7 @@
 \contentsline {subsubsection}{Properties of unreliable communication:}{13}
 \contentsline {chapter}{\numberline {4}Communication Analysis}{17}
 \contentsline {section}{\numberline {4.1}Dual\_Trace}{18}
-\contentsline {section}{\numberline {4.2}Function Descriptor}{19}
+\contentsline {section}{\numberline {4.2}Functions Descriptors}{19}
 \contentsline {section}{\numberline {4.3}Function Call Event Reconstruction Algorithm}{20}
 \contentsline {section}{\numberline {4.4}Channel Open Mechanisms}{22}
 \contentsline {subsection}{\numberline {4.4.1}Named Pipe Channel Open Mechanisms}{23}
@@ -44,15 +44,15 @@
 \contentsline {subsection}{\numberline {4.7.4}Data Stream Verification Algorithm for UDP}{36}
 \contentsline {subsection}{\numberline {4.7.5}Limitation of the Verification}{38}
 \contentsline {chapter}{\numberline {5}Dual\_trace Communication Analysis Prototype On Atlantis}{40}
-\contentsline {section}{\numberline {5.1}Use Case}{41}
-\contentsline {section}{\numberline {5.2}Declaring of the Function Descriptors}{43}
-\contentsline {subsection}{\numberline {5.2.1}Communication Methods' Implementation in Windows}{44}
-\contentsline {subsubsection}{Windows Calling Convention}{45}
-\contentsline {subsubsection}{Named Pipes}{45}
-\contentsline {subsubsection}{Message Queue}{46}
-\contentsline {subsubsection}{TCP and UDP}{48}
-\contentsline {section}{\numberline {5.3}Parallel Trace View For Dual\_Trace}{48}
-\contentsline {section}{\numberline {5.4}Implementation of the Communication Analysis Algorithms}{50}
+\contentsline {section}{\numberline {5.1}Use Case}{40}
+\contentsline {section}{\numberline {5.2}Declaring of the Function Descriptors}{42}
+\contentsline {subsection}{\numberline {5.2.1}Communication Methods' Implementation in Windows}{43}
+\contentsline {subsubsection}{Windows Calling Convention}{44}
+\contentsline {subsubsection}{Named Pipes}{44}
+\contentsline {subsubsection}{Message Queue}{45}
+\contentsline {subsubsection}{TCP and UDP}{47}
+\contentsline {section}{\numberline {5.3}Parallel Trace View For Dual\_Trace}{47}
+\contentsline {section}{\numberline {5.4}Implementation of the Communication Analysis Algorithms}{49}
 \contentsline {section}{\numberline {5.5}View of Extracted Streams and Identified Communications}{51}
 \contentsline {chapter}{\numberline {6}Proof of Concept}{54}
 \contentsline {section}{\numberline {6.1}Experiment 1}{55}
