@@ -20,8 +20,7 @@ The dynamic analysis can be done using debuggers, however, debuggers would halt 
 
 The instrumentation of the tracing can be done at various levels of granularity, such as programming language or machine language instructions. The access to a software can be divided into five categories, with variations: source only, binary only, both source and binary access, checked build, strict black box. Only having the binary is common when performing vulnerability research on closed-source commercial software\cite{dowd_art_2006}. In this case, assembly level tracing is the only option to do a security review of the software.
 
-Since the binary code is what is running on the system, binary tracing is more representative of actual situation than the source code.  Some bugs might appear because of a compilation problem or because the compiler optimized away some code that was
-necessary to make the system secure. The piece of code listed below is an example in which the line of code resetting the password before the program end would be optimized away by the compliers if they implement the dead store elimination\cite{howard2003writing}. For example, with the -fdse option, the GNU Compiler Collection(GCC) will perform the dead store elimination and -fdse is enabled by default at -O and higher \cite{gcc}. This made the user's password stayed in memory, which is considered as potential security risk. However, looking at the source code does not reveal the problem.
+On the other hand, the binary code is what is running on the system, binary tracing is more representative of actual situation than the source code. Some bugs might appear because of a compilation problem or because the compiler optimized away some code that is necessary to make the system secure. The piece of code listed below is an example in which the line of code resetting the password before the program end would be optimized away by the compliers if they implement the dead store elimination\cite{howard2003writing}. For example, with the -fdse option, the GNU Compiler Collection(GCC) will perform the dead store elimination and -fdse is enabled by default at -O and higher optimization level \cite{gcc}. This made the user's password stayed in memory, which is considered as potential security risk. However, looking at the source code does not reveal the problem.
 
 \begin{lstlisting}[language=C++, caption= Password Fetching Example ]
 #include <iostream>
@@ -46,14 +45,16 @@ int main(){
 \end{lstlisting}
 
 \subsection{Why Communication Analysis with Assembly Traces}
-Programs nowadays do not always work isolated. The communication and interaction between modules affect the behaviour of the software. Without knowing how a program works with others, an analysis of the isolated execution trace on a single computer is usually futile. Data flow tracing between programs is essential to review both the design and implementation of the software.
+Programs nowadays do not always work isolated. The communication and interaction between programs affect the behaviour of the system. Without knowing how a program works with others, an analysis of the isolated execution trace on a single computer is usually futile. Data flow tracing between programs is essential to review both the design and implementation of the software.
 
 Many network sniffer, such as Wireshark\cite{_wireshark_????} and Tcpdump\cite{tcpdump_tcpdump/libpcap_????}, can help to capture the data flow across the network. However, this method  is insufficient because security problems can occur even if the information sent is correct. Therefore, analysing the communications with transmitted data in instruction and memory access level is a solid way to evaluation the security of a system.
 
-Shameng Wen et al. argued that fuzz testing and symbolic execution are widely applied to detect vulnerabilities in network protocol implementations. Their work focuses on designing a model which guides the symbolic execution for the fuzz testing \cite{wen2017model} but ignoring the analysis of the output, which is the execution traces. Further more, their work focuses only on the network protocol implementation and is not generalized to all communications.
+Shameng Wen et al. argued that fuzz testing and symbolic execution are widely applied to detect vulnerabilities in network protocol implementations. Their work focuses on designing a model which guides the symbolic execution for the fuzz testing \cite{wen2017model} but ignoring the analysis of the output, which is the execution traces. Furthermore, their work focuses only on the network protocol implementation and is not generalized to all communications.
 
 Besides vulnerabilities detection and security analysis, communication analysis with assembly traces can also be a way to learn how the work is performed by the system or validate a specification of it. Our research partner DRDC provided some use cases in which they require the assistance of communication analysis to understand their systems. The first one is related to their work with embedded systems. These systems often have more than one processor, each specialized for a specific task, that coordinate to complete the overall job of that device.  In the other case, the embedded device will work with a normal computer and exchange information with it through some means
 (USB, wireless, etc.).  For instance, the data might be coming in from an external sensor in an analog form, transformed by a Digital Signal Processor (DSP) in a device, sent to a more generic processor inside that device to integrate with other data then send wireless to an external computer. Being able to visualize more than one trace would help them follow the flow of data through the system at the same time that they trace the execution of the programs.
+
+Overall, communication analysis with assembly traces is a way to learn how the work is performed by the system. 
 
 \section{Research Goal}
 The goal of this research is to design a method for communication analysis using the execution traces of the interacting programs. This method should be general enough for all message based communication analysis between programs regardless of their programming language, host operating system or selected execution tracer. 
@@ -77,7 +78,7 @@ The implementation of the prototype and the communication analysis algorithms we
 
 
 \section{Contributions}
-The main contributions of these work can be summarized as:
+The main contributions of this work can be summarized as:
 \begin{itemize}
   \item \textbf{Communication Model:} The communication model in this thesis is an abstract model of the communications between two programs. It was abstracted from the understanding of several communication methods and is general for other communication methods that are not mentioned in this thesis.
   \item \textbf{Dual\_trace Formalization:} By understanding the assembly level execution traces, a dual\_trace was formalized to describe the information that needed for communication analysis. This model doesn't specify the format of the execution traces but defines what information is necessary to be contained to fulfil the analysis requirement. All execution traces that comply with this definition can be used for the analysis.

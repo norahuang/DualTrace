@@ -14,7 +14,7 @@
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Data Transfer Scenarios for TCP\relax }}{33}
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Data Transfer Scenarios for Message Queue\relax }}{34}
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{36}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces In effective Stream Matching Scenario\relax }}{38}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Ineffective Stream Matching Scenario\relax }}{38}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Menu Item for opening Dual\_trace\relax }}{47}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Parallel Trace View\relax }}{47}

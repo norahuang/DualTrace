@@ -3,9 +3,9 @@
 \externaldocument{../appendix/chapter_app}
 \startchapter{Communication Analysis}
 \label{chapter:alo}
-I defined a message transferring communication between two programs in Chapter \ref{chapter:mod}. The goal of this thesis is to develop a method to identify the communications from the dual\_trace. A dual\_trace is a pair of assembly level execution traces of two interacting programs. In this chapter, I discuss the characteristics of the assembly level execution trace. And then formalize the dual\_trace and the execution traces in it. For all the traces comply with this abstract trace formalization, the analysis approach presented in this chapter can be applied.
+I defined a message transferring communication between two programs in Chapter \ref{chapter:mod}. The goal of this thesis is to develop a method to identify the communications from the dual\_trace. A dual\_trace is a pair of assembly level execution traces of two interacting programs. In this chapter, I discuss the characteristics of the assembly level execution trace. And then formalize the dual\_trace and the execution traces in the. For all the traces comply with this abstract trace formalization, the analysis approach presented in this chapter can be applied.
 
-The process of the communication analysis is shown in Figure \ref{overview}. It takes the two traces in the dual\_trace as input and outputs the identified communications. In this overview figure, there are four components. The function call event reconstruction component will analyze the traces and try to reconstruct all function calls of the functions in the function descriptor. These two sequence of events of these two traces will then flow into the stream extraction component separately. In each event sequence, the events might be trigger by different endpoints of different communications. I consider all the events triggered by the same endpoint as a stream. The stream extraction component will extract two sets of streams. After that, the stream matching component will take both of the stream sets as input and try to match them by their channel identifiers and output the potential identified communications. Finally, the data verification component will verify each communication satisfying the communication data preservation. Algorithms are designed separately for each component.
+The process of the communication analysis is shown in Figure \ref{overview}. It takes the two traces in the dual\_trace as input and outputs the identified communications. In this overview figure, there are four components. The function call event reconstruction component will analyze the traces and try to reconstruct all function calls of the functions in the function descriptor. These two sequence of events of these two traces will then flow into the stream extraction component separately. In each event sequence, the events might be trigger by different endpoints of different communications. I consider all the events triggered by the same endpoint as a stream. The stream extraction component will extract two sets of streams. After that, the stream matching component will take both of the stream sets as input and try to match them by their channel identifiers and output the potential identified communications. Finally, the data verification component will verify each communication satisfying the communication data preservation. Algorithms are designed separately for each component. Details about each elements and components of this overall process will be discussed in the following sections.
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.55]{Figures/overview}}
@@ -34,7 +34,7 @@ $l = <ins, mch, rch, exetype, syscallInfo>$
 
 where $ins$ is the instruction, $mch$ is the memory changes, $rch$ is the register changes, $exetype$ is the execution type which can be instruction, system call entry, system call exit, and other types which are not concerned in this work, $syscallInfo = <exeName, funcName>$ only appear when $exetype$ is system call entry or system call exit. $exeName$ is the executable file name(e.g. .dll and .exe), while $funcName$ is the name of a system function in this executable file.
 
-Figure\ref{tracedefined} is an example of a piece of execution trace complying to this definition. 
+Figure \ref{tracedefined} is an example of a piece of execution trace complying to this definition. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.45]{Figures/tracedefined}}
@@ -170,7 +170,7 @@ For the Message Queue communication method, the endpoints of the communication c
 \end{figure}
 
 \subsection{UDP and TCP Channel Open Mechanisms} 
-For the UDP and TCP communication methods, the communication channel is set up by both endpoints. The function \textit{socket} should be called to create their own socket on both endpoints. After the socket handles are created, the server endpoint binds the socket to its service address and port by calling the function \textit{bind}. Then the server endpoint calls the function  \textit{accept} to accept the client connection. The client will call the function \textit{connect} to connect to the server. When the function \textit{accept} return successfully, a new socket handle will be generated and returned for further data transfer between the server endpoint and  the connected client endpoint. After all these operations are performed successfully, the channel is established and the data transfer can start. During the channel open stage, server endpoint has two socket handles, the first one is used to listen to the connection from the client, while the second one is created for real data transfer. In this case, the server's address and port are considered to be the identifier of the channel. Figure\ref{channelopen2} exemplifies the channel open process for TCP and UDP  in Windows.
+For the UDP and TCP communication methods, the communication channel is set up by both endpoints. The function \textit{socket} should be called to create their own socket on both endpoints. After the socket handles are created, the server endpoint binds the socket to its service address and port by calling the function \textit{bind}. Then the server endpoint calls the function  \textit{accept} to accept the client connection. The client will call the function \textit{connect} to connect to the server. When the function \textit{accept} return successfully, a new socket handle will be generated and returned for further data transfer between the server endpoint and  the connected client endpoint. After all these operations are performed successfully, the channel is established and the data transfer can start. During the channel open stage, server endpoint has two socket handles, the first one is used to listen to the connection from the client, while the second one is created for real data transfer. In this case, the server's address and port are considered to be the identifier of the channel. Figure \ref{channelopen2} exemplifies the channel open process for TCP and UDP  in Windows.
     
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.6]{Figures/tcpudpchannelopen}}
@@ -179,7 +179,9 @@ For the UDP and TCP communication methods, the communication channel is set up b
 \end{figure}
 
 \section{Stream Extraction Algorithm}
-The sequence of function call events output by the function call event reconstruction algorithm may belong to different endpoints. We need to further split these events for each endpoint. Each subset of these events belonging to an endpoint is considered to be a stream. There are four types of events in each of these subsets: open, send, receive and close. Hence, we can further divide a stream into sub streams which are called open stream, send stream, receive stream, and close stream. There will be the only one type of events in each of these streams. Since a stream corresponds to an endpoint and an endpoint is connected to a channel, it is necessary to have the endpoint handle and the channel identifier corresponding to this stream. 
+The sequence of function call events output by the function call event reconstruction algorithm may belong to different endpoints. We need to further split these events for each endpoint. Each subset of these events belonging to an endpoint is considered to be a stream. There are four types of events in each stream: open, send, receive and close. Hence, we can further divide a stream into sub streams which are called open stream, send stream, receive stream, and close stream. There will be only one type of events in each of these streams. Since a stream corresponds to an endpoint and an endpoint is connected to a channel, it is necessary to know the endpoint handle and the channel identifier corresponding to this stream. 
+
+A stream is formally defined as a tuple:
 
 A  stream is formally defined as a tuple:
 
@@ -464,7 +466,7 @@ The basic data transfer characteristics of Message Queue are:
   \item Packets received in order
   \item No data duplication
 \end{itemize}
-Based on these characteristics, the data transfer scenarios of Message Queue can be exemplified in Figure\ref{msmq}.
+Based on these characteristics, the data transfer scenarios of Message Queue can be exemplified in Figure \ref{msmq}.
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.4]{Figures/msmq}}
 \caption{Data Transfer Scenarios for Message Queue}
@@ -525,7 +527,7 @@ The basic data transfer characteristics of UDP are:
   \item Packets can arrive receiver out of order
 \end{itemize}
 
-Based on these characteristics, the data transfer scenarios of UDP can be exemplified in Figure\ref{upd}.
+Based on these characteristics, the data transfer scenarios of UDP can be exemplified in Figure \ref{upd}.
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.4]{Figures/udp}}
  \caption{Data Transfer Scenarios for UDP}
@@ -595,7 +597,7 @@ Figure \ref{secondlevelmatching} exemplifies this situation in a reliable commun
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.6]{Figures/secondlevelmatching}}
- \caption{In effective Stream Matching Scenario}
+ \caption{Ineffective Stream Matching Scenario}
 \label{secondlevelmatching}
 \end{figure}
 
