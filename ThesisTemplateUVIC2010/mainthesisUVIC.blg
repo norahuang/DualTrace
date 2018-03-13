@@ -1,4 +1,6 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: mainthesisUVIC.aux
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: mainthesisUVIC.aux
 A level-1 auxiliary file: chapters/1/chapter_intro.aux
 A level-1 auxiliary file: chapters/2/chapter_background.aux
 A level-1 auxiliary file: chapters/3/chapter_modeling.aux
@@ -10,7 +12,50 @@ The style file: plain.bst
 A level-1 auxiliary file: chapters/appendix/chapter_app.aux
 Database file #1: UvicThesis.bib
 Warning--entry type for "WinNamedpipe" isn't style-file defined
---line 75 of file UvicThesis.bib
+--line 77 of file UvicThesis.bib
+Warning--entry type for "gcc" isn't style-file defined
+--line 241 of file UvicThesis.bib
 Warning--empty journal in khambattinamed
 Warning--empty year in khambattinamed
-(There were 3 warnings)
+You've used 26 entries,
+            2118 wiz_defined-function locations,
+            640 strings with 8576 characters,
+and the built_in function-call counts, 9022 in all, are:
+= -- 881
+> -- 400
+< -- 12
++ -- 162
+- -- 134
+* -- 538
+:= -- 1412
+add.period$ -- 77
+call.type$ -- 26
+change.case$ -- 141
+chr.to.int$ -- 0
+cite$ -- 28
+duplicate$ -- 370
+empty$ -- 756
+format.name$ -- 134
+if$ -- 1977
+int.to.chr$ -- 0
+int.to.str$ -- 26
+missing$ -- 22
+newline$ -- 124
+num.names$ -- 52
+pop$ -- 216
+preamble$ -- 1
+purify$ -- 118
+quote$ -- 0
+skip$ -- 306
+stack$ -- 0
+substring$ -- 500
+swap$ -- 122
+text.length$ -- 12
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 96
+warning$ -- 2
+while$ -- 86
+width$ -- 28
+write$ -- 263
+(There were 4 warnings)

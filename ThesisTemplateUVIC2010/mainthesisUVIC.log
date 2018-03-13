@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  6 MAR 2018 22:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  11 MAR 2018 22:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -673,7 +673,7 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
 \openout4 = `mainthesisUVIC.lot'.
 
  [7] (./mainthesisUVIC.lof [8]
-Overfull \hbox (20.67088pt too wide) in paragraph at lines 39--39
+Overfull \hbox (20.67088pt too wide) in paragraph at lines 40--40
  [][] []\OT1/ptm/m/n/12 Navigation Re-sults for the Trans-mit-ted Mes-sage $\OT
 1/cmr/m/n/12 \\OML/cmm/m/it/12 Default answer from server\OT1/cmr/m/n/12 "$ [] 
  
@@ -700,11 +700,16 @@ Chapter 1.
 
 
 ]
+Overfull \hbox (11.42499pt too wide) in paragraph at lines 11--12
+[]\OT1/ptm/m/n/12 In this re-search, I de-vel-oped a method to iden-tify com-mu
+-ni-ca-tions be-tween pro-grams by analysing
+ []
+
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 13.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 16.
- [2] (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+[2] (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -722,29 +727,29 @@ LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <8> not available
 (Font)              Font shape `OT1/pcr/b/n' tried instead on input line 27.
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <8> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 36.
- [3] [4]
-<Figures/methodology.png, id=58, 1072.005pt x 337.26pt>
+ [3]
+<Figures/methodology.png, id=55, 1072.005pt x 337.26pt>
 File: Figures/methodology.png Graphic file (type png)
 
 <use Figures/methodology.png>
 Package pdftex.def Info: Figures/methodology.png used on input line 65.
 (pdftex.def)             Requested size: 482.3978pt x 151.7656pt.
- [5 <./Figures/methodology.png>]
+ [4] [5 <./Figures/methodology.png>]
 Overfull \hbox (10.0475pt too wide) in paragraph at lines 83--84
 []\OT1/ptm/b/n/12 Dual[]trace For-mal-iza-tion: \OT1/ptm/m/n/12 By un-der-stand
 -ing the as-sem-bly level ex-e-cu-tion traces, a dual[]trace
  []
 
-[6]) [7]
+) [6]
 \openout2 = `chapters/2/chapter_background.aux'.
 
  (./chapters/2/chapter_background.tex
 Chapter 2.
-[8
+[7
 
 
 
-]) [9]
+]) [8]
 \openout2 = `chapters/3/chapter_modeling.aux'.
 
  (./chapters/3/chapter_modeling.tex
@@ -755,25 +760,25 @@ LABELS NOT IMPORTED.
  on input line 1.
 
 Chapter 3.
-[10
+[9
 
 
 
-] [11] [12] <Figures/reliableexample.png, id=89, 528.97626pt x 448.67625pt>
+] [10] [11] <Figures/reliableexample.png, id=86, 528.97626pt x 448.67625pt>
 File: Figures/reliableexample.png Graphic file (type png)
 
 <use Figures/reliableexample.png>
 Package pdftex.def Info: Figures/reliableexample.png used on input line 130.
 (pdftex.def)             Requested size: 290.93784pt x 246.77269pt.
- [13] [14 <./Figures/reliableexample.png>]
-<Figures/unreliableexample.png, id=98, 525.965pt x 454.69875pt>
+ [12] [13 <./Figures/reliableexample.png>]
+<Figures/unreliableexample.png, id=94, 525.965pt x 454.69875pt>
 File: Figures/unreliableexample.png Graphic file (type png)
 
 <use Figures/unreliableexample.png>
 Package pdftex.def Info: Figures/unreliableexample.png used on input line 181.
 (pdftex.def)             Requested size: 289.28163pt x 250.08508pt.
- [15 <./Figures/unreliableexample.png>])
-[16]
+ [14 <./Figures/unreliableexample.png>])
+[15]
 \openout2 = `chapters/4/chapter_algorithm.aux'.
 
  (./chapters/4/chapter_algorithm.tex
@@ -796,37 +801,37 @@ LABELS NOT IMPORTED.
  on input line 3.
 
 Chapter 4.
-<Figures/overview.png, id=106, 981.6675pt x 243.91125pt>
+<Figures/overview.png, id=103, 981.6675pt x 243.91125pt>
 File: Figures/overview.png Graphic file (type png)
 
 <use Figures/overview.png>
 Package pdftex.def Info: Figures/overview.png used on input line 11.
 (pdftex.def)             Requested size: 539.9188pt x 134.1516pt.
- [17
+ [16
 
 
 
-] [18 <./Figures/overview.png>]
-<Figures/trace.png, id=114, 1121.69063pt x 259.7203pt>
+] [17 <./Figures/overview.png>]
+<Figures/trace.png, id=111, 1121.69063pt x 259.7203pt>
 File: Figures/trace.png Graphic file (type png)
  <use Figures/trace.png>
 Package pdftex.def Info: Figures/trace.png used on input line 38.
 (pdftex.def)             Requested size: 504.75612pt x 116.87305pt.
 
-<Figures/executable.png, id=115, 326.72063pt x 302.63063pt>
+<Figures/executable.png, id=112, 326.72063pt x 302.63063pt>
 File: Figures/executable.png Graphic file (type png)
 
 <use Figures/executable.png>
 Package pdftex.def Info: Figures/executable.png used on input line 46.
 (pdftex.def)             Requested size: 196.03387pt x 181.57977pt.
- [19 <./Figures/trace.png> <./Figures/executable.png>]
+ [18 <./Figures/trace.png> <./Figures/executable.png>]
 Overfull \hbox (7.91605pt too wide) in paragraph at lines 62--63
 []\OT1/ptm/m/n/12 Table4.1[] is an ex-am-ple of a func-tion de-scrip-tion. In t
 his ex-am-ple, the func-tion name is $\OML/cmm/m/it/12 ReadFile$\OT1/ptm/m/n/12
  ,
  []
 
-[20]
+[19]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 114.
 
@@ -924,29 +929,29 @@ Package relsize Warning: Font size 5.55556pt is too small.
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 145.
 
-[21] [22] <Figures/namepipechannelopen.png, id=133, 673.51625pt x 406.51875pt>
+[20] [21] <Figures/namepipechannelopen.png, id=130, 673.51625pt x 406.51875pt>
 File: Figures/namepipechannelopen.png Graphic file (type png)
 
 <use Figures/namepipechannelopen.png>
 Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 161
 .
 (pdftex.def)             Requested size: 336.7573pt x 203.25887pt.
- [23]
-<Figures/msmqchannelopen.png, id=137, 673.51625pt x 287.0725pt>
+ [22]
+<Figures/msmqchannelopen.png, id=134, 673.51625pt x 287.0725pt>
 File: Figures/msmqchannelopen.png Graphic file (type png)
 
 <use Figures/msmqchannelopen.png>
 Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 169.
 (pdftex.def)             Requested size: 336.7573pt x 143.53589pt.
- [24 <./Figures/namepipechannelopen.png> <./Figures/msmqchannelopen.png>]
-<Figures/tcpudpchannelopen.png, id=143, 502.87875pt x 391.4625pt>
+ [23 <./Figures/namepipechannelopen.png> <./Figures/msmqchannelopen.png>]
+<Figures/tcpudpchannelopen.png, id=140, 502.87875pt x 391.4625pt>
 File: Figures/tcpudpchannelopen.png Graphic file (type png)
 
 <use Figures/tcpudpchannelopen.png>
 Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 178.
 (pdftex.def)             Requested size: 301.72957pt x 234.8793pt.
- [25 <./Figures/tcpudpchannelopen.png>]
-[26]
+ [24 <./Figures/tcpudpchannelopen.png>]
+[25]
 
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 219.
@@ -1055,7 +1060,7 @@ Package relsize Warning: Font size 5.55556pt is too small.
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 256.
 
-[27]
+[26]
 
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 274.
@@ -1220,11 +1225,11 @@ Package relsize Warning: Font size 5.55556pt is too small.
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 330.
 
-[28]
+[27]
 Overfull \vbox (10.9954pt too high) has occurred while \output is active []
 
 
-[29]
+[28]
 
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 349.
@@ -1253,13 +1258,13 @@ Package relsize Warning: Font size 5.55556pt is too small.
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 358.
 
-[30] [31] <Figures/namedpipe.png, id=167, 956.57375pt x 570.13pt>
+[29] [30] <Figures/namedpipe.png, id=164, 956.57375pt x 570.13pt>
 File: Figures/namedpipe.png Graphic file (type png)
 
 <use Figures/namedpipe.png>
 Package pdftex.def Info: Figures/namedpipe.png used on input line 392.
 (pdftex.def)             Requested size: 382.62271pt x 228.04796pt.
- [32 <./Figures/namedpipe.png>]
+ [31 <./Figures/namedpipe.png>]
 
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 404.
@@ -1284,13 +1289,13 @@ Package relsize Warning: Font size 5.55556pt is too small.
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 409.
 
-<Figures/tcp.png, id=173, 415.5525pt x 408.52625pt>
+<Figures/tcp.png, id=169, 415.5525pt x 408.52625pt>
 File: Figures/tcp.png Graphic file (type png)
  <use Figures/tcp.png>
 Package pdftex.def Info: Figures/tcp.png used on input line 426.
 (pdftex.def)             Requested size: 166.21805pt x 163.4076pt.
 
-[33]
+[32]
 
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 438.
@@ -1331,7 +1336,7 @@ Package relsize Warning: Font size 5.55556pt is too small.
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 452.
 
-[34 <./Figures/tcp.png>] <Figures/msmq.png, id=181, 956.57375pt x 499.8675pt>
+[33 <./Figures/tcp.png>] <Figures/msmq.png, id=178, 956.57375pt x 499.8675pt>
 File: Figures/msmq.png Graphic file (type png)
 
 <use Figures/msmq.png>
@@ -1426,7 +1431,7 @@ Package relsize Warning: Font size 5.55556pt is too small.
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 514.
 
-[35 <./Figures/msmq.png>] <Figures/udp.png, id=186, 956.57375pt x 669.50125pt>
+[34 <./Figures/msmq.png>] <Figures/udp.png, id=183, 956.57375pt x 669.50125pt>
 File: Figures/udp.png Graphic file (type png)
 
 <use Figures/udp.png>
@@ -1438,7 +1443,7 @@ Overfull \hbox (16.46452pt too wide) in paragraph at lines 528--533
 r-ios of UDP can be ex-em-pli-fied in Figure4.10[]. 
  []
 
-[36]
+[35]
 
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 544.
@@ -1519,15 +1524,15 @@ Package relsize Warning: Font size 5.55556pt is too small.
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 577.
 
-[37 <./Figures/udp.png>] [38]
-<Figures/secondlevelmatching.png, id=198, 690.58pt x 485.815pt>
+[36 <./Figures/udp.png>] [37]
+<Figures/secondlevelmatching.png, id=194, 690.58pt x 485.815pt>
 File: Figures/secondlevelmatching.png Graphic file (type png)
 
 <use Figures/secondlevelmatching.png>
 Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 598
 .
 (pdftex.def)             Requested size: 414.3512pt x 291.49124pt.
-) [39 <./Figures/secondlevelmatching.png>]
+) [38 <./Figures/secondlevelmatching.png>]
 \openout2 = `chapters/5/chapter_implementation.aux'.
 
 (./chapters/5/chapter_implementation.tex
@@ -1544,7 +1549,7 @@ LABELS NOT IMPORTED.
  on input line 2.
 
 Chapter 5.
-[40
+[39
 
 
 
@@ -1554,17 +1559,17 @@ Overfull \hbox (43.82687pt too wide) in paragraph at lines 19--20
 -sis re-sult from the com-mu-ni-ca-tion view(developed
  []
 
-[41] [42] [43] [44]
+[40] [41] [42] [43]
 Overfull \hbox (48.58391pt too wide) in paragraph at lines 116--145
  [][] 
  []
 
-[45]
+[44]
 Overfull \hbox (68.884pt too wide) in paragraph at lines 151--185
  [][] 
  []
 
-[46]
+[45]
 Overfull \hbox (57.90408pt too wide) in paragraph at lines 194--217
  [][] 
  []
@@ -1574,19 +1579,19 @@ Overfull \hbox (64.21605pt too wide) in paragraph at lines 223--251
  [][] 
  []
 
-[47]
+[46]
 Overfull \hbox (58.6485pt too wide) in paragraph at lines 262--294
  [][] 
  []
 
-<Figures/opendualtracemenu.png, id=229, 411.5375pt x 475.7775pt>
+<Figures/opendualtracemenu.png, id=226, 411.5375pt x 475.7775pt>
 File: Figures/opendualtracemenu.png Graphic file (type png)
 
 <use Figures/opendualtracemenu.png>
 Package pdftex.def Info: Figures/opendualtracemenu.png used on input line 300.
 (pdftex.def)             Requested size: 164.61208pt x 190.30762pt.
- [48]
-<Figures/paralleleditor.png, id=233, 867.24pt x 478.03593pt>
+ [47]
+<Figures/paralleleditor.png, id=230, 867.24pt x 478.03593pt>
 File: Figures/paralleleditor.png Graphic file (type png)
 
 <use Figures/paralleleditor.png>
@@ -1598,53 +1603,53 @@ Overfull \hbox (6.0107pt too wide) in paragraph at lines 311--311
 ithms 
  []
 
-[49 <./Figures/opendualtracemenu.png> <./Figures/paralleleditor.png>]
-<Figures/overviewintwo.png, id=238, 995.72pt x 273.02pt>
+[48 <./Figures/opendualtracemenu.png> <./Figures/paralleleditor.png>]
+<Figures/overviewintwo.png, id=235, 995.72pt x 273.02pt>
 File: Figures/overviewintwo.png Graphic file (type png)
 
 <use Figures/overviewintwo.png>
 Package pdftex.def Info: Figures/overviewintwo.png used on input line 315.
 (pdftex.def)             Requested size: 547.64769pt x 150.16145pt.
 
-<Figures/dualtracetoolmenu.png, id=239, 350.05782pt x 121.20282pt>
+<Figures/dualtracetoolmenu.png, id=236, 350.05782pt x 121.20282pt>
 File: Figures/dualtracetoolmenu.png Graphic file (type png)
 
 <use Figures/dualtracetoolmenu.png>
 Package pdftex.def Info: Figures/dualtracetoolmenu.png used on input line 325.
 (pdftex.def)             Requested size: 350.05695pt x 121.20251pt.
- [50 <./Figures/overviewintwo.png>]
-<Figures/methods.png, id=245, 404.26031pt x 220.57407pt>
+ [49 <./Figures/overviewintwo.png>]
+<Figures/methods.png, id=241, 404.26031pt x 220.57407pt>
 File: Figures/methods.png Graphic file (type png)
 
 <use Figures/methods.png>
 Package pdftex.def Info: Figures/methods.png used on input line 331.
 (pdftex.def)             Requested size: 323.40869pt x 176.45947pt.
- [51 <./Figures/dualtracetoolmenu.png> <./Figures/methods.png>] <Figures/idenvi
-ew.png, id=249, 569.12625pt x 213.79875pt>
+ [50 <./Figures/dualtracetoolmenu.png> <./Figures/methods.png>] <Figures/idenvi
+ew.png, id=246, 569.12625pt x 213.79875pt>
 File: Figures/idenview.png Graphic file (type png)
 
 <use Figures/idenview.png>
 Package pdftex.def Info: Figures/idenview.png used on input line 340.
 (pdftex.def)             Requested size: 398.38567pt x 149.6581pt.
 
-<Figures/gotoend.png, id=250, 287.57437pt x 54.9553pt>
+<Figures/gotoend.png, id=247, 287.57437pt x 54.9553pt>
 File: Figures/gotoend.png Graphic file (type png)
 
 <use Figures/gotoend.png>
 Package pdftex.def Info: Figures/gotoend.png used on input line 350.
 (pdftex.def)             Requested size: 287.57367pt x 54.95515pt.
- [52 <./Figures/idenview.png>]
+ [51 <./Figures/idenview.png>]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no œ in font ptmr7t!
 
-<Figures/remove.png, id=254, 721.19438pt x 161.10187pt>
+<Figures/remove.png, id=251, 721.19438pt x 161.10187pt>
 File: Figures/remove.png Graphic file (type png)
 
 <use Figures/remove.png>
 Package pdftex.def Info: Figures/remove.png used on input line 358.
 (pdftex.def)             Requested size: 504.83263pt x 112.77052pt.
-) [53 <./Figures/gotoend.png> <./Figures/remove.png>]
+) [52 <./Figures/gotoend.png> <./Figures/remove.png>]
 \openout2 = `chapters/6/chapter_evaluation.aux'.
 
 
@@ -1669,201 +1674,193 @@ LABELS NOT IMPORTED.
 
 Chapter 6.
 
-Overfull \hbox (13.32317pt too wide) in paragraph at lines 19--20
+Overfull \hbox (13.32317pt too wide) in paragraph at lines 16--17
 []\OT1/ptm/m/n/12 Perform the ``Stream Ex-ac-tion" and ``Com-mu-ni-ca-tion Iden
 -ti-fi-ca-tion" op-er-a-tion on the dual[]trace 
  []
 
-[54
+[53
 
 
 
-] <Figures/exp1.png, id=261, 676.5275pt x 502.87875pt>
+] <Figures/exp1.png, id=258, 676.5275pt x 502.87875pt>
 File: Figures/exp1.png Graphic file (type png)
 
 <use Figures/exp1.png>
-Package pdftex.def Info: Figures/exp1.png used on input line 32.
+Package pdftex.def Info: Figures/exp1.png used on input line 29.
 (pdftex.def)             Requested size: 405.91962pt x 301.72957pt.
 
-Overfull \hbox (11.91467pt too wide) in paragraph at lines 37--38
-\OT1/ptm/m/n/12 tured traces, $\OML/cmm/m/it/12 Sever:trace$ \OT1/ptm/m/n/12 an
-d $\OML/cmm/m/it/12 Client:trace$ \OT1/ptm/m/n/12 were an-a-lyzed as a dual[]tr
-ace and named as $\OML/cmm/m/it/12 dual[]trace[]\OT1/cmr/m/n/12 1$\OT1/ptm/m/n/
-12 .
+Overfull \hbox (48.58391pt too wide) in paragraph at lines 40--69
+ [][] 
  []
 
-[55 <./Figures/exp1.png>]
-Overfull \hbox (48.58391pt too wide) in paragraph at lines 43--72
+[54 <./Figures/exp1.png>]
+Overfull \hbox (28.68906pt too wide) in paragraph at lines 80--93
  [][] 
  []
 
 
-Overfull \hbox (28.68906pt too wide) in paragraph at lines 84--97
+Overfull \hbox (28.68906pt too wide) in paragraph at lines 104--119
  [][] 
  []
 
-[56]
-Overfull \hbox (28.68906pt too wide) in paragraph at lines 108--123
- [][] 
- []
-
-<Figures/result1_streams.png, id=271, 286.06876pt x 192.72pt>
+<Figures/result1_streams.png, id=263, 286.06876pt x 192.72pt>
 File: Figures/result1_streams.png Graphic file (type png)
 
 <use Figures/result1_streams.png>
-Package pdftex.def Info: Figures/result1_streams.png used on input line 130.
+Package pdftex.def Info: Figures/result1_streams.png used on input line 126.
 (pdftex.def)             Requested size: 185.94247pt x 125.2665pt.
- [57 <./Figures/result1_streams.png>]
-<Figures/result1_communications.png, id=275, 275.52937pt x 193.47281pt>
+ [55]
+<Figures/result1_communications.png, id=268, 275.52937pt x 193.47281pt>
 File: Figures/result1_communications.png Graphic file (type png)
 
 <use Figures/result1_communications.png>
 Package pdftex.def Info: Figures/result1_communications.png used on input line 
-141.
+137.
 (pdftex.def)             Requested size: 179.09195pt x 125.75583pt.
-
-<Figures/result1_client_send.png, id=276, 719.68875pt x 625.58719pt>
+ [56 <./Figures/result1_streams.png>]
+<Figures/result1_client_send.png, id=273, 719.68875pt x 625.58719pt>
 File: Figures/result1_client_send.png Graphic file (type png)
 
 <use Figures/result1_client_send.png>
-Package pdftex.def Info: Figures/result1_client_send.png used on input line 151
+Package pdftex.def Info: Figures/result1_client_send.png used on input line 147
 .
 (pdftex.def)             Requested size: 251.89484pt x 218.95879pt.
 
-Overfull \hbox (40.50652pt too wide) in paragraph at lines 151--152
+Overfull \hbox (40.50652pt too wide) in paragraph at lines 147--148
 [][] 
  []
 
-<Figures/result1_server_read.png, id=277, 720.44156pt x 604.50844pt>
+<Figures/result1_server_read.png, id=274, 720.44156pt x 604.50844pt>
 File: Figures/result1_server_read.png Graphic file (type png)
 
 <use Figures/result1_server_read.png>
-Package pdftex.def Info: Figures/result1_server_read.png used on input line 157
+Package pdftex.def Info: Figures/result1_server_read.png used on input line 153
 .
 (pdftex.def)             Requested size: 252.15831pt x 211.58112pt.
 
-Overfull \hbox (40.76999pt too wide) in paragraph at lines 157--158
+Overfull \hbox (40.76999pt too wide) in paragraph at lines 153--154
 [][] 
  []
 
 
-Overfull \hbox (15.81651pt too wide) in paragraph at lines 165--166
+Overfull \hbox (15.81651pt too wide) in paragraph at lines 161--162
 []\OT1/ptm/m/n/12 Figure 6.4a[] shows when I dou-ble clicked on the $\OML/cmm/m
 /it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of the $\OML/cmm/m/it/12
  Client:trace$\OT1/ptm/m/n/12 ,
  []
 
-[58 <./Figures/result1_communications.png> <./Figures/result1_client_send.png> 
+[57 <./Figures/result1_communications.png> <./Figures/result1_client_send.png> 
 <./Figures/result1_server_read.png>]
-<Figures/result1_server_send.png, id=283, 721.19438pt x 593.96906pt>
+<Figures/result1_server_send.png, id=280, 721.19438pt x 593.96906pt>
 File: Figures/result1_server_send.png Graphic file (type png)
 
 <use Figures/result1_server_send.png>
-Package pdftex.def Info: Figures/result1_server_send.png used on input line 173
+Package pdftex.def Info: Figures/result1_server_send.png used on input line 169
 .
 (pdftex.def)             Requested size: 252.42181pt x 207.89227pt.
 
-Overfull \hbox (41.0335pt too wide) in paragraph at lines 173--174
+Overfull \hbox (41.0335pt too wide) in paragraph at lines 169--170
 [][] 
  []
 
-<Figures/result1_client_read.png, id=284, 721.19438pt x 559.33969pt>
+<Figures/result1_client_read.png, id=281, 721.19438pt x 559.33969pt>
 File: Figures/result1_client_read.png Graphic file (type png)
 
 <use Figures/result1_client_read.png>
-Package pdftex.def Info: Figures/result1_client_read.png used on input line 179
+Package pdftex.def Info: Figures/result1_client_read.png used on input line 175
 .
 (pdftex.def)             Requested size: 252.42181pt x 195.77182pt.
 
-Overfull \hbox (41.0335pt too wide) in paragraph at lines 179--180
+Overfull \hbox (41.0335pt too wide) in paragraph at lines 175--176
 [][] 
  []
 
 
-Overfull \hbox (0.64728pt too wide) in paragraph at lines 187--188
+Overfull \hbox (0.64728pt too wide) in paragraph at lines 183--184
 []\OT1/ptm/m/n/12 Figure 6.5a[] shows when I dou-ble clicked on the $\OML/cmm/m
 /it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of $\OML/cmm/m/it/12 Ser
 ver:trace$\OT1/ptm/m/n/12 ,
  []
 
-[59 <./Figures/result1_server_send.png> <./Figures/result1_client_read.png>]
-<Figures/exp2.png, id=288, 949.5475pt x 734.745pt>
+[58 <./Figures/result1_server_send.png> <./Figures/result1_client_read.png>]
+<Figures/exp2.png, id=285, 949.5475pt x 734.745pt>
 File: Figures/exp2.png Graphic file (type png)
  <use Figures/exp2.png>
-Package pdftex.def Info: Figures/exp2.png used on input line 200.
+Package pdftex.def Info: Figures/exp2.png used on input line 196.
 (pdftex.def)             Requested size: 522.25275pt x 404.111pt.
 
-[60]
-Overfull \hbox (68.884pt too wide) in paragraph at lines 210--244
+[59]
+Overfull \hbox (68.884pt too wide) in paragraph at lines 206--240
  [][] 
  []
 
-[61 <./Figures/exp2.png>]
+[60 <./Figures/exp2.png>]
 
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <8> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 247.
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 245.
 
 
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <6> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 247.
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 245.
 
 
-Overfull \hbox (31.68906pt too wide) in paragraph at lines 255--268
+Overfull \hbox (31.68906pt too wide) in paragraph at lines 253--282
  [][] 
  []
 
-
-Overfull \hbox (31.68906pt too wide) in paragraph at lines 279--308
- [][] 
- []
-
-[62] <Figures/result21_streams.png, id=302, 291.33844pt x 329.73187pt>
+[61] <Figures/result21_streams.png, id=298, 291.33844pt x 329.73187pt>
 File: Figures/result21_streams.png Graphic file (type png)
 
 <use Figures/result21_streams.png>
-Package pdftex.def Info: Figures/result21_streams.png used on input line 313.
-(pdftex.def)             Requested size: 160.23663pt x 181.35307pt.
+Package pdftex.def Info: Figures/result21_streams.png used on input line 287.
+(pdftex.def)             Requested size: 291.33772pt x 329.73105pt.
 
-Overfull \hbox (3.21149pt too wide) in paragraph at lines 318--319
-[]\OT1/ptm/m/n/12 The value of the $\OML/cmm/m/it/12 FileName$ \OT1/ptm/m/n/12 
-pa-ram-e-ter of the $\OML/cmm/m/it/12 CreateFileA$ \OT1/ptm/m/n/12 func-tion ca
-ll event in $\OML/cmm/m/it/12 Client\OT1/cmr/m/n/12 1\OML/cmm/m/it/12 :trace$
+Overfull \hbox (31.68906pt too wide) in paragraph at lines 300--313
+ [][] 
  []
 
-[63 <./Figures/result21_streams.png>]
+[62 <./Figures/result21_streams.png>]
+Overfull \hbox (31.68906pt too wide) in paragraph at lines 325--338
+ [][] 
+ []
+
+<Figures/result22_streams.png, id=303, 290.58563pt x 330.48468pt>
+File: Figures/result22_streams.png Graphic file (type png)
+
+<use Figures/result22_streams.png>
+Package pdftex.def Info: Figures/result22_streams.png used on input line 343.
+(pdftex.def)             Requested size: 290.58492pt x 330.48387pt.
+ [63 <./Figures/result22_streams.png>]
 
 LaTeX Font Warning: Font shape `U/wasy/b/n' in size <5> not available
-(Font)              Font shape `U/wasy/m/n' tried instead on input line 333.
+(Font)              Font shape `U/wasy/m/n' tried instead on input line 364.
 
-<Figures/result21_communications.png, id=306, 296.60812pt x 184.43906pt>
+<Figures/result21_communications.png, id=307, 296.60812pt x 184.43906pt>
 File: Figures/result21_communications.png Graphic file (type png)
 
 <use Figures/result21_communications.png>
 Package pdftex.def Info: Figures/result21_communications.png used on input line
- 356.
-(pdftex.def)             Requested size: 148.3037pt x 92.2193pt.
-
-
-LaTeX Warning: Reference `result21_null' on page 64 undefined on input line 361
-.
-
-<Figures/result21_server_readnull.png, id=307, 717.43031pt x 600.74437pt>
+ 385.
+(pdftex.def)             Requested size: 296.60739pt x 184.4386pt.
+ [64]
+<Figures/result21_server_readnull.png, id=313, 717.43031pt x 600.74437pt>
 File: Figures/result21_server_readnull.png Graphic file (type png)
 
 <use Figures/result21_server_readnull.png>
 Package pdftex.def Info: Figures/result21_server_readnull.png used on input lin
-e 364.
+e 393.
 (pdftex.def)             Requested size: 251.10437pt x 210.26367pt.
- [64 <./Figures/result21_communications.png>] <Figures/result21_client_send.png
-, id=314, 721.19438pt x 610.53094pt>
+
+<Figures/result21_client_send.png, id=314, 721.19438pt x 610.53094pt>
 File: Figures/result21_client_send.png Graphic file (type png)
 
 <use Figures/result21_client_send.png>
-Package pdftex.def Info: Figures/result21_client_send.png used on input line 37
-4.
+Package pdftex.def Info: Figures/result21_client_send.png used on input line 40
+3.
 (pdftex.def)             Requested size: 252.42181pt x 213.68903pt.
 
-Overfull \hbox (41.0335pt too wide) in paragraph at lines 374--375
+Overfull \hbox (41.0335pt too wide) in paragraph at lines 403--404
 [][] 
  []
 
@@ -1871,87 +1868,75 @@ Overfull \hbox (41.0335pt too wide) in paragraph at lines 374--375
 File: Figures/result21_server_read.png Graphic file (type png)
 
 <use Figures/result21_server_read.png>
-Package pdftex.def Info: Figures/result21_server_read.png used on input line 38
-0.
+Package pdftex.def Info: Figures/result21_server_read.png used on input line 40
+9.
 (pdftex.def)             Requested size: 252.42181pt x 211.31763pt.
 
-Overfull \hbox (41.0335pt too wide) in paragraph at lines 380--381
+Overfull \hbox (41.0335pt too wide) in paragraph at lines 409--410
 [][] 
  []
 
-
-Overfull \hbox (4.87268pt too wide) in paragraph at lines 388--389
-[]\OT1/ptm/m/n/12 Figure 6.10a[] shows when I dou-ble clicked on the $\OML/cmm/
+[65 <./Figures/result21_communications.png> <./Figures/result21_server_readnull
+.png>]
+Overfull \hbox (4.87268pt too wide) in paragraph at lines 417--418
+[]\OT1/ptm/m/n/12 Figure 6.11a[] shows when I dou-ble clicked on the $\OML/cmm/
 m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of $\OML/cmm/m/it/12 Cl
 ient:trace$\OT1/ptm/m/n/12 ,
  []
 
-[65 <./Figures/result21_server_readnull.png> <./Figures/result21_client_send.pn
-g> <./Figures/result21_server_read.png>]
-<Figures/result21_server_send.png, id=320, 718.18312pt x 629.35126pt>
+<Figures/result21_server_send.png, id=321, 718.18312pt x 629.35126pt>
 File: Figures/result21_server_send.png Graphic file (type png)
 
 <use Figures/result21_server_send.png>
-Package pdftex.def Info: Figures/result21_server_send.png used on input line 39
-6.
+Package pdftex.def Info: Figures/result21_server_send.png used on input line 42
+5.
 (pdftex.def)             Requested size: 251.36786pt x 220.27623pt.
 
-Overfull \hbox (39.97954pt too wide) in paragraph at lines 396--397
+Overfull \hbox (39.97954pt too wide) in paragraph at lines 425--426
 [][] 
  []
 
-<Figures/result21_client_read.png, id=321, 720.44156pt x 618.81187pt>
+<Figures/result21_client_read.png, id=322, 720.44156pt x 618.81187pt>
 File: Figures/result21_client_read.png Graphic file (type png)
 
 <use Figures/result21_client_read.png>
-Package pdftex.def Info: Figures/result21_client_read.png used on input line 40
-2.
+Package pdftex.def Info: Figures/result21_client_read.png used on input line 43
+1.
 (pdftex.def)             Requested size: 252.15831pt x 216.5874pt.
 
-Overfull \hbox (40.76999pt too wide) in paragraph at lines 402--403
+Overfull \hbox (40.76999pt too wide) in paragraph at lines 431--432
 [][] 
  []
 
-
-Overfull \hbox (6.64728pt too wide) in paragraph at lines 410--411
-[]\OT1/ptm/m/n/12 Figure 6.11a[] shows when I dou-ble clicked on the $\OML/cmm/
+[66 <./Figures/result21_client_send.png> <./Figures/result21_server_read.png>]
+Overfull \hbox (6.64728pt too wide) in paragraph at lines 439--440
+[]\OT1/ptm/m/n/12 Figure 6.12a[] shows when I dou-ble clicked on the $\OML/cmm/
 m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of $\OML/cmm/m/it/12 Se
 rver:trace$\OT1/ptm/m/n/12 ,
  []
 
 
-Overfull \hbox (4.62459pt too wide) in paragraph at lines 412--413
+Overfull \hbox (4.62459pt too wide) in paragraph at lines 441--442
 \OT1/ptm/m/n/12 the $\OML/cmm/m/it/12 ReadFile$ \OT1/ptm/m/n/12 func-tion call 
 event of $\OML/cmm/m/it/12 Client:trace$\OT1/ptm/m/n/12 , it brought me to the 
 ``Trace view" of $\OML/cmm/m/it/12 Client:trace$
  []
 
-[66 <./Figures/result21_server_send.png> <./Figures/result21_client_read.png>]
-Overfull \hbox (31.68906pt too wide) in paragraph at lines 426--439
- [][] 
- []
-
-<Figures/result22_streams.png, id=325, 290.58563pt x 330.48468pt>
-File: Figures/result22_streams.png Graphic file (type png)
-
-<use Figures/result22_streams.png>
-Package pdftex.def Info: Figures/result22_streams.png used on input line 446.
-(pdftex.def)             Requested size: 159.82259pt x 181.76714pt.
- [67 <./Figures/result22_streams.png>]
+[67 <./Figures/result21_server_send.png> <./Figures/result21_client_read.png>]
 <Figures/result22_communications.png, id=329, 259.7203pt x 182.18062pt>
 File: Figures/result22_communications.png Graphic file (type png)
 
 <use Figures/result22_communications.png>
 Package pdftex.def Info: Figures/result22_communications.png used on input line
- 489.
-(pdftex.def)             Requested size: 142.8466pt x 100.19963pt.
+ 484.
+(pdftex.def)             Requested size: 259.71967pt x 182.18016pt.
 
 <Figures/result22_server_readnull.png, id=330, 719.68875pt x 602.25pt>
 File: Figures/result22_server_readnull.png Graphic file (type png)
 
 <use Figures/result22_server_readnull.png>
 Package pdftex.def Info: Figures/result22_server_readnull.png used on input lin
-e 497.
+e 492.
 (pdftex.def)             Requested size: 251.89484pt x 210.79065pt.
  [68 <./Figures/result22_communications.png>] <Figures/result22_client_send.png
 , id=336, 723.45282pt x 621.82312pt>
@@ -1959,10 +1944,10 @@ File: Figures/result22_client_send.png Graphic file (type png)
 
 <use Figures/result22_client_send.png>
 Package pdftex.def Info: Figures/result22_client_send.png used on input line 50
-6.
+1.
 (pdftex.def)             Requested size: 253.21228pt x 217.64134pt.
 
-Overfull \hbox (41.82396pt too wide) in paragraph at lines 506--507
+Overfull \hbox (41.82396pt too wide) in paragraph at lines 501--502
 [][] 
  []
 
@@ -1970,16 +1955,16 @@ Overfull \hbox (41.82396pt too wide) in paragraph at lines 506--507
 File: Figures/result22_server_read.png Graphic file (type png)
 
 <use Figures/result22_server_read.png>
-Package pdftex.def Info: Figures/result22_server_read.png used on input line 51
-2.
+Package pdftex.def Info: Figures/result22_server_read.png used on input line 50
+7.
 (pdftex.def)             Requested size: 251.36786pt x 219.22227pt.
 
-Overfull \hbox (39.97954pt too wide) in paragraph at lines 512--513
+Overfull \hbox (39.97954pt too wide) in paragraph at lines 507--508
 [][] 
  []
 
 
-Overfull \hbox (4.87268pt too wide) in paragraph at lines 520--521
+Overfull \hbox (4.87268pt too wide) in paragraph at lines 515--516
 []\OT1/ptm/m/n/12 Figure 6.15a[] shows when I dou-ble clicked on the $\OML/cmm/
 m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of $\OML/cmm/m/it/12 Cl
 ient:trace$\OT1/ptm/m/n/12 ,
@@ -1992,10 +1977,10 @@ File: Figures/result22_server_send.png Graphic file (type png)
 
 <use Figures/result22_server_send.png>
 Package pdftex.def Info: Figures/result22_server_send.png used on input line 52
-9.
+4.
 (pdftex.def)             Requested size: 251.36786pt x 217.37785pt.
 
-Overfull \hbox (39.97954pt too wide) in paragraph at lines 529--530
+Overfull \hbox (39.97954pt too wide) in paragraph at lines 524--525
 [][] 
  []
 
@@ -2004,22 +1989,22 @@ File: Figures/result22_client_read.png Graphic file (type png)
 
 <use Figures/result22_client_read.png>
 Package pdftex.def Info: Figures/result22_client_read.png used on input line 53
-5.
+0.
 (pdftex.def)             Requested size: 252.42181pt x 217.37785pt.
 
-Overfull \hbox (41.0335pt too wide) in paragraph at lines 535--536
+Overfull \hbox (41.0335pt too wide) in paragraph at lines 530--531
 [][] 
  []
 
 
-Overfull \hbox (23.59111pt too wide) in paragraph at lines 543--544
+Overfull \hbox (23.59111pt too wide) in paragraph at lines 538--539
 []\OT1/ptm/m/n/12 Figure 6.16a[] shows when I dou-ble clicked on the $\OML/cmm/
 m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of the $\OML/cmm/m/it/1
 2 Server:trace$\OT1/ptm/m/n/12 ,
  []
 
 
-Overfull \hbox (4.62459pt too wide) in paragraph at lines 545--546
+Overfull \hbox (4.62459pt too wide) in paragraph at lines 540--541
 \OT1/ptm/m/n/12 the $\OML/cmm/m/it/12 ReadFile$ \OT1/ptm/m/n/12 func-tion call 
 event of $\OML/cmm/m/it/12 Client:trace$\OT1/ptm/m/n/12 , it brought me to the 
 ``Trace view" of $\OML/cmm/m/it/12 Client:trace$
@@ -2076,39 +2061,36 @@ Appendix D.
 (./chapters/1/chapter_intro.aux) (./chapters/2/chapter_background.aux)
 (./chapters/3/chapter_modeling.aux) (./chapters/4/chapter_algorithm.aux)
 (./chapters/5/chapter_implementation.aux) (./chapters/6/chapter_evaluation.aux)
-(./chapters/7/chapter_conclusion.aux) (./chapters/appendix/chapter_app.aux))
-
-LaTeX Warning: There were undefined references.
-
- ) 
+(./chapters/7/chapter_conclusion.aux) (./chapters/appendix/chapter_app.aux)) ) 
 Here is how much of TeX's memory you used:
- 9466 strings out of 493014
- 142901 string characters out of 6133351
- 433425 words of memory out of 5000000
- 12625 multiletter control sequences out of 15000+600000
+ 9467 strings out of 493014
+ 142910 string characters out of 6133351
+ 433050 words of memory out of 5000000
+ 12626 multiletter control sequences out of 15000+600000
  37719 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,24n,62p,1459b,1742s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2
-016/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></usr/local/texli
-ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive
-/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/20
-16/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf
--dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2016/texmf-dist/fo
-nts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type
-1/urw/courier/ucrro8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/t
-imes/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8
-a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (107 pages, 1833461 bytes).
+{
+/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2016
+/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib6.pfb></usr/local/texlive/
+2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/20
+16/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2016/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2016/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2016/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2016/texmf-di
+st/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts
+/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/u
+rw/courier/ucrro8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/time
+s/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.p
+fb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on mainthesisUVIC.pdf (107 pages, 1834003 bytes).
 PDF statistics:
  493 PDF objects out of 1000 (max. 8388607)
  296 compressed objects within 3 object streams

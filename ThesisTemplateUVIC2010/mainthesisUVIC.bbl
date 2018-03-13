@@ -47,10 +47,19 @@ Jos{\'e}~M Garrido.
 \newblock {\em Performance Modeling of Operating Systems Using Object-Oriented
   Simulation: A Practical Introduction}, pages 169--189, 2000.
 
+\bibitem{gcc}
+GCC.
+\newblock Options that control optimization, 2018.
+
 \bibitem{godefroid2008automated}
 Patrice Godefroid, Michael~Y Levin, David~A Molnar, et~al.
 \newblock Automated whitebox fuzz testing.
 \newblock In {\em NDSS}, volume~8, pages 151--166, 2008.
+
+\bibitem{howard2003writing}
+Michael Howard and David LeBlanc.
+\newblock {\em Writing secure code}.
+\newblock Pearson Education, 2003.
 
 \bibitem{huang2017atlantis}
 Huihui~Nora Huang, Eric Verbeek, Daniel German, Margaret-Anne Storey, and

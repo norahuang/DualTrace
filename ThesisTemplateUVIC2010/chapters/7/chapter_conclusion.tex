@@ -1,18 +1,21 @@
 \startchapter{Conclusions and Future Work}
 \label{concl}
-In this thesis, I present the approach of communication analysis through assembly level execution traces. I first defined the communication model. This abstract model depicts the outline of a communication between two running program, which gives the ground rule for the communication analysis. Then I depicted the general definition of the dual\_trace, the definition indicate that all traces comply to this definition can be used to conducted the communication analysis.
+This thesis illustrates a novel idea and approach for dynamic program analysis which considerate the interaction of two programs. This idea is valuable due to the fact that programs or malware in the real world work collaboratively. The analysis of the communication and interaction of the programs provide more reliable information for vulnerability detection and program analysis.
 
-I also developed the essential algorithms for the communication identification. The high level algorithm is generalizable for all communication methods' identification while  the event stream extraction and matching algorithm are distinct for each communication method according to their channel open and data transfer mechanisms. However, the developed algorithms provides clear and referable examples to develop your own algorithm for communication methods which are not discussed in this thesis.
+In this thesis, I presented an approach to analyze two traces to identify how they communicate with each other. I first defined a communication model. This abstract model depicts the outline of a communication between two running programs, which gives the ground rules for the communication analysis. Then I depicted the general definition of the dual\_trace, the definition indicate that all traces comply to this definition can be used to conducted the communication analysis.
 
-On top of the existing execution trace analysis environment Atlantis, I implemented the communication identification features. This feature provides the users a way to extend their concerned communication methods through the configuration file. The user interface allows the users to conduct the communication and stream identification from the dual\_traces and navigate back from the identified result to the views of the trace in Atlantis. This feature prototype is a novel feature for conducting multiple trace analysis for reverse engineering at the time when this thesis was written. The experiments conducted in this work preliminary proves the usability of the model and the algorithms. 
+I also developed the algorithms for the communication identification. The high level algorithm is generalizable for all communication methods' identification while  the event stream extraction and matching algorithm are distinct for each communication method according to their channel open and data transfer mechanisms. However, the developed algorithms provides clear and referable examples to develop other algorithms for other communication methods which are not discussed in this thesis.
 
-This thesis illustrates the novel idea and approach for dynamic program analysis which considerate the interaction of two programs. This idea is valuable due to the fact that programs or malware in the real world work collaboratively. The analysis of the communication and interaction of the programs provide more reliable information for vulnerability detection and program analysis.
+On top of the existing execution trace analysis environment Atlantis, I implemented the communication identification features. This feature provides the users a way to extend their concerned communication methods through the configuration file. The user interface allows the users to conduct the communication and stream identification from the dual\_traces and navigate back from the identified result to the views of the trace in Atlantis. The experiments conducted in this work demonstrate the feasibility and usability of the model and the algorithms. 
+
 
 Future work can be divided in three parts:
 \begin{itemize}
-\item Extend the model to be more generalize for all kinds of interaction but not only the message transferring communications, for example remote procedure call.
-\item Evaluate this communication analysis method in terms of its usefulness. For example, can this method apply on and benefit the analysis of Inter-Component communication of Android. Another direction of evaluation of usefulness is a user study of software security engineers.
+\item Extend the model to be more generalize for all kinds of interaction but not only the message transferring communications, for example remote procedure call
 \item Visualize the communications identified from the dual\_trace (A sequence diagram might be a good choice to illustrate all the events in the traces and the matched events from both traces.) 
+\item Conduct user studies of the communication analysis approach and the prototype
+\item Conduct an empirical study to properly evaluate the algorithms and implementation presented in this thesis
+\item Apply the communication analysis approach developed in this thesis on the practical problems. for example, the analysis of Inter-Component communication of Android. 
 \end{itemize}
 
 
