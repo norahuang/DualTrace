@@ -2,9 +2,7 @@
 \externaldocument{../4/chapter_algorithm}
 \startchapter{Dual\_trace Communication Analysis Prototype On Atlantis}
 \label{chapter:newsol}
-In this chapter, I present the design of the prototype of communication analysis from the dual\_trace. This prototype is implemented on Atlantis. It implemented some of the algorithms described in Chapter \ref{chapter:alo} as well as the user interfaces.
-
-Atlantis as an assembly execution trace analysis environment, provides some functionalities that benefit the communication analysis of dual\_trace. Figure \ref{executable} shows the decoded information needed to identify a function call of interest from the trace. The feature ``function inspect" of Atlantis provides this decoding functionality. In the function call event reconstruction algorithm, the parameters of a function call are retrieved from the memory state. The ``memory reconstruction" functionality of Atlantis which compute the memory state of the instruction line efficiently makes this retrieval easier. Moreover, the ``views synchronization" ability of Atlantis allows the user access various information at the same time when they are navigating and viewing the communication analysis result.
+In this chapter, I present the design of the prototype of communication analysis from the dual\_trace. This prototype is implemented on Atlantis. Atlantis as an assembly execution trace analysis environment. It provides many features that benefit the communication analysis of dual\_trace. 
 
 This prototype consists of four components: 1) declaring the function descriptors of the communication methods. 2) a view that can display both traces in the dual\_trace in parallel. 3)implementation of the communication analysis algorithms for stream extraction and communication identification. 4) a view for presenting the extracted streams and the identified communications from the dual\_trace.
 
@@ -13,13 +11,13 @@ In this section, the use cases are presented to depict how to use the developed 
 
 To analyze a dual\_trace, the user need to perform the below operations in sequence:
 \begin{itemize}
-\item Open two traces in the parallel view(developed in this prototype)
-\item Import the dynamic linked library files for each trace(existing functionality of Atlantis)
-\item Perform the stream extraction or communication identification operations(developed in this prototype)
-\item Inspect the operation results by navigating the analysis result from the communication view(developed in this prototype).
+\item Open two traces in the parallel view (as part of this prototype)
+\item Import the dynamic linked library files for each trace (as part of existing functionality of Atlantis)
+\item Perform the stream extraction or communication identification operations(as part of this prototype)
+\item Inspect the operation results by navigating the analysis result from the communication view (as part of this prototype).
 \end{itemize}
 
-Two use cases of this prototype are designed. The use case shown in Table \ref{usecase1} is for stream exaction and the use case shown in Table \ref{usecase2} is for communication identification. 
+Two use cases of this prototype are designed. The use case shown in Table \ref{usecase1} is for stream extraction and the use case shown in Table \ref{usecase2} is for communication identification. 
 
 \begin{table}[H]
   \centering
@@ -29,24 +27,24 @@ Two use cases of this prototype are designed. The use case shown in Table \ref{u
       \hline
        \textbf{Name} & Analysis streams of a communication method from the Dual\_trace\\
        \hline
-       \textbf{Description} & A user captured two assembly execution traces of two interacting programs and need to analysis them by extracting all communication streams of each of the traces and inspecting the extraction results \\
+       \textbf{Description} & A user captured two assembly execution traces of two interacting programs and needs to analysis them by extracting all communication streams of each of the traces and inspecting the extraction results \\
        \hline
               \textbf{Actor} & A Software Security Engineer \\
        \hline
        \textbf{Precondition} & The user has two assembly execution traces and the .dll files of the systems where the programs of the captured traces were running\\
        \hline
-       \textbf{Main Course}& 1. The user declares the function descriptors for the communication methods of interest in the Json format setting file\\
-        & 2. The user open one of the trace in Atlantis\\
-       &  3. The user open the other trace as the dual\_trace of the first one\\
+       \textbf{Main Course}& 1. The user declares the function descriptors for the communication methods of interest in a Json format setting file\\
+        & 2. The user opens one of the trace in Atlantis\\
+       &  3. The user opens the other trace as the dual\_trace of the first one\\
        & 4. The two opened traces are presented in the parallel view\\
-       & 5. The user load the related .dll files for both opened trace\\
-       & 6. The user select the operation ``Stream Extraction" in the ``Dual\_Trace Tool" menu.\\
-       & 7. Atlantis prompt a dialog window giving the user all the communication methods in the function descriptor setting file as options\\
-       & 8. The user select the communication methods which they want to analyze and click the ``OK" bottom\\
-       & 9. Atlantis extract the streams for both traces and list the result in ``Communication view"\\
-       & 10. The user expand the result in the ``Communication view"\\
-       & 11. The user select one function call event in a stream and double click the entry\\
-       & 12. Atlantis navigation to the corresponding instruction line in the trace and synchronize all other views\\
+       & 5. The user loads the related .dll files for both opened trace\\
+       & 6. The user selects the operation ``Stream Extraction" in the ``Dual\_Trace Tool" menu.\\
+       & 7. Atlantis prompts a dialog window giving the user all the communication methods in the function descriptor setting file as options\\
+       & 8. The user selects the communication methods which they want to analyze and click the ``OK" bottom\\
+       & 9. Atlantis extracts the streams for both traces and list the result in ``Communication view"\\
+       & 10. The user expands the result in the ``Communication view"\\
+       & 11. The user selects one function call event in a stream and double click the entry\\
+       & 12. Atlantis shows the corresponding instruction line in the trace and synchronizes all other views\\
       \hline               
   \end{tabular}
 \end{table}
@@ -65,49 +63,49 @@ Two use cases of this prototype are designed. The use case shown in Table \ref{u
        \hline
       \textbf{Precondition} & The user has two assembly execution traces and the .dll files of the systems where the programs of the captured traces were running\\
        \hline
-       \textbf{Main Course}& 1. The user declares the function descriptors for the communication methods of interest in the Json format setting file\\
-        & 2. The user open one of the trace in Atlantis\\
-       &  3. The user open the other trace as the dual\_trace of the first one\\
+       \textbf{Main Course}& 1. The user declares the function descriptors for the communication methods of interest in a Json format setting file\\
+        & 2. The user opens one of the trace in Atlantis\\
+       &  3. The user opens the other trace as the dual\_trace of the first one\\
        & 4. The two opened traces are presented in the parallel view\\
-       & 5. The user load the related .dll files for both opened trace\\
-       & 6. The user select the operation ``Communication Identification" in the ``Dual\_Trace Tool" menu\\
-      & 7. Atlantis prompt a dialog window giving the user all the communication methods in the function descriptor setting file as options\\
-       & 8. The user select the communication methods which they want to analyze and click the ``OK" bottom\\
-       & 9. Atlantis identify the communications of the dual\_trace and list the result in ``Communication view"\\
-       & 10. The user expand the result in the ``Communication view"\\
-       & 11. The user select one function call event in a stream and double click the entry\\
-       & 12. Atlantis navigation to the corresponding instruction line in the trace and synchronize all other views\\
+       & 5. The user loads the related .dll files for both opened trace\\
+       & 6. The user selects the operation ``Communication Identification" in the ``Dual\_Trace Tool" menu\\
+      & 7. Atlantis prompts a dialog window giving the user all the communication methods in the function descriptor setting file as options\\
+       & 8. The user selects the communication methods which they want to analyze and click the ``OK" bottom\\
+       & 9. Atlantis identifies the communications of the dual\_trace and list the result in ``Communication view"\\
+       & 10. The user expands the result in the ``Communication view"\\
+       & 11. The user selects one function call event in a stream and double click the entry\\
+       & 12. Atlantis shows the corresponding instruction line in the trace and synchronize all other views\\
       \hline               
   \end{tabular}
 \end{table}
 
 \section{Declaring of the Function Descriptors}\label{functionset}
-In Section \ref{cdesc}, I defined a function descriptor as a set of function descriptions for a communication method. Each function description consist with four elements: 
+In Section \ref{cdesc}, I describe how to define a function descriptor for each communication method. Each function description consist with four elements: 
 
 $fdesc = \lbrace name, type, inparamdesc, outparamdesc \rbrace$
 
-$name$ is the function name, $type$ can be $open$, $close$, $send$ and $receive$, $inparamdesc$ and $outparamdesc$ are the descriptions for the input and output parameters of interest(you might not care for all parameters). The communication analysis approach depicted in Chapter \ref{chapter:alo} can identify the communications described by the function descriptor from the dual\_trace.
+$name$ is the function name, $type$ can be $open$, $close$, $send$ and $receive$, $inparamdesc$ and $outparamdesc$ are the descriptions for the input and output parameters of interest(we might not care for all parameters). The communication analysis approach depicted in Chapter \ref{chapter:alo} can identify the communications described by the function descriptor from the dual\_trace.
 
 However, the function descriptor for a communication method can be different depending on the implementation of the communication method in a program. Rather than hard coding the function descriptors for the communication methods, the prototype loads the function descriptors from a configuration file. A default template is given for reference. This template is generated by Atlantis when it is launched and stored in the .tmp folder of the trace analysis project. The users can modify this template as to the communication methods of interest. The default template example can be found in Appendix \ref{funcset}.
 
-The function descriptors in this configuration file will be the input for the stream extraction and communication identification features. When the user use these two features, the list of the communication methods provided in the function descriptor configuration file will be presented to them. They can select one or more communication methods to be analyzed. 
+The function descriptors in this configuration file will be the input for the stream extraction and communication identification features. When the user uses these two features, the list of the communication methods provided in the function descriptor configuration file will be presented to them. They can select one or more communication methods to be analyzed. 
 
-In the following subsections, function descriptor examples are presented for reference. Other function descriptors can be obtained by following the same method as developing the function descriptor examples.
+In the following subsections, function descriptor examples are presented for reference. Other function descriptors can be created by following the same method as developing the function descriptor examples.
 
 \subsection{Communication Methods' Implementation in Windows}\label{windows}
-Learning the implementation of a communication is necessary to obtain the function descriptor of the communication method. In this section, I present the result of investigation about the implementation of these four communication methods: Named Pipe, Message Queue, TCP and UDP in Windows. In the investigation, I reviewed the Windows APIs of the communication methods and their example code. By doing so, I obtained the function descriptors of these methods. 
+Learning the implementation of a communication is necessary to obtain the function descriptor of the communication method. In this section, I present the results of analyzing the implementation of these four communication methods: Named Pipe, Message Queue, TCP and UDP in Windows. In the analysis, I reviewed the Windows APIs of the communication methods and their example code. By doing so, I obtained the function descriptors of these methods. 
 
-Windows API set is very sophisticated. Moreover, multiple solutions are provided to fulfil a communication method. It is infeasible to enumerate all solutions for each communication method. I only investigated the most basic usage provided in Windows documentation. For each communication method, a function descriptor with a list of system function descriptions is provided for reference. The functions in the descriptors are supported in most Windows operating systems, such as Windows 8, Window 7. The provided function descriptor of a communication method should only be considered as an example for that communication method. With the understanding of this, it should be fairly easy to obtain the function descriptors for other solutions of that communication method or other communication methods. 
+The Windows API set is very complex. Moreover, multiple solutions are provided to fulfil a communication method. It is unfeasible within the scope of this thesis to enumerate all solutions for each communication method. I only investigated the most basic usage provided in Windows documentation. For each communication method, a function descriptor with a list of system function descriptions is provided for reference. The functions in the descriptors are supported in most Windows operating systems, such as Windows 8, Window 7. The provided function descriptor of a communication method should only be considered as an example for that communication method. With the understanding of this, it should be fairly easy to obtain the function descriptors for other solutions of that communication method or other communication methods. 
 
 Note that, the instances of the descriptors only demonstrate Windows C++ APIs. But the idea of the function descriptor is generalizable to other operating systems with the effort of understanding the APIs of those operating systems.
 
 \subsubsection{Windows Calling Convention}
-It is important to know the Windows calling convention for this research. The communication analysis from a dual\_trace in assembly level relies not only on the system function names but also the key parameter values and the return values. In the assembly level execution traces, the parameter and return values are captured in the memory changes and register changes of the instructions but without any explicit information indicating which registers or memory addresses are holding these parameters. The calling convention tells us where the parameters are stored. So that, we can find them in the memory state while emulating the execution of the trace. Each operating system has their own calling convention for different programming languages. I used dual\_trace of Microsoft* x64 programs for case study in this research. The Microsoft* x64 calling convention is listed in Appendix \ref{convention} for reference.
+Ror this research, it is important to know the Windows calling convention. The communication analysis from a dual\_trace in assembly level relies not only on the system function names but also the key parameter values and return values. In the assembly level execution traces, the parameter and return values are captured in the memory changes and register changes of the instructions but without any explicit information indicating which registers or memory addresses are holding these parameters. The calling convention tells us where the parameters are stored. So that, we can find them in the memory state while emulating the execution of the trace. Each operating system has their own calling convention for different programming languages. I used dual\_traces of Microsoft* x64 programs for case study in this research. The Microsoft* x64 calling convention is listed in Appendix \ref{convention} for reference.
 
 \subsubsection{Named Pipes}
-In Windows, a named pipe is a communication method between one server and one or more clients. The pipe has a name and can be one-way or duplex. Both the server and clients can read or write into the pipe.\cite{WinNamedpipe} In this work, I only consider one server versus one client communication.(One server to multiple clients scenario can always be divided into multiple ``one server and one client" communications thanks to the characteristic that each client and server communication has a separate conduit.) The server and client are endpoints in the communication. We call the server ``server endpoint" while the client ``client endpoint".  The server endpoint and client endpoint of a named pipe share the same pipe name, but each endpoint has its own buffers and handles. 
+In Windows, a named pipe is a communication method between one server and one or more clients. The pipe has a name and can be one-way or duplex. Both the server and clients can read or write into the pipe\cite{WinNamedpipe}. In this work, I only consider one server versus one client communication (one server to multiple clients scenario can always be divided into multiple ``one server and one client" communications thanks to the characteristic that each client and server communication has a separate conduit). The server and client are endpoints in the communication. We call the server ``server endpoint" and the client ``client endpoint".  The server endpoint and client endpoint of a named pipe share the same pipe name, but each endpoint has its own buffers and handles. 
 
-There are two modes for data transfer in the named pipe communication method, synchronous and asynchronous. Modes affect the functions used to complete the send and receive operations. The function descriptors for both synchronous mode and asynchronous mode are provided. The create channel functions for both modes are the same while the mode is indicated by an input parameter. The functions for send and receive message are also the same for both cases. However, the operations of the send and receive functions are different for different modes. In addition, an extra function \textit{GetOverlappedResult} is being called to check if the sending or receiving operation finish, the output message will be stored in the overlap structure whose memory address saved in the function's output parameter OverlapStruct. Table \ref{namesyn} is the function descriptor for synchronous mode while Table \ref{nameasyn} is the function descriptor asynchronous mode of Named pipe.
+There are two modes for data transfer in the named pipe communication method, synchronous and asynchronous. Modes affect the functions used to complete the send and receive operations. The function descriptors for both synchronous mode and asynchronous mode are provided. The create channel functions for both modes are the same while the mode is indicated by an input parameter. The functions for send and receive message are also the same for both cases. However, the operations of the send and receive functions are different for different modes. In addition, an extra function \textit{GetOverlappedResult} is being called to check if the sending or receiving operation finished, the output message will be stored in the overlap structure whose memory address saved in the function's output parameter OverlapStruct. Table \ref{namesyn} is the function descriptor for synchronous mode while Table \ref{nameasyn} is the function descriptor asynchronous mode of Named pipe.
 
 \begin{table}[H]
   \centering
@@ -185,7 +183,7 @@ There are two modes for data transfer in the named pipe communication method, sy
 \end{table}
 
 \subsubsection{Message Queue}
-Similar to Named Pipe, Message Queue's implementation in Windows also has two modes, synchronous and asynchronous. The asynchronous mode is also further divided into two operations: one with callback function while the other without. With the callback function, the callback function would be called when the send or receive operations finish. Without a callback function, the general function \textit{MQGetOverlappedResult} should be called by the endpoints to check if the message sending or receiving operation finish, the parameter in RCX of this function call is a structure consist of the handle as an input parameter and the overlap structure as an output parameter. Table \ref{msmqsynfunctions} is the function descriptor for synchronous mode while Table \ref{msmqasynfunctions} is the function descriptor for the asynchronous mode without callback. I did not exemplify the with callback function, since the specific callback function and its parameters need to be known for developing this the function descriptor.
+Similar to Named Pipe, the Message Queue's implementation in Windows also has two modes, synchronous and asynchronous. The asynchronous mode is also further divided into two operations: one with callback function and the other without. With the callback function, the callback function would be called when the send or receive operations finish. Without a callback function, the general function \textit{MQGetOverlappedResult} should be called by the endpoints to check if the message sending or receiving operation finish, the parameter in RCX of this function call is a structure consist of the handle as an input parameter and the overlap structure as an output parameter. Table \ref{msmqsynfunctions} is the function descriptor for synchronous mode while Table \ref{msmqasynfunctions} is the function descriptor for the asynchronous mode without callback. I did not exemplify the case the with callback function, since the specific callback function and its parameters need to be known for developing this the function descriptor.
 
 \begin{table}[H]
   \centering
@@ -253,7 +251,7 @@ Similar to Named Pipe, Message Queue's implementation in Windows also has two mo
 
     
 \subsubsection{TCP and UDP}
-In Windows programming, these two methods share the same set of APIs regardless the input parameter values and operation behavior are different. In the Windows socket solution, one of the two endpoints is the server while the other one is the client. Table \ref{tcpupdfunctions} is the function descriptor for UDP or TCP communication. 
+In Windows programming, these two methods share the same set of APIs regardless of whether the input parameter values and operation behavior are different. In the Windows socket solution, one of the two endpoints is the server while the other one is the client. Table \ref{tcpupdfunctions} is the function descriptor for UDP or TCP communication. 
 
 \begin{table}[H]
   \centering
@@ -317,9 +315,28 @@ The implementation is divided into two parts. The first part is the stream extra
 \label{overviewintwo}
 \end{figure}
 
+<<<<<<< HEAD
 The implementation relies on the existing ``function inspect" feature of Atlantis. The called functions' name can be inspected  by  searching of the symbolic name in the executable binary or any DLLs which used by the program at the time when it is traced. By importing the DLLs and executable binary, Atlantis can recognize the function call from the execution trace using the function names. Therefore the corresponding Dlls or executable binaries for both traces in the dual\_trace have to be loaded into Atlantis before conducting these two operations.
 
 A new menu ``Dual\_trace Tool" with three menu options is designed for these two operations. In this menu, ``Stream Extraction" is for the operation of stream extraction and ``Communication Identification" is for the operation of communication identification. Before performing both of these two operation, ``Load Library Exports" has to be run for both traces. Currently, the ``Load library export"  operation can only load libraries for the trace in the active trace view. So ``Load library export"  in the menu has to be run twice separately for each trace of the dual\_trace.  Figure \ref{dualtracetoolmenu} shows this new menu in Atlantis. When the user perform ``Stream Extraction" or ``Communication Identification", there will be a prompt dialog window as shown in Figure \ref{methods} which asks the user what communication methods they want to analyze from the dual\_trace. This list is provided by the configuration file I mention in Section \ref{functionset}. The user can select one or multiple methods. Atlantis will perform the operations after the user selects and confirms the communication methods.
+=======
+The format of the traces I got from DRDC for this research is slightly different from the formulation of the trace in Section \ref{dualtrace}. In stead of having the function name in $syscallInfo$, the current traces only provide the offset of that function in the corresponding executable file. So that, the trace needs to be processed to comply with the trace formalization.
+The existing ``function inspect" feature of Atlantis can provide this pre-processing functionality. The called functions' name can be inspected  by  search of the symbolic name in the executable binary or any DLLs which used by the program at the time when it is traced. Figure \ref{trace} is an example of the trace from DRDC. In this example, line 1504 is a system call entry with the system call info as $syscallInfo = <kernal32.dll, 0x10D10>$. 
+Figure \ref{executable} is the information decoded by the ``function inspect" feature of Atlantis from the executable file kernal32.dll of the system where the trace shown in Figure \ref{trace} was captured. So that the instruction line 1504 is a system call entry of $CreateFileW$. By loading a .dll file (in this case kernel32.dll) for the trace, Atlantis can translate system call information in the current trace format the one align to the dual\_trace formalization.
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.45]{Figures/trace}}
+\caption{An example trace from DRDC}
+\label{trace}
+\end{figure}
+
+\begin{figure}[H]
+\centerline{\includegraphics[scale=0.6]{Figures/executable}}
+\caption{Information from kernal32.dll}
+\label{executable}
+\end{figure}
+
+A new menu ``Dual\_trace Tool" with three menu options is designed for these two operations. In this menu, ``Stream Extraction" is for the operation of stream extraction and ``Communication Identification" is for the operation of communication identification. Before performing both of these two operation, ``Load Library Exports" has to be run for both traces. ``Load Library Exports" option in this menu triggers the ``function inspect" operation for the active trace. After this operation being run separately for both traces in the dual\_trace. The traces are transformed into the proper format for communication analysis. Figure\ref{dualtracetoolmenu} shows this new menu in Atlantis. When the user perform ``Stream Extraction" or ``Communication Identification", there will be a prompt dialog window as shown in Figure \ref{methods} which asks the user what communication methods they want to analyze from the dual\_trace. This list is provided by the configuration file I mentioned in Section \ref{functionset}. The user can select one or multiple methods. Atlantis will perform the operations after the user select and confirm the communication methods.
 
 \begin{figure}[H]
 \centerline{\includegraphics{Figures/dualtracetoolmenu}}
@@ -332,6 +349,7 @@ A new menu ``Dual\_trace Tool" with three menu options is designed for these two
  \caption{Prompt Dialog for Communication Selection}
 \label{methods}
 \end{figure}
+
 
 \section{View of Extracted Streams and Identified Communications}
 A new view named ``Communication View" is designed for presenting the result of the extracted streams and the identified communications. Since the user might have selected multiple selection for communication methods of interest, the output result contains all the streams or communications of all selected communication methods and the results are clustered by methods. There are two sub tables in this view, the left one is for presenting the extracted streams while the left one is for presenting identified communications. The reason for putting these two results in the same view is for easy access to and comparison of the data for the users. Figure \ref{idenview} shows this view with both extracted stream results and identified communication results in it. Each time when the user reruns the operations the result in the corresponding table will be refreshed to show only the latest result of that operation. But the other table will not be affected. For example, if the user run the ``Stream Extraction" operation first, the extracted streams will be shown on the left table of the view. And then if the user performs the ``communication Identification" operation, the identified communications result will be shown on the right table while the left one still holds the last stream extraction result.

@@ -7,24 +7,25 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Process of the Communication Analysis from a Dual\_trace\relax }}{17}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces An example trace \relax }}{18}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Information of kernal32.dll\relax }}{18}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Channel Open Process for a Named Pipe in Windows\relax }}{23}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Channel Open Process for a Message Queue in Windows\relax }}{23}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Channel Open Model for TCP and UDP in Windows\relax }}{24}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Data Transfer Scenarios for Named Pipe\relax }}{31}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Data Transfer Scenarios for TCP\relax }}{33}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Data Transfer Scenarios for Message Queue\relax }}{34}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{36}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Stream Matching Scenarios\relax }}{38}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Channel Open Process for a Named Pipe in Windows\relax }}{23}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Channel Open Process for a Message Queue in Windows\relax }}{23}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Channel Open Model for TCP and UDP in Windows\relax }}{24}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Data Transfer Scenarios for Named Pipe\relax }}{31}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Data Transfer Scenarios for TCP\relax }}{33}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Data Transfer Scenarios for Message Queue\relax }}{34}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{36}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces In effective Stream Matching Scenario\relax }}{38}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Menu Item for opening Dual\_trace\relax }}{48}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Parallel Trace View\relax }}{48}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Process of the Communication Analysis from a Dual\_trace Separated in Two Sections\relax }}{49}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Dual\_trace Tool Menu\relax }}{50}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Prompt Dialog for Communication Selection\relax }}{50}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Communication View for Result\relax }}{51}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Right Click Menu on Event Entry\relax }}{52}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Right Click Menu on Event Entry\relax }}{52}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Menu Item for opening Dual\_trace\relax }}{47}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Parallel Trace View\relax }}{47}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Process of the Communication Analysis from a Dual\_trace Separated in Two Sections\relax }}{48}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces An example trace from DRDC\relax }}{49}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Information from kernal32.dll\relax }}{49}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Dual\_trace Tool Menu\relax }}{50}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Prompt Dialog for Communication Selection\relax }}{50}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Communication View for Result\relax }}{51}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Right Click Menu on Event Entry\relax }}{52}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Right Click Menu on Event Entry\relax }}{52}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Sequence Diagram of Experiment 1\relax }}{54}
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Extracted Streams of $dual\_trace\_1$\relax }}{56}
