@@ -5,7 +5,7 @@
 \label{chapter:alo}
 I defined a message transferring communication between two programs in Chapter \ref{chapter:mod}. The goal of this thesis is to develop a method to identify the communications from the dual\_trace. A dual\_trace is a pair of assembly level execution traces of two interacting programs. In this chapter, I discuss the characteristics of the assembly level execution trace. And then formalize the dual\_trace and the execution traces in the. For all the traces comply with this abstract trace formalization, the analysis approach presented in this chapter can be applied.
 
-The process of the communication analysis is shown in Figure \ref{overview}. It takes the two traces in the dual\_trace as input and outputs the identified communications. In this overview figure, there are four components. The function call event reconstruction component will analyze the traces and try to reconstruct all function calls of the functions in the function descriptor. These two sequence of events of these two traces will then flow into the stream extraction component separately. In each event sequence, the events might be trigger by different endpoints of different communications. I consider all the events triggered by the same endpoint as a stream. The stream extraction component will extract two sets of streams. After that, the stream matching component will take both of the stream sets as input and try to match them by their channel identifiers and output the potential identified communications. Finally, the data verification component will verify each communication satisfying the communication data preservation. Algorithms are designed separately for each component. Details about each elements and components of this overall process will be discussed in the following sections.
+The process of the communication analysis is shown in Figure \ref{overview}. It takes the two traces in the dual\_trace as input and outputs the identified communications. In this overview figure, there are four components. The function call event reconstruction component will analyze the traces and try to reconstruct all function calls of the functions in the function descriptor. These two sequence of events of these two traces will then flow into the stream extraction component separately. In each event sequence, the events might be trigger by different endpoints of different communications. I consider all the events triggered by the same endpoint as a stream. The stream extraction component will extract two sets of streams. After that, the stream matching component will take both of the stream sets as input and try to match them by their channel identifiers and output the potential identified communications. Finally, the data verification component will verify each communication and see if it satisfy the communication data preservation. Algorithms are designed separately for each component. Details about each elements and components of this overall process will be discussed in the following sections.
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.55]{Figures/overview}}
@@ -16,19 +16,17 @@ The process of the communication analysis is shown in Figure \ref{overview}. It 
 \section{Dual\_Trace}\label{dualtrace}
 In this section, I formalize a dual\_trace. All traces aligning with this formalization can be used as the input of the analysis process shown in Figure \ref{overview}. A dual\_trace consists of two assembly level execution traces of two interacting programs. There is no timing information of these two traces which means we don't know the timing relationship of the events of one trace with respect to the other. However, the captured instructions in a trace are ordered in execution sequence. 
 
-An execution trace consists of a sequence of instruction lines. Each instruction line contains the executed instruction, the changed memory, the changed registers and the execution information. 
-
 A dual\_trace is formalized as :
 
 $dual\_trace = \lbrace trace_0, trace_1\rbrace$
 
 where $trace_0$ and $trace_1$ are two assembly execution traces.
 
-A trace is a sequence of executed instruction lines:
+An execution trace consists of a sequence of instruction lines and can be defined as: 
 
 $ trace = (l_1, l_2, ..., l_n)$ 
 
-Each instruction line, $l$, is a tuple:
+Each instruction line contains the executed instruction, the changed memory, the changed registers and the execution information and can be defined as a tuple:
 
 $l = <ins, mch, rch, exetype, syscallInfo>$
 
@@ -104,7 +102,7 @@ An example of a sequence of function call events as the output of this algorithm
 {funN:CloseHandle, type:close, inparams:{Handle:18}, outparams:{}}
 \end{lstlisting}
 
-Algorithm \ref{eventAlg} presents the presudo code for the function call event reconstruction algorithm. This algorithm is designed to reconstruct the function call events for one communication method. If multiple communication methods are being investigated, this algorithm can be run multiple times to analysis each of them. Since there are usually a small number of functions of interest for a communication method compared to the instruction line number in the execution trace, the time complexity of this algorithm is $O(N)$ , $N$ is the instruction line number of the trace. 
+Algorithm \ref{eventAlg} presents the pseudo code for the function call event reconstruction algorithm. This algorithm is designed to reconstruct the function call events for one communication method. If multiple communication methods are being investigated, this algorithm can be run multiple times to analysis each of them. Since there are usually a small number of functions of interest for a communication method compared to the instruction line number in the execution trace, the time complexity of this algorithm is $O(N)$ , $N$ is the instruction line number of the trace. 
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
@@ -155,7 +153,7 @@ Moreover, since two endpoints(one from each trace) are connected to a channel fo
 In the following subsections, I will explain how different communication methods open their channels for communication.
 
 \subsection{Named Pipe Channel Open Mechanisms} 
-For the Named Pipe communication method, a named pipe server is responsible for the creation of the pipe, while clients can connect to the pipe after it was created. The creation of a named pipe returns the file handle of that pipe. So the identification of the stream only needs to identify the pipe creation function call on the server side and the pipe connection function call on the client side. The handle returned by these function calls will be used later when data is being sent or received to a specified pipe. In a Named pipe, the file is used as the media of the channel, so the identifier in this case is the file name. Figure \ref{namedpipeopen} exemplifies the channel set up process for a Named Pipe communication in Windows. 
+For the Named Pipe communication method, a named pipe server is responsible for the creation of the pipe. The creation of a named pipe returns the file handle of that pipe. So on the server side, the identification of the stream needs is to identify the pipe creation function call. Clients can connect to the pipe with the pipe name after it was created. So on the client side, the identification of the stream is to identify the pipe connection function call. The handle returned by the pipe creation and connection function calls will be used later when data is being sent or received to a specified pipe. In a named pipe, the file is used as the media of the channel, so the identifier in this case is the file name. Fig. \ref{namedpipeopen} exemplifies the channel set up process for a Named Pipe communication in Windows. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.5]{Figures/namepipechannelopen}}
@@ -182,7 +180,7 @@ For the UDP and TCP communication methods, the communication channel is set up b
 \end{figure}
 
 \section{Stream Extraction Algorithm}
-The sequence of function call events output by the function call event reconstruction algorithm may belong to different endpoints. We need to further split these events for each endpoint. Each subset of these events belonging to an endpoint is considered to be a stream. There are four types of events in each stream: open, send, receive and close. Hence, we can further divide a stream into sub streams which are called open stream, send stream, receive stream, and close stream. There will be only one type of events in each of these streams. Since a stream corresponds to an endpoint and an endpoint is connected to a channel, it is necessary to know the endpoint handle and the channel identifier corresponding to this stream. 
+The sequence of function call events output by the function call event reconstruction algorithm may belong to different endpoints. We need to further separate these events for each endpoint. Each subset of these events belonging to an endpoint is considered to be a stream. There are four types of events in each stream: open, send, receive and close. Hence, we can further divide a stream into sub streams which are called open stream, send stream, receive stream, and close stream. There will be only one type of events in each of these streams. Since a stream corresponds to an endpoint and an endpoint is connected to a channel, it is necessary to know the endpoint handle and the channel identifier corresponding to this stream. 
 
 A stream is formally defined as a tuple:
 
