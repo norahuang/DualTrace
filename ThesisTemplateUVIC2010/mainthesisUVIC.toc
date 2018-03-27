@@ -13,18 +13,18 @@
 \contentsline {section}{\numberline {1.3}Research Process}{4}
 \contentsline {section}{\numberline {1.4}Contributions}{6}
 \contentsline {section}{\numberline {1.5}Thesis Organization}{6}
-\contentsline {chapter}{\numberline {2}Background}{7}
-\contentsline {section}{\numberline {2.1}Software Vulnerability}{7}
-\contentsline {section}{\numberline {2.2}Program Communications Categories}{7}
-\contentsline {section}{\numberline {2.3}Program Execution Tracing in Assembly Level}{8}
-\contentsline {section}{\numberline {2.4}Atlantis}{8}
-\contentsline {chapter}{\numberline {3}Communication Modeling}{9}
-\contentsline {section}{\numberline {3.1}Communication Methods Categorization}{9}
-\contentsline {section}{\numberline {3.2}Communication Model}{10}
-\contentsline {subsection}{\numberline {3.2.1}Communication Definition}{10}
-\contentsline {subsection}{\numberline {3.2.2}Communication Properties}{11}
-\contentsline {subsubsection}{Properties of reliable communication:}{11}
-\contentsline {subsubsection}{Properties of unreliable communication:}{12}
+\contentsline {chapter}{\numberline {2}Background}{8}
+\contentsline {section}{\numberline {2.1}Software Vulnerability}{8}
+\contentsline {section}{\numberline {2.2}Program Communications Categories}{8}
+\contentsline {section}{\numberline {2.3}Program Execution Tracing at the Assembly Level}{9}
+\contentsline {section}{\numberline {2.4}Atlantis}{9}
+\contentsline {chapter}{\numberline {3}Communication Modeling}{10}
+\contentsline {section}{\numberline {3.1}Communication Methods Categorization}{10}
+\contentsline {section}{\numberline {3.2}Communication Model}{11}
+\contentsline {subsection}{\numberline {3.2.1}Communication Definition}{11}
+\contentsline {subsection}{\numberline {3.2.2}Communication Properties}{12}
+\contentsline {subsubsection}{Properties of reliable communication}{12}
+\contentsline {subsubsection}{Properties of unreliable communication}{13}
 \contentsline {chapter}{\numberline {4}Communication Analysis}{16}
 \contentsline {section}{\numberline {4.1}Dual\_Trace}{17}
 \contentsline {section}{\numberline {4.2}Functions Descriptors}{18}
@@ -42,9 +42,9 @@
 \contentsline {subsection}{\numberline {4.7.2}Data Stream Verification Algorithm for TCP}{32}
 \contentsline {subsection}{\numberline {4.7.3}Data Stream Verification Algorithm for Message Queue}{33}
 \contentsline {subsection}{\numberline {4.7.4}Data Stream Verification Algorithm for UDP}{35}
-\contentsline {subsection}{\numberline {4.7.5}Limitation of the Verification}{37}
-\contentsline {chapter}{\numberline {5}Dual\_trace Communication Analysis Prototype On Atlantis}{39}
-\contentsline {section}{\numberline {5.1}Use Case}{39}
+\contentsline {subsection}{\numberline {4.7.5}Limitation of the Data Verification}{37}
+\contentsline {chapter}{\numberline {5}Dual\_trace Communication Analysis Prototype In Atlantis}{39}
+\contentsline {section}{\numberline {5.1}Use Cases}{39}
 \contentsline {section}{\numberline {5.2}Declaring of the Function Descriptors}{41}
 \contentsline {subsection}{\numberline {5.2.1}Communication Methods' Implementation in Windows}{42}
 \contentsline {subsubsection}{Windows Calling Convention}{43}
@@ -53,7 +53,7 @@
 \contentsline {subsubsection}{TCP and UDP}{46}
 \contentsline {section}{\numberline {5.3}Parallel Trace View For Dual\_Trace}{46}
 \contentsline {section}{\numberline {5.4}Implementation of the Communication Analysis Algorithms}{48}
-\contentsline {section}{\numberline {5.5}View of Extracted Streams and Identified Communications}{51}
+\contentsline {section}{\numberline {5.5}View of Extracted Streams and Identified Communications}{50}
 \contentsline {chapter}{\numberline {6}Proof of Concept}{53}
 \contentsline {section}{\numberline {6.1}Experiment 1}{54}
 \contentsline {subsection}{\numberline {6.1.1}Experiment Design}{54}

@@ -68,6 +68,14 @@ Mujtaba Khambatti-Mujtaba.
 MultiMedia LLC.
 \newblock Named pipes (windows), 2017.
 
+\bibitem{WinMSMQ}
+MSDN.
+\newblock Message queue (windows).
+
+\bibitem{winsock}
+MSDN.
+\newblock Socket reference (windows).
+
 \bibitem{redkar2004pro}
 Arohi Redkar, Ken Rabold, Richard Costall, Scot Boyd, and Carlos Walzer.
 \newblock {\em Pro MSMQ: Microsoft Message Queue Programming}.
