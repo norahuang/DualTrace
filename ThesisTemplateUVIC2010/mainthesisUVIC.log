@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  12 MAR 2018 22:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  20 MAR 2018 22:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2017,48 +2017,47 @@ Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Â in font ptmr7t!
 Missing character: There is no · in font ptmr7t!
- [74
-
-
-]
 Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Â in font ptmr7t!
 Missing character: There is no ® in font ptmr7t!
- [75]) [76]
+ [74
+
+
+]) [75]
 \openout2 = `chapters/appendix/chapter_app.aux'.
 
 
 (./chapters/appendix/chapter_app.tex
 Appendix A.
-[77
+[76
 
 
 ]
 Appendix B.
-(./sourcecode/communicationMethods.json [78
+(./sourcecode/communicationMethods.json [77
 
-] [79]) [80]
+] [78]) [79]
 Appendix C.
-[81
+[80
 
-] [82] [83] [84]
+] [81] [82] [83]
 Appendix D.
-(./sourcecode/experiment1/NamedPipeServer.cpp [85
+(./sourcecode/experiment1/NamedPipeServer.cpp [84
 
-] [86] [87])
-(./sourcecode/experiment1/NamedPipeClient.cpp [88] [89])
-(./sourcecode/experiment2/NamedPipeServerOverlapped.cpp [90] [91] [92] [93]
-[94] [95]) (./sourcecode/experiment2/test.bat)) [96] (./mainthesisUVIC.aux
+] [85] [86])
+(./sourcecode/experiment1/NamedPipeClient.cpp [87] [88])
+(./sourcecode/experiment2/NamedPipeServerOverlapped.cpp [89] [90] [91] [92]
+[93] [94]) (./sourcecode/experiment2/test.bat)) [95] (./mainthesisUVIC.aux
 (./chapters/1/chapter_intro.aux) (./chapters/2/chapter_background.aux)
 (./chapters/3/chapter_modeling.aux) (./chapters/4/chapter_algorithm.aux)
 (./chapters/5/chapter_implementation.aux) (./chapters/6/chapter_evaluation.aux)
 (./chapters/7/chapter_conclusion.aux) (./chapters/appendix/chapter_app.aux)) ) 
 Here is how much of TeX's memory you used:
- 9474 strings out of 493014
- 143066 string characters out of 6133351
- 433073 words of memory out of 5000000
- 12632 multiletter control sequences out of 15000+600000
+ 9467 strings out of 493014
+ 142928 string characters out of 6133351
+ 433048 words of memory out of 5000000
+ 12625 multiletter control sequences out of 15000+600000
  37719 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,24n,62p,1387b,1742s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2082,10 +2081,10 @@ st/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts
 rw/courier/ucrro8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/time
 s/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.p
 fb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (107 pages, 1827532 bytes).
+Output written on mainthesisUVIC.pdf (106 pages, 1825650 bytes).
 PDF statistics:
- 496 PDF objects out of 1000 (max. 8388607)
- 296 compressed objects within 3 object streams
+ 493 PDF objects out of 1000 (max. 8388607)
+ 294 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
  226 words of extra memory for PDF output out of 10000 (max. 10000000)
 

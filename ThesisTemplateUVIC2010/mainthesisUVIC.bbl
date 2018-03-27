@@ -1,19 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{balakrishnan2004analyzing}
-Gogul Balakrishnan and Thomas Reps.
-\newblock Analyzing memory accesses in x86 executables.
-\newblock In {\em International conference on compiler construction}, pages
-  5--23. Springer, 2004.
-
-\bibitem{bhansali2006framework}
-Sanjay Bhansali, Wen-Ke Chen, Stuart De~Jong, Andrew Edwards, Ron Murray,
-  Milenko Drini{\'c}, Darek Miho{\v{c}}ka, and Joe Chau.
-\newblock Framework for instruction-level tracing and analysis of program
-  executions.
-\newblock In {\em Proceedings of the 2nd international conference on Virtual
-  execution environments}, pages 154--163. ACM, 2006.
-
 \bibitem{brueningqz}
 Derek Bruening.
 \newblock Qz: Dynamorio: Dynamic instrumentation tool platform.
@@ -51,11 +37,6 @@ Jos{\'e}~M Garrido.
 GCC.
 \newblock Options that control optimization, 2018.
 
-\bibitem{godefroid2008automated}
-Patrice Godefroid, Michael~Y Levin, David~A Molnar, et~al.
-\newblock Automated whitebox fuzz testing.
-\newblock In {\em NDSS}, volume~8, pages 151--166, 2008.
-
 \bibitem{howard2003writing}
 Michael Howard and David LeBlanc.
 \newblock {\em Writing secure code}.
@@ -83,34 +64,14 @@ School of Computing) Advisor (Prof. B.~Kang) KAIST CysecLab (Graduate School~of
 Mujtaba Khambatti-Mujtaba.
 \newblock Named pipes, sockets and other ipc.
 
-\bibitem{li2013software}
-Hongzhe Li, Taebeom Kim, Munkhbayar Bat-Erdene, and Heejo Lee.
-\newblock Software vulnerability detection using backward trace analysis and
-  symbolic execution.
-\newblock In {\em Availability, Reliability and Security (ARES), 2013 Eighth
-  International Conference on}, pages 446--454. IEEE, 2013.
-
 \bibitem{WinNamedpipe}
 MultiMedia LLC.
 \newblock Named pipes (windows), 2017.
-
-\bibitem{PhysRevE.68.046116}
-Christopher~R. Myers.
-\newblock Software systems as complex networks: Structure, function, and
-  evolvability of software collaboration graphs.
-\newblock {\em Phys. Rev. E}, 68:046116, Oct 2003.
 
 \bibitem{redkar2004pro}
 Arohi Redkar, Ken Rabold, Richard Costall, Scot Boyd, and Carlos Walzer.
 \newblock {\em Pro MSMQ: Microsoft Message Queue Programming}.
 \newblock Apress, 2004.
-
-\bibitem{sailer2016coretana}
-Andreas Sailer, Michael Deubzer, Gerald L{\"u}ttgen, and J{\"u}rgen Mottok.
-\newblock Coretana: A trace analyzer for reverse engineering real-time
-  software.
-\newblock In {\em Software Analysis, Evolution, and Reengineering (SANER), 2016
-  IEEE 23rd International Conference on}, volume~1, pages 657--660. IEEE, 2016.
 
 \bibitem{somorovsky2016systematic}
 Juraj Somorovsky.

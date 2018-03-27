@@ -17,45 +17,45 @@ Warning--entry type for "gcc" isn't style-file defined
 --line 241 of file UvicThesis.bib
 Warning--empty journal in khambattinamed
 Warning--empty year in khambattinamed
-You've used 26 entries,
+You've used 20 entries,
             2118 wiz_defined-function locations,
-            640 strings with 8576 characters,
-and the built_in function-call counts, 9022 in all, are:
-= -- 881
-> -- 400
-< -- 12
-+ -- 162
-- -- 134
-* -- 538
-:= -- 1412
-add.period$ -- 77
-call.type$ -- 26
-change.case$ -- 141
+            604 strings with 7187 characters,
+and the built_in function-call counts, 6115 in all, are:
+= -- 582
+> -- 268
+< -- 5
++ -- 110
+- -- 88
+* -- 341
+:= -- 979
+add.period$ -- 55
+call.type$ -- 20
+change.case$ -- 101
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 370
-empty$ -- 756
-format.name$ -- 134
-if$ -- 1977
+cite$ -- 22
+duplicate$ -- 248
+empty$ -- 531
+format.name$ -- 88
+if$ -- 1325
 int.to.chr$ -- 0
-int.to.str$ -- 26
-missing$ -- 22
-newline$ -- 124
-num.names$ -- 52
-pop$ -- 216
+int.to.str$ -- 20
+missing$ -- 16
+newline$ -- 94
+num.names$ -- 40
+pop$ -- 165
 preamble$ -- 1
-purify$ -- 118
+purify$ -- 84
 quote$ -- 0
-skip$ -- 306
+skip$ -- 209
 stack$ -- 0
-substring$ -- 500
-swap$ -- 122
-text.length$ -- 12
+substring$ -- 305
+swap$ -- 68
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 96
+type$ -- 72
 warning$ -- 2
-while$ -- 86
-width$ -- 28
-write$ -- 263
+while$ -- 58
+width$ -- 22
+write$ -- 191
 (There were 4 warnings)
