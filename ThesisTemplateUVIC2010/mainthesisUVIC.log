@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 MAR 2018 14:38
+=======
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 MAR 2018 00:38
+>>>>>>> fdf13b57913b5b7dfa2c131bdd1bf2de6241789e
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2067,7 +2071,11 @@ st/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts
 rw/courier/ucrro8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/time
 s/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.p
 fb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+<<<<<<< HEAD
 Output written on mainthesisUVIC.pdf (106 pages, 1824226 bytes).
+=======
+Output written on mainthesisUVIC.pdf (106 pages, 1824196 bytes).
+>>>>>>> fdf13b57913b5b7dfa2c131bdd1bf2de6241789e
 PDF statistics:
  493 PDF objects out of 1000 (max. 8388607)
  294 compressed objects within 3 object streams
