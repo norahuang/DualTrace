@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  20 MAR 2018 22:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 MAR 2018 00:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -700,16 +700,11 @@ Chapter 1.
 
 
 ]
-Overfull \hbox (11.42499pt too wide) in paragraph at lines 11--12
-[]\OT1/ptm/m/n/12 In this re-search, I de-vel-oped a method to iden-tify com-mu
--ni-ca-tions be-tween pro-grams by analysing
- []
-
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 13.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 16.
-[2] (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+ [2] (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -718,38 +713,38 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 26.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 25.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <8> not available
-(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 27.
+(Font)              Font shape `OT1/pcr/b/n' tried instead on input line 26.
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <8> not available
-(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 36.
+(Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 35.
  [3]
 <Figures/methodology.png, id=55, 1072.005pt x 337.26pt>
 File: Figures/methodology.png Graphic file (type png)
 
 <use Figures/methodology.png>
-Package pdftex.def Info: Figures/methodology.png used on input line 65.
-(pdftex.def)             Requested size: 482.3978pt x 151.7656pt.
+Package pdftex.def Info: Figures/methodology.png used on input line 66.
+(pdftex.def)             Requested size: 471.68367pt x 148.39485pt.
  [4] [5 <./Figures/methodology.png>]
-Overfull \hbox (10.0475pt too wide) in paragraph at lines 83--84
+Overfull \hbox (10.0475pt too wide) in paragraph at lines 84--85
 []\OT1/ptm/b/n/12 Dual[]trace For-mal-iza-tion: \OT1/ptm/m/n/12 By un-der-stand
 -ing the as-sem-bly level ex-e-cu-tion traces, a dual[]trace
  []
 
-) [6]
+) [6] [7]
 \openout2 = `chapters/2/chapter_background.aux'.
 
  (./chapters/2/chapter_background.tex
 Chapter 2.
-[7
+[8
 
 
 
-]) [8]
+]) [9]
 \openout2 = `chapters/3/chapter_modeling.aux'.
 
  (./chapters/3/chapter_modeling.tex
@@ -760,28 +755,28 @@ LABELS NOT IMPORTED.
  on input line 1.
 
 Chapter 3.
-[9
+[10
 
 
 
-] [10] [11] <Figures/reliableexample.png, id=86, 528.97626pt x 448.67625pt>
+] [11] [12] <Figures/reliableexample.png, id=89, 528.97626pt x 448.67625pt>
 File: Figures/reliableexample.png Graphic file (type png)
 
 <use Figures/reliableexample.png>
-Package pdftex.def Info: Figures/reliableexample.png used on input line 130.
-(pdftex.def)             Requested size: 290.93784pt x 246.77269pt.
- [12] [13 <./Figures/reliableexample.png>]
-<Figures/unreliableexample.png, id=94, 525.965pt x 454.69875pt>
+Package pdftex.def Info: Figures/reliableexample.png used on input line 119.
+(pdftex.def)             Requested size: 264.48747pt x 224.33757pt.
+ [13] [14 <./Figures/reliableexample.png>]
+<Figures/unreliableexample.png, id=98, 525.965pt x 454.69875pt>
 File: Figures/unreliableexample.png Graphic file (type png)
 
 <use Figures/unreliableexample.png>
-Package pdftex.def Info: Figures/unreliableexample.png used on input line 181.
-(pdftex.def)             Requested size: 289.28163pt x 250.08508pt.
- [14 <./Figures/unreliableexample.png>])
-[15]
+Package pdftex.def Info: Figures/unreliableexample.png used on input line 170.
+(pdftex.def)             Requested size: 262.98184pt x 227.34882pt.
+) [15 <./Figures/unreliableexample.png>]
 \openout2 = `chapters/4/chapter_algorithm.aux'.
 
- (./chapters/4/chapter_algorithm.tex
+
+(./chapters/4/chapter_algorithm.tex
 
 Package xr Warning: 
 No file ../3/chapter_modeling.aux
@@ -812,33 +807,28 @@ Package pdftex.def Info: Figures/overview.png used on input line 11.
 
 
 ]
+Overfull \hbox (5.67456pt too wide) in paragraph at lines 33--34
+\OT1/ptm/m/n/12 the ex-e-cu-tion type which can be in-struc-tion, sys-tem call 
+en-try, and sys-tem call exit, $\OML/cmm/m/it/12 syscallInfo \OT1/cmr/m/n/12 =\
+OML/cmm/m/it/12 <
+ []
+
 <Figures/tracedefined.png, id=107, 1121.69063pt x 259.7203pt>
 File: Figures/tracedefined.png Graphic file (type png)
 
 <use Figures/tracedefined.png>
-Package pdftex.def Info: Figures/tracedefined.png used on input line 40.
+Package pdftex.def Info: Figures/tracedefined.png used on input line 38.
 (pdftex.def)             Requested size: 504.75612pt x 116.87305pt.
- [17 <./Figures/overview.png>]
-Overfull \hbox (7.91605pt too wide) in paragraph at lines 58--59
-[]\OT1/ptm/m/n/12 Table4.1[] is an ex-am-ple of a func-tion de-scrip-tion. In t
-his ex-am-ple, the func-tion name is $\OML/cmm/m/it/12 ReadFile$\OT1/ptm/m/n/12
- ,
- []
-
-[18 <./Figures/tracedefined.png>] [19]
+ [17 <./Figures/overview.png>] [18 <./Figures/tracedefined.png>] [19]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 110.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 111.
 
-
-Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 110.
-
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 110.
 
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 113.
 
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 113.
 
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 114.
@@ -935,289 +925,289 @@ Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 159
 File: Figures/msmqchannelopen.png Graphic file (type png)
 
 <use Figures/msmqchannelopen.png>
-Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 167.
+Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 168.
 (pdftex.def)             Requested size: 336.7573pt x 143.53589pt.
  [23 <./Figures/namepipechannelopen.png> <./Figures/msmqchannelopen.png>]
 <Figures/tcpudpchannelopen.png, id=139, 502.87875pt x 391.4625pt>
 File: Figures/tcpudpchannelopen.png Graphic file (type png)
 
 <use Figures/tcpudpchannelopen.png>
-Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 176.
+Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 177.
 (pdftex.def)             Requested size: 301.72957pt x 234.8793pt.
  [24 <./Figures/tcpudpchannelopen.png>]
 [25]
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 217.
+(relsize)                Using 6.0pt instead on input line 218.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 219.
+(relsize)                Using 6.0pt instead on input line 220.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 254.
+(relsize)                Using 6.0pt instead on input line 255.
 
 [26]
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 272.
+(relsize)                Using 6.0pt instead on input line 273.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 274.
+(relsize)                Using 6.0pt instead on input line 275.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 328.
+(relsize)                Using 6.0pt instead on input line 329.
 
 [27]
 Overfull \vbox (10.9954pt too high) has occurred while \output is active []
@@ -1226,51 +1216,39 @@ Overfull \vbox (10.9954pt too high) has occurred while \output is active []
 [28]
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 347.
+(relsize)                Using 6.0pt instead on input line 348.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 356.
+(relsize)                Using 6.0pt instead on input line 357.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 356.
+(relsize)                Using 6.0pt instead on input line 357.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 356.
+(relsize)                Using 6.0pt instead on input line 357.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 356.
+(relsize)                Using 6.0pt instead on input line 357.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 356.
+(relsize)                Using 6.0pt instead on input line 357.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 356.
+(relsize)                Using 6.0pt instead on input line 357.
 
 [29] [30] <Figures/namedpipe.png, id=163, 956.57375pt x 570.13pt>
 File: Figures/namedpipe.png Graphic file (type png)
 
 <use Figures/namedpipe.png>
-Package pdftex.def Info: Figures/namedpipe.png used on input line 394.
+Package pdftex.def Info: Figures/namedpipe.png used on input line 397.
 (pdftex.def)             Requested size: 382.62271pt x 228.04796pt.
  [31 <./Figures/namedpipe.png>]
-
-Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 406.
-
-
-Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 407.
-
-
-Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 408.
-
 
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 409.
@@ -1283,239 +1261,245 @@ Package relsize Warning: Font size 5.55556pt is too small.
 Package relsize Warning: Font size 5.55556pt is too small.
 (relsize)                Using 6.0pt instead on input line 411.
 
+
+Package relsize Warning: Font size 5.55556pt is too small.
+(relsize)                Using 6.0pt instead on input line 412.
+
+
+Package relsize Warning: Font size 5.55556pt is too small.
+(relsize)                Using 6.0pt instead on input line 413.
+
+
+Package relsize Warning: Font size 5.55556pt is too small.
+(relsize)                Using 6.0pt instead on input line 414.
+
 <Figures/tcp.png, id=168, 415.5525pt x 408.52625pt>
 File: Figures/tcp.png Graphic file (type png)
  <use Figures/tcp.png>
-Package pdftex.def Info: Figures/tcp.png used on input line 428.
+Package pdftex.def Info: Figures/tcp.png used on input line 431.
 (pdftex.def)             Requested size: 166.21805pt x 163.4076pt.
 
 [32]
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 440.
+(relsize)                Using 6.0pt instead on input line 443.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 447.
+(relsize)                Using 6.0pt instead on input line 450.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 447.
+(relsize)                Using 6.0pt instead on input line 450.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 447.
+(relsize)                Using 6.0pt instead on input line 450.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 452.
+(relsize)                Using 6.0pt instead on input line 455.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 452.
+(relsize)                Using 6.0pt instead on input line 455.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 452.
+(relsize)                Using 6.0pt instead on input line 455.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 452.
+(relsize)                Using 6.0pt instead on input line 455.
 
 [33 <./Figures/tcp.png>] <Figures/msmq.png, id=177, 956.57375pt x 499.8675pt>
 File: Figures/msmq.png Graphic file (type png)
 
 <use Figures/msmq.png>
-Package pdftex.def Info: Figures/msmq.png used on input line 469.
+Package pdftex.def Info: Figures/msmq.png used on input line 472.
 (pdftex.def)             Requested size: 382.62271pt x 199.94345pt.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 483.
+(relsize)                Using 6.0pt instead on input line 486.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 487.
+(relsize)                Using 6.0pt instead on input line 490.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 487.
+(relsize)                Using 6.0pt instead on input line 490.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 487.
+(relsize)                Using 6.0pt instead on input line 490.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 501.
+(relsize)                Using 6.0pt instead on input line 504.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 501.
+(relsize)                Using 6.0pt instead on input line 504.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 501.
+(relsize)                Using 6.0pt instead on input line 504.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 501.
+(relsize)                Using 6.0pt instead on input line 504.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 501.
+(relsize)                Using 6.0pt instead on input line 504.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 501.
+(relsize)                Using 6.0pt instead on input line 504.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 501.
+(relsize)                Using 6.0pt instead on input line 504.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 501.
+(relsize)                Using 6.0pt instead on input line 504.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 501.
+(relsize)                Using 6.0pt instead on input line 504.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 514.
+(relsize)                Using 6.0pt instead on input line 517.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 514.
+(relsize)                Using 6.0pt instead on input line 517.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 514.
+(relsize)                Using 6.0pt instead on input line 517.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 514.
+(relsize)                Using 6.0pt instead on input line 517.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 514.
+(relsize)                Using 6.0pt instead on input line 517.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 514.
+(relsize)                Using 6.0pt instead on input line 517.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 514.
+(relsize)                Using 6.0pt instead on input line 517.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 514.
+(relsize)                Using 6.0pt instead on input line 517.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 514.
+(relsize)                Using 6.0pt instead on input line 517.
 
 [34 <./Figures/msmq.png>] <Figures/udp.png, id=182, 956.57375pt x 669.50125pt>
 File: Figures/udp.png Graphic file (type png)
 
 <use Figures/udp.png>
-Package pdftex.def Info: Figures/udp.png used on input line 530.
+Package pdftex.def Info: Figures/udp.png used on input line 533.
 (pdftex.def)             Requested size: 382.62271pt x 267.79576pt.
-
-Overfull \hbox (10.46452pt too wide) in paragraph at lines 528--533
-[]\OT1/ptm/m/n/12 Based on these char-ac-ter-is-tics, the data trans-fer sce-na
-r-ios of UDP can be ex-em-pli-fied in Figure4.9[]. 
- []
-
-[35]
+ [35]
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 544.
+(relsize)                Using 6.0pt instead on input line 547.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 548.
+(relsize)                Using 6.0pt instead on input line 551.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 548.
+(relsize)                Using 6.0pt instead on input line 551.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 563.
+(relsize)                Using 6.0pt instead on input line 566.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 563.
+(relsize)                Using 6.0pt instead on input line 566.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 563.
+(relsize)                Using 6.0pt instead on input line 566.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 563.
+(relsize)                Using 6.0pt instead on input line 566.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 563.
+(relsize)                Using 6.0pt instead on input line 566.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 563.
+(relsize)                Using 6.0pt instead on input line 566.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 563.
+(relsize)                Using 6.0pt instead on input line 566.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 563.
+(relsize)                Using 6.0pt instead on input line 566.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 577.
+(relsize)                Using 6.0pt instead on input line 580.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 577.
+(relsize)                Using 6.0pt instead on input line 580.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 577.
+(relsize)                Using 6.0pt instead on input line 580.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 577.
+(relsize)                Using 6.0pt instead on input line 580.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 577.
+(relsize)                Using 6.0pt instead on input line 580.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 577.
+(relsize)                Using 6.0pt instead on input line 580.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 577.
+(relsize)                Using 6.0pt instead on input line 580.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 577.
+(relsize)                Using 6.0pt instead on input line 580.
 
 
 Package relsize Warning: Font size 5.55556pt is too small.
-(relsize)                Using 6.0pt instead on input line 577.
+(relsize)                Using 6.0pt instead on input line 580.
 
 [36 <./Figures/udp.png>] [37]
 <Figures/secondlevelmatching.png, id=193, 440.64626pt x 291.0875pt>
 File: Figures/secondlevelmatching.png Graphic file (type png)
 
 <use Figures/secondlevelmatching.png>
-Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 597
+Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 600
 .
 (pdftex.def)             Requested size: 264.38979pt x 174.65384pt.
 ) [38 <./Figures/secondlevelmatching.png>]
@@ -1539,28 +1523,28 @@ Chapter 5.
 
 
 
-] [40] [41] [42]
-Overfull \hbox (48.58391pt too wide) in paragraph at lines 114--143
+] [40] [41] [42] [43]
+Overfull \hbox (48.58391pt too wide) in paragraph at lines 118--147
  [][] 
  []
 
-[43]
-Overfull \hbox (68.884pt too wide) in paragraph at lines 149--183
+
+Overfull \hbox (68.884pt too wide) in paragraph at lines 153--187
  [][] 
  []
 
 [44]
-Overfull \hbox (57.90408pt too wide) in paragraph at lines 192--215
+Overfull \hbox (57.90408pt too wide) in paragraph at lines 196--219
  [][] 
  []
 
 
-Overfull \hbox (64.21605pt too wide) in paragraph at lines 221--249
+Overfull \hbox (64.21605pt too wide) in paragraph at lines 225--253
  [][] 
  []
 
 [45]
-Overfull \hbox (58.6485pt too wide) in paragraph at lines 260--292
+Overfull \hbox (58.6485pt too wide) in paragraph at lines 264--296
  [][] 
  []
 
@@ -1568,17 +1552,17 @@ Overfull \hbox (58.6485pt too wide) in paragraph at lines 260--292
 File: Figures/opendualtracemenu.png Graphic file (type png)
 
 <use Figures/opendualtracemenu.png>
-Package pdftex.def Info: Figures/opendualtracemenu.png used on input line 298.
+Package pdftex.def Info: Figures/opendualtracemenu.png used on input line 302.
 (pdftex.def)             Requested size: 164.61208pt x 190.30762pt.
  [46]
 <Figures/paralleleditor.png, id=226, 867.24pt x 478.03593pt>
 File: Figures/paralleleditor.png Graphic file (type png)
 
 <use Figures/paralleleditor.png>
-Package pdftex.def Info: Figures/paralleleditor.png used on input line 304.
+Package pdftex.def Info: Figures/paralleleditor.png used on input line 308.
 (pdftex.def)             Requested size: 520.34802pt x 286.82376pt.
 
-Overfull \hbox (6.0107pt too wide) in paragraph at lines 309--309
+Overfull \hbox (6.0107pt too wide) in paragraph at lines 313--313
 []\OT1/ptm/b/n/17.28 Implementation of the Com-mu-ni-ca-tion Anal-y-sis Al-go-r
 ithms 
  []
@@ -1588,49 +1572,51 @@ ithms
 File: Figures/overviewintwo.png Graphic file (type png)
 
 <use Figures/overviewintwo.png>
-Package pdftex.def Info: Figures/overviewintwo.png used on input line 313.
+Package pdftex.def Info: Figures/overviewintwo.png used on input line 317.
 (pdftex.def)             Requested size: 547.64769pt x 150.16145pt.
- [48 <./Figures/overviewintwo.png>]
-<Figures/trace.png, id=236, 1121.69063pt x 259.7203pt>
+
+<Figures/trace.png, id=232, 1121.69063pt x 259.7203pt>
 File: Figures/trace.png Graphic file (type png)
  <use Figures/trace.png>
-Package pdftex.def Info: Figures/trace.png used on input line 328.
+Package pdftex.def Info: Figures/trace.png used on input line 327.
 (pdftex.def)             Requested size: 504.75612pt x 116.87305pt.
 
+[48 <./Figures/overviewintwo.png>]
 <Figures/executable.png, id=237, 307.90031pt x 237.88875pt>
 File: Figures/executable.png Graphic file (type png)
 
 <use Figures/executable.png>
-Package pdftex.def Info: Figures/executable.png used on input line 334.
+Package pdftex.def Info: Figures/executable.png used on input line 333.
 (pdftex.def)             Requested size: 184.74161pt x 142.73433pt.
- [49 <./Figures/trace.png> <./Figures/executable.png>] <Figures/dualtracetoolme
-nu.png, id=243, 350.05782pt x 121.20282pt>
+
+<Figures/dualtracetoolmenu.png, id=238, 350.05782pt x 121.20282pt>
 File: Figures/dualtracetoolmenu.png Graphic file (type png)
 
 <use Figures/dualtracetoolmenu.png>
-Package pdftex.def Info: Figures/dualtracetoolmenu.png used on input line 342.
+Package pdftex.def Info: Figures/dualtracetoolmenu.png used on input line 341.
 (pdftex.def)             Requested size: 350.05695pt x 121.20251pt.
-
-<Figures/methods.png, id=244, 404.26031pt x 220.57407pt>
+ [49 <./Figures/trace.png> <./Figures/executable.png>] <Figures/methods.png, id
+=244, 404.26031pt x 220.57407pt>
 File: Figures/methods.png Graphic file (type png)
 
 <use Figures/methods.png>
-Package pdftex.def Info: Figures/methods.png used on input line 348.
+Package pdftex.def Info: Figures/methods.png used on input line 347.
 (pdftex.def)             Requested size: 323.40869pt x 176.45947pt.
  [50 <./Figures/dualtracetoolmenu.png> <./Figures/methods.png>] <Figures/idenvi
 ew.png, id=249, 569.12625pt x 213.79875pt>
 File: Figures/idenview.png Graphic file (type png)
 
 <use Figures/idenview.png>
-Package pdftex.def Info: Figures/idenview.png used on input line 358.
+Package pdftex.def Info: Figures/idenview.png used on input line 357.
 (pdftex.def)             Requested size: 398.38567pt x 149.6581pt.
- [51 <./Figures/idenview.png>]
-<Figures/gotoend.png, id=253, 287.57437pt x 54.9553pt>
+
+<Figures/gotoend.png, id=250, 287.57437pt x 54.9553pt>
 File: Figures/gotoend.png Graphic file (type png)
 
 <use Figures/gotoend.png>
-Package pdftex.def Info: Figures/gotoend.png used on input line 368.
+Package pdftex.def Info: Figures/gotoend.png used on input line 367.
 (pdftex.def)             Requested size: 287.57367pt x 54.95515pt.
+ [51 <./Figures/idenview.png>]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no œ in font ptmr7t!
@@ -1639,7 +1625,7 @@ Missing character: There is no œ in font ptmr7t!
 File: Figures/remove.png Graphic file (type png)
 
 <use Figures/remove.png>
-Package pdftex.def Info: Figures/remove.png used on input line 376.
+Package pdftex.def Info: Figures/remove.png used on input line 375.
 (pdftex.def)             Requested size: 504.83263pt x 112.77052pt.
 ) [52 <./Figures/gotoend.png> <./Figures/remove.png>]
 \openout2 = `chapters/6/chapter_evaluation.aux'.
@@ -2054,10 +2040,10 @@ Appendix D.
 (./chapters/5/chapter_implementation.aux) (./chapters/6/chapter_evaluation.aux)
 (./chapters/7/chapter_conclusion.aux) (./chapters/appendix/chapter_app.aux)) ) 
 Here is how much of TeX's memory you used:
- 9467 strings out of 493014
- 142928 string characters out of 6133351
- 433048 words of memory out of 5000000
- 12625 multiletter control sequences out of 15000+600000
+ 9469 strings out of 493014
+ 142946 string characters out of 6133351
+ 433288 words of memory out of 5000000
+ 12627 multiletter control sequences out of 15000+600000
  37719 words of font info for 91 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,24n,62p,1387b,1742s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2081,7 +2067,7 @@ st/fonts/type1/urw/courier/ucrb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts
 rw/courier/ucrro8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/time
 s/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.p
 fb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (106 pages, 1825650 bytes).
+Output written on mainthesisUVIC.pdf (106 pages, 1824196 bytes).
 PDF statistics:
  493 PDF objects out of 1000 (max. 8388607)
  294 compressed objects within 3 object streams

@@ -2,10 +2,10 @@
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Research Approach overview\relax }}{5}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Example of Reliable Communication\relax }}{13}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of Unreliable Communication\relax }}{14}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Example of Reliable Communication\relax }}{14}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of Unreliable Communication\relax }}{15}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Process of the Communication Analysis from a Dual\_trace\relax }}{17}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Process of the Communication Analysis through a Dual\_trace\relax }}{17}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces An example trace \relax }}{18}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces Channel Open Process for a Named Pipe in Windows\relax }}{23}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Channel Open Process for a Message Queue in Windows\relax }}{23}
@@ -14,7 +14,7 @@
 \contentsline {figure}{\numberline {4.7}{\ignorespaces Data Transfer Scenarios for TCP\relax }}{33}
 \contentsline {figure}{\numberline {4.8}{\ignorespaces Data Transfer Scenarios for Message Queue\relax }}{34}
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Data Transfer Scenarios for UDP\relax }}{36}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces In effective Stream Matching Scenario\relax }}{38}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces An Ineffective Stream Matching Scenario\relax }}{38}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Menu Item for opening Dual\_trace\relax }}{47}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Parallel Trace View\relax }}{47}
