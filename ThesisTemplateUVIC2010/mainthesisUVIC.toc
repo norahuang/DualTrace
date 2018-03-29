@@ -12,7 +12,7 @@
 \contentsline {section}{\numberline {1.2}Research Goal}{4}
 \contentsline {section}{\numberline {1.3}Research Process}{4}
 \contentsline {section}{\numberline {1.4}Contributions}{6}
-\contentsline {section}{\numberline {1.5}Thesis Organization}{6}
+\contentsline {section}{\numberline {1.5}Thesis Organization}{7}
 \contentsline {chapter}{\numberline {2}Background}{8}
 \contentsline {section}{\numberline {2.1}Software Vulnerability}{8}
 \contentsline {section}{\numberline {2.2}Program Communications Categories}{8}
@@ -68,12 +68,14 @@
 \contentsline {subsubsection}{$\boldsymbol {Dual\_trace\_22:}$}{67}
 \contentsline {section}{\numberline {6.3}Conclusion}{71}
 \contentsline {chapter}{\numberline {7}Conclusions and Future Work}{72}
-\contentsline {chapter}{Bibliography}{74}
-\contentsline {chapter}{Appendix \numberline {A}Microsoft x64 Calling Convention for C/C++}{76}
-\contentsline {chapter}{Appendix \numberline {B}Function Descriptor Configuration file Example}{77}
-\contentsline {chapter}{Appendix \numberline {C}Code of the Parallel Editors}{80}
-\contentsline {section}{\numberline {C.1}The Editor Area Split Handler}{80}
-\contentsline {section}{\numberline {C.2}Get the Active Parallel Editors}{83}
-\contentsline {chapter}{Appendix \numberline {D}Code of the Programs in the Experiments}{84}
-\contentsline {section}{\numberline {D.1}Experiment 1}{84}
-\contentsline {section}{\numberline {D.2}Experiment 2}{89}
+\contentsline {section}{\numberline {7.1}Discussion}{73}
+\contentsline {section}{\numberline {7.2}Future Works}{74}
+\contentsline {chapter}{Bibliography}{75}
+\contentsline {chapter}{Appendix \numberline {A}Microsoft x64 Calling Convention for C/C++}{77}
+\contentsline {chapter}{Appendix \numberline {B}Function Descriptor Configuration file Example}{78}
+\contentsline {chapter}{Appendix \numberline {C}Code of the Parallel Editors}{81}
+\contentsline {section}{\numberline {C.1}The Editor Area Split Handler}{81}
+\contentsline {section}{\numberline {C.2}Get the Active Parallel Editors}{84}
+\contentsline {chapter}{Appendix \numberline {D}Code of the Programs in the Experiments}{85}
+\contentsline {section}{\numberline {D.1}Experiment 1}{85}
+\contentsline {section}{\numberline {D.2}Experiment 2}{90}

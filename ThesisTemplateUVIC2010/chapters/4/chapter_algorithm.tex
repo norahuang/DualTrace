@@ -5,11 +5,9 @@
 \label{chapter:alo}
 I defined a message transferring communication between two programs in Chapter \ref{chapter:mod}. The goal of this thesis is to develop a method to identify the communications from a dual\_trace. A dual\_trace is a pair of assembly level execution traces of two interacting programs. In this chapter, I discuss the characteristics of the assembly level execution trace, and then I formalize the dual\_trace and the execution traces in the. For all the traces that comply with this abstract trace formalization, the analysis approach presented in this chapter can be applied.
 
-<<<<<<< HEAD
+
 The process of the communication analysis is shown in Figure \ref{overview}. It takes the two traces in the dual\_trace as input and outputs the identified communications. In this overview figure, there are four components. The function call event reconstruction component will analyze the traces and try to reconstruct all function calls of the functions in the function descriptor. These two sequences of events of these two traces will then flow into the stream extraction component separately. In each event sequence, the events might be triggered by different endpoints of different communications. I consider all the events triggered by the same endpoint as a stream. The stream extraction component will extract two sets of streams. After that, the stream matching component will take both of the stream sets as input and try to match them by their channel identifiers and output the potential identified communications. Finally, the data verification component will verify each communication and see if it satisfy the communication data preservation. Algorithms are designed separately for each component. Details about each elements and components of this overall process will be discussed in the following sections.
-=======
-The process of the communication analysis is shown in Figure \ref{overview}. It takes the two traces in the dual\_trace as input and output of the identified communications. In this overview figure, there are four components. The function call event reconstruction component will analyze the traces and try to reconstruct all function calls of the functions in the function descriptor. These two sequences of events of these two traces will then flow into the stream extraction component separately. In each event sequence, the events might be triggered by different endpoints of different communications. I consider all the events triggered by the same endpoint as a stream. The stream extraction component will extract two sets of streams. After that, the stream matching component will take both of the stream sets as input and try to match them by their channel identifiers and output the potential identified communications. Finally, the data verification component will verify each communication and see if it satisfy the communication data preservation. Algorithms are designed separately for each component. Details about each elements and components of this overall process will be discussed in the following sections.
->>>>>>> fdf13b57913b5b7dfa2c131bdd1bf2de6241789e
+
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.55]{Figures/overview}}
@@ -90,7 +88,7 @@ A function call event $ev$ in $etr$ is defined as a tuple:
 
 $ev = <funN, inparams, outparams, type>$
 
-where $funN$ is the function name, $inparas$ includes all the input parameters with the parameter name and value, $outparas$ includes all the output parameters, and $type$ is the event type which inherit from the function description and can be one of the four types: $open$, $send$, $receive$ and $close$.
+where $funN$ is the function name, $inparas$ includes all the input parameters of interest with the parameter name and value, $outparas$ includes all the output parameters of interest, and $type$ is the event type which inherit from the function description and can be one of the four types: $open$, $send$, $receive$ and $close$.
 
 Note: If the parameter is an address, the parameter's value is the string from the buffer pointed to by that address instead of the buffer address.
 
@@ -106,7 +104,7 @@ An example of a sequence of function call events as the output of this algorithm
 {funN:CloseHandle, type:close, inparams:{Handle:18}, outparams:{}}
 \end{lstlisting}
 
-Algorithm \ref{eventAlg} presents the pseudocode for the function call event reconstruction algorithm. This algorithm is designed to reconstruct the function call events for one communication method. If multiple communication methods are being investigated, this algorithm can be run multiple times to analyze each of them. Since there are usually a small number of functions of interest for a communication method compared to the number of instruction lines in the execution trace, the time complexity of this algorithm is $O(N)$ , $N$ is the instruction line number of the trace. 
+Algorithm \ref{eventAlg} presents the pseudocode for the function call event reconstruction algorithm. This algorithm is designed to reconstruct the function call events for one communication method. If multiple communication methods are being investigated, this algorithm can be run multiple times to analyze each of them. Since there are usually a small number of functions of interest for a communication method compared to the number of instruction lines in the execution trace, the time complexity of this algorithm is $O(N)$ , $N$ is the number of instruction lines in the trace.
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
@@ -175,7 +173,7 @@ For the Message Queue communication method, the endpoints of the communication c
 \end{figure}
 
 \subsection{UDP and TCP Channel Open Mechanisms} 
-For the UDP and TCP communication methods, the communication channel is set up by both endpoints. The socket create function should be called to create their own socket on both endpoints. After the socket handles are created, the server endpoint binds the socket to its service address and port by calling the socket bind function. Then the server endpoint calls the listening function to accept the client connection. The client will call the connection function to connect to the server. When the listening function call returns successfully, a new socket handle will be generated and returned for further data transfer between the server endpoint and the connected client endpoint. After all these operations are performed successfully, the channel is established and the data transfer can start. During the channel open stage, server endpoint has two socket handles, the first one is used to listen to the connection from the client, while the second one is created for real data transfer. In this case, the server's address and port are considered to be the identifier of the channel.  \cite{winsock}  Figure \ref{channelopen2} exemplifies the channel open process for TCP and UDP in Windows.
+For the UDP and TCP communication methods, the communication channel is set up by both endpoints. The socket create function should be called to create their own socket on both endpoints. After the socket handles are created, the server endpoint binds the socket to its service address and port by calling the socket bind function. Then the server endpoint calls the listening function to accept the client connection. The client will call the connection function to connect to the server. When the listening function call returns successfully, a new socket handle will be generated and returned for further data transfer between the server endpoint and the connected client endpoint. After all these operations are performed successfully, the channel is established and the data transfer can start. During the channel open stage, server endpoint has two socket handles, the first one is used to listen to the connection from the client, while the second one is created for real data transfer. The server's address and port are considered to be the identifier of the channel.  \cite{winsock}  Figure \ref{channelopen2} exemplifies the channel open process for TCP and UDP in Windows.
     
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.6]{Figures/tcpudpchannelopen}}
@@ -265,7 +263,7 @@ This algorithm is designed for extracting the streams for TCP and UDP. In the ch
 
 In this algorithm, each created socket will be identified as a stream. So that the two socket handles in the server side are considered to be two handles for two streams, the stream identified by the listening handle is called the parent stream and the one identified by the data transmission handle is called the child stream. The events in the parent stream contain the information needed for stream matching algorithm for the child stream later, so the child stream will inherit all the events from its parent. 
 
-Same as the algorithm for Named pipe and Message Queue, the reuse of a handle can only happen after a stream identified by this handle is closed. Otherwise the handle reuse will be treated as an error. The error handling is not discussed in this algorithm. A set $tempstreams$ is also used in this algorithm to keep check of the open streams.
+Similar to the algorithm for Named pipe and Message Queue, the reuse of a handle can only happen after a stream identified by this handle is closed. Otherwise the handle reuse will be treated as an error. The error handling is not discussed in this algorithm. A set, $tempstreams$, is also used in this algorithm to keep check of the open streams.
 
 The time complexity of this algorithm is also $O(N)$, $N$ is the number of events in the trace.
 
