@@ -3,14 +3,14 @@
 \externaldocument{../appendix/chapter_app}
 \startchapter{Communication Analysis}
 \label{chapter:alo}
-I defined a message transferring communication between two programs in Chapter \ref{chapter:mod}. The goal of this thesis is to develop a method to identify the communications from a dual\_trace. A dual\_trace is a pair of assembly level execution traces of two interacting programs. In this chapter, I discuss the characteristics of the assembly level execution trace, and then I formalize the dual\_trace and the execution traces in the. For all the traces that comply with this abstract trace formalization, the analysis approach presented in this chapter can be applied.
+I defined a message transferring communication between two programs in Chapter \ref{chapter:mod}. The goal of this research is to develop a method to identify the communications from a dual\_trace. A dual\_trace is a pair of assembly level execution traces of two interacting programs. In this chapter, I discuss the characteristics of the assembly level execution trace, and then I formalize the dual\_trace. For all the traces that comply with this abstract dual\_trace formalization, the analysis approach presented in this chapter can be applied.
 
 
-The process of the communication analysis is shown in Figure \ref{overview}. It takes the two traces in the dual\_trace as input and outputs the identified communications. In this overview figure, there are four components. The function call event reconstruction component will analyze the traces and try to reconstruct all function calls of the functions in the function descriptor. These two sequences of events of these two traces will then flow into the stream extraction component separately. In each event sequence, the events might be triggered by different endpoints of different communications. I consider all the events triggered by the same endpoint as a stream. The stream extraction component will extract two sets of streams. After that, the stream matching component will take both of the stream sets as input and try to match them by their channel identifiers and output the potential identified communications. Finally, the data verification component will verify each communication and see if it satisfy the communication data preservation. Algorithms are designed separately for each component. Details about each elements and components of this overall process will be discussed in the following sections.
+The process of the communication analysis is shown in Figure \ref{overview}. It takes the two traces in the dual\_trace as input and outputs the identified communications. In this overview figure, there are four components. The function call event reconstruction component will analyze the traces and try to reconstruct all function calls of the functions in the function descriptor. These two sequences of events of these two traces will then flow into the stream extraction component separately. In each event sequence, the events might be triggered by different endpoints of different communications. I consider all the events triggered by the same endpoint as a stream. The stream extraction component will extract two sets of streams. After that, the stream matching component will take both of the stream sets as input and try to match them by their channel identifiers and output the potential identified communications. Finally, the data verification component will verify each communication and see if it satisfy the communication content preservation. Algorithms are designed separately for each component. Details about each elements and components of this overall process will be discussed in the following sections.
 
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/overview}}
+\centerline{\includegraphics[scale=0.5]{Figures/overview}}
 \caption{Process of the Communication Analysis through a Dual\_trace}
 \label{overview}
 \end{figure}
@@ -34,7 +34,7 @@ $l = <ins, mch, rch, exetype, syscallInfo>$
 
 where $ins$ is the instruction, $mch$ is the memory changes, $rch$ is the register changes, $exetype$ is the execution type which can be instruction, system call entry, and system call exit, $syscallInfo = <exeName, funcName>$ only appears when $exetype$ is system call entry or system call exit. $exeName$ is the executable file name (e.g., .dll and .exe), while $funcName$ is the name of a system function in this executable file.
 
-Figure \ref{tracedefined} is an example of a piece of execution trace complying to this definition. 
+Figure \ref{tracedefined} is an example of a piece of execution trace complying to the definition of a trace. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.45]{Figures/tracedefined}}
@@ -51,9 +51,9 @@ $cdesc = \lbrace fdesc_1, fdesc_2,...,fdesc_p \rbrace$
 
 Each element, $fdesc$, is a function description and can be defined as:
 
-$fdesc = \lbrace name, type, inparamdesc, outparamdesc \rbrace$
+$fdesc = < name, type, inparamdesc, outparamdesc >$
 
-where, $name$ is the function name, $type$ is the function type which can be one of the four types: $open$, $close$, $send$ and $receive$. $inparamdesc$ is the input parameter description illustrating how the registers and memory contents map to a list of parameters of interest (you might not care for all parameters of a function) of a given function call, and $outparamdesc$ is the output parameter descriptions similar to the input parameter descriptions. 
+where, $name$ is the function name, $type$ is the function type which can be one of the four types: $open$, $close$, $send$ and $receive$. $inparamdesc$ is the input parameter descriptions illustrating how the registers and memory contents map to a list of parameters of interest (you might not care for all parameters of a function) of a given function call, and $outparamdesc$ is the output parameter descriptions similar to the input parameter descriptions. 
 
 Table \ref{functionexample} is an example of a function description. In this example, the function name is $ReadFile$, it is a function for data receiving, so that function type is $receive$. The input parameter description has one concerned parameter, $Handle$, while the output parameter description has two parameters, ${RecvBuffer}$ and $MessageLength$. $Handle$ is a parameter which is a value stored in the register RCX. The $RecvBuffer$ is an address for the input message stored in the register RAX. The $MessageLength$ is a output value stored in register R9. The value of the input parameters can be retrieved from the memory state on the function call instruction line, while the value of the output parameters can be retrieved from the memory state on the function return instruction line. If a parameter is an address instead of a value, the address should be retrieved first, then the retrieved address should be used to find the buffer content in the memory state. The function description requires the understanding of the calling convention of the operating system. The Microsoft x64 calling convention can be found in Appendix \ref{convention}. More examples of communication method descriptions will be given in Chapter \ref{chapter:newsol}.
 
@@ -78,7 +78,7 @@ Table \ref{functionexample} is an example of a function description. In this exa
 \section{Function Call Event Reconstruction Algorithm}
 In last two sections, I formalized the assembly execution trace and defined the function descriptor of a communication method. The function descriptor helps to locate the function calls and retrieve the parameters of interest from an execution trace. These function calls contain the information of a communication, such as the channel identifier, the packets sent or received, etc. Before any communication can be identified, the function calls of that communication method have to be reconstructed first. 
 
-In this section, I define the function call event and present the algorithm to reconstruct the function call events from an assembly execution trace. 
+In this section, I define the function call event and present an algorithm to reconstruct the function call events from an assembly execution trace. 
 
 With the function descriptor and the execution trace as input, the function call event reconstruction algorithm identifies the function call entry instruction line and reconstructs the input parameters from the memory state of that line. Then it identifies the function call exit line of the corresponding function call and reconstructs the output parameters from the memory state of the function exit line. After iterating the whole execution trace, the algorithm outputs a sequence of function call events of length $m$. This sequence of events can be defined as $etr$:
 
@@ -91,18 +91,6 @@ $ev = <funN, inparams, outparams, type>$
 where $funN$ is the function name, $inparas$ includes all the input parameters of interest with the parameter name and value, $outparas$ includes all the output parameters of interest, and $type$ is the event type which inherit from the function description and can be one of the four types: $open$, $send$, $receive$ and $close$.
 
 Note: If the parameter is an address, the parameter's value is the string from the buffer pointed to by that address instead of the buffer address.
-
-An example of a sequence of function call events as the output of this algorithm is shown in Listing\ref{eventsexample}.
-
-\begin{lstlisting}[caption= Example of  $etr$, label=eventsexample]
-{funN:CreateNamedPipe, type:open,inparams:{Handle:18, FileName:mypipe}, outparams:{}},
-{funN:CreateNamedPipe, type:open,  inparams:{Handle:27,  FileName:Apipe}, outparams:{}},
-{funN:WriteFile, type:send, inparams:{Handle:27, SendBuf:Message1}, outparams:{MessageLen:9}},
-{funN:WriteFile, type:send, inparams:{Handle:27, SendBuf:Message2}, outparams:{MessageLen:9}},
-{funN:ReadFile, type:receive, inparams:{Handle:27}, outparams:{RecvBuf:Message3, MessageLen:9}},
-{funN:CloseHandle, type:close, inparams:{Handle:27}, outparams:{}},
-{funN:CloseHandle, type:close, inparams:{Handle:18}, outparams:{}}
-\end{lstlisting}
 
 Algorithm \ref{eventAlg} presents the pseudocode for the function call event reconstruction algorithm. This algorithm is designed to reconstruct the function call events for one communication method. If multiple communication methods are being investigated, this algorithm can be run multiple times to analyze each of them. Since there are usually a small number of functions of interest for a communication method compared to the number of instruction lines in the execution trace, the time complexity of this algorithm is $O(N)$ , $N$ is the number of instruction lines in the trace.
 
@@ -143,19 +131,30 @@ $i \leftarrow 1$\;
 \KwRet $etr$\;
 \end{algorithm} 
 
+An example of a sequence of function call events as the output of this algorithm is shown in Listing\ref{eventsexample}.
+
+\begin{lstlisting}[caption= Example of  $etr$, label=eventsexample]
+{funN:CreateNamedPipe, type:open,inparams:{Handle:18, FileName:mypipe}, outparams:{}},
+{funN:CreateNamedPipe, type:open,  inparams:{Handle:27,  FileName:Apipe}, outparams:{}},
+{funN:WriteFile, type:send, inparams:{Handle:27, SendBuf:Message1}, outparams:{MessageLen:9}},
+{funN:WriteFile, type:send, inparams:{Handle:27, SendBuf:Message2}, outparams:{MessageLen:9}},
+{funN:ReadFile, type:receive, inparams:{Handle:27}, outparams:{RecvBuf:Message3, MessageLen:9}},
+{funN:CloseHandle, type:close, inparams:{Handle:27}, outparams:{}},
+\end{lstlisting}
+
 \section{Channel Open Mechanisms}\label{mecha}
 The channel open mechanism affects the stream extraction and stream matching strategy. So I discuss them before presenting those algorithms. The channel open mechanism of a named pipe and message queue is relatively simple. In the Windows implementation, only one function call is related to the handle identification of the stream. However, for TCP and UDP the mechanism is complicated.
 
 In all communication methods, all operations such as packet send and receive use a handle as an identifier to bind them to an endpoint. This handle is generated or returned by a channel open function call and will be assigned to an input parameter for all other related function calls to indicate the corresponding endpoint. However, in other communication methods, the handles might have other names, such as file handle for Named Pipe or socket (sometime called socket handle) for UDP and TCP. All of these are essentially equivalent.
 
-A handle is a unique identifier among all open endpoints. An open endpoint is one that can still be used for data transfer. For example, if there are ten endpoints opened for communications, the handles for all these ten endpoints are different. However, if any of these endpoints is closed, its handle can be reused for any other newly created endpoints. Since the handle is the unique identifier for an endpoint and its related events, we need to know it to identify an endpoint and its corresponding function call events. 
+A handle is an unique identifier among all open endpoints. An open endpoint is one that can still be used for data transfer. For example, if there are ten endpoints opened for communications, the handles for all these ten endpoints are different. However, if any of these endpoints is closed, its handle can be reused for other newly created endpoints. Since the handle is the unique identifier for an endpoint and its related events, we need to know it to identify an endpoint and its corresponding function call events. 
 
 Moreover, since two endpoints (one from each trace) are connected to a channel for communication, each endpoint has to know the identifier of the channel to connect to it. This channel identifier is usually given to the endpoint in the channel open function calls. The endpoint will remember this channel and know where the data should be sent to and received from. Therefore, to identify a communication, the channel identifier given to an endpoint needs to be found during the channel open stage.
 
 In the following subsections, I will explain how the different communication methods open their channels for communication.
 
 \subsection{Named Pipe Channel Open Mechanisms} 
-For the Named Pipe communication method, a named pipe server is responsible for the creation of the pipe. The creation of a named pipe returns the file handle of that pipe. So on the server side, the identification of the stream needs is to identify the pipe creation function call. Clients can connect to the pipe with the pipe name after it was created. So on the client side, the identification of the stream is to identify the pipe connection function call. The handle returned by the pipe creation and connection function calls will be used later when data is being sent or received to a specified pipe. In a named pipe, the file is used as the media of the channel, so the identifier in this case is the file name. \cite{WinNamedpipe} Figure \ref{namedpipeopen} exemplifies the channel set up process for a Named Pipe communication in Windows. 
+For the Named Pipe communication method, a named pipe server is responsible for the creation of the pipe. The creation of a named pipe returns the file handle of that pipe. So on the server side, the identification of the stream needs to identify the pipe creation function call. Clients can connect to the pipe with the pipe name after it was created. So on the client side, the identification of the stream is to identify the pipe connection function call. The handle returned by the pipe creation and connection function calls will be used later when data is being sent to or received from a specified pipe. In a named pipe, the file is used as the media of the channel, so the identifier in this case is the file name. \cite{WinNamedpipe} Figure \ref{namedpipeopen} exemplifies the channel set up process for a Named Pipe communication in Windows. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.5]{Figures/namepipechannelopen}}
@@ -173,7 +172,7 @@ For the Message Queue communication method, the endpoints of the communication c
 \end{figure}
 
 \subsection{UDP and TCP Channel Open Mechanisms} 
-For the UDP and TCP communication methods, the communication channel is set up by both endpoints. The socket create function should be called to create their own socket on both endpoints. After the socket handles are created, the server endpoint binds the socket to its service address and port by calling the socket bind function. Then the server endpoint calls the listening function to accept the client connection. The client will call the connection function to connect to the server. When the listening function call returns successfully, a new socket handle will be generated and returned for further data transfer between the server endpoint and the connected client endpoint. After all these operations are performed successfully, the channel is established and the data transfer can start. During the channel open stage, server endpoint has two socket handles, the first one is used to listen to the connection from the client, while the second one is created for real data transfer. The server's address and port are considered to be the identifier of the channel.  \cite{winsock}  Figure \ref{channelopen2} exemplifies the channel open process for TCP and UDP in Windows.
+For the UDP and TCP communication methods, the communication channel is set up by both endpoints. The socket create function should be called to create their own socket on both endpoints. After the socket handles are created, the server endpoint binds the socket to its service address and port by calling the socket bind function. Then the server endpoint calls the listening function to accept the client connection. The client will call the connection function to connect to the server. When the listening function call returns successfully, a new socket handle will be generated and returned for further data transfer between the server endpoint and the connected client endpoint. After all these operations are performed successfully, the channel is established and the data transfer can start. During the channel open stage, server endpoint has two socket handles, the first one is used to listen to the connection from the client, and the second one is created for real data transfer. The server's address and port are considered to be the identifier of the channel.  \cite{winsock}  Figure \ref{channelopen2} exemplifies the channel open process for TCP and UDP in Windows.
     
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.6]{Figures/tcpudpchannelopen}}
@@ -182,7 +181,7 @@ For the UDP and TCP communication methods, the communication channel is set up b
 \end{figure}
 
 \section{Stream Extraction Algorithm}
-The sequence of function call events output by the function call event reconstruction algorithm may belong to different endpoints. We need to further separate these events for each endpoint. Each subset of these events belonging to an endpoint is considered to be a stream. There are four types of events in each stream: open, send, receive and close. Hence, we can further divide a stream into sub streams which are called open stream, send stream, receive stream, and close stream. There will be only one type of event in each of these streams. Since a stream corresponds to an endpoint and an endpoint is connected to a channel, it is necessary to know the endpoint handle and the channel identifier corresponding to this stream. 
+The sequence of function call events output by the function call event reconstruction algorithm may belong to different endpoints. We need to further separate these events for each endpoint. Each subset of these events belonging to an endpoint is considered to be a stream. There are four types of events in each stream: open, send, receive and close. Hence, we can further divide a stream into sub streams which are called open stream, send stream, receive stream, and close stream. There will be only one type of event in each of these streams. The reason to divide a stream into sub streams is that the later stream matching only need the information extracted from the open stream and the data verification only need the data extracted from the send and receive streams. So separating them will simplify the later processes. Since a stream corresponds to an endpoint and an endpoint is connected to a channel, it is necessary to know the endpoint handle and the channel identifier corresponding to this stream. 
 
 A stream is formally defined as a tuple:
 
@@ -196,7 +195,7 @@ $sx = (ev_1, ev_2, ..., ev_p)$
 
 Note: The event numbering of this sub stream is different from the original sequence of events. For example, $ev_1$ in $s$ and $ev_1$ in $etr$ might be different events.
 
-The stream extraction algorithm is designed to separate the streams from a sequence of function call events. In this algorithm, a stream is identified by the endpoint handle output by channel open function calls. Then all other events will be added to this stream.  According to the channel open mechanisms discussed in Section \ref{mecha}, the identifier of the channel and the handle of the endpoint can be retrieved from the channel open function call events.
+The stream extraction algorithms are designed to separate the streams from a sequence of function call events. In these algorithms, a stream is identified by the endpoint handle output by channel open function calls. Then all other events will be added to this stream.  According to the channel open mechanisms discussed in Section \ref{mecha}, the identifier of the channel and the handle of the endpoint can be retrieved from the channel open function call events.
 
 The input of this algorithm is the sequence of events $etr = (ev_1, ev_2, ..., ev_n)$ from the function call event reconstruction algorithm. Since the events in $etr$ are reconstructed in sequence of the instructions which are ordered by the time of occurrence, the events are implicitly sorted by time of occurrence. 
 
@@ -209,7 +208,7 @@ According to the channel open mechanisms, two different algorithms are designed,
 \subsubsection{Stream Extraction Algorithm for Named Pipe and Message Queue}
 This algorithm is designed for the extraction of the streams for Named Pipe and Message Queue. Since for each endpoint of the communication, only one channel open function call is needed to identify the endpoint, it is simple to identify the stream once the channel open function call event that creates the endpoint handle is found. 
 
-The same handle may be reused by another endpoint. However, reuse of the handle would not happen before this stream is closed by the channel close function call event. Therefore, before the detection of the channel close function call, if a new channel open function call with the same returned handle is detected, the second channel open is treated as an error. The error handling is not discussed in this algorithm. This algorithm recognizes this error by having $tempstreams$ to keep track of the streams that are still open. Once the stream is closed, this stream will be removed from $tempstreams$. The time complexity of this algorithm is $O(N)$ , $N$ is the number of events in the trace.
+The same handle may be reused by another endpoint. However, reuse of the handle would not happen before this stream is closed by the channel close function call. Therefore, before the detection of the channel close function call, if a new channel open function call with the same returned handle is detected, the second channel open is treated as an error. The error handling is not discussed in this algorithm. This algorithm recognizes this error by having $tempstreams$ to keep track of the streams that are still open. Once the stream is closed, this stream will be removed from $tempstreams$. The time complexity of this algorithm is $O(N)$ , $N$ is the number of events in the trace.
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
@@ -258,7 +257,7 @@ $tempstreams \leftarrow \emptyset$\;
 \end{algorithm} 
 
 \subsubsection{Stream Extraction Algorithm for TCP and UDP}
-This algorithm is designed for extracting the streams for TCP and UDP. In the channel open stage, socket handles are created by function calls of $socket$ in both client and server. On the server side, this created socket is only used for listening to the client's connection. The listening is accomplished by calling the function $accept$. One of the input parameters of the $accept$ function call is the listening socket handle, and the output of it is a new data transmission socket handle. 
+This algorithm is designed for extracting the streams for TCP and UDP. In the channel open stage, socket handles are created by function calls of the socket create function in both client and server. On the server side, this created socket is only used for listening to the client's connection. The listening is accomplished by calling the accept function. One of the input parameters of the accept function call is the listening socket handle, and the output of it is a new data transmission socket handle. 
 
 
 In this algorithm, each created socket will be identified as a stream. So that the two socket handles in the server side are considered to be two handles for two streams, the stream identified by the listening handle is called the parent stream and the one identified by the data transmission handle is called the child stream. The events in the parent stream contain the information needed for stream matching algorithm for the child stream later, so the child stream will inherit all the events from its parent. 
@@ -339,7 +338,7 @@ The stream matching algorithm iterates over all the streams extracted from both 
 
 The channel identifiers held by the streams are retrieved in the stream extraction algorithm and are different for different communication methods. For TCP and UDP, the channel identifier is the server's address and port. For Named Pipe, the channel identifier is the file name, while for Message Queue, the channel identifier is the queue name.  
 
- The inputs of this algorithm are two sequence of streams $str_0$ and $str_1$ which are output by the stream extraction algorithm. The output of this algorithm is a sequence of the preliminary communications $cs$ of two matched streams. Each matched item in it is a triple $<channelId, s_0, s_1>$, where $channelId$ is the identifier of the channel, while $s_0$ and $s_0$ are the streams from $trace_0$ and $trace_1$ that correspond to the communication performed by each program on that channel. The time complexity of this algorithm is $O(N*M)$, $N$ and $M$ are the number of streams in both traces.
+ The inputs of this algorithm are two sequence of streams $str_0$ and $str_1$ which are output by the stream extraction algorithm. The output of this algorithm is a sequence of the preliminary communications $cs$ of two matched streams. Each matched item in it is a triple $<channelId, s_0, s_1>$, where $channelId$ is the identifier of the channel, while $s_0$ and $s_1$ are the streams from $trace_0$ and $trace_1$ that correspond to the communication performed by each program on that channel. The time complexity of this algorithm is $O(N*M)$, $N$ and $M$ are the number of streams in both traces.
  
  \begin{algorithm}[H]
 \DontPrintSemicolon
@@ -365,7 +364,7 @@ The second situation is when the same channel is reused by the different endpoin
 
 Similar situations can also happen with the Message Queue, TCP and UDP communication methods. 
 
-The data stream verification algorithm discussed in next section will reduce these errors. 
+The data stream verification algorithms discussed in next section will reduce these errors. 
 
 \section{Data Stream Verification Algorithm}\label{verfication}
 In the last section, I presented the stream matching algorithm and described the situations in which the matching can go wrong. In this section, I present the algorithms that designed to verify if the data in the two streams of a preliminary identified communication satisfies the communication preservation properties of the communication model in Chapter \ref{chapter:mod}. 
@@ -383,9 +382,7 @@ The inputs of the data stream verification algorithms are two preliminary matche
 For each communication method the verification of the corresponding preservation is applied, That is, for Named Pipe and TCP, the reliable communication preservation need to be verified and for Message Queue and UDP, the unreliable communication preservation need to be verified. The following sub sections present the versification  algorithms for these four communication methods. In each sub section, I discuss the data transfer properties and scenarios of the communication method and then present the developed verification algorithm.
 
 \subsection{Data Stream Verification Algorithm for Named Pipe}
-Named Pipe provides FIFO communication mechanism for inter-process communication. It can be a one-way or a duplex pipe. \cite{khambattinamed}
-
-The basic data transfer characteristics of Named Pipe are:
+Named Pipe provides FIFO communication mechanism for inter-process communication. It can be a one-way or a duplex pipe. \cite{khambattinamed} The basic data transfer characteristics of Named Pipe are:
 \begin{itemize}
   \item Bytes are received in order
   \item Bytes sent as a segment can be received in multiple segments (the opposite is not true)
@@ -417,9 +414,7 @@ $receive_1 \leftarrow$ concatenation of the payload of receive function call eve
 \end{algorithm} 
 
 \subsection{Data Stream Verification Algorithm for TCP}
-TCP is the most basic reliable transport method in computer networking. TCP provides reliable, ordered, and error-checked delivery of a stream of octets between applications running on hosts in an IP network. The TCP header contains the sequence number of the sending octets and the acknowledgement sequence this endpoint is expecting from the other endpoint(if ACK is set). 
-
-The basic data transfer characteristics of TCP are:
+TCP is the most basic reliable transport method in computer networking. TCP provides reliable, ordered, and error-checked delivery of a stream of octets between applications running on hosts in an IP network. The TCP header contains the sequence number of the sending octets and the acknowledgement sequence this endpoint is expecting from the other endpoint(if ACK is set). The basic data transfer characteristics of TCP are:
 \begin{itemize}
   \item Bytes received in order
   \item No data lost (lost data will be re-transmitted)
@@ -460,9 +455,7 @@ According to the data transfer properties of TCP, all packets sent in one side w
 
 
 \subsection{Data Stream Verification Algorithm for Message Queue}
-Message Queue is a communication method to allow applications that are running at different times across heterogeneous networks and systems that may be temporarily offline to communicate with each other. Applications communicate to each other through the queue. Multiple sending applications can send messages to one queue and multiple receiving applications can read messages from one queue \cite{redkar2004pro}. In this work, only the case of one sending application versus one receiving application is considered. A queue can be one-way or duplex.
-
-The basic data transfer characteristics of Message Queue are:
+Message Queue is a communication method to allow applications that are running at different times across heterogeneous networks and systems that may be temporarily offline to communicate with each other. Applications communicate to each other through the queue. Multiple sending applications can send messages to one queue and multiple receiving applications can read messages from one queue \cite{redkar2004pro}. In this work, only the case of one sending application versus one receiving application is considered. A queue can be one-way or duplex. The basic data transfer characteristics of Message Queue are:
 \begin{itemize}
   \item Bytes sent in one packet and received in one packet, with no bytes re-segmented
   \item Packets can be lost
@@ -520,9 +513,7 @@ $lastMatchIndex = 0$;\;
 \end{algorithm} 
 
 \subsection{Data Stream Verification Algorithm for UDP}
-UDP is a widely used unreliable transmission method in computer networking. It is a simple protocol mechanism, which has no guarantee of delivery, ordering, or duplicate protection. This transmission method is suitable for many real time systems. 
-
-The basic data transfer characteristics of UDP are:
+UDP is a widely used unreliable transmission method in computer networking. It is a simple protocol mechanism, which has no guarantee of delivery, ordering, or duplicate protection. This transmission method is suitable for many real time systems. The basic data transfer characteristics of UDP are:
 \begin{itemize}
   \item Bytes sent in packet and received in packet, no re-segmentation
   \item Packets can be lost
@@ -599,7 +590,7 @@ Figure \ref{secondlevelmatching} exemplifies this situation in a reliable commun
 
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.6]{Figures/secondlevelmatching}}
+\centerline{\includegraphics{Figures/secondlevelmatching}}
  \caption{An Ineffective Stream Matching Scenario}
 \label{secondlevelmatching}
 \end{figure}

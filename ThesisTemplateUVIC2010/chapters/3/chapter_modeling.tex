@@ -4,7 +4,7 @@
 In this chapter, I model the communication of two running programs from the trace analysis point of view. The modeling is based on the investigation of some common used communication methods. But the detail of the communication methods will be discussed later in the algorithm and implementation chapters. This chapter only present the abstract communication model regarding the two communication categories: reliable and unreliable communications. 
 
 \section{Communication Methods Categorization}
-In terms of their reliability of data transmission, I divide the communications into two categories: reliable and unreliable. A reliable communication guarantees the data being sent by one endpoint through the channel is always received losslessly and in the same order in the other endpoint. However, in some reliable communication, the sent packets can be re-segmented and arrives at the receiver end. On contrast, an unreliable communication does not guarantee the data being sent always arrives at the receiver end. Moreover, the data packets can arrive to the receiver in any order. However, the positive side of the unreliable communications is that the packets being sent always arrives as the original packets, no data re-segmentation would happen. An endpoint is an instance in a program at which a stream of data is sent or a stream of data is received or both (e.g. socket handle of TCP or a file handle of the named pipe). A channel is a conduit connected two endpoints through which data can be sent and received. Table\ref{methodsInCategories} gives examples of how communication methods fall in these two categories.
+In terms of their reliability of data transmission, the communications can be divided into two categories: reliable and unreliable. A reliable communication guarantees the data being sent by one endpoint through the channel is always received losslessly and in the same order in the other endpoint. However, in some reliable communication, the sent packets can be re-segmented and arrives at the receiver end. On contrast, an unreliable communication does not guarantee the data being sent always arrives at the receiver end. Moreover, the data packets can arrive to the receiver in any order. However, the positive side of the unreliable communications is that the packets being sent always arrives as the original packets, no data re-segmentation would happen. An endpoint is an instance in a program at which a stream of data is sent or a stream of data is received or both (e.g., a socket handle of TCP or a file handle of the named pipe). A channel is a conduit connecting two endpoints through which data can be sent and received. Table \ref{methodsInCategories} gives examples of how communication methods fall in these two categories.
 \begin{table}[H]
 \centering
 \caption{Communication Method Examples in Two Categories}
@@ -135,23 +135,23 @@ $pl(pkr_{01})=``mnop"$, $pl(pkr_{02})=``qrstu"$.
 
 on the other direction. 
 
-Their properties:
+By concatenating the payload of the sent packets in $ds_0$ and the received packets in $dr_1$, I notice that the concatenations are equal: 
 
 $pl(pks_{01}) \cdot pl(pks_{02}) \cdot pl(pks_{03}) = pl(pkr_{11}) \cdot pl(pkr_{12}) \cdot pl(pkr_{13}) = ``abcdefgh"$ 
 
-and
+In the other direction, the concatenations of the payload of the sent packets in $ds_0$ and the concatenation of the received packets in $dr_1$ are equal:
 
 $pl(pks_{11}) \cdot pl(pks_{12}) \cdot pl(pks_{13}) = pl(pkr_{01}) \cdot pl(pkr_{02}) = ``mnopqrstu"$. 
 
-satisfy the content preservation. 
+So this communication satisfy the content preservation. 
 
-The relative time relationship of the packets are: 
+From the Figure \ref{reliableexample}, it is obvious that the relative time relationship of the packets are: 
 
 $time(pks_{01}) < time(pks_{02}) < time(pkr_{11})< time(pks_{03}) < time(pkr_{12}) < time(pkr_{13}) $;
 
 $time(pks_{11}) < time(pks_{12}) < time(pkr_{01})< time(pks_{13}) < time(pkr_{02})$. 
 
-The fact that
+the fact that
  
 $pl(pkr_{01}) = ``mnop"$ is the prefix of $pl(pks_{11}) \cdot  pl(pks_{12}) = ``mnopqr"$,
 
@@ -161,7 +161,7 @@ $pl(pkr_{11})=``abc"$ is the prefix of $pl(pks_{01} \cdot pl(pks_{02}) = "abcde"
 
 $pl(pkr_{11}) \cdot pl(pkr_{12})= ``abcdef"$ and  $pl(pkr_{11}) \cdot pl(pkr_{12}) \cdot pl(pkr_{13}) = ``abcdefgh"$ are  the prefix of  $pl(pks_{01}) \cdot pl(pks_{02}) \cdot pl(pks_{03})= ``abcdefgh"$
 
-satisfy the timing preservation. 
+prove at any given time during this communication, the recipient only received at most the data that has been sent. So this communication satisfy the timing preservation. 
 
 
 Figure\ref{unreliableexample} is an example of an unreliable communication. 
@@ -172,7 +172,7 @@ Figure\ref{unreliableexample} is an example of an unreliable communication.
 \label{unreliableexample}
 \end{figure}
 
-In this example, the content preservation of the unreliable communication are satisfied since: 
+In this example, the content preservation of the unreliable communication are satisfied since each received packet has a matched sent packet on the other side:
 
 $pkr_{11} = pks_{02}=``cde"$; 
 
@@ -186,7 +186,7 @@ $pkr_{02} = pks_{12}=``ijklm"$;
 
 $pkr_{03} = pks_{13}=``n"$.
 
-while the timing preservation of the unreliable communication are satisfied since: 
+The timing preservation of the unreliable communication are satisfied since the match of the received packets (the sent packets) had been sent before the received packets are received.
 
 $time(pkr_{11}) > time(pks_{02})$;
 

@@ -20,7 +20,7 @@ In both experiments, three major steps are conducted:
 \item Manually verify the result by navigating the events in the ``Communication view" and check if they match the sequence diagrams of each experiment
 \end{enumerate}
 
-In two following two sections, I will describe the design of the experiments first and then present the result of them with discussion of each one.
+In the following two sections, I will describe the design of the experiments first and then present the result of them with discussion of each one.
 
 \section{Experiment 1}
 \subsection{Experiment Design}
@@ -125,18 +125,18 @@ The values of the handle parameter of these five events are $0xF4$. So that, a s
 The extracted streams were listed in the left table of the ``Communication view"  as shown in Figure \ref{result1_streams}.
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.65]{Figures/result1_streams}}
+\centerline{\includegraphics{Figures/result1_streams}}
  \caption{Extracted Streams of $dual\_trace\_1$}
 \label{result1_streams}
 \end{figure}
 
 The value of the $FileName$ parameter of the $CreateFileA$ function call event in $Client.trace$ is $``.\backslash pipe \backslash mynamepipe"$ as shown in Table \ref{funcclientexp1}. Meanwhile, the value of the $FileName$ parameter of the $CreateNamePipeA$ function call event in $Server.trace$ is also $``.\backslash pipe \backslash mynamepipe"$ as shown in Table \ref{funcserverexp1}. According to the algorithm presented in Section \ref{streammatch}, the file name of a named pipe is treated as the channel identifier which is used to match two streams into a communication. So the stream identified by the handle $0xF8$ in $Client.trace$ is matched to the stream identified by the $0xF4$ in $Server.trace$.
 
-There is only one send event and one receive event in both streams, the data verification of these two matched streams is trivial. Both the concatenation of the sent packet(s) in the stream $0xF8$ of $Client.trace$ and the concatenation of the received packet(s) in the stream $0xF4$ of $Server.trace$ are all $``This\; is\; a\; test."$. Both the concatenation of the sent packet(s) in the stream $0xF4$ of $Server.trace$ and the concatenation of the received packet(s) in the stream $0xF8$ of $Client.trace$ are $``This\; is\; the\; answer."$. So these two match streams satisfy the content preservation of the reliable communication. Therefore, they are eventually output as a communication by the ``Communication Identification" operation and listed in the right table of the ``Communication view" in Atlantis as shown in Figure \ref{result1_communications}.
+There is only one send event and one receive event in both streams, the data verification of these two matched streams is trivial. Both the concatenation of the sent packet(s) in the stream $0xF8$ of $Client.trace$ and the concatenation of the received packet(s) in the stream $0xF4$ of $Server.trace$ are $``This\; is\; a\; test."$. Both the concatenation of the sent packet(s) in the stream $0xF4$ of $Server.trace$ and the concatenation of the received packet(s) in the stream $0xF8$ of $Client.trace$ are $``This\; is\; the\; answer."$. So these two match streams satisfy the content preservation of the reliable communication. Therefore, they are eventually output as a communication by the ``Communication Identification" operation and listed in the right table of the ``Communication view" in Atlantis as shown in Figure \ref{result1_communications}.
 
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.65]{Figures/result1_communications}}
+\centerline{\includegraphics{Figures/result1_communications}}
  \caption{Identified Communication of $dual\_trace\_1$}
 \label{result1_communications}
 \end{figure}
