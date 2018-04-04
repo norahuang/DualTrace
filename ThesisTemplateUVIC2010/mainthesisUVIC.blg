@@ -13,6 +13,10 @@ Warning--entry type for "WinNamedpipe" isn't style-file defined
 --line 77 of file UvicThesis.bib
 Warning--entry type for "gcc" isn't style-file defined
 --line 241 of file UvicThesis.bib
+Warning--entry type for "winsock" isn't style-file defined
+--line 256 of file UvicThesis.bib
+Warning--entry type for "WinMSMQ" isn't style-file defined
+--line 263 of file UvicThesis.bib
 Warning--empty journal in khambattinamed
 Warning--empty year in khambattinamed
-(There were 4 warnings)
+(There were 6 warnings)
