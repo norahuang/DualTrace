@@ -71,19 +71,12 @@ Given $ d=<pk_1, pk_2, ..., pk_n>$, $data(d)=pl(pk_1) \cdot pl(pk_2)\cdot \ldots
 
 \begin{itemize}
  \item \textit{Content Preservation:} 
- 
-<<<<<<< HEAD
+
  For a given data stream, we define the data in this stream as the concatenation of the payload of all the packets in the order of sending or receiving in this stream, and denote it as $data(d)$. Given $ d=<pk_1, pk_2, ..., pk_n>$, $data(d)=pl(pk_1) \cdot pl(pk_2)\cdot \ldots \cdot pl(pk_n)$.
  
  For a communication, the received data of an endpoint should always be a prefix of (potentially equal to) the sent data of the other. In another word, for a communication $c = <ch, <h_0, dr_0, ds_0>, <h_1, dr_1, ds_1>>$,$data(dr_0)$ is a prefix of $data(ds_1)$ and $data(dr_1)$ is a prefix of $data(ds_0)$.
- 
-=======
-For a communication, the received data of an endpoint should always be a prefix of (or potentially equal to) the sent data of the other:
 
-for $c = <ch, <h_0, dr_0, ds_0>, <h_1, dr_1, ds_1>>$,$data(dr_0)$ is a prefix of $data(ds_1)$ and $data(dr_1)$ is a prefix of $data(ds_0)$.
->>>>>>> c84e3988cf100744161876ae856305a4dc3f1177
-
- \item \textit{Timing Preservation:} 
+\item \textit{Timing Preservation:} 
  
 At any given point in time, the data received by an endpoint should be a prefix of the data that has been sent from the other:
  
