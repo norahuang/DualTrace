@@ -21,10 +21,10 @@ TCP &  UDP \\
 
 
 \section{Communication Model}\label{definition}
-The communication of two programs is defined in this section. The communication in this work is data transfer activities between two running programs through a specific channel. Some collaborative activities between the programs such as remote procedure call is out of the scope of this research. Communication among multiple programs (more than two) is not discussed in this work. The channel can be reopened again to start new communications after being closed. However, the reopened channel is considered for a new communication. The way that I define the communication was leading to the communication analysis. So the definition is not about how the communication works but what it looks like. There are many communication methods in the real world and they are compatible to this communication definition. 
+The communication of two programs is defined in this section. The communication in this work is data transfer activities between two running programs through a specific channel. Some collaborative activities between the programs such as remote procedure call is out of the scope of this research. Communication among multiple programs (more than two) is not discussed in this work. The channel can be reopened again to start new communications after being closed. However, the reopened channel is considered to be for a new communication. The way that I model the communication was leading to the communication analysis. So the model is not about how the communication works but what it looks like. There are many communication methods in the real world and they are compatible to this communication definition. 
 
 \subsection{Communication Definition}
-In the context of a dual\_trace, a communication is a sequence of data transmitted of two endpoints through a communication channel. I, therefore, defined a communication $c$ as a triplet:
+In the context of a dual\_trace, a communication is a sequence of data transmitted between two endpoints through a communication channel. I, therefore, defined a communication $c$ as a triplet:
 
 $c =<ch, e_0, e_1>$
 
@@ -72,9 +72,10 @@ Given $ d=<pk_1, pk_2, ..., pk_n>$, $data(d)=pl(pk_1) \cdot pl(pk_2)\cdot \ldots
 \begin{itemize}
  \item \textit{Content Preservation:} 
  
-For a communication, the received data of an endpoint should always be a prefix of (potentially equal to) the sent data of the other:
-
-for $c = <ch, <h_0, dr_0, ds_0>, <h_1, dr_1, ds_1>>$,$data(dr_0)$ is a prefix of $data(ds_1)$ and $data(dr_1)$ is a prefix of $data(ds_0)$.
+ For a given data stream, we define the data in this stream as the concatenation of the payload of all the packets in the order of sending or receiving in this stream, and denote it as $data(d)$. Given $ d=<pk_1, pk_2, ..., pk_n>$, $data(d)=pl(pk_1) \cdot pl(pk_2)\cdot \ldots \cdot pl(pk_n)$.
+ 
+ For a communication, the received data of an endpoint should always be a prefix of (potentially equal to) the sent data of the other. In another word, for a communication $c = <ch, <h_0, dr_0, ds_0>, <h_1, dr_1, ds_1>>$,$data(dr_0)$ is a prefix of $data(ds_1)$ and $data(dr_1)$ is a prefix of $data(ds_0)$.
+ 
 
  \item \textit{Timing Preservation:} 
  

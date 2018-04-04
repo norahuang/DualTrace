@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  15 MAR 2018 11:47
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  22 MAR 2018 14:56
 entering extended mode
 **c:/Users/norah/WorkNStudy/git/DualTrace/ThesisTemplateUVIC2010/mainthesisUVIC
 .tex
@@ -760,18 +760,19 @@ Chapter 3.
 
 
 
-] [10] [11] <Figures/reliableexample.png, id=85, 528.97626pt x 448.67625pt>
+] [10] [11] [12]
+<Figures/reliableexample.png, id=88, 528.97626pt x 448.67625pt>
 File: Figures/reliableexample.png Graphic file (type png)
 
 <use Figures/reliableexample.png>
-Package pdftex.def Info: Figures/reliableexample.png used on input line 119.
+Package pdftex.def Info: Figures/reliableexample.png used on input line 120.
 (pdftex.def)             Requested size: 264.48747pt x 224.33757pt.
- [12] [13 <./Figures/reliableexample.png>]
+ [13 <./Figures/reliableexample.png>]
 <Figures/unreliableexample.png, id=93, 525.965pt x 454.69875pt>
 File: Figures/unreliableexample.png Graphic file (type png)
 
 <use Figures/unreliableexample.png>
-Package pdftex.def Info: Figures/unreliableexample.png used on input line 170.
+Package pdftex.def Info: Figures/unreliableexample.png used on input line 171.
 (pdftex.def)             Requested size: 262.98184pt x 227.34882pt.
  [14 <./Figures/unreliableexample.png>])
 [15]
@@ -808,12 +809,12 @@ Package pdftex.def Info: Figures/overview.png used on input line 11.
 
 
 ]
-<Figures/tracedefined.png, id=106, 1121.69063pt x 259.7203pt>
+<Figures/tracedefined.png, id=106, 864.22874pt x 243.15843pt>
 File: Figures/tracedefined.png Graphic file (type png)
 
 <use Figures/tracedefined.png>
 Package pdftex.def Info: Figures/tracedefined.png used on input line 38.
-(pdftex.def)             Requested size: 504.75612pt x 116.87305pt.
+(pdftex.def)             Requested size: 388.89934pt x 109.42027pt.
  [17 <./Figures/overview.png>]
 Overfull \hbox (7.91605pt too wide) in paragraph at lines 56--57
 []\OT1/ptm/m/n/12 Table4.1[] is an ex-am-ple of a func-tion de-scrip-tion. In t
@@ -1577,11 +1578,11 @@ File: Figures/overviewintwo.png Graphic file (type png)
 Package pdftex.def Info: Figures/overviewintwo.png used on input line 313.
 (pdftex.def)             Requested size: 547.64769pt x 150.16145pt.
  [48 <./Figures/overviewintwo.png>]
-<Figures/trace.png, id=234, 1121.69063pt x 259.7203pt>
+<Figures/trace.png, id=234, 878.53218pt x 245.41687pt>
 File: Figures/trace.png Graphic file (type png)
  <use Figures/trace.png>
 Package pdftex.def Info: Figures/trace.png used on input line 328.
-(pdftex.def)             Requested size: 504.75612pt x 116.87305pt.
+(pdftex.def)             Requested size: 395.33583pt x 110.43655pt.
 
 <Figures/executable.png, id=235, 307.90031pt x 237.88875pt>
 File: Figures/executable.png Graphic file (type png)
@@ -2041,7 +2042,7 @@ Appendix D.
 Here is how much of TeX's memory you used:
  9478 strings out of 493335
  142162 string characters out of 3139261
- 432910 words of memory out of 3000000
+ 433081 words of memory out of 3000000
  12618 multiletter control sequences out of 15000+200000
  37719 words of font info for 91 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -2065,7 +2066,7 @@ blic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier
 /MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts
 /type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/
 utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (106 pages, 1873094 bytes).
+Output written on mainthesisUVIC.pdf (106 pages, 1863927 bytes).
 PDF statistics:
  489 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

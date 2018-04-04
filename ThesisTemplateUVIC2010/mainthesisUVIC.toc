@@ -37,11 +37,11 @@
 \contentsline {subsubsection}{Stream Extraction Algorithm for Named Pipe and Message Queue}{25}
 \contentsline {subsubsection}{Stream Extraction Algorithm for TCP and UDP}{27}
 \contentsline {section}{\numberline {4.6}Stream Matching Algorithm}{29}
-\contentsline {section}{\numberline {4.7}Data Stream Verification Algorithm}{30}
-\contentsline {subsection}{\numberline {4.7.1}Data Stream Verification Algorithm for Named Pipe}{31}
-\contentsline {subsection}{\numberline {4.7.2}Data Stream Verification Algorithm for TCP}{32}
-\contentsline {subsection}{\numberline {4.7.3}Data Stream Verification Algorithm for Message Queue}{33}
-\contentsline {subsection}{\numberline {4.7.4}Data Stream Verification Algorithm for UDP}{35}
+\contentsline {section}{\numberline {4.7}Data Verification Algorithm}{30}
+\contentsline {subsection}{\numberline {4.7.1}Data Verification Algorithm for Named Pipe}{31}
+\contentsline {subsection}{\numberline {4.7.2}Data Verification Algorithm for TCP}{32}
+\contentsline {subsection}{\numberline {4.7.3}Data Verification Algorithm for Message Queue}{33}
+\contentsline {subsection}{\numberline {4.7.4}Data Verification Algorithm for UDP}{35}
 \contentsline {subsection}{\numberline {4.7.5}Limitation of the Data Verification}{37}
 \contentsline {chapter}{\numberline {5}Dual\_trace Communication Analysis Prototype On Atlantis}{39}
 \contentsline {section}{\numberline {5.1}Use Case}{39}

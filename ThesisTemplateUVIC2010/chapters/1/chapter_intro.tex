@@ -14,7 +14,7 @@ In this research, I developed a method to identify communications between progra
 This project started with an informal requirement from DRDC for visualizing multiple assembly traces to assist their software and security analysis. The literature review and the conversation with DRDC help to clarify the goal and decide the target of this research. In this section, I discuss the need of performing assembly trace investigation for communication analysis. First I explain why the security engineers perform assembly trace analysis. Then I elaborate why they need to perform communication analysis at assembly trace level. 
 
 \subsection{Why Assembly Trace Analysis}
-Dynamic analysis of program is adopted mainly in software maintenance and security auditing\cite{zhang2010detecting}, \cite{cai2016sworddta}, \cite{somorovsky2016systematic}. Sanjay Bhansali et al. claimed that program execution traces with the most intimate detail of a program's dynamic behavior can facilitate the program optimization and failure diagnosis. Jonas Tr{\"u}mper et al. give a example of how tracing can facilitate software-maintenance tasks \cite{trumper2012maintenance}.
+Dynamic analysis of program is adopted mainly in software maintenance and security auditing\cite{zhang2010detecting}, \cite{cai2016sworddta}, \cite{somorovsky2016systematic}. Sanjay Bhansali et al. claimed that program execution traces with the most intimate detail of a program's dynamic behavior can facilitate the program optimization and failure diagnosis. Jonas Tr{\"u}mper et al. give an example of how tracing can facilitate software-maintenance tasks \cite{trumper2012maintenance}.
 
 The dynamic analysis can be done using debuggers, however, debuggers would halt the execution of the system and result in a distortion of the timing behavior of the running system \cite{trumper2012maintenance}. Instead, tracing a running program with instrumentation would provide more accurate run time behaviour information about the system. 
 
@@ -57,7 +57,7 @@ Besides vulnerabilities detection and security analysis, communication analysis 
 Overall, communication analysis with assembly traces is a way to learn how the work is performed by the system. 
 
 \section{Research Goal}
-The goal of this research is to design a method for communication analysis using the execution traces of the interacting programs. This method should be general enough for all message based communication analysis between programs regardless of their programming language, host operating system or selected execution tracer. 
+The goal of this research is to design a method for communication analysis using the execution traces of the interacting programs. This method should be generic enough for all message based communication analysis between programs regardless of their programming language, host operating system or selected execution tracer. 
 
 \section{Research Process}
 Figure \ref{methodology} shows the overview of my research process with three abstracted stages. However, The approach of this research is not a forthright process. Instead, it is a back and forth one, for example the implementation changed several times with the changes of the model, and the models was modified based on the understanding throughout the implementation. 

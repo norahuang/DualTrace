@@ -86,7 +86,7 @@ A function call event $ev$ in $etr$ is defined as a tuple:
 
 $ev = <funN, inparams, outparams, type>$
 
-where $funN$ is the function name, $inparas$ includes all the input parameters with the parameter name and value, $outparas$ includes all the output parameters, and $type$ is the event type which inherit from the function description and can be one of the four types: $open$, $send$, $receive$ and $close$.
+where $funN$ is the function name, $inparas$ includes all the input parameters with the parameter name and value, $outparas$ includes all the output parameters, and $type$ is the event type which is inherited from the function description and can be one of the four types: $open$, $send$, $receive$ and $close$.
 
 Note: If the parameter is an address, the parameter's value is the string from the buffer pointed by that address instead of the buffer address.
 
@@ -153,7 +153,7 @@ Moreover, since two endpoints(one from each trace) are connected to a channel fo
 In the following subsections, I will explain how different communication methods open their channels for communication.
 
 \subsection{Named Pipe Channel Open Mechanisms} 
-For the Named Pipe communication method, a named pipe server is responsible for the creation of the pipe. The creation of a named pipe returns the file handle of that pipe. So on the server side, the identification of the stream needs is to identify the pipe creation function call. Clients can connect to the pipe with the pipe name after it was created. So on the client side, the identification of the stream is to identify the pipe connection function call. The handle returned by the pipe creation and connection function calls will be used later when data is being sent or received to a specified pipe. In a named pipe, the file is used as the media of the channel, so the identifier in this case is the file name. Fig. \ref{namedpipeopen} exemplifies the channel set up process for a Named Pipe communication in Windows. 
+For the Named Pipe communication method, a named pipe server is responsible for the creation of the pipe. The creation of a named pipe returns the file handle of that pipe. So on the server side, the identification of the stream needs to identify the pipe creation function call. Clients can connect to the pipe with the pipe name after it was created. So on the client side, the identification of the stream is to identify the pipe connection function call. The handle returned by the pipe creation and connection function calls will be used later when data is being sent or received to a specified pipe. In a named pipe, the file is used as the media of the channel, so the identifier in this case is the file name. Fig. \ref{namedpipeopen} exemplifies the channel set up process for a Named Pipe communication in Windows. 
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.5]{Figures/namepipechannelopen}}
@@ -192,7 +192,7 @@ The sub streams $so$, $ss$, $sr$, $sc$ are sequences of events, each sub stream 
 
 $sx = (ev_1, ev_2, ..., ev_p)$
 
-Note: The event numbering of in this sub streams is different from the original sequence of event. For example, $ev_1$ in $s$ and $ev_1$ in $etr$ might be different events.
+Note: The event numbering of in this sub stream is different from the original sequence of event. For example, $ev_1$ in $sx$ and $ev_1$ in $etr$ might be different events.
 
 The stream extraction algorithm is designed to separate the streams from a sequence of function call events. In this algorithm, a stream is identified by the endpoint handle output by channel open function calls. Then all other events will be added to this stream.  According to the channel open mechanisms discussed in Section \ref{mecha}, the identifier of the channel and the handle of the endpoint can be retrieved from the channel open function call events.
 
@@ -363,9 +363,9 @@ The second situation is the same channel is reused by the different endpoints in
 
 Similar situations can also happen in Message Queue, TCP and UDP communication methods. 
 
-The data stream verification algorithm discussed in next section can reduce these errors. 
+The data verification algorithm discussed in next section can reduce these errors. 
 
-\section{Data Stream Verification Algorithm}\label{verfication}
+\section{Data Verification Algorithm}\label{verfication}
 In the last section, I presented the stream matching algorithm and described the situations in which the matching can go wrong. In this section, I present the algorithms that designed to verify if the data in the two streams of a preliminary identified communication satisfies the communication preservation properties of the communication model in Chapter \ref{chapter:mod}. 
 
 The data transfer characteristics divide the communications into reliable and unreliable categories. Named Pipe and TCP fall in the reliable category while Message Queue and UDP fall in the unreliable one. The properties of the models consists of content preservation and timing preservation. So that the verification should cover both preservation properties: 
@@ -376,11 +376,11 @@ The data transfer characteristics divide the communications into reliable and un
 
 To verify the timing preservation, the relative time of the events in both streams is needed. Unfortunately, we can only determine the relative time with in a stream but not crossing two streams. So that it's unfeasible to verify the timing preservation property for neither reliable nor unreliable communications. The verification algorithms discussed in this section will only cover the content preservation property.  
 
-The inputs of the data stream verification algorithms are two preliminary matched streams $s_0$ and $s_1$. The output is the a boolean indicating if the streams satisfy the content preservation. All communications that don't satisfy the content preservation should be excluded as identified communications.
+The inputs of the data verification algorithms are two preliminary matched streams $s_0$ and $s_1$. The output is a Boolean indicating if the streams satisfy the content preservation. All communications that don't satisfy the content preservation should be excluded as identified communications.
 
 For each communication method the verification of the corresponding preservation is applied, That is, for Named Pipe and TCP, the reliable communication preservation need to be verified and for Message Queue and UDP, the unreliable communication preservation need to be verified. The following sub sections present the versification  algorithms for these four communication methods. In each sub section, I discuss the data transfer properties and scenarios of the communication method and then present the developed verification algorithm.
 
-\subsection{Data Stream Verification Algorithm for Named Pipe}
+\subsection{Data Verification Algorithm for Named Pipe}
 Named Pipe provides FIFO communication mechanism for inter-process communication. It can be a one-way or a duplex pipe. \cite{khambattinamed}
 
 The basic data transfer characteristics of Named Pipe are:
@@ -403,7 +403,7 @@ The content preservation verification is trivial. It compares the concatenation 
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf Data Stream Verification of Named Pipe} \label{dataAlg1}}
+\caption{{\bf Data Verification of Named Pipe} \label{dataAlg1}}
 \tcc{$s_0$ and $s_1$ are two matched streams from $trace_0$ and $trace_1$. The output boolean $satisfied$ is true if the matched stream satisfy the content preservation of a communication.}
 \KwIn{$s_0, s_1$}
 \KwRet{$satisfied$}\;
@@ -414,7 +414,7 @@ $receive_1 \leftarrow$ concatenation of the payload of receive function call eve
 \KwRet{$receive_1$ is prefix of $send_0$ AND $receive_0$ is prefix of $send_1$ }
 \end{algorithm} 
 
-\subsection{Data Stream Verification Algorithm for TCP}
+\subsection{Data Verification Algorithm for TCP}
 TCP is the most basic reliable transport method in computer networking. TCP provides reliable, ordered, and error-checked delivery of a stream of octets between applications running on hosts in an IP network. The TCP header contains the sequence number of the sending octets and the acknowledgement sequence this endpoint is expecting from the other endpoint(if ACK is set). 
 
 The basic data transfer characteristics of TCP are:
@@ -437,7 +437,7 @@ According to the data transfer properties of TCP, all packets sent in one side w
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf Data Stream Verification of TCP} \label{dataAlg2}}
+\caption{{\bf Data Verification of TCP} \label{dataAlg2}}
 \tcc{$s_0$ and $s_1$ are two matched streams from $trace_0$ and $trace_1$. The output boolean $satisfied$ is true if the matched stream satisfy the content preservation of a communication.}
 \KwIn{$s_0, s_1$}
 \KwRet{$satisfied$}\;
@@ -457,7 +457,7 @@ According to the data transfer properties of TCP, all packets sent in one side w
 
 
 
-\subsection{Data Stream Verification Algorithm for Message Queue}
+\subsection{Data Verification Algorithm for Message Queue}
 Message Queue is a communication method to allow applications which are running at different times across heterogeneous networks and systems that may be temporarily offline to communicate with each other. Applications communicate to each other through the queue. Multiple sending applications can send messages to one queue and multiple receiving applications can read messages from one queue \cite{redkar2004pro}. In this work, only the case of one sending application versus one receiving application is considered. A queue can be one-way or duplex.
 
 The basic data transfer characteristics of Message Queue are:
@@ -480,7 +480,7 @@ The time complexity of this algorithm is $O(N^2+M^2)$, $N$ and $M$ are the numbe
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf Data Stream Verification of Message Queue } \label{dataAlg3}}
+\caption{{\bf Data Verification of Message Queue } \label{dataAlg3}}
 \tcc{$s_0$ and $s_1$ are two matched streams from $trace_0$ and $trace_1$. The output boolean $satisfied$ is true if the matched stream satisfy the content preservation of a communication.}
 \KwIn{$s_0, s_1$}
 \KwRet{$satisfied$}\;
@@ -517,7 +517,7 @@ $lastMatchIndex = 0$;\;
  \KwRet True;\;
 \end{algorithm} 
 
-\subsection{Data Stream Verification Algorithm for UDP}
+\subsection{Data Verification Algorithm for UDP}
 UDP is a widely used unreliable transmission method in computer networking. It is a simple protocol mechanism, which has no guarantee of delivery, ordering, or duplicate protection. This transmission method is suitable for many real time systems. 
 
 The basic data transfer characteristics of UDP are:
@@ -591,7 +591,7 @@ The reason that the timing preservation can not be verify is lacking of the timi
 
 For the second limitation, the main reason is that the data transmitted in two communications cloud be identical or very similar. 
 
-In Section \ref{streammatch}, I described how one stream in one side of the dual\_trace can be matched by two or more streams on the other side happens. In order to reduce this type of error, I developed the data stream verification strategy and algorithms. However, in some cases, the transferred data of two communications can be identical or very similar. So that even with content verification, the mismatched streams still can not to excluded.
+In Section \ref{streammatch}, I described how one stream in one side of the dual\_trace can be matched by two or more streams on the other side happens. In order to reduce this type of error, I developed the data verification strategy and algorithms. However, in some cases, the transferred data of two communications can be identical or very similar. So that even with content verification, the mismatched streams still can not to excluded.
 
 Figure \ref{secondlevelmatching} exemplifies this situation in a reliable communication analysis. Assuming that $s_{11}$, $s_{21}$ and $s_{22}$ have the same channel identifier, they will be matched as two communications( one consists of $s_{11}$ and $s_{21}$ while the other one consists of $s_{11}$ and $s_{22}$). Furthermore, $s_{21}$ and $s_{22}$ send and receive the exact data. So that, both of the communications are considered to satisfy the content preservation property. In this case, the algorithms will not be able to determine if  $s_{11}$ communicated with $s_{21}$ or $s_{22}$. There is no way from the analysis point of view to distinguish the actual communication. It's more reasonable to preserve all of them in the output and present them for the users to make the decision. The users might be able to distinguish them and find the valid one.
 
