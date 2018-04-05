@@ -383,7 +383,7 @@ The inputs of the data stream verification algorithms are two preliminary matche
 For each communication method the verification of the corresponding preservation is applied, That is, for Named Pipe and TCP, the reliable communication preservation need to be verified and for Message Queue and UDP, the unreliable communication preservation need to be verified. The following sub sections present the versification  algorithms for these four communication methods. In each sub section, I discuss the data transfer properties and scenarios of the communication method and then present the developed verification algorithm.
 
 \subsection{Data Stream Verification Algorithm for Named Pipe}
-Named Pipe provides FIFO communication mechanism for inter-process communication. It can be a one-way or a duplex pipe. \cite{khambattinamed} The basic data transfer characteristics of 
+Named Pipe provides FIFO communication mechanism for inter-process communication. It can be a one-way or a duplex pipe. \cite{khambattinamed} The basic data transfer characteristics of Named Pipe are: 
 \begin{itemize}
   \item Bytes are received in order
   \item Bytes sent as a segment can be received in multiple segments (the opposite is not true)
