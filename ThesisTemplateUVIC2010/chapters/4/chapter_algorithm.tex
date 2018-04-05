@@ -37,7 +37,7 @@ where $ins$ is the instruction, $mch$ is the memory changes, $rch$ is the regist
 Figure \ref{tracedefined} is an example of a piece of execution trace complying to the definition of a trace. 
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.45]{Figures/tracedefined}}
+\centerline{\includegraphics[scale=0.5]{Figures/tracedefined}}
 \caption{An example trace }
 \label{tracedefined}
 \end{figure}
@@ -88,7 +88,8 @@ A function call event $ev$ in $etr$ is defined as a tuple:
 
 $ev = <funN, inparams, outparams, type>$
 
-where $funN$ is the function name, $inparas$ includes all the input parameters of interest with the parameter name and value, $outparas$ includes all the output parameters of interest, and $type$ is the event type which inherit from the function description and can be one of the four types: $open$, $send$, $receive$ and $close$.
+where $funN$ is the function name, $inparas$ includes all the input parameters with the parameter name and value, $outparas$ includes all the output parameters, and $type$ is the event type which is inherited from the function description and can be one of the four types: $open$, $send$, $receive$ and $close$.
+
 
 Note: If the parameter is an address, the parameter's value is the string from the buffer pointed to by that address instead of the buffer address.
 
@@ -193,7 +194,7 @@ The sub streams $so$, $ss$, $sr$, $sc$ are sequences of events, each sub stream 
 
 $sx = (ev_1, ev_2, ..., ev_p)$
 
-Note: The event numbering of this sub stream is different from the original sequence of events. For example, $ev_1$ in $s$ and $ev_1$ in $etr$ might be different events.
+Note: The event numbering of in this sub stream is different from the original sequence of event. For example, $ev_1$ in $sx$ and $ev_1$ in $etr$ might be different events.
 
 The stream extraction algorithms are designed to separate the streams from a sequence of function call events. In these algorithms, a stream is identified by the endpoint handle output by channel open function calls. Then all other events will be added to this stream.  According to the channel open mechanisms discussed in Section \ref{mecha}, the identifier of the channel and the handle of the endpoint can be retrieved from the channel open function call events.
 
@@ -364,9 +365,9 @@ The second situation is when the same channel is reused by the different endpoin
 
 Similar situations can also happen with the Message Queue, TCP and UDP communication methods. 
 
-The data stream verification algorithms discussed in next section will reduce these errors. 
+The data verification algorithm discussed in next section can reduce these errors. 
 
-\section{Data Stream Verification Algorithm}\label{verfication}
+\section{Data Verification Algorithm}\label{verfication}
 In the last section, I presented the stream matching algorithm and described the situations in which the matching can go wrong. In this section, I present the algorithms that designed to verify if the data in the two streams of a preliminary identified communication satisfies the communication preservation properties of the communication model in Chapter \ref{chapter:mod}. 
 
 The data transfer characteristics divide the communications into reliable and unreliable categories. Named Pipe and TCP fall in the reliable category while Message Queue and UDP fall in the unreliable one. The properties of the model consist of content preservation and timing preservation. So that the verification should cover both preservation properties: 
@@ -382,7 +383,7 @@ The inputs of the data stream verification algorithms are two preliminary matche
 For each communication method the verification of the corresponding preservation is applied, That is, for Named Pipe and TCP, the reliable communication preservation need to be verified and for Message Queue and UDP, the unreliable communication preservation need to be verified. The following sub sections present the versification  algorithms for these four communication methods. In each sub section, I discuss the data transfer properties and scenarios of the communication method and then present the developed verification algorithm.
 
 \subsection{Data Stream Verification Algorithm for Named Pipe}
-Named Pipe provides FIFO communication mechanism for inter-process communication. It can be a one-way or a duplex pipe. \cite{khambattinamed} The basic data transfer characteristics of Named Pipe are:
+Named Pipe provides FIFO communication mechanism for inter-process communication. It can be a one-way or a duplex pipe. \cite{khambattinamed} The basic data transfer characteristics of 
 \begin{itemize}
   \item Bytes are received in order
   \item Bytes sent as a segment can be received in multiple segments (the opposite is not true)
@@ -402,7 +403,7 @@ The content preservation verification is trivial. It compares the concatenation 
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf Data Stream Verification of Named Pipe} \label{dataAlg1}}
+\caption{{\bf Data Verification of Named Pipe} \label{dataAlg1}}
 \tcc{$s_0$ and $s_1$ are two matched streams from $trace_0$ and $trace_1$. The output boolean $satisfied$ is true if the matched stream satisfy the content preservation of a communication.}
 \KwIn{$s_0, s_1$}
 \KwRet{$satisfied$}\;
@@ -434,7 +435,7 @@ According to the data transfer properties of TCP, all packets sent in one side w
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf Data Stream Verification of TCP} \label{dataAlg2}}
+\caption{{\bf Data Verification of TCP} \label{dataAlg2}}
 \tcc{$s_0$ and $s_1$ are two matched streams from $trace_0$ and $trace_1$. The output boolean $satisfied$ is true if the matched stream satisfy the content preservation of a communication.}
 \KwIn{$s_0, s_1$}
 \KwRet{$satisfied$}\;
@@ -453,9 +454,8 @@ According to the data transfer properties of TCP, all packets sent in one side w
 \end{algorithm} 
 
 
-
-\subsection{Data Stream Verification Algorithm for Message Queue}
-Message Queue is a communication method to allow applications that are running at different times across heterogeneous networks and systems that may be temporarily offline to communicate with each other. Applications communicate to each other through the queue. Multiple sending applications can send messages to one queue and multiple receiving applications can read messages from one queue \cite{redkar2004pro}. In this work, only the case of one sending application versus one receiving application is considered. A queue can be one-way or duplex. The basic data transfer characteristics of Message Queue are:
+\subsection{Data Verification Algorithm for Message Queue}
+Message Queue is a communication method to allow applications which are running at different times across heterogeneous networks and systems that may be temporarily offline to communicate with each other. Applications communicate to each other through the queue. Multiple sending applications can send messages to one queue and multiple receiving applications can read messages from one queue \cite{redkar2004pro}. In this work, only the case of one sending application versus one receiving application is considered. A queue can be one-way or duplex. The basic data transfer characteristics of Message Queue are:
 \begin{itemize}
   \item Bytes sent in one packet and received in one packet, with no bytes re-segmented
   \item Packets can be lost
@@ -475,7 +475,7 @@ The time complexity of this algorithm is $O(N^2+M^2)$, $N$ and $M$ are the numbe
 
 \begin{algorithm}[H]
 \DontPrintSemicolon
-\caption{{\bf Data Stream Verification of Message Queue } \label{dataAlg3}}
+\caption{{\bf Data Verification of Message Queue } \label{dataAlg3}}
 \tcc{$s_0$ and $s_1$ are two matched streams from $trace_0$ and $trace_1$. The output boolean $satisfied$ is true if the matched stream satisfy the content preservation of a communication.}
 \KwIn{$s_0, s_1$}
 \KwRet{$satisfied$}\;
