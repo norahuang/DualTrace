@@ -57,7 +57,7 @@ Besides vulnerabilities detection and security analysis, communication analysis 
 Overall, communication analysis with assembly traces is a way to learn how the work is performed by the system. 
 
 \section{Research Goal}
-The goal of this research is to design a method for communication analysis using the execution traces of the interacting programs. This method should be generic enough for all message based communication analysis between programs regardless of their programming language, host operating system or selected execution tracer. 
+The goal of this research is to design a method for communication analysis using the execution traces of the interacting programs. This method should be general enough for all message based communication analysis between programs regardless of their programming language, host operating system or selected execution tracer. 
 
 \section{Research Process}
 Figure \ref{methodology} shows the overview of my iterative research process with three abstracted stages. The process is iterative because the implementation changed several times due to changes with the model, and the model was modified based on understanding of details of execution traces gained throughout the implementation. 
@@ -86,7 +86,7 @@ The main contributions of this work can be summarized as:
   
 By understanding the assembly level execution traces, a dual\_trace was formalized to describe the information that was needed for communication analysis. The dual\_trace formalization doesn't specify the format of the execution traces but defines what information is necessary to fulfil the analysis requirement. All execution traces that comply with this formalization can be used for the analysis. This formalization can be a reference for the design of assembly tracer, guiding them what information the tracer should capture to fulfil communication analysis.
 
-The function descriptor indicates the required information for analyzing a communication method. To develop a function descriptor for a communication method that under investigated, the user need to understand the mechanism of this communication method in the system that program runs on. After that, the user can develop the function descriptor following the function descriptor formalization.
+The functions descriptor describes a communication method. Following the functions descriptor formalization, the user can develop a functions descriptor through understanding the mechanism of the communication method.
 
   \item \textbf{Communication Analysis Approach:} The overall approach to identify the communications in the dual\_trace is designed. Eight algorithms were developed for the components in this approach regarding some communication methods or communication types. 
   
