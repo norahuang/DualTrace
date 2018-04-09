@@ -4,10 +4,10 @@
 In this chapter, I model the communication of two running programs from the trace analysis point of view. The modeling is based on the investigation of some common used communication methods. But the detail of the communication methods will be discussed later in the algorithm and implementation chapters. This chapter only present the abstract communication model regarding the two communication categories: reliable and unreliable communications. 
 
 \section{Communication Methods Categorization}
-In terms of their reliability of data transmission, the communications can be divided into two categories: reliable and unreliable. A reliable communication guarantees the data being sent by one endpoint through the channel is always received losslessly and in the same order in the other endpoint. However, in some reliable communication, the sent packets can be re-segmented and arrives at the receiver end. On contrast, an unreliable communication does not guarantee the data being sent always arrives at the receiver end. Moreover, the data packets can arrive to the receiver in any order. However, the positive side of the unreliable communications is that the packets being sent always arrives as the original packets, no data re-segmentation would happen. An endpoint is an instance in a program at which a stream of data is sent or a stream of data is received or both (e.g., a socket handle of TCP or a file handle of the named pipe). A channel is a conduit connecting two endpoints through which data can be sent and received. Table \ref{methodsInCategories} gives examples of how communication methods fall in these two categories.
+In terms of their reliability of data transmission, the communications can be divided into two categories: reliable and unreliable. A reliable communication guarantees the data being sent by one endpoint through the channel is always received losslessly and in the same order in the other endpoint. However, in some reliable communication, the sent packets can be re-segmented and arrives at the receiver end. In contrast, an unreliable communication does not guarantee the data being sent always arrives at the receiver end. Moreover, the data packets can arrive in any order. However, the positive side of the unreliable communications is that the packets always arrives as the original packets, no data re-segmentation happens. An endpoint is an instance in a program at which a stream of data is sent, received or both (e.g., a socket handle for TCP or a file handle for the named pipe). A channel is a conduit connecting two endpoints through which data can be sent and received. Table \ref{methodsInCategories} gives examples of how communication methods fall in these two categories.
 \begin{table}[H]
 \centering
-\caption{Communication Method Examples in Two Categories}
+\caption{Communication method examples in two categories}
 \label{methodsInCategories}
 \begin{tabular}{|l|l|}
  \hline
@@ -21,7 +21,7 @@ TCP &  UDP \\
 
 
 \section{Communication Model}\label{definition}
-The communication of two programs is defined in this section. The communication in this work is data transfer activities between two running programs through a specific channel. Some collaborative activities between the programs such as remote procedure call is out of the scope of this research. Communication among multiple programs (more than two) is not discussed in this work. The channel can be reopened again to start new communications after being closed. However, the reopened channel is considered to be for a new communication. The way that I model the communication was leading to the communication analysis. So the model is not about how the communication works but what it looks like. There are many communication methods in the real world and they are compatible to this communication definition. 
+The communication of two programs is defined in this section. The communication in this work is data transfer activities between two running programs through a specific channel. Some collaborative activities between the programs such as remote procedure call is out of the scope of this research. Communication among multiple programs (more than two) is not discussed in this work. The channel can be reopened to start new communications. However, the reopened channel is considered as a new communication. The model is not about how the communication works but what it looks like. There are many communication methods in the real world and they are compatible to this communication definition. 
 
 \subsection{Communication Definition}
 In the context of a dual\_trace, a communication is a sequence of data transmitted between two endpoints through a communication channel. I, therefore, defined a communication $c$ as a triplet:
@@ -34,7 +34,7 @@ From the point of view of traces, the endpoints $e_0$ and $e_1$ are defined by t
 
 $ e =<handle, d_r, d_s>$
 
-where $handle$ is the handle identifier of the endpoint, $d_r$ is the data stream received and $d_s$ is the data stream sent. A data stream is a sequence of sent packets or a sequence of received packets. Each packet $pk$ contains data that is being sent or received (its payload). Hence, we can define a data stream $d$ as a sequence of $n$ packets:
+where $handle$ is the handle identifier, $d_r$ is the data stream received and $d_s$ is the data stream sent. A data stream is a sequence of sent packets or a sequence of received packets. Each packet $pk$ contains data that is being sent or received (its payload). Hence, we can define a data stream $d$ as a sequence of $n$ packets:
 
 $ d = (pk_1, pk_2, ..., pk_n)$ 
 
@@ -74,7 +74,7 @@ Given $ d=<pk_1, pk_2, ..., pk_n>$, $data(d)=pl(pk_1) \cdot pl(pk_2)\cdot \ldots
 
  For a given data stream, we define the data in this stream as the concatenation of the payload of all the packets in the order of sending or receiving in this stream, and denote it as $data(d)$. Given $ d=<pk_1, pk_2, ..., pk_n>$, $data(d)=pl(pk_1) \cdot pl(pk_2)\cdot \ldots \cdot pl(pk_n)$.
  
- For a communication, the received data of an endpoint should always be a prefix of (potentially equal to) the sent data of the other. In another word, for a communication $c = <ch, <h_0, dr_0, ds_0>, <h_1, dr_1, ds_1>>$,$data(dr_0)$ is a prefix of $data(ds_1)$ and $data(dr_1)$ is a prefix of $data(ds_0)$.
+ For a communication, the received data of an endpoint should always be a prefix of (potentially equal to) the sent data of the other. In other words, for a communication $c = <ch, <h_0, dr_0, ds_0>, <h_1, dr_1, ds_1>>$, $data(dr_0)$ is a prefix of $data(ds_1)$ and $data(dr_1)$ is a prefix of $data(ds_0)$.
 
 \item \textit{Timing Preservation:} 
  
@@ -93,13 +93,13 @@ In other words, at any given time, the recipient can only receive at most the da
 \end{itemize}
 
 \subsubsection{Properties of unreliable communication}\label{unreliablepro}
-In unreliable communication the properties are not concerned with the concatenation of packets. Instead, each packet is treated as independent of each other.
+In an unreliable communication, the properties are not a concern in the concatenation of packets. Instead, each packet is treated as independent of each other.
 \begin{itemize}
  \item \textit{ Content Preservation:} 
 
 A packet that is received should have been sent:
 
-for a sent data stream of size $m$, $ds= <pks_1, pks_2, ... pks_m>$ that is received in data stream of size $n$, $dr = <pkr_1, pkr_2, ... pkr_n>$,  for any $pkr_j \in dr$ there must exist $pks_i \in ds$, we will say that the $pkr_j$ is the matched packet of $pks_i$, and vice-versa, $pks_i$ is the matched packet of $pkr_j$, hence $match(pkr_j) = pks_i$  and $match(pks_i) = pkr_j$.
+for a sent data stream of size $m$, $ds= <pks_1, pks_2, ... pks_m>$ that is received in data stream of size $n$, $dr = <pkr_1, pkr_2, ... pkr_n>$,  for any $pkr_j \in dr$ there must exist $pks_i \in ds$, we will say that the $pkr_j$ is the matched packet of $pks_i$, and vice-versa,  hence $match(pkr_j) = pks_i$  and $match(pks_i) = pkr_j$.
 
  \item \textit{Timing Preservation:}  
  
@@ -117,7 +117,7 @@ Figure \ref{reliableexample} is an example of an reliable communication.
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.5]{Figures/reliableexample}}
-\caption{Example of Reliable Communication}
+\caption{Example of reliable communication}
 \label{reliableexample}
 \end{figure}
 
@@ -168,7 +168,7 @@ Figure\ref{unreliableexample} is an example of an unreliable communication.
 
 \begin{figure}[H]
 \centerline{\includegraphics[scale=0.5]{Figures/unreliableexample}}
-\caption{Example of Unreliable Communication}
+\caption{Example of unreliable communication}
 \label{unreliableexample}
 \end{figure}
 

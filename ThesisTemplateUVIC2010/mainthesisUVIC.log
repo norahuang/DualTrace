@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  4 APR 2018 11:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  9 APR 2018 14:27
 entering extended mode
 **./mainthesisUVIC.tex
 (mainthesisUVIC.tex
@@ -458,11 +458,123 @@ Package: appendix 2009/09/02 v1.2b extra appendix facilities
 \c@@pps=\count135
 \c@@ppsavesec=\count136
 \c@@ppsaveapp=\count137
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2016/05/21 v6.83p Hypertext links for LaTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
+)
+\@linkdim=\dimen152
+\Hy@linkcounter=\count138
+\Hy@pagecounter=\count139
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2016/05/21 v6.83p Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count140
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Option `bookmarks' set `false' on input line 4362.
+Package hyperref Info: Hyper figures OFF on input line 4486.
+Package hyperref Info: Link nesting OFF on input line 4491.
+Package hyperref Info: Hyper index ON on input line 4494.
+Package hyperref Info: Plain pages OFF on input line 4501.
+Package hyperref Info: Backreferencing OFF on input line 4506.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks OFF on input line 4741.
+\c@Hy@tempcnt=\count141
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\url\url.sty"
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 5088.
+\XeTeXLinkMargin=\dimen153
+\Fld@menulength=\count142
+\Field@Width=\dimen154
+\Fld@charsize=\dimen155
+Package hyperref Info: Hyper figures OFF on input line 6342.
+Package hyperref Info: Link nesting OFF on input line 6347.
+Package hyperref Info: Hyper index ON on input line 6350.
+Package hyperref Info: backreferencing OFF on input line 6357.
+Package hyperref Info: Link coloring OFF on input line 6362.
+Package hyperref Info: Link coloring with OCG OFF on input line 6367.
+Package hyperref Info: PDF/A mode OFF on input line 6372.
+LaTeX Info: Redefining \ref on input line 6412.
+LaTeX Info: Redefining \pageref on input line 6416.
+\Hy@abspage=\count143
+\c@Item=\count144
+\c@Hfootnote=\count145
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2016/05/21 v6.83p Hyperref driver for pdfTeX
+\Fld@listcount=\count146
+\c@bookmark@seq@number=\count147
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip120
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
 Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
-\c@subfigure=\count138
-\c@subtable=\count139
-) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\eucal.sty"
+\c@subfigure=\count148
+\c@subtable=\count149
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\eucal.sty"
 Package: eucal 2009/06/22 v3.00 Euler Script fonts
 LaTeX Font Info:    Overwriting math alphabet `\EuScript' in version `bold'
 (Font)                  U/eus/m/n --> U/eus/b/n on input line 33.
@@ -478,19 +590,21 @@ Package: mathrsfs 1996/01/01 Math RSFS package v1.0 (jk)
 (chapters/appendix/chapter_app.aux))
 \openout1 = `mainthesisUVIC.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 13.
-LaTeX Font Info:    ... okay on input line 13.
-LaTeX Font Info:    Try loading font information for OT1+ptm on input line 13.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 14.
+LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 14.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
@@ -531,52 +645,23 @@ File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count140
-\scratchdimen=\dimen152
+\scratchcounter=\count150
+\scratchdimen=\dimen156
 \scratchbox=\box71
-\nofMPsegments=\count141
-\nofMParguments=\count142
+\nofMPsegments=\count151
+\nofMParguments=\count152
 \everyMPshowfont=\toks32
-\MPscratchCnt=\count143
-\MPscratchDim=\dimen153
-\MPnumerator=\count144
-\makeMPintoPDFobject=\count145
+\MPscratchCnt=\count153
+\MPscratchDim=\dimen157
+\MPnumerator=\count154
+\makeMPintoPDFobject=\count155
 \everyMPtoPDFconversion=\toks33
-) ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
-Package: pdftexcmds 2016/05/21 v0.22 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
-Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
-)
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
 Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
-Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-))
-("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
-Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
-Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
-
-("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
-Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
+)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 38.
 Package grfext Info: Graphics extension search list:
@@ -585,10 +670,25 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 )
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count146
+\c@lstlisting=\count156
+\AtBeginShipoutBox=\box72
+Package hyperref Info: Link coloring OFF on input line 14.
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count157
+)
+LaTeX Info: Redefining \ref on input line 14.
+LaTeX Info: Redefining \pageref on input line 14.
+LaTeX Info: Redefining \nameref on input line 14.
 
 (frontmatter/fm.tex (frontmatter/tp.tex
 LaTeX Font Info:    Try loading font information for U+msa on input line 18.
@@ -666,17 +766,17 @@ Package Fancyhdr Warning: \headheight is too small (0.0pt):
 \openout4 = `mainthesisUVIC.lot'.
 
  [7] (mainthesisUVIC.lof [8]
-Overfull \hbox (20.67088pt too wide) in paragraph at lines 41--41
- [][] []\OT1/ptm/m/n/12 Navigation Re-sults for the Trans-mit-ted Mes-sage $\OT
-1/cmr/m/n/12 \\OML/cmm/m/it/12 Default answer from server\OT1/cmr/m/n/12 "$ [] 
- 
+Overfull \hbox (11.7548pt too wide) in paragraph at lines 41--41
+ [][] [][]\OT1/ptm/m/n/12 Navigation re-sults for the trans-mit-ted mes-sage $\
+OT1/cmr/m/n/12 \\OML/cmm/m/it/12 Default answer from server\OT1/cmr/m/n/12 "$[]
+ []  
  []
 
 
-Overfull \hbox (20.67088pt too wide) in paragraph at lines 45--45
- [][] []\OT1/ptm/m/n/12 Navigation Re-sults for the Trans-mit-ted Mes-sage $\OT
-1/cmr/m/n/12 \\OML/cmm/m/it/12 Default answer from server\OT1/cmr/m/n/12 "$ [] 
- 
+Overfull \hbox (11.7548pt too wide) in paragraph at lines 45--45
+ [][] [][]\OT1/ptm/m/n/12 Navigation re-sults for the trans-mit-ted mes-sage $\
+OT1/cmr/m/n/12 \\OML/cmm/m/it/12 Default answer from server\OT1/cmr/m/n/12 "$[]
+ []  
  []
 
 )
@@ -716,17 +816,22 @@ LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <8> not available
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <8> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 35.
  [3]
-<Figures/methodology.png, id=54, 1072.005pt x 337.26pt>
+<Figures/methodology.png, id=367, 1072.005pt x 337.26pt>
 File: Figures/methodology.png Graphic file (type png)
 
 <use Figures/methodology.png>
 Package pdftex.def Info: Figures/methodology.png used on input line 66.
 (pdftex.def)             Requested size: 471.68367pt x 148.39485pt.
- [4] [5 <./Figures/methodology.png>] [6]) [7]
+ [4] [5 <./Figures/methodology.png>]
+Overfull \hbox (0.74702pt too wide) in paragraph at lines 93--94
+[]\OT1/ptm/b/n/12 Prototype: \OT1/ptm/m/n/12 A pro-to-type for com-mu-ni-ca-tio
+n anal-y-sis through assembly-level ex-e-cu-tion traces
+ []
+
+[6]) [7]
 \openout2 = `chapters/2/chapter_background.aux'.
 
-
-(chapters/2/chapter_background.tex
+ (chapters/2/chapter_background.tex
 Chapter 2.
 [8
 
@@ -748,14 +853,14 @@ Chapter 3.
 
 
 ] [11] [12] [13]
-<Figures/reliableexample.png, id=91, 528.97626pt x 448.67625pt>
+<Figures/reliableexample.png, id=437, 528.97626pt x 448.67625pt>
 File: Figures/reliableexample.png Graphic file (type png)
 
 <use Figures/reliableexample.png>
 Package pdftex.def Info: Figures/reliableexample.png used on input line 119.
 (pdftex.def)             Requested size: 264.48747pt x 224.33757pt.
  [14 <./Figures/reliableexample.png>]
-<Figures/unreliableexample.png, id=97, 525.965pt x 454.69875pt>
+<Figures/unreliableexample.png, id=446, 525.965pt x 454.69875pt>
 File: Figures/unreliableexample.png Graphic file (type png)
 
 <use Figures/unreliableexample.png>
@@ -785,7 +890,7 @@ LABELS NOT IMPORTED.
  on input line 3.
 
 Chapter 4.
-<Figures/overview.png, id=105, 981.6675pt x 172.645pt>
+<Figures/overview.png, id=458, 981.6675pt x 172.645pt>
 File: Figures/overview.png Graphic file (type png)
 
 <use Figures/overview.png>
@@ -802,7 +907,7 @@ en-try, and sys-tem call exit, $\OML/cmm/m/it/12 syscallInfo \OT1/cmr/m/n/12 =\
 OML/cmm/m/it/12 <
  []
 
-<Figures/tracedefined.png, id=109, 864.22874pt x 243.15843pt>
+<Figures/tracedefined.png, id=465, 864.22874pt x 243.15843pt>
 File: Figures/tracedefined.png Graphic file (type png)
 
 <use Figures/tracedefined.png>
@@ -824,424 +929,424 @@ Package relsize Warning: Size requested is too small.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
-
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 131.
+(relsize)                Using 6.0pt instead on input line 132.
 
 
 Package relsize Warning: Size requested is too small.
 (relsize)                Using 6.0pt instead on input line 132.
 
-[21] [22] <Figures/namepipechannelopen.png, id=131, 673.51625pt x 406.51875pt>
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 132.
+
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 133.
+
+[21] [22] <Figures/namepipechannelopen.png, id=531, 673.51625pt x 406.51875pt>
 File: Figures/namepipechannelopen.png Graphic file (type png)
 
 <use Figures/namepipechannelopen.png>
-Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 161
+Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 162
 .
 (pdftex.def)             Requested size: 336.7573pt x 203.25887pt.
 
-<Figures/msmqchannelopen.png, id=132, 673.51625pt x 287.0725pt>
+<Figures/msmqchannelopen.png, id=534, 673.51625pt x 287.0725pt>
 File: Figures/msmqchannelopen.png Graphic file (type png)
 
 <use Figures/msmqchannelopen.png>
-Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 170.
+Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 171.
 (pdftex.def)             Requested size: 336.7573pt x 143.53589pt.
  [23 <./Figures/namepipechannelopen.png>]
-<Figures/tcpudpchannelopen.png, id=137, 502.87875pt x 391.4625pt>
+<Figures/tcpudpchannelopen.png, id=544, 502.87875pt x 391.4625pt>
 File: Figures/tcpudpchannelopen.png Graphic file (type png)
 
 <use Figures/tcpudpchannelopen.png>
-Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 179.
+Package pdftex.def Info: Figures/tcpudpchannelopen.png used on input line 180.
 (pdftex.def)             Requested size: 301.72957pt x 234.8793pt.
  [24 <./Figures/msmqchannelopen.png>]
 [25 <./Figures/tcpudpchannelopen.png>]
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 220.
+(relsize)                Using 6.0pt instead on input line 221.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 222.
+(relsize)                Using 6.0pt instead on input line 223.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 257.
+(relsize)                Using 6.0pt instead on input line 258.
 
 [26] [27]
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 275.
+(relsize)                Using 6.0pt instead on input line 276.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 277.
+(relsize)                Using 6.0pt instead on input line 278.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 331.
+(relsize)                Using 6.0pt instead on input line 332.
 
 [28]
-Overfull \vbox (10.9954pt too high) has occurred while \output is active []
+Overfull \vbox (26.9954pt too high) has occurred while \output is active []
 
 
 [29]
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 350.
+(relsize)                Using 6.0pt instead on input line 351.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 359.
+(relsize)                Using 6.0pt instead on input line 360.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 359.
+(relsize)                Using 6.0pt instead on input line 360.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 359.
+(relsize)                Using 6.0pt instead on input line 360.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 359.
+(relsize)                Using 6.0pt instead on input line 360.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 359.
+(relsize)                Using 6.0pt instead on input line 360.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 359.
+(relsize)                Using 6.0pt instead on input line 360.
 
-[30] [31] <Figures/namedpipe.png, id=165, 956.57375pt x 570.13pt>
+[30] [31] <Figures/namedpipe.png, id=670, 956.57375pt x 570.13pt>
 File: Figures/namedpipe.png Graphic file (type png)
 
 <use Figures/namedpipe.png>
-Package pdftex.def Info: Figures/namedpipe.png used on input line 397.
+Package pdftex.def Info: Figures/namedpipe.png used on input line 398.
 (pdftex.def)             Requested size: 382.62271pt x 228.04796pt.
  [32 <./Figures/namedpipe.png>]
-
-Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 409.
-
 
 Package relsize Warning: Size requested is too small.
 (relsize)                Using 6.0pt instead on input line 410.
@@ -1262,233 +1367,237 @@ Package relsize Warning: Size requested is too small.
 Package relsize Warning: Size requested is too small.
 (relsize)                Using 6.0pt instead on input line 414.
 
-<Figures/tcp.png, id=171, 415.5525pt x 408.52625pt>
+
+Package relsize Warning: Size requested is too small.
+(relsize)                Using 6.0pt instead on input line 415.
+
+<Figures/tcp.png, id=679, 415.5525pt x 408.52625pt>
 File: Figures/tcp.png Graphic file (type png)
  <use Figures/tcp.png>
-Package pdftex.def Info: Figures/tcp.png used on input line 429.
+Package pdftex.def Info: Figures/tcp.png used on input line 430.
 (pdftex.def)             Requested size: 166.21805pt x 163.4076pt.
 
 [33]
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 441.
+(relsize)                Using 6.0pt instead on input line 442.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 448.
+(relsize)                Using 6.0pt instead on input line 449.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 448.
+(relsize)                Using 6.0pt instead on input line 449.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 448.
+(relsize)                Using 6.0pt instead on input line 449.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 453.
+(relsize)                Using 6.0pt instead on input line 454.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 453.
+(relsize)                Using 6.0pt instead on input line 454.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 453.
+(relsize)                Using 6.0pt instead on input line 454.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 453.
+(relsize)                Using 6.0pt instead on input line 454.
 
-[34 <./Figures/tcp.png>] <Figures/msmq.png, id=179, 956.57375pt x 499.8675pt>
+[34 <./Figures/tcp.png>] <Figures/msmq.png, id=710, 956.57375pt x 499.8675pt>
 File: Figures/msmq.png Graphic file (type png)
 
 <use Figures/msmq.png>
-Package pdftex.def Info: Figures/msmq.png used on input line 467.
+Package pdftex.def Info: Figures/msmq.png used on input line 468.
 (pdftex.def)             Requested size: 382.62271pt x 199.94345pt.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 481.
+(relsize)                Using 6.0pt instead on input line 482.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 485.
+(relsize)                Using 6.0pt instead on input line 486.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 485.
+(relsize)                Using 6.0pt instead on input line 486.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 485.
+(relsize)                Using 6.0pt instead on input line 486.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 499.
+(relsize)                Using 6.0pt instead on input line 500.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 499.
+(relsize)                Using 6.0pt instead on input line 500.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 499.
+(relsize)                Using 6.0pt instead on input line 500.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 499.
+(relsize)                Using 6.0pt instead on input line 500.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 499.
+(relsize)                Using 6.0pt instead on input line 500.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 499.
+(relsize)                Using 6.0pt instead on input line 500.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 499.
+(relsize)                Using 6.0pt instead on input line 500.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 499.
+(relsize)                Using 6.0pt instead on input line 500.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 499.
+(relsize)                Using 6.0pt instead on input line 500.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 512.
+(relsize)                Using 6.0pt instead on input line 513.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 512.
+(relsize)                Using 6.0pt instead on input line 513.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 512.
+(relsize)                Using 6.0pt instead on input line 513.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 512.
+(relsize)                Using 6.0pt instead on input line 513.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 512.
+(relsize)                Using 6.0pt instead on input line 513.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 512.
+(relsize)                Using 6.0pt instead on input line 513.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 512.
+(relsize)                Using 6.0pt instead on input line 513.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 512.
+(relsize)                Using 6.0pt instead on input line 513.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 512.
+(relsize)                Using 6.0pt instead on input line 513.
 
-[35 <./Figures/msmq.png>] <Figures/udp.png, id=184, 956.57375pt x 669.50125pt>
+[35 <./Figures/msmq.png>] <Figures/udp.png, id=720, 956.57375pt x 669.50125pt>
 File: Figures/udp.png Graphic file (type png)
 
 <use Figures/udp.png>
-Package pdftex.def Info: Figures/udp.png used on input line 526.
+Package pdftex.def Info: Figures/udp.png used on input line 527.
 (pdftex.def)             Requested size: 382.62271pt x 267.79576pt.
  [36]
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 540.
+(relsize)                Using 6.0pt instead on input line 541.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 544.
+(relsize)                Using 6.0pt instead on input line 545.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 544.
+(relsize)                Using 6.0pt instead on input line 545.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 559.
+(relsize)                Using 6.0pt instead on input line 560.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 559.
+(relsize)                Using 6.0pt instead on input line 560.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 559.
+(relsize)                Using 6.0pt instead on input line 560.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 559.
+(relsize)                Using 6.0pt instead on input line 560.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 559.
+(relsize)                Using 6.0pt instead on input line 560.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 559.
+(relsize)                Using 6.0pt instead on input line 560.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 559.
+(relsize)                Using 6.0pt instead on input line 560.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 559.
+(relsize)                Using 6.0pt instead on input line 560.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 573.
+(relsize)                Using 6.0pt instead on input line 574.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 573.
+(relsize)                Using 6.0pt instead on input line 574.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 573.
+(relsize)                Using 6.0pt instead on input line 574.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 573.
+(relsize)                Using 6.0pt instead on input line 574.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 573.
+(relsize)                Using 6.0pt instead on input line 574.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 573.
+(relsize)                Using 6.0pt instead on input line 574.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 573.
+(relsize)                Using 6.0pt instead on input line 574.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 573.
+(relsize)                Using 6.0pt instead on input line 574.
 
 
 Package relsize Warning: Size requested is too small.
-(relsize)                Using 6.0pt instead on input line 573.
+(relsize)                Using 6.0pt instead on input line 574.
 
 [37 <./Figures/udp.png>] [38]
-<Figures/secondlevelmatching.png, id=196, 289.83281pt x 172.39406pt>
+<Figures/secondlevelmatching.png, id=783, 289.83281pt x 172.39406pt>
 File: Figures/secondlevelmatching.png Graphic file (type png)
 
 <use Figures/secondlevelmatching.png>
-Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 593
+Package pdftex.def Info: Figures/secondlevelmatching.png used on input line 594
 .
 (pdftex.def)             Requested size: 289.83209pt x 172.39363pt.
 ) [39 <./Figures/secondlevelmatching.png>]
@@ -1537,14 +1646,14 @@ Overfull \hbox (2.6485pt too wide) in paragraph at lines 261--293
  [][] 
  []
 
-[48] <Figures/opendualtracemenu.png, id=229, 411.5375pt x 475.7775pt>
+[48] <Figures/opendualtracemenu.png, id=845, 411.5375pt x 475.7775pt>
 File: Figures/opendualtracemenu.png Graphic file (type png)
 
 <use Figures/opendualtracemenu.png>
 Package pdftex.def Info: Figures/opendualtracemenu.png used on input line 299.
 (pdftex.def)             Requested size: 164.61208pt x 190.30762pt.
 
-<Figures/paralleleditor.png, id=230, 867.24pt x 478.03593pt>
+<Figures/paralleleditor.png, id=846, 867.24pt x 478.03593pt>
 File: Figures/paralleleditor.png Graphic file (type png)
 
 <use Figures/paralleleditor.png>
@@ -1556,48 +1665,48 @@ Overfull \hbox (6.0107pt too wide) in paragraph at lines 310--310
 ithms 
  []
 
-<Figures/overviewintwo.png, id=235, 995.72pt x 273.02pt>
+<Figures/overviewintwo.png, id=854, 995.72pt x 273.02pt>
 File: Figures/overviewintwo.png Graphic file (type png)
 
 <use Figures/overviewintwo.png>
 Package pdftex.def Info: Figures/overviewintwo.png used on input line 314.
 (pdftex.def)             Requested size: 467.98846pt x 128.31941pt.
  [50 <./Figures/paralleleditor.png>]
-<Figures/trace.png, id=240, 878.53218pt x 245.41687pt>
+<Figures/trace.png, id=864, 878.53218pt x 245.41687pt>
 File: Figures/trace.png Graphic file (type png)
  <use Figures/trace.png>
 Package pdftex.def Info: Figures/trace.png used on input line 324.
 (pdftex.def)             Requested size: 395.33583pt x 110.43655pt.
 
-<Figures/executable.png, id=241, 307.90031pt x 237.88875pt>
+<Figures/executable.png, id=865, 307.90031pt x 237.88875pt>
 File: Figures/executable.png Graphic file (type png)
 
 <use Figures/executable.png>
 Package pdftex.def Info: Figures/executable.png used on input line 330.
 (pdftex.def)             Requested size: 184.74161pt x 142.73433pt.
  [51 <./Figures/overviewintwo.png> <./Figures/trace.png>] <Figures/dualtracetoo
-lmenu.png, id=247, 350.05782pt x 121.20282pt>
+lmenu.png, id=875, 350.05782pt x 121.20282pt>
 File: Figures/dualtracetoolmenu.png Graphic file (type png)
 
 <use Figures/dualtracetoolmenu.png>
 Package pdftex.def Info: Figures/dualtracetoolmenu.png used on input line 338.
 (pdftex.def)             Requested size: 350.05695pt x 121.20251pt.
 
-<Figures/methods.png, id=248, 404.26031pt x 220.57407pt>
+<Figures/methods.png, id=876, 404.26031pt x 220.57407pt>
 File: Figures/methods.png Graphic file (type png)
 
 <use Figures/methods.png>
 Package pdftex.def Info: Figures/methods.png used on input line 344.
 (pdftex.def)             Requested size: 323.40869pt x 176.45947pt.
  [52 <./Figures/executable.png> <./Figures/dualtracetoolmenu.png>] <Figures/ide
-nview.png, id=253, 569.12625pt x 213.79875pt>
+nview.png, id=883, 569.12625pt x 213.79875pt>
 File: Figures/idenview.png Graphic file (type png)
 
 <use Figures/idenview.png>
 Package pdftex.def Info: Figures/idenview.png used on input line 354.
 (pdftex.def)             Requested size: 398.38567pt x 149.6581pt.
  [53 <./Figures/methods.png>]
-<Figures/gotoend.png, id=257, 287.57437pt x 54.9553pt>
+<Figures/gotoend.png, id=889, 287.57437pt x 54.9553pt>
 File: Figures/gotoend.png Graphic file (type png)
 
 <use Figures/gotoend.png>
@@ -1607,7 +1716,7 @@ Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no œ in font ptmr7t!
  [54 <./Figures/idenview.png> <./Figures/gotoend.png>] <Figures/remove.png, id=
-261, 721.19438pt x 161.10187pt>
+895, 721.19438pt x 161.10187pt>
 File: Figures/remove.png Graphic file (type png)
 
 <use Figures/remove.png>
@@ -1647,7 +1756,7 @@ Overfull \hbox (13.32317pt too wide) in paragraph at lines 18--19
 
 
 
-] <Figures/exp1.png, id=269, 676.5275pt x 502.87875pt>
+] <Figures/exp1.png, id=910, 676.5275pt x 502.87875pt>
 File: Figures/exp1.png Graphic file (type png)
 
 <use Figures/exp1.png>
@@ -1668,14 +1777,14 @@ Overfull \hbox (14.68906pt too wide) in paragraph at lines 106--121
  [][] 
  []
 
-[58] <Figures/result1_streams.png, id=278, 286.06876pt x 192.72pt>
+[58] <Figures/result1_streams.png, id=927, 286.06876pt x 192.72pt>
 File: Figures/result1_streams.png Graphic file (type png)
 
 <use Figures/result1_streams.png>
 Package pdftex.def Info: Figures/result1_streams.png used on input line 128.
 (pdftex.def)             Requested size: 286.06805pt x 192.71951pt.
 
-<Figures/result1_communications.png, id=279, 275.52937pt x 193.47281pt>
+<Figures/result1_communications.png, id=932, 275.52937pt x 193.47281pt>
 File: Figures/result1_communications.png Graphic file (type png)
 
 <use Figures/result1_communications.png>
@@ -1683,7 +1792,7 @@ Package pdftex.def Info: Figures/result1_communications.png used on input line
 139.
 (pdftex.def)             Requested size: 275.52869pt x 193.47234pt.
  [59 <./Figures/result1_streams.png>]
-<Figures/result1_client_send.png, id=283, 719.68875pt x 625.58719pt>
+<Figures/result1_client_send.png, id=939, 719.68875pt x 625.58719pt>
 File: Figures/result1_client_send.png Graphic file (type png)
 
 <use Figures/result1_client_send.png>
@@ -1695,7 +1804,7 @@ Overfull \hbox (40.50652pt too wide) in paragraph at lines 149--150
 [][] 
  []
 
-<Figures/result1_server_read.png, id=284, 720.44156pt x 604.50844pt>
+<Figures/result1_server_read.png, id=940, 720.44156pt x 604.50844pt>
 File: Figures/result1_server_read.png Graphic file (type png)
 
 <use Figures/result1_server_read.png>
@@ -1709,14 +1818,14 @@ Overfull \hbox (40.76999pt too wide) in paragraph at lines 155--156
 
 
 Overfull \hbox (15.81651pt too wide) in paragraph at lines 163--164
-[]\OT1/ptm/m/n/12 Figure 6.4a[] shows when I dou-ble clicked on the $\OML/cmm/m
-/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of the $\OML/cmm/m/it/12
- Client:trace$\OT1/ptm/m/n/12 ,
+[]\OT1/ptm/m/n/12 Figure []6.4a[] shows when I dou-ble clicked on the $\OML/cmm
+/m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of the $\OML/cmm/m/it/
+12 Client:trace$\OT1/ptm/m/n/12 ,
  []
 
 [60 <./Figures/result1_communications.png> <./Figures/result1_client_send.png> 
 <./Figures/result1_server_read.png>]
-<Figures/result1_server_send.png, id=290, 721.19438pt x 593.96906pt>
+<Figures/result1_server_send.png, id=949, 721.19438pt x 593.96906pt>
 File: Figures/result1_server_send.png Graphic file (type png)
 
 <use Figures/result1_server_send.png>
@@ -1728,7 +1837,7 @@ Overfull \hbox (41.0335pt too wide) in paragraph at lines 171--172
 [][] 
  []
 
-<Figures/result1_client_read.png, id=291, 721.19438pt x 559.33969pt>
+<Figures/result1_client_read.png, id=950, 721.19438pt x 559.33969pt>
 File: Figures/result1_client_read.png Graphic file (type png)
 
 <use Figures/result1_client_read.png>
@@ -1742,13 +1851,13 @@ Overfull \hbox (41.0335pt too wide) in paragraph at lines 177--178
 
 
 Overfull \hbox (0.64728pt too wide) in paragraph at lines 185--186
-[]\OT1/ptm/m/n/12 Figure 6.5a[] shows when I dou-ble clicked on the $\OML/cmm/m
-/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of $\OML/cmm/m/it/12 Ser
-ver:trace$\OT1/ptm/m/n/12 ,
+[]\OT1/ptm/m/n/12 Figure []6.5a[] shows when I dou-ble clicked on the $\OML/cmm
+/m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of $\OML/cmm/m/it/12 S
+erver:trace$\OT1/ptm/m/n/12 ,
  []
 
 [61 <./Figures/result1_server_send.png> <./Figures/result1_client_read.png>]
-<Figures/exp2.png, id=295, 949.5475pt x 734.745pt>
+<Figures/exp2.png, id=959, 949.5475pt x 734.745pt>
 File: Figures/exp2.png Graphic file (type png)
  <use Figures/exp2.png>
 Package pdftex.def Info: Figures/exp2.png used on input line 198.
@@ -1773,7 +1882,7 @@ Overfull \hbox (17.68906pt too wide) in paragraph at lines 255--284
  [][] 
  []
 
-[64] <Figures/result21_streams.png, id=309, 291.33844pt x 329.73187pt>
+[64] <Figures/result21_streams.png, id=979, 291.33844pt x 329.73187pt>
 File: Figures/result21_streams.png Graphic file (type png)
 
 <use Figures/result21_streams.png>
@@ -1789,7 +1898,7 @@ Overfull \hbox (17.68906pt too wide) in paragraph at lines 327--340
  [][] 
  []
 
-<Figures/result22_streams.png, id=313, 290.58563pt x 330.48468pt>
+<Figures/result22_streams.png, id=988, 290.58563pt x 330.48468pt>
 File: Figures/result22_streams.png Graphic file (type png)
 
 <use Figures/result22_streams.png>
@@ -1801,7 +1910,7 @@ LaTeX Font Warning: Font shape `U/wasy/b/n' in size <5> not available
 (Font)              Font shape `U/wasy/m/n' tried instead on input line 366.
 
 [67 <./Figures/result22_streams.png>]
-<Figures/result21_communications.png, id=320, 296.60812pt x 184.43906pt>
+<Figures/result21_communications.png, id=1003, 296.60812pt x 184.43906pt>
 File: Figures/result21_communications.png Graphic file (type png)
 
 <use Figures/result21_communications.png>
@@ -1809,15 +1918,15 @@ Package pdftex.def Info: Figures/result21_communications.png used on input line
  387.
 (pdftex.def)             Requested size: 296.60739pt x 184.4386pt.
 
-<Figures/result21_server_readnull.png, id=321, 717.43031pt x 600.74437pt>
+<Figures/result21_server_readnull.png, id=1007, 717.43031pt x 600.74437pt>
 File: Figures/result21_server_readnull.png Graphic file (type png)
 
 <use Figures/result21_server_readnull.png>
 Package pdftex.def Info: Figures/result21_server_readnull.png used on input lin
 e 395.
 (pdftex.def)             Requested size: 251.10437pt x 210.26367pt.
- [68 <./Figures/result21_communications.png>] <Figures/result21_client_send.png
-, id=329, 721.19438pt x 610.53094pt>
+ [68 <./Figures/result21_communications.png>]
+<Figures/result21_client_send.png, id=1017, 721.19438pt x 610.53094pt>
 File: Figures/result21_client_send.png Graphic file (type png)
 
 <use Figures/result21_client_send.png>
@@ -1829,7 +1938,7 @@ Overfull \hbox (41.0335pt too wide) in paragraph at lines 405--406
 [][] 
  []
 
-<Figures/result21_server_read.png, id=330, 721.19438pt x 603.75563pt>
+<Figures/result21_server_read.png, id=1018, 721.19438pt x 603.75563pt>
 File: Figures/result21_server_read.png Graphic file (type png)
 
 <use Figures/result21_server_read.png>
@@ -1843,14 +1952,14 @@ Overfull \hbox (41.0335pt too wide) in paragraph at lines 411--412
 
 
 Overfull \hbox (4.87268pt too wide) in paragraph at lines 419--420
-[]\OT1/ptm/m/n/12 Figure 6.11a[] shows when I dou-ble clicked on the $\OML/cmm/
-m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of $\OML/cmm/m/it/12 Cl
-ient:trace$\OT1/ptm/m/n/12 ,
+[]\OT1/ptm/m/n/12 Figure []6.11a[] shows when I dou-ble clicked on the $\OML/cm
+m/m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of $\OML/cmm/m/it/12 
+Client:trace$\OT1/ptm/m/n/12 ,
  []
 
 [69 <./Figures/result21_server_readnull.png> <./Figures/result21_client_send.pn
 g> <./Figures/result21_server_read.png>]
-<Figures/result21_server_send.png, id=335, 718.18312pt x 629.35126pt>
+<Figures/result21_server_send.png, id=1026, 718.18312pt x 629.35126pt>
 File: Figures/result21_server_send.png Graphic file (type png)
 
 <use Figures/result21_server_send.png>
@@ -1862,7 +1971,7 @@ Overfull \hbox (39.97954pt too wide) in paragraph at lines 427--428
 [][] 
  []
 
-<Figures/result21_client_read.png, id=336, 720.44156pt x 618.81187pt>
+<Figures/result21_client_read.png, id=1027, 720.44156pt x 618.81187pt>
 File: Figures/result21_client_read.png Graphic file (type png)
 
 <use Figures/result21_client_read.png>
@@ -1876,9 +1985,9 @@ Overfull \hbox (40.76999pt too wide) in paragraph at lines 433--434
 
 
 Overfull \hbox (6.64728pt too wide) in paragraph at lines 441--442
-[]\OT1/ptm/m/n/12 Figure 6.12a[] shows when I dou-ble clicked on the $\OML/cmm/
-m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of $\OML/cmm/m/it/12 Se
-rver:trace$\OT1/ptm/m/n/12 ,
+[]\OT1/ptm/m/n/12 Figure []6.12a[] shows when I dou-ble clicked on the $\OML/cm
+m/m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of $\OML/cmm/m/it/12 
+Server:trace$\OT1/ptm/m/n/12 ,
  []
 
 
@@ -1889,7 +1998,7 @@ event of $\OML/cmm/m/it/12 Client:trace$\OT1/ptm/m/n/12 , it brought me to the
  []
 
 [70 <./Figures/result21_server_send.png> <./Figures/result21_client_read.png>]
-<Figures/result22_communications.png, id=340, 259.7203pt x 182.18062pt>
+<Figures/result22_communications.png, id=1036, 259.7203pt x 182.18062pt>
 File: Figures/result22_communications.png Graphic file (type png)
 
 <use Figures/result22_communications.png>
@@ -1897,7 +2006,7 @@ Package pdftex.def Info: Figures/result22_communications.png used on input line
  486.
 (pdftex.def)             Requested size: 259.71967pt x 182.18016pt.
  [71]
-<Figures/result22_server_readnull.png, id=344, 719.68875pt x 602.25pt>
+<Figures/result22_server_readnull.png, id=1045, 719.68875pt x 602.25pt>
 File: Figures/result22_server_readnull.png Graphic file (type png)
 
 <use Figures/result22_server_readnull.png>
@@ -1905,7 +2014,7 @@ Package pdftex.def Info: Figures/result22_server_readnull.png used on input lin
 e 494.
 (pdftex.def)             Requested size: 251.89484pt x 210.79065pt.
 
-<Figures/result22_client_send.png, id=345, 723.45282pt x 621.82312pt>
+<Figures/result22_client_send.png, id=1047, 723.45282pt x 621.82312pt>
 File: Figures/result22_client_send.png Graphic file (type png)
 
 <use Figures/result22_client_send.png>
@@ -1917,7 +2026,7 @@ Overfull \hbox (41.82396pt too wide) in paragraph at lines 503--504
 [][] 
  []
 
-<Figures/result22_server_read.png, id=346, 718.18312pt x 626.34pt>
+<Figures/result22_server_read.png, id=1048, 718.18312pt x 626.34pt>
 File: Figures/result22_server_read.png Graphic file (type png)
 
 <use Figures/result22_server_read.png>
@@ -1932,12 +2041,12 @@ Overfull \hbox (39.97954pt too wide) in paragraph at lines 509--510
 [72 <./Figures/result22_communications.png> <./Figures/result22_server_readnull
 .png>]
 Overfull \hbox (4.87268pt too wide) in paragraph at lines 517--518
-[]\OT1/ptm/m/n/12 Figure 6.15a[] shows when I dou-ble clicked on the $\OML/cmm/
-m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of $\OML/cmm/m/it/12 Cl
-ient:trace$\OT1/ptm/m/n/12 ,
+[]\OT1/ptm/m/n/12 Figure []6.15a[] shows when I dou-ble clicked on the $\OML/cm
+m/m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of $\OML/cmm/m/it/12 
+Client:trace$\OT1/ptm/m/n/12 ,
  []
 
-<Figures/result22_server_send.png, id=351, 718.18312pt x 621.07031pt>
+<Figures/result22_server_send.png, id=1056, 718.18312pt x 621.07031pt>
 File: Figures/result22_server_send.png Graphic file (type png)
 
 <use Figures/result22_server_send.png>
@@ -1949,7 +2058,7 @@ Overfull \hbox (39.97954pt too wide) in paragraph at lines 526--527
 [][] 
  []
 
-<Figures/result22_client_read.png, id=352, 721.19438pt x 621.07031pt>
+<Figures/result22_client_read.png, id=1057, 721.19438pt x 621.07031pt>
 File: Figures/result22_client_read.png Graphic file (type png)
 
 <use Figures/result22_client_read.png>
@@ -1963,9 +2072,9 @@ Overfull \hbox (41.0335pt too wide) in paragraph at lines 532--533
 
 [73 <./Figures/result22_client_send.png> <./Figures/result22_server_read.png>]
 Overfull \hbox (23.59111pt too wide) in paragraph at lines 540--541
-[]\OT1/ptm/m/n/12 Figure 6.16a[] shows when I dou-ble clicked on the $\OML/cmm/
-m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of the $\OML/cmm/m/it/1
-2 Server:trace$\OT1/ptm/m/n/12 ,
+[]\OT1/ptm/m/n/12 Figure []6.16a[] shows when I dou-ble clicked on the $\OML/cm
+m/m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of the $\OML/cmm/m/it
+/12 Server:trace$\OT1/ptm/m/n/12 ,
  []
 
 
@@ -1990,18 +2099,19 @@ Missing character: There is no Ã in font ptmr7t!
 Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Â in font ptmr7t!
 Missing character: There is no · in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no ‚ in font ptmr7t!
-Missing character: There is no Â in font ptmr7t!
-Missing character: There is no ® in font ptmr7t!
  [79
 
 
-]) [80]
+]
+Underfull \hbox (badness 1776) in paragraph at lines 83--87
+[]\OT1/ptm/m/n/12 MSDN.  Named pipes (win-dows).  []$\OT1/pcr/m/n/12 https : / 
+/ msdn . microsoft . com / en-[]us /
+ []
+
+) [80]
 \openout2 = `chapters/appendix/chapter_app.aux'.
 
-
-(chapters/appendix/chapter_app.tex
+ (chapters/appendix/chapter_app.tex
 Appendix A.
 [81
 
@@ -2021,41 +2131,47 @@ Appendix D.
 ] [90] [91])
 (sourcecode/experiment1/NamedPipeClient.cpp [92] [93])
 (sourcecode/experiment2/NamedPipeServerOverlapped.cpp [94] [95] [96] [97]
-[98] [99]) (sourcecode/experiment2/test.bat)) [100] (mainthesisUVIC.aux
+[98] [99]) (sourcecode/experiment2/test.bat)) [100]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 48.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 48.
+ (mainthesisUVIC.aux
 (chapters/1/chapter_intro.aux) (chapters/2/chapter_background.aux)
 (chapters/3/chapter_modeling.aux) (chapters/4/chapter_algorithm.aux)
 (chapters/5/chapter_implementation.aux) (chapters/6/chapter_evaluation.aux)
-(chapters/7/chapter_conclusion.aux) (chapters/appendix/chapter_app.aux)) ) 
+(chapters/7/chapter_conclusion.aux) (chapters/appendix/chapter_app.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 48.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 48.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 48.
+ ) 
 Here is how much of TeX's memory you used:
- 9479 strings out of 493335
- 141991 string characters out of 3139261
- 433134 words of memory out of 3000000
- 12620 multiletter control sequences out of 15000+200000
- 37719 words of font info for 91 fonts, out of 3000000 for 9000
+ 14185 strings out of 493335
+ 213292 string characters out of 3139261
+ 519720 words of memory out of 3000000
+ 16013 multiletter control sequences out of 15000+200000
+ 38018 words of font info for 92 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 44i,24n,62p,1390b,1740s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/P
-rogram Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/
-amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib1
-0.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmmib6.p
-fb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program File
-s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2
-.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier
-/ucrb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:
-/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/Program Files
-/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts
-/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/
-utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (111 pages, 1861855 bytes).
+ 44i,24n,62p,1398b,1807s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Program File
+s/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmmi6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmmi8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmmib10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/c
+mmib6.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Progr
+am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/
+courier/ucrb8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.
+9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
+/times/utmri8a.pfb>
+Output written on mainthesisUVIC.pdf (111 pages, 2081658 bytes).
 PDF statistics:
- 506 PDF objects out of 1000 (max. 8388607)
- 0 named destinations out of 1000 (max. 500000)
+ 2339 PDF objects out of 2487 (max. 8388607)
+ 1294 named destinations out of 1440 (max. 500000)
  226 words of extra memory for PDF output out of 10000 (max. 10000000)
 
