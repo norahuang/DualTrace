@@ -1,0 +1,49 @@
+\documentclass[12pt,oneside]{book}
+\include{macros/style}
+\include{macros/use_packages}
+\usepackage{graphicx} 
+\usepackage[bookmarks=false, hidelinks]{hyperref}
+\usepackage{subcaption} %  for subfigures environments
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{eucal}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{document}
+
+% Front Matter
+\input frontmatter/fm
+
+\newpage
+
+	\include{chapters/1/chapter_intro}
+	\include{chapters/2/chapter_background}
+    \include{chapters/3/chapter_modeling}
+    \include{chapters/4/chapter_algorithm}
+	\include{chapters/5/chapter_implementation}
+	\include{chapters/6/chapter_evaluation}
+	\include{chapters/7/chapter_conclusion}
+
+	\TOCadd{Bibliography}
+	\bibliographystyle{plain}
+	\bibliography{UvicThesis}
+
+	\include{chapters/appendix/chapter_app}
+
+
+% The style of bibliography exemplified here is the "plain",
+% normally used in science theses. This is shown
+% by the entry {plain} below. Substitute the
+% appropriate bibliography style. See also the
+% PDF file "InformationOnBibliographyStyles" in this
+% directory for more choices.
+
+% The Bibliography file is a BibTex file named
+% UVicThesis.bib and called below
+
+
+
+\end{document}
+vardef  enddefvardef  enddef

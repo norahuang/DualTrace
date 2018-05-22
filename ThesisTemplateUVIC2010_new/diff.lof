@@ -1,0 +1,56 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Research approach overview\relax }}{5}{figure.caption.8}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Example of reliable communication\relax }}{14}{figure.caption.10}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Example of unreliable communication\relax }}{15}{figure.caption.11}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Process of the communication analysis through a dual\_trace\relax }}{18}{figure.caption.12}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces An example trace \relax }}{19}{figure.caption.13}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Channel open process for a named pipe in Windows\relax }}{23}{figure.caption.15}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Channel open process for a message queue in Windows\relax }}{24}{figure.caption.16}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Channel open model for TCP and UDP in Windows\relax }}{25}{figure.caption.17}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Data transfer scenarios for Named Pipe\relax }}{33}{figure.caption.18}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Data transfer scenarios for TCP\relax }}{34}{figure.caption.19}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Data transfer scenarios for Message Queue\relax }}{36}{figure.caption.20}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Data transfer scenarios for UDP\relax }}{38}{figure.caption.21}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces An ineffective stream matching scenario\relax }}{40}{figure.caption.22}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Menu item for opening dual\_trace\relax }}{51}{figure.caption.30}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Parallel trace view\relax }}{52}{figure.caption.31}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Process of the communication analysis from a dual\_trace separated in two sections\relax }}{53}{figure.caption.32}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces An example trace from DRDC\relax }}{53}{figure.caption.33}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Information from kernel32.dll\relax }}{54}{figure.caption.34}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Dual\_trace tool menu\relax }}{55}{figure.caption.35}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Prompt dialog for communication selection\relax }}{55}{figure.caption.36}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Communication view for results\relax }}{56}{figure.caption.37}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Right click menu on event entry\relax }}{57}{figure.caption.38}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Right click menu on event entry\relax }}{57}{figure.caption.39}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Sequence diagram of experiment 1\relax }}{59}{figure.caption.40}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Extracted streams of $dual\_trace\_1$\relax }}{61}{figure.caption.44}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Identified communication of $dual\_trace\_1$\relax }}{62}{figure.caption.45}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Client send event navigation \DIFaddbeginFL {\color {blue}\uwave {for the message $``This\tmspace +\thickmuskip {.2777em} is\tmspace +\thickmuskip {.2777em} a\tmspace +\thickmuskip {.2777em} test."$}}\DIFaddendFL \relax }}{63}{figure.caption.46}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Server receive event navigation \DIFaddbeginFL {\color {blue}\uwave {for the message $``This\tmspace +\thickmuskip {.2777em} is\tmspace +\thickmuskip {.2777em} a\tmspace +\thickmuskip {.2777em} test."$}}\DIFaddendFL \relax }}{64}{figure.caption.47}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Server send event navigation \DIFaddbeginFL {\color {blue}\uwave {for the message $``This\tmspace +\thickmuskip {.2777em} is\tmspace +\thickmuskip {.2777em} the\tmspace +\thickmuskip {.2777em} answer."$}}\DIFaddendFL \relax }}{65}{figure.caption.48}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Client receive event navigation \DIFaddbeginFL {\color {blue}\uwave {for the message $``This\tmspace +\thickmuskip {.2777em} is\tmspace +\thickmuskip {.2777em} the\tmspace +\thickmuskip {.2777em} answer."$}}\DIFaddendFL \relax }}{66}{figure.caption.49}
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Sequence diagram of experiment 2\relax }}{68}{figure.caption.50}
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Extracted streams of $dual\_trace\_21$\relax }}{70}{figure.caption.53}
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Extracted streams of $dual\_trace\_22$\relax }}{72}{figure.caption.56}
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Identified communication of $dual\_trace\_21$\relax }}{73}{figure.caption.58}
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Navigation result for the function call event: $GetOverlappedResult$\relax }}{74}{figure.caption.59}
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Client 1 send event navigation \DIFaddbeginFL {\color {blue}\uwave {for the message $``Message\tmspace +\thickmuskip {.2777em} 1"$}}\DIFaddendFL \relax }}{75}{figure.caption.60}
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Sever receive event navigation \DIFaddbeginFL {\color {blue}\uwave {for the message $``Message\tmspace +\thickmuskip {.2777em} 1"$}}\DIFaddendFL \relax }}{76}{figure.caption.61}
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Server send event navigation \DIFaddbeginFL {\color {blue}\uwave {for the message $``Default\tmspace +\thickmuskip {.2777em} answer\tmspace +\thickmuskip {.2777em} from\tmspace +\thickmuskip {.2777em} server"$}}\DIFaddendFL \relax }}{78}{figure.caption.62}
+\contentsline {figure}{\numberline {6.16}{\ignorespaces Client 1 receive event navigation \DIFaddbeginFL {\color {blue}\uwave {for the message $``Default\tmspace +\thickmuskip {.2777em} answer\tmspace +\thickmuskip {.2777em} from\tmspace +\thickmuskip {.2777em} server"$}}\DIFaddendFL \relax }}{79}{figure.caption.63}
+\contentsline {figure}{\numberline {6.17}{\ignorespaces Identified communication of $dual\_trace\_22$\relax }}{80}{figure.caption.65}
+\contentsline {figure}{\numberline {6.18}{\ignorespaces Navigation result for the function call event: $GetOverlappedResult$\relax }}{81}{figure.caption.66}
+\contentsline {figure}{\numberline {6.19}{\ignorespaces Client 2 send event navigation \DIFaddbeginFL {\color {blue}\uwave {for the message $``Message\tmspace +\thickmuskip {.2777em} 2"$}}\DIFaddendFL \relax }}{82}{figure.caption.67}
+\contentsline {figure}{\numberline {6.20}{\ignorespaces Sever receive event navigation \DIFaddbeginFL {\color {blue}\uwave {for the message $``Message\tmspace +\thickmuskip {.2777em} 2"$}}\DIFaddendFL \relax }}{83}{figure.caption.68}
+\contentsline {figure}{\numberline {6.21}{\ignorespaces Server send event navigation \DIFaddbeginFL {\color {blue}\uwave {for the message $``Default\tmspace +\thickmuskip {.2777em} answer\tmspace +\thickmuskip {.2777em} from\tmspace +\thickmuskip {.2777em} server"$}}\DIFaddendFL \relax }}{85}{figure.caption.69}
+\contentsline {figure}{\numberline {6.22}{\ignorespaces Client 2 receive event navigation \DIFaddbeginFL {\color {blue}\uwave {for the message $``Default\tmspace +\thickmuskip {.2777em} answer\tmspace +\thickmuskip {.2777em} from\tmspace +\thickmuskip {.2777em} server"$}}\DIFaddendFL \relax }}{86}{figure.caption.70}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }

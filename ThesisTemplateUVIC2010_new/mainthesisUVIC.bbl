@@ -1,0 +1,145 @@
+\begin{thebibliography}{10}
+
+\bibitem{bhansali2006framework}
+Sanjay Bhansali, Wen-Ke Chen, Stuart De~Jong, Andrew Edwards, Ron Murray,
+  Milenko Drini{\'c}, Darek Miho{\v{c}}ka, and Joe Chau.
+\newblock Framework for instruction-level tracing and analysis of program
+  executions.
+\newblock In {\em Proceedings of the 2nd international conference on Virtual
+  execution environments}, pages 154--163. ACM, 2006.
+
+\bibitem{brueningqz}
+Derek Bruening.
+\newblock Qz: Dynamorio: Dynamic instrumentation tool platform.
+\newblock \url{http://www.dynamorio.org/}.
+
+\bibitem{cai2016sworddta}
+Jun Cai, Peng Zou, Jinxin Ma, and Jun He.
+\newblock Sworddta: A dynamic taint analysis tool for software vulnerability
+  detection.
+\newblock {\em Wuhan University Journal of Natural Sciences}, 21(1):10--20,
+  2016.
+
+\bibitem{_wireshark_????}
+Gerald Combs.
+\newblock Wireshark Â· {Go} {Deep}.
+\newblock \url{https://www.wireshark.org/}.
+
+\bibitem{_c0demap/codemap:_????}
+KAIST CysecLab.
+\newblock Codemap.
+\newblock \url{https://github.com/c0demap/codemap}.
+
+\bibitem{dowd_art_2006}
+Mark Dowd, John McDonald, and Justin Schuh.
+\newblock {\em Art of {Software} {Security} {Assessment}, {The}: {Identifying}
+  and {Preventing} {Software} {Vulnerabilities}}.
+\newblock Addison-Wesley Professional., 1st edition, November 2006.
+
+\bibitem{eagle_ida_2008}
+Chris Eagle.
+\newblock {\em The {IDA} {Pro} {Book}: {The} {Unofficial} {Guide} to the
+  {World}'s {Most} {Popular} {Disassembler}}.
+\newblock No Starch Press, San Francisco, CA, USA, 2008.
+
+\bibitem{garrido2000inter}
+Jos{\'e}~M Garrido.
+\newblock Inter-process communication.
+\newblock {\em Performance Modeling of Operating Systems Using Object-Oriented
+  Simulation: A Practical Introduction}, pages 169--189, 2000.
+
+\bibitem{gcc}
+GCC.
+\newblock Options that control optimization.
+\newblock
+  \url{https://gcc.gnu.org/onlinedocs/gcc-4.9.1/gcc/Optimize-Options.html}.
+
+\bibitem{hansman2005taxonomy}
+Simon Hansman and Ray Hunt.
+\newblock A taxonomy of network and computer attacks.
+\newblock {\em Computers \& Security}, 24(1):31--43, 2005.
+
+\bibitem{howard2003writing}
+Michael Howard and David LeBlanc.
+\newblock {\em Writing secure code}.
+\newblock Pearson Education, 2003.
+
+\bibitem{huang2017atlantis}
+Huihui~Nora Huang, Eric Verbeek, Daniel German, Margaret-Anne Storey, and
+  Martin Salois.
+\newblock Atlantis: Improving the analysis and visualization of large assembly
+  execution traces.
+\newblock In {\em Software Maintenance and Evolution (ICSME), 2017 IEEE
+  International Conference on}, pages 623--627. IEEE, 2017.
+
+\bibitem{_pin_????}
+Intel.
+\newblock Pin - {A} {Dynamic} {Binary} {Instrumentation} {Tool}.
+\newblock
+  \url{https://software.intel.com/en-us/articles/pin-a-dynamic-binary-instrumentation-tool}.
+
+\bibitem{leavitt2011mobile}
+Neal Leavitt.
+\newblock Mobile security: finally a serious problem?
+\newblock {\em Computer}, 44(6):11--14, 2011.
+
+\bibitem{WinMSMQ}
+MSDN.
+\newblock Message queue (windows).
+\newblock
+  \url{https://msdn.microsoft.com/en-us/library/ms705205(v=vs.85).aspx}.
+
+\bibitem{WinNamedpipe}
+MSDN.
+\newblock Named pipes (windows).
+\newblock
+  \url{https://msdn.microsoft.com/en-us/library/windows/desktop/aa365590(v=vs.85).aspx}.
+
+\bibitem{winsock}
+MSDN.
+\newblock Socket reference (windows).
+\newblock
+  \url{https://msdn.microsoft.com/en-us/library/windows/desktop/ms741416(v=vs.85).aspx}.
+
+\bibitem{redkar2004pro}
+Arohi Redkar, Ken Rabold, Richard Costall, Scot Boyd, and Carlos Walzer.
+\newblock {\em Pro MSMQ: Microsoft Message Queue Programming}.
+\newblock Apress, 2004.
+
+\bibitem{somorovsky2016systematic}
+Juraj Somorovsky.
+\newblock Systematic fuzzing and testing of tls libraries.
+\newblock In {\em Proceedings of the 2016 ACM SIGSAC Conference on Computer and
+  Communications Security}, pages 1492--1504. ACM, 2016.
+
+\bibitem{tcpdump_tcpdump/libpcap_????}
+Tcpdump.
+\newblock Tcpdump/{Libpcap} public repository.
+\newblock \url{http://www.tcpdump.org}.
+
+\bibitem{trumper2012maintenance}
+Jonas Tr{\"u}mper, Stefan Voigt, and J{\"u}rgen D{\"o}llner.
+\newblock Maintenance of embedded systems: Supporting program comprehension
+  using dynamic analysis.
+\newblock In {\em Software Engineering for Embedded Systems (SEES), 2012 2nd
+  International Workshop on}, pages 58--64. IEEE, 2012.
+
+\bibitem{wen2017model}
+Shameng Wen, Qingkun Meng, Chao Feng, and Chaojing Tang.
+\newblock A model-guided symbolic execution approach for network protocol
+  implementations and vulnerability detection.
+\newblock {\em PloS one}, 12(11):e0188229, 2017.
+
+\bibitem{yuschuk2007ollydbg}
+Oleh Yuschuk.
+\newblock Ollydbg.
+\newblock \url{http://www.ollydbg.de/}, 2007.
+
+\bibitem{zhang2010detecting}
+Dazhi Zhang, Donggang Liu, Yu~Lei, David Kung, Christoph Csallner, and Wenhua
+  Wang.
+\newblock Detecting vulnerabilities in c programs using trace-based testing.
+\newblock In {\em Dependable Systems and Networks (DSN), 2010 IEEE/IFIP
+  International Conference on}, pages 241--250. IEEE, 2010.
+
+\end{thebibliography}

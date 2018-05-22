@@ -1,0 +1,84 @@
+\contentsline {chapter}{Supervisory Committee}{ii}{section*.1}
+\contentsline {chapter}{Abstract}{iii}{section*.2}
+\contentsline {chapter}{Table of Contents}{iv}{section*.3}
+\contentsline {chapter}{List of Tables}{vii}{section*.4}
+\contentsline {chapter}{List of Figures}{viii}{section*.5}
+\contentsline {chapter}{Acknowledgements}{x}{section*.6}
+\contentsline {chapter}{Dedication}{xi}{section*.7}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{2}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Why Assembly-level Trace Analysis}{2}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Why Communication Analysis with Assembly-level Traces}{3}{subsection.1.1.2}
+\contentsline {section}{\numberline {1.2}Research Goal}{4}{section.1.2}
+\contentsline {section}{\numberline {1.3}Research Process}{4}{section.1.3}
+\contentsline {section}{\numberline {1.4}Contributions}{6}{section.1.4}
+\contentsline {section}{\numberline {1.5}Thesis Organization}{7}{section.1.5}
+\contentsline {chapter}{\numberline {2}Background}{8}{chapter.2}
+\contentsline {section}{\numberline {2.1}Software Vulnerability}{8}{section.2.1}
+\contentsline {section}{\numberline {2.2}Program Communications Categories}{8}{section.2.2}
+\contentsline {section}{\numberline {2.3}Program Execution Tracing at the Assembly-Level}{9}{section.2.3}
+\contentsline {section}{\numberline {2.4}Atlantis}{9}{section.2.4}
+\contentsline {chapter}{\numberline {3}Communication Modeling}{10}{chapter.3}
+\contentsline {section}{\numberline {3.1}Communication Methods Categorization}{10}{section.3.1}
+\contentsline {section}{\numberline {3.2}Communication Model}{11}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Communication Definition}{11}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Communication Properties}{12}{subsection.3.2.2}
+\contentsline {subsubsection}{\numberline {3.2.2.1}Properties of reliable communication}{12}{subsubsection.3.2.2.1}
+\contentsline {subsubsection}{\numberline {3.2.2.2}Properties of unreliable communication}{13}{subsubsection.3.2.2.2}
+\contentsline {chapter}{\numberline {4}Communication Analysis}{17}{chapter.4}
+\contentsline {section}{\numberline {4.1}Dual\_Trace}{18}{section.4.1}
+\contentsline {section}{\numberline {4.2}Functions Descriptors}{19}{section.4.2}
+\contentsline {section}{\numberline {4.3}Function Call Event Reconstruction Algorithm}{20}{section.4.3}
+\contentsline {section}{\numberline {4.4}Channel Open Mechanisms}{22}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Named Pipe Channel Open Mechanisms}{22}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}Message Queue Channel Open Mechanisms}{23}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}UDP and TCP Channel Open Mechanisms}{24}{subsection.4.4.3}
+\contentsline {section}{\numberline {4.5}Stream Extraction Algorithm}{25}{section.4.5}
+\contentsline {subsubsection}{\numberline {4.5.0.1}{\color {red}\sout {Stream Extraction Algorithm for Named Pipe and Message Queue}}}{26}{subsubsection.4.5.0.1}
+\contentsline {subsection}{\numberline {4.5.1}{\color {blue}\uwave {Stream Extraction Algorithm for Named Pipe and Message Queue}}}{26}{subsection.4.5.1}
+\contentsline {subsubsection}{\numberline {4.5.1.1}{\color {red}\sout {Stream Extraction Algorithm for TCP and UDP}}}{27}{subsubsection.4.5.1.1}
+\contentsline {subsection}{\numberline {4.5.2}{\color {blue}\uwave {Stream Extraction Algorithm for TCP and UDP}}}{27}{subsection.4.5.2}
+\contentsline {section}{\numberline {4.6}Stream Matching Algorithm}{30}{section.4.6}
+\contentsline {section}{\numberline {4.7}Data Verification Algorithm}{31}{section.4.7}
+\contentsline {subsection}{\numberline {4.7.1}Data Verification Algorithm for Named Pipe}{32}{subsection.4.7.1}
+\contentsline {subsection}{\numberline {4.7.2}Data Verification Algorithm for TCP}{33}{subsection.4.7.2}
+\contentsline {subsection}{\numberline {4.7.3}Data Verification Algorithm for Message Queue}{35}{subsection.4.7.3}
+\contentsline {subsection}{\numberline {4.7.4}Data Verification Algorithm for UDP}{37}{subsection.4.7.4}
+\contentsline {subsection}{\numberline {4.7.5}Limitation of the Data Verification}{39}{subsection.4.7.5}
+\contentsline {section}{\numberline {4.8}{\color {blue}\uwave {Discussion of Security Analysis Challenge}}}{40}{section.4.8}
+\contentsline {chapter}{\numberline {5}Dual\_trace Communication Analysis Prototype In Atlantis}{42}{chapter.5}
+\contentsline {section}{\numberline {5.1}Use Cases}{42}{section.5.1}
+\contentsline {section}{\numberline {5.2}Declaring of the Functions Descriptors}{45}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Communication Methods' Implementation in Windows}{46}{subsection.5.2.1}
+\contentsline {subsubsection}{\numberline {5.2.1.1}Windows Calling Convention}{47}{subsubsection.5.2.1.1}
+\contentsline {subsubsection}{\numberline {5.2.1.2}Named Pipes}{47}{subsubsection.5.2.1.2}
+\contentsline {subsubsection}{\numberline {5.2.1.3}Message Queue}{49}{subsubsection.5.2.1.3}
+\contentsline {subsubsection}{\numberline {5.2.1.4}TCP and UDP}{50}{subsubsection.5.2.1.4}
+\contentsline {section}{\numberline {5.3}Parallel Trace View For Dual\_Trace}{51}{section.5.3}
+\contentsline {section}{\numberline {5.4}Implementation of the Communication Analysis Algorithms}{52}{section.5.4}
+\contentsline {section}{\numberline {5.5}View of Extracted Streams and Identified Communications}{55}{section.5.5}
+\contentsline {chapter}{\numberline {6}Proof of Concept}{58}{chapter.6}
+\contentsline {section}{\numberline {6.1}Experiment 1}{59}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Experiment Design}{59}{subsection.6.1.1}
+\contentsline {subsection}{\numberline {6.1.2}Dual\_trace Analysis Results Walk Through}{60}{subsection.6.1.2}
+\contentsline {section}{\numberline {6.2}Experiment 2}{67}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Experiment Design}{67}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Dual\_trace Analysis Results Walk Through}{69}{subsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.1}$\boldsymbol {Server.trace:}$}{69}{subsubsection.6.2.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2.2}$\boldsymbol {Client1.trace:}$}{70}{subsubsection.6.2.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.3}$\boldsymbol {Client2.trace:}$}{71}{subsubsection.6.2.2.3}
+\contentsline {subsubsection}{\numberline {6.2.2.4}$\boldsymbol {Dual\_trace\_21:}$}{72}{subsubsection.6.2.2.4}
+\contentsline {subsubsection}{\numberline {6.2.2.5}$\boldsymbol {Dual\_trace\_22:}$}{77}{subsubsection.6.2.2.5}
+\contentsline {section}{\numberline {6.3}Conclusion}{84}{section.6.3}
+\contentsline {chapter}{\numberline {7}Conclusions and Future Work}{87}{chapter.7}
+\contentsline {section}{\numberline {7.1}Discussion}{87}{section.7.1}
+\contentsline {section}{\numberline {7.2}Future Works}{88}{section.7.2}
+\contentsline {chapter}{Bibliography}{90}{section*.71}
+\contentsline {chapter}{Appendix \numberline {A}Microsoft x64 Calling Convention for C/C++}{92}{Appendix.a.A}
+\contentsline {chapter}{Appendix \numberline {B}Function Descriptor Configuration file Example}{93}{Appendix.a.B}
+\contentsline {chapter}{Appendix \numberline {C}Code of the Parallel Editors}{96}{Appendix.a.C}
+\contentsline {section}{\numberline {C.1}The Editor Area Split Handler}{96}{section.a.C.1}
+\contentsline {section}{\numberline {C.2}Get the Active Parallel Editors}{99}{section.a.C.2}
+\contentsline {chapter}{Appendix \numberline {D}Code of the Programs in the Experiments}{100}{Appendix.a.D}
+\contentsline {section}{\numberline {D.1}Experiment 1}{100}{section.a.D.1}
+\contentsline {section}{\numberline {D.2}Experiment 2}{105}{section.a.D.2}

@@ -1,0 +1,290 @@
+@book{dowd_art_2006,
+	edition = {1st},
+	title = {Art of {Software} {Security} {Assessment}, {The}: {Identifying} and {Preventing} {Software} {Vulnerabilities}},
+	isbn = {978-0-321-44442-4},
+	shorttitle = {Art of {Software} {Security} {Assessment}, {The}},
+	url = {http://www.informit.com/store/art-of-software-security-assessment-identifying-and-9780321444424},
+	urldate = {2017-03-02},
+	publisher = {Addison-Wesley Professional.},
+	author = {Dowd, Mark and McDonald, John and Schuh, Justin},
+	month = nov,
+	year = {2006}}
+	
+	
+
+@inproceedings{cleary_reconstructing_2013,
+	title = {Reconstructing program memory state from multi-gigabyte instruction traces to support interactive analysis},
+	doi = {10.1109/WCRE.2013.6671279},
+	abstract = {Exploitability analysis is the process of attempting to determine if a vulnerability in a program is exploitable. Fuzzing is a popular method of finding such vulnerabilities, in which a program is subjected to millions of generated program inputs until it crashes. Each program crash indicates a potential vulnerability that needs to be prioritized according to its potential for exploitation. The highest priority vulnerabilities need to be investigated by a security analyst by re-executing the program with the input that caused the crash while recording a trace of all executed assembly instructions and then performing analysis on the resulting trace. Recreating the entire memory state of the program at the time of the crash, or at any other point in the trace, is very important for helping the analyst build an understanding of the conditions that led to the crash. Unfortunately, tracing even a small program can create multimillion line trace files from which reconstructing memory state is a computationally intensive process and virtually impossible to do manually. In this paper we present an analysis of the problem of memory state reconstruction from very large execution traces. We report on a novel approach for reconstructing the entire memory state of a program from an execution trace that allows near realtime queries on the state of memory at any point in a program's execution trace. Finally we benchmark our approach showing storage and performance results in line with our theoretical calculations and demonstrate memory state query response times of less than 200ms for trace files up to 60 million lines.},
+	booktitle = {2013 20th {Working} {Conference} on {Reverse} {Engineering} ({WCRE})},
+	author = {Cleary, B. and Gorman, P. and Verbeek, E. and Storey, M. A. and Salois, M. and Painchaud, F.},
+	month = oct,
+	year = {2013},
+	keywords = {Assembly, assembly instructions, Computer crashes, exploitability analysis, interactive analysis support, Memory management, memory state query response times, multi-gigabyte instruction traces, program crash, program diagnostics, program execution trace, program memory state reconstruction, program vulnerability, real-time systems, Registers, Security, security analyst, storage management, Time factors},
+	pages = {42--51},
+	file = {cleary-WCRE2013.pdf:/Users/sunxi/Library/Application Support/Zotero/Profiles/bdtl1jin.default/zotero/storage/WSNCVV8N/cleary-WCRE2013.pdf:application/pdf;IEEE Xplore Abstract Record:/Users/sunxi/Library/Application Support/Zotero/Profiles/bdtl1jin.default/zotero/storage/6BIP4ERZ/6671279.html:text/html}}
+
+@inproceedings{wang_predicting_2011,
+	title = {Predicting {Concurrency} {Failures} in the {Generalized} {Execution} {Traces} of x86 {Executables}},
+	url = {http://link.springer.com/chapter/10.1007/978-3-642-29860-8_2},
+	abstract = {In this tutorial, we first provide a brief overview of the latest development in SMT based symbolic predictive analysis techniques and their applications to runtime verification. We then present a unified runtime analysis platform for detecting concurrency related program failures in the x86 executables of shared-memory multithreaded applications. Our platform supports efficient monitoring and easy customization of a wide range of execution trace generalization techniques. Many of these techniques have been successfully incorporated into our in-house verification tools, including BEST (Binary instrumentation based Error-directed Symbolic Testing), which can detect concurrency related errors such as deadlocks and race conditions, generate failure-triggering thread schedules, and provide the visual mapping between runtime events and their program code to help debugging.},
+	language = {en},
+	urldate = {2017-02-18},
+	booktitle = {Runtime {Verification}},
+	publisher = {Springer, Berlin, Heidelberg},
+	author = {Wang, Chao and Ganai, Malay},
+	month = sep,
+	year = {2011},
+	note = {DOI: 10.1007/978-3-642-29860-8\_2},
+	pages = {4--18},
+	file = {Full Text PDF:/Users/sunxi/Library/Application Support/Zotero/Profiles/bdtl1jin.default/zotero/storage/DQWD4U82/Wang and Ganai - 2011 - Predicting Concurrency Failures in the Generalized.pdf:application/pdf;Snapshot:/Users/sunxi/Library/Application Support/Zotero/Profiles/bdtl1jin.default/zotero/storage/HWWJSAQU/978-3-642-29860-8_2.html:text/html}}
+
+@book{eagle_ida_2008,
+	address = {San Francisco, CA, USA},
+	title = {The {IDA} {Pro} {Book}: {The} {Unofficial} {Guide} to the {World}'s {Most} {Popular} {Disassembler}},
+	isbn = {978-1-59327-178-7},
+	shorttitle = {The {IDA} {Pro} {Book}},
+	abstract = {No source code? No problem. With IDA Pro, you live in a source code-optional world. IDA can automatically analyze the millions of opcodes that make up an executable and present you with a disassembly. But at that point, your work is just beginning. With The IDA Pro Book, you'll learn how to turn that mountain of mnemonics into something you can actually use. Hailed by the creator of IDA Pro as the "long-awaited" and "information-packed" guide to IDA, The IDA Pro Book covers everything from the very first steps to advanced automation techniques. While other disassemblers slow your analysis with inflexibility, IDA invites you to customize its output for improved readability and usefulness. You'll save time and effort as you learn to: Identify known library routines, so you can focus your analysis on other areas of the code Extend IDA to support new processors and filetypes, making disassembly possible for new or obscure architectures Explore popular plug-ins that make writing IDA scripts easier, allow collaborative reverse engineering, and much more Utilize IDA's built-in debugger to tackle obfuscated code that would defeat a stand-alone disassembler You'll still need serious assembly skills to tackle the toughest executables, but IDA makes things a lot easier. Whether you're analyzing the software on a black box or conducting hard-core vulnerability research, a mastery of IDA Pro is crucial to your success. Take your skills to the next level with The IDA Pro Book.},
+	publisher = {No Starch Press},
+	author = {Eagle, Chris},
+	year = {2008}
+}
+
+@misc{_c0demap/codemap:_????,
+	title = {Codemap},
+	howpublished = "\url{https://github.com/c0demap/codemap}",
+	urldate = {2017-03-02},
+	author = {KAIST CysecLab},
+	file = {c0demap/codemap\: Codemap:/Users/sunxi/Library/Application Support/Zotero/Profiles/bdtl1jin.default/zotero/storage/599XM9PM/codemap.html:text/html}}
+	
+@misc{_pin_????,
+	title = {Pin - {A} {Dynamic} {Binary} {Instrumentation} {Tool}},
+	howpublished = "\url{https://software.intel.com/en-us/articles/pin-a-dynamic-binary-instrumentation-tool}",
+	urldate = {2017-03-02},
+	author = {Intel},
+	file = {Pin - A Dynamic Binary Instrumentation Tool | IntelÂ® Software:/Users/sunxi/Library/Application Support/Zotero/Profiles/bdtl1jin.default/zotero/storage/QS45PQXW/pin-a-dynamic-binary-instrumentation-tool.html:text/html}}
+
+@misc{brueningqz,
+  title={QZ: Dynamorio: Dynamic instrumentation tool platform},
+  howpublished = "\url{http://www.dynamorio.org/}",
+  author={Bruening, Derek}}
+
+@book{redkar2004pro,
+  title={Pro MSMQ: Microsoft Message Queue Programming},
+  author={Redkar, Arohi and Rabold, Ken and Costall, Richard and Boyd, Scot and Walzer, Carlos},
+  year={2004},
+  publisher={Apress}}
+
+@online{WinNamedpipe,
+  author = {MSDN},
+  title = {Named Pipes (Windows)},
+  howpublished = "\url{https://msdn.microsoft.com/en-us/library/windows/desktop/aa365590(v=vs.85).aspx}",
+  urldate = {2010-09-30}}
+  
+@inproceedings{huang2017atlantis,
+  title={Atlantis: Improving the Analysis and Visualization of Large Assembly Execution Traces},
+  author={Huang, Huihui Nora and Verbeek, Eric and German, Daniel and Storey, Margaret-Anne and Salois, Martin},
+  booktitle={Software Maintenance and Evolution (ICSME), 2017 IEEE International Conference on},
+  pages={623--627},
+  year={2017},
+  organization={IEEE}}
+  
+@article{khambattinamed,
+  title={Named Pipes, Sockets and other IPC},
+  author={Khambatti-Mujtaba, Mujtaba}}
+  
+@misc{yuschuk2007ollydbg,
+  title={Ollydbg},
+  howpublished = "\url{http://www.ollydbg.de/}",
+  author={Yuschuk, Oleh},
+  year={2007}
+}
+
+@inproceedings{godefroid2008automated,
+  title={Automated whitebox fuzz testing.},
+  author={Godefroid, Patrice and Levin, Michael Y and Molnar, David A and others},
+  booktitle={NDSS},
+  volume={8},
+  pages={151--166},
+  year={2008}
+}
+
+@inproceedings{li2013software,
+  title={Software vulnerability detection using backward trace analysis and symbolic execution},
+  author={Li, Hongzhe and Kim, Taebeom and Bat-Erdene, Munkhbayar and Lee, Heejo},
+  booktitle={Availability, Reliability and Security (ARES), 2013 Eighth International Conference on},
+  pages={446--454},
+  year={2013},
+  organization={IEEE}
+}
+
+@inproceedings{sailer2016coretana,
+  title={CoreTAna: A Trace Analyzer for Reverse Engineering Real-Time Software},
+  author={Sailer, Andreas and Deubzer, Michael and L{\"u}ttgen, Gerald and Mottok, J{\"u}rgen},
+  booktitle={Software Analysis, Evolution, and Reengineering (SANER), 2016 IEEE 23rd International Conference on},
+  volume={1},
+  pages={657--660},
+  year={2016},
+  organization={IEEE}
+}
+
+@inproceedings{balakrishnan2004analyzing,
+  title={Analyzing memory accesses in x86 executables},
+  author={Balakrishnan, Gogul and Reps, Thomas},
+  booktitle={International conference on compiler construction},
+  pages={5--23},
+  year={2004},
+  organization={Springer}
+}
+
+@inproceedings{bhansali2006framework,
+  title={Framework for instruction-level tracing and analysis of program executions},
+  author={Bhansali, Sanjay and Chen, Wen-Ke and De Jong, Stuart and Edwards, Andrew and Murray, Ron and Drini{\'c}, Milenko and Miho{\v{c}}ka, Darek and Chau, Joe},
+  booktitle={Proceedings of the 2nd international conference on Virtual execution environments},
+  pages={154--163},
+  year={2006},
+  organization={ACM}
+}
+
+@inproceedings{trumper2012maintenance,
+  title={Maintenance of embedded systems: Supporting program comprehension using dynamic analysis},
+  author={Tr{\"u}mper, Jonas and Voigt, Stefan and D{\"o}llner, J{\"u}rgen},
+  booktitle={Software Engineering for Embedded Systems (SEES), 2012 2nd International Workshop on},
+  pages={58--64},
+  year={2012},
+  organization={IEEE}
+}
+
+@article{wen2017model,
+  title={A model-guided symbolic execution approach for network protocol implementations and vulnerability detection},
+  author={Wen, Shameng and Meng, Qingkun and Feng, Chao and Tang, Chaojing},
+  journal={PloS one},
+  volume={12},
+  number={11},
+  pages={e0188229},
+  year={2017},
+  publisher={Public Library of Science}
+}
+
+@inproceedings{zhang2010detecting,
+  title={Detecting vulnerabilities in C programs using trace-based testing},
+  author={Zhang, Dazhi and Liu, Donggang and Lei, Yu and Kung, David and Csallner, Christoph and Wang, Wenhua},
+  booktitle={Dependable Systems and Networks (DSN), 2010 IEEE/IFIP International Conference on},
+  pages={241--250},
+  year={2010},
+  organization={IEEE}
+}
+
+@article{cai2016sworddta,
+  title={Sworddta: A dynamic taint analysis tool for software vulnerability detection},
+  author={Cai, Jun and Zou, Peng and Ma, Jinxin and He, Jun},
+  journal={Wuhan University Journal of Natural Sciences},
+  volume={21},
+  number={1},
+  pages={10--20},
+  year={2016},
+  publisher={Springer}
+}
+
+@inproceedings{somorovsky2016systematic,
+  title={Systematic fuzzing and testing of TLS libraries},
+  author={Somorovsky, Juraj},
+  booktitle={Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security},
+  pages={1492--1504},
+  year={2016},
+  organization={ACM}
+}
+
+@misc{_wireshark_????,
+	title = {Wireshark Â· {Go} {Deep}.},
+	howpublished = "\url{https://www.wireshark.org/}",
+	urldate = {2017-03-02},
+	author = {Gerald Combs},
+	file = {Wireshark Â· Go Deep.:/Users/sunxi/Library/Application Support/Zotero/Profiles/bdtl1jin.default/zotero/storage/IGIXFGIZ/www.wireshark.org.html:text/html}
+}
+	
+
+@misc{tcpdump_tcpdump/libpcap_????,
+	title = {Tcpdump/{Libpcap} public repository},
+	howpublished = "\url{http://www.tcpdump.org}",
+	abstract = {Web site of Tcpdump and Libpcap},
+	language = {en},
+	urldate = {2017-03-02},
+	author = {Tcpdump},
+	file = {Snapshot:/Users/sunxi/Library/Application Support/Zotero/Profiles/bdtl1jin.default/zotero/storage/R9WI8FDH/www.tcpdump.org.html:text/html}
+}
+
+@article{PhysRevE.68.046116,
+  title = {Software systems as complex networks: Structure, function, and evolvability of software collaboration graphs},
+  author = {Myers, Christopher R.},
+  journal = {Phys. Rev. E},
+  volume = {68},
+  issue = {4},
+  pages = {046116},
+  numpages = {15},
+  year = {2003},
+  month = {Oct},
+  publisher = {American Physical Society},
+  doi = {10.1103/PhysRevE.68.046116},
+  url = {http://link.aps.org/doi/10.1103/PhysRevE.68.046116}
+}
+
+@article{garrido2000inter,
+  title={Inter-process communication},
+  author={Garrido, Jos{\'e} M},
+  journal={Performance Modeling of Operating Systems Using Object-Oriented Simulation: A Practical Introduction},
+  pages={169--189},
+  year={2000},
+  publisher={Springer}
+}
+
+
+@online{gcc,
+  author = {GCC},
+  title = {Options That Control Optimization},
+  howpublished = "\url{https://gcc.gnu.org/onlinedocs/gcc-4.9.1/gcc/Optimize-Options.html}",
+  urldate = {2010-09-30}
+}
+
+@book{howard2003writing,
+  title={Writing secure code},
+  author={Howard, Michael and LeBlanc, David},
+  year={2003},
+  publisher={Pearson Education}
+}
+
+@online{winsock,
+  author = {MSDN},
+  title = {Socket Reference (Windows)},
+  howpublished = "\url{https://msdn.microsoft.com/en-us/library/windows/desktop/ms741416(v=vs.85).aspx}",
+  urldate = {2010-09-30}
+} 
+
+@online{WinMSMQ,
+  author = {MSDN},
+  title = {Message Queue (Windows)},
+  howpublished = "\url{https://msdn.microsoft.com/en-us/library/ms705205(v=vs.85).aspx}",
+  urldate = {2010-09-30}
+  }
+  
+@article{leavitt2011mobile,
+  title={Mobile security: finally a serious problem?},
+  author={Leavitt, Neal},
+  journal={Computer},
+  volume={44},
+  number={6},
+  pages={11--14},
+  year={2011},
+  publisher={IEEE}
+}
+
+@article{hansman2005taxonomy,
+  title={A taxonomy of network and computer attacks},
+  author={Hansman, Simon and Hunt, Ray},
+  journal={Computers \& Security},
+  volume={24},
+  number={1},
+  pages={31--43},
+  year={2005},
+  publisher={Elsevier}
+}

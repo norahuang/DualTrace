@@ -1,0 +1,184 @@
+\begin{appendices}	
+\chapter{Microsoft x64 Calling Convention for C/C++}\label{convention}
+\begin{itemize}  
+\item RCX, RDX, R8, R9 are used for integer and pointer arguments in that order left to right.
+\item XMM0, 1, 2, and 3 are used for floating point arguments.
+\item Additional arguments are pushed on the stack left to right. \ldots 
+\item Parameters less than 64 bits long are not zero extended; the high bits contain garbage.
+\item Integer return values (similar to x86) are returned in RAX if 64 bits or less.
+\item Floating point return values are returned in XMM0.
+\item Larger return values (structs) have space allocated on the stack by the caller, and RCX then contains a pointer to the return space when the callee is called. Register usage for integer parameters is then pushed one to the right. RAX returns this address to the caller.
+\end{itemize}
+
+\chapter{Function Descriptor Configuration file Example}\label{funcset}
+\lstinputlisting[caption= communicationMethods.json]{./sourcecode/communicationMethods.json}
+
+\chapter{Code of the Parallel Editors}\label{paralleleditor}
+Two essential pieces of code are listed for the parallel editor. One is for splitting the editor area for two editors while the other is to get the active parallel editors later on  for dual\_trace analysis.
+\section{The Editor Area Split Handler}
+\begin{lstlisting}[caption= code in OpenDualEditorsHandler.java]
+public class OpenDualEditorsHandler extends AbstractHandler {
+	EModelService ms;
+	EPartService ps;
+	WorkbenchPage page;
+
+	  
+    public Object execute(ExecutionEvent event) throws ExecutionException {
+		IEditorPart editorPart = HandlerUtil.getActiveEditor(event);
+		if (editorPart == null) {
+			Throwable throwable = new Throwable("No active editor");
+			BigFileApplication.showErrorDialog("No active editor", "Please open one file first", throwable);
+			return null;
+		}
+
+		MPart container = (MPart) editorPart.getSite().getService(MPart.class);
+		MElementContainer m = container.getParent();
+		if (m instanceof PartSashContainerImpl) {
+			Throwable throwable = new Throwable("The active file is already opened in one of the parallel editors");
+			BigFileApplication.showErrorDialog("TThe active file is already opened in one of the parallel editors",
+					"The active file is already opened in one of the parallel editors", throwable);
+			return null;
+		}
+		IFile file = getPathOfSelectedFile(event);
+
+		IEditorDescriptor desc = PlatformUI.getWorkbench().getEditorRegistry().getDefaultEditor(file.getName());
+		try {
+			IFileUtils fileUtil = RegistryUtils.getFileUtils();
+			File f = BfvFileUtils.convertFileIFile(file);
+			f = fileUtil.convertFileToBlankFile(f);
+			IFile convertedFile = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(Path.fromOSString(f.getAbsolutePath()));
+			convertedFile.getProject().refreshLocal(IResource.DEPTH_INFINITE, null);
+			if (!convertedFile.exists()) {
+				createEmptyFile(convertedFile);
+			}
+
+			IEditorPart containerEditor = HandlerUtil.getActiveEditorChecked(event);
+			IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindowChecked(event);
+			ms = window.getService(EModelService.class);
+			ps = window.getService(EPartService.class);
+			page = (WorkbenchPage) window.getActivePage();
+			IEditorPart editorToInsert = page.openEditor(new FileEditorInput(convertedFile), desc.getId());
+			splitEditor(0.5f, 3, editorToInsert, containerEditor, new FileEditorInput(convertedFile));
+			window.getShell().layout(true, true);
+			
+
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+
+		return null;
+	}
+
+    private void createEmptyFile(IFile file) {
+		byte[] emptyBytes = "".getBytes();
+		InputStream source = new ByteArrayInputStream(emptyBytes);
+		try {
+			createParentFolders(file);
+			if(!file.exists()){
+				file.create(source, false, null);
+			}
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}finally{
+			try {
+				source.close();
+			} catch (IOException e) {
+				// Don't care
+			}
+		}
+	}
+
+	private void splitEditor(float ratio, int where, IEditorPart editorToInsert, IEditorPart containerEditor,
+			FileEditorInput newEditorInput) {
+		MPart container = (MPart) containerEditor.getSite().getService(MPart.class);
+		if (container == null) {
+			return;
+		}
+
+		MPart toInsert = (MPart) editorToInsert.getSite().getService(MPart.class);
+		if (toInsert == null) {
+			return;
+		}
+
+		MPartStack stackContainer = getStackFor(container);
+		MElementContainer<MUIElement> parent = container.getParent();
+		int index = parent.getChildren().indexOf(container);
+		MStackElement stackSelElement = stackContainer.getChildren().get(index);
+
+		MPartSashContainer psc = ms.createModelElement(MPartSashContainer.class);
+		psc.setHorizontal(true);
+		psc.getChildren().add((MPartSashContainerElement) stackSelElement);
+		psc.getChildren().add(toInsert);
+		psc.setSelectedElement((MPartSashContainerElement) stackSelElement);
+
+		MCompositePart compPart = ms.createModelElement(MCompositePart.class);
+		compPart.getTags().add(EPartService.REMOVE_ON_HIDE_TAG);
+		compPart.setCloseable(true);
+		compPart.getChildren().add(psc);
+		compPart.setSelectedElement(psc);
+		compPart.setLabel("dual-trace:" + containerEditor.getTitle() + " and " + editorToInsert.getTitle());
+
+		parent.getChildren().add(index, compPart);
+		ps.activate(compPart);
+
+	}
+
+	private MPartStack getStackFor(MPart part) {
+		MUIElement presentationElement = part.getCurSharedRef() == null ? part : part.getCurSharedRef();
+		MUIElement parent = presentationElement.getParent();
+		while (parent != null && !(parent instanceof MPartStack))
+			parent = parent.getParent();
+
+		return (MPartStack) parent;
+	}
+
+
+	private IFile getPathOfSelectedFile(ExecutionEvent event) {
+		IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+		if (window != null) {
+			window = HandlerUtil.getActiveWorkbenchWindow(event);
+			IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
+			Object firstElement = selection.getFirstElement();
+			if (firstElement instanceof IFile) {
+				return (IFile) firstElement;
+			}
+			if (firstElement instanceof IFolder) {
+				IFolder folder = (IFolder) firstElement;
+				AtlantisBinaryFormat binaryFormat = new AtlantisBinaryFormat(
+						folder.getRawLocation().makeAbsolute().toFile());
+				// arbitrary, just any file in the binary set is needed
+				return AtlantisFileUtils.convertFileIFile(binaryFormat.getExecVtableFile());
+			}
+		}
+		return null;
+	}
+}
+\end{lstlisting}
+
+\section{Get the Active Parallel Editors}
+\begin{lstlisting}[caption= code for getting parallel editors ]
+IEditorPart editorPart = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().getActiveEditor();
+		MPart container = (MPart) editorPart.getSite().getService(MPart.class);
+		MElementContainer m = container.getParent();
+		if (!(m instanceof PartSashContainerImpl)) {
+			Throwable throwable = new Throwable("This is not a dual-trace");
+			BigFileApplication.showErrorDialog("This is not a dual-trace!", "Open a dual-trace First", throwable);
+			return;
+		}
+
+		MPart editorPart1 = (MPart) m.getChildren().get(0);
+		MPart editorPart2 = (MPart) m.getChildren().get(1);
+\end{lstlisting}
+
+\chapter{Code of the Programs in the Experiments}\label{expcode}
+\section{Experiment 1}
+The two interacting programs were Named pipe server and client. The first piece of code listed below is the code for the server's program while the second piece is for the client program.
+\lstinputlisting[language=C++,caption= NamedPipeServer.cpp]{./sourcecode/experiment1/NamedPipeServer.cpp}
+\lstinputlisting[language=C++,caption= NamedPipeClient.cpp]{./sourcecode/experiment1/NamedPipeClient.cpp}
+
+\section{Experiment 2}
+In the experiment 2, two clients run the same program in sequence to connect to the server with asynchronous Named pipe channel. The first piece of code listed below is the code for the server's program while the second piece is the test.bat is the script for running the experiment. The client  program's code is identical to experiment 1.
+\lstinputlisting[language=C++,caption= NamedPipeServerOverlapped.cpp]{./sourcecode/experiment2/NamedPipeServerOverlapped.cpp}
+\lstinputlisting[caption= test.bat]{./sourcecode/experiment2/test.bat}
+
+\end{appendices}
