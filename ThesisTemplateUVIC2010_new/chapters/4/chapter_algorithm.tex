@@ -381,7 +381,10 @@ To verify the timing preservation, the relative time of the events in both strea
 
 The inputs of the data verification algorithms are two preliminary matched streams $s_0$ and $s_1$. The output is a boolean indicating if the streams satisfy content preservation. All communications that don't satisfy the content preservation should be excluded as identified communications.
 
-For each communication method the verification of the corresponding preservation is applied, That is, for Named Pipe and TCP, the reliable communication preservation needs to be verified and for Message Queue and UDP, the unreliable communication preservation needs to be verified. The following sub sections present the versification  algorithms for these four communication methods. In each sub section, I discuss the data transfer properties and scenarios of the communication method and then present the verification algorithm. The data transfer properties and scenarios are summarized from the perspectives of the how the protocol normally behave. So the output communications after data verification are those aligning with the those normal communication properties. By comparing the output extracted streams and the communications, the software security engineer might be able to detect the malicious streams and further detect the problems from the programs.
+For each communication method the verification of the corresponding preservation is applied, That is, for Named Pipe and TCP, the reliable communication preservation needs to be verified and for Message Queue and UDP, the unreliable communication preservation needs to be verified. The following sub sections present the versification  algorithms for these four communication methods. In each sub section, I discuss the data transfer properties and scenarios of the communication method and then present the verification algorithm. 
+
+The data transfer properties and scenarios are summarized from the perspectives of how the protocol normally behaves. Therefore the output communications (after data verification) aligns with properties of their documents API. If the communication between the two programs cannot be matched, the security engineer could compare the two streams manually for any
+signs of a malicious attack that might have modified the information in transit.
 
 \subsection{Data Verification Algorithm for Named Pipe}
 Named Pipe provides First In First Out (FIFO) communication mechanism for inter-process communication. It can be a one-way or a duplex pipe \cite{WinNamedpipe}. The basic data transfer characteristics of Named Pipe are: 
@@ -596,13 +599,5 @@ Figure \ref{secondlevelmatching} exemplifies this situation in a reliable commun
 \label{secondlevelmatching}
 \end{figure}
 
-\section{Discussion of Security Analysis Challenge}
-Malware is a serious problem for all system nowadays. The intrusion of malware is generally an individual behavior, malwares attack the vulnerability of one or several specific systems, then intrudes into the system, destroys and controls it to obtains private information. Some malware can even be spread like a virus through the Internet, invading other systems with the same vulnerability. In general, malware is targeted at system-level intrusions, and there is very little damage to common application software unless there are obvious vulnerabilities that can be exploited for systematic attacks. \cite{leavitt2011mobile}
 
-On the other hand, network attacks often occur on the network layer. Since the internet has be an extremely huge network in the world, the attack could be initiated at any network node. If there are no proper security measure, your data might be attacked during the transmission. There are many types of network attack, some are passive like monitoring information, some are active like corrupting and destroying the data or network itself. \cite{hansman2005taxonomy}
-
-There is not a system that is absolutely secure from attackers. The running system's behaviour can change dramatically due to all of these attacks. The goal of the communication analysis is simply monitoring
-programs in terms of data transmission. Perhaps the communication is modified by the attacks mention above. This places a huge challenge for communication analysis. For example, the identification of  a modified communication would be an extremely difficult mission. 
-
-However, even though there might be some cases that the communication can not be effectively identified, this work will still be valuable to the analyst, as it will show that the data sent was not received (at least the same data was not received) by the other side and might mean that the running environment is compromised.
 

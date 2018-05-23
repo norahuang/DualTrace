@@ -17,6 +17,15 @@ There are two main limitation of this work: 1) the identified communications mig
 
 In conclusion, even though has limitations, this work is novel and shows its value for guiding the communication analysis through assembly-level execution traces. In addition, the prototype is the unique tool at the time of writing for the communication analysis in assembly-level.
 
+\section{Challenge of Security Analysis}
+Nowadays, malware is a serious problem for all systems. The intrusion of malware is generally an individual event that attacks the vulnerability of one or several specific systems. Once inside the system, it can destroy and control it. Some malware can even be spread like a virus through the Internet, invading other systems with the same vulnerability. Frequently, malware targets the system-level, and there is no damage to application software unless there are obvious vulnerabilities that can be exploited for systematic attacks. \cite{leavitt2011mobile}
+
+On the other hand, network attacks occur often on the network layer. Data might be attacked during transmission. There are many types of network attacks, some are passive  (like monitoring information), some are active (like corrupting and destroying the data or network itself). \cite{hansman2005taxonomy}
+
+There is not a system that is absolutely secure from attackers. The running system's behaviour can change dramatically due to all of these attacks. The goal of the communication analysis is simply to monitor the security of data transmission between programs. Perhaps the communication has been modified by the attacks mention above. This places a huge challenge for communication analysis, as the identification of  a modified communication would be an extremely difficult mission. 
+
+However, even though there might be some cases that the communication cannot be effectively identified, this work will still be valuable to the analyst, as it will show that the data sent was not received (at least the same data was not received) by the other side and might mean that the running environment is compromised.
+
 \section{Future Works}
 
 Future works includes:

@@ -5,23 +5,23 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {4.1}{\ignorespaces An example of a function description\relax }}{20}{table.caption.14}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces Use case 1: extract streams from a dual\_trace\relax }}{44}{table.caption.23}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Use case 2: identify communications from the dual\_trace\relax }}{45}{table.caption.24}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Functions descriptor for synchronous Named Pipe\relax }}{48}{table.caption.25}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Functions descriptor for asynchronous Named Pipe\relax }}{48}{table.caption.26}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Functions descriptor for synchronous Message Queue\relax }}{49}{table.caption.27}
-\contentsline {table}{\numberline {5.6}{\ignorespaces Functions descriptor for asynchronous Message Queue\relax }}{50}{table.caption.28}
-\contentsline {table}{\numberline {5.7}{\ignorespaces Functions descriptor for TCP and UDP\relax }}{50}{table.caption.29}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Use case 1: extract streams from a dual\_trace\relax }}{43}{table.caption.23}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Use case 2: identify communications from the dual\_trace\relax }}{44}{table.caption.24}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Functions descriptor for synchronous Named Pipe\relax }}{47}{table.caption.25}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Functions descriptor for asynchronous Named Pipe\relax }}{47}{table.caption.26}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Functions descriptor for synchronous Message Queue\relax }}{48}{table.caption.27}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Functions descriptor for asynchronous Message Queue\relax }}{49}{table.caption.28}
+\contentsline {table}{\numberline {5.7}{\ignorespaces Functions descriptor for TCP and UDP\relax }}{49}{table.caption.29}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Functions descriptor of Named Pipe for experiment 1\relax }}{60}{table.caption.41}
-\contentsline {table}{\numberline {6.2}{\ignorespaces The sequence of function call events of $Client.trace$\relax }}{60}{table.caption.42}
-\contentsline {table}{\numberline {6.3}{\ignorespaces The sequence of function call events of $Server.trace$\relax }}{60}{table.caption.43}
-\contentsline {table}{\numberline {6.4}{\ignorespaces Functions descriptor of Named Pipe for experiment 2\relax }}{69}{table.caption.51}
-\contentsline {table}{\numberline {6.5}{\ignorespaces The sequence of function call events of $Server.trace$\relax }}{69}{table.caption.52}
-\contentsline {table}{\numberline {6.6}{\ignorespaces The sequence of function call events of $Client1.trace$\relax }}{70}{table.caption.54}
-\contentsline {table}{\numberline {6.7}{\ignorespaces The sequence of function call events of $Client2.trace$\relax }}{71}{table.caption.55}
-\contentsline {table}{\numberline {6.8}{\ignorespaces Content summarize of the extracted streams\relax }}{73}{table.caption.57}
-\contentsline {table}{\numberline {6.9}{\ignorespaces Content summarize of the extracted streams\relax }}{80}{table.caption.64}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Functions descriptor of Named Pipe for experiment 1\relax }}{59}{table.caption.41}
+\contentsline {table}{\numberline {6.2}{\ignorespaces The sequence of function call events of $Client.trace$\relax }}{59}{table.caption.42}
+\contentsline {table}{\numberline {6.3}{\ignorespaces The sequence of function call events of $Server.trace$\relax }}{59}{table.caption.43}
+\contentsline {table}{\numberline {6.4}{\ignorespaces Functions descriptor of Named Pipe for experiment 2\relax }}{68}{table.caption.51}
+\contentsline {table}{\numberline {6.5}{\ignorespaces The sequence of function call events of $Server.trace$\relax }}{68}{table.caption.52}
+\contentsline {table}{\numberline {6.6}{\ignorespaces The sequence of function call events of $Client1.trace$\relax }}{69}{table.caption.54}
+\contentsline {table}{\numberline {6.7}{\ignorespaces The sequence of function call events of $Client2.trace$\relax }}{70}{table.caption.55}
+\contentsline {table}{\numberline {6.8}{\ignorespaces Content summarize of the extracted streams\relax }}{72}{table.caption.57}
+\contentsline {table}{\numberline {6.9}{\ignorespaces Content summarize of the extracted streams\relax }}{79}{table.caption.64}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

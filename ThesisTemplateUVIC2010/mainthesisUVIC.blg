@@ -1,4 +1,6 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: mainthesisUVIC.aux
+This is BibTeX, Version 0.99d (TeX Live 2016)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: mainthesisUVIC.aux
 A level-1 auxiliary file: chapters/1/chapter_intro.aux
 A level-1 auxiliary file: chapters/2/chapter_background.aux
 A level-1 auxiliary file: chapters/3/chapter_modeling.aux
@@ -17,4 +19,45 @@ Warning--entry type for "winsock" isn't style-file defined
 --line 256 of file UvicThesis.bib
 Warning--entry type for "WinMSMQ" isn't style-file defined
 --line 263 of file UvicThesis.bib
+You've used 22 entries,
+            2118 wiz_defined-function locations,
+            620 strings with 7924 characters,
+and the built_in function-call counts, 7055 in all, are:
+= -- 689
+> -- 318
+< -- 6
++ -- 130
+- -- 106
+* -- 388
+:= -- 1133
+add.period$ -- 71
+call.type$ -- 22
+change.case$ -- 116
+chr.to.int$ -- 0
+cite$ -- 22
+duplicate$ -- 275
+empty$ -- 599
+format.name$ -- 106
+if$ -- 1540
+int.to.chr$ -- 0
+int.to.str$ -- 22
+missing$ -- 16
+newline$ -- 113
+num.names$ -- 44
+pop$ -- 184
+preamble$ -- 1
+purify$ -- 97
+quote$ -- 0
+skip$ -- 226
+stack$ -- 0
+substring$ -- 347
+swap$ -- 81
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 80
+warning$ -- 0
+while$ -- 65
+width$ -- 24
+write$ -- 228
 (There were 4 warnings)
