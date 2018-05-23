@@ -145,13 +145,13 @@ There is only one send event and one receive event in both streams, the data ver
 After seeing the identified communication from $dual\_trace\_1$, I navigated from the send event entries via ``double click" and receive event entries via ``Go To Line of Function End" to the traces. The navigation results are shown in Figures \ref{result1_client_send} and \ref{result1_server_read}.
 
 \begin{figure}
-\includegraphics[scale=0.7]{Figures/result1_client_send}
+\includegraphics[width=\textwidth]{Figures/result1_client_send}
  \caption{Client send event navigation for the message $``This\; is\; a\; test."$}
 \label{result1_client_send}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=0.7]{Figures/result1_server_read}
+\includegraphics[width=\textwidth]{Figures/result1_server_read}
  \caption{Server receive event navigation for the message $``This\; is\; a\; test."$}
 \label{result1_server_read}
 \end{figure}
@@ -163,13 +163,13 @@ Figure \ref{result1_server_read} shows when I selected ``Go To Line of Function 
 These two figures show how the message $``This\; is\; a\; test."$ is transmitted from the client to the server.
 
 \begin{figure}
-\includegraphics[scale=0.7]{Figures/result1_server_send}
+\includegraphics[width=\textwidth]{Figures/result1_server_send}
  \caption{Server send event navigation for the message $``This\; is\; the\; answer."$}
 \label{result1_server_send}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=0.7]{Figures/result1_client_read}
+\includegraphics[width=\textwidth]{Figures/result1_client_read}
  \caption{Client receive event navigation for the message $``This\; is\; the\; answer."$}
 \label{result1_client_read}
 \end{figure}
@@ -384,7 +384,7 @@ Therefore, Stream $0x120$ of $Server.trace$ and Stream $0x114$ of $Client1.trace
 After I received the identified communication from $dual\_trace\_21$, I navigated from the send and receive events back to the traces. The navigation results are shown in Figure \ref{result21_server_readnull},  Figure \ref{result21_client_send} and Figure \ref{result21_server_read}.
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.7]{Figures/result21_server_readnull}}
+\centerline{\includegraphics[width=\textwidth]{Figures/result21_server_readnull}}
  \caption{Navigation result for the function call event: $GetOverlappedResult$}
 \label{result21_server_readnull}
 \end{figure}
@@ -393,13 +393,13 @@ Figure \ref{result21_server_readnull} shows when I selected ``Go To Line of Func
 
 
 \begin{figure}
-\includegraphics[scale=0.7]{Figures/result21_client_send}
+\includegraphics[width=\textwidth]{Figures/result21_client_send}
  \caption{Client 1 send event navigation for the message $``Message\; 1"$}
 \label{result21_client_send}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=0.7]{Figures/result21_server_read}
+\includegraphics[width=\textwidth]{Figures/result21_server_read}
  \caption{Sever receive event navigation for the message $``Message\; 1"$}
 \label{result21_server_read}
 \end{figure}
@@ -411,13 +411,13 @@ Figure \ref{result21_server_read} shows when I selected ``Go To Line of Function
 This two figures perfectly show how the message $``Message\; 1"$ is transmitted from the client 1 to the server.
 
 \begin{figure}
-\includegraphics[scale=0.7]{Figures/result21_server_send}
+\includegraphics[width=\textwidth]{Figures/result21_server_send}
  \caption{Server send event navigation for the message $``Default\; answer\; from\; server"$}
 \label{result21_server_send}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=0.7]{Figures/result21_client_read}
+\includegraphics[width=\textwidth]{Figures/result21_client_read}
  \caption{Client 1 receive event navigation for the message $``Default\; answer\; from\; server"$}
 \label{result21_client_read}
 \end{figure}
@@ -475,7 +475,7 @@ Therefore, Stream $0x118$ of $Server.trace$ and Stream $0x114$ of $Client2.trace
 After I received the identified communication from $dual\_trace\_22$, I navigated from the send and receive events back to the traces. The navigation results are shown in Figure \ref{result22_server_readnull}, Figure \ref{result22_client_send} and Figure \ref{result22_server_read}.
 
 \begin{figure}[H]
-\centerline{\includegraphics[scale=0.7]{Figures/result22_server_readnull}}
+\centerline{\includegraphics[width=\textwidth]{Figures/result22_server_readnull}}
  \caption{Navigation result for the function call event: $GetOverlappedResult$}
 \label{result22_server_readnull}
 \end{figure}
@@ -483,13 +483,13 @@ After I received the identified communication from $dual\_trace\_22$, I navigate
 Figure \ref{result22_server_readnull} shows when I selected ``Go To Line of Function End" in the right click menu on the $GetOverlappedResult$ function call event of the $Server.trace$, it brought me to the ``Trace view" of the $Server.trace$ on line 1765927 where the function returned. However, since this function call didn't get any message, the ``Trace Memory view" is blank.
 
 \begin{figure}
-\includegraphics[scale=0.7]{Figures/result22_client_send}
+\includegraphics[width=\textwidth]{Figures/result22_client_send}
  \caption{Client 2 send event navigation for the message $``Message\; 2"$}
 \label{result22_client_send}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=0.7]{Figures/result22_server_read}
+\includegraphics[width=\textwidth]{Figures/result22_server_read}
  \caption{Sever receive event navigation for the message $``Message\; 2"$}
 \label{result22_server_read}
 \end{figure}
@@ -503,13 +503,13 @@ These two figures show how the message $``Message\; 2"$ is transmitted from the 
 
 
 \begin{figure}
-\includegraphics[scale=0.7]{Figures/result22_server_send}
+\includegraphics[width=\textwidth]{Figures/result22_server_send}
  \caption{Server send event navigation for the message $``Default\; answer\; from\; server"$}
 \label{result22_server_send}
 \end{figure}
 
 \begin{figure}
-\includegraphics[scale=0.7]{Figures/result22_client_read}
+\includegraphics[width=\textwidth]{Figures/result22_client_read}
  \caption{Client 2 receive event navigation for the message $``Default\; answer\; from\; server"$}
 \label{result22_client_read}
 \end{figure}

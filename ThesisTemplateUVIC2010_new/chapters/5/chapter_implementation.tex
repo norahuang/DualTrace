@@ -321,13 +321,13 @@ The format of the traces I got from DRDC for this research is slightly different
 The existing ``function inspect" feature of Atlantis can provide this pre-processing functionality. The called functions' names can be inspected by searching for the symbolic name in the executable binary or any DLLs used by the program at the time when it is traced. Figure \ref{trace} shows an example of the trace from DRDC. In this example, line 1504 is a system call entry with the system call information as $syscallInfo = <kernel32.dll, 0x10D10>$. 
 Figure \ref{executable} is the information decoded by the ``function inspect" feature of Atlantis from the executable file kernel32.dll of the system where the trace shown in Figure \ref{trace} was captured. The instruction line 1504 is a system call entry of $CreateFileW$. By loading a .dll file (in this case kernel32.dll) for the trace, Atlantis can translate system call information in the current trace format to the one align to the dual\_trace formalization.
 
-\begin{figure}[H]
-\centerline{\includegraphics[scale=0.55]{Figures/trace}}
+\begin{figure}[h]
+\centerline{\includegraphics[width=\textwidth]{Figures/trace}}
 \caption{An example trace from DRDC}
 \label{trace}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
 \centerline{\includegraphics{Figures/executable}}
 \caption{Information from kernel32.dll}
 \label{executable}

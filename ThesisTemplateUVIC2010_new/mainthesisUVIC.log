@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  23 MAY 2018 13:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9 64-bit) (preloaded format=pdflatex 2016.8.9)  23 MAY 2018 15:07
 entering extended mode
 **./mainthesisUVIC.tex
 (mainthesisUVIC.tex
@@ -830,7 +830,7 @@ LaTeX Font Info:    Font shape `OT1/pcr/bx/n' in size <8> not available
 LaTeX Font Info:    Font shape `OT1/pcr/m/it' in size <8> not available
 (Font)              Font shape `OT1/pcr/m/sl' tried instead on input line 35.
  [3]
-<Figures/methodology.png, id=385, 1072.005pt x 337.26pt>
+<Figures/methodology.png, id=387, 1072.005pt x 337.26pt>
 File: Figures/methodology.png Graphic file (type png)
 
 <use Figures/methodology.png>
@@ -867,14 +867,14 @@ Chapter 3.
 
 
 ] [11] [12] [13]
-<Figures/reliableexample.png, id=455, 528.97626pt x 448.67625pt>
+<Figures/reliableexample.png, id=457, 528.97626pt x 448.67625pt>
 File: Figures/reliableexample.png Graphic file (type png)
 
 <use Figures/reliableexample.png>
 Package pdftex.def Info: Figures/reliableexample.png used on input line 121.
 (pdftex.def)             Requested size: 264.48747pt x 224.33757pt.
  [14 <./Figures/reliableexample.png>]
-<Figures/unreliableexample.png, id=464, 525.965pt x 454.69875pt>
+<Figures/unreliableexample.png, id=466, 525.965pt x 454.69875pt>
 File: Figures/unreliableexample.png Graphic file (type png)
 
 <use Figures/unreliableexample.png>
@@ -904,7 +904,7 @@ LABELS NOT IMPORTED.
  on input line 3.
 
 Chapter 4.
-<Figures/overview.png, id=476, 981.6675pt x 172.645pt>
+<Figures/overview.png, id=478, 981.6675pt x 172.645pt>
 File: Figures/overview.png Graphic file (type png)
 
 <use Figures/overview.png>
@@ -921,12 +921,12 @@ en-try, and sys-tem call exit, $\OML/cmm/m/it/12 syscallInfo \OT1/cmr/m/n/12 =\
 OML/cmm/m/it/12 <
  []
 
-<Figures/tracedefined.png, id=483, 864.22874pt x 243.15843pt>
+<Figures/tracedefined.png, id=485, 880.03781pt x 243.15843pt>
 File: Figures/tracedefined.png Graphic file (type png)
 
 <use Figures/tracedefined.png>
 Package pdftex.def Info: Figures/tracedefined.png used on input line 40.
-(pdftex.def)             Requested size: 469.75502pt x 132.16809pt.
+(pdftex.def)             Requested size: 469.75502pt x 129.7935pt.
  [18 <./Figures/overview.png>] [19 <./Figures/tracedefined.png>] [20]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 102.
@@ -1025,7 +1025,7 @@ Package relsize Warning: Size requested is too small.
 Package relsize Warning: Size requested is too small.
 (relsize)                Using 6.0pt instead on input line 133.
 
-[21] [22] <Figures/namepipechannelopen.png, id=549, 673.51625pt x 406.51875pt>
+[21] [22] <Figures/namepipechannelopen.png, id=551, 673.51625pt x 406.51875pt>
 File: Figures/namepipechannelopen.png Graphic file (type png)
 
 <use Figures/namepipechannelopen.png>
@@ -1033,14 +1033,14 @@ Package pdftex.def Info: Figures/namepipechannelopen.png used on input line 162
 .
 (pdftex.def)             Requested size: 336.7573pt x 203.25887pt.
 
-<Figures/msmqchannelopen.png, id=552, 673.51625pt x 287.0725pt>
+<Figures/msmqchannelopen.png, id=554, 673.51625pt x 287.0725pt>
 File: Figures/msmqchannelopen.png Graphic file (type png)
 
 <use Figures/msmqchannelopen.png>
 Package pdftex.def Info: Figures/msmqchannelopen.png used on input line 171.
 (pdftex.def)             Requested size: 336.7573pt x 143.53589pt.
  [23 <./Figures/namepipechannelopen.png>]
-<Figures/tcpudpchannelopen.png, id=562, 502.87875pt x 391.4625pt>
+<Figures/tcpudpchannelopen.png, id=564, 502.87875pt x 391.4625pt>
 File: Figures/tcpudpchannelopen.png Graphic file (type png)
 
 <use Figures/tcpudpchannelopen.png>
@@ -1354,7 +1354,7 @@ Package relsize Warning: Size requested is too small.
 Package relsize Warning: Size requested is too small.
 (relsize)                Using 6.0pt instead on input line 360.
 
-[30] [31] <Figures/namedpipe.png, id=686, 956.57375pt x 570.13pt>
+[30] [31] <Figures/namedpipe.png, id=688, 956.57375pt x 570.13pt>
 File: Figures/namedpipe.png Graphic file (type png)
 
 <use Figures/namedpipe.png>
@@ -1386,7 +1386,7 @@ Package relsize Warning: Size requested is too small.
 (relsize)                Using 6.0pt instead on input line 418.
 
 [33 <./Figures/namedpipe.png>]
-<Figures/tcp.png, id=707, 415.5525pt x 408.52625pt>
+<Figures/tcp.png, id=709, 415.5525pt x 408.52625pt>
 File: Figures/tcp.png Graphic file (type png)
  <use Figures/tcp.png>
 Package pdftex.def Info: Figures/tcp.png used on input line 433.
@@ -1424,7 +1424,7 @@ Package relsize Warning: Size requested is too small.
 Package relsize Warning: Size requested is too small.
 (relsize)                Using 6.0pt instead on input line 457.
 
-[34 <./Figures/tcp.png>] <Figures/msmq.png, id=717, 956.57375pt x 499.8675pt>
+[34 <./Figures/tcp.png>] <Figures/msmq.png, id=719, 956.57375pt x 499.8675pt>
 File: Figures/msmq.png Graphic file (type png)
 
 <use Figures/msmq.png>
@@ -1519,7 +1519,7 @@ Package relsize Warning: Size requested is too small.
 Package relsize Warning: Size requested is too small.
 (relsize)                Using 6.0pt instead on input line 516.
 
-[36 <./Figures/msmq.png>] <Figures/udp.png, id=740, 956.57375pt x 669.50125pt>
+[36 <./Figures/msmq.png>] <Figures/udp.png, id=742, 956.57375pt x 669.50125pt>
 File: Figures/udp.png Graphic file (type png)
 
 <use Figures/udp.png>
@@ -1607,7 +1607,7 @@ Package relsize Warning: Size requested is too small.
 (relsize)                Using 6.0pt instead on input line 577.
 
 [38 <./Figures/udp.png>] [39]
-<Figures/secondlevelmatching.png, id=803, 289.83281pt x 172.39406pt>
+<Figures/secondlevelmatching.png, id=805, 289.83281pt x 172.39406pt>
 File: Figures/secondlevelmatching.png Graphic file (type png)
 
 <use Figures/secondlevelmatching.png>
@@ -1660,14 +1660,14 @@ Overfull \hbox (2.6485pt too wide) in paragraph at lines 262--294
  [][] 
  []
 
-[49] <Figures/opendualtracemenu.png, id=865, 411.5375pt x 475.7775pt>
+[49] <Figures/opendualtracemenu.png, id=867, 411.5375pt x 475.7775pt>
 File: Figures/opendualtracemenu.png Graphic file (type png)
 
 <use Figures/opendualtracemenu.png>
 Package pdftex.def Info: Figures/opendualtracemenu.png used on input line 300.
 (pdftex.def)             Requested size: 288.07428pt x 333.04196pt.
 
-<Figures/paralleleditor.png, id=866, 867.24pt x 478.03593pt>
+<Figures/paralleleditor.png, id=868, 867.24pt x 478.03593pt>
 File: Figures/paralleleditor.png Graphic file (type png)
 
 <use Figures/paralleleditor.png>
@@ -1679,59 +1679,63 @@ Overfull \hbox (6.0107pt too wide) in paragraph at lines 311--311
 ithms 
  []
 
-<Figures/overviewintwo.png, id=875, 995.72pt x 273.02pt>
+<Figures/overviewintwo.png, id=877, 995.72pt x 273.02pt>
 File: Figures/overviewintwo.png Graphic file (type png)
 
 <use Figures/overviewintwo.png>
 Package pdftex.def Info: Figures/overviewintwo.png used on input line 315.
 (pdftex.def)             Requested size: 467.98846pt x 128.31941pt.
  [51 <./Figures/paralleleditor.png>]
-<Figures/trace.png, id=884, 1174.3875pt x 340.27126pt>
+<Figures/trace.png, id=886, 880.03781pt x 245.41687pt>
 File: Figures/trace.png Graphic file (type png)
  <use Figures/trace.png>
 Package pdftex.def Info: Figures/trace.png used on input line 325.
-(pdftex.def)             Requested size: 645.91513pt x 187.14977pt.
+(pdftex.def)             Requested size: 469.75502pt x 130.99901pt.
 
-[52 <./Figures/overviewintwo.png>]
-<Figures/executable.png, id=890, 307.90031pt x 237.88875pt>
+<Figures/executable.png, id=887, 307.90031pt x 237.88875pt>
 File: Figures/executable.png Graphic file (type png)
 
 <use Figures/executable.png>
 Package pdftex.def Info: Figures/executable.png used on input line 331.
 (pdftex.def)             Requested size: 307.89955pt x 237.88815pt.
- [53 <./Figures/trace.png> <./Figures/executable.png>] <Figures/dualtracetoolme
-nu.png, id=900, 350.05782pt x 121.20282pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[52 <./Figures/overviewintwo.png> <./Figures/trace.png>]
+<Figures/dualtracetoolmenu.png, id=897, 350.05782pt x 121.20282pt>
 File: Figures/dualtracetoolmenu.png Graphic file (type png)
 
 <use Figures/dualtracetoolmenu.png>
 Package pdftex.def Info: Figures/dualtracetoolmenu.png used on input line 339.
 (pdftex.def)             Requested size: 350.05695pt x 121.20251pt.
 
-<Figures/methods.png, id=901, 404.26031pt x 220.57407pt>
+<Figures/methods.png, id=898, 404.26031pt x 220.57407pt>
 File: Figures/methods.png Graphic file (type png)
 
 <use Figures/methods.png>
 Package pdftex.def Info: Figures/methods.png used on input line 345.
 (pdftex.def)             Requested size: 323.40869pt x 176.45947pt.
- [54 <./Figures/dualtracetoolmenu.png> <./Figures/methods.png>] <Figures/idenvi
-ew.png, id=907, 569.12625pt x 213.79875pt>
+ [53 <./Figures/executable.png> <./Figures/dualtracetoolmenu.png>] <Figures/ide
+nview.png, id=905, 569.12625pt x 213.79875pt>
 File: Figures/idenview.png Graphic file (type png)
 
 <use Figures/idenview.png>
 Package pdftex.def Info: Figures/idenview.png used on input line 355.
 (pdftex.def)             Requested size: 455.30162pt x 171.03922pt.
- [55 <./Figures/idenview.png>]
-<Figures/gotoend.png, id=913, 287.57437pt x 54.9553pt>
+ [54 <./Figures/methods.png>]
+<Figures/gotoend.png, id=911, 287.57437pt x 54.9553pt>
 File: Figures/gotoend.png Graphic file (type png)
 
 <use Figures/gotoend.png>
 Package pdftex.def Info: Figures/gotoend.png used on input line 365.
 (pdftex.def)             Requested size: 287.57367pt x 54.95515pt.
+ [55 <./Figures/idenview.png>]
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no œ in font ptmr7t!
 
-<Figures/remove.png, id=915, 721.19438pt x 161.10187pt>
+<Figures/remove.png, id=917, 721.19438pt x 161.10187pt>
 File: Figures/remove.png Graphic file (type png)
 
 <use Figures/remove.png>
@@ -1771,7 +1775,7 @@ Overfull \hbox (13.32317pt too wide) in paragraph at lines 18--19
 
 
 
-] <Figures/exp1.png, id=930, 676.5275pt x 502.87875pt>
+] <Figures/exp1.png, id=932, 676.5275pt x 502.87875pt>
 File: Figures/exp1.png Graphic file (type png)
 
 <use Figures/exp1.png>
@@ -1792,14 +1796,14 @@ Overfull \hbox (14.68906pt too wide) in paragraph at lines 106--121
  [][] 
  []
 
-[59] <Figures/result1_streams.png, id=947, 286.06876pt x 192.72pt>
+[59] <Figures/result1_streams.png, id=949, 286.06876pt x 192.72pt>
 File: Figures/result1_streams.png Graphic file (type png)
 
 <use Figures/result1_streams.png>
 Package pdftex.def Info: Figures/result1_streams.png used on input line 128.
 (pdftex.def)             Requested size: 286.06805pt x 192.71951pt.
 
-<Figures/result1_communications.png, id=952, 275.52937pt x 193.47281pt>
+<Figures/result1_communications.png, id=954, 275.52937pt x 193.47281pt>
 File: Figures/result1_communications.png Graphic file (type png)
 
 <use Figures/result1_communications.png>
@@ -1807,30 +1811,21 @@ Package pdftex.def Info: Figures/result1_communications.png used on input line
 139.
 (pdftex.def)             Requested size: 275.52869pt x 193.47234pt.
  [60 <./Figures/result1_streams.png>]
-<Figures/result1_client_send.png, id=959, 719.68875pt x 625.58719pt>
+<Figures/result1_client_send.png, id=961, 719.68875pt x 625.58719pt>
 File: Figures/result1_client_send.png Graphic file (type png)
 
 <use Figures/result1_client_send.png>
 Package pdftex.def Info: Figures/result1_client_send.png used on input line 148
 .
-(pdftex.def)             Requested size: 503.77869pt x 437.90805pt.
+(pdftex.def)             Requested size: 469.75502pt x 408.34508pt.
 
-Overfull \hbox (34.02367pt too wide) in paragraph at lines 148--149
-[][] 
- []
-
-<Figures/result1_server_read.png, id=960, 720.44156pt x 604.50844pt>
+<Figures/result1_server_read.png, id=962, 720.44156pt x 604.50844pt>
 File: Figures/result1_server_read.png Graphic file (type png)
 
 <use Figures/result1_server_read.png>
 Package pdftex.def Info: Figures/result1_server_read.png used on input line 154
 .
-(pdftex.def)             Requested size: 504.30565pt x 423.15302pt.
-
-Overfull \hbox (34.55063pt too wide) in paragraph at lines 154--155
-[][] 
- []
-
+(pdftex.def)             Requested size: 469.75502pt x 394.16185pt.
 
 Overfull \hbox (10.48859pt too wide) in paragraph at lines 159--160
 []\OT1/ptm/m/n/12 Figure []6.4[] shows when I dou-ble clicked on the $\OML/cmm/
@@ -1838,40 +1833,31 @@ m/it/12 WriteFile$ \OT1/ptm/m/n/12 func-tion call event of the $\OML/cmm/m/it/1
 2 Client:trace$\OT1/ptm/m/n/12 ,
  []
 
-<Figures/result1_server_send.png, id=963, 721.19438pt x 593.96906pt>
+<Figures/result1_server_send.png, id=965, 721.19438pt x 593.96906pt>
 File: Figures/result1_server_send.png Graphic file (type png)
 
 <use Figures/result1_server_send.png>
 Package pdftex.def Info: Figures/result1_server_send.png used on input line 166
 .
-(pdftex.def)             Requested size: 504.83263pt x 415.7755pt.
+(pdftex.def)             Requested size: 469.75502pt x 386.88194pt.
 
-Overfull \hbox (35.0776pt too wide) in paragraph at lines 166--167
-[][] 
- []
-
-<Figures/result1_client_read.png, id=964, 721.19438pt x 559.33969pt>
+<Figures/result1_client_read.png, id=966, 721.19438pt x 559.33969pt>
 File: Figures/result1_client_read.png Graphic file (type png)
 
 <use Figures/result1_client_read.png>
 Package pdftex.def Info: Figures/result1_client_read.png used on input line 172
 .
-(pdftex.def)             Requested size: 504.83263pt x 391.53511pt.
-
-Overfull \hbox (35.0776pt too wide) in paragraph at lines 172--173
-[][] 
- []
-
-[61 <./Figures/result1_communications.png>] [62 <./Figures/result1_client_send.
-png>] [63 <./Figures/result1_server_read.png>] [64 <./Figures/result1_server_se
-nd.png>] [65 <./Figures/result1_client_read.png>]
-<Figures/exp2.png, id=992, 949.5475pt x 734.745pt>
+(pdftex.def)             Requested size: 469.75502pt x 364.32608pt.
+ [61 <./Figures/result1_communications.png>] [62 <./Figures/result1_client_send
+.png>] [63 <./Figures/result1_server_read.png>] [64 <./Figures/result1_server_s
+end.png>] [65 <./Figures/result1_client_read.png>] <Figures/exp2.png, id=994, 9
+49.5475pt x 734.745pt>
 File: Figures/exp2.png Graphic file (type png)
- <use Figures/exp2.png>
+
+<use Figures/exp2.png>
 Package pdftex.def Info: Figures/exp2.png used on input line 190.
 (pdftex.def)             Requested size: 522.25275pt x 404.111pt.
-
-[66]
+ [66]
 Overfull \hbox (17.73198pt too wide) in paragraph at lines 200--234
  [][] 
  []
@@ -1890,7 +1876,7 @@ Overfull \hbox (17.68906pt too wide) in paragraph at lines 247--276
  [][] 
  []
 
-[68] <Figures/result21_streams.png, id=1012, 291.33844pt x 329.73187pt>
+[68] <Figures/result21_streams.png, id=1014, 291.33844pt x 329.73187pt>
 File: Figures/result21_streams.png Graphic file (type png)
 
 <use Figures/result21_streams.png>
@@ -1906,7 +1892,7 @@ Overfull \hbox (17.68906pt too wide) in paragraph at lines 319--332
  [][] 
  []
 
-<Figures/result22_streams.png, id=1021, 290.58563pt x 330.48468pt>
+<Figures/result22_streams.png, id=1023, 290.58563pt x 330.48468pt>
 File: Figures/result22_streams.png Graphic file (type png)
 
 <use Figures/result22_streams.png>
@@ -1918,7 +1904,7 @@ LaTeX Font Warning: Font shape `U/wasy/b/n' in size <5> not available
 (Font)              Font shape `U/wasy/m/n' tried instead on input line 358.
 
 [71 <./Figures/result22_streams.png>]
-<Figures/result21_communications.png, id=1036, 296.60812pt x 184.43906pt>
+<Figures/result21_communications.png, id=1038, 296.60812pt x 184.43906pt>
 File: Figures/result21_communications.png Graphic file (type png)
 
 <use Figures/result21_communications.png>
@@ -1926,64 +1912,46 @@ Package pdftex.def Info: Figures/result21_communications.png used on input line
  379.
 (pdftex.def)             Requested size: 296.60739pt x 184.4386pt.
 
-<Figures/result21_server_readnull.png, id=1040, 717.43031pt x 600.74437pt>
+<Figures/result21_server_readnull.png, id=1042, 717.43031pt x 600.74437pt>
 File: Figures/result21_server_readnull.png Graphic file (type png)
 
 <use Figures/result21_server_readnull.png>
 Package pdftex.def Info: Figures/result21_server_readnull.png used on input lin
 e 387.
-(pdftex.def)             Requested size: 502.1978pt x 420.51819pt.
+(pdftex.def)             Requested size: 469.75502pt x 393.35753pt.
  [72 <./Figures/result21_communications.png>]
-<Figures/result21_client_send.png, id=1049, 721.19438pt x 610.53094pt>
+<Figures/result21_client_send.png, id=1051, 721.19438pt x 610.53094pt>
 File: Figures/result21_client_send.png Graphic file (type png)
 
 <use Figures/result21_client_send.png>
 Package pdftex.def Info: Figures/result21_client_send.png used on input line 39
 6.
-(pdftex.def)             Requested size: 504.83263pt x 427.36874pt.
+(pdftex.def)             Requested size: 469.75502pt x 397.66953pt.
 
-Overfull \hbox (35.0776pt too wide) in paragraph at lines 396--397
-[][] 
- []
-
-<Figures/result21_server_read.png, id=1050, 721.19438pt x 603.75563pt>
+<Figures/result21_server_read.png, id=1052, 721.19438pt x 603.75563pt>
 File: Figures/result21_server_read.png Graphic file (type png)
 
 <use Figures/result21_server_read.png>
 Package pdftex.def Info: Figures/result21_server_read.png used on input line 40
 2.
-(pdftex.def)             Requested size: 504.83263pt x 422.62605pt.
-
-Overfull \hbox (35.0776pt too wide) in paragraph at lines 402--403
-[][] 
- []
-
-[73 <./Figures/result21_server_readnull.png>] [74 <./Figures/result21_client_se
-nd.png>] [75 <./Figures/result21_server_read.png>]
-<Figures/result21_server_send.png, id=1067, 718.18312pt x 629.35126pt>
+(pdftex.def)             Requested size: 469.75502pt x 393.25642pt.
+ [73 <./Figures/result21_server_readnull.png>] [74 <./Figures/result21_client_s
+end.png>] [75 <./Figures/result21_server_read.png>]
+<Figures/result21_server_send.png, id=1069, 718.18312pt x 629.35126pt>
 File: Figures/result21_server_send.png Graphic file (type png)
 
 <use Figures/result21_server_send.png>
 Package pdftex.def Info: Figures/result21_server_send.png used on input line 41
 4.
-(pdftex.def)             Requested size: 502.72476pt x 440.54288pt.
+(pdftex.def)             Requested size: 469.75502pt x 411.65671pt.
 
-Overfull \hbox (32.96974pt too wide) in paragraph at lines 414--415
-[][] 
- []
-
-<Figures/result21_client_read.png, id=1068, 720.44156pt x 618.81187pt>
+<Figures/result21_client_read.png, id=1070, 720.44156pt x 618.81187pt>
 File: Figures/result21_client_read.png Graphic file (type png)
 
 <use Figures/result21_client_read.png>
 Package pdftex.def Info: Figures/result21_client_read.png used on input line 42
 0.
-(pdftex.def)             Requested size: 504.30565pt x 433.16536pt.
-
-Overfull \hbox (34.55063pt too wide) in paragraph at lines 420--421
-[][] 
- []
-
+(pdftex.def)             Requested size: 469.75502pt x 403.48822pt.
 
 Overfull \hbox (1.31935pt too wide) in paragraph at lines 425--426
 []\OT1/ptm/m/n/12 Figure []6.15[] shows when I dou-ble clicked on the $\OML/cmm
@@ -1993,7 +1961,7 @@ erver:trace$\OT1/ptm/m/n/12 ,
 
 [76] [77 <./Figures/result21_server_send.png>] [78 <./Figures/result21_client_r
 ead.png>]
-<Figures/result22_communications.png, id=1086, 259.7203pt x 182.18062pt>
+<Figures/result22_communications.png, id=1088, 259.7203pt x 182.18062pt>
 File: Figures/result22_communications.png Graphic file (type png)
 
 <use Figures/result22_communications.png>
@@ -2001,64 +1969,46 @@ Package pdftex.def Info: Figures/result22_communications.png used on input line
  470.
 (pdftex.def)             Requested size: 259.71967pt x 182.18016pt.
 
-<Figures/result22_server_readnull.png, id=1090, 719.68875pt x 602.25pt>
+<Figures/result22_server_readnull.png, id=1092, 719.68875pt x 602.25pt>
 File: Figures/result22_server_readnull.png Graphic file (type png)
 
 <use Figures/result22_server_readnull.png>
 Package pdftex.def Info: Figures/result22_server_readnull.png used on input lin
 e 478.
-(pdftex.def)             Requested size: 503.77869pt x 421.57211pt.
+(pdftex.def)             Requested size: 469.75502pt x 393.11198pt.
  [79 <./Figures/result22_communications.png>]
-<Figures/result22_client_send.png, id=1097, 723.45282pt x 621.82312pt>
+<Figures/result22_client_send.png, id=1099, 723.45282pt x 621.82312pt>
 File: Figures/result22_client_send.png Graphic file (type png)
 
 <use Figures/result22_client_send.png>
 Package pdftex.def Info: Figures/result22_client_send.png used on input line 48
 6.
-(pdftex.def)             Requested size: 506.41353pt x 435.27321pt.
+(pdftex.def)             Requested size: 469.75502pt x 403.76276pt.
 
-Overfull \hbox (36.65851pt too wide) in paragraph at lines 486--487
-[][] 
- []
-
-<Figures/result22_server_read.png, id=1098, 718.18312pt x 626.34pt>
+<Figures/result22_server_read.png, id=1100, 718.18312pt x 626.34pt>
 File: Figures/result22_server_read.png Graphic file (type png)
 
 <use Figures/result22_server_read.png>
 Package pdftex.def Info: Figures/result22_server_read.png used on input line 49
 2.
-(pdftex.def)             Requested size: 502.72476pt x 438.435pt.
-
-Overfull \hbox (32.96974pt too wide) in paragraph at lines 492--493
-[][] 
- []
-
-[80 <./Figures/result22_server_readnull.png>] [81 <./Figures/result22_client_se
-nd.png>] [82 <./Figures/result22_server_read.png>]
-<Figures/result22_server_send.png, id=1114, 718.18312pt x 621.07031pt>
+(pdftex.def)             Requested size: 469.75502pt x 409.68704pt.
+ [80 <./Figures/result22_server_readnull.png>] [81 <./Figures/result22_client_s
+end.png>] [82 <./Figures/result22_server_read.png>]
+<Figures/result22_server_send.png, id=1116, 718.18312pt x 621.07031pt>
 File: Figures/result22_server_send.png Graphic file (type png)
 
 <use Figures/result22_server_send.png>
 Package pdftex.def Info: Figures/result22_server_send.png used on input line 50
 6.
-(pdftex.def)             Requested size: 502.72476pt x 434.74625pt.
+(pdftex.def)             Requested size: 469.75502pt x 406.24016pt.
 
-Overfull \hbox (32.96974pt too wide) in paragraph at lines 506--507
-[][] 
- []
-
-<Figures/result22_client_read.png, id=1115, 721.19438pt x 621.07031pt>
+<Figures/result22_client_read.png, id=1117, 721.19438pt x 621.07031pt>
 File: Figures/result22_client_read.png Graphic file (type png)
 
 <use Figures/result22_client_read.png>
 Package pdftex.def Info: Figures/result22_client_read.png used on input line 51
 2.
-(pdftex.def)             Requested size: 504.83263pt x 434.74625pt.
-
-Overfull \hbox (35.0776pt too wide) in paragraph at lines 512--513
-[][] 
- []
-
+(pdftex.def)             Requested size: 469.75502pt x 404.53435pt.
 
 Overfull \hbox (18.26318pt too wide) in paragraph at lines 517--518
 []\OT1/ptm/m/n/12 Figure []6.21[] shows when I dou-ble clicked on the $\OML/cmm
@@ -2066,8 +2016,8 @@ Overfull \hbox (18.26318pt too wide) in paragraph at lines 517--518
 12 Server:trace$\OT1/ptm/m/n/12 ,
  []
 
-) [83] [84 <./Figures/result22_server_send.png>] [85 <./Figures/result22_client
-_read.png>]
+[83 <./Figures/result22_server_send.png>] [84 <./Figures/result22_client_read.p
+ng>]) [85]
 \openout2 = `chapters/7/chapter_conclusion.aux'.
 
  (chapters/7/chapter_conclusion.tex
@@ -2113,21 +2063,29 @@ Appendix D.
 ] [101] [102])
 (sourcecode/experiment1/NamedPipeClient.cpp [103] [104])
 (sourcecode/experiment2/NamedPipeServerOverlapped.cpp [105] [106] [107]
-[108] [109] [110]) (sourcecode/experiment2/test.bat)) [111]
+[108] [109] [110]) (sourcecode/experiment2/test.bat) [111]
+Appendix E.
+) [112
+
+]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 48.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 48.
- (mainthesisUVIC.aux (chapters/1/chapter_intro.aux) (chapters/2/chapter_backgro
-und.aux)
-(chapters/3/chapter_modeling.aux) (chapters/4/chapter_algorithm.aux)
-(chapters/5/chapter_implementation.aux) (chapters/6/chapter_evaluation.aux)
-(chapters/7/chapter_conclusion.aux) (chapters/appendix/chapter_app.aux))
+ (mainthesisUVIC.aux (chapters/1/chapter_intro.aux)
+(chapters/2/chapter_background.aux) (chapters/3/chapter_modeling.aux)
+(chapters/4/chapter_algorithm.aux) (chapters/5/chapter_implementation.aux)
+(chapters/6/chapter_evaluation.aux) (chapters/7/chapter_conclusion.aux)
+(chapters/appendix/chapter_app.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 48.
 Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 48.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 48.
  ) 
 Here is how much of TeX's memory you used:
- 14181 strings out of 493335
- 213087 string characters out of 3139261
+ 14183 strings out of 493335
+ 213107 string characters out of 3139261
  518917 words of memory out of 3000000
  15990 multiletter control sequences out of 15000+200000
  36433 words of font info for 90 fonts, out of 3000000 for 9000
@@ -2151,9 +2109,9 @@ pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/courier/ucrro8a.pfb><C:/Progra
 m Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files/MiKTeX 2.
 9/fonts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw
 /times/utmri8a.pfb>
-Output written on mainthesisUVIC.pdf (122 pages, 2173382 bytes).
+Output written on mainthesisUVIC.pdf (123 pages, 2182892 bytes).
 PDF statistics:
- 2412 PDF objects out of 2487 (max. 8388607)
- 1314 named destinations out of 1440 (max. 500000)
+ 2419 PDF objects out of 2487 (max. 8388607)
+ 1316 named destinations out of 1440 (max. 500000)
  226 words of extra memory for PDF output out of 10000 (max. 10000000)
 

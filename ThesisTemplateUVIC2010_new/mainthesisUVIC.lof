@@ -19,9 +19,9 @@
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Menu item for opening dual\_trace\relax }}{50}{figure.caption.30}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Parallel trace view\relax }}{51}{figure.caption.31}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Process of the communication analysis from a dual\_trace separated in two sections\relax }}{52}{figure.caption.32}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces An example trace from DRDC\relax }}{53}{figure.caption.33}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces An example trace from DRDC\relax }}{52}{figure.caption.33}
 \contentsline {figure}{\numberline {5.5}{\ignorespaces Information from kernel32.dll\relax }}{53}{figure.caption.34}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Dual\_trace tool menu\relax }}{54}{figure.caption.35}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Dual\_trace tool menu\relax }}{53}{figure.caption.35}
 \contentsline {figure}{\numberline {5.7}{\ignorespaces Prompt dialog for communication selection\relax }}{54}{figure.caption.36}
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Communication view for results\relax }}{55}{figure.caption.37}
 \contentsline {figure}{\numberline {5.9}{\ignorespaces Right click menu on event entry\relax }}{56}{figure.caption.38}
@@ -47,8 +47,9 @@
 \contentsline {figure}{\numberline {6.18}{\ignorespaces Navigation result for the function call event: $GetOverlappedResult$\relax }}{80}{figure.caption.66}
 \contentsline {figure}{\numberline {6.19}{\ignorespaces Client 2 send event navigation for the message $``Message\tmspace +\thickmuskip {.2777em} 2"$\relax }}{81}{figure.caption.67}
 \contentsline {figure}{\numberline {6.20}{\ignorespaces Sever receive event navigation for the message $``Message\tmspace +\thickmuskip {.2777em} 2"$\relax }}{82}{figure.caption.68}
-\contentsline {figure}{\numberline {6.21}{\ignorespaces Server send event navigation for the message $``Default\tmspace +\thickmuskip {.2777em} answer\tmspace +\thickmuskip {.2777em} from\tmspace +\thickmuskip {.2777em} server"$\relax }}{84}{figure.caption.69}
-\contentsline {figure}{\numberline {6.22}{\ignorespaces Client 2 receive event navigation for the message $``Default\tmspace +\thickmuskip {.2777em} answer\tmspace +\thickmuskip {.2777em} from\tmspace +\thickmuskip {.2777em} server"$\relax }}{85}{figure.caption.70}
+\contentsline {figure}{\numberline {6.21}{\ignorespaces Server send event navigation for the message $``Default\tmspace +\thickmuskip {.2777em} answer\tmspace +\thickmuskip {.2777em} from\tmspace +\thickmuskip {.2777em} server"$\relax }}{83}{figure.caption.69}
+\contentsline {figure}{\numberline {6.22}{\ignorespaces Client 2 receive event navigation for the message $``Default\tmspace +\thickmuskip {.2777em} answer\tmspace +\thickmuskip {.2777em} from\tmspace +\thickmuskip {.2777em} server"$\relax }}{84}{figure.caption.70}
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
