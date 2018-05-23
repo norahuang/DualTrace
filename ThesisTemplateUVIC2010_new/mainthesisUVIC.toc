@@ -30,7 +30,7 @@
 \contentsline {section}{\numberline {4.2}Functions Descriptors}{19}{section.4.2}
 \contentsline {section}{\numberline {4.3}Function Call Event Reconstruction Algorithm}{20}{section.4.3}
 \contentsline {section}{\numberline {4.4}Channel Open Mechanisms}{22}{section.4.4}
-\contentsline {subsection}{\numberline {4.4.1}Named Pipe Channel Open Mechanisms}{22}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.1}Named Pipe Channel Open Mechanisms}{23}{subsection.4.4.1}
 \contentsline {subsection}{\numberline {4.4.2}Message Queue Channel Open Mechanisms}{23}{subsection.4.4.2}
 \contentsline {subsection}{\numberline {4.4.3}UDP and TCP Channel Open Mechanisms}{24}{subsection.4.4.3}
 \contentsline {section}{\numberline {4.5}Stream Extraction Algorithm}{25}{section.4.5}
